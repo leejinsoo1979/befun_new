@@ -104,11 +104,11 @@ export function ColorPicker() {
       </div>
 
       {/* Color grid for selected tab */}
-      <div className="flex items-start gap-3 py-[14px]">
-        <span className="w-[var(--label-w)] shrink-0 pt-1.5 text-[14px] font-medium text-[#333]">
+      <div className="flex items-start gap-3 py-[10px]">
+        <span className="w-[var(--label-w)] shrink-0 pt-1 text-[14px] font-medium text-[#333]">
           Colour
         </span>
-        <div className="flex flex-1 flex-wrap gap-[6px]">
+        <div className="flex flex-1 flex-wrap gap-[5px]">
           {colors.map((c) => {
             const isActive = currentColor === c.name;
             return (
@@ -121,8 +121,8 @@ export function ColorPicker() {
                 <Image
                   src={c.image}
                   alt={c.name}
-                  width={28}
-                  height={28}
+                  width={24}
+                  height={24}
                   className="rounded-full"
                 />
               </button>

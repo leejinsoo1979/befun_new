@@ -69,8 +69,15 @@ export function Shelf() {
   }, [currentColor]);
 
   // 스타일별 패널 계산
+  const hardwareLayers = useMemo(() => {
+    const layers = new Set<number>();
+    doorsCreatedLayers.forEach((l) => layers.add(l));
+    drawersCreatedLayers.forEach((l) => layers.add(l));
+    return Array.from(layers);
+  }, [doorsCreatedLayers, drawersCreatedLayers]);
+
   const styleResult = useMemo(() => {
-    const input = { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel };
+    const input = { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers };
 
     switch (style) {
       case 'grid':
@@ -88,7 +95,7 @@ export function Shelf() {
       default:
         return calculateGridPanels(input);
     }
-  }, [width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel]);
+  }, [width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel, hardwareLayers]);
 
   const panels: PanelData[] = styleResult.panels;
   const { panelCount, panelSpacing } = styleResult;

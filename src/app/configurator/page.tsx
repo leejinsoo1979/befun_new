@@ -12,7 +12,10 @@ import { ColorPicker } from '@/components/ui/ColorPicker';
 import { BackPanelToggle } from '@/components/ui/BackPanelToggle';
 import { FloatingBox } from '@/components/ui/FloatingBox';
 import { PriceDisplay } from '@/components/ui/PriceDisplay';
+import { ShareModal } from '@/components/ui/ShareModal';
+import { ARModal } from '@/components/ui/ARModal';
 import { useShelfStore } from '@/stores/useShelfStore';
+import { useUIStore } from '@/stores/useUIStore';
 import { useMaterialStore } from '@/stores/useMaterialStore';
 import { useHardwareStore } from '@/stores/useHardwareStore';
 import { useCartStore } from '@/stores/useCartStore';
@@ -39,6 +42,11 @@ export default function ConfiguratorPage() {
   const router = useRouter();
   const [saving, setSaving] = useState(false);
   const [shareUrl, setShareUrl] = useState('');
+  const [showShareModal, setShowShareModal] = useState(false);
+  const [showARModal, setShowARModal] = useState(false);
+
+  const showDimensions = useUIStore((s) => s.showDimensions);
+  const setShowDimensions = useUIStore((s) => s.setShowDimensions);
 
   const addItem = useCartStore((s) => s.addItem);
 
@@ -103,7 +111,7 @@ export default function ConfiguratorPage() {
     router.push('/cart');
   };
 
-  const handleSaveDesign = async () => {
+  const handleSaveDesign = async (): Promise<string | null> => {
     setSaving(true);
     try {
       const res = await fetch('/api/designs', {
@@ -115,12 +123,23 @@ export default function ConfiguratorPage() {
       const { shareCode } = await res.json();
       const url = `${window.location.origin}/share/${shareCode}`;
       setShareUrl(url);
-      await navigator.clipboard.writeText(url);
+      return url;
     } catch {
       alert('디자인 저장에 실패했습니다');
+      return null;
     } finally {
       setSaving(false);
     }
+  };
+
+  const handleShareClick = async () => {
+    const url = await handleSaveDesign();
+    if (url) setShowShareModal(true);
+  };
+
+  const handleARClick = async () => {
+    const url = await handleSaveDesign();
+    if (url) setShowARModal(true);
   };
 
   return (
@@ -153,21 +172,22 @@ export default function ConfiguratorPage() {
           {/* Control buttons (ruler/share/AR) */}
           <div className="absolute right-3 top-20 z-10 flex w-[50px] flex-col items-end">
             <button
-              onClick={() => alert('줄자 기능은 준비 중입니다')}
-              className="mb-[5px] flex h-10 w-10 items-center justify-center rounded-[20px] border border-gray-400 bg-white cursor-pointer hover:border-[var(--green)]"
+              onClick={() => setShowDimensions(!showDimensions)}
+              className={`mb-[5px] flex h-10 w-10 items-center justify-center rounded-[20px] border bg-white cursor-pointer hover:border-[var(--green)] ${showDimensions ? 'border-[var(--green)]' : 'border-gray-400'}`}
             >
               <Image src="/imgs/icon/icon_ruler.svg" alt="ruler" width={20} height={20} />
             </button>
             <button
-              onClick={handleSaveDesign}
+              onClick={handleShareClick}
               disabled={saving}
               className="mb-[5px] flex h-10 w-10 items-center justify-center rounded-[20px] border border-gray-400 bg-white cursor-pointer hover:border-[var(--green)] disabled:opacity-50"
             >
               <Image src="/imgs/icon/icon_share.svg" alt="share" width={20} height={20} />
             </button>
             <button
-              onClick={() => alert('AR 뷰어는 준비 중입니다')}
-              className="mb-[5px] flex h-10 w-10 items-center justify-center rounded-[20px] border border-gray-400 bg-white cursor-pointer hover:border-[var(--green)]"
+              onClick={handleARClick}
+              disabled={saving}
+              className="mb-[5px] flex h-10 w-10 items-center justify-center rounded-[20px] border border-gray-400 bg-white cursor-pointer hover:border-[var(--green)] disabled:opacity-50"
             >
               <Image src="/imgs/icon/icon_ar.svg" alt="ar" width={20} height={20} />
             </button>
@@ -176,13 +196,17 @@ export default function ConfiguratorPage() {
           {/* Floating box - 행 마우스 오버 시 표시 */}
           <FloatingBox />
 
-          {/* 공유 링크 복사 알림 */}
-          {shareUrl && (
-            <div className="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-lg bg-[var(--green)] px-4 py-2 text-sm text-white shadow-lg">
-              링크가 복사되었습니다!
-            </div>
-          )}
         </div>
+
+        {/* 공유 모달 */}
+        {showShareModal && shareUrl && (
+          <ShareModal shareUrl={shareUrl} onClose={() => setShowShareModal(false)} />
+        )}
+
+        {/* AR 모달 */}
+        {showARModal && shareUrl && (
+          <ARModal shareUrl={shareUrl} onClose={() => setShowARModal(false)} />
+        )}
 
         {/* GUI 패널 */}
         <div className="flex w-[460px] shrink-0 flex-col overflow-y-auto bg-white px-8 pt-5 pb-8 shadow-[inset_1px_0_0_#eee]">
@@ -198,17 +222,6 @@ export default function ConfiguratorPage() {
           <DimensionPanel />
           <BackPanelToggle />
           <ColorPicker />
-
-          {/* Sample CTA */}
-          <div className="flex items-center justify-center gap-2 py-3 text-[13px] text-[#888]">
-            <span>고민 되시나요?</span>
-            <button className="font-medium text-[#333] underline underline-offset-2 cursor-pointer hover:text-[var(--green)]">
-              무료 샘플 요청
-            </button>
-          </div>
-
-          {/* Divider */}
-          <div className="border-t border-[#f0f0f0]" />
 
           {/* Purchase button */}
           <div className="mt-5">

@@ -6,9 +6,9 @@ import { useShelfStore } from '@/stores/useShelfStore';
 const THUMB_WIDTH = 72;
 
 const DEPTH_OPTIONS = [
-  { label: '24cm', value: 23.5 },
-  { label: '32cm', value: 29.5 },
-  { label: '40cm', value: 39.5 },
+  { label: '24cm', value: 24 },
+  { label: '30cm', value: 30 },
+  { label: '40cm', value: 40 },
 ];
 
 function TylkoSlider({

@@ -10,6 +10,7 @@ export interface PixelInput {
   rowHeights: number[];
   numRows: number;
   hasBackPanel: boolean;
+  hardwareLayers?: number[];
 }
 
 export type PixelResult = GridResult;
@@ -62,13 +63,14 @@ function calculateGaps(shelfWidth: number, density: number, thickness: number): 
 // ── 메인: Pixel 패널 배치 계산 ──
 
 export function calculatePixelPanels(input: PixelInput): PixelResult {
-  const { width, depth, thickness, density, rowHeights, numRows, hasBackPanel } = input;
+  const { width, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers = [] } = input;
 
   if (numRows === 1 || width < 78) {
     return calculateGridPanels(input as GridInput);
   }
 
   const panels: PanelData[] = [];
+  const hardwareSet = new Set(hardwareLayers);
   const gaps = calculateGaps(width, density, thickness);
 
   let currentY = 0;
@@ -137,13 +139,14 @@ export function calculatePixelPanels(input: PixelInput): PixelResult {
     }
   }
 
-  // === 백패널 또는 서포트 패널 ===
-  if (hasBackPanel) {
-    currentY = 0;
-    for (let row = 0; row < numRows; row++) {
-      const rh = rowHeights[row] ?? 32;
-      const isEvenRow = row % 2 === 0;
+  // === 백패널 또는 서포트 패널 (행별 판단) ===
+  currentY = 0;
+  for (let row = 0; row < numRows; row++) {
+    const rh = rowHeights[row] ?? 32;
+    const isEvenRow = row % 2 === 0;
+    const rowNeedsBackPanel = hasBackPanel || hardwareSet.has(row);
 
+    if (rowNeedsBackPanel) {
       if (isEvenRow) {
         let x = -width / 2 + thickness / 2 + gaps[0] + thickness;
         for (let i = 1; i < gaps.length - 1; i++) {
@@ -167,15 +170,8 @@ export function calculatePixelPanels(input: PixelInput): PixelResult {
           x += w;
         }
       }
-      currentY += rh + thickness;
-    }
-  } else {
-    // 서포트 패널 (v1 addSupPanelPixel 이식)
-    currentY = 0;
-    for (let row = 0; row < numRows; row++) {
-      const rh = rowHeights[row] ?? 32;
-      const isEvenRow = row % 2 === 0;
-
+    } else {
+      // 서포트 패널
       if (isEvenRow) {
         let x = -width / 2 + thickness / 2 + gaps[0] + thickness;
         let count = 0;
@@ -207,8 +203,8 @@ export function calculatePixelPanels(input: PixelInput): PixelResult {
           x += w;
         }
       }
-      currentY += rh + thickness;
     }
+    currentY += rh + thickness;
   }
 
   return { panels, panelCount: gaps.length + 1, panelSpacing: 0 };

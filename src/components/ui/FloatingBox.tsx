@@ -47,13 +47,15 @@ export function FloatingBox() {
         top: `${top}px`,
       }}
       onMouseEnter={() => {
-        // floating box 위에 마우스가 있으면 숨김 타이머 취소
-        useUIStore.setState({ selectedRow: selectedRow });
+        useUIStore.getState().setFloatingBoxHovered(true);
       }}
       onMouseLeave={() => {
-        // floating box에서 나가면 숨기기
+        useUIStore.getState().setFloatingBoxHovered(false);
         setTimeout(() => {
-          useUIStore.setState({ selectedRow: null, hoveredRow: null });
+          const { isFloatingBoxHovered } = useUIStore.getState();
+          if (!isFloatingBoxHovered) {
+            useUIStore.setState({ selectedRow: null, hoveredRow: null });
+          }
         }, 600);
       }}
     >

@@ -37,7 +37,7 @@ export function StyleSelector() {
               className={`flex flex-col items-center justify-center rounded-[10px] border-[1.5px] px-2.5 py-2 min-w-[56px] cursor-pointer transition-all ${
                 isActive
                   ? 'border-[var(--green)] bg-white'
-                  : 'border-[#e0e0e0] bg-[#f8f8f8] hover:border-[var(--green)]'
+                  : 'border-transparent bg-[#f8f8f8] hover:border-[var(--green)]'
               }`}
             >
               <Image

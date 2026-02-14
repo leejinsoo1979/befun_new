@@ -10,6 +10,7 @@ export interface SlantInput {
   rowHeights: number[];
   numRows: number;
   hasBackPanel: boolean;
+  hardwareLayers?: number[];
 }
 
 export type SlantResult = GridResult;
@@ -144,7 +145,7 @@ function calculateSlantSupportPanelPositions(
 // ── 메인: Slant 패널 배치 계산 ──
 
 export function calculateSlantPanels(input: SlantInput): SlantResult {
-  const { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel } = input;
+  const { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers = [] } = input;
 
   // 행이 1이거나 width < 78이면 Grid로 폴백
   if (numRows <= 1 || width < 78) {
@@ -153,6 +154,7 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
 
   const adjustedWidth = width - 24;
   const panels: PanelData[] = [];
+  const hardwareSet = new Set(hardwareLayers);
   const { panelCount, panelSpacing } = limitPanelSpacingSlant(adjustedWidth, thickness, density);
 
   // === 가로 패널 ===
@@ -205,17 +207,21 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
     }
   }
 
-  // === 백패널 또는 서포트 패널 ===
-  if (hasBackPanel) {
-    let cy = 0;
-    for (let i = 0; i < panelCount - 1; i++) {
-      cy = 0;
-      for (let j = 0; j < numRows; j++) {
-        const rh = rowHeights[j] ?? 32;
+  // === 백패널 또는 서포트 패널 (행별 판단) ===
+  const supPanelWidth = 12;
+  let cy = 0;
+
+  for (let j = 0; j < numRows; j++) {
+    const rh = rowHeights[j] ?? 32;
+    const rowNeedsBackPanel = hasBackPanel || hardwareSet.has(j);
+    const isEvenRow = j % 2 === 0;
+
+    if (rowNeedsBackPanel) {
+      for (let i = 0; i < panelCount - 1; i++) {
         let x = -adjustedWidth / 2 + i * panelSpacing;
         const panelWidth = panelSpacing - thickness;
 
-        if (j % 2 === 0) {
+        if (isEvenRow) {
           x -= adjustedWidth / panelCount / 4;
         } else {
           x += (adjustedWidth / panelCount / 4) + 2;
@@ -232,20 +238,9 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
           castShadow: false,
           receiveShadow: true,
         });
-
-        cy += rh + thickness;
       }
-    }
-  } else {
-    // 서포트 패널
-    const supPanelWidth = 12;
-    let cy = 0;
-
-    for (let i = 0; i < numRows; i++) {
-      const rh = rowHeights[i] ?? 32;
+    } else {
       const yPosition = cy + rh / 2 + thickness;
-      const isEvenRow = i % 2 === 0;
-
       const supportPositions = calculateSlantSupportPanelPositions(
         adjustedWidth, thickness, panelCount, panelSpacing, isEvenRow,
       );
@@ -263,9 +258,9 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
           receiveShadow: true,
         });
       });
-
-      cy += rh + thickness;
     }
+
+    cy += rh + thickness;
   }
 
   return { panels, panelCount, panelSpacing };

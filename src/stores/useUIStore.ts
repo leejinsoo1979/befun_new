@@ -7,6 +7,7 @@ interface UIState {
   isSharePanelOpen: boolean;
   isMobile: boolean;
   isLoading: boolean;
+  isFloatingBoxHovered: boolean;
   // Floating box position (canvas-relative px)
   floatingBoxX: number;
   floatingBoxY: number;
@@ -18,6 +19,7 @@ interface UIState {
   setSharePanelOpen: (v: boolean) => void;
   setIsMobile: (v: boolean) => void;
   setIsLoading: (v: boolean) => void;
+  setFloatingBoxHovered: (v: boolean) => void;
 }
 
 export const useUIStore = create<UIState>((set) => ({
@@ -27,6 +29,7 @@ export const useUIStore = create<UIState>((set) => ({
   isSharePanelOpen: false,
   isMobile: false,
   isLoading: true,
+  isFloatingBoxHovered: false,
   floatingBoxX: 0,
   floatingBoxY: 0,
 
@@ -36,4 +39,5 @@ export const useUIStore = create<UIState>((set) => ({
   setSharePanelOpen: (v) => set({ isSharePanelOpen: v }),
   setIsMobile: (v) => set({ isMobile: v }),
   setIsLoading: (v) => set({ isLoading: v }),
+  setFloatingBoxHovered: (v) => set({ isFloatingBoxHovered: v }),
 }));

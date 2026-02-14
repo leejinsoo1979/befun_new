@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { useMaterialStore } from '@/stores/useMaterialStore';
+import { useHardwareStore } from '@/stores/useHardwareStore';
 import { calculatePrice, formatPrice } from '@/lib/pricing';
 import { calculateGridPanels } from '@/lib/three/styles/grid';
 import { calculateSlantPanels } from '@/lib/three/styles/slant';
@@ -23,10 +24,19 @@ export function PriceDisplay() {
   const numRows = useShelfStore((s) => s.numRows);
   const hasBackPanel = useShelfStore((s) => s.hasBackPanel);
   const colorCategory = useMaterialStore((s) => s.colorCategory);
+  const doorsCreatedLayers = useHardwareStore((s) => s.doorsCreatedLayers);
+  const drawersCreatedLayers = useHardwareStore((s) => s.drawersCreatedLayers);
+
+  const hardwareLayers = useMemo(() => {
+    const layers = new Set<number>();
+    doorsCreatedLayers.forEach((l) => layers.add(l));
+    drawersCreatedLayers.forEach((l) => layers.add(l));
+    return Array.from(layers);
+  }, [doorsCreatedLayers, drawersCreatedLayers]);
 
   const priceResult = useMemo(() => {
     // v1 방식: 실제 패널 부피 합산
-    const input = { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel };
+    const input = { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers };
     let panels;
     switch (style) {
       case 'grid':
@@ -73,14 +83,15 @@ export function PriceDisplay() {
           {formatPrice(saveAmount)} 할인
         </span>
       </div>
-      {/* Line 2: final price */}
-      <p className="mt-0.5 text-[22px] font-bold leading-tight text-[var(--green)]">
-        {formatPrice(priceResult.finalPrice)}
-      </p>
-      {/* Line 3: lowest price notice */}
-      <p className="mt-0.5 text-[11px] text-[#bbb]">
-        최근 30일 최저가: {formatPrice(priceResult.finalPrice)}
-      </p>
+      {/* Line 2: final price + lowest price notice */}
+      <div className="mt-0.5 flex items-end gap-2">
+        <p className="text-[22px] font-bold leading-tight text-[var(--green)]">
+          {formatPrice(priceResult.finalPrice)}
+        </p>
+        <p className="pb-[2px] text-[11px] text-[#bbb]">
+          최근 30일 최저가
+        </p>
+      </div>
     </div>
   );
 }

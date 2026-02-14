@@ -82,6 +82,8 @@ export function RowColliders() {
     setDrawerOpen(layerIndex, false);
 
     hideTimeoutRef.current = setTimeout(() => {
+      const { isFloatingBoxHovered } = useUIStore.getState();
+      if (isFloatingBoxHovered) return;
       setHoveredIndex(null);
       setHoveredRow(null);
       setSelectedRow(null);

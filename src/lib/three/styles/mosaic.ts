@@ -10,6 +10,7 @@ export interface MosaicInput {
   rowHeights: number[];
   numRows: number;
   hasBackPanel: boolean;
+  hardwareLayers?: number[];
 }
 
 export type MosaicResult = GridResult & { cells: MosaicCell[] };
@@ -133,27 +134,28 @@ export function calculateMosaicPanels(input: MosaicInput): MosaicResult {
     });
   });
 
-  // 백패널 또는 서포트 패널
-  if (hasBackPanel) {
-    panels.push({
-      w: width - thickness * 2,
-      h: height - thickness * 2,
-      d: thickness,
-      x: 0,
-      y: height / 2,
-      z: thickness / 2,
-      matType: 'backPanel',
-      castShadow: false,
-      receiveShadow: true,
-    });
-  } else {
-    // 서포트 패널 (좌우)
-    const supPanelWidth = 12;
-    let cy = 0;
-    for (let i = 0; i < numRows; i++) {
-      const rh = rowHeights[i] ?? 32;
-      const yPosition = cy + rh / 2 + thickness;
+  // 백패널 또는 서포트 패널 (행별 판단)
+  const hardwareSet = new Set(hardwareLayers);
+  const supPanelWidth = 12;
+  let cy = 0;
+  for (let i = 0; i < numRows; i++) {
+    const rh = rowHeights[i] ?? 32;
+    const yPosition = cy + rh / 2 + thickness;
+    const rowNeedsBackPanel = hasBackPanel || hardwareSet.has(i);
 
+    if (rowNeedsBackPanel) {
+      panels.push({
+        w: width - thickness * 2,
+        h: rh,
+        d: thickness,
+        x: 0,
+        y: yPosition,
+        z: thickness / 2,
+        matType: 'backPanel',
+        castShadow: false,
+        receiveShadow: true,
+      });
+    } else {
       panels.push({
         w: supPanelWidth, h: rh, d: thickness,
         x: -width / 2 + supPanelWidth / 2 + thickness, y: yPosition, z: thickness / 2,
@@ -167,9 +169,9 @@ export function calculateMosaicPanels(input: MosaicInput): MosaicResult {
           matType: 'verticalEdge', castShadow: true, receiveShadow: true,
         });
       }
-
-      cy += rh + thickness;
     }
+
+    cy += rh + thickness;
   }
 
   return { panels, panelCount: cells.length, panelSpacing: 0, cells };

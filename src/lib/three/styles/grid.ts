@@ -9,6 +9,7 @@ export interface GridInput {
   rowHeights: number[];
   numRows: number;
   hasBackPanel: boolean;
+  hardwareLayers?: number[]; // 도어/서랍이 달린 행 인덱스
 }
 
 export interface GridResult {
@@ -174,8 +175,9 @@ function calculateSupportPanelPositions(
 // ── 메인: Grid 패널 배치 계산 ──
 
 export function calculateGridPanels(input: GridInput): GridResult {
-  const { width, depth, thickness, density, rowHeights, numRows, hasBackPanel } = input;
+  const { width, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers = [] } = input;
   const panels: PanelData[] = [];
+  const hardwareSet = new Set(hardwareLayers);
 
   // 세로 패널 수 계산 (v1 limitPanelSpacingGrid 완전 이식)
   const { panelCount, panelSpacing } = limitPanelSpacingGrid(width, thickness, density);
@@ -223,15 +225,21 @@ export function calculateGridPanels(input: GridInput): GridResult {
     }
   }
 
-  // === 백패널 또는 서포트 패널 ===
-  if (hasBackPanel) {
-    // 백패널 생성
-    let cy = 0;
-    for (let i = 0; i < panelCount - 1; i++) {
-      const xPos = -width / 2 + i * panelSpacing;
-      cy = 0;
-      for (let j = 0; j < numRows; j++) {
-        const rh = rowHeights[j] ?? 32;
+  // === 백패널 또는 서포트 패널 (행별 판단) ===
+  const supPanelWidth = 12;
+  const supportPositions = calculateSupportPanelPositions(
+    width, thickness, panelCount, panelSpacing, density,
+  );
+
+  let cy = 0;
+  for (let j = 0; j < numRows; j++) {
+    const rh = rowHeights[j] ?? 32;
+    const rowNeedsBackPanel = hasBackPanel || hardwareSet.has(j);
+
+    if (rowNeedsBackPanel) {
+      // 이 행은 백패널
+      for (let i = 0; i < panelCount - 1; i++) {
+        const xPos = -width / 2 + i * panelSpacing;
         panels.push({
           w: panelSpacing - thickness,
           h: rh,
@@ -243,25 +251,10 @@ export function calculateGridPanels(input: GridInput): GridResult {
           castShadow: false,
           receiveShadow: true,
         });
-        cy += rh + thickness;
       }
-    }
-  } else {
-    // 서포트 패널 (v1 addSupPanelGrid 이식)
-    const supPanelWidth = 12;
-    const supportPositions = calculateSupportPanelPositions(
-      width,
-      thickness,
-      panelCount,
-      panelSpacing,
-      density,
-    );
-
-    let cy = 0;
-    for (let i = 0; i < numRows; i++) {
-      const rh = rowHeights[i] ?? 32;
+    } else {
+      // 이 행은 보강대
       const yPosition = cy + rh / 2 + 2;
-
       supportPositions.forEach((position) => {
         panels.push({
           w: supPanelWidth,
@@ -275,9 +268,9 @@ export function calculateGridPanels(input: GridInput): GridResult {
           receiveShadow: true,
         });
       });
-
-      cy += rh + thickness;
     }
+
+    cy += rh + thickness;
   }
 
   return { panels, panelCount, panelSpacing };

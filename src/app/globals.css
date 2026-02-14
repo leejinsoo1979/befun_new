@@ -10,7 +10,7 @@
   --gray-text: #999;
   --label-w: 80px;
   --thumb-w: 72px;
-  --section-py: 14px;
+  --section-py: 10px;
 }
 
 @theme inline {
@@ -34,7 +34,8 @@ body {
   align-items: center;
   gap: 12px;
   padding: var(--section-py) 0;
-  border-bottom: 1px solid #f0f0f0;
+  border: none !important;
+  border-bottom: none !important;
 }
 .cfg-label {
   width: var(--label-w);
@@ -325,8 +326,8 @@ body {
 .tylko-marker {
   position: absolute;
   top: 50%;
-  width: 5px;
-  height: 5px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--gray-border);
   transform: translate(-50%, -50%);
@@ -336,8 +337,8 @@ body {
   background: var(--green);
 }
 .tylko-marker.current {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background: #ffffff;
   border: 2px solid var(--green);
 }
@@ -357,7 +358,7 @@ body {
 .tylko-pill-btn {
   padding: 7px 16px;
   border-radius: 20px;
-  border: none;
+  border: 1.5px solid transparent;
   background: transparent;
   font-size: 13px;
   font-weight: 500;
@@ -367,10 +368,11 @@ body {
   white-space: nowrap;
 }
 .tylko-pill-btn.active {
-  background: #ffffff;
-  color: var(--green);
-  font-weight: 600;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  background: #ffffff !important;
+  color: var(--green) !important;
+  font-weight: 600 !important;
+  border-color: var(--green) !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
 }
 .tylko-pill-btn:hover:not(.active) {
   color: var(--green);
@@ -404,10 +406,10 @@ body {
    Color swatches
    ================================================================ */
 .tylko-color-swatch {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  border: 2.5px solid transparent;
+  border: 2px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;

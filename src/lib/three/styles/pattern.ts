@@ -87,7 +87,7 @@ function generatePanelPositions(availableWidth: number, rowNumber: number, densi
 }
 
 export function calculatePatternPanels(input: GridInput): GridResult {
-  const { width, depth, thickness, density, rowHeights, numRows, hasBackPanel } = input;
+  const { width, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers = [] } = input;
   const panels: PanelData[] = [];
 
   // 폭이 작으면 grid 폴백 (import 순환 방지를 위해 inline grid 계산)
@@ -210,19 +210,36 @@ export function calculatePatternPanels(input: GridInput): GridResult {
     if (rowPanelCount > maxPanelCount) maxPanelCount = rowPanelCount;
   }
 
-  // === 백패널 ===
-  if (hasBackPanel) {
-    // 간단하게 행별 전체 백패널
-    let cy = 0;
-    for (let row = 0; row < numRows; row++) {
-      const rh = rowHeights[row] ?? 32;
+  // === 백패널 또는 서포트 패널 (행별 판단) ===
+  const hardwareSet = new Set(hardwareLayers);
+  const supPanelWidth = 12;
+  let cy = 0;
+  for (let row = 0; row < numRows; row++) {
+    const rh = rowHeights[row] ?? 32;
+    const rowNeedsBackPanel = hasBackPanel || hardwareSet.has(row);
+
+    if (rowNeedsBackPanel) {
       panels.push({
         w: width - thickness * 2, h: rh, d: thickness,
         x: 0, y: cy + rh / 2 + thickness, z: 1,
         matType: 'backPanel', castShadow: false, receiveShadow: true,
       });
-      cy += rh + thickness;
+    } else {
+      const yPosition = cy + rh / 2 + thickness;
+      panels.push({
+        w: supPanelWidth, h: rh, d: thickness,
+        x: -width / 2 + supPanelWidth / 2 + thickness, y: yPosition, z: thickness / 2,
+        matType: 'verticalEdge', castShadow: true, receiveShadow: true,
+      });
+      if (width >= 44) {
+        panels.push({
+          w: supPanelWidth, h: rh, d: thickness,
+          x: width / 2 - supPanelWidth / 2 - thickness, y: yPosition, z: thickness / 2,
+          matType: 'verticalEdge', castShadow: true, receiveShadow: true,
+        });
+      }
     }
+    cy += rh + thickness;
   }
 
   // panelSpacing은 grid 방식처럼 등간격이 아니므로, 대략값 사용

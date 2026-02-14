@@ -10,6 +10,7 @@ export interface GradientInput {
   rowHeights: number[];
   numRows: number;
   hasBackPanel: boolean;
+  hardwareLayers?: number[];
 }
 
 export type GradientResult = GridResult & { internalWidths: number[] };
@@ -61,7 +62,8 @@ function calculateInternalWidths(columnCount: number, totalWidth: number, densit
 // ── 메인: Gradient 패널 배치 계산 ──
 
 export function calculateGradientPanels(input: GradientInput): GradientResult {
-  const { width, depth, thickness, density, rowHeights, numRows, hasBackPanel } = input;
+  const { width, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers = [] } = input;
+  const hardwareSet = new Set(hardwareLayers);
 
   if (width < 60) {
     const gridResult = calculateGridPanels(input as GridInput);
@@ -114,48 +116,38 @@ export function calculateGradientPanels(input: GradientInput): GradientResult {
     currentY += rh + thickness;
   }
 
-  // === 백패널 또는 서포트 패널 ===
-  if (hasBackPanel) {
-    x = -width / 2 + thickness / 2;
-    let totalUsedWidth = 0;
+  // === 백패널 또는 서포트 패널 (행별 판단) ===
+  const supPanelWidth = 12;
+  currentY = 0;
 
-    for (let i = 0; i < internalWidths.length; i++) {
-      let panelWidth = internalWidths[i];
-      if (i === internalWidths.length - 1) {
-        panelWidth = width - totalUsedWidth - thickness * 2;
-      }
-      totalUsedWidth += panelWidth + thickness;
+  for (let j = 0; j < numRows; j++) {
+    const rh = rowHeights[j] ?? 32;
+    const rowNeedsBackPanel = hasBackPanel || hardwareSet.has(j);
+    const yPosition = currentY + rh / 2 + thickness;
 
-      currentY = 0;
-      for (let j = 0; j < numRows; j++) {
-        const rh = rowHeights[j] ?? 32;
+    if (rowNeedsBackPanel) {
+      let bx = -width / 2 + thickness / 2;
+      let totalUsedWidth = 0;
+      for (let i = 0; i < internalWidths.length; i++) {
+        let panelWidth = internalWidths[i];
+        if (i === internalWidths.length - 1) {
+          panelWidth = width - totalUsedWidth - thickness * 2;
+        }
+        totalUsedWidth += panelWidth + thickness;
         panels.push({
           w: panelWidth, h: rh, d: thickness,
-          x: x + panelWidth / 2 + thickness / 2,
-          y: currentY + rh / 2 + thickness, z: 1,
+          x: bx + panelWidth / 2 + thickness / 2,
+          y: yPosition, z: 1,
           matType: 'backPanel', castShadow: false, receiveShadow: true,
         });
-        currentY += rh + thickness;
+        bx += panelWidth + thickness;
       }
-      x += panelWidth + thickness;
-    }
-  } else {
-    // 서포트 패널 (v1 addSupPanelGradient 이식)
-    const supPanelWidth = 12;
-    currentY = 0;
-
-    for (let row = 0; row < numRows; row++) {
-      const rh = rowHeights[row] ?? 32;
-      const yPosition = currentY + rh / 2 + thickness;
-
-      // 좌측 서포트
+    } else {
       panels.push({
         w: supPanelWidth, h: rh, d: thickness,
         x: -width / 2 + supPanelWidth / 2 + 2, y: yPosition, z: 1,
         matType: 'verticalEdge', castShadow: true, receiveShadow: true,
       });
-
-      // 우측 서포트 (width >= 44)
       if (width >= 44) {
         panels.push({
           w: supPanelWidth, h: rh, d: thickness,
@@ -163,9 +155,9 @@ export function calculateGradientPanels(input: GradientInput): GradientResult {
           matType: 'verticalEdge', castShadow: true, receiveShadow: true,
         });
       }
-
-      currentY += rh + thickness;
     }
+
+    currentY += rh + thickness;
   }
 
   const panelCount = internalWidths.length + 1;
