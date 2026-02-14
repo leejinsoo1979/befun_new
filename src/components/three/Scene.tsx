@@ -1,11 +1,18 @@
 'use client';
 
+import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { Shelf } from './Shelf';
 import { Background } from './Background';
 import { useShelfStore } from '@/stores/useShelfStore';
+
+// v1 Three.js 0.128.0 호환: ColorManagement 비활성화
+// v1에서는 Color가 sRGB → linear 변환 없이 그대로 사용됨
+// v2 Three.js 0.182.0에서 ColorManagement가 기본 활성화되면
+// 동일한 hex 색상이 훨씬 어둡게 렌더링됨
+THREE.ColorManagement.enabled = false;
 
 export default function Scene() {
   const width = useShelfStore((s) => s.width);
@@ -20,9 +27,9 @@ export default function Scene() {
       }}
       camera={{
         position: [0, 120, 350],
-        fov: 45,
-        near: 1,
-        far: 2000,
+        fov: 40,
+        near: 0.1,
+        far: 1000,
       }}
       style={{ background: '#e9eaea' }}
     >
@@ -49,7 +56,9 @@ export default function Scene() {
       />
 
       {/* 배경 (바닥 + 실루엣) */}
-      <Background shelfWidth={width} />
+      <Suspense fallback={null}>
+        <Background shelfWidth={width} />
+      </Suspense>
 
       {/* 가구 */}
       <Shelf />

@@ -123,7 +123,8 @@ export function createTextureMaterials(textureName: string): Promise<MaterialSet
           if (loaded === total) resolve(materials as MaterialSet);
         },
         undefined,
-        () => {
+        (error) => {
+          console.warn(`[Befun] 텍스처 로드 실패: ${path}`, error);
           // 텍스처 로드 실패 시 흰색 폴백
           materials[type] = new THREE.MeshStandardMaterial({
             color: 0xffffff,

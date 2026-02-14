@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, Suspense } from 'react';
 import { useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -85,8 +85,10 @@ export function Background({ shelfWidth }: BackgroundProps) {
         />
       </mesh>
 
-      {/* 사람 실루엣 */}
-      <Silhouette shelfWidth={shelfWidth} />
+      {/* 사람 실루엣 - 로딩 실패 시 생략 */}
+      <Suspense fallback={null}>
+        <Silhouette shelfWidth={shelfWidth} />
+      </Suspense>
     </group>
   );
 }

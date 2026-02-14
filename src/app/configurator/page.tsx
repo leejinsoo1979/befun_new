@@ -33,27 +33,32 @@ export default function ConfiguratorPage() {
   const [saving, setSaving] = useState(false);
   const [shareUrl, setShareUrl] = useState('');
 
-  const shelf = useShelfStore();
-  const { currentColor, colorCategory } = useMaterialStore();
-  const { doorsCreatedLayers, drawersCreatedLayers } = useHardwareStore();
   const addItem = useCartStore((s) => s.addItem);
 
-  const getDesignConfig = () => ({
-    style: shelf.style,
-    density: shelf.density,
-    width: shelf.width,
-    height: shelf.height,
-    depth: shelf.depth,
-    hasBackPanel: shelf.hasBackPanel,
-    color: currentColor,
-    colorCategory,
-    rowHeights: shelf.rowHeights,
-    numRows: shelf.rowHeights.length,
-    doorsCreatedLayers,
-    drawersCreatedLayers,
-  });
+  const getDesignConfig = () => {
+    const shelf = useShelfStore.getState();
+    const { currentColor, colorCategory } = useMaterialStore.getState();
+    const { doorsCreatedLayers, drawersCreatedLayers } = useHardwareStore.getState();
+    return {
+      style: shelf.style,
+      density: shelf.density,
+      width: shelf.width,
+      height: shelf.height,
+      depth: shelf.depth,
+      hasBackPanel: shelf.hasBackPanel,
+      color: currentColor,
+      colorCategory,
+      rowHeights: shelf.rowHeights,
+      numRows: shelf.rowHeights.length,
+      doorsCreatedLayers,
+      drawersCreatedLayers,
+    };
+  };
 
   const getPrice = () => {
+    const shelf = useShelfStore.getState();
+    const { colorCategory } = useMaterialStore.getState();
+    const { doorsCreatedLayers, drawersCreatedLayers } = useHardwareStore.getState();
     const result = calculatePrice({
       width: shelf.width,
       height: shelf.height,

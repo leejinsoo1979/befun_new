@@ -48,14 +48,18 @@ export function Shelf() {
   useEffect(() => {
     let disposed = false;
 
-    createMaterialsForColor(currentColor).then((mats) => {
-      if (!disposed) {
-        setMaterials((prev) => {
-          if (prev !== DEFAULT_MATERIALS) disposeMaterialSet(prev);
-          return mats;
-        });
-      }
-    });
+    createMaterialsForColor(currentColor)
+      .then((mats) => {
+        if (!disposed) {
+          setMaterials((prev) => {
+            if (prev !== DEFAULT_MATERIALS) disposeMaterialSet(prev);
+            return mats;
+          });
+        }
+      })
+      .catch((err) => {
+        console.error('[Befun] 머티리얼 생성 실패:', currentColor, err);
+      });
 
     return () => {
       disposed = true;
