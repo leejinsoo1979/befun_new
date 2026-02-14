@@ -7,6 +7,7 @@ import { useHardwareStore } from '@/stores/useHardwareStore';
 import { Panel } from './Panel';
 import { Door } from './Door';
 import { Drawer } from './Drawer';
+import { RowColliders } from './RowColliders';
 import {
   createMaterialsForColor,
   createColorMaterials,
@@ -17,6 +18,7 @@ import { calculateGridPanels } from '@/lib/three/styles/grid';
 import { calculateSlantPanels } from '@/lib/three/styles/slant';
 import { calculatePixelPanels } from '@/lib/three/styles/pixel';
 import { calculateGradientPanels } from '@/lib/three/styles/gradient';
+import { calculatePatternPanels } from '@/lib/three/styles/pattern';
 import { calculateMosaicPanels } from '@/lib/three/styles/mosaic';
 import { calculateDoorPlacements, calculateDrawerPlacements } from '@/lib/three/hardware';
 import type { PanelData } from '@/types/shelf';
@@ -79,6 +81,8 @@ export function Shelf() {
         return calculatePixelPanels(input);
       case 'gradient':
         return calculateGradientPanels(input);
+      case 'pattern':
+        return calculatePatternPanels(input);
       case 'mosaic':
         return calculateMosaicPanels(input);
       default:
@@ -147,6 +151,9 @@ export function Shelf() {
           thickness={thickness}
         />
       ))}
+
+      {/* V1 행 콜라이더 (마우스 오버 감지) */}
+      <RowColliders />
     </group>
   );
 }

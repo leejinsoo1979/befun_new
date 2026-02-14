@@ -4,25 +4,32 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import Image from 'next/image';
 import { StyleSelector } from '@/components/ui/StyleSelector';
 import { DimensionPanel } from '@/components/ui/DimensionPanel';
 import { DensitySlider } from '@/components/ui/DensitySlider';
 import { ColorPicker } from '@/components/ui/ColorPicker';
 import { BackPanelToggle } from '@/components/ui/BackPanelToggle';
-import { RowControls } from '@/components/ui/RowControls';
+import { FloatingBox } from '@/components/ui/FloatingBox';
 import { PriceDisplay } from '@/components/ui/PriceDisplay';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { useMaterialStore } from '@/stores/useMaterialStore';
 import { useHardwareStore } from '@/stores/useHardwareStore';
 import { useCartStore } from '@/stores/useCartStore';
 import { calculatePrice } from '@/lib/pricing';
+import { calculateGridPanels } from '@/lib/three/styles/grid';
+import { calculateSlantPanels } from '@/lib/three/styles/slant';
+import { calculatePixelPanels } from '@/lib/three/styles/pixel';
+import { calculateGradientPanels } from '@/lib/three/styles/gradient';
+import { calculatePatternPanels } from '@/lib/three/styles/pattern';
+import { calculateMosaicPanels } from '@/lib/three/styles/mosaic';
 import type { ColorCategory } from '@/types/shelf';
 
 // R3F Canvas는 SSR 불가 → dynamic import
 const Scene = dynamic(() => import('@/components/three/Scene'), {
   ssr: false,
   loading: () => (
-    <div className="flex h-screen w-full items-center justify-center bg-[#e9eaea]">
+    <div className="flex h-full w-full items-center justify-center bg-white">
       <p className="text-gray-500">3D 뷰어 로딩 중...</p>
     </div>
   ),
@@ -58,21 +65,37 @@ export default function ConfiguratorPage() {
   const getPrice = () => {
     const shelf = useShelfStore.getState();
     const { colorCategory } = useMaterialStore.getState();
-    const { doorsCreatedLayers, drawersCreatedLayers } = useHardwareStore.getState();
-    const result = calculatePrice({
+    const input = {
       width: shelf.width,
       height: shelf.height,
       depth: shelf.depth,
+      thickness: shelf.thickness,
+      density: shelf.density,
+      rowHeights: shelf.rowHeights,
+      numRows: shelf.numRows,
+      hasBackPanel: shelf.hasBackPanel,
+    };
+    let panels;
+    switch (shelf.style) {
+      case 'grid': panels = calculateGridPanels(input).panels; break;
+      case 'slant': panels = calculateSlantPanels(input).panels; break;
+      case 'pixel': panels = calculatePixelPanels(input).panels; break;
+      case 'gradient': panels = calculateGradientPanels(input).panels; break;
+      case 'pattern': panels = calculatePatternPanels(input).panels; break;
+      case 'mosaic': panels = calculateMosaicPanels(input).panels; break;
+      default: panels = calculateGridPanels(input).panels;
+    }
+    const totalPanelVolume = panels.reduce((sum, p) => sum + p.w * p.h * p.d, 0);
+    const result = calculatePrice({
+      totalPanelVolume,
       colorCategory: colorCategory as ColorCategory,
-      doorCount: doorsCreatedLayers.length,
-      drawerCount: drawersCreatedLayers.length,
     });
     return result.finalPrice;
   };
 
   const handleAddToCart = () => {
     addItem({
-      designId: '', // 저장 전이므로 빈 문자열
+      designId: '',
       designConfig: getDesignConfig(),
       quantity: 1,
       price: getPrice(),
@@ -101,51 +124,106 @@ export default function ConfiguratorPage() {
   };
 
   return (
-    <div className="flex h-screen w-full">
-      {/* 3D 뷰어 */}
-      <div className="relative flex-1">
-        <Scene />
-        {/* 홈 링크 */}
-        <Link
-          href="/"
-          className="absolute left-4 top-4 text-lg font-bold text-gray-700 hover:text-gray-900"
-        >
-          Befun
-        </Link>
-      </div>
+    <div className="flex min-h-screen flex-col">
+      {/* Header */}
+      <header className="border-b border-[#eee]">
+        <div className="flex h-[80px] items-center justify-between px-5">
+          <Link href="/">
+            <Image
+              src="/imgs/icon/main_logo_new.png"
+              alt="Befun"
+              width={120}
+              height={40}
+              className="ml-5"
+            />
+          </Link>
+          <ul className="flex list-none gap-[10px] pr-5 text-xs">
+            <li><Link href="/myshop">myshop</Link></li>
+            <li><Link href="/cart">장바구니</Link></li>
+          </ul>
+        </div>
+      </header>
 
-      {/* 우측 컨트롤 패널 */}
-      <aside className="w-80 shrink-0 overflow-y-auto border-l border-gray-200 bg-white">
-        <div className="p-5">
-          <h2 className="mb-1 text-base font-semibold">다용도 수납장 기본형</h2>
-          <p className="mb-5 text-xs text-gray-400">맞춤 설정</p>
+      {/* Configurator: canvas + gui */}
+      <div className="flex flex-1 overflow-hidden border-b border-[#eee]" style={{ minHeight: '100vh' }}>
+        {/* Canvas 영역 */}
+        <div className="relative flex-1 overflow-hidden bg-white">
+          <Scene />
 
+          {/* Control buttons (ruler/share/AR) */}
+          <div className="absolute right-3 top-20 z-10 flex w-[50px] flex-col items-end">
+            <button
+              onClick={() => alert('줄자 기능은 준비 중입니다')}
+              className="mb-[5px] flex h-10 w-10 items-center justify-center rounded-[20px] border border-gray-400 bg-white cursor-pointer hover:border-[var(--green)]"
+            >
+              <Image src="/imgs/icon/icon_ruler.svg" alt="ruler" width={20} height={20} />
+            </button>
+            <button
+              onClick={handleSaveDesign}
+              disabled={saving}
+              className="mb-[5px] flex h-10 w-10 items-center justify-center rounded-[20px] border border-gray-400 bg-white cursor-pointer hover:border-[var(--green)] disabled:opacity-50"
+            >
+              <Image src="/imgs/icon/icon_share.svg" alt="share" width={20} height={20} />
+            </button>
+            <button
+              onClick={() => alert('AR 뷰어는 준비 중입니다')}
+              className="mb-[5px] flex h-10 w-10 items-center justify-center rounded-[20px] border border-gray-400 bg-white cursor-pointer hover:border-[var(--green)]"
+            >
+              <Image src="/imgs/icon/icon_ar.svg" alt="ar" width={20} height={20} />
+            </button>
+          </div>
+
+          {/* Floating box - 행 마우스 오버 시 표시 */}
+          <FloatingBox />
+
+          {/* 공유 링크 복사 알림 */}
+          {shareUrl && (
+            <div className="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-lg bg-[var(--green)] px-4 py-2 text-sm text-white shadow-lg">
+              링크가 복사되었습니다!
+            </div>
+          )}
+        </div>
+
+        {/* GUI 패널 */}
+        <div className="flex w-[460px] shrink-0 flex-col overflow-y-auto bg-white px-8 pt-5 pb-8 shadow-[inset_1px_0_0_#eee]">
+          {/* Price header */}
+          <div className="mb-1">
+            <h2 className="text-[14px] font-normal text-[#333]">다용도 수납장 기본형</h2>
+            <PriceDisplay />
+          </div>
+
+          {/* Controls */}
           <StyleSelector />
           <DensitySlider />
           <DimensionPanel />
           <BackPanelToggle />
           <ColorPicker />
-          <RowControls />
-          <PriceDisplay />
 
-          {/* 장바구니 담기 */}
-          <button
-            onClick={handleAddToCart}
-            className="w-full rounded-lg bg-gray-900 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
-          >
-            장바구니 담기
-          </button>
+          {/* Sample CTA */}
+          <div className="flex items-center justify-center gap-2 py-3 text-[13px] text-[#888]">
+            <span>고민 되시나요?</span>
+            <button className="font-medium text-[#333] underline underline-offset-2 cursor-pointer hover:text-[var(--green)]">
+              무료 샘플 요청
+            </button>
+          </div>
 
-          {/* 디자인 공유 */}
-          <button
-            onClick={handleSaveDesign}
-            disabled={saving}
-            className="mt-2 w-full rounded-lg border border-gray-300 py-2.5 text-sm text-gray-600 transition-colors hover:bg-gray-50 disabled:text-gray-400"
-          >
-            {saving ? '저장 중...' : shareUrl ? '링크 복사됨!' : '디자인 공유하기'}
-          </button>
+          {/* Divider */}
+          <div className="border-t border-[#f0f0f0]" />
+
+          {/* Purchase button */}
+          <div className="mt-5">
+            <button
+              onClick={handleAddToCart}
+              className="w-full cursor-pointer rounded-full bg-[var(--green)] py-3.5 text-[15px] font-semibold text-white shadow-sm transition-all hover:bg-[#2a7a1a] active:scale-[0.98]"
+            >
+              구매하기
+            </button>
+            <p className="mt-3 text-center text-[11px] text-[#bbb]">
+              Made in KR &middot; 제작 5-6주 소요
+            </p>
+          </div>
         </div>
-      </aside>
+      </div>
     </div>
   );
 }

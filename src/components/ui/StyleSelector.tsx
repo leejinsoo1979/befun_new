@@ -5,12 +5,13 @@ import { useShelfStore } from '@/stores/useShelfStore';
 import { useHardwareStore } from '@/stores/useHardwareStore';
 import type { StyleType } from '@/types/shelf';
 
-const STYLES: { value: StyleType; label: string; icon: string }[] = [
-  { value: 'grid', label: 'Grid', icon: '/imgs/icon/icon_grid_black.svg' },
-  { value: 'slant', label: 'Slant', icon: '/imgs/icon/icon_slant_black.svg' },
-  { value: 'pixel', label: 'Pixel', icon: '/imgs/icon/icon_pixel_black.svg' },
-  { value: 'gradient', label: 'Gradient', icon: '/imgs/icon/icon_gradient_black.svg' },
-  { value: 'mosaic', label: 'Mosaic', icon: '/imgs/icon/icon_mosaic_black.svg' },
+const STYLES: { value: StyleType; label: string; iconDefault: string; iconActive: string }[] = [
+  { value: 'pattern', label: 'Pattern', iconDefault: '/imgs/icon/icon_pattern_black.svg', iconActive: '/imgs/icon/icon_pattern.svg' },
+  { value: 'grid', label: 'Grid', iconDefault: '/imgs/icon/icon_grid_black.svg', iconActive: '/imgs/icon/icon_grid.svg' },
+  { value: 'slant', label: 'Slant', iconDefault: '/imgs/icon/icon_slant_black.svg', iconActive: '/imgs/icon/icon_slant.svg' },
+  { value: 'mosaic', label: 'Mosaic', iconDefault: '/imgs/icon/icon_mosaic_black.svg', iconActive: '/imgs/icon/icon_mosaic.svg' },
+  { value: 'pixel', label: 'Pixel', iconDefault: '/imgs/icon/icon_pixel_black.svg', iconActive: '/imgs/icon/icon_pixel.svg' },
+  { value: 'gradient', label: 'Gradient', iconDefault: '/imgs/icon/icon_gradient_black.svg', iconActive: '/imgs/icon/icon_gradient.svg' },
 ];
 
 export function StyleSelector() {
@@ -20,27 +21,39 @@ export function StyleSelector() {
 
   const handleStyleChange = (newStyle: StyleType) => {
     setStyle(newStyle);
-    resetHardware(); // 스타일 변경 시 도어/서랍 초기화
+    resetHardware();
   };
 
   return (
-    <div className="mb-5">
-      <label className="mb-2 block text-xs font-medium text-gray-500 uppercase tracking-wider">Style</label>
-      <div className="grid grid-cols-5 gap-2">
-        {STYLES.map((s) => (
-          <button
-            key={s.value}
-            onClick={() => handleStyleChange(s.value)}
-            className={`flex flex-col items-center rounded-lg border p-2 text-xs transition-colors ${
-              style === s.value
-                ? 'border-gray-900 bg-gray-50 font-semibold'
-                : 'border-gray-200 hover:border-gray-400'
-            }`}
-          >
-            <Image src={s.icon} alt={s.label} width={24} height={24} className="mb-1" />
-            <span>{s.label}</span>
-          </button>
-        ))}
+    <div className="cfg-row">
+      <span className="cfg-label">Style</span>
+      <div className="flex flex-1 gap-1.5 overflow-x-auto">
+        {STYLES.map((s) => {
+          const isActive = style === s.value;
+          return (
+            <button
+              key={s.value}
+              onClick={() => handleStyleChange(s.value)}
+              className={`flex flex-col items-center justify-center rounded-[10px] border-[1.5px] px-2.5 py-2 min-w-[56px] cursor-pointer transition-all ${
+                isActive
+                  ? 'border-[var(--green)] bg-white'
+                  : 'border-[#e0e0e0] bg-[#f8f8f8] hover:border-[var(--green)]'
+              }`}
+            >
+              <Image
+                src={isActive ? s.iconActive : s.iconDefault}
+                alt={s.label}
+                width={20}
+                height={20}
+              />
+              <span className={`mt-1 text-[11px] font-medium ${
+                isActive ? 'text-[var(--green)]' : 'text-[#666]'
+              }`}>
+                {s.label}
+              </span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );

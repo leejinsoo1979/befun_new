@@ -20,8 +20,8 @@ export default function Scene() {
         antialias: true,
       }}
       camera={{
-        position: [0, 120, 350],
-        fov: 40,
+        position: [0, 130, 340],
+        fov: 38,
         near: 0.1,
         far: 1000,
       }}
@@ -57,16 +57,18 @@ export default function Scene() {
       {/* 가구 */}
       <Shelf />
 
-      {/* 카메라 컨트롤 */}
+      {/* 카메라 컨트롤 — damping으로 부드럽게 */}
       <OrbitControls
         enablePan={true}
         enableZoom={true}
         enableRotate={true}
-        minDistance={100}
-        maxDistance={800}
-        minPolarAngle={0.3}
-        maxPolarAngle={Math.PI / 2 - 0.05}
-        target={[0, 60, 0]}
+        enableDamping={true}
+        dampingFactor={0.08}
+        minDistance={120}
+        maxDistance={700}
+        minPolarAngle={0.4}
+        maxPolarAngle={Math.PI / 2 - 0.1}
+        target={[0, 70, 0]}
       />
     </Canvas>
   );

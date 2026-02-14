@@ -1,6 +1,7 @@
-export type StyleType = 'grid' | 'slant' | 'pixel' | 'gradient' | 'mosaic';
+export type StyleType = 'grid' | 'slant' | 'pixel' | 'gradient' | 'pattern' | 'mosaic';
 
 export type ColorCategory = 'classic' | 'natural' | 'solid' | 'edgeMix';
+
 
 export type MaterialType =
   | 'verticalBase'

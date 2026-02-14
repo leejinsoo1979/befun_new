@@ -1,7 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { useHardwareStore } from '@/stores/useHardwareStore';
+import { useUIStore } from '@/stores/useUIStore';
 import type { RowHeight } from '@/types/shelf';
 
 const ROW_HEIGHTS: RowHeight[] = [18, 32, 38];
@@ -20,98 +22,126 @@ export function RowControls() {
   const drawersCreatedLayers = useHardwareStore((s) => s.drawersCreatedLayers);
   const toggleDoor = useHardwareStore((s) => s.toggleDoor);
   const toggleDrawer = useHardwareStore((s) => s.toggleDrawer);
+  const selectedRow = useUIStore((s) => s.selectedRow);
+
+  // V1에서는 floating box가 3D 뷰어 위에 나타남
+  // V2에서는 선택된 행이 있을 때만 해당 행 컨트롤을 표시
+  if (selectedRow === null) return null;
+
+  const i = selectedRow;
+  const rh = rowHeights[i] ?? 32;
+  const hasDoor = doorsCreatedLayers.includes(i);
+  const hasDrawer = drawersCreatedLayers.includes(i);
+  const canAddDoor = rh >= MIN_DOOR_HEIGHT;
+  const canAddDrawer = depth >= MIN_DRAWER_DEPTH && height <= 150;
 
   return (
-    <div className="mb-5">
-      <label className="mb-2 block text-xs font-medium text-gray-500 uppercase tracking-wider">
-        Row Settings
-      </label>
-      <div className="space-y-2">
-        {Array.from({ length: numRows }, (_, i) => {
-          const rh = rowHeights[i] ?? 32;
-          const hasDoor = doorsCreatedLayers.includes(i);
-          const hasDrawer = drawersCreatedLayers.includes(i);
-          const canAddDoor = rh >= MIN_DOOR_HEIGHT;
-          const canAddDrawer = depth >= MIN_DRAWER_DEPTH && height <= 150;
-
-          return (
-            <div
-              key={i}
-              className="rounded-lg border border-gray-200 p-3"
-            >
-              <div className="mb-2 flex items-center justify-between">
-                <span className="text-xs font-medium text-gray-700">
-                  Row {i + 1}
-                </span>
-                <span className="text-xs text-gray-400">{rh}cm</span>
-              </div>
-
-              {/* 행 높이 선택 */}
-              <div className="mb-2 flex gap-1">
-                {ROW_HEIGHTS.map((h) => (
-                  <button
-                    key={h}
-                    onClick={() => setRowHeight(i, h)}
-                    className={`flex-1 rounded py-1 text-xs transition-colors ${
-                      rh === h
-                        ? 'bg-gray-900 text-white'
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                    }`}
-                  >
-                    {h}cm
-                  </button>
-                ))}
-              </div>
-
-              {/* 도어/서랍 토글 */}
-              <div className="flex gap-2">
-                <button
-                  onClick={() => canAddDoor && toggleDoor(i)}
-                  disabled={!canAddDoor}
-                  className={`flex-1 rounded py-1 text-xs transition-colors ${
-                    hasDoor
-                      ? 'bg-blue-600 text-white'
-                      : canAddDoor
-                        ? 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        : 'cursor-not-allowed bg-gray-50 text-gray-300'
-                  }`}
-                  title={!canAddDoor ? '칸 높이 32cm부터 도어 장착 가능' : ''}
-                >
-                  Door {hasDoor ? 'ON' : 'OFF'}
-                </button>
-                <button
-                  onClick={() => canAddDrawer && toggleDrawer(i)}
-                  disabled={!canAddDrawer}
-                  className={`flex-1 rounded py-1 text-xs transition-colors ${
-                    hasDrawer
-                      ? 'bg-blue-600 text-white'
-                      : canAddDrawer
-                        ? 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        : 'cursor-not-allowed bg-gray-50 text-gray-300'
-                  }`}
-                  title={!canAddDrawer ? '깊이 40cm, 높이 150cm 이하에서 서랍 장착 가능' : ''}
-                >
-                  Drawer {hasDrawer ? 'ON' : 'OFF'}
-                </button>
-              </div>
-
-              {/* 경고 메시지 */}
-              {!canAddDoor && rh < MIN_DOOR_HEIGHT && (
-                <p className="mt-1 text-[10px] text-amber-500">
-                  칸 높이 32cm부터 도어 장착 가능
-                </p>
-              )}
-              {!canAddDrawer && (
-                <p className="mt-1 text-[10px] text-amber-500">
-                  {depth < MIN_DRAWER_DEPTH
-                    ? '깊이 40cm부터 서랍 장착 가능'
-                    : '높이 150cm 이하로 서랍 장착 가능'}
-                </p>
-              )}
-            </div>
-          );
-        })}
+    <div className="w-[233px] rounded-xl bg-white p-4 shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
+      {/* 미니어처 이미지 */}
+      <div className="mb-4 flex h-[120px] items-center justify-center rounded-lg">
+        <Image
+          src="/imgs/popup/book.png"
+          alt="Row Preview"
+          width={180}
+          height={100}
+          className="object-contain"
+        />
       </div>
+
+      {/* Row height */}
+      <p className="mb-2 text-xs font-medium uppercase tracking-wider text-[#666]">
+        Row height
+      </p>
+      <div className="mb-3 flex gap-2">
+        {ROW_HEIGHTS.map((h) => (
+          <button
+            key={h}
+            onClick={() => setRowHeight(i, h)}
+            className={`inline-flex h-8 w-[60px] shrink-0 items-center justify-center rounded-2xl text-xs font-medium transition-all ${
+              rh === h
+                ? 'border-[1.5px] border-[#2fc614] bg-white font-bold text-[#339922]'
+                : 'border-[1.5px] border-transparent bg-[#f5f5f5] text-[#333] hover:bg-[#e8e8e8]'
+            }`}
+          >
+            {h}cm
+          </button>
+        ))}
+      </div>
+
+      {/* Doors */}
+      <p className="mb-2 text-xs font-medium uppercase tracking-wider text-[#666]">
+        Doors
+      </p>
+      <div className="mb-1 flex gap-2">
+        <button
+          onClick={() => hasDoor && toggleDoor(i)}
+          className={`inline-flex h-8 w-[60px] shrink-0 items-center justify-center rounded-2xl text-xs font-medium transition-all ${
+            !hasDoor
+              ? 'border-[1.5px] border-[#2fc614] bg-white font-bold text-[#339922]'
+              : 'border-[1.5px] border-transparent bg-[#f5f5f5] text-[#333] hover:bg-[#e8e8e8]'
+          }`}
+        >
+          None
+        </button>
+        <button
+          onClick={() => canAddDoor && !hasDoor && toggleDoor(i)}
+          disabled={!canAddDoor}
+          className={`inline-flex h-8 w-[60px] shrink-0 items-center justify-center rounded-2xl text-xs font-medium transition-all ${
+            hasDoor
+              ? 'border-[1.5px] border-[#2fc614] bg-white font-bold text-[#339922]'
+              : canAddDoor
+                ? 'border-[1.5px] border-transparent bg-[#f5f5f5] text-[#333] hover:bg-[#e8e8e8]'
+                : 'cursor-not-allowed border-[1.5px] border-transparent bg-[#f5f5f5] text-[#ccc]'
+          }`}
+        >
+          Some
+        </button>
+      </div>
+      {!canAddDoor && (
+        <p className="mb-3 text-[11px] italic text-[#888]">
+          칸 높이 32cm 부터 도어 장착 가능
+        </p>
+      )}
+
+      {/* Drawers */}
+      <p className="mb-2 mt-3 text-xs font-medium uppercase tracking-wider text-[#666]">
+        Drawers
+      </p>
+      <div className="mb-1 flex gap-2">
+        <button
+          onClick={() => canAddDrawer && !hasDrawer && toggleDrawer(i)}
+          disabled={!canAddDrawer}
+          className={`inline-flex h-8 w-[60px] shrink-0 items-center justify-center rounded-2xl text-xs font-medium transition-all ${
+            hasDrawer
+              ? 'border-[1.5px] border-[#2fc614] bg-white font-bold text-[#339922]'
+              : canAddDrawer
+                ? 'border-[1.5px] border-transparent bg-[#f5f5f5] text-[#333] hover:bg-[#e8e8e8]'
+                : 'cursor-not-allowed border-[1.5px] border-transparent bg-[#f5f5f5] text-[#ccc]'
+          }`}
+        >
+          ON
+        </button>
+        <button
+          onClick={() => hasDrawer && toggleDrawer(i)}
+          className={`inline-flex h-8 w-[60px] shrink-0 items-center justify-center rounded-2xl text-xs font-medium transition-all ${
+            !hasDrawer
+              ? 'border-[1.5px] border-[#2fc614] bg-white font-bold text-[#339922]'
+              : 'border-[1.5px] border-transparent bg-[#f5f5f5] text-[#333] hover:bg-[#e8e8e8]'
+          }`}
+        >
+          OFF
+        </button>
+      </div>
+      {!canAddDrawer && height > 150 && (
+        <p className="text-[11px] italic text-[#888]">
+          높이 150cm 이하로 서랍 장착 가능
+        </p>
+      )}
+      {!canAddDrawer && depth < MIN_DRAWER_DEPTH && (
+        <p className="text-[11px] italic text-[#888]">
+          깊이 40cm 부터 서랍 장착 가능
+        </p>
+      )}
     </div>
   );
 }

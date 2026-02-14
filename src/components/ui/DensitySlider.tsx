@@ -1,24 +1,47 @@
 'use client';
 
+import { useMemo, useState, useEffect, useCallback } from 'react';
 import { useShelfStore } from '@/stores/useShelfStore';
+
+const PILL_WIDTH = 72;
 
 export function DensitySlider() {
   const density = useShelfStore((s) => s.density);
   const setDensity = useShelfStore((s) => s.setDensity);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const percentage = density / 100;
+  const atEdge = density <= 0 || density >= 100;
+
+  const pillLeft = useMemo(() => {
+    return `calc(${percentage * 100}% - ${percentage * PILL_WIDTH}px + ${PILL_WIDTH / 2}px)`;
+  }, [percentage]);
+
+  const showPill = !isDragging || atEdge;
+
+  const stopDrag = useCallback(() => setIsDragging(false), []);
+  useEffect(() => {
+    if (isDragging) {
+      window.addEventListener('mouseup', stopDrag);
+      window.addEventListener('touchend', stopDrag);
+      return () => {
+        window.removeEventListener('mouseup', stopDrag);
+        window.removeEventListener('touchend', stopDrag);
+      };
+    }
+  }, [isDragging, stopDrag]);
 
   return (
-    <div className="mb-5">
-      <div className="mb-1 flex items-center justify-between">
-        <label className="text-xs font-medium text-gray-500 uppercase tracking-wider">Density</label>
-        <span className="text-sm font-semibold tabular-nums">{density}%</span>
-      </div>
-      <div className="flex items-center gap-2">
-        <button
-          onClick={() => setDensity(Math.max(0, density - 1))}
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded border border-gray-200 text-gray-500 hover:bg-gray-50"
-        >
-          −
-        </button>
+    <div className="cfg-row">
+      <span className="cfg-label">Density</span>
+      <div
+        className="tylko-slider-wrap"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className="tylko-slider-bg" />
+        <div className="tylko-slider-track" style={{ width: `calc(${percentage * 100}% - ${percentage * PILL_WIDTH}px + ${PILL_WIDTH / 4}px)` }} />
         <input
           type="range"
           min={0}
@@ -26,15 +49,37 @@ export function DensitySlider() {
           step={1}
           value={density}
           onChange={(e) => setDensity(Number(e.target.value))}
-          className="h-1.5 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 accent-gray-900"
+          onMouseDown={() => setIsDragging(true)}
+          onTouchStart={() => setIsDragging(true)}
+          className="tylko-slider"
         />
-        <button
-          onClick={() => setDensity(Math.min(100, density + 1))}
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded border border-gray-200 text-gray-500 hover:bg-gray-50"
-        >
-          +
-        </button>
+
+        {showPill ? (
+          <div className="tylko-thumb-group" style={{ left: pillLeft }}>
+            <button
+              className={`tylko-step-btn ${isHovered ? (density > 0 ? 'visible' : 'spacer') : ''}`}
+              onClick={() => setDensity(Math.max(0, density - 1))}
+            >
+              −
+            </button>
+            <span className="tylko-pill">{density}%</span>
+            <button
+              className={`tylko-step-btn ${isHovered ? (density < 100 ? 'visible' : 'spacer') : ''}`}
+              onClick={() => setDensity(Math.min(100, density + 1))}
+            >
+              +
+            </button>
+          </div>
+        ) : (
+          <>
+            <span className="tylko-drag-text" style={{ left: pillLeft }}>
+              {density}%
+            </span>
+            <span className="tylko-drag-dot" style={{ left: pillLeft }} />
+          </>
+        )}
       </div>
+      <button className="tylko-help">?</button>
     </div>
   );
 }
