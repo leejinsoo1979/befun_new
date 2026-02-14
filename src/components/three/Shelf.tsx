@@ -3,7 +3,10 @@
 import { useMemo, useState, useEffect } from 'react';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { useMaterialStore } from '@/stores/useMaterialStore';
+import { useHardwareStore } from '@/stores/useHardwareStore';
 import { Panel } from './Panel';
+import { Door } from './Door';
+import { Drawer } from './Drawer';
 import {
   createMaterialsForColor,
   createColorMaterials,
@@ -15,6 +18,7 @@ import { calculateSlantPanels } from '@/lib/three/styles/slant';
 import { calculatePixelPanels } from '@/lib/three/styles/pixel';
 import { calculateGradientPanels } from '@/lib/three/styles/gradient';
 import { calculateMosaicPanels } from '@/lib/three/styles/mosaic';
+import { calculateDoorPlacements, calculateDrawerPlacements } from '@/lib/three/hardware';
 import type { PanelData } from '@/types/shelf';
 
 // 기본 머티리얼 (동기적 폴백)
@@ -31,6 +35,12 @@ export function Shelf() {
   const numRows = useShelfStore((s) => s.numRows);
   const hasBackPanel = useShelfStore((s) => s.hasBackPanel);
   const currentColor = useMaterialStore((s) => s.currentColor);
+
+  // 하드웨어 상태
+  const doorsCreatedLayers = useHardwareStore((s) => s.doorsCreatedLayers);
+  const drawersCreatedLayers = useHardwareStore((s) => s.drawersCreatedLayers);
+  const openDoors = useHardwareStore((s) => s.openDoors);
+  const openDrawers = useHardwareStore((s) => s.openDrawers);
 
   // 머티리얼 (비동기 로딩 지원)
   const [materials, setMaterials] = useState<MaterialSet>(DEFAULT_MATERIALS);
@@ -53,30 +63,54 @@ export function Shelf() {
   }, [currentColor]);
 
   // 스타일별 패널 계산
-  const panels: PanelData[] = useMemo(() => {
+  const styleResult = useMemo(() => {
     const input = { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel };
 
     switch (style) {
       case 'grid':
-        return calculateGridPanels(input).panels;
+        return calculateGridPanels(input);
       case 'slant':
-        return calculateSlantPanels(input).panels;
+        return calculateSlantPanels(input);
       case 'pixel':
-        return calculatePixelPanels(input).panels;
+        return calculatePixelPanels(input);
       case 'gradient':
-        return calculateGradientPanels(input).panels;
+        return calculateGradientPanels(input);
       case 'mosaic':
-        return calculateMosaicPanels(input).panels;
+        return calculateMosaicPanels(input);
       default:
-        return calculateGridPanels(input).panels;
+        return calculateGridPanels(input);
     }
   }, [width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel]);
 
+  const panels: PanelData[] = styleResult.panels;
+  const { panelCount, panelSpacing } = styleResult;
+
+  // 도어 배치 계산
+  const doorPlacements = useMemo(() => {
+    return doorsCreatedLayers.flatMap((layerIndex) =>
+      calculateDoorPlacements(
+        style, layerIndex, width, depth, thickness,
+        rowHeights, numRows, panelCount, panelSpacing,
+      ),
+    );
+  }, [doorsCreatedLayers, style, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing]);
+
+  // 서랍 배치 계산
+  const drawerPlacements = useMemo(() => {
+    return drawersCreatedLayers.flatMap((layerIndex) =>
+      calculateDrawerPlacements(
+        style, layerIndex, width, depth, thickness,
+        rowHeights, numRows, panelCount, panelSpacing,
+      ),
+    );
+  }, [drawersCreatedLayers, style, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing]);
+
   return (
     <group>
+      {/* 선반 패널 */}
       {panels.map((p, i) => (
         <Panel
-          key={`${style}-${i}`}
+          key={`${style}-panel-${i}`}
           w={p.w}
           h={p.h}
           d={p.d}
@@ -85,6 +119,28 @@ export function Shelf() {
           materials={materials}
           castShadow={p.castShadow}
           receiveShadow={p.receiveShadow}
+        />
+      ))}
+
+      {/* 도어 */}
+      {doorPlacements.map((dp, i) => (
+        <Door
+          key={`${style}-door-${dp.layerIndex}-${i}`}
+          placement={dp}
+          materials={materials}
+          isOpen={openDoors[dp.layerIndex] ?? false}
+          thickness={thickness}
+        />
+      ))}
+
+      {/* 서랍 */}
+      {drawerPlacements.map((dp, i) => (
+        <Drawer
+          key={`${style}-drawer-${dp.layerIndex}-${i}`}
+          placement={dp}
+          materials={materials}
+          isOpen={openDrawers[dp.layerIndex] ?? false}
+          thickness={thickness}
         />
       ))}
     </group>
