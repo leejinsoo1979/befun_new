@@ -63,7 +63,7 @@ export const useShelfStore = create<ShelfState>((set, get) => ({
   panelCount: 0,
   panelSpacing: 0,
 
-  setWidth: (w) => set({ width: Math.max(80, Math.min(240, w)) }),
+  setWidth: (w) => set({ width: Math.max(30, Math.min(450, w)) }),
 
   setHeight: (h) => {
     set({ height: Math.max(38, Math.min(228, h)) });
