@@ -1,6 +1,9 @@
 'use client';
 
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { StyleSelector } from '@/components/ui/StyleSelector';
 import { DimensionPanel } from '@/components/ui/DimensionPanel';
 import { DensitySlider } from '@/components/ui/DensitySlider';
@@ -8,6 +11,12 @@ import { ColorPicker } from '@/components/ui/ColorPicker';
 import { BackPanelToggle } from '@/components/ui/BackPanelToggle';
 import { RowControls } from '@/components/ui/RowControls';
 import { PriceDisplay } from '@/components/ui/PriceDisplay';
+import { useShelfStore } from '@/stores/useShelfStore';
+import { useMaterialStore } from '@/stores/useMaterialStore';
+import { useHardwareStore } from '@/stores/useHardwareStore';
+import { useCartStore } from '@/stores/useCartStore';
+import { calculatePrice } from '@/lib/pricing';
+import type { ColorCategory } from '@/types/shelf';
 
 // R3F Canvas는 SSR 불가 → dynamic import
 const Scene = dynamic(() => import('@/components/three/Scene'), {
@@ -20,11 +29,84 @@ const Scene = dynamic(() => import('@/components/three/Scene'), {
 });
 
 export default function ConfiguratorPage() {
+  const router = useRouter();
+  const [saving, setSaving] = useState(false);
+  const [shareUrl, setShareUrl] = useState('');
+
+  const shelf = useShelfStore();
+  const { currentColor, colorCategory } = useMaterialStore();
+  const { doorsCreatedLayers, drawersCreatedLayers } = useHardwareStore();
+  const addItem = useCartStore((s) => s.addItem);
+
+  const getDesignConfig = () => ({
+    style: shelf.style,
+    density: shelf.density,
+    width: shelf.width,
+    height: shelf.height,
+    depth: shelf.depth,
+    hasBackPanel: shelf.hasBackPanel,
+    color: currentColor,
+    colorCategory,
+    rowHeights: shelf.rowHeights,
+    numRows: shelf.rowHeights.length,
+    doorsCreatedLayers,
+    drawersCreatedLayers,
+  });
+
+  const getPrice = () => {
+    const result = calculatePrice({
+      width: shelf.width,
+      height: shelf.height,
+      depth: shelf.depth,
+      colorCategory: colorCategory as ColorCategory,
+      doorCount: doorsCreatedLayers.length,
+      drawerCount: drawersCreatedLayers.length,
+    });
+    return result.finalPrice;
+  };
+
+  const handleAddToCart = () => {
+    addItem({
+      designId: '', // 저장 전이므로 빈 문자열
+      designConfig: getDesignConfig(),
+      quantity: 1,
+      price: getPrice(),
+    });
+    router.push('/cart');
+  };
+
+  const handleSaveDesign = async () => {
+    setSaving(true);
+    try {
+      const res = await fetch('/api/designs', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ config: getDesignConfig() }),
+      });
+      if (!res.ok) throw new Error();
+      const { shareCode } = await res.json();
+      const url = `${window.location.origin}/share/${shareCode}`;
+      setShareUrl(url);
+      await navigator.clipboard.writeText(url);
+    } catch {
+      alert('디자인 저장에 실패했습니다');
+    } finally {
+      setSaving(false);
+    }
+  };
+
   return (
     <div className="flex h-screen w-full">
       {/* 3D 뷰어 */}
       <div className="relative flex-1">
         <Scene />
+        {/* 홈 링크 */}
+        <Link
+          href="/"
+          className="absolute left-4 top-4 text-lg font-bold text-gray-700 hover:text-gray-900"
+        >
+          Befun
+        </Link>
       </div>
 
       {/* 우측 컨트롤 패널 */}
@@ -33,30 +115,29 @@ export default function ConfiguratorPage() {
           <h2 className="mb-1 text-base font-semibold">다용도 수납장 기본형</h2>
           <p className="mb-5 text-xs text-gray-400">맞춤 설정</p>
 
-          {/* 스타일 선택 */}
           <StyleSelector />
-
-          {/* 밀도 조절 */}
           <DensitySlider />
-
-          {/* 치수 조절 (너비/높이/깊이) */}
           <DimensionPanel />
-
-          {/* 백패널 토글 */}
           <BackPanelToggle />
-
-          {/* 색상 선택 */}
           <ColorPicker />
-
-          {/* 행별 설정 (높이/도어/서랍) */}
           <RowControls />
-
-          {/* 가격 표시 */}
           <PriceDisplay />
 
-          {/* 구매 버튼 */}
-          <button className="w-full rounded-lg bg-gray-900 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-800">
-            구매하기
+          {/* 장바구니 담기 */}
+          <button
+            onClick={handleAddToCart}
+            className="w-full rounded-lg bg-gray-900 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
+          >
+            장바구니 담기
+          </button>
+
+          {/* 디자인 공유 */}
+          <button
+            onClick={handleSaveDesign}
+            disabled={saving}
+            className="mt-2 w-full rounded-lg border border-gray-300 py-2.5 text-sm text-gray-600 transition-colors hover:bg-gray-50 disabled:text-gray-400"
+          >
+            {saving ? '저장 중...' : shareUrl ? '링크 복사됨!' : '디자인 공유하기'}
           </button>
         </div>
       </aside>
