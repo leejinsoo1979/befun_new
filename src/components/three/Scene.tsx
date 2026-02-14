@@ -8,22 +8,16 @@ import { Shelf } from './Shelf';
 import { Background } from './Background';
 import { useShelfStore } from '@/stores/useShelfStore';
 
-// v1 Three.js 0.128.0 호환: ColorManagement 비활성화
-// v1에서는 Color가 sRGB → linear 변환 없이 그대로 사용됨
-// v2 Three.js 0.182.0에서 ColorManagement가 기본 활성화되면
-// 동일한 hex 색상이 훨씬 어둡게 렌더링됨
-THREE.ColorManagement.enabled = false;
-
 export default function Scene() {
   const width = useShelfStore((s) => s.width);
 
   return (
     <Canvas
       shadows
+      legacy
+      flat
       gl={{
         antialias: true,
-        toneMapping: THREE.NoToneMapping,
-        outputColorSpace: THREE.SRGBColorSpace,
       }}
       camera={{
         position: [0, 120, 350],
@@ -33,11 +27,11 @@ export default function Scene() {
       }}
       style={{ background: '#e9eaea' }}
     >
-      {/* 조명 — light.js 이식 */}
-      <ambientLight intensity={0.1} />
+      {/* 조명 — light.js 이식 (Three.js r182 physically-correct lighting 보정: intensity * PI) */}
+      <ambientLight intensity={0.1 * Math.PI} />
       <directionalLight
         position={[-100, 200, 300]}
-        intensity={0.3}
+        intensity={0.3 * Math.PI}
         castShadow
         shadow-mapSize-width={2048}
         shadow-mapSize-height={2048}
@@ -52,7 +46,7 @@ export default function Scene() {
       />
       <directionalLight
         position={[100, 200, 300]}
-        intensity={0.2}
+        intensity={0.2 * Math.PI}
       />
 
       {/* 배경 (바닥 + 실루엣) */}

@@ -76,18 +76,21 @@ export interface MaterialSet {
 export function createColorMaterials(baseHex: string, edgeHex: string): MaterialSet {
   const base = new THREE.MeshStandardMaterial({
     color: new THREE.Color(baseHex),
-    roughness: 0.5,
+    roughness: 1.0,
     metalness: 0.0,
+    side: THREE.DoubleSide,
   });
   const edge = new THREE.MeshStandardMaterial({
     color: new THREE.Color(edgeHex),
-    roughness: 0.5,
+    roughness: 1.0,
     metalness: 0.0,
+    side: THREE.DoubleSide,
   });
   const back = new THREE.MeshStandardMaterial({
     color: new THREE.Color(baseHex),
-    roughness: 0.7,
+    roughness: 1.0,
     metalness: 0.0,
+    side: THREE.DoubleSide,
   });
 
   return {
@@ -115,8 +118,9 @@ export function createTextureMaterials(textureName: string): Promise<MaterialSet
           texture.colorSpace = THREE.SRGBColorSpace;
           const mat = new THREE.MeshStandardMaterial({
             map: texture,
-            roughness: 0.5,
+            roughness: 1.0,
             metalness: 0.0,
+            side: THREE.DoubleSide,
           });
           materials[type] = mat;
           loaded++;
@@ -128,8 +132,9 @@ export function createTextureMaterials(textureName: string): Promise<MaterialSet
           // 텍스처 로드 실패 시 흰색 폴백
           materials[type] = new THREE.MeshStandardMaterial({
             color: 0xffffff,
-            roughness: 0.5,
+            roughness: 1.0,
             metalness: 0.0,
+            side: THREE.DoubleSide,
           });
           loaded++;
           if (loaded === total) resolve(materials as MaterialSet);
