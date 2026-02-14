@@ -67,7 +67,7 @@ export function PriceDisplay() {
       totalPanelVolume,
       colorCategory: colorCategory as ColorCategory,
     });
-  }, [width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel, colorCategory]);
+  }, [width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel, hardwareLayers, colorCategory]);
 
   const saveAmount = priceResult.originalPrice - priceResult.finalPrice;
 

@@ -96,7 +96,7 @@ function generateMosaicPattern(
 // ── 메인: Mosaic 패널 배치 계산 ──
 
 export function calculateMosaicPanels(input: MosaicInput): MosaicResult {
-  const { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel } = input;
+  const { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers = [] } = input;
 
   const baseUnit = 30;
   const gridColumns = Math.floor(width / baseUnit);

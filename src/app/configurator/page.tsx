@@ -73,6 +73,11 @@ export default function ConfiguratorPage() {
   const getPrice = () => {
     const shelf = useShelfStore.getState();
     const { colorCategory } = useMaterialStore.getState();
+    const { doorsCreatedLayers, drawersCreatedLayers } = useHardwareStore.getState();
+    const layers = new Set<number>();
+    doorsCreatedLayers.forEach((l) => layers.add(l));
+    drawersCreatedLayers.forEach((l) => layers.add(l));
+    const hardwareLayers = Array.from(layers);
     const input = {
       width: shelf.width,
       height: shelf.height,
@@ -82,6 +87,7 @@ export default function ConfiguratorPage() {
       rowHeights: shelf.rowHeights,
       numRows: shelf.numRows,
       hasBackPanel: shelf.hasBackPanel,
+      hardwareLayers,
     };
     let panels;
     switch (shelf.style) {
