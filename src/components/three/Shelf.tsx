@@ -1,44 +1,24 @@
 'use client';
 
-import { useMemo } from 'react';
-import * as THREE from 'three';
+import { useMemo, useState, useEffect } from 'react';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { useMaterialStore } from '@/stores/useMaterialStore';
+import { Panel } from './Panel';
+import {
+  createMaterialsForColor,
+  createColorMaterials,
+  disposeMaterialSet,
+  type MaterialSet,
+} from '@/lib/three/materials';
 import { calculateGridPanels } from '@/lib/three/styles/grid';
-import type { MaterialType } from '@/types/shelf';
+import { calculateSlantPanels } from '@/lib/three/styles/slant';
+import { calculatePixelPanels } from '@/lib/three/styles/pixel';
+import { calculateGradientPanels } from '@/lib/three/styles/gradient';
+import { calculateMosaicPanels } from '@/lib/three/styles/mosaic';
+import type { PanelData } from '@/types/shelf';
 
-// 기본 Solid 색상 재질 생성 (Phase 2에서 colorSelect.js 재질 시스템 이식)
-function createDefaultMaterials(): Record<MaterialType, THREE.Material> {
-  const baseColor = new THREE.Color('#2c3e6b'); // Midnight Blue
-
-  return {
-    verticalBase: new THREE.MeshStandardMaterial({
-      color: baseColor,
-      roughness: 0.5,
-      metalness: 0.0,
-    }),
-    verticalEdge: new THREE.MeshStandardMaterial({
-      color: baseColor,
-      roughness: 0.5,
-      metalness: 0.0,
-    }),
-    horizontalBase: new THREE.MeshStandardMaterial({
-      color: baseColor,
-      roughness: 0.5,
-      metalness: 0.0,
-    }),
-    horizontalEdge: new THREE.MeshStandardMaterial({
-      color: baseColor,
-      roughness: 0.5,
-      metalness: 0.0,
-    }),
-    backPanel: new THREE.MeshStandardMaterial({
-      color: new THREE.Color('#f0f0f0'),
-      roughness: 0.7,
-      metalness: 0.0,
-    }),
-  };
-}
+// 기본 머티리얼 (동기적 폴백)
+const DEFAULT_MATERIALS = createColorMaterials('#283A57', '#283A57');
 
 export function Shelf() {
   const width = useShelfStore((s) => s.width);
@@ -52,35 +32,60 @@ export function Shelf() {
   const hasBackPanel = useShelfStore((s) => s.hasBackPanel);
   const currentColor = useMaterialStore((s) => s.currentColor);
 
-  const materials = useMemo(() => createDefaultMaterials(), [currentColor]);
+  // 머티리얼 (비동기 로딩 지원)
+  const [materials, setMaterials] = useState<MaterialSet>(DEFAULT_MATERIALS);
 
-  const panels = useMemo(() => {
-    // 현재는 Grid만 구현, 나머지 스타일은 Phase 2에서 추가
-    const result = calculateGridPanels({
-      width,
-      height,
-      depth,
-      thickness,
-      density,
-      rowHeights,
-      numRows,
-      hasBackPanel,
+  useEffect(() => {
+    let disposed = false;
+
+    createMaterialsForColor(currentColor).then((mats) => {
+      if (!disposed) {
+        setMaterials((prev) => {
+          if (prev !== DEFAULT_MATERIALS) disposeMaterialSet(prev);
+          return mats;
+        });
+      }
     });
-    return result.panels;
+
+    return () => {
+      disposed = true;
+    };
+  }, [currentColor]);
+
+  // 스타일별 패널 계산
+  const panels: PanelData[] = useMemo(() => {
+    const input = { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel };
+
+    switch (style) {
+      case 'grid':
+        return calculateGridPanels(input).panels;
+      case 'slant':
+        return calculateSlantPanels(input).panels;
+      case 'pixel':
+        return calculatePixelPanels(input).panels;
+      case 'gradient':
+        return calculateGradientPanels(input).panels;
+      case 'mosaic':
+        return calculateMosaicPanels(input).panels;
+      default:
+        return calculateGridPanels(input).panels;
+    }
   }, [width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel]);
 
   return (
     <group>
       {panels.map((p, i) => (
-        <mesh
-          key={`panel-${i}`}
+        <Panel
+          key={`${style}-${i}`}
+          w={p.w}
+          h={p.h}
+          d={p.d}
           position={[p.x, p.y, p.z]}
+          matType={p.matType}
+          materials={materials}
           castShadow={p.castShadow}
           receiveShadow={p.receiveShadow}
-        >
-          <boxGeometry args={[p.w, p.h, p.d]} />
-          <primitive object={materials[p.matType]} attach="material" />
-        </mesh>
+        />
       ))}
     </group>
   );
