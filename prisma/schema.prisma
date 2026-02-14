@@ -1,0 +1,146 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============ 사용자 ============
+
+model User {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  name      String?
+  phone     String?
+  image     String?
+  addresses Address[]
+  orders    Order[]
+  designs   Design[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Address {
+  id        String  @id @default(cuid())
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name      String  // 받는 사람
+  phone     String
+  zipCode   String
+  address   String  // 기본 주소
+  detail    String? // 상세 주소
+  isDefault Boolean @default(false)
+
+  @@index([userId])
+}
+
+// ============ 디자인 ============
+
+model Design {
+  id           String      @id @default(cuid())
+  userId       String?
+  user         User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+  shareCode    String      @unique // URL 공유용 코드
+  config       Json        // 가구 설정값 전체
+  thumbnailUrl String?     // 3D 스크린샷
+  orderItems   OrderItem[]
+  createdAt    DateTime    @default(now())
+
+  @@index([userId])
+  @@index([shareCode])
+}
+
+// ============ 주문 ============
+
+model Order {
+  id          String      @id @default(cuid())
+  userId      String
+  user        User        @relation(fields: [userId], references: [id])
+  items       OrderItem[]
+  payment     Payment?
+  shipping    Shipping?
+  status      OrderStatus @default(PENDING)
+  totalAmount Int         // 원 단위
+  shippingFee Int         @default(0)
+  // 주문 시점 배송지 스냅샷
+  shipName    String
+  shipPhone   String
+  shipZipCode String
+  shipAddress String
+  shipDetail  String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@index([userId])
+}
+
+model OrderItem {
+  id       String @id @default(cuid())
+  orderId  String
+  order    Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  designId String
+  design   Design @relation(fields: [designId], references: [id])
+  quantity Int    @default(1)
+  price    Int    // 개당 가격
+
+  @@index([orderId])
+}
+
+// ============ 결제 ============
+
+model Payment {
+  id          String        @id @default(cuid())
+  orderId     String        @unique
+  order       Order         @relation(fields: [orderId], references: [id])
+  paymentKey  String?       // 토스페이먼츠 paymentKey
+  method      String?       // CARD, TRANSFER, EASY_PAY 등
+  amount      Int
+  status      PaymentStatus @default(PENDING)
+  paidAt      DateTime?
+  cancelledAt DateTime?
+  rawResponse Json?         // 토스 응답 원본 저장
+  createdAt   DateTime      @default(now())
+}
+
+// ============ 배송 ============
+
+model Shipping {
+  id          String         @id @default(cuid())
+  orderId     String         @unique
+  order       Order          @relation(fields: [orderId], references: [id])
+  carrier     String?        // 택배사
+  trackingNo  String?        // 운송장 번호
+  status      ShippingStatus @default(PREPARING)
+  shippedAt   DateTime?
+  deliveredAt DateTime?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+}
+
+// ============ Enums ============
+
+enum OrderStatus {
+  PENDING    // 주문 대기
+  PAID       // 결제 완료
+  PRODUCING  // 제작 중
+  SHIPPING   // 배송 중
+  DELIVERED  // 배송 완료
+  CANCELLED  // 취소
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  CANCELLED
+  REFUNDED
+}
+
+enum ShippingStatus {
+  PREPARING  // 제작/준비 중
+  SHIPPED    // 발송
+  IN_TRANSIT // 배송 중
+  DELIVERED  // 배송 완료
+}
