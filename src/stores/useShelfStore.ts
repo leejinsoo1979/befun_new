@@ -78,11 +78,18 @@ export const useShelfStore = create<ShelfState>((set, get) => ({
 
   setHasBackPanel: (v) => set({ hasBackPanel: v }),
 
-  setRowHeight: (index, height) => {
-    const rowHeights = [...get().rowHeights];
-    rowHeights[index] = height;
-    set({ rowHeights });
-    get().recalculateRows();
+  setRowHeight: (index, newHeight) => {
+    const { numRows, rowHeights, thickness } = get();
+    const newRowHeights = [...rowHeights];
+    newRowHeights[index] = newHeight;
+
+    // 행 수 유지, height만 재계산
+    let totalHeight = thickness;
+    for (let i = 0; i < numRows; i++) {
+      totalHeight += (newRowHeights[i] ?? DEFAULT_ROW_HEIGHT) + thickness;
+    }
+
+    set({ rowHeights: newRowHeights, height: totalHeight });
   },
 
   setRowHeights: (heights) => {
