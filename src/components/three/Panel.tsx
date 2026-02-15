@@ -27,11 +27,17 @@ export function Panel({
   castShadow = true,
   receiveShadow = true,
 }: PanelProps) {
-  const isVertical = matType === 'verticalBase' || matType === 'verticalEdge';
+  const isVertical = matType === 'verticalBase' || matType === 'verticalEdge' || matType === 'supportPanel';
 
   const faceMaterials = useMemo(() => {
     if (matType === 'backPanel') {
       return materials.backPanel;
+    }
+
+    if (matType === 'supportPanel') {
+      // V1: addBox(..., materials.verticalEdge, materials.verticalBase, true)
+      // 보강대: 넓은 면(left/right)에 verticalEdge, 얇은 면(front/back/top/bottom)에 verticalBase
+      return createFaceMaterials(materials.verticalEdge, materials.verticalBase, true, DEFAULT_TEXTURE_ROTATION);
     }
 
     const baseMat = isVertical ? materials.verticalBase : materials.horizontalBase;

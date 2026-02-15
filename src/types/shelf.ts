@@ -8,7 +8,8 @@ export type MaterialType =
   | 'verticalEdge'
   | 'horizontalBase'
   | 'horizontalEdge'
-  | 'backPanel';
+  | 'backPanel'
+  | 'supportPanel';
 
 export type RowHeight = 18 | 32 | 38;
 

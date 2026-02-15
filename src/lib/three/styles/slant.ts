@@ -253,7 +253,7 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
           x: position,
           y: yPosition,
           z: thickness / 2,
-          matType: 'verticalEdge',
+          matType: 'supportPanel',
           castShadow: true,
           receiveShadow: true,
         });

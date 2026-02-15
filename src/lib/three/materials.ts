@@ -56,7 +56,9 @@ export function getColorCategory(colorName: string): ColorCategory {
 
 const textureLoader = new THREE.TextureLoader();
 
-const MATERIAL_TYPES: MaterialType[] = [
+type TextureMaterialType = keyof MaterialSet;
+
+const MATERIAL_TYPES: TextureMaterialType[] = [
   'verticalBase',
   'verticalEdge',
   'horizontalBase',

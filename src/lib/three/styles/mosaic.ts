@@ -159,14 +159,14 @@ export function calculateMosaicPanels(input: MosaicInput): MosaicResult {
       panels.push({
         w: supPanelWidth, h: rh, d: thickness,
         x: -width / 2 + supPanelWidth / 2 + thickness, y: yPosition, z: thickness / 2,
-        matType: 'verticalEdge', castShadow: true, receiveShadow: true,
+        matType: 'supportPanel', castShadow: true, receiveShadow: true,
       });
 
       if (width >= 44) {
         panels.push({
           w: supPanelWidth, h: rh, d: thickness,
           x: width / 2 - supPanelWidth / 2 - thickness, y: yPosition, z: thickness / 2,
-          matType: 'verticalEdge', castShadow: true, receiveShadow: true,
+          matType: 'supportPanel', castShadow: true, receiveShadow: true,
         });
       }
     }

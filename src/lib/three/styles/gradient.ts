@@ -146,13 +146,13 @@ export function calculateGradientPanels(input: GradientInput): GradientResult {
       panels.push({
         w: supPanelWidth, h: rh, d: thickness,
         x: -width / 2 + supPanelWidth / 2 + 2, y: yPosition, z: 1,
-        matType: 'verticalEdge', castShadow: true, receiveShadow: true,
+        matType: 'supportPanel', castShadow: true, receiveShadow: true,
       });
       if (width >= 44) {
         panels.push({
           w: supPanelWidth, h: rh, d: thickness,
           x: width / 2 - supPanelWidth / 2 - 2, y: yPosition, z: 1,
-          matType: 'verticalEdge', castShadow: true, receiveShadow: true,
+          matType: 'supportPanel', castShadow: true, receiveShadow: true,
         });
       }
     }
