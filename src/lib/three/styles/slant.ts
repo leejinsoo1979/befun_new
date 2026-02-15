@@ -16,17 +16,19 @@ export interface SlantInput {
 export type SlantResult = GridResult;
 
 // ── Tylko 역설계 Slant 칸 분할 알고리즘 ──
-// Slant는 adjustedWidth(= width - 24) 기준으로 칸 수를 결정
-// D0: 사용자 수집 데이터 + 간격 감소 패턴(67, 64, 61, 58, 55, 52)으로 도출
-// D100: Grid D100과 유사 (450cm에서 ~14-15칸)
+// 경계 테이블: 해당 width(전체 너비)에서 칸 수가 N이 되는 최소 너비
+// D0: 사용자가 Tylko에서 직접 수집 (1~4칸 확인, 5~8칸 외삽)
+// D100: 450cm에서 unclamped 16칸 기준 역산
+// 450cm 검증: D0=8칸, D50=12칸, D100=14칸(spacing 30cm 클램핑)
 
-const SLANT_D0_BOUNDARIES = [30, 69, 136, 200, 261, 319, 374, 426];
-const SLANT_D100_BOUNDARIES = [30, 59, 87, 115, 143, 173, 200, 230, 256, 285, 312, 341, 369, 399, 425];
+const SLANT_D0_BOUNDARIES = [30, 69, 136, 200, 264, 325, 383, 438];
+const SLANT_D100_BOUNDARIES = [30, 57, 84, 111, 138, 165, 192, 219, 246, 273, 300, 327, 354, 381, 408, 435];
+const MIN_SLANT_SPACING = 30;
 
-function getSlantCompartments(adjustedWidth: number, boundaries: number[]): number {
+function getSlantCompartments(width: number, boundaries: number[]): number {
   let count = 0;
   for (let i = 0; i < boundaries.length; i++) {
-    if (adjustedWidth >= boundaries[i]) {
+    if (width >= boundaries[i]) {
       count = i + 1;
     } else {
       break;
@@ -35,9 +37,10 @@ function getSlantCompartments(adjustedWidth: number, boundaries: number[]): numb
   return Math.max(1, count);
 }
 
-function calculateSlantCompartments(adjustedWidth: number, density: number): number {
-  const minCols = getSlantCompartments(adjustedWidth, SLANT_D0_BOUNDARIES);
-  const maxCols = getSlantCompartments(adjustedWidth, SLANT_D100_BOUNDARIES);
+// density 보간 공식: Grid와 동일 — minCols + floor(density * (range + 1) / 101)
+function calculateSlantCompartments(width: number, density: number): number {
+  const minCols = getSlantCompartments(width, SLANT_D0_BOUNDARIES);
+  const maxCols = getSlantCompartments(width, SLANT_D100_BOUNDARIES);
   const range = maxCols - minCols;
 
   if (range <= 0) return minCols;
@@ -46,11 +49,19 @@ function calculateSlantCompartments(adjustedWidth: number, density: number): num
 }
 
 function calculateSlantSpacing(
+  width: number,
   adjustedWidth: number,
   thickness: number,
   density: number,
 ): { panelCount: number; panelSpacing: number } {
-  const compartments = calculateSlantCompartments(adjustedWidth, density);
+  let compartments = calculateSlantCompartments(width, density);
+
+  // 최소 spacing 제약: 칸 너비가 30cm 미만이면 칸 수 축소
+  const maxCompartments = Math.floor((adjustedWidth - thickness) / MIN_SLANT_SPACING);
+  if (maxCompartments > 0 && compartments > maxCompartments) {
+    compartments = maxCompartments;
+  }
+
   const panelCount = compartments + 1;
   const panelSpacing = (adjustedWidth - thickness) / compartments;
 
@@ -164,7 +175,7 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
   const adjustedWidth = width - 24;
   const panels: PanelData[] = [];
   const hardwareSet = new Set(hardwareLayers);
-  const { panelCount, panelSpacing } = calculateSlantSpacing(adjustedWidth, thickness, density);
+  const { panelCount, panelSpacing } = calculateSlantSpacing(width, adjustedWidth, thickness, density);
 
   // === 가로 패널 ===
   let currentY = 0;
