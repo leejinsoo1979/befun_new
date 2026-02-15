@@ -263,7 +263,7 @@ function createGridInnerLabels(
   const heightLabelX = -width / 2 + 0.5 * panelSpacing;
 
   for (let i = 0; i < numRows; i++) {
-    if (rowHeights[i] === 12) {
+    if (rowHeights[i] === 18) {
       const gap = 7;
       labelY += rowHeights[i] + thickness + gap;
       const label = createLabelSprite(`${rowHeights[i].toFixed(0)}`);
@@ -329,7 +329,7 @@ function createSlantInnerLabels(
   const heightLabelX = -adjustedShelfWidth / 2 + 0.5 * slantPanelSpacing;
 
   for (let i = 0; i < numRows; i++) {
-    if (rowHeights[i] === 12) {
+    if (rowHeights[i] === 18) {
       const gap = 7;
       currentY += rowHeights[i] / 2 + thickness + gap;
       const label = createLabelSprite(`${rowHeights[i].toFixed(0)}`);
@@ -425,7 +425,7 @@ function createPixelInnerLabels(
   const heightLabelX = -width / 2 + gaps[0] / 2;
 
   for (let i = 0; i < numRows; i++) {
-    if (rowHeights[i] === 12) {
+    if (rowHeights[i] === 18) {
       const gap = 7;
       currentY += rowHeights[i] / 2 + thickness + gap;
       const label = createLabelSprite(`${rowHeights[i].toFixed(0)}`);
@@ -474,7 +474,7 @@ function createGradientInnerLabels(
   // 세로 패널 치수
   let currentY = 0;
   for (let i = 0; i < numRows; i++) {
-    if (rowHeights[i] === 12) {
+    if (rowHeights[i] === 18) {
       const gap = 7;
       currentY += rowHeights[i] / 2 + thickness + gap;
       const label = createLabelSprite(`${rowHeights[i].toFixed(0)}`);
@@ -544,7 +544,7 @@ function createPatternInnerLabels(
   const heightLabelX = -width / 2 - 15;
   currentY = 0;
   for (let i = 0; i < numRows; i++) {
-    if (rowHeights[i] === 12) {
+    if (rowHeights[i] === 18) {
       const gap = 7;
       currentY += rowHeights[i] / 2 + thickness + gap;
       const label = createLabelSprite(`${rowHeights[i].toFixed(0)}`);

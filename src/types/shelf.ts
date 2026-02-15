@@ -11,7 +11,7 @@ export type MaterialType =
   | 'backPanel'
   | 'supportPanel';
 
-export type RowHeight = 12 | 28 | 38;
+export type RowHeight = 18 | 28 | 38;
 
 export interface ShelfConfig {
   width: number;       // 80~240

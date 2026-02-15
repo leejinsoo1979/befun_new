@@ -6,7 +6,7 @@ import { useHardwareStore } from '@/stores/useHardwareStore';
 import { useUIStore } from '@/stores/useUIStore';
 import type { RowHeight } from '@/types/shelf';
 
-const ROW_HEIGHTS: RowHeight[] = [12, 28, 38];
+const ROW_HEIGHTS: RowHeight[] = [18, 28, 38];
 
 // v1 비즈니스 규칙: 도어는 32cm 이상, 서랍은 깊이 40cm 이상 + 높이 150cm 이하
 const MIN_DOOR_HEIGHT = 28;
