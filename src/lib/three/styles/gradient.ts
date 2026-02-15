@@ -17,7 +17,7 @@ export type GradientResult = GridResult & { internalWidths: number[] };
 
 // ── v1 calculateInternalWidths 이식 ──
 
-function calculateInternalWidths(columnCount: number, totalWidth: number, density: number, thickness: number): number[] {
+export function calculateInternalWidths(columnCount: number, totalWidth: number, density: number, thickness: number): number[] {
   const minWidth = 25;
   const maxWidth = 66;
   let widths = new Array<number>(columnCount).fill(0);

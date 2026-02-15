@@ -1,5 +1,6 @@
 import type { StyleType } from '@/types/shelf';
 import { calculateSlantSpacing } from './styles/slant';
+import { calculateInternalWidths } from './styles/gradient';
 
 // ── 도어 데이터 ──
 
@@ -240,6 +241,118 @@ export function calculateSlantDrawers(
   return placements;
 }
 
+// ── Gradient 세로 패널 x 좌표 배열 (gradient.ts와 동일) ──
+
+function getGradientVerticalPanelXPositions(
+  width: number,
+  thickness: number,
+  density: number,
+): number[] {
+  if (width < 60) return []; // Grid fallback이므로 빈 배열
+
+  const columnCount = Math.floor((width - thickness) / 40) + 1;
+  const internalWidths = calculateInternalWidths(columnCount, width - 2 * thickness, density, thickness);
+
+  const positions: number[] = [];
+  // gradient.ts: 좌측부터 x = -width/2 + thickness/2, 각 칸 폭만큼 누적
+  let x = -width / 2 + thickness / 2;
+  positions.push(x);
+  for (let i = 0; i < internalWidths.length; i++) {
+    x += internalWidths[i] + thickness;
+    positions.push(x);
+  }
+  return positions;
+}
+
+// ── Gradient 도어 배치 ──
+
+function calculateGradientDoors(
+  layerIndex: number,
+  width: number,
+  depth: number,
+  thickness: number,
+  rowHeights: number[],
+  density: number,
+): DoorPlacement[] {
+  const panelPositions = getGradientVerticalPanelXPositions(width, thickness, density);
+  if (panelPositions.length < 2) return [];
+
+  const placements: DoorPlacement[] = [];
+
+  let currentY = 0;
+  for (let i = 0; i < layerIndex; i++) {
+    currentY += rowHeights[i] + thickness;
+  }
+
+  const doorHeight = rowHeights[layerIndex] - DOOR_GAP;
+
+  for (let i = 0; i < panelPositions.length - 1; i++) {
+    const leftPanelX = panelPositions[i];
+    const rightPanelX = panelPositions[i + 1];
+    const innerLeft = leftPanelX + thickness / 2;
+    const innerRight = rightPanelX - thickness / 2;
+    const doorWidth = (innerRight - innerLeft) - DOOR_GAP;
+
+    const doorRightEdge = innerRight - DOOR_GAP / 2;
+    const hingeX = doorRightEdge - 1;
+    const yPosition = currentY + rowHeights[layerIndex] / 2 + thickness;
+
+    placements.push({
+      x: hingeX,
+      y: yPosition,
+      z: depth - 1,
+      width: doorWidth,
+      height: doorHeight,
+      pivotOffsetX: -doorWidth / 2 + 1,
+      layerIndex,
+    });
+  }
+
+  return placements;
+}
+
+// ── Gradient 서랍 배치 ──
+
+function calculateGradientDrawers(
+  layerIndex: number,
+  width: number,
+  depth: number,
+  thickness: number,
+  rowHeights: number[],
+  density: number,
+): DrawerPlacement[] {
+  const panelPositions = getGradientVerticalPanelXPositions(width, thickness, density);
+  if (panelPositions.length < 2) return [];
+
+  const placements: DrawerPlacement[] = [];
+  const drawerDepth = depth - thickness;
+
+  let currentY = 0;
+  for (let i = 0; i < layerIndex; i++) {
+    currentY += rowHeights[i] + thickness;
+  }
+
+  for (let i = 0; i < panelPositions.length - 1; i++) {
+    const leftPanelX = panelPositions[i];
+    const rightPanelX = panelPositions[i + 1];
+    const centerX = (leftPanelX + rightPanelX) / 2;
+    const compartmentW = rightPanelX - leftPanelX;
+    const yPosition = currentY + rowHeights[layerIndex] / 2 + thickness;
+
+    placements.push({
+      x: centerX,
+      y: yPosition,
+      z: 0,
+      compartmentWidth: compartmentW,
+      rowHeight: rowHeights[layerIndex],
+      drawerDepth,
+      layerIndex,
+    });
+  }
+
+  return placements;
+}
+
 // ── 스타일별 도어/서랍 배치 라우터 ──
 
 export function calculateDoorPlacements(
@@ -252,13 +365,15 @@ export function calculateDoorPlacements(
   numRows: number,
   panelCount: number,
   panelSpacing: number,
+  density?: number,
 ): DoorPlacement[] {
   switch (style) {
     case 'slant':
       return calculateSlantDoors(layerIndex, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing);
+    case 'gradient':
+      return calculateGradientDoors(layerIndex, width, depth, thickness, rowHeights, density ?? 50);
     case 'grid':
     case 'pixel':
-    case 'gradient':
     case 'mosaic':
     default:
       return calculateGridDoors(layerIndex, width, depth, thickness, rowHeights, panelCount, panelSpacing);
@@ -275,13 +390,15 @@ export function calculateDrawerPlacements(
   numRows: number,
   panelCount: number,
   panelSpacing: number,
+  density?: number,
 ): DrawerPlacement[] {
   switch (style) {
     case 'slant':
       return calculateSlantDrawers(layerIndex, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing);
+    case 'gradient':
+      return calculateGradientDrawers(layerIndex, width, depth, thickness, rowHeights, density ?? 50);
     case 'grid':
     case 'pixel':
-    case 'gradient':
     case 'mosaic':
     default:
       return calculateGridDrawers(layerIndex, width, depth, thickness, rowHeights, panelCount, panelSpacing);

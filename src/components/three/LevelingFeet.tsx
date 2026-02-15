@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import * as THREE from 'three';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { calculateSlantSpacing } from '@/lib/three/styles/slant';
+import { calculateInternalWidths } from '@/lib/three/styles/gradient';
 
 /**
  * 조절발 1개: 지름 25mm(반지름 1.25cm), 높이 10mm(1cm)
@@ -74,6 +75,18 @@ export function LevelingFeet() {
         if (Math.abs(x - leftX) < 10 || Math.abs(x - rightX) < 10) continue;
         positions.push([x, y, frontZ]);
         positions.push([x, y, backZ]);
+      }
+    } else if (style === 'gradient' && width >= 60) {
+      // Gradient: 가변 폭 세로 패널 위치에 배치
+      const columnCount = Math.floor((width - thickness) / 40) + 1;
+      const internalWidths = calculateInternalWidths(columnCount, width - 2 * thickness, density, thickness);
+      let px = -width / 2 + thickness / 2;
+      for (let i = 0; i < internalWidths.length; i++) {
+        px += internalWidths[i] + thickness;
+        // 양끝 10cm 이내는 스킵
+        if (Math.abs(px - leftX) < 10 || Math.abs(px - rightX) < 10) continue;
+        positions.push([px, y, frontZ]);
+        positions.push([px, y, backZ]);
       }
     } else {
       // Grid 등: 약 60cm 간격 균등 배치

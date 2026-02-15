@@ -111,20 +111,20 @@ export function Shelf({ showDimensions = false }: ShelfProps) {
     return doorsCreatedLayers.flatMap((layerIndex) =>
       calculateDoorPlacements(
         style, layerIndex, width, depth, thickness,
-        rowHeights, numRows, panelCount, panelSpacing,
+        rowHeights, numRows, panelCount, panelSpacing, density,
       ),
     );
-  }, [doorsCreatedLayers, style, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing]);
+  }, [doorsCreatedLayers, style, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing, density]);
 
   // 서랍 배치 계산
   const drawerPlacements = useMemo(() => {
     return drawersCreatedLayers.flatMap((layerIndex) =>
       calculateDrawerPlacements(
         style, layerIndex, width, depth, thickness,
-        rowHeights, numRows, panelCount, panelSpacing,
+        rowHeights, numRows, panelCount, panelSpacing, density,
       ),
     );
-  }, [drawersCreatedLayers, style, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing]);
+  }, [drawersCreatedLayers, style, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing, density]);
 
   // 조절발 높이만큼 선반 전체를 올려서 조절발이 바닥 위에 보이게 함
   const footHeight = 1; // 조절발 높이 10mm
