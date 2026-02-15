@@ -17,7 +17,7 @@ import { useUIStore } from '@/stores/useUIStore';
  */
 function AutoFocusCamera() {
   const controlsRef = useRef<any>(null);
-  const { camera } = useThree();
+  const { camera, size } = useThree();
 
   const width = useShelfStore((s) => s.width);
   const height = useShelfStore((s) => s.height);
@@ -32,9 +32,8 @@ function AutoFocusCamera() {
 
   useEffect(() => {
     const centerY = height / 2 - 10;
-    // 선반이 뷰포트를 적절히 채우도록 카메라 거리 계산
-    // perspective: distance = (size/2) / tan(fov/2) 에 여유 마진 적용
-    const aspect = window.innerWidth / window.innerHeight;
+    // Canvas의 실제 렌더링 영역 크기로 aspect ratio 계산
+    const aspect = size.width / size.height;
     const fovRad = 40 * (Math.PI / 180);
     const halfFovV = fovRad / 2;
     const halfFovH = Math.atan(Math.tan(halfFovV) * aspect);
@@ -43,7 +42,7 @@ function AutoFocusCamera() {
     const distForHeight = (height / 2 + 20) / Math.tan(halfFovV);
     const distForWidth = (width / 2 + 20) / Math.tan(halfFovH);
     let cameraZ = Math.max(distForHeight, distForWidth);
-    // 약간의 여유 마진 (1.15x) — 선반이 화면 ~85% 채움
+    // 여유 마진 (1.15x) — 선반이 화면 ~85% 채움
     cameraZ *= 1.15;
     cameraZ = Math.max(cameraZ, 150);
 
@@ -63,7 +62,7 @@ function AutoFocusCamera() {
       // 크기 변경 시: 부드러운 전환
       animating.current = true;
     }
-  }, [width, height, depth, camera]);
+  }, [width, height, depth, camera, size.width, size.height]);
 
   // 부드러운 카메라 전환 (크기 변경 시에만, 사용자 조작 시 중단)
   useFrame(() => {
