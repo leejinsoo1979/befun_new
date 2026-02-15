@@ -5,11 +5,11 @@ import * as THREE from 'three';
 import { useShelfStore } from '@/stores/useShelfStore';
 
 /**
- * 조절발 1개: 지름 25mm(반지름 1.25cm), 높이 15mm(1.5cm)
+ * 조절발 1개: 지름 25mm(반지름 1.25cm), 높이 10mm(1cm)
  */
 function Foot({ position }: { position: [number, number, number] }) {
   const radius = 1.25; // 지름 25mm / 2
-  const height = 1.5;  // 높이 15mm
+  const height = 1;    // 높이 10mm
 
   return (
     <group position={position}>
@@ -45,7 +45,7 @@ export function LevelingFeet() {
 
   const footPositions = useMemo(() => {
     const positions: [number, number, number][] = [];
-    const y = -1.5; // 바닥판 아래 = 조절발 높이만큼 내려서 바닥면(y=0 world)에 닿도록
+    const y = -1; // 바닥판 아래 = 조절발 높이만큼 내려서 바닥면(y=0 world)에 닿도록
     const inset = 3; // 전면/후면에서 안쪽으로 동일한 거리
     const frontZ = depth - inset; // 앞쪽
     const backZ = inset; // 뒤쪽

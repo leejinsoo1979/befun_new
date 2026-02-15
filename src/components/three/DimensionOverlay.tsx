@@ -167,13 +167,15 @@ export function DimensionOverlay() {
       new THREE.Vector3(width / 2, height + thickness * 3, depth + 1),
     ).forEach((obj) => group.add(obj));
 
-    // 세로 (height) — 우측
-    const heightLabel = createLabelSprite(`${height}`);
-    heightLabel.position.set(width / 2 + 10, height / 2, depth + 1);
+    // 세로 (height + 조절발) — 우측
+    const footHeight = 1; // 조절발 높이 1cm
+    const totalHeight = height + footHeight;
+    const heightLabel = createLabelSprite(`${totalHeight}`);
+    heightLabel.position.set(width / 2 + 10, height / 2 - footHeight / 2, depth + 1);
     group.add(heightLabel);
 
     createGuidelineObjects(
-      new THREE.Vector3(width / 2 + 10, 0, depth + 1),
+      new THREE.Vector3(width / 2 + 10, -footHeight, depth + 1),
       new THREE.Vector3(width / 2 + 10, height, depth + 1),
     ).forEach((obj) => group.add(obj));
 

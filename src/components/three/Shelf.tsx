@@ -127,7 +127,7 @@ export function Shelf({ showDimensions = false }: ShelfProps) {
   }, [drawersCreatedLayers, style, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing]);
 
   // 조절발 높이만큼 선반 전체를 올려서 조절발이 바닥 위에 보이게 함
-  const footHeight = 1.5; // 조절발 높이 15mm
+  const footHeight = 1; // 조절발 높이 10mm
 
   return (
     <group position={[0, footHeight, 0]}>
