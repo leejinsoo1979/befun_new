@@ -246,27 +246,33 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
     const isEvenRow = j % 2 === 0;
 
     if (rowNeedsBackPanel) {
+      // 해당 행의 각 세로 패널 실제 x (좌측 변 기준, 지그재그 + 클램핑)
+      const vx: number[] = [];
+      for (let i = 0; i < panelCount; i++) {
+        const baseX = -halfAdj + i * panelSpacing;
+        let px = isEvenRow ? baseX - slantOffset : baseX + slantOffset + 2;
+        px = Math.max(minPanelX, Math.min(maxPanelX, px));
+        vx.push(px);
+      }
+
       for (let i = 0; i < panelCount - 1; i++) {
-        let x = -halfAdj + i * panelSpacing;
-        const bpWidth = panelSpacing - thickness;
+        const leftX = vx[i];
+        const rightX = vx[i + 1];
+        const bpWidth = rightX - leftX - thickness;
 
-        if (isEvenRow) {
-          x -= slantOffset;
-        } else {
-          x += slantOffset + 2;
+        if (bpWidth > 0) {
+          panels.push({
+            w: bpWidth,
+            h: rh,
+            d: thickness,
+            x: leftX + thickness + bpWidth / 2,
+            y: cy + rh / 2 + thickness,
+            z: thickness / 2,
+            matType: 'backPanel',
+            castShadow: false,
+            receiveShadow: true,
+          });
         }
-
-        panels.push({
-          w: bpWidth,
-          h: rh,
-          d: thickness,
-          x: x + (bpWidth + thickness) / 2,
-          y: cy + rh / 2 + thickness,
-          z: thickness / 2,
-          matType: 'backPanel',
-          castShadow: false,
-          receiveShadow: true,
-        });
       }
     } else {
       const yPosition = cy + rh / 2 + thickness;
