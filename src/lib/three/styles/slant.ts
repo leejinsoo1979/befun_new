@@ -198,23 +198,27 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
   }
 
   // === 세로 패널 (지그재그) ===
-  // 프레임 패널(i=0, i=panelCount-1)은 고정, 내부 패널만 지그재그
+  // 모든 패널(프레임 포함) 지그재그, 프레임 범위 클램핑
+  const halfAdj = adjustedWidth / 2;
+  const minPanelX = -halfAdj;
+  const maxPanelX = halfAdj - thickness;
+
   for (let i = 0; i < panelCount; i++) {
-    const baseX = -adjustedWidth / 2 + i * panelSpacing;
-    const isFrame = (i === 0 || i === panelCount - 1);
+    const baseX = -halfAdj + i * panelSpacing;
     currentY = 1;
 
     for (let j = 0; j < numRows; j++) {
       const rh = rowHeights[j] ?? 32;
       let panelX: number;
 
-      if (isFrame) {
-        panelX = baseX;
-      } else if (j % 2 === 0) {
+      if (j % 2 === 0) {
         panelX = baseX - slantOffset;
       } else {
         panelX = baseX + slantOffset + 2;
       }
+
+      // 프레임 바깥으로 나가지 않도록 클램핑
+      panelX = Math.max(minPanelX, Math.min(maxPanelX, panelX));
 
       panels.push({
         w: thickness,
@@ -243,44 +247,26 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
 
     if (rowNeedsBackPanel) {
       for (let i = 0; i < panelCount - 1; i++) {
-        const leftIdx = i;
-        const rightIdx = i + 1;
-        const isLeftFrame = (leftIdx === 0);
-        const isRightFrame = (rightIdx === panelCount - 1);
+        let x = -halfAdj + i * panelSpacing;
+        const panelWidth = panelSpacing - thickness;
 
-        const leftBaseX = -adjustedWidth / 2 + leftIdx * panelSpacing;
-        const rightBaseX = -adjustedWidth / 2 + rightIdx * panelSpacing;
-
-        // 프레임은 고정, 내부 패널은 지그재그 오프셋 적용
-        let leftX: number, rightX: number;
-        if (isLeftFrame) {
-          leftX = leftBaseX;
+        if (isEvenRow) {
+          x -= slantOffset;
         } else {
-          leftX = isEvenRow ? leftBaseX - slantOffset : leftBaseX + slantOffset + 2;
-        }
-        if (isRightFrame) {
-          rightX = rightBaseX;
-        } else {
-          rightX = isEvenRow ? rightBaseX - slantOffset : rightBaseX + slantOffset + 2;
+          x += slantOffset + 2;
         }
 
-        const bpLeft = leftX + thickness / 2;
-        const bpRight = rightX - thickness / 2;
-        const panelWidth = bpRight - bpLeft;
-
-        if (panelWidth > 0) {
-          panels.push({
-            w: panelWidth,
-            h: rh,
-            d: thickness,
-            x: bpLeft + panelWidth / 2,
-            y: cy + rh / 2 + thickness,
-            z: thickness / 2,
-            matType: 'backPanel',
-            castShadow: false,
-            receiveShadow: true,
-          });
-        }
+        panels.push({
+          w: panelWidth,
+          h: rh,
+          d: thickness,
+          x: x + (panelWidth + thickness) / 2,
+          y: cy + rh / 2 + thickness,
+          z: thickness / 2,
+          matType: 'backPanel',
+          castShadow: false,
+          receiveShadow: true,
+        });
       }
     } else {
       const yPosition = cy + rh / 2 + thickness;
