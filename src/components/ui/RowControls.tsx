@@ -16,7 +16,6 @@ export function RowControls() {
   const numRows = useShelfStore((s) => s.numRows);
   const rowHeights = useShelfStore((s) => s.rowHeights);
   const depth = useShelfStore((s) => s.depth);
-  const height = useShelfStore((s) => s.height);
   const setRowHeight = useShelfStore((s) => s.setRowHeight);
   const doorsCreatedLayers = useHardwareStore((s) => s.doorsCreatedLayers);
   const drawersCreatedLayers = useHardwareStore((s) => s.drawersCreatedLayers);
@@ -33,7 +32,7 @@ export function RowControls() {
   const hasDoor = doorsCreatedLayers.includes(i);
   const hasDrawer = drawersCreatedLayers.includes(i);
   const canAddDoor = rh >= MIN_DOOR_HEIGHT;
-  const canAddDrawer = depth >= MIN_DRAWER_DEPTH && height <= 150;
+  const canAddDrawer = depth >= MIN_DRAWER_DEPTH;
 
   return (
     <div className="w-[233px] rounded-xl bg-white p-4 shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
@@ -132,11 +131,6 @@ export function RowControls() {
           OFF
         </button>
       </div>
-      {!canAddDrawer && height > 150 && (
-        <p className="text-[11px] italic text-[#888]">
-          높이 150cm 이하로 서랍 장착 가능
-        </p>
-      )}
       {!canAddDrawer && depth < MIN_DRAWER_DEPTH && (
         <p className="text-[11px] italic text-[#888]">
           깊이 40cm 부터 서랍 장착 가능
