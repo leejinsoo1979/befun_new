@@ -42,9 +42,11 @@ function AutoFocusCamera() {
     const distForHeight = (height / 2 + 20) / Math.tan(halfFovV);
     const distForWidth = (width / 2 + 20) / Math.tan(halfFovH);
     let cameraZ = Math.max(distForHeight, distForWidth);
-    // 여유 마진 (1.15x) — 선반이 화면 ~85% 채움
-    cameraZ *= 1.15;
-    cameraZ = Math.max(cameraZ, 150);
+    // 가구 크기에 따라 마진 조절: 작을수록 여유 있게, 클수록 딱 맞게
+    const maxDim = Math.max(width, height);
+    const margin = maxDim < 150 ? 1.5 : maxDim < 300 ? 1.3 : 1.15;
+    cameraZ *= margin;
+    cameraZ = Math.max(cameraZ, 250);
 
     // 정면 수직 시점: 카메라가 선반 정면에서 바라봄
     targetPos.current.set(0, centerY, cameraZ);
