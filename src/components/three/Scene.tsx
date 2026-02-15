@@ -31,13 +31,21 @@ function AutoFocusCamera() {
   const isInitialLoad = useRef(true);
 
   useEffect(() => {
-    // V1 adjustCameraPosition 로직 재현
-    const centerY = height / 2 - 10; // V1: center.y += -10
-    const maxDim = Math.max(width * 0.45, height);
-    const fov = 40 * (Math.PI / 180); // V1: camera.fov = 40
-    let cameraZ = Math.abs(maxDim / 2 * Math.tan(fov * 1.8));
-    cameraZ *= 2.2;
-    cameraZ = Math.max(cameraZ, 250);
+    const centerY = height / 2 - 10;
+    // 선반이 뷰포트를 적절히 채우도록 카메라 거리 계산
+    // perspective: distance = (size/2) / tan(fov/2) 에 여유 마진 적용
+    const aspect = window.innerWidth / window.innerHeight;
+    const fovRad = 40 * (Math.PI / 180);
+    const halfFovV = fovRad / 2;
+    const halfFovH = Math.atan(Math.tan(halfFovV) * aspect);
+
+    // 세로/가로 각각 필요한 거리 계산 후 큰 값 사용
+    const distForHeight = (height / 2 + 20) / Math.tan(halfFovV);
+    const distForWidth = (width / 2 + 20) / Math.tan(halfFovH);
+    let cameraZ = Math.max(distForHeight, distForWidth);
+    // 약간의 여유 마진 (1.15x) — 선반이 화면 ~85% 채움
+    cameraZ *= 1.15;
+    cameraZ = Math.max(cameraZ, 150);
 
     // 정면 수직 시점: 카메라가 선반 정면에서 바라봄
     targetPos.current.set(0, centerY, cameraZ);
@@ -90,8 +98,8 @@ function AutoFocusCamera() {
       enableRotate={true}
       enableDamping={false}
       dampingFactor={0}
-      minDistance={200}
-      maxDistance={600}
+      minDistance={50}
+      maxDistance={2000}
       minPolarAngle={0}
       maxPolarAngle={Math.PI * 2 / 3}
       onStart={onControlStart}
