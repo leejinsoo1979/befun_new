@@ -99,8 +99,8 @@ function AutoFocusCamera() {
       enableRotate={true}
       enableDamping={false}
       dampingFactor={0}
-      minDistance={50}
-      maxDistance={2000}
+      minDistance={200}
+      maxDistance={600}
       minPolarAngle={0}
       maxPolarAngle={Math.PI * 2 / 3}
       onStart={onControlStart}
@@ -125,9 +125,9 @@ export default function Scene() {
         position: [0, 50, 350],
         fov: 40,
         near: 0.1,
-        far: 2000,
+        far: 1000,
       }}
-      style={{ background: '#e9eaea' }}
+      style={{ background: '#efefef' }}
     >
       {/* 조명 */}
       <ambientLight intensity={0.2} />
