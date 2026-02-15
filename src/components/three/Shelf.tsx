@@ -8,6 +8,7 @@ import { Panel } from './Panel';
 import { Door } from './Door';
 import { Drawer } from './Drawer';
 import { RowColliders } from './RowColliders';
+import { LevelingFeet } from './LevelingFeet';
 import {
   createMaterialsForColor,
   createColorMaterials,
@@ -158,6 +159,9 @@ export function Shelf() {
           thickness={thickness}
         />
       ))}
+
+      {/* 조절발 */}
+      <LevelingFeet />
 
       {/* V1 행 콜라이더 (마우스 오버 감지) */}
       <RowColliders />
