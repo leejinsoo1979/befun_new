@@ -2,6 +2,7 @@
 
 import { useMemo, useState, useEffect, useCallback } from 'react';
 import { useShelfStore } from '@/stores/useShelfStore';
+import { useHardwareStore } from '@/stores/useHardwareStore';
 
 const THUMB_WIDTH = 72;
 
@@ -207,6 +208,13 @@ export function DimensionPanel() {
       rowHeights: newRowHeights,
       numRows: count,
       height: totalHeight,
+    });
+
+    // 새 행 수 범위를 벗어나는 도어/서랍 제거
+    const hw = useHardwareStore.getState();
+    useHardwareStore.setState({
+      doorsCreatedLayers: hw.doorsCreatedLayers.filter((l) => l < count),
+      drawersCreatedLayers: hw.drawersCreatedLayers.filter((l) => l < count),
     });
   };
 
