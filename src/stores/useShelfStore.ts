@@ -53,7 +53,7 @@ function calculateNumRows(totalHeight: number, rowHeights: number[], thickness: 
 export const useShelfStore = create<ShelfState>((set, get) => ({
   width: 90,
   height: 128, // 32 * 4행
-  depth: 30,
+  depth: 32,
   thickness: 2,
   style: 'grid',
   density: 50,
@@ -70,7 +70,7 @@ export const useShelfStore = create<ShelfState>((set, get) => ({
     get().recalculateRows();
   },
 
-  setDepth: (d) => set({ depth: Math.max(24, Math.min(42, d)) }),
+  setDepth: (d) => set({ depth: Math.max(24, Math.min(40, d)) }),
 
   setStyle: (s) => set({ style: s }),
 

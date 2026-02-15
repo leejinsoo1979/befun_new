@@ -7,7 +7,7 @@ const THUMB_WIDTH = 72;
 
 const DEPTH_OPTIONS = [
   { label: '24cm', value: 24 },
-  { label: '30cm', value: 30 },
+  { label: '32cm', value: 32 },
   { label: '40cm', value: 40 },
 ];
 
