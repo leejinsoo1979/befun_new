@@ -37,7 +37,7 @@ interface ShelfState {
   recalculateRows: () => void;
 }
 
-const DEFAULT_ROW_HEIGHT = 32;
+const DEFAULT_ROW_HEIGHT = 28;
 
 function calculateNumRows(totalHeight: number, rowHeights: number[], thickness: number): number {
   let usedHeight = thickness; // 바닥 패널
@@ -52,13 +52,13 @@ function calculateNumRows(totalHeight: number, rowHeights: number[], thickness: 
 
 export const useShelfStore = create<ShelfState>((set, get) => ({
   width: 90,
-  height: 128, // 32 * 4행
+  height: 112, // 28 * 4행
   depth: 32,
   thickness: 2,
   style: 'grid',
   density: 50,
   hasBackPanel: false,
-  rowHeights: [32, 32, 32, 32],
+  rowHeights: [28, 28, 28, 28],
   numRows: 4,
   panelCount: 0,
   panelSpacing: 0,
