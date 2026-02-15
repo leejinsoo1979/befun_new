@@ -176,7 +176,6 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
   const panels: PanelData[] = [];
   const hardwareSet = new Set(hardwareLayers);
   const { panelCount, panelSpacing } = calculateSlantSpacing(width, adjustedWidth, thickness, density);
-  const slantOffset = adjustedWidth / panelCount / 4;
 
   // === 가로 패널 ===
   let currentY = 0;
@@ -198,27 +197,19 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
   }
 
   // === 세로 패널 (지그재그) ===
-  // 모든 패널(프레임 포함) 지그재그, 프레임 범위 클램핑
-  const halfAdj = adjustedWidth / 2;
-  const minPanelX = -halfAdj;
-  const maxPanelX = halfAdj - thickness;
-
   for (let i = 0; i < panelCount; i++) {
-    const baseX = -halfAdj + i * panelSpacing;
+    const baseX = -adjustedWidth / 2 + i * panelSpacing;
     currentY = 1;
 
     for (let j = 0; j < numRows; j++) {
       const rh = rowHeights[j] ?? 32;
-      let panelX: number;
+      let panelX = baseX;
 
       if (j % 2 === 0) {
-        panelX = baseX - slantOffset;
+        panelX = baseX - (adjustedWidth / panelCount / 4);
       } else {
-        panelX = baseX + slantOffset + 2;
+        panelX = baseX + (adjustedWidth / panelCount / 4) + 2;
       }
-
-      // 프레임 바깥으로 나가지 않도록 클램핑
-      panelX = Math.max(minPanelX, Math.min(maxPanelX, panelX));
 
       panels.push({
         w: thickness,
@@ -246,33 +237,27 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
     const isEvenRow = j % 2 === 0;
 
     if (rowNeedsBackPanel) {
-      // 해당 행의 각 세로 패널 실제 x (좌측 변 기준, 지그재그 + 클램핑)
-      const vx: number[] = [];
-      for (let i = 0; i < panelCount; i++) {
-        const baseX = -halfAdj + i * panelSpacing;
-        let px = isEvenRow ? baseX - slantOffset : baseX + slantOffset + 2;
-        px = Math.max(minPanelX, Math.min(maxPanelX, px));
-        vx.push(px);
-      }
-
       for (let i = 0; i < panelCount - 1; i++) {
-        const leftX = vx[i];
-        const rightX = vx[i + 1];
-        const bpWidth = rightX - leftX - thickness;
+        let x = -adjustedWidth / 2 + i * panelSpacing;
+        const panelWidth = panelSpacing - thickness;
 
-        if (bpWidth > 0) {
-          panels.push({
-            w: bpWidth,
-            h: rh,
-            d: thickness,
-            x: leftX + thickness + bpWidth / 2,
-            y: cy + rh / 2 + thickness,
-            z: thickness / 2,
-            matType: 'backPanel',
-            castShadow: false,
-            receiveShadow: true,
-          });
+        if (isEvenRow) {
+          x -= adjustedWidth / panelCount / 4;
+        } else {
+          x += (adjustedWidth / panelCount / 4) + 2;
         }
+
+        panels.push({
+          w: panelWidth,
+          h: rh,
+          d: thickness,
+          x: x + (panelWidth + thickness) / 2,
+          y: cy + rh / 2 + thickness,
+          z: thickness / 2,
+          matType: 'backPanel',
+          castShadow: false,
+          receiveShadow: true,
+        });
       }
     } else {
       const yPosition = cy + rh / 2 + thickness;
