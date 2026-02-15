@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import * as THREE from 'three';
 import { useShelfStore } from '@/stores/useShelfStore';
+import { calculateSlantSpacing } from '@/lib/three/styles/slant';
 
 /**
  * 조절발 1개: 지름 25mm(반지름 1.25cm), 높이 10mm(1cm)
@@ -50,27 +51,43 @@ export function LevelingFeet() {
     const frontZ = depth - inset; // 앞쪽
     const backZ = inset; // 뒤쪽
 
-    // 양쪽 끝
+    // 양쪽 끝 조절발은 스타일 관계없이 항상 배치
     const leftX = -width / 2 + thickness / 2 + 1;
     const rightX = width / 2 - thickness / 2 - 1;
-
     positions.push([leftX, y, frontZ]);
     positions.push([leftX, y, backZ]);
     positions.push([rightX, y, frontZ]);
     positions.push([rightX, y, backZ]);
 
-    // 내부 세로 칸막이 위치에 조절발 추가 (넓은 선반에서)
-    // 간격 기준: 약 60cm마다 하나씩
-    const innerWidth = width - thickness * 2;
-    const footSpacing = 60;
-    const innerFootCount = Math.floor(innerWidth / footSpacing);
+    if (style === 'slant' && width >= 44) {
+      // Slant: 1행(j=0, 짝수행) 세로 패널 위치에 배치 (양끝 10cm 이내는 스킵)
+      const slantMargin = width >= 78 ? 24 : 14;
+      const adjustedWidth = width - slantMargin;
+      const { panelCount, panelSpacing } = calculateSlantSpacing(width, adjustedWidth, thickness, density);
+      const baseMargin = (width - adjustedWidth) / 2;
+      const maxOffset = baseMargin - thickness;
+      const slantOffset = Math.min(adjustedWidth / panelCount / 4, maxOffset);
 
-    if (innerFootCount >= 1 && width > 80) {
-      const actualSpacing = innerWidth / (innerFootCount + 1);
-      for (let i = 1; i <= innerFootCount; i++) {
-        const x = -width / 2 + thickness + actualSpacing * i;
+      for (let i = 0; i < panelCount; i++) {
+        const baseX = -adjustedWidth / 2 + i * panelSpacing;
+        const x = baseX - slantOffset;
+        if (Math.abs(x - leftX) < 10 || Math.abs(x - rightX) < 10) continue;
         positions.push([x, y, frontZ]);
         positions.push([x, y, backZ]);
+      }
+    } else {
+      // Grid 등: 약 60cm 간격 균등 배치
+      const innerWidth = width - thickness * 2;
+      const footSpacing = 60;
+      const innerFootCount = Math.floor(innerWidth / footSpacing);
+
+      if (innerFootCount >= 1 && width > 80) {
+        const actualSpacing = innerWidth / (innerFootCount + 1);
+        for (let i = 1; i <= innerFootCount; i++) {
+          const x = -width / 2 + thickness + actualSpacing * i;
+          positions.push([x, y, frontZ]);
+          positions.push([x, y, backZ]);
+        }
       }
     }
 

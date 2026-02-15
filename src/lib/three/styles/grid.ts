@@ -67,7 +67,7 @@ function limitPanelSpacingGrid(
   density: number,
 ): { panelCount: number; panelSpacing: number } {
   const densityResult = calculateDensityGrid(width, density);
-  let panelCount = densityResult.targetPanels;
+  let panelCount = Math.max(2, densityResult.targetPanels);
   let panelSpacing = (width - thickness) / (panelCount - 1);
 
   const minInnerWidth = 28;
@@ -80,7 +80,7 @@ function limitPanelSpacingGrid(
 
   if (!is450cmSpecialCase) {
     if (panelSpacing < minPanelSpacing) {
-      panelCount = Math.floor((width - thickness) / minPanelSpacing) + 1;
+      panelCount = Math.max(2, Math.floor((width - thickness) / minPanelSpacing) + 1);
       panelSpacing = (width - thickness) / (panelCount - 1);
     } else if (panelSpacing > maxPanelSpacing) {
       panelCount = Math.ceil((width - thickness) / maxPanelSpacing) + 1;

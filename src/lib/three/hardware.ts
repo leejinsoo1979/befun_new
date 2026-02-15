@@ -1,4 +1,5 @@
 import type { StyleType } from '@/types/shelf';
+import { calculateSlantSpacing } from './styles/slant';
 
 // ── 도어 데이터 ──
 
@@ -110,6 +111,35 @@ export function calculateGridDrawers(
 
 // ── Slant 스타일 도어/서랍 배치 (Grid fallback 포함) ──
 
+// ── Slant 세로 패널 실제 x 좌표 배열 생성 (slant.ts와 동일 로직) ──
+
+function getSlantVerticalPanelXPositions(
+  width: number,
+  thickness: number,
+  panelCount: number,
+  panelSpacing: number,
+  rowIndex: number,
+): number[] {
+  const slantMargin = width >= 78 ? 24 : 14;
+  const adjustedWidth = width - slantMargin;
+  const baseMargin = (width - adjustedWidth) / 2;
+  const maxSlantOffset = baseMargin - thickness;
+  const slantOffset = Math.min(adjustedWidth / panelCount / 4, maxSlantOffset);
+  const isEvenRow = rowIndex % 2 === 0;
+
+  const positions: number[] = [];
+  for (let i = 0; i < panelCount; i++) {
+    const baseX = -adjustedWidth / 2 + i * panelSpacing;
+    // slant.ts 세로 패널과 완전 동일
+    if (isEvenRow) {
+      positions.push(baseX - slantOffset);
+    } else {
+      positions.push(baseX + slantOffset + 2);
+    }
+  }
+  return positions;
+}
+
 export function calculateSlantDoors(
   layerIndex: number,
   width: number,
@@ -120,15 +150,12 @@ export function calculateSlantDoors(
   panelCount: number,
   panelSpacing: number,
 ): DoorPlacement[] {
-  // Slant은 rows <= 1 이거나 width < 78이면 Grid와 동일
-  if (numRows <= 1 || width < 78) {
+  if (numRows <= 1 || width < 44) {
     return calculateGridDoors(layerIndex, width, depth, thickness, rowHeights, panelCount, panelSpacing);
   }
 
-  const adjustedWidth = width - 24;
   const placements: DoorPlacement[] = [];
-  const isEvenRow = layerIndex % 2 === 0;
-  const offset = isEvenRow ? 0 : panelSpacing / 2;
+  const panelPositions = getSlantVerticalPanelXPositions(width, thickness, panelCount, panelSpacing, layerIndex);
 
   let currentY = 0;
   for (let i = 0; i < layerIndex; i++) {
@@ -136,20 +163,32 @@ export function calculateSlantDoors(
   }
 
   const doorHeight = rowHeights[layerIndex] - DOOR_GAP;
-  const doorCount = isEvenRow ? panelCount - 1 : panelCount - 2;
 
-  for (let i = 0; i < doorCount; i++) {
-    const panelWidth = panelSpacing - thickness;
-    const xPosition = -adjustedWidth / 2 + offset + i * panelSpacing + panelSpacing / 2;
+  for (let i = 0; i < panelCount - 1; i++) {
+    const leftPanelX = panelPositions[i];   // 좌측 세로 패널 center
+    const rightPanelX = panelPositions[i + 1]; // 우측 세로 패널 center
+
+    // 좌측 패널 안쪽 면 = leftPanelX + thickness/2
+    // 우측 패널 안쪽 면 = rightPanelX - thickness/2
+    // 도어 너비 = 두 안쪽 면 사이 - DOOR_GAP
+    const innerLeft = leftPanelX + thickness / 2;
+    const innerRight = rightPanelX - thickness / 2;
+    const doorWidth = (innerRight - innerLeft) - DOOR_GAP;
+
+    // 도어 우측 끝 = placement.x + 1 (Door.tsx의 pivotOffsetX 로직)
+    // 도어 우측 끝이 innerRight - DOOR_GAP/2 에 오도록
+    const doorRightEdge = innerRight - DOOR_GAP / 2;
+    const hingeX = doorRightEdge - 1;
+
     const yPosition = currentY + rowHeights[layerIndex] / 2 + thickness;
 
     placements.push({
-      x: xPosition + panelWidth / 2 - 0.5,
+      x: hingeX,
       y: yPosition,
       z: depth - 1,
-      width: panelWidth - DOOR_GAP,
+      width: doorWidth,
       height: doorHeight,
-      pivotOffsetX: -(panelWidth - DOOR_GAP) / 2 + 1,
+      pivotOffsetX: -doorWidth / 2 + 1,
       layerIndex,
     });
   }
@@ -167,31 +206,31 @@ export function calculateSlantDrawers(
   panelCount: number,
   panelSpacing: number,
 ): DrawerPlacement[] {
-  if (numRows <= 1 || width < 78) {
+  if (numRows <= 1 || width < 44) {
     return calculateGridDrawers(layerIndex, width, depth, thickness, rowHeights, panelCount, panelSpacing);
   }
 
-  const adjustedWidth = width - 24;
   const placements: DrawerPlacement[] = [];
-  const isEvenRow = layerIndex % 2 === 0;
-  const offset = isEvenRow ? 0 : panelSpacing / 2;
+  const panelPositions = getSlantVerticalPanelXPositions(width, thickness, panelCount, panelSpacing, layerIndex);
   const drawerDepth = depth - thickness;
-  const drawerCount = isEvenRow ? panelCount - 1 : panelCount - 2;
 
   let currentY = 0;
   for (let i = 0; i < layerIndex; i++) {
     currentY += rowHeights[i] + thickness;
   }
 
-  for (let i = 0; i < drawerCount; i++) {
-    const xPosition = -adjustedWidth / 2 + offset + i * panelSpacing + panelSpacing / 2;
+  for (let i = 0; i < panelCount - 1; i++) {
+    const leftPanelX = panelPositions[i];
+    const rightPanelX = panelPositions[i + 1];
+    const centerX = (leftPanelX + rightPanelX) / 2;
+    const compartmentW = rightPanelX - leftPanelX;
     const yPosition = currentY + rowHeights[layerIndex] / 2 + thickness;
 
     placements.push({
-      x: xPosition,
+      x: centerX,
       y: yPosition,
       z: 0,
-      compartmentWidth: panelSpacing,
+      compartmentWidth: compartmentW,
       rowHeight: rowHeights[layerIndex],
       drawerDepth,
       layerIndex,

@@ -48,7 +48,7 @@ function calculateSlantCompartments(width: number, density: number): number {
   return minCols + Math.floor(density * (range + 1) / 101);
 }
 
-function calculateSlantSpacing(
+export function calculateSlantSpacing(
   width: number,
   adjustedWidth: number,
   thickness: number,
@@ -76,10 +76,10 @@ function calculateSlantSupportPanelPositions(
   panelCount: number,
   panelSpacing: number,
   isEvenRow: boolean,
+  slantOffset: number,
 ): number[] {
   const positions: number[] = [];
   const supPanelWidth = 12;
-  const slantOffset = adjustedWidth / panelCount / 4;
   const globalLeftOffset = -1;
 
   let leftPanelX = -adjustedWidth / 2 + thickness + supPanelWidth / 2 + globalLeftOffset;
@@ -167,12 +167,73 @@ function calculateSlantSupportPanelPositions(
 export function calculateSlantPanels(input: SlantInput): SlantResult {
   const { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers = [] } = input;
 
-  // 행이 1이거나 width < 78이면 Grid로 폴백
-  if (numRows <= 1 || width < 78) {
+  // 행이 1이면 Grid로 폴백
+  if (numRows <= 1) {
     return calculateGridPanels(input as GridInput);
   }
 
-  const adjustedWidth = width - 24;
+  // width < 44이면 칸 1개(세로패널 2개)로 직접 처리
+  if (width < 44) {
+    const panels: PanelData[] = [];
+    const panelCount = 2;
+    const panelSpacing = width - thickness;
+
+    // 가로 패널
+    let currentY = 0;
+    for (let i = 0; i <= numRows; i++) {
+      panels.push({
+        w: width, h: thickness, d: depth,
+        x: 0, y: currentY + thickness / 2, z: depth / 2,
+        matType: 'horizontalBase', castShadow: true, receiveShadow: true,
+      });
+      if (i < numRows && i < rowHeights.length) {
+        currentY += rowHeights[i] + thickness;
+      }
+    }
+
+    // 세로 패널 (좌/우 끝)
+    for (let i = 0; i < panelCount; i++) {
+      const x = -width / 2 + i * panelSpacing;
+      currentY = 1;
+      for (let j = 0; j < numRows; j++) {
+        const rh = rowHeights[j] ?? 32;
+        panels.push({
+          w: thickness, h: rh, d: depth,
+          x: x + 1, y: currentY + rh / 2 + thickness / 2, z: depth / 2,
+          matType: 'verticalBase', castShadow: true, receiveShadow: true,
+        });
+        currentY += rh + thickness;
+      }
+    }
+
+    // 백패널/서포트
+    const hardwareSet = new Set(hardwareLayers);
+    const supPanelWidth = 12;
+    let cy = 0;
+    for (let j = 0; j < numRows; j++) {
+      const rh = rowHeights[j] ?? 32;
+      if (hasBackPanel || hardwareSet.has(j)) {
+        panels.push({
+          w: panelSpacing - thickness, h: rh, d: thickness,
+          x: 1, y: cy + rh / 2 + thickness, z: thickness / 2,
+          matType: 'backPanel', castShadow: false, receiveShadow: true,
+        });
+      } else {
+        panels.push({
+          w: supPanelWidth, h: rh, d: thickness,
+          x: -width / 2 + thickness + supPanelWidth / 2,
+          y: cy + rh / 2 + thickness, z: thickness / 2,
+          matType: 'supportPanel', castShadow: true, receiveShadow: true,
+        });
+      }
+      cy += rh + thickness;
+    }
+
+    return { panels, panelCount, panelSpacing };
+  }
+
+  const slantMargin = width >= 78 ? 24 : 14;
+  const adjustedWidth = width - slantMargin;
   const panels: PanelData[] = [];
   const hardwareSet = new Set(hardwareLayers);
   const { panelCount, panelSpacing } = calculateSlantSpacing(width, adjustedWidth, thickness, density);
@@ -197,18 +258,22 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
   }
 
   // === 세로 패널 (지그재그) ===
+  const baseMargin = (width - adjustedWidth) / 2;
+  const maxSlantOffset = baseMargin - thickness;
+  const slantOffset = Math.min(adjustedWidth / panelCount / 4, maxSlantOffset);
+
   for (let i = 0; i < panelCount; i++) {
     const baseX = -adjustedWidth / 2 + i * panelSpacing;
     currentY = 1;
 
     for (let j = 0; j < numRows; j++) {
       const rh = rowHeights[j] ?? 32;
-      let panelX = baseX;
+      let panelX: number;
 
       if (j % 2 === 0) {
-        panelX = baseX - (adjustedWidth / panelCount / 4);
+        panelX = baseX - slantOffset;
       } else {
-        panelX = baseX + (adjustedWidth / panelCount / 4) + 2;
+        panelX = baseX + slantOffset + 2;
       }
 
       panels.push({
@@ -242,9 +307,9 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
         const panelWidth = panelSpacing - thickness;
 
         if (isEvenRow) {
-          x -= adjustedWidth / panelCount / 4;
+          x -= slantOffset;
         } else {
-          x += (adjustedWidth / panelCount / 4) + 2;
+          x += slantOffset + 2;
         }
 
         panels.push({
@@ -262,7 +327,7 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
     } else {
       const yPosition = cy + rh / 2 + thickness;
       const supportPositions = calculateSlantSupportPanelPositions(
-        adjustedWidth, thickness, panelCount, panelSpacing, isEvenRow,
+        adjustedWidth, thickness, panelCount, panelSpacing, isEvenRow, slantOffset,
       );
 
       supportPositions.forEach((position) => {
