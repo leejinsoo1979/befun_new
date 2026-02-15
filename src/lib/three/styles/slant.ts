@@ -257,8 +257,8 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
 
       // 백패널: 좌측 세로 패널 우변 ~ 우측 세로 패널 좌변 사이
       for (let i = 0; i < panelCount - 1; i++) {
-        const leftEdge = vertXPositions[i] + thickness;  // 좌측 패널 우변
-        const rightEdge = vertXPositions[i + 1];          // 우측 패널 좌변
+        const leftEdge = vertXPositions[i] + thickness / 2;   // 좌측 패널 중심 + 반너비 = 우변
+        const rightEdge = vertXPositions[i + 1] - thickness / 2; // 우측 패널 중심 - 반너비 = 좌변
         const bpWidth = rightEdge - leftEdge;
 
         if (bpWidth > 0) {
