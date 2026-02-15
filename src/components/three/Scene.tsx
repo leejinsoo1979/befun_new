@@ -11,9 +11,9 @@ import { useShelfStore } from '@/stores/useShelfStore';
 import { useUIStore } from '@/stores/useUIStore';
 
 /**
- * Auto-focus camera: tylko 스타일 시점
- * - 선반 크기에 따라 카메라 거리 자동 조절
- * - 약간 위에서 비스듬히 내려다보는 시점
+ * Auto-focus camera: V1 스타일 정면 시점
+ * - 선반 크기에 따라 카메라 거리 자동 조절 (V1 adjustCameraPosition 로직)
+ * - 정면에서 수직으로 바라보는 시점
  * - 부드러운 전환 (lerp)
  */
 function AutoFocusCamera() {
@@ -29,32 +29,34 @@ function AutoFocusCamera() {
   const targetLookAt = useRef(new THREE.Vector3());
   const animating = useRef(false);
   const userInteracting = useRef(false);
+  const isInitialLoad = useRef(true);
 
   useEffect(() => {
-    const centerY = height / 2;
-    const maxDim = Math.max(width, height);
-    const fovRad = THREE.MathUtils.degToRad(38 / 2);
-    const dist = (maxDim / 2) / Math.tan(fovRad) * 2.2;
+    // V1 adjustCameraPosition 로직 재현
+    const centerY = height / 2 - 10; // V1: center.y += -10
+    const maxDim = Math.max(width * 0.45, height);
+    const fov = 40 * (Math.PI / 180); // V1: camera.fov = 40
+    let cameraZ = Math.abs(maxDim / 2 * Math.tan(fov * 1.8));
+    cameraZ *= 2.2;
+    cameraZ = Math.max(cameraZ, 250);
 
-    targetPos.current.set(0, centerY, dist);
+    // 정면 수직 시점: 카메라가 선반 정면에서 바라봄
+    targetPos.current.set(0, centerY, cameraZ);
     targetLookAt.current.set(0, centerY, 0);
 
-    // 사용자가 조작 중이 아닐 때만 애니메이션
-    if (!userInteracting.current) {
+    if (isInitialLoad.current) {
+      // 첫 로드: 즉시 세팅 (애니메이션 없음)
+      camera.position.copy(targetPos.current);
+      if (controlsRef.current) {
+        controlsRef.current.target.copy(targetLookAt.current);
+        controlsRef.current.update();
+      }
+      isInitialLoad.current = false;
+    } else if (!userInteracting.current) {
+      // 크기 변경 시: 부드러운 전환
       animating.current = true;
     }
   }, [width, height, depth, camera]);
-
-  // 첫 로드 시 즉시 세팅
-  useEffect(() => {
-    camera.position.copy(targetPos.current);
-    if (controlsRef.current) {
-      controlsRef.current.target.copy(targetLookAt.current);
-      controlsRef.current.update();
-    }
-    animating.current = false;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   // 부드러운 카메라 전환 (크기 변경 시에만, 사용자 조작 시 중단)
   useFrame(() => {
@@ -62,8 +64,8 @@ function AutoFocusCamera() {
     const controls = controlsRef.current;
     if (!controls) return;
 
-    camera.position.lerp(targetPos.current, 0.05);
-    controls.target.lerp(targetLookAt.current, 0.05);
+    camera.position.lerp(targetPos.current, 0.08);
+    controls.target.lerp(targetLookAt.current, 0.08);
     controls.update();
 
     // 충분히 가까우면 애니메이션 종료
@@ -87,12 +89,12 @@ function AutoFocusCamera() {
       enablePan={true}
       enableZoom={true}
       enableRotate={true}
-      enableDamping={true}
-      dampingFactor={0.08}
-      minDistance={50}
-      maxDistance={900}
-      minPolarAngle={0.3}
-      maxPolarAngle={Math.PI / 2 - 0.05}
+      enableDamping={false}
+      dampingFactor={0}
+      minDistance={200}
+      maxDistance={600}
+      minPolarAngle={0}
+      maxPolarAngle={Math.PI * 2 / 3}
       onStart={onControlStart}
       onEnd={onControlEnd}
     />
@@ -112,8 +114,8 @@ export default function Scene() {
         antialias: true,
       }}
       camera={{
-        position: [0, 70, 600],
-        fov: 38,
+        position: [0, 50, 350],
+        fov: 40,
         near: 0.1,
         far: 2000,
       }}
