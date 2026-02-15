@@ -7,22 +7,28 @@ import { useShelfStore } from '@/stores/useShelfStore';
 /**
  * 조절발 1개: 검은색 원통 + 윗부분 볼록 + 드라이버 홈
  */
+/**
+ * 조절발 1개: 지름 25mm(반지름 1.25cm), 높이 15mm(1.5cm)
+ */
 function Foot({ position }: { position: [number, number, number] }) {
+  const radius = 1.25; // 지름 25mm / 2
+  const height = 1.5;  // 높이 15mm
+
   return (
     <group position={position}>
       {/* 몸체: 검은색 원통 */}
-      <mesh position={[0, -1.2, 0]} castShadow>
-        <cylinderGeometry args={[1.2, 1.4, 2.4, 16]} />
+      <mesh position={[0, -height / 2, 0]} castShadow>
+        <cylinderGeometry args={[radius, radius * 1.08, height, 16]} />
         <meshStandardMaterial color="#1a1a1a" roughness={0.6} metalness={0.1} />
       </mesh>
       {/* 윗부분: 살짝 볼록한 캡 */}
-      <mesh position={[0, 0.1, 0]}>
-        <cylinderGeometry args={[1.3, 1.2, 0.4, 16]} />
+      <mesh position={[0, 0.05, 0]}>
+        <cylinderGeometry args={[radius * 0.95, radius, 0.15, 16]} />
         <meshStandardMaterial color="#222" roughness={0.5} metalness={0.1} />
       </mesh>
       {/* 드라이버 홈 */}
-      <mesh position={[0, 0.32, 0]} rotation={[0, 0, 0]}>
-        <boxGeometry args={[1.2, 0.1, 0.25]} />
+      <mesh position={[0, 0.13, 0]}>
+        <boxGeometry args={[radius * 0.8, 0.06, 0.15]} />
         <meshStandardMaterial color="#111" roughness={0.8} metalness={0} />
       </mesh>
     </group>
@@ -42,7 +48,7 @@ export function LevelingFeet() {
 
   const footPositions = useMemo(() => {
     const positions: [number, number, number][] = [];
-    const y = -0.5; // 바닥판 바로 아래
+    const y = -0.2; // 바닥판 바로 아래
     const frontZ = depth - 2; // 앞쪽
     const backZ = 3; // 뒤쪽
 
