@@ -15,35 +15,44 @@ export interface SlantInput {
 
 export type SlantResult = GridResult;
 
-// ── v1 calculateDensitySlant 이식 ──
+// ── Tylko 역설계 Slant 칸 분할 알고리즘 ──
+// Slant는 adjustedWidth(= width - 24) 기준으로 칸 수를 결정
+// D0: 사용자 수집 데이터 + 간격 감소 패턴(67, 64, 61, 58, 55, 52)으로 도출
+// D100: Grid D100과 유사 (450cm에서 ~14-15칸)
 
-function calculateDensitySlant(density: number): number {
-  if (density >= 85) return 5;
-  if (density >= 68) return 4;
-  if (density >= 51) return 3;
-  if (density >= 34) return 2;
-  if (density >= 17) return 1;
-  return 0;
+const SLANT_D0_BOUNDARIES = [30, 69, 136, 200, 261, 319, 374, 426];
+const SLANT_D100_BOUNDARIES = [30, 59, 87, 115, 143, 173, 200, 230, 256, 285, 312, 341, 369, 399, 425];
+
+function getSlantCompartments(adjustedWidth: number, boundaries: number[]): number {
+  let count = 0;
+  for (let i = 0; i < boundaries.length; i++) {
+    if (adjustedWidth >= boundaries[i]) {
+      count = i + 1;
+    } else {
+      break;
+    }
+  }
+  return Math.max(1, count);
 }
 
-// ── v1 limitPanelSpacingSlant 이식 ──
+function calculateSlantCompartments(adjustedWidth: number, density: number): number {
+  const minCols = getSlantCompartments(adjustedWidth, SLANT_D0_BOUNDARIES);
+  const maxCols = getSlantCompartments(adjustedWidth, SLANT_D100_BOUNDARIES);
+  const range = maxCols - minCols;
 
-function limitPanelSpacingSlant(
+  if (range <= 0) return minCols;
+
+  return minCols + Math.floor(density * (range + 1) / 101);
+}
+
+function calculateSlantSpacing(
   adjustedWidth: number,
   thickness: number,
   density: number,
 ): { panelCount: number; panelSpacing: number } {
-  const columns = Math.floor((adjustedWidth - thickness) / 40) + 1;
-  let panelCount = columns + calculateDensitySlant(density);
-  let panelSpacing = (adjustedWidth - thickness) / (panelCount - 1);
-
-  if (panelSpacing < 26) {
-    panelCount = Math.floor((adjustedWidth - thickness) / 26) + 1;
-    panelSpacing = (adjustedWidth - thickness) / (panelCount - 1);
-  } else if (panelSpacing > 54) {
-    panelCount = Math.ceil((adjustedWidth - thickness) / 54) + 1;
-    panelSpacing = (adjustedWidth - thickness) / (panelCount - 1);
-  }
+  const compartments = calculateSlantCompartments(adjustedWidth, density);
+  const panelCount = compartments + 1;
+  const panelSpacing = (adjustedWidth - thickness) / compartments;
 
   return { panelCount, panelSpacing };
 }
@@ -155,7 +164,7 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
   const adjustedWidth = width - 24;
   const panels: PanelData[] = [];
   const hardwareSet = new Set(hardwareLayers);
-  const { panelCount, panelSpacing } = limitPanelSpacingSlant(adjustedWidth, thickness, density);
+  const { panelCount, panelSpacing } = calculateSlantSpacing(adjustedWidth, thickness, density);
 
   // === 가로 패널 ===
   let currentY = 0;
