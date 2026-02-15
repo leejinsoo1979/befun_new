@@ -111,7 +111,7 @@ export function LevelingFeet() {
       // Grid 등: 세로 패널 위치에 맞춰 배치
       const { panelCount: gridPanelCount, panelSpacing: gridPanelSpacing } = limitPanelSpacingGrid(width, thickness, density);
       for (let i = 1; i < gridPanelCount - 1; i++) {
-        const x = -width / 2 + i * gridPanelSpacing;
+        const x = -width / 2 + i * gridPanelSpacing + 1; // 세로 패널 실제 위치 (x + 1)
         if (Math.abs(x - leftX) < 10 || Math.abs(x - rightX) < 10) continue;
         positions.push([x, y, frontZ]);
         positions.push([x, y, backZ]);
