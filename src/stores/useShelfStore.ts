@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import type { StyleType, RowHeight } from '@/types/shelf';
+import { useHardwareStore } from './useHardwareStore';
 
 interface ShelfState {
   // 치수
@@ -111,5 +112,16 @@ export const useShelfStore = create<ShelfState>((set, get) => ({
     }
 
     set({ numRows, rowHeights: newRowHeights });
+
+    // 새 행 수 범위를 벗어나는 도어/서랍 제거
+    const hw = useHardwareStore.getState();
+    const invalidDoors = hw.doorsCreatedLayers.filter((l) => l >= numRows);
+    const invalidDrawers = hw.drawersCreatedLayers.filter((l) => l >= numRows);
+    if (invalidDoors.length > 0 || invalidDrawers.length > 0) {
+      useHardwareStore.setState({
+        doorsCreatedLayers: hw.doorsCreatedLayers.filter((l) => l < numRows),
+        drawersCreatedLayers: hw.drawersCreatedLayers.filter((l) => l < numRows),
+      });
+    }
   },
 }));
