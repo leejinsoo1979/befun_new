@@ -173,7 +173,7 @@ export default function ConfiguratorPage() {
       </header>
 
       {/* Configurator: canvas + gui */}
-      <div className="flex flex-1 flex-col overflow-hidden border-b border-[#eee] lg:flex-row" style={{ minHeight: '100vh' }}>
+      <div className="flex h-[calc(100vh-56px)] flex-col overflow-hidden border-b border-[#eee] lg:h-[calc(100vh-80px)] lg:flex-row">
         {/* Canvas 영역: 모바일 50vh, 데스크톱 flex-1 */}
         <div className="relative h-[50vh] shrink-0 overflow-hidden bg-white lg:h-auto lg:flex-1">
           <Scene />
