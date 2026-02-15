@@ -6,7 +6,6 @@ import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { Shelf } from './Shelf';
 import { Background } from './Background';
-import { DimensionOverlay } from './DimensionOverlay';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { useUIStore } from '@/stores/useUIStore';
 
@@ -148,11 +147,8 @@ export default function Scene() {
         <Background shelfWidth={width} />
       </Suspense>
 
-      {/* 가구 */}
-      <Shelf />
-
-      {/* 치수 오버레이 */}
-      {showDimensions && <DimensionOverlay />}
+      {/* 가구 + 치수 오버레이 (Shelf group 내부에서 footHeight 오프셋 공유) */}
+      <Shelf showDimensions={showDimensions} />
 
       {/* 오토 포커스 카메라 */}
       <AutoFocusCamera />

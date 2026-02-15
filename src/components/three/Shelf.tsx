@@ -9,6 +9,7 @@ import { Door } from './Door';
 import { Drawer } from './Drawer';
 import { RowColliders } from './RowColliders';
 import { LevelingFeet } from './LevelingFeet';
+import { DimensionOverlay } from './DimensionOverlay';
 import {
   createMaterialsForColor,
   createColorMaterials,
@@ -27,7 +28,11 @@ import type { PanelData } from '@/types/shelf';
 // 기본 머티리얼 (동기적 폴백)
 const DEFAULT_MATERIALS = createColorMaterials('#283A57', '#283A57');
 
-export function Shelf() {
+interface ShelfProps {
+  showDimensions?: boolean;
+}
+
+export function Shelf({ showDimensions = false }: ShelfProps) {
   const width = useShelfStore((s) => s.width);
   const height = useShelfStore((s) => s.height);
   const depth = useShelfStore((s) => s.depth);
@@ -162,6 +167,9 @@ export function Shelf() {
           thickness={thickness}
         />
       ))}
+
+      {/* 치수 오버레이 — 선반 본체 좌표계 기준 (조절발 제외) */}
+      {showDimensions && <DimensionOverlay />}
 
       {/* 조절발 */}
       <LevelingFeet />
