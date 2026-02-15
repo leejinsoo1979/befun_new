@@ -46,8 +46,9 @@ export function LevelingFeet() {
   const footPositions = useMemo(() => {
     const positions: [number, number, number][] = [];
     const y = -1.5; // 바닥판 아래 = 조절발 높이만큼 내려서 바닥면(y=0 world)에 닿도록
-    const frontZ = depth - 2; // 앞쪽
-    const backZ = 3; // 뒤쪽
+    const inset = 3; // 전면/후면에서 안쪽으로 동일한 거리
+    const frontZ = depth - inset; // 앞쪽
+    const backZ = inset; // 뒤쪽
 
     // 양쪽 끝
     const leftX = -width / 2 + thickness / 2 + 1;
