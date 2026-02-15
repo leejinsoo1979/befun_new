@@ -130,10 +130,10 @@ export default function Scene() {
       style={{ background: '#e9eaea' }}
     >
       {/* 조명 */}
-      <ambientLight intensity={0.1} />
+      <ambientLight intensity={0.2} />
       <directionalLight
         position={[-100, 200, 300]}
-        intensity={0.3}
+        intensity={0.5}
         castShadow
         shadow-mapSize-width={2048}
         shadow-mapSize-height={2048}
@@ -148,7 +148,7 @@ export default function Scene() {
       />
       <directionalLight
         position={[100, 200, 300]}
-        intensity={0.2}
+        intensity={0.4}
       />
 
       {/* 배경 (바닥 + 실루엣) */}
