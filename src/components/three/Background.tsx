@@ -49,6 +49,8 @@ function Silhouette({ shelfWidth }: { shelfWidth: number }) {
       <meshBasicMaterial
         map={texture}
         transparent
+        opacity={1}
+        color="#aaaaaa"
         depthWrite={false}
       />
     </mesh>

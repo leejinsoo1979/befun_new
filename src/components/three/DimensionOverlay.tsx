@@ -65,7 +65,7 @@ function createGuidelineObjects(
   start: THREE.Vector3,
   end: THREE.Vector3,
 ): THREE.Object3D[] {
-  const material = new THREE.LineBasicMaterial({ color: 0x333333 });
+  const material = new THREE.LineBasicMaterial({ color: 0x111111 });
   const objects: THREE.Object3D[] = [];
 
   // 메인 라인

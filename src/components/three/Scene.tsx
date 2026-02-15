@@ -120,7 +120,7 @@ export default function Scene() {
       }}
       style={{ background: '#e9eaea' }}
     >
-      {/* 조명 — light.js 이식 (Three.js r182 physically-correct lighting 보정: intensity * PI) */}
+      {/* 조명 */}
       <ambientLight intensity={0.1 * Math.PI} />
       <directionalLight
         position={[-100, 200, 300]}
