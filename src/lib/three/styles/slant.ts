@@ -246,34 +246,27 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
     const isEvenRow = j % 2 === 0;
 
     if (rowNeedsBackPanel) {
-      // 해당 행의 각 세로 패널 실제 x 위치 계산 (지그재그 + 클램핑)
-      const vertXPositions: number[] = [];
-      for (let i = 0; i < panelCount; i++) {
-        const baseX = -halfAdj + i * panelSpacing;
-        let px = isEvenRow ? baseX - slantOffset : baseX + slantOffset + 2;
-        px = Math.max(minPanelX, Math.min(maxPanelX, px));
-        vertXPositions.push(px);
-      }
-
-      // 백패널: 좌측 세로 패널 우변 ~ 우측 세로 패널 좌변 사이
       for (let i = 0; i < panelCount - 1; i++) {
-        const leftEdge = vertXPositions[i] + thickness / 2;   // 좌측 패널 중심 + 반너비 = 우변
-        const rightEdge = vertXPositions[i + 1] - thickness / 2; // 우측 패널 중심 - 반너비 = 좌변
-        const bpWidth = rightEdge - leftEdge;
+        let x = -halfAdj + i * panelSpacing;
+        const bpWidth = panelSpacing - thickness;
 
-        if (bpWidth > 0) {
-          panels.push({
-            w: bpWidth,
-            h: rh,
-            d: thickness,
-            x: leftEdge + bpWidth / 2,
-            y: cy + rh / 2 + thickness,
-            z: thickness / 2,
-            matType: 'backPanel',
-            castShadow: false,
-            receiveShadow: true,
-          });
+        if (isEvenRow) {
+          x -= slantOffset;
+        } else {
+          x += slantOffset + 2;
         }
+
+        panels.push({
+          w: bpWidth,
+          h: rh,
+          d: thickness,
+          x: x + (bpWidth + thickness) / 2,
+          y: cy + rh / 2 + thickness,
+          z: thickness / 2,
+          matType: 'backPanel',
+          castShadow: false,
+          receiveShadow: true,
+        });
       }
     } else {
       const yPosition = cy + rh / 2 + thickness;
