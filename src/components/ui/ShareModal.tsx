@@ -35,7 +35,7 @@ export function ShareModal({ shareUrl, onClose }: ShareModalProps) {
       onClick={onClose}
     >
       <div
-        className="relative w-[380px] rounded-2xl bg-white p-8 shadow-2xl"
+        className="relative mx-4 w-full max-w-[380px] rounded-2xl bg-white p-6 shadow-2xl sm:p-8"
         onClick={(e) => e.stopPropagation()}
       >
         {/* 닫기 */}

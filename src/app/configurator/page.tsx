@@ -5,6 +5,9 @@ import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
+import { TfiRulerAlt } from 'react-icons/tfi';
+import { FiShare } from 'react-icons/fi';
+import { TbAugmentedReality2 } from 'react-icons/tb';
 import { StyleSelector } from '@/components/ui/StyleSelector';
 import { DimensionPanel } from '@/components/ui/DimensionPanel';
 import { DensitySlider } from '@/components/ui/DensitySlider';
@@ -152,17 +155,17 @@ export default function ConfiguratorPage() {
     <div className="flex min-h-screen flex-col">
       {/* Header */}
       <header className="border-b border-[#eee]">
-        <div className="flex h-[80px] items-center justify-between px-5">
+        <div className="flex h-[56px] items-center justify-between px-4 lg:h-[80px] lg:px-5">
           <Link href="/">
             <Image
               src="/imgs/icon/main_logo_new.png"
               alt="Befun"
               width={120}
               height={40}
-              className="ml-5"
+              className="ml-2 lg:ml-5"
             />
           </Link>
-          <ul className="flex list-none gap-[10px] pr-5 text-xs">
+          <ul className="flex list-none gap-[10px] pr-2 text-xs lg:pr-5">
             <li><Link href="/myshop">myshop</Link></li>
             <li><Link href="/cart">장바구니</Link></li>
           </ul>
@@ -170,33 +173,35 @@ export default function ConfiguratorPage() {
       </header>
 
       {/* Configurator: canvas + gui */}
-      <div className="flex flex-1 overflow-hidden border-b border-[#eee]" style={{ minHeight: '100vh' }}>
-        {/* Canvas 영역 */}
-        <div className="relative flex-1 overflow-hidden bg-white">
+      <div className="flex flex-1 flex-col overflow-hidden border-b border-[#eee] lg:flex-row" style={{ minHeight: '100vh' }}>
+        {/* Canvas 영역: 모바일 50vh, 데스크톱 flex-1 */}
+        <div className="relative h-[50vh] shrink-0 overflow-hidden bg-white lg:h-auto lg:flex-1">
           <Scene />
 
           {/* Control buttons (ruler/share/AR) */}
-          <div className="absolute right-3 top-20 z-10 flex w-[50px] flex-col items-end">
-            <button
-              onClick={() => setShowDimensions(!showDimensions)}
-              className={`mb-[5px] flex h-10 w-10 items-center justify-center rounded-[20px] border bg-white cursor-pointer hover:border-[var(--green)] ${showDimensions ? 'border-[var(--green)]' : 'border-gray-400'}`}
-            >
-              <Image src="/imgs/icon/icon_ruler.svg" alt="ruler" width={20} height={20} />
-            </button>
-            <button
-              onClick={handleShareClick}
-              disabled={saving}
-              className="mb-[5px] flex h-10 w-10 items-center justify-center rounded-[20px] border border-gray-400 bg-white cursor-pointer hover:border-[var(--green)] disabled:opacity-50"
-            >
-              <Image src="/imgs/icon/icon_share.svg" alt="share" width={20} height={20} />
-            </button>
-            <button
-              onClick={handleARClick}
-              disabled={saving}
-              className="mb-[5px] flex h-10 w-10 items-center justify-center rounded-[20px] border border-gray-400 bg-white cursor-pointer hover:border-[var(--green)] disabled:opacity-50"
-            >
-              <Image src="/imgs/icon/icon_ar.svg" alt="ar" width={20} height={20} />
-            </button>
+          <div style={{ position: 'absolute', right: 12, top: 12, zIndex: 10, display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {[
+              { key: 'ruler', icon: <TfiRulerAlt size={18} color="#333" />, onClick: () => setShowDimensions(!showDimensions), isActive: showDimensions },
+              { key: 'share', icon: <FiShare size={18} color="#333" />, onClick: handleShareClick, disabled: saving },
+              { key: 'ar', icon: <TbAugmentedReality2 size={20} color="#333" />, onClick: handleARClick, disabled: saving },
+            ].map((btn) => (
+              <button
+                key={btn.key}
+                onClick={btn.onClick}
+                disabled={btn.disabled}
+                style={{
+                  width: 36, height: 36, minWidth: 36, minHeight: 36,
+                  borderRadius: '50%',
+                  border: `1px solid ${btn.isActive ? 'var(--green)' : '#ccc'}`,
+                  background: '#fff',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  cursor: 'pointer', padding: 0,
+                  opacity: btn.disabled ? 0.5 : 1,
+                }}
+              >
+                {btn.icon}
+              </button>
+            ))}
           </div>
 
           {/* Floating box - 행 마우스 오버 시 표시 */}
@@ -214,8 +219,8 @@ export default function ConfiguratorPage() {
           <ARModal shareUrl={shareUrl} onClose={() => setShowARModal(false)} />
         )}
 
-        {/* GUI 패널 */}
-        <div className="flex w-[460px] shrink-0 flex-col overflow-y-auto bg-white px-8 pt-5 pb-8 shadow-[inset_1px_0_0_#eee]">
+        {/* GUI 패널: 모바일 전체폭, 데스크톱 460px */}
+        <div className="flex shrink-0 flex-col overflow-y-auto bg-white px-4 pt-4 pb-6 shadow-[inset_0_1px_0_#eee] sm:px-6 lg:w-[460px] lg:px-8 lg:pt-5 lg:pb-8 lg:shadow-[inset_1px_0_0_#eee]">
           {/* Price header */}
           <div className="mb-1">
             <h2 className="text-[14px] font-normal text-[#333]">다용도 수납장 기본형</h2>

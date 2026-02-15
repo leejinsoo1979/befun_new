@@ -104,8 +104,8 @@ export function ColorPicker() {
       </div>
 
       {/* Color grid for selected tab */}
-      <div className="flex items-start gap-3 py-[10px]">
-        <span className="w-[var(--label-w)] shrink-0 pt-1 text-[14px] font-medium text-[#333]">
+      <div className="flex items-start gap-3 py-[var(--section-py)]">
+        <span className="w-[var(--label-w)] shrink-0 pt-1 text-[13px] font-medium text-[#333] sm:text-[14px]">
           Colour
         </span>
         <div className="flex flex-1 flex-wrap gap-[5px]">
