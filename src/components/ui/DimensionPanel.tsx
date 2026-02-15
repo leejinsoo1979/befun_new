@@ -210,7 +210,8 @@ export function DimensionPanel() {
     });
   };
 
-  const totalHeight = thickness + rowHeights.slice(0, numRows).reduce((sum, h) => sum + h + thickness, 0);
+  const footHeight = 1; // 조절발 높이 1cm
+  const totalHeight = thickness + rowHeights.slice(0, numRows).reduce((sum, h) => sum + h + thickness, 0) + footHeight;
 
   return (
     <div>
