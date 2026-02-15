@@ -17,7 +17,7 @@ export type PixelResult = GridResult;
 
 // ── v1 calculateGaps 이식 ──
 
-function calculateGaps(shelfWidth: number, density: number, thickness: number): number[] {
+export function calculateGaps(shelfWidth: number, density: number, thickness: number): number[] {
   let densityRatio: number;
   if (shelfWidth < 110) {
     densityRatio = 0;

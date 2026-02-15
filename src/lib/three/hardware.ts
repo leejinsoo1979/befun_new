@@ -1,6 +1,7 @@
 import type { StyleType } from '@/types/shelf';
 import { calculateSlantSpacing } from './styles/slant';
 import { calculateInternalWidths } from './styles/gradient';
+import { calculateGaps } from './styles/pixel';
 
 // ── 도어 데이터 ──
 
@@ -353,6 +354,181 @@ function calculateGradientDrawers(
   return placements;
 }
 
+// ── Pixel 세로 패널 x 좌표 배열 (pixel.ts와 동일 로직) ──
+
+function getPixelVerticalPanelXPositions(
+  width: number,
+  thickness: number,
+  density: number,
+  rowIndex: number,
+  numRows: number,
+): number[] {
+  if (numRows === 1 || width < 78) return [];
+
+  const gaps = calculateGaps(width, density, thickness);
+  const isEvenRow = rowIndex % 2 === 0;
+  const positions: number[] = [];
+
+  let x = -width / 2 + thickness / 2;
+
+  for (let i = 0; i <= gaps.length; i++) {
+    // pixel.ts: 짝수행은 양끝 세로 패널 스킵
+    if (isEvenRow && (i === 0 || i === gaps.length)) {
+      if (i < gaps.length) x += gaps[i] + thickness;
+      continue;
+    }
+    positions.push(x - thickness / 2);
+    if (i < gaps.length) x += gaps[i] + thickness;
+  }
+
+  return positions;
+}
+
+// ── Pixel 도어 배치 ──
+
+function calculatePixelDoors(
+  layerIndex: number,
+  width: number,
+  depth: number,
+  thickness: number,
+  rowHeights: number[],
+  numRows: number,
+  density: number,
+): DoorPlacement[] {
+  if (numRows === 1 || width < 78) return [];
+
+  const gaps = calculateGaps(width, density, thickness);
+  const placements: DoorPlacement[] = [];
+  const isEvenRow = layerIndex % 2 === 0;
+  const isFirstRow = layerIndex === 0;
+  const isLastRow = layerIndex === numRows - 1;
+  const isOddTotalRows = numRows % 2 !== 0;
+
+  let currentY = 0;
+  for (let i = 0; i < layerIndex; i++) {
+    currentY += rowHeights[i] + thickness;
+  }
+
+  let x = -width / 2 + thickness / 2;
+
+  for (let i = 0; i < gaps.length; i++) {
+    const panelWidth = gaps[i];
+    const yPosition = currentY + rowHeights[layerIndex] / 2 + thickness;
+
+    // v1 skip logic: 짝수행 양끝 스킵
+    let shouldCreate = true;
+    if (isEvenRow && (i === 0 || i === gaps.length - 1)) {
+      shouldCreate = false;
+    }
+
+    // v1 center gap skip logic
+    let isCenterGap = false;
+    if ((width < 110 && i === 1) ||
+        (width < 185 && i === 2) ||
+        (width < 241 && (i === 2 || i === 4)) ||
+        (width < 319 && (i === 2 || i === 4 || i === 6)) ||
+        (width < 396 && (i === 2 || i === 4 || i === 6 || i === 8)) ||
+        (width <= 450 && (i === 2 || i === 4 || i === 6 || i === 8 || i === 10))) {
+      isCenterGap = true;
+    }
+    if (width >= 110 && isCenterGap && (isFirstRow || (isLastRow && isOddTotalRows))) {
+      shouldCreate = false;
+    }
+
+    if (shouldCreate) {
+      const doorWidth = panelWidth - DOOR_GAP;
+      const doorHeight = rowHeights[layerIndex] - DOOR_GAP;
+
+      // v1: door x = x + panelWidth - 1, translate = -panelWidth/2 + 1
+      // v2 Door.tsx: hinge pivot = placement.x, translate = pivotOffsetX
+      // Door right edge = placement.x + 1 (from -doorWidth/2 + 1 shift)
+      // Right edge should be at x + panelWidth (right side of gap)
+      // So: placement.x + 1 = x + panelWidth → placement.x = x + panelWidth - 1
+      placements.push({
+        x: x + panelWidth - 1,
+        y: yPosition,
+        z: depth - 1,
+        width: doorWidth,
+        height: doorHeight,
+        pivotOffsetX: -doorWidth / 2 + 1,
+        layerIndex,
+      });
+    }
+
+    x += panelWidth + thickness;
+  }
+
+  return placements;
+}
+
+// ── Pixel 서랍 배치 ──
+
+function calculatePixelDrawers(
+  layerIndex: number,
+  width: number,
+  depth: number,
+  thickness: number,
+  rowHeights: number[],
+  numRows: number,
+  density: number,
+): DrawerPlacement[] {
+  if (numRows === 1 || width < 78) return [];
+
+  const gaps = calculateGaps(width, density, thickness);
+  const placements: DrawerPlacement[] = [];
+  const isEvenRow = layerIndex % 2 === 0;
+  const isFirstRow = layerIndex === 0;
+  const isLastRow = layerIndex === numRows - 1;
+  const isOddTotalRows = numRows % 2 !== 0;
+  const drawerDepth = depth - thickness;
+
+  let currentY = 0;
+  for (let i = 0; i < layerIndex; i++) {
+    currentY += rowHeights[i] + thickness;
+  }
+
+  let x = -width / 2 + thickness / 2;
+
+  for (let i = 0; i < gaps.length; i++) {
+    const panelWidth = gaps[i];
+    const yPosition = currentY + rowHeights[layerIndex] / 2 + thickness;
+
+    let shouldCreate = true;
+    if (isEvenRow && (i === 0 || i === gaps.length - 1)) {
+      shouldCreate = false;
+    }
+
+    let isCenterGap = false;
+    if ((width < 110 && i === 1) ||
+        (width < 185 && i === 2) ||
+        (width < 241 && (i === 2 || i === 4)) ||
+        (width < 319 && (i === 2 || i === 4 || i === 6)) ||
+        (width < 396 && (i === 2 || i === 4 || i === 6 || i === 8)) ||
+        (width <= 450 && (i === 2 || i === 4 || i === 6 || i === 8 || i === 10))) {
+      isCenterGap = true;
+    }
+    if (width >= 110 && isCenterGap && (isFirstRow || (isLastRow && isOddTotalRows))) {
+      shouldCreate = false;
+    }
+
+    if (shouldCreate) {
+      placements.push({
+        x: x + panelWidth / 2,
+        y: yPosition,
+        z: 0,
+        compartmentWidth: panelWidth,
+        rowHeight: rowHeights[layerIndex],
+        drawerDepth,
+        layerIndex,
+      });
+    }
+
+    x += panelWidth + thickness;
+  }
+
+  return placements;
+}
+
 // ── 스타일별 도어/서랍 배치 라우터 ──
 
 export function calculateDoorPlacements(
@@ -372,9 +548,11 @@ export function calculateDoorPlacements(
       return calculateSlantDoors(layerIndex, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing);
     case 'gradient':
       return calculateGradientDoors(layerIndex, width, depth, thickness, rowHeights, density ?? 50);
-    case 'grid':
     case 'pixel':
+      return calculatePixelDoors(layerIndex, width, depth, thickness, rowHeights, numRows, density ?? 50);
     case 'mosaic':
+      return []; // Mosaic은 불규칙 셀 구조 — 도어 미지원 (v1과 동일)
+    case 'grid':
     default:
       return calculateGridDoors(layerIndex, width, depth, thickness, rowHeights, panelCount, panelSpacing);
   }
@@ -397,9 +575,11 @@ export function calculateDrawerPlacements(
       return calculateSlantDrawers(layerIndex, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing);
     case 'gradient':
       return calculateGradientDrawers(layerIndex, width, depth, thickness, rowHeights, density ?? 50);
-    case 'grid':
     case 'pixel':
+      return calculatePixelDrawers(layerIndex, width, depth, thickness, rowHeights, numRows, density ?? 50);
     case 'mosaic':
+      return []; // Mosaic은 불규칙 셀 구조 — 서랍 미지원 (v1과 동일)
+    case 'grid':
     default:
       return calculateGridDrawers(layerIndex, width, depth, thickness, rowHeights, panelCount, panelSpacing);
   }
