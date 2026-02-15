@@ -63,7 +63,8 @@ export function RowColliders() {
     const col = colliders.find((c) => c.index === layerIndex);
     if (!col) return;
 
-    const worldPos = new THREE.Vector3(width / 2, col.y, depth / 2);
+    // 가구 우측 끝 정면 좌표를 화면 좌표로 변환
+    const worldPos = new THREE.Vector3(width / 2 + 5, col.y, 0);
     worldPos.project(camera);
 
     const canvas = gl.domElement;
@@ -72,7 +73,7 @@ export function RowColliders() {
     const screenY = ((-worldPos.y + 1) / 2) * rect.height;
 
     useUIStore.setState({
-      floatingBoxX: screenX + 30,
+      floatingBoxX: screenX + 15,
       floatingBoxY: screenY,
     });
   }, [camera, gl, width, depth, colliders, setHoveredRow, setSelectedRow, setDoorOpen, setDrawerOpen]);
