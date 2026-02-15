@@ -6,6 +6,7 @@ import { useShelfStore } from '@/stores/useShelfStore';
 import { calculateSlantSpacing } from '@/lib/three/styles/slant';
 import { calculateInternalWidths } from '@/lib/three/styles/gradient';
 import { calculateGaps } from '@/lib/three/styles/pixel';
+import { limitPanelSpacingGrid } from '@/lib/three/styles/grid';
 
 /**
  * 조절발 1개: 지름 25mm(반지름 1.25cm), 높이 10mm(1cm)
@@ -107,18 +108,13 @@ export function LevelingFeet() {
         positions.push([px, y, backZ]);
       }
     } else {
-      // Grid 등: 약 60cm 간격 균등 배치
-      const innerWidth = width - thickness * 2;
-      const footSpacing = 60;
-      const innerFootCount = Math.floor(innerWidth / footSpacing);
-
-      if (innerFootCount >= 1 && width > 80) {
-        const actualSpacing = innerWidth / (innerFootCount + 1);
-        for (let i = 1; i <= innerFootCount; i++) {
-          const x = -width / 2 + thickness + actualSpacing * i;
-          positions.push([x, y, frontZ]);
-          positions.push([x, y, backZ]);
-        }
+      // Grid 등: 세로 패널 위치에 맞춰 배치
+      const { panelCount: gridPanelCount, panelSpacing: gridPanelSpacing } = limitPanelSpacingGrid(width, thickness, density);
+      for (let i = 1; i < gridPanelCount - 1; i++) {
+        const x = -width / 2 + i * gridPanelSpacing;
+        if (Math.abs(x - leftX) < 10 || Math.abs(x - rightX) < 10) continue;
+        positions.push([x, y, frontZ]);
+        positions.push([x, y, backZ]);
       }
     }
 

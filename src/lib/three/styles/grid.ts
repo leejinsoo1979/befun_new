@@ -61,7 +61,7 @@ function calculateDensityGrid(width: number, density: number): { targetPanels: n
 
 // ── v1 limitPanelSpacingGrid 완전 이식 ──
 
-function limitPanelSpacingGrid(
+export function limitPanelSpacingGrid(
   width: number,
   thickness: number,
   density: number,
