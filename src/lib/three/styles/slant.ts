@@ -17,13 +17,36 @@ export type SlantResult = GridResult;
 
 // ── Tylko 역설계 Slant 칸 분할 알고리즘 ──
 // 경계 테이블: 해당 width(전체 너비)에서 칸 수가 N이 되는 최소 너비
-// D0: 사용자가 Tylko에서 직접 수집 (1~4칸 확인, 5~8칸 외삽)
-// D100: 450cm에서 unclamped 16칸 기준 역산
-// 450cm 검증: D0=8칸, D50=12칸, D100=14칸(spacing 30cm 클램핑)
 
 const SLANT_D0_BOUNDARIES = [30, 69, 136, 200, 264, 325, 383, 438];
 const SLANT_D100_BOUNDARIES = [30, 57, 84, 111, 138, 165, 192, 219, 246, 273, 300, 327, 354, 381, 408, 435];
 const MIN_SLANT_SPACING = 30;
+
+// ── 좌이격(slantGap) lookup table ──
+// Tylko에서 실측: width → 좌이격 (프레임 좌측 ~ 내부 첫 패널 거리)
+// w≥107부터 9cm 단위로 +1 안정 증가, 칸수 변경과 무관하게 연속
+// gap=7 at w=69, 9cm step from w=107 onward, extrapolated to w=450
+const SLANT_GAP_THRESHOLDS = [
+  69, 72, 78, 83, 89, 94, 100, // gap 7~13 (smaller steps)
+  107, 116, 125, 134, 143, 152, 161, 170, 179, 188, // gap 14~23 (9cm steps)
+  197, 206, 215, 224, 233, 242, 251, 260, 269, 278, // gap 24~33
+  287, 296, 305, 314, 323, 332, 341, 350, 359, 368, // gap 34~43
+  377, 386, 395, 404, 413, 422, 431, 440, 449,       // gap 44~52
+];
+const SLANT_GAP_BASE = 7; // gap value at first threshold
+
+function getSlantGap(width: number): number {
+  if (width < SLANT_GAP_THRESHOLDS[0]) return SLANT_GAP_BASE;
+  let gap = SLANT_GAP_BASE;
+  for (let i = 0; i < SLANT_GAP_THRESHOLDS.length; i++) {
+    if (width >= SLANT_GAP_THRESHOLDS[i]) {
+      gap = SLANT_GAP_BASE + i;
+    } else {
+      break;
+    }
+  }
+  return gap;
+}
 
 function getSlantCompartments(width: number, boundaries: number[]): number {
   let count = 0;
@@ -37,7 +60,6 @@ function getSlantCompartments(width: number, boundaries: number[]): number {
   return Math.max(1, count);
 }
 
-// density 보간 공식: Grid와 동일 — minCols + floor(density * (range + 1) / 101)
 function calculateSlantCompartments(width: number, density: number): number {
   const minCols = getSlantCompartments(width, SLANT_D0_BOUNDARIES);
   const maxCols = getSlantCompartments(width, SLANT_D100_BOUNDARIES);
@@ -53,7 +75,7 @@ function calculateSlantSpacing(
   adjustedWidth: number,
   thickness: number,
   density: number,
-): { panelCount: number; panelSpacing: number } {
+): { panelCount: number; panelSpacing: number; compartments: number } {
   let compartments = calculateSlantCompartments(width, density);
 
   // 최소 spacing 제약: 칸 너비가 30cm 미만이면 칸 수 축소
@@ -65,96 +87,68 @@ function calculateSlantSpacing(
   const panelCount = compartments + 1;
   const panelSpacing = (adjustedWidth - thickness) / compartments;
 
-  return { panelCount, panelSpacing };
+  return { panelCount, panelSpacing, compartments };
 }
 
-// ── 서포트 패널 위치 (v1 calculateSlantSupportPanelPositions 이식) ──
+// ── 서포트 패널 위치 ──
 
 function calculateSlantSupportPanelPositions(
   adjustedWidth: number,
   thickness: number,
   panelCount: number,
   panelSpacing: number,
+  slantOffset: number,
   isEvenRow: boolean,
 ): number[] {
   const positions: number[] = [];
   const supPanelWidth = 12;
-  const slantOffset = adjustedWidth / panelCount / 4;
-  const globalLeftOffset = -1;
+  const halfAdj = adjustedWidth / 2;
 
-  let leftPanelX = -adjustedWidth / 2 + thickness + supPanelWidth / 2 + globalLeftOffset;
-  let rightPanelX = adjustedWidth / 2 - thickness - supPanelWidth / 2 + globalLeftOffset;
-
-  if (isEvenRow) {
-    leftPanelX -= slantOffset;
-    rightPanelX -= slantOffset;
-  } else {
-    leftPanelX += slantOffset + 2;
-    rightPanelX += slantOffset + 2;
-  }
+  // 좌/우 서포트 패널: 프레임 안쪽에 배치
+  let leftPanelX = -halfAdj + thickness + supPanelWidth / 2;
+  let rightPanelX = halfAdj - thickness - supPanelWidth / 2;
 
   if (adjustedWidth < 80) {
-    positions.push(leftPanelX);
+    positions.push(rightPanelX);
     return positions;
   }
 
   positions.push(leftPanelX);
   positions.push(rightPanelX);
 
-  // 256cm+ 중간 패널 로직은 Grid와 유사하지만 슬랜트 오프셋 적용
-  if (adjustedWidth >= 256) {
-    const verticalPanelPositions: number[] = [];
+  // 256cm+ 중간 서포트 패널: 내부 세로 패널 근처 배치
+  if (adjustedWidth >= 256 && panelCount > 2) {
+    const internalPositions: number[] = [];
     for (let i = 1; i < panelCount - 1; i++) {
-      let panelX = -adjustedWidth / 2 + i * panelSpacing + thickness / 2;
-      if (isEvenRow) {
-        panelX -= slantOffset;
-      } else {
-        panelX += slantOffset + 2;
-      }
-      verticalPanelPositions.push(panelX);
+      const baseX = -halfAdj + i * panelSpacing;
+      const panelX = isEvenRow
+        ? baseX - slantOffset
+        : baseX + slantOffset;
+      internalPositions.push(panelX);
     }
 
-    if (verticalPanelPositions.length >= 2) {
+    if (internalPositions.length >= 2) {
       const totalWidth = adjustedWidth - thickness * 2;
       const sectionWidth = totalWidth / 3;
 
-      let leftTargetX = -adjustedWidth / 2 + thickness + sectionWidth;
-      let rightTargetX = -adjustedWidth / 2 + thickness + sectionWidth * 2;
+      const leftTargetX = -halfAdj + thickness + sectionWidth;
+      const rightTargetX = -halfAdj + thickness + sectionWidth * 2;
 
-      if (isEvenRow) {
-        leftTargetX -= slantOffset;
-        rightTargetX -= slantOffset;
-      } else {
-        leftTargetX += slantOffset + 2;
-        rightTargetX += slantOffset + 2;
-      }
+      let leftIdx = -1, leftDist = Infinity;
+      let rightIdx = -1, rightDist = Infinity;
 
-      let leftClosestIndex = -1;
-      let leftMinDistance = Infinity;
-      let rightClosestIndex = -1;
-      let rightMinDistance = Infinity;
-
-      verticalPanelPositions.forEach((panelX, index) => {
-        const ld = Math.abs(panelX - leftTargetX);
-        const rd = Math.abs(panelX - rightTargetX);
-        if (ld < leftMinDistance) { leftMinDistance = ld; leftClosestIndex = index; }
-        if (rd < rightMinDistance) { rightMinDistance = rd; rightClosestIndex = index; }
+      internalPositions.forEach((px, idx) => {
+        const ld = Math.abs(px - leftTargetX);
+        const rd = Math.abs(px - rightTargetX);
+        if (ld < leftDist) { leftDist = ld; leftIdx = idx; }
+        if (rd < rightDist) { rightDist = rd; rightIdx = idx; }
       });
 
-      if (leftClosestIndex >= 0) {
-        const px = verticalPanelPositions[leftClosestIndex];
-        positions.push(px - thickness / 2 - supPanelWidth / 2 + globalLeftOffset);
+      if (leftIdx >= 0) {
+        positions.push(internalPositions[leftIdx]);
       }
-      if (rightClosestIndex >= 0 && rightClosestIndex !== leftClosestIndex) {
-        const px = verticalPanelPositions[rightClosestIndex];
-        positions.push(px + thickness / 2 + supPanelWidth / 2 + globalLeftOffset);
-      } else if (rightClosestIndex === leftClosestIndex) {
-        const alt = rightClosestIndex + 1 < verticalPanelPositions.length
-          ? rightClosestIndex + 1 : rightClosestIndex - 1;
-        if (alt >= 0 && alt < verticalPanelPositions.length) {
-          const px = verticalPanelPositions[alt];
-          positions.push(px + thickness / 2 + supPanelWidth / 2 + globalLeftOffset);
-        }
+      if (rightIdx >= 0 && rightIdx !== leftIdx) {
+        positions.push(internalPositions[rightIdx]);
       }
     }
   }
@@ -167,24 +161,27 @@ function calculateSlantSupportPanelPositions(
 export function calculateSlantPanels(input: SlantInput): SlantResult {
   const { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers = [] } = input;
 
-  // 행이 1이거나 width < 78이면 Grid로 폴백
-  if (numRows <= 1 || width < 78) {
+  // 행이 1이거나 width < 69이면 Grid로 폴백
+  if (numRows <= 1 || width < 69) {
     return calculateGridPanels(input as GridInput);
   }
 
   const adjustedWidth = width - 24;
   const panels: PanelData[] = [];
   const hardwareSet = new Set(hardwareLayers);
-  const { panelCount, panelSpacing } = calculateSlantSpacing(width, adjustedWidth, thickness, density);
+  const { panelCount, panelSpacing, compartments } = calculateSlantSpacing(width, adjustedWidth, thickness, density);
 
-  // DEBUG: 칸수 검증용 (추후 제거)
-  console.log('[Slant]', { width, adjustedWidth, density, panelCount, compartments: panelCount - 1, panelSpacing: panelSpacing.toFixed(1) });
+  // 좌이격 기반 slantOffset 계산
+  const slantGap = getSlantGap(width);
+  // slantOffset = panelSpacing - slantGap (내부 패널이 프레임으로부터 slantGap만큼 떨어지도록)
+  const slantOffset = Math.max(0, panelSpacing - slantGap);
+  const halfAdj = adjustedWidth / 2;
 
-  // === 가로 패널 ===
+  // === 가로 패널 (수평 선반) ===
   let currentY = 0;
   for (let i = 0; i <= numRows; i++) {
     panels.push({
-      w: adjustedWidth + 24,
+      w: width,
       h: thickness,
       d: depth,
       x: 0,
@@ -199,27 +196,30 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
     }
   }
 
-  // === 세로 패널 (지그재그) ===
-  const slantOffset = adjustedWidth / panelCount / 4;
-  const leftLimit = -adjustedWidth / 2 + thickness / 2;
-  const rightLimit = adjustedWidth / 2 - thickness / 2;
+  // === 세로 패널 ===
+  // i=0 (좌 프레임), i=panelCount-1 (우 프레임): 고정 (지그재그 없음)
+  // i=1 ~ panelCount-2 (내부 칸막이): 행별 지그재그
 
   for (let i = 0; i < panelCount; i++) {
-    const baseX = -adjustedWidth / 2 + i * panelSpacing;
+    const isFrame = (i === 0 || i === panelCount - 1);
+    const baseX = -halfAdj + i * panelSpacing;
     currentY = 1;
 
     for (let j = 0; j < numRows; j++) {
       const rh = rowHeights[j] ?? 32;
       let panelX: number;
 
-      if (j % 2 === 0) {
-        panelX = baseX - slantOffset;
+      if (isFrame) {
+        // 프레임 패널: 고정 위치
+        panelX = baseX;
       } else {
-        panelX = baseX + slantOffset + 2;
+        // 내부 패널: 짝수행 좌로, 홀수행 우로 이동
+        if (j % 2 === 0) {
+          panelX = baseX - slantOffset;
+        } else {
+          panelX = baseX + slantOffset;
+        }
       }
-
-      // 프레임 범위 내로 클램핑
-      panelX = Math.max(leftLimit, Math.min(rightLimit, panelX));
 
       panels.push({
         w: thickness,
@@ -237,7 +237,7 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
     }
   }
 
-  // === 백패널 또는 서포트 패널 (행별 판단) ===
+  // === 백패널 또는 서포트 패널 (행별) ===
   const supPanelWidth = 12;
   let cy = 0;
 
@@ -247,26 +247,40 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
     const isEvenRow = j % 2 === 0;
 
     if (rowNeedsBackPanel) {
-      for (let i = 0; i < panelCount - 1; i++) {
-        let x = -adjustedWidth / 2 + i * panelSpacing;
+      // 백패널: 각 칸(compartment)의 실제 좌/우 세로 패널 위치 기반
+      for (let i = 0; i < compartments; i++) {
+        const leftPanelIdx = i;
+        const rightPanelIdx = i + 1;
+        const isLeftFrame = (leftPanelIdx === 0);
+        const isRightFrame = (rightPanelIdx === panelCount - 1);
 
-        if (isEvenRow) {
-          x -= slantOffset;
+        const leftBaseX = -halfAdj + leftPanelIdx * panelSpacing;
+        const rightBaseX = -halfAdj + rightPanelIdx * panelSpacing;
+
+        let leftX: number, rightX: number;
+
+        if (isLeftFrame) {
+          leftX = leftBaseX;
         } else {
-          x += slantOffset + 2;
+          leftX = isEvenRow ? leftBaseX - slantOffset : leftBaseX + slantOffset;
         }
 
-        // 프레임 범위 내로 클램핑
-        const clampedX = Math.max(-adjustedWidth / 2 + thickness, x);
-        const clampedRight = Math.min(adjustedWidth / 2 - thickness, x + panelSpacing);
-        const clampedWidth = clampedRight - clampedX - thickness;
+        if (isRightFrame) {
+          rightX = rightBaseX;
+        } else {
+          rightX = isEvenRow ? rightBaseX - slantOffset : rightBaseX + slantOffset;
+        }
 
-        if (clampedWidth > 0) {
+        const bpLeft = leftX + thickness / 2;
+        const bpRight = rightX - thickness / 2;
+        const bpWidth = bpRight - bpLeft;
+
+        if (bpWidth > 0) {
           panels.push({
-            w: clampedWidth,
+            w: bpWidth,
             h: rh,
             d: thickness,
-            x: clampedX + (clampedWidth + thickness) / 2,
+            x: bpLeft + bpWidth / 2,
             y: cy + rh / 2 + thickness,
             z: thickness / 2,
             matType: 'backPanel',
@@ -276,17 +290,23 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
         }
       }
     } else {
+      // 서포트(후면보강대) 패널
       const yPosition = cy + rh / 2 + thickness;
       const supportPositions = calculateSlantSupportPanelPositions(
-        adjustedWidth, thickness, panelCount, panelSpacing, isEvenRow,
+        adjustedWidth, thickness, panelCount, panelSpacing, slantOffset, isEvenRow,
       );
 
       supportPositions.forEach((position) => {
+        // 프레임 범위 내로 클램핑
+        const clampedPos = Math.max(
+          -halfAdj + thickness + supPanelWidth / 2,
+          Math.min(halfAdj - thickness - supPanelWidth / 2, position),
+        );
         panels.push({
           w: supPanelWidth,
           h: rh,
           d: thickness,
-          x: position,
+          x: clampedPos,
           y: yPosition,
           z: thickness / 2,
           matType: 'supportPanel',
