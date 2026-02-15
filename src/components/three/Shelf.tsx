@@ -121,8 +121,11 @@ export function Shelf() {
     );
   }, [drawersCreatedLayers, style, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing]);
 
+  // 조절발 높이만큼 선반 전체를 올려서 조절발이 바닥 위에 보이게 함
+  const footHeight = 1.5; // 조절발 높이 15mm
+
   return (
-    <group>
+    <group position={[0, footHeight, 0]}>
       {/* 선반 패널 */}
       {panels.map((p, i) => (
         <Panel
