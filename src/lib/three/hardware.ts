@@ -439,18 +439,15 @@ function calculatePixelDoors(
       const doorWidth = panelWidth - DOOR_GAP;
       const doorHeight = rowHeights[layerIndex] - DOOR_GAP;
 
-      // v1: door x = x + panelWidth - 1, translate = -panelWidth/2 + 1
-      // v2 Door.tsx: hinge pivot = placement.x, translate = pivotOffsetX
-      // Door right edge = placement.x + 1 (from -doorWidth/2 + 1 shift)
-      // Right edge should be at x + panelWidth (right side of gap)
-      // So: placement.x + 1 = x + panelWidth → placement.x = x + panelWidth - 1
+      // v1 Pixel: position = x + panelWidth - 1, translate = -panelWidth/2 + 1
+      // v1은 doorWidth가 아니라 panelWidth로 translate함 (Grid와 다름)
       placements.push({
         x: x + panelWidth - 1,
         y: yPosition,
         z: depth - 1,
         width: doorWidth,
         height: doorHeight,
-        pivotOffsetX: -doorWidth / 2 + 1,
+        pivotOffsetX: -panelWidth / 2 + 1,
         layerIndex,
       });
     }

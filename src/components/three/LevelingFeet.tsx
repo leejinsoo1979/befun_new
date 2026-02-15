@@ -5,6 +5,7 @@ import * as THREE from 'three';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { calculateSlantSpacing } from '@/lib/three/styles/slant';
 import { calculateInternalWidths } from '@/lib/three/styles/gradient';
+import { calculateGaps } from '@/lib/three/styles/pixel';
 
 /**
  * 조절발 1개: 지름 25mm(반지름 1.25cm), 높이 10mm(1cm)
@@ -75,6 +76,23 @@ export function LevelingFeet() {
         if (Math.abs(x - leftX) < 10 || Math.abs(x - rightX) < 10) continue;
         positions.push([x, y, frontZ]);
         positions.push([x, y, backZ]);
+      }
+    } else if (style === 'pixel' && width >= 78) {
+      // Pixel: 홀수행(index 1) 기준 세로 패널 위치에 배치 (모든 패널 있음)
+      const gaps = calculateGaps(width, density, thickness);
+      let px = -width / 2 + thickness / 2;
+      for (let i = 0; i <= gaps.length; i++) {
+        const panelX = px - thickness / 2;
+        if (i > 0 && i < gaps.length) {
+          // 양끝 세로 패널은 이미 leftX/rightX로 배치됨, 내부만
+          if (Math.abs(panelX - leftX) < 10 || Math.abs(panelX - rightX) < 10) {
+            if (i < gaps.length) px += gaps[i] + thickness;
+            continue;
+          }
+          positions.push([panelX, y, frontZ]);
+          positions.push([panelX, y, backZ]);
+        }
+        if (i < gaps.length) px += gaps[i] + thickness;
       }
     } else if (style === 'gradient' && width >= 60) {
       // Gradient: 가변 폭 세로 패널 위치에 배치
