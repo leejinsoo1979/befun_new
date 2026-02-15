@@ -177,6 +177,9 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
   const hardwareSet = new Set(hardwareLayers);
   const { panelCount, panelSpacing } = calculateSlantSpacing(width, adjustedWidth, thickness, density);
 
+  // DEBUG: 칸수 검증용 (추후 제거)
+  console.log('[Slant]', { width, adjustedWidth, density, panelCount, compartments: panelCount - 1, panelSpacing: panelSpacing.toFixed(1) });
+
   // === 가로 패널 ===
   let currentY = 0;
   for (let i = 0; i <= numRows; i++) {
@@ -197,19 +200,26 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
   }
 
   // === 세로 패널 (지그재그) ===
+  const slantOffset = adjustedWidth / panelCount / 4;
+  const leftLimit = -adjustedWidth / 2 + thickness / 2;
+  const rightLimit = adjustedWidth / 2 - thickness / 2;
+
   for (let i = 0; i < panelCount; i++) {
     const baseX = -adjustedWidth / 2 + i * panelSpacing;
     currentY = 1;
 
     for (let j = 0; j < numRows; j++) {
       const rh = rowHeights[j] ?? 32;
-      let panelX = baseX;
+      let panelX: number;
 
       if (j % 2 === 0) {
-        panelX = baseX - (adjustedWidth / panelCount / 4);
+        panelX = baseX - slantOffset;
       } else {
-        panelX = baseX + (adjustedWidth / panelCount / 4) + 2;
+        panelX = baseX + slantOffset + 2;
       }
+
+      // 프레임 범위 내로 클램핑
+      panelX = Math.max(leftLimit, Math.min(rightLimit, panelX));
 
       panels.push({
         w: thickness,
@@ -239,25 +249,31 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
     if (rowNeedsBackPanel) {
       for (let i = 0; i < panelCount - 1; i++) {
         let x = -adjustedWidth / 2 + i * panelSpacing;
-        const panelWidth = panelSpacing - thickness;
 
         if (isEvenRow) {
-          x -= adjustedWidth / panelCount / 4;
+          x -= slantOffset;
         } else {
-          x += (adjustedWidth / panelCount / 4) + 2;
+          x += slantOffset + 2;
         }
 
-        panels.push({
-          w: panelWidth,
-          h: rh,
-          d: thickness,
-          x: x + (panelWidth + thickness) / 2,
-          y: cy + rh / 2 + thickness,
-          z: thickness / 2,
-          matType: 'backPanel',
-          castShadow: false,
-          receiveShadow: true,
-        });
+        // 프레임 범위 내로 클램핑
+        const clampedX = Math.max(-adjustedWidth / 2 + thickness, x);
+        const clampedRight = Math.min(adjustedWidth / 2 - thickness, x + panelSpacing);
+        const clampedWidth = clampedRight - clampedX - thickness;
+
+        if (clampedWidth > 0) {
+          panels.push({
+            w: clampedWidth,
+            h: rh,
+            d: thickness,
+            x: clampedX + (clampedWidth + thickness) / 2,
+            y: cy + rh / 2 + thickness,
+            z: thickness / 2,
+            matType: 'backPanel',
+            castShadow: false,
+            receiveShadow: true,
+          });
+        }
       }
     } else {
       const yPosition = cy + rh / 2 + thickness;
