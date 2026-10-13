@@ -6,6 +6,7 @@ import { useMaterialStore } from '@/stores/useMaterialStore';
 import { useHardwareStore } from '@/stores/useHardwareStore';
 import { REFERENCE_COLORS, REFERENCE_CLASSIC_COLORS } from '@/lib/three/reference-colors';
 import { Panel } from './Panel';
+import { ShelfDecor } from './decor/ShelfDecor';
 import { createBlumShelfPlans } from '@/lib/three/blum/boring';
 import { BlumPlate } from './blum/BlumHardware';
 import { useDisplayStore } from './display/displayStore';
@@ -229,6 +230,8 @@ export function Shelf({ showDimensions = false, exploded = false, presentation =
         />
         </ExplodedPart>
       ))}
+
+      {presentation && <ShelfDecor panels={panels} doors={doorPlacements} drawers={drawerPlacements} />}
 
       {/* 치수 오버레이 — 선반 본체 좌표계 기준 (조절발 제외) */}
       {showDimensions && !exploded && <DimensionOverlay />}

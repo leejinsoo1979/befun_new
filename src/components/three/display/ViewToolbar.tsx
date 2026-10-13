@@ -25,7 +25,7 @@ function CubeIcon({ face, split = false }: { face?: ViewDirection; split?: boole
 export function ViewToolbar() {
   // 데스크톱은 펼친 상태, 모바일(767px 이하)은 접힌 상태로 시작 (Scene은 ssr:false라 window 접근 가능)
   const [expanded, setExpanded] = useState(() => typeof window === 'undefined' || !window.matchMedia('(max-width: 767px)').matches);
-  const { boringSummary, showBores, toggleBores, phase, view, projection, appearance, setAppearance, exploded, freeOrbit, selectView, setProjection, toggleExploded } = useDisplayStore();
+  const { showDecor, toggleDecor, boringSummary, showBores, toggleBores, phase, view, projection, appearance, setAppearance, exploded, freeOrbit, selectView, setProjection, toggleExploded } = useDisplayStore();
   const dimensions = useUIStore((s) => s.showDimensions);
   const setDimensions = useUIStore((s) => s.setShowDimensions);
   const moving = phase === 'assembling' || phase === 'disassembling';
@@ -39,6 +39,9 @@ export function ViewToolbar() {
           onClick={() => selectView(key)}><CubeIcon face={key} /><span>{label}</span></button>)}
       </div>
       <div className={styles.actions}>
+        <button title={showDecor ? '소품 숨기기' : '소품 표시'} aria-label="소품 표시" aria-pressed={showDecor} onClick={toggleDecor}>
+          <svg viewBox="0 0 28 28" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true"><path d="M2 24h24M4 8h4v15H4zm5-3h4v18H9zm5 4 3-1 3 14-3 1zM22 12v-2h3v2c0 3 2 4 2 7 0 2-1 4-3.5 4S20 21 20 19c0-3 2-4 2-7Z"/><path d="M5 11h2m3-3h2m11 7h3"/></svg><span>소품</span>
+        </button>
         <button title="투시도: 가까운 물체는 크게, 먼 물체는 작게 표시" aria-label="투시도" aria-pressed={projection === 'perspective'} onClick={() => setProjection('perspective')}>
           <svg viewBox="0 0 28 28" width="24" height="24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 4h15v21H3Z"/><path d="m18 4 7 5v11l-7 5M3 4l9 5h13M3 25l9-5h13M12 9v11" stroke={ACCENT}/></svg>
           <span>투시도</span>

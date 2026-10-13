@@ -22,6 +22,9 @@ export function assembledClone(source: Object3D): Object3D {
       part.rotation.set(0, 0, 0);
     }
   });
+  const decor: Object3D[] = [];
+  copy.traverse(part => { if(part.userData.displayDecor) decor.push(part); });
+  decor.forEach(part => part.removeFromParent());
   copy.updateMatrixWorld(true);
   return copy;
 }

@@ -5,6 +5,8 @@ export type ViewDirection = 'front' | 'back' | 'left' | 'right' | 'top' | 'botto
 export type Appearance = 'realistic' | 'transparent' | 'wireframe';
 export type Projection = 'perspective' | 'orthographic';
 interface DisplayState {
+  showDecor: boolean;
+  toggleDecor: () => void;
   cinematic: boolean;
   setCinematic: (enabled:boolean) => void;
   view: ViewDirection;
@@ -36,6 +38,7 @@ interface DisplayState {
 
 // Presentation only: never serialize this into a saved design or order.
 export const useDisplayStore = create<DisplayState>((set) => ({
+  showDecor: true, toggleDecor: () => set(s => ({showDecor: !s.showDecor})),
   cinematic: true, setCinematic: (cinematic) => set({cinematic,...(cinematic?{projection:'perspective' as const, freeOrbit:false}:{})}),
   boringSummary: { doors:0, holes:0, issues:[] },
   showBores: false, toggleBores: () => set(s => ({ showBores: !s.showBores })),
