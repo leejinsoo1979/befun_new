@@ -1,0 +1,711 @@
+{
+  "counts": {
+    "grid": 210,
+    "slant": 210,
+    "pixel": 210,
+    "gradient": 210,
+    "pattern": 180
+  },
+  "fail": [
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 62,
+        "depth": 32,
+        "thickness": 2,
+        "density": 0,
+        "rowHeights": [
+          28,
+          28
+        ],
+        "numRows": 2,
+        "hasBackPanel": false
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 62,
+        "depth": 32,
+        "thickness": 2,
+        "density": 0,
+        "rowHeights": [
+          28,
+          28
+        ],
+        "numRows": 2,
+        "hasBackPanel": true
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 92,
+        "depth": 32,
+        "thickness": 2,
+        "density": 0,
+        "rowHeights": [
+          18,
+          28,
+          38
+        ],
+        "numRows": 3,
+        "hasBackPanel": false
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 92,
+        "depth": 32,
+        "thickness": 2,
+        "density": 0,
+        "rowHeights": [
+          18,
+          28,
+          38
+        ],
+        "numRows": 3,
+        "hasBackPanel": true
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 202,
+        "depth": 32,
+        "thickness": 2,
+        "density": 0,
+        "rowHeights": [
+          38,
+          38,
+          38,
+          38,
+          38
+        ],
+        "numRows": 5,
+        "hasBackPanel": false
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 202,
+        "depth": 32,
+        "thickness": 2,
+        "density": 0,
+        "rowHeights": [
+          38,
+          38,
+          38,
+          38,
+          38
+        ],
+        "numRows": 5,
+        "hasBackPanel": true
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 62,
+        "depth": 32,
+        "thickness": 2,
+        "density": 33,
+        "rowHeights": [
+          28,
+          28
+        ],
+        "numRows": 2,
+        "hasBackPanel": false
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 62,
+        "depth": 32,
+        "thickness": 2,
+        "density": 33,
+        "rowHeights": [
+          28,
+          28
+        ],
+        "numRows": 2,
+        "hasBackPanel": true
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 92,
+        "depth": 32,
+        "thickness": 2,
+        "density": 33,
+        "rowHeights": [
+          18,
+          28,
+          38
+        ],
+        "numRows": 3,
+        "hasBackPanel": false
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 92,
+        "depth": 32,
+        "thickness": 2,
+        "density": 33,
+        "rowHeights": [
+          18,
+          28,
+          38
+        ],
+        "numRows": 3,
+        "hasBackPanel": true
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 202,
+        "depth": 32,
+        "thickness": 2,
+        "density": 33,
+        "rowHeights": [
+          38,
+          38,
+          38,
+          38,
+          38
+        ],
+        "numRows": 5,
+        "hasBackPanel": false
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 202,
+        "depth": 32,
+        "thickness": 2,
+        "density": 33,
+        "rowHeights": [
+          38,
+          38,
+          38,
+          38,
+          38
+        ],
+        "numRows": 5,
+        "hasBackPanel": true
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 62,
+        "depth": 32,
+        "thickness": 2,
+        "density": 50,
+        "rowHeights": [
+          28,
+          28
+        ],
+        "numRows": 2,
+        "hasBackPanel": false
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 62,
+        "depth": 32,
+        "thickness": 2,
+        "density": 50,
+        "rowHeights": [
+          28,
+          28
+        ],
+        "numRows": 2,
+        "hasBackPanel": true
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 92,
+        "depth": 32,
+        "thickness": 2,
+        "density": 50,
+        "rowHeights": [
+          18,
+          28,
+          38
+        ],
+        "numRows": 3,
+        "hasBackPanel": false
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 92,
+        "depth": 32,
+        "thickness": 2,
+        "density": 50,
+        "rowHeights": [
+          18,
+          28,
+          38
+        ],
+        "numRows": 3,
+        "hasBackPanel": true
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 202,
+        "depth": 32,
+        "thickness": 2,
+        "density": 50,
+        "rowHeights": [
+          38,
+          38,
+          38,
+          38,
+          38
+        ],
+        "numRows": 5,
+        "hasBackPanel": false
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 202,
+        "depth": 32,
+        "thickness": 2,
+        "density": 50,
+        "rowHeights": [
+          38,
+          38,
+          38,
+          38,
+          38
+        ],
+        "numRows": 5,
+        "hasBackPanel": true
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 62,
+        "depth": 32,
+        "thickness": 2,
+        "density": 66,
+        "rowHeights": [
+          28,
+          28
+        ],
+        "numRows": 2,
+        "hasBackPanel": false
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 62,
+        "depth": 32,
+        "thickness": 2,
+        "density": 66,
+        "rowHeights": [
+          28,
+          28
+        ],
+        "numRows": 2,
+        "hasBackPanel": true
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 92,
+        "depth": 32,
+        "thickness": 2,
+        "density": 66,
+        "rowHeights": [
+          18,
+          28,
+          38
+        ],
+        "numRows": 3,
+        "hasBackPanel": false
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 92,
+        "depth": 32,
+        "thickness": 2,
+        "density": 66,
+        "rowHeights": [
+          18,
+          28,
+          38
+        ],
+        "numRows": 3,
+        "hasBackPanel": true
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 202,
+        "depth": 32,
+        "thickness": 2,
+        "density": 66,
+        "rowHeights": [
+          38,
+          38,
+          38,
+          38,
+          38
+        ],
+        "numRows": 5,
+        "hasBackPanel": false
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 202,
+        "depth": 32,
+        "thickness": 2,
+        "density": 66,
+        "rowHeights": [
+          38,
+          38,
+          38,
+          38,
+          38
+        ],
+        "numRows": 5,
+        "hasBackPanel": true
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 62,
+        "depth": 32,
+        "thickness": 2,
+        "density": 100,
+        "rowHeights": [
+          28,
+          28
+        ],
+        "numRows": 2,
+        "hasBackPanel": false
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 62,
+        "depth": 32,
+        "thickness": 2,
+        "density": 100,
+        "rowHeights": [
+          28,
+          28
+        ],
+        "numRows": 2,
+        "hasBackPanel": true
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 92,
+        "depth": 32,
+        "thickness": 2,
+        "density": 100,
+        "rowHeights": [
+          18,
+          28,
+          38
+        ],
+        "numRows": 3,
+        "hasBackPanel": false
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 92,
+        "depth": 32,
+        "thickness": 2,
+        "density": 100,
+        "rowHeights": [
+          18,
+          28,
+          38
+        ],
+        "numRows": 3,
+        "hasBackPanel": true
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 202,
+        "depth": 32,
+        "thickness": 2,
+        "density": 100,
+        "rowHeights": [
+          38,
+          38,
+          38,
+          38,
+          38
+        ],
+        "numRows": 5,
+        "hasBackPanel": false
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    },
+    {
+      "style": "pattern",
+      "input": {
+        "width": 240.1,
+        "height": 202,
+        "depth": 32,
+        "thickness": 2,
+        "density": 100,
+        "rowHeights": [
+          38,
+          38,
+          38,
+          38,
+          38
+        ],
+        "numRows": 5,
+        "hasBackPanel": true
+      },
+      "error": "r.forEach is not a function",
+      "stack": [
+        "TypeError: r.forEach is not a function",
+        "    at evalmachine.<anonymous>:2:5512147",
+        "    at Array.forEach (<anonymous>)"
+      ]
+    }
+  ]
+}

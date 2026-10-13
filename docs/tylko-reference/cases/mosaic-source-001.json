@@ -1,0 +1,76 @@
+{
+  "caseId": "mosaic-source-001",
+  "observedAt": "2026-10-13T09:29:21.342096+00:00",
+  "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+  "publicSources": [
+    "https://tylko.com/api/v1/furniture_dna/?shelf_type=1&collection_type=Bookcase&dna_version=6",
+    "https://tylko.com/r_static/dist_vue/vueCrowV2-es6-adcb9eecc6cc1173956e.js"
+  ],
+  "bundleSha256": "c1c360c5db33998a46a58640949f25204485676b725dbb2457ddb4aad0b00694",
+  "inputs": {
+    "shelfType": 1,
+    "container": 6,
+    "setup": 1,
+    "meshRows": [
+      2699,
+      2700,
+      2701,
+      2702,
+      2703,
+      2704,
+      2705,
+      2706,
+      2707,
+      2708
+    ],
+    "hardware": "open",
+    "seed": null
+  },
+  "facts": {
+    "uiMapping": "Mosaic→PORTO",
+    "componentTables": {
+      "1143": "open module, no default back",
+      "1146": "expo first row, default back",
+      "1147": "expo continuation, default back and conditional bottom boundary erasure",
+      "1150": "fill, default back and38cmrow half shelf"
+    },
+    "boardThicknessMm": 18,
+    "narrowAxisWidthMm": 191,
+    "densityEqualBand": [
+      46,
+      54
+    ],
+    "splitTriggerMm": {
+      "operator": ">",
+      "value": 2400
+    },
+    "shortFeet": {
+      "insetMm": {
+        "depth240": 20,
+        "depth320": 25,
+        "depth400": 25
+      },
+      "maxGapBeforeExtraFootMm": 599,
+      "minimumInteriorSpacingMm": 130,
+      "candidate": "bottom vertical centre axes",
+      "visibleFootHeightMm": null
+    }
+  },
+  "validation": {
+    "splitStagePublicOracleCases": 1216,
+    "splitStageDifferences": 0,
+    "splitStageScope": "Same Befun pre-insert geometry fed to independent helper and public splitter. NOT full Mosaic decoder parity. No plinth/long legs/hardware variants.",
+    "shortFeetPublicOracleCases": 288,
+    "shortFeetScope": "same generated structure; X/Z only, physical short_leg.glb shape not measured",
+    "wholeMosaicSourceDecoderComparison": null
+  },
+  "screenshots": [],
+  "unknown": [
+    "Type01 and veneer product-family geometry",
+    "full hardware merging rules",
+    "18/28cm fill module exact behavior",
+    "all reload/change-order/initial-state effects",
+    "actual short_leg.glb dimensions",
+    "full camera/light parity"
+  ]
+}

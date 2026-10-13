@@ -1,5 +1,9 @@
+import { effectiveHardwareStyle, type HardwareRowStyles } from '../hardware-state.ts';
+import type { ReferenceFront } from '../reference-hardware.ts';
 import type { PanelData } from '@/types/shelf';
-import { calculateGridPanels, type GridInput, type GridResult } from './grid';
+import type { GridResult } from './grid';
+import { splitMosaicHorizontals } from '../reference-horizontal-splits.ts';
+import rules from './mosaic-rules.json' with { type: 'json' };
 
 export interface MosaicInput {
   width: number;
@@ -10,169 +14,145 @@ export interface MosaicInput {
   rowHeights: number[];
   numRows: number;
   hasBackPanel: boolean;
+  hardwareRowStyles?: HardwareRowStyles;
   hardwareLayers?: number[];
 }
 
-export type MosaicResult = GridResult & { cells: MosaicCell[] };
-
-interface MosaicCell {
+export interface MosaicCell {
   x: number;
   y: number;
   width: number;
   height: number;
-  colorIndex: number;
+  rowIndex: number;
+  rowSpan: number;
+  columnIndex: number;
+  hasBack: boolean;
+  frontType?: 'door' | 'drawer';
 }
+export type MosaicResult = GridResult & { cells: MosaicCell[]; fronts: ReferenceFront[]; bodyHeight: number };
 
-// ── v1 generateMosaicPattern 이식 ──
-
-function generateMosaicPattern(
-  gridColumns: number,
-  gridRows: number,
-  density: number,
-): MosaicCell[] {
-  const cells: MosaicCell[] = [];
-  const occupied: boolean[][] = Array.from({ length: gridRows }, () =>
-    new Array(gridColumns).fill(false),
-  );
-
-  const densityFactor = density / 100;
-  const maxCellWidth = Math.max(2, Math.floor(gridColumns * 0.4 * densityFactor));
-  const maxCellHeight = Math.max(2, Math.floor(gridRows * 0.4 * densityFactor));
-
-  // 시드 기반 난수 (결정적 패턴)
-  let seed = Math.floor(density * 1000 + gridColumns * 100 + gridRows);
-  function seededRandom(): number {
-    seed = (seed * 16807 + 0) % 2147483647;
-    return (seed - 1) / 2147483646;
-  }
-
-  for (let row = 0; row < gridRows; row++) {
-    for (let col = 0; col < gridColumns; col++) {
-      if (occupied[row][col]) continue;
-
-      const cellWidth = Math.min(
-        maxCellWidth,
-        Math.floor(seededRandom() * 3) + 1,
-        gridColumns - col,
-      );
-      const cellHeight = Math.min(
-        maxCellHeight,
-        Math.floor(seededRandom() * 3) + 1,
-        gridRows - row,
-      );
-
-      // 점유 확인
-      let canPlace = true;
-      for (let r = row; r < row + cellHeight && canPlace; r++) {
-        for (let c = col; c < col + cellWidth && canPlace; c++) {
-          if (r >= gridRows || c >= gridColumns || occupied[r][c]) canPlace = false;
-        }
-      }
-
-      const finalWidth = canPlace ? cellWidth : 1;
-      const finalHeight = canPlace ? cellHeight : 1;
-
-      cells.push({
-        x: col,
-        y: row,
-        width: finalWidth,
-        height: finalHeight,
-        colorIndex: Math.floor(seededRandom() * 4),
-      });
-
-      for (let r = row; r < row + finalHeight; r++) {
-        for (let c = col; c < col + finalWidth; c++) {
-          if (r < gridRows && c < gridColumns) {
-            occupied[r][c] = true;
-          }
-        }
-      }
-    }
-  }
-
-  return cells;
-}
-
-// ── 메인: Mosaic 패널 배치 계산 ──
-
+// PORTO templates define the rear panels; there is no random support placement.
+// Current family: Type02. Finish-family mapping and hardware variants remain
+// separate work; see docs/tylko-reference/styles/mosaic.md.
 export function calculateMosaicPanels(input: MosaicInput): MosaicResult {
-  const { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers = [] } = input;
-
-  const baseUnit = 30;
-  const gridColumns = Math.floor(width / baseUnit);
-  const gridRows = Math.floor(height / (rowHeights[0] ?? 32));
-
-  if (gridColumns < 2 || gridRows < 2) {
-    const gridResult = calculateGridPanels(input as GridInput);
-    return { ...gridResult, cells: [] };
-  }
-
-  const panels: PanelData[] = [];
-  const cells = generateMosaicPattern(gridColumns, gridRows, density);
-
-  const cellWidth = width / gridColumns;
-  const cellHeight = height / gridRows;
-
-  cells.forEach((cell) => {
-    const w = cell.width * cellWidth;
-    const h = cell.height * cellHeight;
-    const x = cell.x * cellWidth - width / 2 + w / 2;
-    const y = cell.y * cellHeight + h / 2 + thickness;
-
-    // 모자이크 셀은 특수 matType — colorIndex로 색상 구별
-    // 기본 matType 사용하되 Shelf에서 colorIndex 기반 분기
-    panels.push({
-      w: w - thickness,
-      h: h - thickness,
-      d: depth,
-      x,
-      y,
-      z: depth / 2,
-      matType: 'verticalBase', // Shelf 컴포넌트에서 colorIndex 기반 색상 처리
-      castShadow: true,
-      receiveShadow: true,
-    });
+  const widthMm = Math.round(input.width * 10);
+  const density = Math.max(0, Math.min(100, input.density));
+  const numRows = Math.max(1, Math.min(rules.rows.length, input.numRows));
+  const t = rules.boardThickness / 10;
+  const layouts = rules.rows.slice(0, numRows).map(row => {
+    const candidates = row.filter(s => widthMm >= s.widthRange[0] && widthMm <= s.widthRange[1]);
+    const index = Math.max(0, Math.ceil(density / (100 / candidates.length)) - 1);
+    return candidates[index]?.columns ?? row[0].columns;
   });
-
-  // 백패널 또는 서포트 패널 (행별 판단)
-  const hardwareSet = new Set(hardwareLayers);
-  const supPanelWidth = 12;
-  let cy = 0;
-  for (let i = 0; i < numRows; i++) {
-    const rh = rowHeights[i] ?? 32;
-    const yPosition = cy + rh / 2 + thickness;
-    const rowNeedsBackPanel = hasBackPanel || hardwareSet.has(i);
-
-    if (rowNeedsBackPanel) {
-      panels.push({
-        w: width - thickness * 2,
-        h: rh,
-        d: thickness,
-        x: 0,
-        y: yPosition,
-        z: thickness / 2,
-        matType: 'backPanel',
-        castShadow: false,
-        receiveShadow: true,
-      });
-    } else {
-      panels.push({
-        w: supPanelWidth, h: rh, d: thickness,
-        x: -width / 2 + supPanelWidth / 2 + thickness, y: yPosition, z: thickness / 2,
-        matType: 'supportPanel', castShadow: true, receiveShadow: true,
-      });
-
-      if (width >= 44) {
-        panels.push({
-          w: supPanelWidth, h: rh, d: thickness,
-          x: width / 2 - supPanelWidth / 2 - thickness, y: yPosition, z: thickness / 2,
-          matType: 'supportPanel', castShadow: true, receiveShadow: true,
-        });
+  const count = layouts[0].length;
+  const axisWidth = widthMm - rules.axisOffset;
+  const narrowCount = rules.narrowCounts[count - 1];
+  const narrowRatio = rules.narrowWidth / axisWidth;
+  const wideRatio = (axisWidth-rules.narrowWidth*narrowCount)/(count-narrowCount)/axisWidth;
+  const equalRatio = axisWidth/count/axisWidth;
+  const motion = density >= 46 && density <= 54 ? 50 : Math.round(density);
+  const ratios = rules.startNarrowColumns[count-1].map((narrow,index)=>{
+    const start = narrow ? narrowRatio : wideRatio;
+    const end = rules.endNarrowColumns[count-1][index] ? narrowRatio : wideRatio;
+    return motion < 50 ? start+(motion/50)*(equalRatio-start)
+      : motion < 100 ? equalRatio+((motion-50)/50)*(end-equalRatio) : end;
+  });
+  let cumulative = 0;
+  const xs = [-input.width/2+t/2];
+  ratios.forEach((ratio,index)=>{
+    cumulative += ratio;
+    const fraction = index === count-1 ? 1 : cumulative;
+    xs.push(-input.width/2+t/2+Math.floor(fraction*axisWidth)/10);
+  });
+  const ys = [t / 2];
+  for (let row = 0; row < numRows; row++) ys.push(ys[row] + (input.rowHeights[row] ?? 28) + 2);
+  const hardwareRows = new Set(input.hardwareLayers ?? []);
+  const rowStyles = Array.from({length:numRows},(_,row)=>effectiveHardwareStyle(
+    input.hardwareRowStyles?.[row] ?? (hardwareRows.has(row) ? 12 : 11),row,input.rowHeights,input.depth));
+  const types: Record<number,string[]> = {11:['O','O','O'],12:['O','D','D'],13:['D','D','D'],21:['O','T','T'],22:['D','T','D'],31:['T','T','T']};
+  const cells: MosaicCell[] = [];
+  const horizontal = Array.from({ length: numRows + 1 }, () => Array<boolean>(count).fill(true));
+  for (let row = 0; row < numRows; row++) {
+    for (let col = 0; col < count; col++) {
+      const kind = layouts[row][col];
+      const left = xs[col] + t / 2;
+      const right = xs[col + 1] - t / 2;
+      const bottom = ys[row] + t / 2;
+      const top = ys[row + 1] - t / 2;
+      let fill = types[rowStyles[row]][kind === 1143 ? 0 : kind === 1150 ? 1 : 2];
+      if (fill === 'T' && right-left < 26.4) fill = rowStyles[row] === 22 && input.rowHeights[row] > 18 ? 'D' : 'O';
+      if (fill === 'D' && input.rowHeights[row] < 28) fill = 'O';
+      const frontType = fill === 'D' ? 'door' as const : fill === 'T' ? 'drawer' as const : undefined;
+      const hasBack = kind !== 1143 || input.hasBackPanel || !!frontType;
+      // expo2 removes the bottom boundary when both neighbouring rows are open.
+      const prior = cells.find(c => c.columnIndex === col && c.rowIndex + c.rowSpan === row);
+      const below = rowStyles[row-1];
+      const doorStyle = (code:number)=>[12,13,22].includes(code);
+      const merge = row > 0 && ((rowStyles[row] === 11 && below === 11) ||
+        (doorStyle(rowStyles[row]) && input.rowHeights[row-1] !== 18 && doorStyle(below)) ||
+        (rowStyles[row] === 11 && input.rowHeights[row-1] === 18 && [12,13].includes(below)));
+      if (kind === 1147 && prior && merge) {
+        horizontal[row][col] = false;
+        const base = prior.y - prior.height / 2;
+        prior.height = top - base;
+        prior.y = (top + base) / 2;
+        prior.rowSpan++;
+        prior.hasBack = true;
+      } else {
+        cells.push({ x: (left + right) / 2, y: (bottom + top) / 2, width: right - left,
+          height: top - bottom, rowIndex: row, rowSpan: 1, columnIndex: col, hasBack, frontType });
       }
     }
-
-    cy += rh + thickness;
   }
-
-  return { panels, panelCount: cells.length, panelSpacing: 0, cells };
+  let panels: PanelData[] = [];
+  const add = (w: number, h: number, d: number, x: number, y: number, matType: PanelData['matType']) => {
+    panels.push({ w, h, d, x, y, z: d / 2, matType,
+      castShadow: matType !== 'backPanel', receiveShadow: true });
+  };
+  for (let row = 0; row <= numRows; row++) {
+    let col = 0;
+    while (col < count) {
+      if (!horizontal[row][col]) { col++; continue; }
+      const start = col;
+      while (col < count && horizontal[row][col]) col++;
+      add(xs[col] - xs[start] + t, t, input.depth, (xs[start] + xs[col]) / 2, ys[row], 'horizontalBase');
+    }
+  }
+  const shelfAt = (col: number, row: number) =>
+    (col > 0 && horizontal[row][col - 1]) || (col < count && horizontal[row][col]);
+  for (let col = 0; col <= count; col++) {
+    let row = 0;
+    while (row < numRows) {
+      const start = row++;
+      while (row < numRows && !shelfAt(col, row)) row++;
+      const bottom = ys[start] + t / 2;
+      const top = ys[row] - t / 2;
+      add(t, top - bottom, input.depth, xs[col], (bottom + top) / 2, 'verticalBase');
+    }
+  }
+  for (const cell of cells) {
+    if (cell.hasBack) add(cell.width, cell.height, 1.2, cell.x, cell.y, 'backPanel');
+  }
+  // Manufacturing joints are independent of compartment boundaries.
+  panels = splitMosaicHorizontals(panels, input.width).panels;
+  const fronts: ReferenceFront[] = cells.filter(c=>c.frontType).flatMap(c=>{
+    const base = {x:c.x,y:c.y,width:c.width,height:c.height,rowIndex:c.rowIndex,type:c.frontType!};
+    if (c.frontType === 'drawer' && layouts[c.rowIndex][c.columnIndex] === 1150 && input.rowHeights[c.rowIndex] === 38) {
+      const half = (c.height-t)/2;
+      return [{...base,height:half,y:c.y-(half+t)/2},{...base,height:half,y:c.y+(half+t)/2}];
+    }
+    return [base];
+  });
+  // Fill modules in a 400 mm row have a centre shelf (two 182 mm openings).
+  for (let i = cells.length - 1; i >= 0; i--) {
+    const cell = cells[i];
+    if (layouts[cell.rowIndex][cell.columnIndex] !== 1150 || cell.rowSpan !== 1 || input.rowHeights[cell.rowIndex] !== 38) continue;
+    add(cell.width, t, input.depth, cell.x, cell.y, 'horizontalBase');
+    const halfHeight = (cell.height - t) / 2;
+    const offset = (halfHeight + t) / 2;
+    cells.splice(i, 1, { ...cell, height: halfHeight, y: cell.y - offset },
+      { ...cell, height: halfHeight, y: cell.y + offset });
+  }
+  return { panels, cells, fronts, panelCount: count + 1, panelSpacing: axisWidth / count / 10,
+    bodyHeight: ys[numRows] + t / 2 };
 }

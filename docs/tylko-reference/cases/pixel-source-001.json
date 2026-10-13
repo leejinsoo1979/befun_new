@@ -1,0 +1,35 @@
+{
+  "caseId": "pixel-source-001",
+  "observedAt": "2026-10-13T11:06:09.123005+00:00",
+  "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+  "publicDataUrl": "https://tylko.com/api/v1/furniture_dna/?shelf_type=1&collection_type=Bookcase&dna_version=6",
+  "mapping": "container 5 / charlie_transform / mesh 2694–2697",
+  "family": "type02",
+  "method": "independent generator compared with public decoder and actual horizontal splitter; frozen numeric fixtures",
+  "inputOptions": "each complete input is stored in fixture files",
+  "fixtureDirectory": "scripts/tylko-pixel-gradient",
+  "observations": {
+    "rules": "폭 구간별 좁은 축191mm·최대축567mm·날개250mm 제약과 비율표를 조합합니다. 가장자리 세로판과 하단 가로판의 누락에 따라 실제 내경 높이도 달라집니다. 밀도46~54는50으로 정규화합니다.",
+    "internalCoordinates": "fixture expectedPanels/expectedFronts/expectedOpenings; source millimetres"
+  },
+  "measurement": {
+    "sourceUnit": "mm",
+    "comparisonToleranceMm": 1e-06,
+    "screenUnit": "cm",
+    "screenPrecision": "truncated integer, not exact coordinates"
+  },
+  "unconfirmed": [
+    "Type01 DNA and full frame",
+    "arbitrary edit overrides",
+    "all combinations",
+    "photometric/pixel parity"
+  ],
+  "screenshots": [],
+  "verification": {
+    "frozenCases": 744,
+    "scopeOfCount": "combined pair: Pixel+Gradient",
+    "results": "all stored physical panels including final splits, fronts and openings match",
+    "additionalDevelopmentComparisons": 2064,
+    "independentHeldOutComparisons": 480
+  }
+}

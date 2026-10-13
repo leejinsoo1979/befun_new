@@ -1,0 +1,35 @@
+{
+  "caseId": "grid-source-001",
+  "observedAt": "2026-10-13T11:06:09.123005+00:00",
+  "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+  "publicDataUrl": "https://tylko.com/api/v1/furniture_dna/?shelf_type=1&collection_type=Bookcase&dna_version=6",
+  "mapping": "container 3 / mesh 2169",
+  "family": "type02",
+  "method": "independent generator compared with public decoder and actual horizontal splitter; frozen numeric fixtures",
+  "inputOptions": "each complete input is stored in fixture files",
+  "fixtureDirectory": "scripts/tylko-grid-slant",
+  "observations": {
+    "rules": "폭 구간별 열 그룹을 고르고 밀도에 따라 후보를 선택합니다. 축 간격을 mm 단위로 등분하고 나머지 mm는 왼쪽 열부터 배분합니다. 568mm를 넘는 축 간격은 두 칸으로 나누고 바깥쪽 보강판 속성을 보존합니다.",
+    "internalCoordinates": "fixture expectedPanels/expectedFronts/expectedOpenings; source millimetres"
+  },
+  "measurement": {
+    "sourceUnit": "mm",
+    "comparisonToleranceMm": 1e-06,
+    "screenUnit": "cm",
+    "screenPrecision": "truncated integer, not exact coordinates"
+  },
+  "unconfirmed": [
+    "Type01 DNA and full frame",
+    "arbitrary edit overrides",
+    "all combinations",
+    "photometric/pixel parity"
+  ],
+  "screenshots": [],
+  "verification": {
+    "frozenCases": 1296,
+    "scopeOfCount": "combined pair: Grid+Slant",
+    "results": "all stored physical panels including final splits, fronts and openings match",
+    "additionalDevelopmentComparisons": 14832,
+    "independentHeldOutComparisons": 9072
+  }
+}

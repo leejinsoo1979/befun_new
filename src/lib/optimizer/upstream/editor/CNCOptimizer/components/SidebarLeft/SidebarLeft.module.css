@@ -1,0 +1,1007 @@
+.section {
+  background: var(--theme-surface);
+  border: 1px solid hsl(var(--theme) / 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+/* 패널 목록 섹션 - 유연한 높이 */
+.section:has(.tableContainer) {
+  flex: 1;
+  min-height: 0;
+}
+
+/* 원자재 섹션 - 고정 높이 */
+.section:has(.stockTableContainer) {
+  height: 180px;
+  min-height: 180px;
+  max-height: 180px;
+}
+
+/* 설정 섹션 - 나머지 공간 채우기 */
+.section:has(.options) {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.sectionHeader svg {
+  width: 16px;
+  height: 16px;
+  color: hsl(var(--theme));
+}
+
+.sectionHeader h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--theme-text);
+  margin: 0;
+  flex: 1;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: hsl(var(--theme) / 0.1);
+  border: 1px solid hsl(var(--theme) / 0.2);
+  border-radius: 4px;
+  color: hsl(var(--theme));
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+.addButton svg {
+  color: hsl(var(--theme));
+  width: 14px;
+  height: 14px;
+}
+
+.addButton:hover {
+  background: hsl(var(--theme) / 0.15);
+  border-color: hsl(var(--theme) / 0.3);
+}
+
+.addButton:hover svg {
+  color: hsl(var(--theme));
+}
+
+.tableContainer {
+  padding: 0 4px 0 0;
+  flex: 1;
+  min-height: 0;
+  overflow-y: overlay;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 원자재 테이블 컨테이너는 더 작은 높이 */
+.stockTableContainer {
+  padding: 0;
+  height: 120px;
+  min-height: 120px;
+  max-height: 120px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.tableContainer::-webkit-scrollbar,
+.stockTableContainer::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.tableContainer::-webkit-scrollbar-track,
+.stockTableContainer::-webkit-scrollbar-track {
+  background: var(--theme-background-secondary);
+  border-radius: 3px;
+}
+
+.tableContainer::-webkit-scrollbar-thumb,
+.stockTableContainer::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.tableContainer::-webkit-scrollbar-thumb:hover,
+.stockTableContainer::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+.table {
+  width: 100%;
+  min-width: 0;
+  font-size: 11px;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+/* 패널 테이블 열 너비 — 체크|이름|텍스처명|치수|두께|재질|결방향 */
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  width: 20px; /* 체크박스 */
+  text-align: center;
+  padding: 0 2px !important;
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  /* 이름 — auto로 남은 공간 전부 사용 */
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+  width: 110px; /* 치수 */
+  padding: 0 2px !important;
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5) {
+  width: 30px; /* 두께 */
+  text-align: center;
+  padding: 0 2px !important;
+}
+
+.table th:nth-child(6),
+.table td:nth-child(6) {
+  width: 40px; /* 재질 */
+  padding: 0 2px !important;
+  overflow: hidden;
+}
+
+.table th:nth-child(7),
+.table td:nth-child(7) {
+  width: 32px; /* 결방향 */
+  text-align: center;
+  padding: 0 2px !important;
+  overflow: visible;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  width: 76px;
+  padding: 0 4px !important;
+}
+
+.textureName {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-secondary);
+}
+
+/* 원자재 테이블 열 너비 지정 */
+.stockTable th:first-child,
+.stockTable td:first-child {
+  width: 110px;
+}
+
+.stockTable th:nth-child(2),
+.stockTable td:nth-child(2) {
+  width: 110px;
+}
+
+.stockTable th:nth-child(3),
+.stockTable td:nth-child(3) {
+  width: 60px;
+}
+
+.stockTable th:nth-child(4),
+.stockTable td:nth-child(4) {
+  width: 60px;
+}
+
+.stockTable th:nth-child(5),
+.stockTable td:nth-child(5) {
+  /* 재질 — 남은 공간 사용 */
+}
+
+.table thead {
+  position: sticky;
+  top: 0;
+  background: var(--theme-background-secondary);
+  z-index: 1;
+}
+
+/* 원자재 테이블의 헤더도 sticky로 설정 */
+.stockTable thead {
+  position: sticky;
+  top: 0;
+  background: var(--theme-background-secondary);
+  z-index: 1;
+}
+
+.table th {
+  padding: 4px 2px;
+  color: hsl(var(--theme) / 0.7);
+  font-weight: 600;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  border-bottom: 2px solid hsl(var(--theme) / 0.2);
+  background: hsl(var(--theme) / 0.03);
+}
+
+.table tbody tr {
+  transition: all 0.15s;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.table tbody tr:hover {
+  background: hsl(var(--theme) / 0.04);
+}
+
+.table tbody tr.selected {
+  background: hsl(var(--theme) / 0.06);
+}
+
+.table tbody tr.selected td {
+  color: hsl(var(--theme));
+  font-weight: 700;
+}
+
+.table tbody tr.selected td .input {
+  color: hsl(var(--theme));
+  font-weight: 700;
+  border-color: hsl(var(--theme) / 0.4);
+  background: hsl(var(--theme) / 0.06);
+}
+
+.table tbody tr.selected td .dimensions,
+.table tbody tr.selected td .inputSmall,
+.table tbody tr.selected td .inputTiny,
+.table tbody tr.selected td .select {
+  color: hsl(var(--theme));
+  font-weight: 600;
+}
+
+/* 은선 효과 제거됨 — 아래는 사용하지 않음 */
+.table__unused_hidden_overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px dashed #d0d0d0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 은선 효과 제거 — 선택 여부와 무관하게 모든 패널 정상 표시 */
+
+.table tbody tr.newPanel {
+  background: hsl(var(--theme) / 0.08);
+  animation: highlight 1s ease-in-out;
+  border: 2px solid hsl(var(--theme) / 0.3) !important;
+  box-shadow: 0 2px 8px hsl(var(--theme) / 0.15);
+}
+
+@keyframes highlight {
+  0% {
+    background: hsl(var(--theme) / 0.2);
+    transform: scale(1.02);
+  }
+  50% {
+    background: hsl(var(--theme) / 0.15);
+    transform: scale(1.01);
+  }
+  100% {
+    background: hsl(var(--theme) / 0.08);
+    transform: scale(1);
+  }
+}
+
+.table td {
+  padding: 3px 2px;
+  color: var(--theme-text-secondary);
+  vertical-align: middle;
+  font-size: 11px;
+}
+
+.input {
+  width: 100%;
+  padding: 3px 6px;
+  border: 1px solid var(--theme-border);
+  background: white;
+  color: #333;
+  font-size: 11px;
+  transition: all 0.2s;
+  border-radius: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.input:placeholder-shown {
+  background: hsl(var(--theme) / 0.05) !important;
+  border-color: hsl(var(--theme) / 0.3);
+  border-width: 2px;
+  box-shadow: 0 0 0 2px hsl(var(--theme) / 0.1);
+}
+
+.input:focus {
+  outline: none;
+  border-color: hsl(var(--theme) / 0.3);
+  background: white;
+  color: #333;
+}
+
+.inputSmall {
+  width: 42px;
+  padding: 2px 1px;
+  border: 1px solid var(--theme-border);
+  background: white;
+  color: #333;
+  font-size: 11px;
+  text-align: center;
+  transition: all 0.2s;
+  border-radius: 3px;
+}
+
+.inputSmall:placeholder-shown {
+  background: hsl(var(--theme) / 0.05) !important;
+  border-color: hsl(var(--theme) / 0.3);
+  border-width: 2px;
+  box-shadow: 0 0 0 2px hsl(var(--theme) / 0.1);
+}
+
+.inputSmall:focus {
+  outline: none;
+  border-color: hsl(var(--theme) / 0.3);
+  background: white;
+  color: #333;
+}
+
+.inputTiny {
+  width: 32px;
+  padding: 3px 2px;
+  border: 1px solid var(--theme-border);
+  background: white;
+  color: #333;
+  font-size: 11px;
+  text-align: center;
+  transition: all 0.2s;
+  border-radius: 3px;
+}
+
+.inputTiny:placeholder-shown {
+  background: hsl(var(--theme) / 0.05) !important;
+  border-color: hsl(var(--theme) / 0.3);
+}
+
+.inputTiny:focus {
+  outline: none;
+  border-color: hsl(var(--theme) / 0.3);
+  background: white;
+  color: #333;
+}
+
+.select {
+  width: 100%;
+  max-width: 36px;
+  padding: 2px 0;
+  border: 1px solid var(--theme-border);
+  background: white;
+  color: #333;
+  font-size: 10px;
+  transition: all 0.2s;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-align: center;
+}
+
+.select:focus {
+  outline: none;
+  border-color: hsl(var(--theme) / 0.3);
+  background: white;
+  color: #333;
+}
+
+.dimensions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--theme-text-muted);
+  justify-content: center;
+}
+
+.deleteButton {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--theme-text-muted);
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+
+/* Radio Group Styles */
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.radioGroup > span {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--theme-text-secondary);
+  margin-bottom: 4px;
+}
+
+.radioButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.radioButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  background: var(--theme-surface);
+  border: 1px solid var(--theme-border);
+  border-radius: 4px;
+  transition: all 0.2s;
+  font-size: 11px;
+}
+
+.radioButton:hover {
+  background: hsl(var(--theme) / 0.05);
+  border-color: hsl(var(--theme) / 0.2);
+}
+
+.radioButton input[type="radio"] {
+  margin: 0;
+  width: 14px;
+  height: 14px;
+}
+
+.radioButton input[type="radio"]:checked {
+  accent-color: hsl(var(--theme));
+}
+
+.radioButton input[type="radio"]:checked + span {
+  color: hsl(var(--theme));
+  font-weight: 500;
+}
+
+.radioButton span {
+  flex: 1;
+  color: var(--theme-text-secondary);
+  transition: all 0.2s;
+}
+
+.deleteButton:hover {
+  background: #fee;
+  color: #f00;
+}
+
+.grainSelector {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.grainButton {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--theme-surface);
+  border: 1px solid #d0d0d0;
+  border-radius: 3px;
+  color: var(--theme-text-muted);
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.grainButton:hover {
+  background: var(--theme-surface);
+  border-color: var(--theme-text-muted);
+  color: var(--theme-text-muted);
+}
+
+.grainButton.active {
+  background: hsl(var(--theme) / 0.1);
+  border-color: hsl(var(--theme) / 0.3);
+  color: hsl(var(--theme));
+}
+
+.grainButton.active:hover {
+  background: hsl(var(--theme) / 0.15);
+  border-color: hsl(var(--theme) / 0.4);
+}
+
+.grainToggle {
+  width: 24px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--theme-background-secondary);
+  border: 1px solid var(--theme-border);
+  border-radius: 3px;
+  color: var(--theme-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.15s;
+  padding: 0;
+}
+
+.grainToggle:hover {
+  background: hsl(var(--theme) / 0.08);
+  border-color: hsl(var(--theme) / 0.3);
+  color: hsl(var(--theme));
+}
+
+.grainToggle:active {
+  transform: scale(0.95);
+}
+
+.grainToggleV {
+  background: hsla(210, 80%, 55%, 0.12);
+  border-color: hsla(210, 80%, 55%, 0.35);
+  color: hsl(210, 80%, 45%);
+}
+
+.grainToggleV:hover {
+  background: hsla(210, 80%, 55%, 0.2);
+  border-color: hsla(210, 80%, 55%, 0.5);
+  color: hsl(210, 80%, 40%);
+}
+
+.grainToggleH {
+  background: hsla(25, 90%, 50%, 0.12);
+  border-color: hsla(25, 90%, 50%, 0.35);
+  color: hsl(25, 90%, 42%);
+}
+
+.grainToggleH:hover {
+  background: hsla(25, 90%, 50%, 0.2);
+  border-color: hsla(25, 90%, 50%, 0.5);
+  color: hsl(25, 90%, 38%);
+}
+
+/* 패널 제외 체크박스 */
+.panelCheckbox {
+  width: 13px;
+  height: 13px;
+  accent-color: hsl(var(--theme));
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.excludedRow {
+  opacity: 0.4 !important;
+}
+
+.excludedRow td {
+  opacity: 1 !important;
+}
+
+.empty {
+  text-align: center;
+  color: var(--theme-text-muted);
+  font-style: italic;
+  padding: 32px 16px;
+  font-size: 13px;
+}
+
+/* Options Card Styles */
+.options {
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.options::-webkit-scrollbar {
+  width: 6px;
+}
+
+.options::-webkit-scrollbar-track {
+  background: var(--theme-background-secondary);
+  border-radius: 3px;
+}
+
+.options::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.options::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+.optionGroup {
+  margin: 0;
+  padding: 2px 4px;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.optionGroup:hover {
+  background: hsl(var(--theme) / 0.05);
+}
+
+.optionGroup label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--theme-text);
+  transition: all 0.2s ease;
+  height: 20px;
+}
+
+.optionGroup label:hover {
+  color: hsl(var(--theme));
+}
+
+.optionGroup label span {
+  flex: 1;
+  font-weight: 500;
+}
+
+.numberInput {
+  justify-content: space-between !important;
+}
+
+.inlineNumberInput {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--theme-text);
+}
+
+.inlineNumberInput span {
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: var(--theme-surface);
+  border: 1px solid var(--theme-border);
+  border-radius: 4px;
+  padding: 2px 6px 2px 4px;
+  transition: all 0.2s ease;
+}
+
+.inputWrapper:hover {
+  border-color: hsl(var(--theme) / 0.4);
+}
+
+.inputWrapper:focus-within {
+  border-color: hsl(var(--theme));
+  box-shadow: 0 0 0 3px hsl(var(--theme) / 0.1);
+}
+
+.optionGroup input[type="number"] {
+  width: 35px;
+  padding: 4px 2px;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  color: hsl(var(--theme));
+  outline: none;
+}
+
+.unit {
+  font-size: 11px;
+  color: var(--theme-text-muted);
+  font-weight: 500;
+}
+
+/* 여백 설정 그리드 */
+.marginGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 4px;
+  background: var(--theme-background-secondary);
+  border-radius: 4px;
+  margin: 2px 0;
+}
+
+.marginRow {
+  display: flex;
+  gap: 6px;
+}
+
+.numberInputCompact {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex: 1;
+}
+
+.numberInputCompact span {
+  font-size: 10px;
+  color: var(--theme-text-muted);
+  min-width: 24px;
+}
+
+.numberInputCompact .inputWrapper {
+  flex: 1;
+}
+
+.numberInputCompact input[type="number"] {
+  width: 100%;
+}
+
+/* 갭 설정 토글 버튼 */
+.gapToggleButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 6px 8px;
+  margin: 4px 0;
+  background: var(--theme-background-secondary);
+  border: 1px solid var(--theme-border);
+  border-radius: 4px;
+  color: var(--theme-text-secondary);
+  font-size: 11px;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.gapToggleButton:hover {
+  background: var(--theme-secondary-bg);
+  border-color: var(--theme-border);
+}
+
+.gapToggleButton:active {
+  background: var(--theme-secondary-bg-hover);
+}
+
+.gapToggleButton svg {
+  width: 14px;
+  height: 14px;
+  color: var(--theme-text-muted);
+}
+
+/* 체크박스 그리드 레이아웃 */
+.checkboxGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 4px 0;
+}
+
+.checkboxRow {
+  display: flex;
+  gap: 8px;
+}
+
+.checkboxCompact {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  padding: 3px 4px;
+  border-radius: 3px;
+  transition: all 0.15s;
+}
+
+.checkboxCompact:hover {
+  background: hsl(var(--theme) / 0.05);
+}
+
+.checkboxCompact input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: var(--theme-surface);
+  border: 1px solid #d0d0d0;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.checkboxCompact input[type="checkbox"]:checked {
+  background-color: var(--theme-surface);
+  border-color: hsl(var(--theme));
+  border-width: 1px;
+}
+
+.checkboxCompact input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: hsl(var(--theme));
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.checkboxCompact input[type="checkbox"]:hover {
+  border-color: hsl(var(--theme) / 0.6);
+}
+
+.checkboxCompact span {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--theme-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.optionGroup input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: var(--theme-surface);
+  border: 1px solid #d0d0d0;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.optionGroup input[type="checkbox"]:checked {
+  background-color: var(--theme-surface);
+  border-color: hsl(var(--theme));
+  border-width: 1px;
+}
+
+.optionGroup input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: hsl(var(--theme));
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.optionGroup input[type="checkbox"]:hover {
+  border-color: hsl(var(--theme) / 0.6);
+  transform: scale(1.05);
+}
+
+.resetLink {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--theme-border);
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: hsl(var(--theme) / 0.08);
+  border: 1px solid hsl(var(--theme) / 0.2);
+  border-radius: 6px;
+  color: hsl(var(--theme));
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+  padding: 8px 16px;
+  width: 100%;
+  justify-content: center;
+}
+
+.link:hover {
+  background: hsl(var(--theme) / 0.15);
+  border-color: hsl(var(--theme) / 0.4);
+  color: hsl(var(--theme));
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.link svg {
+  width: 14px;
+  height: 14px;
+}
+/* 시트별 패널 목록 구분 — colspan 셀은 일반 열 너비/정렬에서 제외합니다. */
+.table .sheetSeparator th {
+  width: auto;
+  padding: 9px 8px 7px !important;
+  text-align: left;
+  border-top: 1px solid hsl(var(--theme) / 0.25);
+  border-bottom: 1px solid hsl(var(--theme) / 0.12);
+  background: hsl(var(--theme) / 0.06);
+  font-size: 11px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--theme-text);
+}
+
+.sheetHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sheetMaterial {
+  color: var(--theme-text-secondary);
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.table .emptySheetRow td {
+  padding: 10px 8px !important;
+  text-align: left;
+  color: var(--theme-text-muted, #9ca3af);
+}
+
+.listSort {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+  padding: 8px;
+  border-bottom: 1px solid var(--theme-border);
+  color: var(--theme-text-secondary);
+  font-size: 12px;
+}
+
+.listSort select {
+  width: 120px;
+  padding: 5px 8px;
+  border: 1px solid var(--theme-border);
+  border-radius: 6px;
+  background: var(--theme-surface);
+  color: var(--theme-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.listSort select:focus-visible {
+  outline: 2px solid hsl(var(--theme));
+  outline-offset: 2px;
+}

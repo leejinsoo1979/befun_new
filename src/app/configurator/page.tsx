@@ -1,13 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
 import { TfiRulerAlt } from 'react-icons/tfi';
 import { FiShare } from 'react-icons/fi';
-import { TbAugmentedReality2 } from 'react-icons/tb';
+import { TbAugmentedReality2, TbFocusCentered } from 'react-icons/tb';
 import { StyleSelector } from '@/components/ui/StyleSelector';
 import { DimensionPanel } from '@/components/ui/DimensionPanel';
 import { DensitySlider } from '@/components/ui/DensitySlider';
@@ -17,12 +17,19 @@ import { FloatingBox } from '@/components/ui/FloatingBox';
 import { PriceDisplay } from '@/components/ui/PriceDisplay';
 import { ShareModal } from '@/components/ui/ShareModal';
 import { ARModal } from '@/components/ui/ARModal';
+import { MobileConfiguratorPanel } from '@/components/ui/MobileConfiguratorPanel';
+import { requestCameraReset } from '@/components/three/cameraEvents';
+import { AROverlay } from '@/components/ui/AROverlay';
+import { QuickLookSheet } from '@/components/ui/QuickLookSheet';
+import { detectARMode } from '@/components/three/ar/arSupport';
+import { useARStore } from '@/components/three/ar/arStore';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { useUIStore } from '@/stores/useUIStore';
 import { useMaterialStore } from '@/stores/useMaterialStore';
 import { useHardwareStore } from '@/stores/useHardwareStore';
 import { useCartStore } from '@/stores/useCartStore';
 import { calculatePrice } from '@/lib/pricing';
+import { saveDesignForOptimizer } from '@/lib/optimizer/befun/session';
 import { calculateGridPanels } from '@/lib/three/styles/grid';
 import { calculateSlantPanels } from '@/lib/three/styles/slant';
 import { calculatePixelPanels } from '@/lib/three/styles/pixel';
@@ -47,6 +54,8 @@ export default function ConfiguratorPage() {
   const [shareUrl, setShareUrl] = useState('');
   const [showShareModal, setShowShareModal] = useState(false);
   const [showARModal, setShowARModal] = useState(false);
+  const [showQuickLook, setShowQuickLook] = useState(false);
+  const arOverlayRef = useRef<HTMLDivElement>(null);
 
   const showDimensions = useUIStore((s) => s.showDimensions);
   const setShowDimensions = useUIStore((s) => s.setShowDimensions);
@@ -56,7 +65,7 @@ export default function ConfiguratorPage() {
   const getDesignConfig = () => {
     const shelf = useShelfStore.getState();
     const { currentColor, colorCategory } = useMaterialStore.getState();
-    const { doorsCreatedLayers, drawersCreatedLayers } = useHardwareStore.getState();
+    const { doorsCreatedLayers, drawersCreatedLayers, rowStyles: hardwareRowStyles } = useHardwareStore.getState();
     return {
       style: shelf.style,
       density: shelf.density,
@@ -67,16 +76,17 @@ export default function ConfiguratorPage() {
       color: currentColor,
       colorCategory,
       rowHeights: shelf.rowHeights,
-      numRows: shelf.rowHeights.length,
+      numRows: shelf.numRows,
       doorsCreatedLayers,
       drawersCreatedLayers,
+      hardwareRowStyles,
     };
   };
 
   const getPrice = () => {
     const shelf = useShelfStore.getState();
     const { colorCategory } = useMaterialStore.getState();
-    const { doorsCreatedLayers, drawersCreatedLayers } = useHardwareStore.getState();
+    const { doorsCreatedLayers, drawersCreatedLayers, rowStyles: hardwareRowStyles } = useHardwareStore.getState();
     const layers = new Set<number>();
     doorsCreatedLayers.forEach((l) => layers.add(l));
     drawersCreatedLayers.forEach((l) => layers.add(l));
@@ -91,6 +101,8 @@ export default function ConfiguratorPage() {
       numRows: shelf.numRows,
       hasBackPanel: shelf.hasBackPanel,
       hardwareLayers,
+      hardwareRowStyles,
+      family: colorCategory === 'classic' || colorCategory === 'natural' ? 'type01' as const : 'type02' as const,
     };
     let panels;
     switch (shelf.style) {
@@ -120,6 +132,11 @@ export default function ConfiguratorPage() {
     router.push('/cart');
   };
 
+  const handleOpenOptimizer = () => {
+    saveDesignForOptimizer();
+    router.push('/optimizer');
+  };
+
   const handleSaveDesign = async (): Promise<string | null> => {
     setSaving(true);
     try {
@@ -146,26 +163,53 @@ export default function ConfiguratorPage() {
     if (url) setShowShareModal(true);
   };
 
+  // AR: 안드로이드 → WebXR(놓은 채 실시간 수정), 아이폰 → Quick Look, 그 외(데스크톱) → 폰으로 열 QR
   const handleARClick = async () => {
+    const mode = await detectARMode();
+    if (mode === 'webxr') {
+      const start = useARStore.getState().startWebXR;
+      if (start && arOverlayRef.current) {
+        try {
+          await start(arOverlayRef.current);
+          return;
+        } catch (err) {
+          console.error('[Befun] AR 시작 실패', err);
+          alert('AR을 시작하지 못했어요. 카메라 권한을 확인해주세요.');
+          return;
+        }
+      }
+    }
+    if (mode === 'quicklook') {
+      setShowQuickLook(true);
+      return;
+    }
     const url = await handleSaveDesign();
     if (url) setShowARModal(true);
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
+    // 모바일: 화면 높이(dvh)에 고정한 앱형 레이아웃 / 데스크톱: 기존 레이아웃
+    <div className="flex h-[100dvh] flex-col overflow-hidden lg:h-auto lg:min-h-screen lg:overflow-visible">
       {/* Header */}
-      <header className="border-b border-[#eee]">
+      <header className="shrink-0 border-b border-[#eee]">
         <div className="flex h-[56px] items-center justify-between px-4 lg:h-[80px] lg:px-5">
           <Link href="/">
             <Image
-              src="/imgs/icon/main_logo_new.png"
+              src="/imgs/icon/befun_logo.svg"
               alt="Befun"
               width={120}
-              height={40}
+              height={28}
+              unoptimized
+              priority
               className="ml-2 lg:ml-5"
             />
           </Link>
           <ul className="flex list-none gap-[10px] pr-2 text-xs lg:pr-5">
+            <li>
+              <button type="button" onClick={handleOpenOptimizer} className="cursor-pointer">
+                CNC 옵티마이저
+              </button>
+            </li>
             <li><Link href="/myshop">myshop</Link></li>
             <li><Link href="/cart">장바구니</Link></li>
           </ul>
@@ -173,9 +217,9 @@ export default function ConfiguratorPage() {
       </header>
 
       {/* Configurator: canvas + gui */}
-      <div className="flex h-[calc(100vh-56px)] flex-col overflow-hidden border-b border-[#eee] lg:h-[calc(100vh-80px)] lg:flex-row">
-        {/* Canvas 영역: 모바일 50vh, 데스크톱 flex-1 */}
-        <div className="relative h-[50vh] shrink-0 overflow-hidden bg-white lg:h-auto lg:flex-1">
+      <div className="flex min-h-0 flex-1 flex-col overflow-hidden border-b border-[#eee] lg:h-[calc(100vh-80px)] lg:flex-none lg:flex-row">
+        {/* Canvas 영역: 모바일은 하단 시트를 뺀 나머지 전부, 데스크톱 flex-1 */}
+        <div className="relative min-h-0 flex-1 overflow-hidden bg-white">
           <Scene />
 
           {/* Control buttons (ruler/share/AR) */}
@@ -184,9 +228,13 @@ export default function ConfiguratorPage() {
               { key: 'ruler', icon: <TfiRulerAlt size={18} color="#333" />, onClick: () => setShowDimensions(!showDimensions), isActive: showDimensions },
               { key: 'share', icon: <FiShare size={18} color="#333" />, onClick: handleShareClick, disabled: saving },
               { key: 'ar', icon: <TbAugmentedReality2 size={20} color="#333" />, onClick: handleARClick, disabled: saving },
+              { key: 'front', icon: <TbFocusCentered size={19} color="#333" />, onClick: requestCameraReset, title: '정면 보기 (Space)' },
             ].map((btn) => (
               <button
                 key={btn.key}
+                type="button"
+                title={btn.title}
+                aria-label={btn.title ?? btn.key}
                 onClick={btn.onClick}
                 disabled={btn.disabled}
                 style={{
@@ -214,13 +262,19 @@ export default function ConfiguratorPage() {
           <ShareModal shareUrl={shareUrl} onClose={() => setShowShareModal(false)} />
         )}
 
-        {/* AR 모달 */}
+        {/* AR 모달 (데스크톱: 폰으로 열 QR) */}
         {showARModal && shareUrl && (
           <ARModal shareUrl={shareUrl} onClose={() => setShowARModal(false)} />
         )}
 
-        {/* GUI 패널: 모바일 전체폭, 데스크톱 460px */}
-        <div className="flex shrink-0 flex-col overflow-y-auto bg-white px-4 pt-4 pb-6 shadow-[inset_0_1px_0_#eee] sm:px-6 lg:w-[460px] lg:px-8 lg:pt-5 lg:pb-8 lg:shadow-[inset_1px_0_0_#eee]">
+        {/* 아이폰 AR Quick Look */}
+        {showQuickLook && <QuickLookSheet onClose={() => setShowQuickLook(false)} />}
+
+        {/* 안드로이드 WebXR 오버레이 UI (세션 중에만 표시) */}
+        <AROverlay rootRef={arOverlayRef} onPurchase={handleAddToCart} />
+
+        {/* GUI 패널: 데스크톱 460px (모바일은 MobileConfiguratorPanel) */}
+        <div className="hidden shrink-0 flex-col overflow-y-auto bg-white px-4 pt-4 pb-6 shadow-[inset_0_1px_0_#eee] sm:px-6 lg:flex lg:w-[460px] lg:px-8 lg:pt-5 lg:pb-8 lg:shadow-[inset_1px_0_0_#eee]">
           {/* Price header */}
           <div className="mb-1">
             <h2 className="text-[14px] font-normal text-[#333]">다용도 수납장 기본형</h2>
@@ -247,6 +301,9 @@ export default function ConfiguratorPage() {
             </p>
           </div>
         </div>
+
+        {/* 모바일 하단 시트 */}
+        <MobileConfiguratorPanel onPurchase={handleAddToCart} />
       </div>
     </div>
   );

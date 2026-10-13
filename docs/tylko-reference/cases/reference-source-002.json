@@ -1,0 +1,114 @@
+{
+  "caseId": "reference-source-002",
+  "observedAt": "2026-10-13T08:01:23.761330+00:00",
+  "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+  "evidenceType": "public-network-design-data-and-offline-decoder-comparison",
+  "initialState": {
+    "shelfType": 1,
+    "collectionType": "Bookcase",
+    "dnaVersion": 6,
+    "containerId": 2,
+    "grasshopperId": 12,
+    "dnaName": "300_PATTERN_V13_t02",
+    "seed": null
+  },
+  "sourceDataUrl": "https://tylko.com/api/v1/furniture_dna/?shelf_type=1&collection_type=Bookcase&dna_version=6",
+  "actions": [
+    "Read public design response loaded by the existing VPN-connected Chrome product tab",
+    "Confirm Pattern container default setup points to grasshopper 12",
+    "Normalize 497 numeric rules and density remap tables",
+    "Implement independent TypeScript rule evaluator",
+    "Compare complete horizontal/vertical/support coordinate multisets against the public decoder"
+  ],
+  "inputs": {
+    "widthCm": [
+      30,
+      37,
+      43,
+      60,
+      87,
+      116,
+      173,
+      232,
+      284.3,
+      317,
+      399,
+      450
+    ],
+    "densityPercent": {
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "rowHeightsCm": [
+      [
+        38
+      ],
+      [
+        38,
+        38,
+        38,
+        38,
+        38
+      ],
+      [
+        18,
+        28,
+        38
+      ]
+    ],
+    "depthCm": 40,
+    "backPanel": false,
+    "fronts": false,
+    "rowStyles": 11,
+    "finish": "Farbe / shelf_type 1",
+    "color": null
+  },
+  "observations": {
+    "ruleCount": 497,
+    "boardThicknessMm": 18,
+    "rowPitchesMm": [
+      200,
+      300,
+      400
+    ],
+    "supportWidthMm": 125,
+    "snappingMm": 30,
+    "comparedConfigurations": 3636,
+    "mismatchedConfigurations": 0,
+    "comparison": "sorted x/y geometry multiset including duplicate count; physical h/v panel extents; support plane extents",
+    "fixtureFile": "scripts/tylko-pattern/structure-fixtures.json",
+    "measurementPrecisionMm": 0.001,
+    "screenErrorPixels": null
+  },
+  "heldOutScope": {
+    "widthCm": [
+      31,
+      37,
+      43,
+      60,
+      87,
+      116,
+      173,
+      232,
+      317,
+      399
+    ],
+    "note": "Rule implementation was developed against 284.3/450 widths; other swept widths checked after implementation. Width31 only narrow back invariant test, not included in 3636 reference sweep."
+  },
+  "screenshots": [],
+  "unknown": [
+    "UI round-trip for every fixture",
+    "back geometry with merged cells",
+    "front/hardware layout mapping",
+    "Type0 plywood family data",
+    "feet and joints",
+    "visual/material/camera parity",
+    "other initial design/seed independence"
+  ],
+  "notes": [
+    "This is source-coordinate verification, not 3636 browser screenshots or all option combinations.",
+    "Rounded UI dimensions were not used as exact coordinates.",
+    "Original decoder source is only a temporary local oracle; production uses independent interpreter plus numeric design data."
+  ]
+}

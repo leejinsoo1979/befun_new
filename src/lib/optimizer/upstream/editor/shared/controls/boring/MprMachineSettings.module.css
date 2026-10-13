@@ -1,0 +1,9 @@
+.settings { color: var(--theme-text, #222); padding: 12px; border: 1px solid var(--theme-border, #ddd); border-radius: 8px; }
+.settings summary { cursor: pointer; font-weight: 600; }
+.settings p { font-size: 12px; line-height: 1.6; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.grid label { display: flex; flex-direction: column; gap: 5px; font-size: 12px; }
+.grid input, .grid select { min-width: 0; width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid var(--theme-border, #ddd); border-radius: 5px; background: var(--theme-surface, #fff); color: inherit; }
+.check { display: flex; gap: 6px; align-items: center; margin: 16px 0; font-size: 13px; }
+.settings button { padding: 8px 16px; border: 1px solid var(--theme-border, #ddd); border-radius: 5px; background: var(--theme-primary, #605bed); color: white; cursor: pointer; }
+.message { white-space: pre-line; }

@@ -1,0 +1,116 @@
+{
+  "caseId": "hardware-source-001",
+  "observedAt": "2026-10-13T09:58:19.495Z",
+  "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+  "publicBundleUrl": "https://tylko.com/r_static/dist_vue/vueCrowV2-es6-adcb9eecc6cc1173956e.js",
+  "inputs": {
+    "styles": [
+      "Pattern",
+      "Mosaic"
+    ],
+    "baseline": {
+      "widthCm": 232,
+      "densityPercent": 69,
+      "rowHeightsCm": [
+        38,
+        38,
+        38,
+        38
+      ],
+      "depthCm": 32,
+      "backPanels": false
+    },
+    "modes": [
+      "None",
+      "Some",
+      "Max"
+    ],
+    "fixtures": "scripts/tylko-hardware/*-fixtures.json",
+    "initialSeed": null,
+    "individualEdits": null
+  },
+  "operations": [
+    "Read public decoders and current renderer",
+    "Capture six hardware modes on bottom row and all rows",
+    "Implement generator-selected actual openings",
+    "Compare 180 held-out width/density/depth/row-height/mode combinations",
+    "Compare 88 renderer geometry cases for Type01 and Type02"
+  ],
+  "observations": {
+    "baselineCases": 24,
+    "heldOutCases": 180,
+    "heldOutReport": {
+      "createdAt": "2026-10-13T09:58:19.495Z",
+      "scope": "Front count and envelope bounds only; cm input converted to mm; Pattern source Y +9mm; precision0.01mm.",
+      "policy": "Direct requested-style comparison plus independent UI constraint normalization. Public Mosaic raw decoder can accept styles not available in UI. Normalized oracle styles disable drawers above1578mm or depth<320mm, and doors for200mm row pitch.",
+      "samplesPerStyle": 90,
+      "styles": {
+        "pattern": {
+          "total": 90,
+          "normalizedMatches": 90,
+          "rawMatches": 90,
+          "countsMismatch": 0,
+          "boundsMismatch": 0,
+          "errors": 0,
+          "requestedModes": [
+            11,
+            12,
+            13,
+            21,
+            22,
+            31
+          ],
+          "rowCounts": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "failures": []
+        },
+        "mosaic": {
+          "total": 90,
+          "normalizedMatches": 90,
+          "rawMatches": 90,
+          "countsMismatch": 0,
+          "boundsMismatch": 0,
+          "errors": 0,
+          "requestedModes": [
+            11,
+            12,
+            13,
+            21,
+            22,
+            31
+          ],
+          "rowCounts": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "failures": []
+        }
+      },
+      "failures": []
+    },
+    "rendererCases": 88,
+    "frontCountsAndBounds": "match captured reference in the recorded samples",
+    "rowWidthsAndDividerPositions": "See numeric fixtures; not inferred from rounded labels",
+    "completeVisualEquivalence": false
+  },
+  "measurement": {
+    "unit": "mm",
+    "frontComparisonToleranceMm": 1e-06,
+    "heldoutCapturePrecisionMm": 0.01,
+    "displayLabels": "rounded clear dimensions, not exact coordinates",
+    "screenPixelError": null
+  },
+  "unknown": [
+    "Original GLB hinge and handle mesh identity",
+    "Type01 shelf structure equivalence: front renderer family is implemented but frame generation remains Type02",
+    "Every combination and initial design",
+    "All in-cell individual edits"
+  ],
+  "screenshots": []
+}

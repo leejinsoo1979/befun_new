@@ -1,9 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ShopLayout } from '@/components/common/ShopLayout';
 import { useCartStore } from '@/stores/useCartStore';
 import { formatPrice } from '@/lib/pricing';
+import styles from '@/components/storefront/storefront.module.css';
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, getTotalPrice } = useCartStore();
@@ -11,7 +13,7 @@ export default function CartPage() {
 
   return (
     <ShopLayout>
-      <div className="mx-auto max-w-3xl px-4 py-10">
+      <div className={styles.cartContent}>
         <h1 className="mb-8 text-2xl font-bold">장바구니</h1>
 
         {items.length === 0 ? (
@@ -19,7 +21,7 @@ export default function CartPage() {
             <p className="mb-4 text-gray-500">장바구니가 비어 있습니다</p>
             <Link
               href="/configurator"
-              className="inline-block rounded-lg bg-gray-900 px-6 py-2.5 text-sm text-white hover:bg-gray-800"
+              className={styles.darkButton}
             >
               디자인 시작하기
             </Link>
@@ -35,8 +37,11 @@ export default function CartPage() {
                   {/* 썸네일 */}
                   <div className="h-20 w-20 shrink-0 rounded-md bg-gray-100">
                     {item.thumbnailUrl ? (
-                      <img
+                      <Image
                         src={item.thumbnailUrl}
+                        width={80}
+                        height={80}
+                        unoptimized
                         alt="가구 미리보기"
                         className="h-full w-full rounded-md object-cover"
                       />
@@ -62,6 +67,8 @@ export default function CartPage() {
                   {/* 수량 */}
                   <div className="flex items-center gap-2">
                     <button
+                      aria-label="수량 줄이기"
+                      disabled={item.quantity <= 1}
                       onClick={() => updateQuantity(item.id, item.quantity - 1)}
                       className="flex h-7 w-7 items-center justify-center rounded border border-gray-300 text-sm"
                     >
@@ -69,6 +76,7 @@ export default function CartPage() {
                     </button>
                     <span className="w-6 text-center text-sm">{item.quantity}</span>
                     <button
+                      aria-label="수량 늘리기"
                       onClick={() => updateQuantity(item.id, item.quantity + 1)}
                       className="flex h-7 w-7 items-center justify-center rounded border border-gray-300 text-sm"
                     >

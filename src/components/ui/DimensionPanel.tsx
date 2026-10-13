@@ -2,7 +2,6 @@
 
 import { useMemo, useState, useEffect, useCallback } from 'react';
 import { useShelfStore } from '@/stores/useShelfStore';
-import { useHardwareStore } from '@/stores/useHardwareStore';
 
 const THUMB_WIDTH = 72;
 
@@ -210,12 +209,8 @@ export function DimensionPanel() {
       height: totalHeight,
     });
 
-    // 새 행 수 범위를 벗어나는 도어/서랍 제거
-    const hw = useHardwareStore.getState();
-    useHardwareStore.setState({
-      doorsCreatedLayers: hw.doorsCreatedLayers.filter((l) => l < count),
-      drawersCreatedLayers: hw.drawersCreatedLayers.filter((l) => l < count),
-    });
+    // 삭제된 행의 저장 모드와 변경된 높이의 하드웨어 제한도 함께 정리합니다.
+    useShelfStore.getState().reconcileHardware();
   };
 
   const footHeight = 1; // 조절발 높이 1cm

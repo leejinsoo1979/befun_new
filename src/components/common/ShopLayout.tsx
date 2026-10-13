@@ -1,14 +1,5 @@
 'use client';
-
-import { Header } from './Header';
-import { Footer } from './Footer';
-
+import { StorefrontFrame } from '@/components/storefront/StorefrontFrame';
 export function ShopLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-1">{children}</main>
-      <Footer />
-    </div>
-  );
+  return <StorefrontFrame>{children}</StorefrontFrame>;
 }

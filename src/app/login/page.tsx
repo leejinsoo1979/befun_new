@@ -4,12 +4,14 @@ import { Suspense, useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ShopLayout } from '@/components/common/ShopLayout';
+import styles from '@/components/storefront/storefront.module.css';
 
 function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl') ?? '/';
-  const [email, setEmail] = useState('');
+  const requestedCallback = searchParams.get('callbackUrl') ?? '/mypage';
+  const callbackUrl = requestedCallback.startsWith('/') && !requestedCallback.startsWith('//') ? requestedCallback : '/mypage';
+  const [email, setEmail] = useState(searchParams.get('email') ?? '');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
 
@@ -20,34 +22,33 @@ function LoginForm() {
     setIsSubmitting(true);
     setError('');
 
-    const result = await signIn('credentials', {
-      email,
-      redirect: false,
-    });
-
-    if (result?.error) {
-      setError('로그인에 실패했습니다');
+    try {
+      const result = await signIn('credentials', { email, redirect: false });
+      if (result?.error || !result?.ok) setError('로그인에 실패했습니다. 잠시 후 다시 시도해 주세요.');
+      else router.push(callbackUrl);
+    } catch {
+      setError('로그인 연결을 확인해 주세요.');
+    } finally {
       setIsSubmitting(false);
-    } else {
-      router.push(callbackUrl);
     }
   };
 
   return (
-    <div className="mx-auto max-w-sm px-4 py-20">
+    <div className={styles.accountForm}>
       <h1 className="mb-8 text-center text-2xl font-bold">로그인</h1>
 
       {/* 소셜 로그인 */}
       <div className="space-y-3">
         <button
           onClick={() => signIn('google', { callbackUrl })}
-          className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-300 py-2.5 text-sm font-medium hover:bg-gray-50"
+          className={styles.outlineButton}
         >
           Google로 로그인
         </button>
         <button
           onClick={() => signIn('kakao', { callbackUrl })}
-          className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#FEE500] py-2.5 text-sm font-medium text-gray-900 hover:bg-[#FADA0A]"
+          className={styles.whiteButton}
+          style={{background: "#FEE500"}}
         >
           카카오로 로그인
         </button>
@@ -60,19 +61,21 @@ function LoginForm() {
       </div>
 
       {/* 이메일 로그인 */}
-      <form onSubmit={handleEmailLogin} className="space-y-3">
-        <input
+      <form onSubmit={handleEmailLogin} className={styles.form}>
+        <label>이메일 주소<input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="이메일 주소"
+          autoComplete="email"
+          required
           className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-gray-900 focus:outline-none"
-        />
+        /></label>
         {error && <p className="text-center text-xs text-red-500">{error}</p>}
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full rounded-lg bg-gray-900 py-2.5 text-sm font-semibold text-white hover:bg-gray-800 disabled:bg-gray-400"
+          className={styles.darkButton}
         >
           {isSubmitting ? '로그인 중...' : '이메일로 로그인'}
         </button>

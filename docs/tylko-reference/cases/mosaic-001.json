@@ -1,0 +1,117 @@
+{
+  "caseId": "mosaic-001",
+  "observedAt": "2026-10-13T08:45:00+00:00",
+  "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+  "initialState": {
+    "shelfType": 1,
+    "collectionType": "Bookcase",
+    "containerId": 6,
+    "dnaVersion": 6,
+    "seed": null,
+    "priorEditHistory": "Existing VPN Chrome design, earlier Pattern and finish edits; exact prior sequence not completely recorded"
+  },
+  "inputs": {
+    "style": "Mosaic",
+    "widthCm": 232,
+    "densityPercent": 69.19999694824219,
+    "densityDisplayedPercent": 69,
+    "heightDisplayedCm": 203,
+    "rowHeightsDisplayedCm": [
+      38,
+      38,
+      38,
+      38,
+      38
+    ],
+    "depthCm": 32,
+    "backPanels": "Ohne",
+    "finish": "Farbe",
+    "colour": "Terracotta",
+    "doors": null,
+    "drawers": null,
+    "hardwareObservation": "Open compartments visible; complete per-row hardware history not recorded"
+  },
+  "actions": [
+    "Select Mosaic in existing Chrome product tab",
+    "Set width232cm and density69%",
+    "Compare five38cm rows with back panels Ohne",
+    "Befun: set Mosaic232cm,density69,depth32,backsOFF,five38cmrows"
+  ],
+  "observed": {
+    "columnCount": 6,
+    "columnClearWidthsDisplayedCm": [
+      40,
+      40,
+      29,
+      29,
+      40,
+      40
+    ],
+    "splitCellsBottomUp": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "mergedCells": [
+      {
+        "bottomRow": 0,
+        "column": 0,
+        "rowSpan": 2,
+        "clearHeightDisplayedCm": 78
+      },
+      {
+        "bottomRow": 1,
+        "column": 4,
+        "rowSpan": 2,
+        "clearHeightDisplayedCm": 78
+      }
+    ],
+    "defaultBackRectangles": 10,
+    "narrowSupportStrips": 0,
+    "exactInternalCoordinates": null,
+    "camera": null
+  },
+  "precision": {
+    "displayUnit": "cm",
+    "displayPrecision": "integer labels; not exact internal coordinates",
+    "sourceGeometryUnit": "mm",
+    "screenshotPixelError": null
+  },
+  "comparison": {
+    "befunDensityPercent": 69,
+    "befunColor": "S_Teracotta (#954227)",
+    "structure": "Visible six-column and split/merged compartment arrangement matches this one case",
+    "dimensions": "Displayed40/29,38/18/78; exact complete reference decoder parity not established",
+    "appearance": "Different camera,lighting,swatch artwork and body framing; not pixel-identical",
+    "verifiedAt": "2026-10-13T09:38:45.201775+00:00"
+  },
+  "screenshots": [
+    "screenshots/mosaic-001-reference-front.png",
+    "screenshots/mosaic-001-befun-front.png"
+  ]
+}

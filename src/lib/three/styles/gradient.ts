@@ -1,21 +1,10 @@
-import type { PanelData } from '@/types/shelf';
 import { calculateGridPanels, type GridInput, type GridResult } from './grid';
+import type { PanelData } from '@/types/shelf';
+import { splitReferenceHorizontals } from '../reference-horizontal-splits.ts';
+import { calculateReferencePixelGradient } from './reference-pixel-gradient.ts';
 
-export interface GradientInput {
-  width: number;
-  height: number;
-  depth: number;
-  thickness: number;
-  density: number;
-  rowHeights: number[];
-  numRows: number;
-  hasBackPanel: boolean;
-  hardwareLayers?: number[];
-}
-
+export type GradientInput = GridInput;
 export type GradientResult = GridResult & { internalWidths: number[] };
-
-// ── v1 calculateInternalWidths 이식 ──
 
 export function calculateInternalWidths(columnCount: number, totalWidth: number, density: number, thickness: number): number[] {
   const minWidth = 25;
@@ -62,6 +51,12 @@ export function calculateInternalWidths(columnCount: number, totalWidth: number,
 // ── 메인: Gradient 패널 배치 계산 ──
 
 export function calculateGradientPanels(input: GradientInput): GradientResult {
+  // Type01 templates have not been verified; preserve its existing generation.
+  if (input.family === 'type01') return calculateLegacyGradientPanels(input);
+  return calculateReferencePixelGradient(input, 'gradient');
+}
+
+function calculateLegacyGradientPanels(input: GradientInput): GradientResult {
   const { width, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers = [] } = input;
   const hardwareSet = new Set(hardwareLayers);
 
@@ -161,5 +156,5 @@ export function calculateGradientPanels(input: GradientInput): GradientResult {
   }
 
   const panelCount = internalWidths.length + 1;
-  return { panels, panelCount, panelSpacing: 0, internalWidths };
+  return { panels: splitReferenceHorizontals(panels, input.width, 'gradient').panels, panelCount, panelSpacing: 0, internalWidths };
 }

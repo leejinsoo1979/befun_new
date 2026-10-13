@@ -1,0 +1,45 @@
+{
+  "caseId": "hardware-reference-ui-001",
+  "observedAt": null,
+  "recordedAt": "2026-10-13T10:29:18.636276+00:00",
+  "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+  "inputs": {
+    "style": "Mosaic",
+    "widthUiCm": 263,
+    "widthControlCm": 263.3,
+    "densityUiPercent": 70,
+    "densityControlPercent": 70.3,
+    "rowHeightsUiCm": [
+      38,
+      38,
+      38,
+      38
+    ],
+    "heightUiCm": 163,
+    "depthCm": 32,
+    "backPanels": "Ohne",
+    "finish": "Farbe",
+    "colour": "Grey",
+    "seed": null,
+    "initialDesign": "3690311,j",
+    "individualEdits": null
+  },
+  "operations": [
+    "Bottom doorsSome",
+    "Bottom doorsMax",
+    "Bottom drawersSome while doorsMax produces mixedSome",
+    "Bottom drawersMax clears doors"
+  ],
+  "observations": {
+    "frontCount": null,
+    "exactCoordinates": null,
+    "note": "Screenshots capture live operation, possible hover animation; numerical rule comparison stored separately"
+  },
+  "precision": "UI labels rounded; control values from live DOM reading, exact physical coordinates not inferred",
+  "screenshots": [
+    "screenshots/hardware-mosaic-some-reference.png",
+    "screenshots/hardware-mosaic-max-reference.png",
+    "screenshots/hardware-mosaic-mixed-reference.png",
+    "screenshots/hardware-mosaic-drawers-max-reference.png"
+  ]
+}

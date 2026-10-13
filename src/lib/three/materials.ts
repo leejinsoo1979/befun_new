@@ -54,6 +54,11 @@ export function getColorCategory(colorName: string): ColorCategory {
 
 // ── 텍스처 로딩 유틸 ──
 
+// 표면 질감: 1.0(완전 무광)이면 종이처럼 보여서 약간의 광택을 준다
+const SOLID_ROUGHNESS = 0.5; // 무광 래커 도장 — 넓은 면에 은은한 반사 그라데이션이 생기도록
+const WOOD_ROUGHNESS = 0.72; // 원목/무늬목
+const TEXTURE_ANISOTROPY = 8;
+
 const textureLoader = new THREE.TextureLoader();
 
 type TextureMaterialType = keyof MaterialSet;
@@ -74,23 +79,60 @@ export interface MaterialSet {
   backPanel: THREE.MeshStandardMaterial;
 }
 
+// ── 단색 도장면 미세 질감 ──
+// 완전히 균일한 단색은 플라스틱/CG처럼 보여서, 아주 약한 노이즈로 색(±2%)과 거칠기에 변화를 준다.
+let paintNoiseCanvas: HTMLCanvasElement | null = null;
+
+function getPaintNoiseCanvas(): HTMLCanvasElement | null {
+  if (typeof document === 'undefined') return null;
+  if (paintNoiseCanvas) return paintNoiseCanvas;
+  const size = 256;
+  const canvas = document.createElement('canvas');
+  canvas.width = canvas.height = size;
+  const ctx = canvas.getContext('2d')!;
+  const img = ctx.createImageData(size, size);
+  for (let i = 0; i < size * size; i++) {
+    const v = 245 + Math.floor(Math.random() * 11); // 245~255: 곱해지는 값이라 아주 약한 변화
+    img.data[i * 4] = img.data[i * 4 + 1] = img.data[i * 4 + 2] = v;
+    img.data[i * 4 + 3] = 255;
+  }
+  ctx.putImageData(img, 0, 0);
+  paintNoiseCanvas = canvas;
+  return canvas;
+}
+
+/** 세트마다 새 텍스처를 만든다 (disposeMaterialSet이 map/roughnessMap을 해제하므로 공유하면 안 됨) */
+function createPaintTextures(): { map?: THREE.Texture; roughnessMap?: THREE.Texture } {
+  const canvas = getPaintNoiseCanvas();
+  if (!canvas) return {};
+  const map = new THREE.CanvasTexture(canvas);
+  map.colorSpace = THREE.SRGBColorSpace;
+  map.anisotropy = TEXTURE_ANISOTROPY;
+  const roughnessMap = new THREE.CanvasTexture(canvas);
+  roughnessMap.anisotropy = TEXTURE_ANISOTROPY;
+  return { map, roughnessMap };
+}
+
 /** Solid/EdgeMix 용 단색 머티리얼 세트 생성 */
 export function createColorMaterials(baseHex: string, edgeHex: string): MaterialSet {
   const base = new THREE.MeshStandardMaterial({
+    ...createPaintTextures(),
     color: new THREE.Color(baseHex),
-    roughness: 1.0,
+    roughness: SOLID_ROUGHNESS,
     metalness: 0.0,
     side: THREE.DoubleSide,
   });
   const edge = new THREE.MeshStandardMaterial({
+    ...createPaintTextures(),
     color: new THREE.Color(edgeHex),
-    roughness: 1.0,
+    roughness: SOLID_ROUGHNESS,
     metalness: 0.0,
     side: THREE.DoubleSide,
   });
   const back = new THREE.MeshStandardMaterial({
+    ...createPaintTextures(),
     color: new THREE.Color(baseHex),
-    roughness: 1.0,
+    roughness: SOLID_ROUGHNESS,
     metalness: 0.0,
     side: THREE.DoubleSide,
   });
@@ -118,9 +160,11 @@ export function createTextureMaterials(textureName: string): Promise<MaterialSet
         path,
         (texture) => {
           texture.colorSpace = THREE.SRGBColorSpace;
+          // 비스듬한 시점에서 나뭇결이 뭉개지지 않도록 (렌더러 최대값으로 자동 제한)
+          texture.anisotropy = TEXTURE_ANISOTROPY;
           const mat = new THREE.MeshStandardMaterial({
             map: texture,
-            roughness: 1.0,
+            roughness: WOOD_ROUGHNESS,
             metalness: 0.0,
             side: THREE.DoubleSide,
           });
@@ -134,7 +178,7 @@ export function createTextureMaterials(textureName: string): Promise<MaterialSet
           // 텍스처 로드 실패 시 흰색 폴백
           materials[type] = new THREE.MeshStandardMaterial({
             color: 0xffffff,
-            roughness: 1.0,
+            roughness: SOLID_ROUGHNESS,
             metalness: 0.0,
             side: THREE.DoubleSide,
           });

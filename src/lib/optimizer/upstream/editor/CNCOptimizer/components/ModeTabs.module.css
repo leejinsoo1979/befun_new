@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background: var(--theme-surface);
+  border-bottom: 1px solid var(--theme-border);
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 1px solid var(--theme-border);
+  border-radius: 6px;
+  background: var(--theme-surface);
+  color: var(--theme-text);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  background: var(--theme-background-secondary);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.tab.active {
+  background: hsl(var(--theme));
+  border-color: hsl(var(--theme));
+  color: white;
+}
+
+.tab.active:hover {
+  background: hsl(var(--theme) / 0.9);
+}

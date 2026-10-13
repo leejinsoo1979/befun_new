@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "caseId": "pattern-002",
+  "observedAt": "2026-10-13T07:08:31.831Z",
+  "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+  "evidenceType": "observed-ui",
+  "purpose": "Pattern 0/1/2 percent density and return experiment",
+  "inputs": {
+    "styleLabel": "Pattern",
+    "widthCm": 450,
+    "heightDisplayedCm": 43,
+    "depthCm": 40,
+    "densityPercent": 0,
+    "numRows": 1,
+    "rowHeightsCm": [
+      38
+    ],
+    "backPanelLabel": "Ohne",
+    "finishLabel": "Farbe",
+    "color": {
+      "visibleName": "Blau",
+      "selectedSwatchIndex": 2,
+      "materialId": null
+    },
+    "edge": null,
+    "doorsByRow": null,
+    "drawersByRow": null,
+    "hardware": null,
+    "thicknessCm": null
+  },
+  "initialState": {
+    "productId": "3690311,j",
+    "previousCaseId": "pattern-001",
+    "seed": null,
+    "templateId": null,
+    "individualEdits": null,
+    "priorHistoryComplete": false,
+    "description": "Existing Chrome tab edited during prior exploration. Not a fresh load. No visible door/drawer fronts; row settings not inspected."
+  },
+  "actions": [
+    {
+      "action": "density drag toward left",
+      "observedDensityPercent": 3.1
+    },
+    {
+      "action": "density minus button",
+      "observedDensityPercent": 2
+    },
+    {
+      "action": "density minus button",
+      "observedDensityPercent": 1
+    },
+    {
+      "action": "density minus button",
+      "observedDensityPercent": 0
+    }
+  ],
+  "observations": {
+    "rows": [
+      {
+        "rowIndex": 0,
+        "cellCount": 12,
+        "clearWidthsCm": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "clearHeightsCm": [
+          38,
+          38,
+          38,
+          38,
+          38,
+          38,
+          38,
+          38,
+          38,
+          38,
+          38,
+          38
+        ],
+        "dividerPositionsCm": null,
+        "rowSpans": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "outerWidthDisplayedCm": 450,
+    "outerHeightDisplayedCm": 43,
+    "notes": [
+      "Width labels are small; no uncertain readings entered as exact values.",
+      "Cell count visually counted. Physical panel thickness and exact coordinates not measured."
+    ]
+  },
+  "measurement": {
+    "unit": "cm",
+    "method": "UI controls, visual screenshot count and rounded dimension labels",
+    "displayResolutionCm": 1,
+    "roundingMode": null,
+    "internalPrecisionCm": null,
+    "toleranceCm": null
+  },
+  "view": {
+    "viewportCssPx": [
+      1220,
+      882
+    ],
+    "orientation": "near-front, inherited camera",
+    "camera": null,
+    "devicePixelRatio": null,
+    "dimensionsVisible": true
+  },
+  "screenshots": {
+    "referenceFront": "docs/tylko-reference/screenshots/pattern-002-reference-front.png",
+    "befunFront": null
+  },
+  "validation": {
+    "structureComparedToBefun": false,
+    "dimensionsComparedToBefun": false,
+    "visualComparedToBefun": false,
+    "completeReproduction": false
+  },
+  "unmeasured": [
+    "precise widths and divider positions",
+    "complete initial history",
+    "seed/template",
+    "hardware row settings",
+    "internal dimensions",
+    "camera parameters",
+    "edge settings"
+  ]
+}

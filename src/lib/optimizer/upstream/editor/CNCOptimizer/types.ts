@@ -1,0 +1,137 @@
+import type { CuttingBoardShape } from '@/lib/optimizer/upstream/editor/CNCOptimizer/utils/cuttingBoardShape';
+/** 따내기 폭의 원판 축. live 원본 기본=x, 옛 재단 저장값의 기본=y. */
+export interface PanelCornerNotch { width: number; depth: number; side: 'left' | 'right'; acrossAxis?: 'x' | 'y' }
+// CNC 옵티마이저 타입 정의
+export interface GroovePosition {
+  y: number;       // 홈 Y 위치 (패널 하단 기준 mm)
+  height: number;  // 홈 높이 (mm)
+  depth: number;   // 홈 깊이 (mm)
+}
+
+export interface BackPanelGroove {
+  offset: number; // 측판 뒤쪽 끝에서 백패널 홈 시작까지 거리 (mm)
+  width: number;  // 백패널 끼움 홈 폭 (mm)
+  depth: number;  // 홈 가공 깊이 (mm)
+}
+
+export interface BoringDepthGroup {
+  y: number;
+  depthPositions: number[];
+  boringType?: 'fixed-panel' | 'movable-shelf';
+}
+
+export interface PanelRebate {
+  width: number;
+  height: number;
+  position: string;
+  /** 좌우 반턱을 재는 비회전 판재 축. live 원본은 x, 변환 전 옛 재단 데이터는 y. */
+  acrossAxis?: 'x' | 'y';
+}
+
+export interface Panel {
+  /** [Befun 타입 보정] optimizer.ts가 읽는 회전 허용 여부. 원본 types.ts에 선언 누락. */
+  canRotate?: boolean;
+  /** 디자인 화면에서 실제 적용한 텍스처/표면 재질 이름. */
+  textureName?: string;
+  /** 스케치에서 수정한 판재와 함께 저장된 제조 좌표. */
+  manufacturingBoring?: import('@/lib/optimizer/upstream/domain/boring/types').PanelBoringData;
+  /** 확정되지 않은 가공이 있어 생산 파일로 내보낼 수 없음. 승인값(true)은 계약에 없다. */
+  manufacturingReady?: false;
+  /** 위 표시의 사유. 사용자에게 그대로 보여 준다. */
+  manufacturingBlockReasons?: string[];
+  cuttingBoardShape?: CuttingBoardShape;
+  id: string;
+  name: string;
+  width: number;
+  height: number;
+  thickness?: number;
+  material: string;
+  color: string;
+  quantity: number;
+  grain?: 'NONE' | 'LENGTH' | 'WIDTH' | 'HORIZONTAL' | 'VERTICAL';
+  boringPositions?: number[]; // 해당 패널의 보링 Y위치 (패널 기준 mm, height 기준 상중하)
+  boringDepthPositions?: number[]; // 해당 패널의 보링 X위치 (패널 기준 mm, width 기준 앞뒤)
+  boringDepthGroups?: BoringDepthGroup[]; // Y 위치별 보링 X위치 (고정패널 3공/이동선반 2공 혼합용)
+  sideBoringPositions?: number[]; // 천지판/고정선반 측면 피스 유도보링 위치 (패널 height/depth 기준)
+  sideBoringDiameter?: number; // 측면 피스 유도보링 직경
+  sideBoringDepth?: number; // 측면 피스 유도보링 깊이
+  groovePositions?: GroovePosition[]; // 바닥판 끼우는 홈 위치
+  backPanelGroove?: BackPanelGroove; // 백패널 끼움 홈
+  // 도어 힌지 보링 전용 필드
+  screwPositions?: number[]; // 나사홀 Y위치 (힌지컵 상하 각 22.5mm)
+  screwDepthPositions?: number[]; // 나사홀 X위치
+  isDoor?: boolean; // 도어 패널 여부
+  isLeftHinge?: boolean; // 힌지 방향 (left=true)
+  screwHoleSpacing?: number; // 나사홀 간격 (45mm 또는 48mm)
+  // 측판 힌지 브라켓 타공 전용 필드
+  bracketBoringPositions?: number[];      // 브라켓 타공 Y좌표 (힌지 Y위치와 동일)
+  bracketBoringDepthPositions?: number[]; // 브라켓 타공 X좌표 [20, 52]
+  isBracketSide?: boolean;                // 브라켓 타공 대상 측판 여부
+  // 따내기 (노치) 정보
+  cornerNotch?: PanelCornerNotch;  // 상판 따내기
+  sideNotches?: Array<{ y: number; z: number; fromBottom: number }>;       // 측판 따내기
+  rebate?: PanelRebate;                                                  // 반턱 따내기
+  // 3D 뷰어 패널 하이라이트용
+  meshName?: string;                       // 3D mesh 매칭용 패널 이름 (예: "좌측판", "선반 1")
+  furnitureId?: string;                    // 해당 패널이 속한 가구 ID
+  sourceFurnitureIds?: string[];            // 병합 패널이 실제로 포함하는 가구 ID들
+}
+
+export interface StockPanel {
+  id: string;
+  width: number;
+  height: number;
+  material: string;
+  color: string;
+  price: number;
+  stock: number;
+  thickness?: number;
+}
+
+export interface OptimizedResult {
+  stockPanel: StockPanel;
+  panels: PlacedPanel[];
+  efficiency: number;
+  wasteArea: number;
+  usedArea: number;
+  // 비규격: 1220×2440 원장 초과 패널들을 모은 시트 (별도 표시용)
+  isOversized?: boolean;
+}
+
+export interface PlacedPanel extends Panel {
+  x: number;
+  y: number;
+  rotated: boolean;
+  grain?: 'NONE' | 'LENGTH' | 'WIDTH' | 'HORIZONTAL' | 'VERTICAL';
+  thickness?: number;
+  label?: string;
+  boringDepthPositions?: number[]; // 서랍 측판 보링 X위치 (width 기준)
+  boringDepthGroups?: BoringDepthGroup[];
+  sideBoringPositions?: number[];
+  sideBoringDiameter?: number;
+  sideBoringDepth?: number;
+  backPanelGroove?: BackPanelGroove;
+  // 측판 힌지 브라켓 타공 전용 필드
+  bracketBoringPositions?: number[];
+  bracketBoringDepthPositions?: number[];
+  isBracketSide?: boolean;
+  // 따내기 (노치) 정보 — Panel에서 상속되지만 PlacedPanel에서도 명시
+  cornerNotch?: PanelCornerNotch;
+  sideNotches?: Array<{ y: number; z: number; fromBottom: number }>;
+  rebate?: PanelRebate;
+}
+
+export interface CuttingGuide {
+  type: 'horizontal' | 'vertical';
+  position: number;
+  start: number;
+  end: number;
+}
+
+export interface PanelGroup {
+  material: string;
+  color: string;
+  panels: Panel[];
+  totalArea: number;
+  totalQuantity: number;
+}

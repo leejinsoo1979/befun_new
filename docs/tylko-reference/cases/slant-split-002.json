@@ -1,0 +1,81 @@
+{
+  "caseId": "slant-split-002",
+  "recordedAt": "2026-10-13T11:19:16.469604+00:00",
+  "observedAt": null,
+  "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+  "method": "public Type02 full decoder then source manufacturing splitter, compared with independent generator and CNC regression",
+  "supersedes": "slant-split-001 legacy-input axis assumptions only; old evidence preserved",
+  "inputOptions": {
+    "style": "slant",
+    "family": "type02",
+    "widthCm": 393,
+    "densityPercent": 66,
+    "rows": [
+      {
+        "heightCm": 28,
+        "doors": "none",
+        "drawers": "none"
+      },
+      {
+        "heightCm": 28,
+        "doors": "none",
+        "drawers": "none"
+      }
+    ],
+    "depthCm": 32,
+    "backPanels": false,
+    "seed": null
+  },
+  "observations": {
+    "horizontalPanels": [
+      {
+        "yCm": 0.9,
+        "cutWorldXCm": 12.3,
+        "lengthsCm": [
+          208.8,
+          184.2
+        ]
+      },
+      {
+        "yCm": 30.9,
+        "cutWorldXCm": 33.1,
+        "lengthsCm": [
+          229.6,
+          163.4
+        ]
+      },
+      {
+        "yCm": 60.9,
+        "cutWorldXCm": 33.1,
+        "lengthsCm": [
+          229.6,
+          163.4
+        ]
+      }
+    ],
+    "sortedCncLengthsCm": [
+      163.4,
+      163.4,
+      184.2,
+      208.8,
+      229.6,
+      229.6
+    ],
+    "unsplit393CmBoardCount": 0
+  },
+  "measurement": {
+    "sourceUnit": "mm",
+    "storedUnit": "cm",
+    "toleranceMm": 1e-06,
+    "worldOrigin": "shelf width centre"
+  },
+  "verification": [
+    "scripts/tylko-grid-slant/structure.test.mjs",
+    "scripts/tylko-hardware/cnc.test.mjs"
+  ],
+  "screenshots": [],
+  "unconfirmed": [
+    "matching reference exploded screenshot",
+    "manufacturing process beyond public splitter"
+  ]
+}

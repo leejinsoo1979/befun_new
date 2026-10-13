@@ -1,7 +1,7 @@
 'use client';
 
-import { useRef, useCallback, useState } from 'react';
-import { useThree } from '@react-three/fiber';
+import { useRef, useCallback } from 'react';
+import { useThree, type ThreeEvent } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { useHardwareStore } from '@/stores/useHardwareStore';
@@ -11,7 +11,9 @@ import { useUIStore } from '@/stores/useUIStore';
  * V1 interactionHandler.js 이식:
  * 각 행(row)에 투명한 콜라이더를 배치하고,
  * 마우스 오버 시 해당 행을 하이라이트 + floating box 위치 계산
+ * 터치: hover가 없으므로 탭으로 열고(같은 행·빈 곳 탭 시 닫힘), 드래그(궤도 회전)는 무시
  */
+const TAP_MAX_MOVE_PX = 8;
 export function RowColliders() {
   const width = useShelfStore((s) => s.width);
   const depth = useShelfStore((s) => s.depth);
@@ -24,7 +26,7 @@ export function RowColliders() {
   const setDrawerOpen = useHardwareStore((s) => s.setDrawerOpen);
 
   const { camera, gl } = useThree();
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const hoveredIndex = useUIStore(s => s.hoveredRow);
   const hideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const prevLayerRef = useRef<number | null>(null);
 
@@ -50,7 +52,6 @@ export function RowColliders() {
       setDrawerOpen(prevLayerRef.current, false);
     }
 
-    setHoveredIndex(layerIndex);
     setHoveredRow(layerIndex);
     setSelectedRow(layerIndex);
     prevLayerRef.current = layerIndex;
@@ -85,27 +86,59 @@ export function RowColliders() {
     hideTimeoutRef.current = setTimeout(() => {
       const { isFloatingBoxHovered } = useUIStore.getState();
       if (isFloatingBoxHovered) return;
-      setHoveredIndex(null);
       setHoveredRow(null);
       setSelectedRow(null);
       prevLayerRef.current = null;
     }, 800);
   }, [setHoveredRow, setSelectedRow, setDoorOpen, setDrawerOpen]);
 
+  const closeRow = useCallback(() => {
+    if (prevLayerRef.current !== null) {
+      setDoorOpen(prevLayerRef.current, false);
+      setDrawerOpen(prevLayerRef.current, false);
+    }
+    setHoveredRow(null);
+    setSelectedRow(null);
+    prevLayerRef.current = null;
+  }, [setHoveredRow, setSelectedRow, setDoorOpen, setDrawerOpen]);
+
+  const handleTap = useCallback((e: ThreeEvent<MouseEvent>, layerIndex: number) => {
+    const pointerType = (e.nativeEvent as PointerEvent).pointerType;
+    if (pointerType !== 'touch' && pointerType !== 'pen') return; // 마우스는 hover로 처리
+    if (e.delta > TAP_MAX_MOVE_PX) return; // 궤도 회전 드래그
+    e.stopPropagation();
+    // 닫기 버튼으로도 닫힐 수 있으므로 스토어의 현재 선택 행 기준으로 토글
+    if (useUIStore.getState().selectedRow === layerIndex) {
+      closeRow();
+    } else {
+      handlePointerOver(layerIndex);
+    }
+  }, [closeRow, handlePointerOver]);
+
+  const isTouch = (e: ThreeEvent<PointerEvent>) => e.pointerType === 'touch' || e.pointerType === 'pen';
+
   return (
-    <group>
+    <group
+      onPointerMissed={(e) => {
+        // 터치로 빈 곳을 탭하면 열린 행 닫기
+        if ((e as PointerEvent).pointerType === 'touch' && useUIStore.getState().selectedRow !== null) closeRow();
+      }}
+    >
       {colliders.map((c) => (
         <mesh
           key={`collider-${c.index}`}
           position={[0, c.y, depth / 2]}
           onPointerOver={(e) => {
             e.stopPropagation();
+            if (isTouch(e)) return;
             handlePointerOver(c.index);
           }}
           onPointerOut={(e) => {
             e.stopPropagation();
+            if (isTouch(e)) return;
             handlePointerOut(c.index);
           }}
+          onClick={(e) => handleTap(e, c.index)}
         >
           <boxGeometry args={[width - 2.5, c.height - 0.5, depth - 1]} />
           <meshBasicMaterial

@@ -1,0 +1,67 @@
+{
+  "caseId": "slant-split-001",
+  "observedAt": "2026-10-13T10:27:54.970423+00:00",
+  "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+  "befunUrl": "http://localhost:3003/configurator?skipLoad=true&check=hardware-final",
+  "inputs": {
+    "style": "slant",
+    "widthCm": 393,
+    "densityPercent": 66,
+    "rowHeightsCm": [
+      28,
+      28
+    ],
+    "heightDisplayCm": 63,
+    "depthCm": 32,
+    "backPanels": false,
+    "doors": [],
+    "drawers": [],
+    "finish": "Solid",
+    "colour": "S_Teracotta",
+    "individualEdits": null,
+    "seed": null
+  },
+  "operations": [
+    "Reproduce user screenshot settings",
+    "Generate real panel segments using public style-specific splitter",
+    "Enter exploded layout",
+    "Compare CNC output parts to viewer generator"
+  ],
+  "observations": {
+    "beforeHorizontalLengthsMm": [
+      3930,
+      3930,
+      3930
+    ],
+    "afterHorizontalLengthsMm": [
+      1875,
+      2055,
+      1749,
+      2181,
+      1749,
+      2181
+    ],
+    "cutsFromLeftMm": {
+      "bottom": 1875,
+      "middle": 1749,
+      "top": 1749
+    },
+    "largestHorizontalMm": 2181,
+    "gapOrOverlapMm": 0,
+    "cncHorizontalCount": 6,
+    "publicSourceComparison": "Same normalized physical axes supplied to public splitter; resulting paths match. Not a whole Slant reference design equivalence claim."
+  },
+  "measurement": {
+    "unit": "mm",
+    "sourceComparisonTolerance": 0.01,
+    "screenshotPixelError": null
+  },
+  "unknown": [
+    "Full Slant frame-generation equivalence",
+    "Sub-centimetre Pattern width gaps such as240.1cm",
+    "Original-reference exploded view pixel equivalence"
+  ],
+  "screenshots": [
+    "screenshots/slant-split-001-befun.png"
+  ]
+}

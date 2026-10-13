@@ -1,0 +1,188 @@
+{
+  "reference": "https://tylko.com/en-uk",
+  "accessed": "2026-10-13",
+  "assets": [
+    {
+      "file": "storage.avif",
+      "source": "https://media.tylko.com/cloudinary/lp/blackfriday/choose-line/storage/orange/A.avif"
+    },
+    {
+      "file": "wardrobe.avif",
+      "source": "https://media.tylko.com/cloudinary/lp/blackfriday/choose-line/wardrobe/olive-green/A.avif"
+    },
+    {
+      "file": "sofa.avif",
+      "source": "https://media.tylko.com/cloudinary/lp/blackfriday/choose-line/sofa/wool_pale_yellow/A.avif"
+    },
+    {
+      "file": "unreal_21281.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2024/02/unreal_render_tasks/unreal_21281.webp"
+    },
+    {
+      "file": "unreal_378112.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2024/12/unreal_render_tasks/unreal_378112.webp"
+    },
+    {
+      "file": "unreal_6765580.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/04/unreal_render_tasks/unreal_6765580.webp"
+    },
+    {
+      "file": "unreal_6766812.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/04/unreal_render_tasks/unreal_6766812.webp"
+    },
+    {
+      "file": "tone.avif",
+      "source": "https://media.tylko.com/cloudinary/homepage/brand-image/typex-launch/LD.avif"
+    },
+    {
+      "file": "unreal_10773359_jV1o7ei.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/10/unreal_render_tasks/unreal_10773359_jV1o7ei.webp"
+    },
+    {
+      "file": "unreal_10772325_Joddr1h.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/10/unreal_render_tasks/unreal_10772325_Joddr1h.webp"
+    },
+    {
+      "file": "unreal_3888910.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2025/11/unreal_render_tasks/unreal_3888910.webp"
+    },
+    {
+      "file": "unreal_3888911.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2025/11/unreal_render_tasks/unreal_3888911.webp"
+    },
+    {
+      "file": "unreal_10075703.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/09/unreal_render_tasks/unreal_10075703.webp"
+    },
+    {
+      "file": "unreal_10088234.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/09/unreal_render_tasks/unreal_10088234.webp"
+    },
+    {
+      "file": "unreal_10102873.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/09/unreal_render_tasks/unreal_10102873.webp"
+    },
+    {
+      "file": "unreal_10106378.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/09/unreal_render_tasks/unreal_10106378.webp"
+    },
+    {
+      "file": "unreal_1596216.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2025/05/unreal_render_tasks/unreal_1596216.webp"
+    },
+    {
+      "file": "unreal_1258234.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2025/03/unreal_render_tasks/unreal_1258234.webp"
+    },
+    {
+      "file": "unreal_3024622.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2025/10/unreal_render_tasks/unreal_3024622.webp"
+    },
+    {
+      "file": "unreal_1277488.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2025/04/unreal_render_tasks/unreal_1277488.webp"
+    },
+    {
+      "file": "step-1.avif",
+      "source": "https://media.tylko.com/cloudinary/homepage/quality/1/XLD.avif"
+    },
+    {
+      "file": "step-2.avif",
+      "source": "https://media.tylko.com/cloudinary/homepage/quality/2/XLD.avif"
+    },
+    {
+      "file": "step-3.avif",
+      "source": "https://media.tylko.com/cloudinary/homepage/quality/3/XLD.avif"
+    },
+    {
+      "file": "step-4.avif",
+      "source": "https://media.tylko.com/cloudinary/homepage/quality/4/XLD.avif"
+    },
+    {
+      "file": "unreal_10108489.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/09/unreal_render_tasks/unreal_10108489.webp"
+    },
+    {
+      "file": "unreal_10108207.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/09/unreal_render_tasks/unreal_10108207.webp"
+    },
+    {
+      "file": "unreal_10104713.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/09/unreal_render_tasks/unreal_10104713.webp"
+    },
+    {
+      "file": "unreal_10114764_3IfegMM.webp",
+      "source": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/09/unreal_render_tasks/unreal_10114764_3IfegMM.webp"
+    },
+    {
+      "file": "creator-3.avif",
+      "source": "https://media.tylko.com/cloudinary/homepage/creators/3/LD.avif"
+    },
+    {
+      "file": "creator-11.avif",
+      "source": "https://media.tylko.com/cloudinary/homepage/creators/11/LD.avif"
+    },
+    {
+      "file": "creator-10.avif",
+      "source": "https://media.tylko.com/cloudinary/homepage/creators/10/LD.avif"
+    },
+    {
+      "file": "creator-9.avif",
+      "source": "https://media.tylko.com/cloudinary/homepage/creators/9/LD.avif"
+    },
+    {
+      "file": "creator-8.avif",
+      "source": "https://media.tylko.com/cloudinary/homepage/creators/8/LD.avif"
+    },
+    {
+      "file": "creator-6.avif",
+      "source": "https://media.tylko.com/cloudinary/homepage/creators/6/LD.avif"
+    }
+  ],
+  "externalReferences": [
+    {
+      "source": "https://media.tylko.com/cloudinary/homepage/video-placeholders/generic-sale/D.avif",
+      "mode": "remote-with-local-fallback"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/homepage/video-placeholders/tylko-bday-26/D.avif",
+      "mode": "remote-with-local-fallback"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gift-card/banner/M.webp",
+      "mode": "remote-with-local-fallback"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/homepage/sustainability/LD.webp",
+      "mode": "remote-with-local-fallback"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/homepage/showrooms-section/LD.webp",
+      "mode": "remote-with-local-fallback"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/homepage/lifeOfTylko/1/LD.webp",
+      "mode": "remote-with-local-fallback"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/homepage/lifeOfTylko/2/LD.webp",
+      "mode": "remote-with-local-fallback"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/homepage/lifeOfTylko/3/LD.webp",
+      "mode": "remote-with-local-fallback"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/homepage/lifeOfTylko/4/LD.webp",
+      "mode": "remote-with-local-fallback"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gift-card/banner/D.webp",
+      "mode": "remote-with-local-fallback"
+    },
+    {
+      "source": "https://customer-hzh805fq7yanildq.cloudflarestream.com/9e48d23430c3373a30b3d1fac6afeab7/iframe",
+      "mode": "stream-embed"
+    }
+  ]
+}

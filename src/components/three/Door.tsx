@@ -4,123 +4,110 @@ import { useRef, useEffect, useMemo } from 'react';
 import * as THREE from 'three';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
+import { createBoredBox } from '@/lib/three/blum/geometry';
+import type { BlumDoorPlan } from '@/lib/three/blum/boring';
+import { BlumCup } from './blum/BlumHardware';
 import type { MaterialSet } from '@/lib/three/materials';
 import type { DoorPlacement } from '@/lib/three/hardware';
 
-// GLTF 모델 프리로드
 useGLTF.preload('/models/handle_door.glb');
-useGLTF.preload('/models/hinge_right_fe.glb');
-useGLTF.preload('/models/hinge_right.glb');
+useGLTF.preload('/models/handle_drawer_unit.glb');
+
 
 interface DoorProps {
   placement: DoorPlacement;
   materials: MaterialSet;
   isOpen: boolean;
   thickness: number;
+  blum?: BlumDoorPlan;
+  revealBores?: boolean;
 }
 
-export function Door({ placement, materials, isOpen, thickness }: DoorProps) {
+export function Door({ placement, materials, isOpen, thickness, blum, revealBores = false }: DoorProps) {
   const groupRef = useRef<THREE.Group>(null);
-  const hingeTopRef = useRef<THREE.Group>(null);
-  const hingeBottomRef = useRef<THREE.Group>(null);
-  const targetRotation = useRef(0);
 
-  // GLTF 모델 로드
+  const reference = placement.reference;
+  const isReference = !!reference;
   const handleGltf = useGLTF('/models/handle_door.glb');
-  const hingeFeGltf = useGLTF('/models/hinge_right_fe.glb');
-  const hingeGltf = useGLTF('/models/hinge_right.glb');
+  const fullHandleGltf = useGLTF('/models/handle_drawer_unit.glb');
 
-  // 도어 지오메트리 (pivot offset 적용)
+  const panelThickness = reference?.thickness ?? thickness;
+  const frontOffsetY = reference?.frontOffsetY ?? 0;
   const geometry = useMemo(() => {
-    const geo = new THREE.BoxGeometry(placement.width, placement.height, thickness);
-    geo.translate(placement.pivotOffsetX, 0, 0);
+    const geo = createBoredBox(placement.width, placement.height, panelThickness, blum?.holes ?? []);
+    geo.translate(placement.pivotOffsetX, frontOffsetY, 0);
     return geo;
-  }, [placement.width, placement.height, placement.pivotOffsetX, thickness]);
+  }, [placement.width, placement.height, placement.pivotOffsetX, panelThickness, frontOffsetY, blum]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
 
-  // 타겟 각도 업데이트
-  useEffect(() => {
-    targetRotation.current = isOpen ? Math.PI / 2 : 0;
-  }, [isOpen]);
-
-  // 부드러운 회전 애니메이션 (GSAP 대체 — useFrame 기반)
   useFrame((_, delta) => {
     if (!groupRef.current) return;
+    const target = isOpen ? reference?.openAngle ?? Math.PI / 2 : 0;
+    const rotation = THREE.MathUtils.lerp(groupRef.current.rotation.y, target, 1 - Math.exp(-(isOpen ? 8 : 10) * delta));
+    groupRef.current.rotation.y = rotation;
 
-    const current = groupRef.current.rotation.y;
-    const target = targetRotation.current;
-    const diff = target - current;
-
-    if (Math.abs(diff) > 0.001) {
-      // ease 적용: 열 때 power2.out, 닫을 때 power2.in 느낌
-      const speed = isOpen ? 4 : 5;
-      const newRotation = THREE.MathUtils.lerp(current, target, 1 - Math.pow(1 - speed * delta, 2));
-      groupRef.current.rotation.y = newRotation;
-
-      // 힌지 역회전
-      if (hingeTopRef.current) hingeTopRef.current.rotation.y = -newRotation;
-      if (hingeBottomRef.current) hingeBottomRef.current.rotation.y = -newRotation;
-    }
   });
 
-  // 핸들 클론에 재질 적용
   const handleScene = useMemo(() => {
     const clone = handleGltf.scene.clone();
-    clone.traverse((child) => {
-      if ((child as THREE.Mesh).isMesh) {
-        (child as THREE.Mesh).material = materials.backPanel.clone();
-      }
+    clone.traverse(child => {
+      if ((child as THREE.Mesh).isMesh) (child as THREE.Mesh).material = materials.backPanel;
     });
-    return clone;
-  }, [handleGltf.scene, materials.backPanel]);
-
-  // 힌지(암) 클론
-  const hingeFeTopScene = useMemo(() => hingeFeGltf.scene.clone(), [hingeFeGltf.scene]);
-  const hingeFeBottomScene = useMemo(() => hingeFeGltf.scene.clone(), [hingeFeGltf.scene]);
-
-  // 힌지(수) 클론
-  const hingeTopScene = useMemo(() => hingeGltf.scene.clone(), [hingeGltf.scene]);
-  const hingeBottomScene = useMemo(() => hingeGltf.scene.clone(), [hingeGltf.scene]);
+    if (!isReference) return clone;
+    // This local profile's grip faces -Z, opposite the reference front direction.
+    // Keep its real size; centre X/Z on the source anchor and register its top
+    // to the 1mm handle strip. This does not establish reference mesh parity.
+    clone.rotation.y = Math.PI;
+    clone.updateMatrixWorld(true);
+    const bounds = new THREE.Box3().setFromObject(clone);
+    const center = bounds.getCenter(new THREE.Vector3());
+    clone.position.sub(new THREE.Vector3(center.x, bounds.max.y - .05, center.z));
+    const group = new THREE.Group();
+    group.add(clone);
+    return group;
+  }, [handleGltf.scene, materials.backPanel, isReference]);
+  const fullSize = reference?.handleSize;
+  const fullWidth = fullSize?.w ?? 1;
+  const fullHeight = fullSize?.h ?? 1;
+  const fullDepth = fullSize?.d ?? 1;
+  const fullHandleScene = useMemo(() => {
+    // Temporary local profile: source anchor/bounds are exact; the reference
+    // skeleton GLB has not been obtained, so its cross-section is not claimed.
+    const clone = fullHandleGltf.scene.clone();
+    clone.rotation.z = Math.PI / 2;
+    clone.traverse(child => {
+      if ((child as THREE.Mesh).isMesh) (child as THREE.Mesh).material = materials.backPanel;
+    });
+    clone.updateMatrixWorld(true);
+    const bounds = new THREE.Box3().setFromObject(clone);
+    const size = bounds.getSize(new THREE.Vector3());
+    clone.position.sub(bounds.getCenter(new THREE.Vector3()));
+    const group = new THREE.Group();
+    group.add(clone);
+    group.scale.set(fullWidth / size.x, fullHeight / size.y, fullDepth / size.z);
+    return group;
+  }, [fullHandleGltf.scene, materials.backPanel, fullWidth, fullHeight, fullDepth]);
+  const handle = reference ? reference.handle : { x: -placement.width + 7.5, y: placement.height / 2 - .15, z: 1.1 };
+  const sign = blum?.side === 'left' ? 1 : -1;
+  const pivot: [number,number,number] = [placement.pivotOffsetX - sign * placement.width / 2, 0, -panelThickness/2];
 
   return (
-    <group
-      ref={groupRef}
-      position={[placement.x, placement.y, placement.z]}
-      rotation={[0, 0, 0]}
-    >
-      {/* 도어 패널 */}
-      <mesh
-        geometry={geometry}
-        material={materials.backPanel}
-        castShadow={false}
-        receiveShadow={true}
-      />
-
-      {/* 손잡이 */}
-      <primitive
-        object={handleScene}
-        position={[-placement.width + 7.5, placement.height / 2 - 0.15, 1.1]}
-        scale={[1, 1, 1]}
-      />
-
-      {/* 힌지(암) - 상단/하단 */}
-      <primitive
-        object={hingeFeTopScene}
-        position={[0, placement.height / 2 - 6, -2]}
-        scale={[1, 1, 1]}
-      />
-      <primitive
-        object={hingeFeBottomScene}
-        position={[0, -placement.height / 2 + 6, -2]}
-        scale={[1, 1, 1]}
-      />
-
-      {/* 힌지(수) - 상단/하단 (역회전 적용) */}
-      <group ref={hingeTopRef} position={[0, placement.height / 2 - 6, -2]}>
-        <primitive object={hingeTopScene} scale={[1, 1, 1]} />
+    <group position={[placement.x, placement.y, placement.z]}>
+    <group ref={groupRef} position={pivot} userData={{displayDoorPivot:true}}>
+    <group position={[-pivot[0],0,-pivot[2]]}>
+      <mesh geometry={geometry} material={materials.backPanel} castShadow={false} receiveShadow />
+      {handle && <primitive object={reference?.handleKind === 'full-left' || reference?.handleKind === 'full-right' ? fullHandleScene : handleScene} position={[handle.x, handle.y, handle.z]}
+        rotation={[0, 0, reference?.handleRotation ?? 0]} />}
+      <group visible={!revealBores} userData={{displayRestoreVisible:true}}>
+      {blum?.cups.map((c,i) => {
+        const center: [number,number,number] = [c[0]/10+placement.pivotOffsetX,c[1]/10+frontOffsetY,c[2]/10];
+        const mount=blum.mounts[i];
+        const platePoint: [number,number,number] = [mount.position[0]-placement.x+sign*.85,mount.position[1]-placement.y,mount.position[2]-placement.z];
+        return <BlumCup key={i} center={center} inwardSign={sign} platePoint={platePoint} pivot={pivot} opening={groupRef}/>;
+      })}
       </group>
-      <group ref={hingeBottomRef} position={[0, -placement.height / 2 + 6, -2]}>
-        <primitive object={hingeBottomScene} scale={[1, 1, 1]} />
-      </group>
+    </group>
+    </group>
     </group>
   );
 }

@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // 250709in에서 원본 그대로 가져온 CNC 옵티마이저 코드 (src/lib/optimizer/upstream/README.md)
+    "src/lib/optimizer/upstream/**",
   ]),
 ]);
 

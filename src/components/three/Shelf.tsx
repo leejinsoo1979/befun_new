@@ -4,7 +4,14 @@ import { useMemo, useState, useEffect } from 'react';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { useMaterialStore } from '@/stores/useMaterialStore';
 import { useHardwareStore } from '@/stores/useHardwareStore';
+import { REFERENCE_COLORS, REFERENCE_CLASSIC_COLORS } from '@/lib/three/reference-colors';
 import { Panel } from './Panel';
+import { createBlumShelfPlans } from '@/lib/three/blum/boring';
+import { BlumPlate } from './blum/BlumHardware';
+import { useDisplayStore } from './display/displayStore';
+import { ExplodedPart } from './display/ExplodedPart';
+import { AssemblySequence } from './display/AssemblySequence';
+import { createAssemblyPlan } from './display/assemblyPlan';
 import { Door } from './Door';
 import { Drawer } from './Drawer';
 import { RowColliders } from './RowColliders';
@@ -22,17 +29,22 @@ import { calculatePixelPanels } from '@/lib/three/styles/pixel';
 import { calculateGradientPanels } from '@/lib/three/styles/gradient';
 import { calculatePatternPanels } from '@/lib/three/styles/pattern';
 import { calculateMosaicPanels } from '@/lib/three/styles/mosaic';
+import type { ReferenceFront } from '@/lib/three/reference-hardware';
 import { calculateDoorPlacements, calculateDrawerPlacements } from '@/lib/three/hardware';
 import type { PanelData } from '@/types/shelf';
 
 // 기본 머티리얼 (동기적 폴백)
-const DEFAULT_MATERIALS = createColorMaterials('#283A57', '#283A57');
+const DEFAULT_MATERIALS = createColorMaterials('#101323', '#101323');
 
 interface ShelfProps {
   showDimensions?: boolean;
+  exploded?: boolean;
+  presentation?: boolean;
 }
 
-export function Shelf({ showDimensions = false }: ShelfProps) {
+export function Shelf({ showDimensions = false, exploded = false, presentation = false }: ShelfProps) {
+  const boreView = useDisplayStore(s => s.showBores);
+  const revealBores = presentation && boreView;
   const width = useShelfStore((s) => s.width);
   const height = useShelfStore((s) => s.height);
   const depth = useShelfStore((s) => s.depth);
@@ -43,10 +55,12 @@ export function Shelf({ showDimensions = false }: ShelfProps) {
   const numRows = useShelfStore((s) => s.numRows);
   const hasBackPanel = useShelfStore((s) => s.hasBackPanel);
   const currentColor = useMaterialStore((s) => s.currentColor);
+  const family = currentColor.startsWith('C_') || currentColor.startsWith('N_') ? 'type01' as const : 'type02' as const;
 
   // 하드웨어 상태
   const doorsCreatedLayers = useHardwareStore((s) => s.doorsCreatedLayers);
   const drawersCreatedLayers = useHardwareStore((s) => s.drawersCreatedLayers);
+  const hardwareRowStyles = useHardwareStore((s) => s.rowStyles);
   const openDoors = useHardwareStore((s) => s.openDoors);
   const openDrawers = useHardwareStore((s) => s.openDrawers);
 
@@ -56,8 +70,26 @@ export function Shelf({ showDimensions = false }: ShelfProps) {
   useEffect(() => {
     let disposed = false;
 
-    createMaterialsForColor(currentColor)
+    const referenceColor = REFERENCE_COLORS[currentColor];
+    const materialRequest = referenceColor
+      ? Promise.resolve(createColorMaterials(referenceColor.base, referenceColor.edge))
+      : createMaterialsForColor(REFERENCE_CLASSIC_COLORS[currentColor] ? 'C_White' : currentColor);
+    materialRequest
       .then((mats) => {
+        const classicColor = REFERENCE_CLASSIC_COLORS[currentColor];
+        if (classicColor) {
+          for (const material of [mats.verticalBase, mats.horizontalBase, mats.backPanel]) {
+            material.map?.dispose();
+            material.map = null;
+            material.color.set(classicColor);
+            material.roughness = 0.7;
+            material.envMapIntensity = 0.78;
+            material.needsUpdate = true;
+          }
+          mats.verticalEdge.roughness = 0.5;
+          mats.horizontalEdge.roughness = 0.5;
+        }
+        if (disposed) { disposeMaterialSet(mats); return; }
         if (!disposed) {
           setMaterials((prev) => {
             if (prev !== DEFAULT_MATERIALS) disposeMaterialSet(prev);
@@ -83,7 +115,7 @@ export function Shelf({ showDimensions = false }: ShelfProps) {
   }, [doorsCreatedLayers, drawersCreatedLayers]);
 
   const styleResult = useMemo(() => {
-    const input = { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers };
+    const input = { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers, hardwareRowStyles, family };
 
     switch (style) {
       case 'grid':
@@ -101,40 +133,63 @@ export function Shelf({ showDimensions = false }: ShelfProps) {
       default:
         return calculateGridPanels(input);
     }
-  }, [width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel, hardwareLayers]);
+  }, [width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel, hardwareLayers, hardwareRowStyles, family]);
 
   const panels: PanelData[] = styleResult.panels;
   const { panelCount, panelSpacing } = styleResult;
+  const fronts = useMemo(() => styleResult.fronts
+    ? (styleResult.fronts as ReferenceFront[]).map(front => ({ ...front,
+        family: (currentColor.startsWith('C_') || currentColor.startsWith('N_') ? 'type01' : 'type02') as 'type01' | 'type02',
+      }))
+    : undefined, [styleResult, currentColor]);
 
   // 도어 배치 계산
   const doorPlacements = useMemo(() => {
     return doorsCreatedLayers.flatMap((layerIndex) =>
       calculateDoorPlacements(
         style, layerIndex, width, depth, thickness,
-        rowHeights, numRows, panelCount, panelSpacing, density,
+        rowHeights, numRows, panelCount, panelSpacing, density, fronts,
       ),
     );
-  }, [doorsCreatedLayers, style, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing, density]);
+  }, [doorsCreatedLayers, style, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing, density, fronts]);
 
   // 서랍 배치 계산
   const drawerPlacements = useMemo(() => {
     return drawersCreatedLayers.flatMap((layerIndex) =>
       calculateDrawerPlacements(
         style, layerIndex, width, depth, thickness,
-        rowHeights, numRows, panelCount, panelSpacing, density,
+        rowHeights, numRows, panelCount, panelSpacing, density, fronts,
       ),
     );
-  }, [drawersCreatedLayers, style, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing, density]);
+  }, [drawersCreatedLayers, style, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing, density, fronts]);
+
+  const blumPlans = useMemo(() => createBlumShelfPlans(doorPlacements, panels, thickness), [doorPlacements, panels, thickness]);
+  useEffect(() => {
+    if (!presentation) return;
+    useDisplayStore.setState({ boringSummary: { doors: blumPlans.length,
+      holes: blumPlans.reduce((sum,p) => sum + p.holes.length + p.mounts.reduce((s,m) => s + m.holes.length,0),0),
+      issues: [...new Set(blumPlans.flatMap(p => p.issues))],
+    } });
+  }, [blumPlans, presentation]);
+  const panelHardware = useMemo(() => panels.map((_,index) => {
+    const mounts = blumPlans.flatMap(plan => plan.mounts.filter(m => m.panelIndex === index));
+    return { mounts, holes: mounts.flatMap(m => m.holes) };
+  }), [blumPlans, panels]);
+
+  const assemblyPlan = useMemo(() => createAssemblyPlan(panels, doorPlacements, drawerPlacements, width, height, depth, thickness, panelHardware.map(p => p.mounts[0]?.inwardSign ?? 1)),
+    [panels, doorPlacements, drawerPlacements, width, height, depth, thickness, panelHardware]);
 
   // 조절발 높이만큼 선반 전체를 올려서 조절발이 바닥 위에 보이게 함
   const footHeight = 1; // 조절발 높이 10mm
 
   return (
+    <AssemblySequence plan={assemblyPlan} enabled={presentation}>
     <group position={[0, footHeight, 0]}>
       {/* 선반 패널 */}
       {panels.map((p, i) => (
+        <ExplodedPart key={`${style}-panel-${i}`} part={assemblyPlan.parts[i]}>
         <Panel
-          key={`${style}-panel-${i}`}
+          holes={panelHardware[i].holes}
           w={p.w}
           h={p.h}
           d={p.d}
@@ -144,38 +199,43 @@ export function Shelf({ showDimensions = false }: ShelfProps) {
           castShadow={p.castShadow}
           receiveShadow={p.receiveShadow}
         />
+        <group visible={!revealBores} userData={{displayRestoreVisible:true}}>{panelHardware[i].mounts.map((mount,j) => <BlumPlate key={j} mount={mount}/>)}</group>
+        {p.matType === 'horizontalBase' && <LevelingFeet panels={panels} panelIndex={i} />}
+        </ExplodedPart>
       ))}
 
       {/* 도어 */}
       {doorPlacements.map((dp, i) => (
+        <ExplodedPart key={`${style}-door-${dp.layerIndex}-${i}`} part={assemblyPlan.parts[panels.length + i]}>
         <Door
-          key={`${style}-door-${dp.layerIndex}-${i}`}
           placement={dp}
           materials={materials}
-          isOpen={openDoors[dp.layerIndex] ?? false}
+          blum={blumPlans[i]}
+          revealBores={revealBores}
+          isOpen={!exploded && (revealBores || (openDoors[dp.layerIndex] ?? false))}
           thickness={thickness}
         />
+        </ExplodedPart>
       ))}
 
       {/* 서랍 */}
       {drawerPlacements.map((dp, i) => (
+        <ExplodedPart key={`${style}-drawer-${dp.layerIndex}-${i}`} part={assemblyPlan.parts[panels.length + doorPlacements.length + i]}>
         <Drawer
-          key={`${style}-drawer-${dp.layerIndex}-${i}`}
           placement={dp}
           materials={materials}
-          isOpen={openDrawers[dp.layerIndex] ?? false}
+          isOpen={!exploded && (openDrawers[dp.layerIndex] ?? false)}
           thickness={thickness}
         />
+        </ExplodedPart>
       ))}
 
       {/* 치수 오버레이 — 선반 본체 좌표계 기준 (조절발 제외) */}
-      {showDimensions && <DimensionOverlay />}
-
-      {/* 조절발 */}
-      <LevelingFeet />
+      {showDimensions && !exploded && <DimensionOverlay />}
 
       {/* V1 행 콜라이더 (마우스 오버 감지) */}
-      <RowColliders />
+      {!exploded && <RowColliders />}
     </group>
+    </AssemblySequence>
   );
 }

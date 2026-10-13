@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import type { StyleType, RowHeight } from '@/types/shelf';
+import { effectiveHardwareStyle, resolveHardwareRows } from '@/lib/three/hardware-state';
 import { useHardwareStore } from './useHardwareStore';
 
 interface ShelfState {
@@ -36,6 +37,7 @@ interface ShelfState {
 
   // 행 수 계산 (높이 기반)
   recalculateRows: () => void;
+  reconcileHardware: () => void;
 }
 
 const DEFAULT_ROW_HEIGHT = 28;
@@ -49,6 +51,19 @@ function calculateNumRows(totalHeight: number, rowHeights: number[], thickness: 
     count++;
   }
   return count;
+}
+
+function correctHardware(rowHeights: number[], depth: number, numRows: number) {
+  const hw = useHardwareStore.getState();
+  const validRow = (row: number) => Number.isInteger(row) && row >= 0 && row < numRows;
+  const doors = hw.doorsCreatedLayers.filter(validRow);
+  const drawers = hw.drawersCreatedLayers.filter(validRow);
+  const rows = resolveHardwareRows(doors, drawers, hw.rowStyles);
+  for (const row of Object.keys(rows)) {
+    const index = Number(row);
+    rows[index] = effectiveHardwareStyle(rows[index], index, rowHeights, depth);
+  }
+  hw.restore(doors, drawers, rows);
 }
 
 export const useShelfStore = create<ShelfState>((set, get) => ({
@@ -71,7 +86,11 @@ export const useShelfStore = create<ShelfState>((set, get) => ({
     get().recalculateRows();
   },
 
-  setDepth: (d) => set({ depth: Math.max(24, Math.min(40, d)) }),
+  setDepth: (d) => {
+    const depth=Math.max(24,Math.min(40,d));
+    set({depth});
+    get().reconcileHardware();
+  },
 
   setStyle: (s) => set({ style: s }),
 
@@ -91,6 +110,7 @@ export const useShelfStore = create<ShelfState>((set, get) => ({
     }
 
     set({ rowHeights: newRowHeights, height: totalHeight });
+    get().reconcileHardware();
   },
 
   setRowHeights: (heights) => {
@@ -113,15 +133,11 @@ export const useShelfStore = create<ShelfState>((set, get) => ({
 
     set({ numRows, rowHeights: newRowHeights });
 
-    // 새 행 수 범위를 벗어나는 도어/서랍 제거
-    const hw = useHardwareStore.getState();
-    const invalidDoors = hw.doorsCreatedLayers.filter((l) => l >= numRows);
-    const invalidDrawers = hw.drawersCreatedLayers.filter((l) => l >= numRows);
-    if (invalidDoors.length > 0 || invalidDrawers.length > 0) {
-      useHardwareStore.setState({
-        doorsCreatedLayers: hw.doorsCreatedLayers.filter((l) => l < numRows),
-        drawersCreatedLayers: hw.drawersCreatedLayers.filter((l) => l < numRows),
-      });
-    }
+    get().reconcileHardware();
+  },
+
+  reconcileHardware: () => {
+    const { rowHeights, depth, numRows } = get();
+    correctHardware(rowHeights, depth, numRows);
   },
 }));

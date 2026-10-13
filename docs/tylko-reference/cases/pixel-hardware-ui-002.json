@@ -1,0 +1,49 @@
+{
+  "caseId": "pixel-hardware-ui-002",
+  "recordedAt": "2026-10-13T11:19:16.469604+00:00",
+  "observedAt": null,
+  "sourceUrl": "http://127.0.0.1:3008/configurator?skipLoad=true&check=style-reference",
+  "referenceCase": "pixel-source-001",
+  "inputOptions": {
+    "style": "pixel",
+    "family": "type02",
+    "widthCm": 263,
+    "densityPercent": 0,
+    "rowHeightsCm": [
+      38,
+      38,
+      38,
+      38
+    ],
+    "depthCm": 32,
+    "backPanels": false,
+    "finish": "Solid",
+    "colour": "S_Gray"
+  },
+  "actions": [
+    "Start all hardware None.",
+    "Bottom row doors Max.",
+    "Bottom row drawers Max; UI automatically sets doors None.",
+    "Restore drawers None."
+  ],
+  "observations": {
+    "doorsMaxVisibleFrontCount": 4,
+    "drawersMaxVisibleFrontCount": 4,
+    "openEdgeFronts": 0,
+    "placementMatchesVisibleClosedOpenings": true,
+    "referenceVisualComparison": false,
+    "openingAnimationVerified": false
+  },
+  "measurement": {
+    "worldCoordinates": null,
+    "screenTolerancePx": null
+  },
+  "screenshots": [
+    "screenshots/pixel-hardware-max-befun-front.png",
+    "screenshots/pixel-drawers-max-befun-front.png"
+  ],
+  "unconfirmed": [
+    "reference front material and handle geometry",
+    "opening animation"
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "caseId": "pattern-008",
+  "observedAt": "2026-10-13T08:05:21.652128+00:00",
+  "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+  "befunUrl": "http://localhost:3003/configurator",
+  "initialState": {
+    "referenceProduct": "3690311,j",
+    "afterReload": {
+      "style": "Slant",
+      "finish": "Multiplexplatte",
+      "widthCm": 232,
+      "displayHeightCm": 243,
+      "depthCm": 32,
+      "densityPercent": 0,
+      "rowHardware": "saved design, complete row array not measured"
+    },
+    "seed": null
+  },
+  "options": {
+    "style": "Pattern",
+    "finish": "Farbe / Type02",
+    "color": "Terrakotta",
+    "widthCm": 232,
+    "displayHeightCm": 43,
+    "depthCm": 32,
+    "densityPercent": 0,
+    "rowHeightLabelsCm": [
+      38
+    ],
+    "backPanel": false,
+    "doors": [
+      "None"
+    ],
+    "drawers": [
+      "None"
+    ]
+  },
+  "actions": [
+    "Use the original user Chrome tab with existing VPN connection",
+    "Select Pattern",
+    "Select Farbe (restores Terrakotta)",
+    "Change height alone to minimum: one row, displayed overall43cm",
+    "Select the only row: doorsNone, drawersMax inherited from initial product",
+    "Change drawersMax toNone; verify backOhne",
+    "Enable dimension labels",
+    "Set Befun Pattern,232cm,density0,one row38cm,depth32,backsOFF,doorsNone,drawersOFF,S_Teracotta",
+    "Enable Befun dimensions and compare"
+  ],
+  "observations": {
+    "reference": {
+      "rowCellCounts": [
+        6
+      ],
+      "rowWidthLabelsCm": [
+        [
+          34,
+          38,
+          29,
+          40,
+          40,
+          35
+        ]
+      ],
+      "rowHeightLabelsCm": [
+        [
+          38,
+          38,
+          38,
+          38,
+          38,
+          38
+        ]
+      ],
+      "exactInternalCoordinates": null
+    },
+    "befun": {
+      "rowCellCounts": [
+        6
+      ],
+      "rowWidthLabelsCm": [
+        [
+          34,
+          38,
+          29,
+          40,
+          40,
+          35
+        ]
+      ],
+      "rowHeightLabelsCm": [
+        [
+          38,
+          38,
+          38,
+          38,
+          38,
+          38
+        ]
+      ]
+    },
+    "structureVerdict": "cell count and displayed widths match",
+    "visualVerdict": "not equivalent: color, lighting, camera/framing, feet and label styling differ"
+  },
+  "measurement": {
+    "unit": "cm",
+    "source": "human reading of screenshot labels",
+    "displayResolution": 1,
+    "internalPrecision": null,
+    "note": "Rounded screen labels are not asserted as exact coordinates; source geometry comparison is separate reference-source-002."
+  },
+  "screenshots": [
+    "docs/tylko-reference/screenshots/pattern-008-reference-front.png",
+    "docs/tylko-reference/screenshots/pattern-008-befun-front.png"
+  ],
+  "unconfirmed": [
+    "exact reference camera",
+    "pixel error after camera normalization",
+    "finish-color correspondence",
+    "foot geometry",
+    "other initial design independence"
+  ]
+}

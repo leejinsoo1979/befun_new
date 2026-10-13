@@ -9,6 +9,7 @@ import type { DrawerPlacement } from '@/lib/three/hardware';
 
 // GLTF 모델 프리로드
 useGLTF.preload('/models/handle_drawer_unit.glb');
+useGLTF.preload('/models/handle_door.glb');
 
 const DRAWER_GAP = 0.3;
 
@@ -19,7 +20,61 @@ interface DrawerProps {
   thickness: number;
 }
 
-export function Drawer({ placement, materials, isOpen, thickness }: DrawerProps) {
+export function Drawer(props: DrawerProps) {
+  return props.placement.reference ? <ReferenceDrawer {...props} /> : <LegacyDrawer {...props} />;
+}
+
+function ReferenceDrawer({ placement, materials, isOpen }: DrawerProps) {
+  const groupRef = useRef<THREE.Group>(null);
+  const reference = placement.reference!;
+  const handleGltf = useGLTF(reference.handleKind === 'full-top' ? '/models/handle_drawer_unit.glb' : '/models/handle_door.glb');
+  const fullWidth = reference.handleSize?.w;
+  const fullHeight = reference.handleSize?.h;
+  const fullDepth = reference.handleSize?.d;
+  const handleScene = useMemo(() => {
+    const clone = handleGltf.scene.clone();
+    clone.traverse(child => {
+      if ((child as THREE.Mesh).isMesh) (child as THREE.Mesh).material = materials.backPanel;
+    });
+    if (fullWidth !== undefined && fullHeight !== undefined && fullDepth !== undefined) {
+      // Keep the existing local profile until the reference skeleton asset is
+      // available; only its source part bounds and placement are verified.
+      clone.updateMatrixWorld(true);
+      const bounds = new THREE.Box3().setFromObject(clone);
+      const size = bounds.getSize(new THREE.Vector3());
+      clone.position.sub(bounds.getCenter(new THREE.Vector3()));
+      const group = new THREE.Group();
+      group.add(clone);
+      group.scale.set(fullWidth / size.x, fullHeight / size.y, fullDepth / size.z);
+      return group;
+    }
+    // Match the local slim profile's origin to the verified source anchor.
+    // Its wide grip originally faces -Z; centre depth and turn it toward +Z.
+    clone.rotation.y = Math.PI;
+    clone.updateMatrixWorld(true);
+    const bounds = new THREE.Box3().setFromObject(clone);
+    const center = bounds.getCenter(new THREE.Vector3());
+    clone.position.sub(new THREE.Vector3(center.x, bounds.max.y - .05, center.z));
+    const group = new THREE.Group();
+    group.add(clone);
+    return group;
+  }, [handleGltf.scene, materials.backPanel, fullWidth, fullHeight, fullDepth]);
+  useFrame((_, delta) => {
+    if (!groupRef.current) return;
+    const target = placement.z + (isOpen ? reference.openDistance : 0);
+    groupRef.current.position.z = THREE.MathUtils.lerp(groupRef.current.position.z, target, 1 - Math.exp(-10 * delta));
+  });
+  return <group ref={groupRef} position={[placement.x, placement.y, placement.z]}>
+    {reference.parts.map(part => <mesh key={part.name} position={[part.x, part.y, part.z]}
+      material={part.name === 'front' || part.name === 'back' ? materials.backPanel : part.name === 'bottom' ? materials.horizontalBase : materials.verticalBase}
+      castShadow={false} receiveShadow>
+      <boxGeometry args={[part.w, part.h, part.d]} />
+    </mesh>)}
+    <primitive object={handleScene} position={[reference.handle.x, reference.handle.y, reference.handle.z]} />
+  </group>;
+}
+
+function LegacyDrawer({ placement, materials, isOpen, thickness }: DrawerProps) {
   const groupRef = useRef<THREE.Group>(null);
   const targetZ = useRef(0);
 

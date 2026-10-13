@@ -1,0 +1,58 @@
+{
+  "caseId": "hardware-ui-001",
+  "observedAt": "2026-10-13T10:27:54.970423+00:00",
+  "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+  "befunUrl": "http://localhost:3003/configurator?skipLoad=true&check=hardware-final",
+  "initialState": {
+    "widthCm": 232,
+    "densityPercent": 69,
+    "rowHeightsCm": [
+      28,
+      28,
+      28,
+      28
+    ],
+    "depthCm": 32,
+    "backPanels": false,
+    "finish": "Solid",
+    "colour": "S_Teracotta",
+    "hardwareRowStyles": {},
+    "seed": null
+  },
+  "operations": [
+    "Mosaic bottom row38cm → doorsMax → drawersMax; observe closed fronts",
+    "Pattern bottom28cm drawersMax → hover open → doorsSome (mixedSome)",
+    "Classic→Blue; verify9swatches",
+    "Depth24: drawers disabled and removed; return32 does not restore drawers",
+    "Mosaic bottom38 doorsMax; verify hinge correction and85degree opening"
+  ],
+  "observations": {
+    "mosaicBottom38": {
+      "doorsMaxCount": 6,
+      "drawersMaxCount": 8,
+      "drawersSplitColumnsZeroBased": [
+        3,
+        5
+      ]
+    },
+    "patternBottom28": {
+      "drawersMaxCount": 5
+    },
+    "geometryEvidence": "Numeric envelopes and renderer parts are separately tested in hardware-source-001",
+    "screenColourDifference": null,
+    "pixelMetric": null,
+    "hardwareMeshIdentity": false
+  },
+  "screenshots": [
+    "screenshots/hardware-mosaic-befun-doors-final.png",
+    "screenshots/hardware-mosaic-befun-drawers.png",
+    "screenshots/hardware-mosaic-befun-open.png",
+    "screenshots/hardware-pattern-befun-drawers.png",
+    "screenshots/hardware-pattern-befun-open.png",
+    "screenshots/material-classic-002-befun.png"
+  ],
+  "unknown": [
+    "These UI captures are not same-input reference screenshot pairs",
+    "All type01 frame rules and original mesh shape"
+  ]
+}

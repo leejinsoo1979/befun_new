@@ -1,4 +1,6 @@
 import type { StyleType } from '@/types/shelf';
+import { calculateReferenceDoorPlacement, calculateReferenceDrawerPlacement } from './reference-hardware.ts';
+import type { ReferenceFront, ReferenceDoorGeometry, ReferenceDrawerGeometry } from './reference-hardware.ts';
 import { calculateSlantSpacing } from './styles/slant';
 import { calculateInternalWidths } from './styles/gradient';
 import { calculateGaps } from './styles/pixel';
@@ -11,6 +13,7 @@ export interface DoorPlacement {
   z: number;
   width: number;
   height: number;
+  reference?: ReferenceDoorGeometry;
   pivotOffsetX: number; // geometry.translate for hinge pivot
   layerIndex: number;
 }
@@ -21,6 +24,7 @@ export interface DrawerPlacement {
   x: number;
   y: number;
   z: number;
+  reference?: ReferenceDrawerGeometry;
   compartmentWidth: number;
   rowHeight: number;
   drawerDepth: number;
@@ -539,7 +543,12 @@ export function calculateDoorPlacements(
   panelCount: number,
   panelSpacing: number,
   density?: number,
+  fronts?: ReferenceFront[],
 ): DoorPlacement[] {
+  if (fronts !== undefined || style === 'pattern' || style === 'mosaic') {
+    return (fronts ?? []).filter(f => f.type === 'door' && f.rowIndex === layerIndex)
+      .map(f => calculateReferenceDoorPlacement(f, depth));
+  }
   switch (style) {
     case 'slant':
       return calculateSlantDoors(layerIndex, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing);
@@ -547,8 +556,6 @@ export function calculateDoorPlacements(
       return calculateGradientDoors(layerIndex, width, depth, thickness, rowHeights, density ?? 50);
     case 'pixel':
       return calculatePixelDoors(layerIndex, width, depth, thickness, rowHeights, numRows, density ?? 50);
-    case 'mosaic':
-      return []; // Mosaic은 불규칙 셀 구조 — 도어 미지원 (v1과 동일)
     case 'grid':
     default:
       return calculateGridDoors(layerIndex, width, depth, thickness, rowHeights, panelCount, panelSpacing);
@@ -566,7 +573,12 @@ export function calculateDrawerPlacements(
   panelCount: number,
   panelSpacing: number,
   density?: number,
+  fronts?: ReferenceFront[],
 ): DrawerPlacement[] {
+  if (fronts !== undefined || style === 'pattern' || style === 'mosaic') {
+    return (fronts ?? []).filter(f => f.type === 'drawer' && f.rowIndex === layerIndex)
+      .flatMap(f => { const p = calculateReferenceDrawerPlacement(f, depth); return p ? [p] : []; });
+  }
   switch (style) {
     case 'slant':
       return calculateSlantDrawers(layerIndex, width, depth, thickness, rowHeights, numRows, panelCount, panelSpacing);
@@ -574,8 +586,6 @@ export function calculateDrawerPlacements(
       return calculateGradientDrawers(layerIndex, width, depth, thickness, rowHeights, density ?? 50);
     case 'pixel':
       return calculatePixelDrawers(layerIndex, width, depth, thickness, rowHeights, numRows, density ?? 50);
-    case 'mosaic':
-      return []; // Mosaic은 불규칙 셀 구조 — 서랍 미지원 (v1과 동일)
     case 'grid':
     default:
       return calculateGridDrawers(layerIndex, width, depth, thickness, rowHeights, panelCount, panelSpacing);

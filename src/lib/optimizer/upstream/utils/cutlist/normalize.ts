@@ -1,0 +1,246 @@
+/**
+ * Panel normalization utilities for CutList Optimizer
+ */
+
+import { mergeManufacturingBlock, type ManufacturingBlockFields } from '@/lib/optimizer/upstream/domain/boring/manufacturingBlock';
+import type { PanelBoringData } from '@/lib/optimizer/upstream/domain/boring/types';
+
+export type Unit = 'mm' | 'cm' | 'in';
+export type Grain = 'H' | 'V' | 'NONE' | undefined;
+
+export interface RawPanel extends ManufacturingBlockFields {
+  manufacturingBoring?: PanelBoringData;
+  id: string;
+  label?: string;
+  name?: string;
+  width: number;
+  height?: number;
+  length?: number;
+  depth?: number;
+  thickness?: number;
+  quantity?: number;
+  material?: string;
+  color?: string;
+  grain?: Grain;
+  canRotate?: boolean;
+  boringPositions?: number[];
+  boringDepthPositions?: number[];
+  boringDepthGroups?: Array<{ y: number; depthPositions: number[]; boringType?: 'fixed-panel' | 'movable-shelf' }>;
+  sideBoringPositions?: number[];
+  sideBoringDiameter?: number;
+  sideBoringDepth?: number;
+  groovePositions?: Array<{ y: number; height: number; depth: number }>;
+  backPanelGroove?: { offset: number; width: number; depth: number };
+  screwPositions?: number[];
+  screwDepthPositions?: number[];
+  isDoor?: boolean;
+  isLeftHinge?: boolean;
+  screwHoleSpacing?: number;
+  bracketBoringPositions?: number[];
+  bracketBoringDepthPositions?: number[];
+  isBracketSide?: boolean;
+  cornerNotch?: { width: number; depth: number; side: 'left' | 'right' };
+  sideNotches?: Array<{ y: number; z: number; fromBottom: number }>;
+  rebate?: { width: number; height: number; position: string };
+  meshName?: string;
+  furnitureId?: string;
+}
+
+export interface NormalizedPanel extends ManufacturingBlockFields {
+  id: string;
+  label: string;
+  width: number;
+  length: number;
+  thickness: number;
+  quantity: number;
+  material: string;
+  grain: 'H' | 'V' | 'NONE';
+  canRotate: boolean;
+  boringPositions?: number[];
+  boringDepthPositions?: number[];
+  boringDepthGroups?: Array<{ y: number; depthPositions: number[]; boringType?: 'fixed-panel' | 'movable-shelf' }>;
+  sideBoringPositions?: number[];
+  sideBoringDiameter?: number;
+  sideBoringDepth?: number;
+  groovePositions?: Array<{ y: number; height: number; depth: number }>;
+  backPanelGroove?: { offset: number; width: number; depth: number };
+  screwPositions?: number[];
+  screwDepthPositions?: number[];
+  isDoor?: boolean;
+  isLeftHinge?: boolean;
+  screwHoleSpacing?: number;
+  bracketBoringPositions?: number[];
+  bracketBoringDepthPositions?: number[];
+  isBracketSide?: boolean;
+  cornerNotch?: { width: number; depth: number; side: 'left' | 'right' };
+  sideNotches?: Array<{ y: number; z: number; fromBottom: number }>;
+  rebate?: { width: number; height: number; position: string };
+  meshName?: string;
+  furnitureId?: string;
+}
+
+/**
+ * Convert units to millimeters
+ */
+export function convertToMm(value: number, fromUnit: Unit): number {
+  switch (fromUnit) {
+    case 'mm':
+      return value;
+    case 'cm':
+      return value * 10;
+    case 'in':
+      return value * 25.4;
+    default:
+      return value;
+  }
+}
+
+/**
+ * Convert millimeters to target unit
+ */
+export function convertFromMm(value: number, toUnit: Unit): number {
+  switch (toUnit) {
+    case 'mm':
+      return value;
+    case 'cm':
+      return value / 10;
+    case 'in':
+      return value / 25.4;
+    default:
+      return value;
+  }
+}
+
+/**
+ * Normalize panel dimensions - ensure width <= length
+ * Returns swapped flag to adjust grain direction if needed
+ */
+export function normalizeDimensions(width: number, length: number): { width: number; length: number; swapped: boolean } {
+  // CutList Optimizer convention: Length is always the longer dimension
+  if (width > length) {
+    return { width: length, length: width, swapped: true };
+  }
+  return { width, length, swapped: false };
+}
+
+/**
+ * Normalize grain direction
+ * 재단방향은 항상 Length(긴 쪽) 축과 평행 → 유결 패널은 모두 'H'
+ * NONE(MDF 등 무결)은 그대로 유지
+ */
+export function normalizeGrain(grain?: Grain | string, canRotate?: boolean, _dimensionsSwapped?: boolean): 'H' | 'V' | 'NONE' {
+  // 'VERTICAL'/'HORIZONTAL' → 'H' (재단방향이 항상 Length 축과 평행하므로)
+  // 'NONE'/undefined → 'NONE'
+  if (!grain || grain === 'NONE') {
+    if (canRotate === false) {
+      return 'H'; // 회전 불가 + 결 미지정 → Length 방향 기본
+    }
+    return 'NONE';
+  }
+
+  // 모든 유결 패널(VERTICAL, HORIZONTAL, H, V)은 재단방향=Length 축 → 'H'
+  return 'H';
+}
+
+/**
+ * Sanitize label for CSV export
+ */
+export function sanitizeLabel(label?: string): string {
+  if (!label) return '';
+  // Remove special characters that might break CSV
+  return label
+    .replace(/[",\n\r]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Normalize a single panel
+ */
+export function normalizePanel(panel: RawPanel, targetUnit: Unit = 'mm'): NormalizedPanel {
+  // Get dimensions
+  const rawWidth = panel.width || 0;
+  const rawLength = panel.length || panel.height || panel.depth || 0;
+
+  // Normalize dimensions (ensure width <= length)
+  const { width, length, swapped } = normalizeDimensions(rawWidth, rawLength);
+
+  // Convert units if needed (assuming input is in mm)
+  const convertedWidth = convertFromMm(width, targetUnit);
+  const convertedLength = convertFromMm(length, targetUnit);
+  const convertedThickness = convertFromMm(panel.thickness || 18, targetUnit);
+
+  return mergeManufacturingBlock({
+    id: panel.id,
+    label: sanitizeLabel(panel.label || panel.name || `Panel_${panel.id}`),
+    width: Math.round(convertedWidth * 10) / 10, // Round to 1 decimal
+    length: Math.round(convertedLength * 10) / 10,
+    thickness: Math.round(convertedThickness * 10) / 10,
+    quantity: panel.quantity || 1,
+    material: panel.material || 'PB',
+    grain: normalizeGrain(panel.grain, panel.canRotate, swapped),
+    canRotate: panel.canRotate !== false,
+    boringPositions: panel.boringPositions,
+    boringDepthPositions: panel.boringDepthPositions,
+    boringDepthGroups: panel.boringDepthGroups,
+    sideBoringPositions: panel.sideBoringPositions,
+    sideBoringDiameter: panel.sideBoringDiameter,
+    sideBoringDepth: panel.sideBoringDepth,
+    groovePositions: panel.groovePositions,
+    backPanelGroove: panel.backPanelGroove,
+    screwPositions: panel.screwPositions,
+    screwDepthPositions: panel.screwDepthPositions,
+    isDoor: panel.isDoor,
+    isLeftHinge: panel.isLeftHinge,
+    screwHoleSpacing: panel.screwHoleSpacing,
+    bracketBoringPositions: panel.bracketBoringPositions,
+    bracketBoringDepthPositions: panel.bracketBoringDepthPositions,
+    isBracketSide: panel.isBracketSide,
+    cornerNotch: panel.cornerNotch,
+    sideNotches: panel.sideNotches,
+    rebate: panel.rebate,
+    meshName: panel.meshName,
+    furnitureId: panel.furnitureId
+  } as NormalizedPanel, panel, panel.manufacturingBoring);
+}
+
+/**
+ * Normalize a list of panels
+ */
+export function normalizePanels(panels: RawPanel[], targetUnit: Unit = 'mm'): NormalizedPanel[] {
+  return panels.map(panel => normalizePanel(panel, targetUnit));
+}
+
+/**
+ * Group panels by material
+ */
+export function groupPanelsByMaterial(panels: NormalizedPanel[]): Map<string, NormalizedPanel[]> {
+  const groups = new Map<string, NormalizedPanel[]>();
+  
+  panels.forEach(panel => {
+    const key = `${panel.material}_${panel.thickness}`;
+    if (!groups.has(key)) {
+      groups.set(key, []);
+    }
+    groups.get(key)!.push(panel);
+  });
+  
+  return groups;
+}
+
+/**
+ * Calculate total area for panels
+ */
+export function calculateTotalArea(panels: NormalizedPanel[]): number {
+  return panels.reduce((total, panel) => {
+    const area = (panel.width * panel.length * panel.quantity) / 1000000; // Convert to m²
+    return total + area;
+  }, 0);
+}
+
+/**
+ * Calculate total panel count
+ */
+export function calculateTotalCount(panels: NormalizedPanel[]): number {
+  return panels.reduce((total, panel) => total + panel.quantity, 0);
+}

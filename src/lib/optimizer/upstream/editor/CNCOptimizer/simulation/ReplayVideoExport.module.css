@@ -1,0 +1,22 @@
+.backdrop {position:absolute;inset:0;z-index:40;display:grid;place-items:center;padding:20px;background:rgba(12,17,24,.62);overflow:auto;}
+.dialog {width:min(920px,100%);max-height:100%;overflow:auto;background:var(--theme-surface);color:var(--theme-text);border:1px solid var(--theme-border);border-radius:18px;padding:22px;box-sizing:border-box;box-shadow:0 20px 60px #0004;font-family:Pretendard,sans-serif;outline:none;}
+.dialog header,.dialog footer,.settings {display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.dialog header {justify-content:space-between;}
+.dialog h2 {display:flex;align-items:center;gap:9px;margin:0;font-size:18px;}
+.dialog p {font-size:13px;line-height:1.6;}
+.dialog button,.dialog select {display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--theme-surface);color:var(--theme-text);border:1px solid var(--theme-border);border-radius:9px;padding:9px 12px;cursor:pointer;font:inherit;font-size:12px;}
+.dialog button:disabled,.dialog select:disabled {opacity:.45;cursor:default;}
+.dialog button:focus-visible,.dialog select:focus-visible,.dialog input:focus-visible {outline:2px solid var(--theme-primary);outline-offset:3px;}
+.settings label {display:flex;align-items:center;gap:8px;font-size:12px;}
+.settings span,.hint {font-size:11px;color:var(--theme-text-muted);}
+.speed {display:flex;gap:6px;flex-wrap:wrap;border:0;padding:0;margin:16px 0 0;min-width:0;}
+.speed legend {font-size:12px;padding:0;margin-bottom:8px;}
+.speed button[aria-pressed="true"] {background:var(--theme-primary);color:#fff;border-color:var(--theme-primary);}
+.preview {position:relative;aspect-ratio:16/9;width:100%;overflow:hidden;background:#20252c;border-radius:10px;pointer-events:none;}
+.preview>div {position:absolute;top:0;left:0;transform-origin:top left;}
+.progress {display:flex;align-items:center;gap:12px;margin-top:15px;font-size:12px;}
+.progress progress {flex:1;min-width:40px;accent-color:var(--theme-primary);}
+.dialog footer {justify-content:flex-end;margin-top:18px;}
+.dialog footer button:last-child:not(:first-child) {background:var(--theme-primary);color:#fff;border-color:transparent;}
+.error {color:var(--theme-danger,#d94848);}
+@media(max-width:700px) {.backdrop{padding:10px}.dialog{padding:16px}.settings{gap:10px}.dialog h2{font-size:16px}.progress{align-items:flex-start;flex-direction:column}.progress progress{width:100%}}

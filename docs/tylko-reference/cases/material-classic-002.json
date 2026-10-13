@@ -1,0 +1,237 @@
+{
+  "caseId": "material-classic-002",
+  "observedAt": "2026-10-13T09:42:55Z",
+  "sourceUrl": "https://tylko.com/r_static/dist_vue/vueCrowV2-es6-adcb9eecc6cc1173956e.js",
+  "sourceSha256": "c1c360c5db33998a46a58640949f25204485676b725dbb2457ddb4aad0b00694",
+  "referenceProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+  "evidenceKind": "Public configurator source, local asset inspection, and leader-observed live Chrome Classic swatch DOM",
+  "inputOptions": {
+    "shelfType": 0,
+    "finish": "Multiplexplatte / Type01 laminated plywood",
+    "style": null,
+    "width": null,
+    "height": null,
+    "depth": null,
+    "density": null,
+    "rowHeights": null,
+    "backPanels": null,
+    "doors": null,
+    "drawers": null,
+    "initialDesign": null,
+    "seed": null
+  },
+  "actions": [
+    "Read the already captured public bundle without controlling the existing Chrome tabs.",
+    "Follow webpack module 284 to its Type01 catalog filter and compare the configured option order with Befun Classic.",
+    "Trace Type01 colour IDs to material slot names and the numeric renderer palette.",
+    "Check local Classic texture dimensions and pixel statistics; retain existing plywood edge artwork.",
+    "Add four missing colours without renaming existing saved colour keys.",
+    "Leader inspected the existing Chrome reference tab and confirmed nine Classic swatch images in a different order from the public factory default.",
+    "Update Befun Classic order to the observed live DOM order; preserve the source default order separately."
+  ],
+  "sourceLocations": {
+    "offsetUnit": "JavaScript string character offset in captured bundle",
+    "crowPaletteFactoryModule": 284,
+    "crowPaletteFactoryStart": 1711558,
+    "crowPaletteFactoryEnd": 1712386,
+    "type01MaterialMappingStart": 2139956,
+    "rendererColourPaletteApproximateOffset": 3056161,
+    "initializeAvailableMaterialConfigsApproximateOffset": 5903866,
+    "selectMaterialConfigByShelfTypeApproximateOffset": 5906724
+  },
+  "observedSourceRules": {
+    "configuredOptionOrder": [
+      "white",
+      "black",
+      "dusty_pink",
+      "grey",
+      "yellow",
+      "blue",
+      "moss_green",
+      "cashmere",
+      "clay_brown"
+    ],
+    "options": [
+      {
+        "referenceId": 0,
+        "materialName": "white",
+        "rendererColourKey": "white",
+        "befunKey": "C_White",
+        "faceHex": "#F5F5F5",
+        "newOption": false
+      },
+      {
+        "referenceId": 1,
+        "materialName": "black",
+        "rendererColourKey": "black",
+        "befunKey": "C_Black",
+        "faceHex": "#1F1F1E",
+        "newOption": false
+      },
+      {
+        "referenceId": 8,
+        "materialName": "dusty_pink",
+        "rendererColourKey": "dustyPink",
+        "befunKey": "C_Pink",
+        "faceHex": "#BCA9A2",
+        "newOption": false
+      },
+      {
+        "referenceId": 3,
+        "materialName": "grey",
+        "rendererColourKey": "gray",
+        "befunKey": "C_Gray",
+        "faceHex": "#B2B2B2",
+        "newOption": false
+      },
+      {
+        "referenceId": 7,
+        "materialName": "yellow",
+        "rendererColourKey": "yellow",
+        "befunKey": "C_Yellow",
+        "faceHex": "#CCA550",
+        "newOption": false
+      },
+      {
+        "referenceId": 9,
+        "materialName": "blue",
+        "rendererColourKey": "blue",
+        "befunKey": "C_Blue",
+        "faceHex": "#2271B2",
+        "newOption": true
+      },
+      {
+        "referenceId": 11,
+        "materialName": "moss_green",
+        "rendererColourKey": "greenAgava",
+        "befunKey": "C_Moss Green",
+        "faceHex": "#6B6C56",
+        "newOption": true
+      },
+      {
+        "referenceId": 12,
+        "materialName": "cashmere",
+        "rendererColourKey": "oysterBeige",
+        "befunKey": "C_Cashmere",
+        "faceHex": "#B5ADA3",
+        "newOption": true
+      },
+      {
+        "referenceId": 13,
+        "materialName": "clay_brown",
+        "rendererColourKey": "clayBrown",
+        "befunKey": "C_Clay Brown",
+        "faceHex": "#B57E5B",
+        "newOption": true
+      }
+    ],
+    "materialSlots": {
+      "horizontalsAndVerticals": {
+        "material": "laminatedPlywood",
+        "primary": "faceHex",
+        "secondary": "neutral #FFFFFF texture tint",
+        "tertiary": "faceHex",
+        "edgeMaterial": "plywoodEdge"
+      },
+      "backsSupportsDoorsDrawersPlinth": {
+        "material": "laminate",
+        "primary": "faceHex",
+        "secondary": "faceHex",
+        "tertiary": "faceHex"
+      }
+    },
+    "cashmereMapping": "Type01 ID12 uses oysterBeige #B5ADA3, not the separate generic cashmere renderer colour.",
+    "availability": "The Crow factory configures nine Type01 options and initialises commonMaterials with that list. Selection uses shelf_type; mobile can move the active colour to the first position. No style or dimension condition appears in this palette factory.",
+    "definedButExcluded": [
+      {
+        "referenceId": 10,
+        "name": "Dark Brown",
+        "status": "Defined in Type01 swatch catalog and renderer, excluded by current Crow palette factory"
+      },
+      {
+        "referenceId": 6,
+        "name": "Red",
+        "status": "Legacy renderer definition; absent from current Type01 swatch catalog and Crow palette factory"
+      },
+      {
+        "referenceId": 4,
+        "name": "Aubergine",
+        "status": "Legacy ID; not a current configured option"
+      },
+      {
+        "referenceId": 5,
+        "name": "Natural",
+        "status": "Legacy ID; not a current configured option"
+      }
+    ]
+  },
+  "measurement": {
+    "colourPrecision": "Exact hexadecimal conversion of public renderer integer RGB inputs; not measured screen pixels",
+    "geometryUnit": null,
+    "rowCellCounts": null,
+    "rowCellWidths": null,
+    "dividerPositions": null,
+    "screenColourDifference": null
+  },
+  "liveChromeObservation": {
+    "observer": "codex-analysis leader; relayed to support_rules",
+    "recordedAt": "2026-10-13T09:47:31Z",
+    "observedAt": null,
+    "swatchCount": 9,
+    "imageLabelsInDomOrder": [
+      "white",
+      "moss_green",
+      "grey",
+      "black",
+      "dusty-pink",
+      "yellow",
+      "blue",
+      "cashmere-beige-plywood",
+      "clay-brown-plywood"
+    ],
+    "befunKeysInObservedOrder": [
+      "C_White",
+      "C_Moss Green",
+      "C_Gray",
+      "C_Black",
+      "C_Pink",
+      "C_Yellow",
+      "C_Blue",
+      "C_Cashmere",
+      "C_Clay Brown"
+    ],
+    "differenceFromFactoryDefault": "Live DOM puts Moss Green second and Grey third. The public factory places them seventh and fourth respectively. Both lists contain the same nine colours.",
+    "reasonForOrderDifference": null,
+    "capture": "screenshots/material-classic-002-reference.png",
+    "archiveStatus": "Saved project PNG"
+  },
+  "implementation": {
+    "files": [
+      "src/lib/three/reference-colors.ts",
+      "src/components/ui/ColorPicker.tsx"
+    ],
+    "swatches": "New colours use existing classic-white.svg edge artwork with the shared reference face colour overlaid using CSS.",
+    "optionOrder": "Matches leader-observed live Chrome DOM, not the public factory default order.",
+    "rendererIntegration": "Shelf reuses C_White plywood edge textures for all reference Classic keys and overrides the face colour",
+    "preserved": "Existing saved colour keys and category defaults"
+  },
+  "verification": {
+    "sourceMapping": "confirmed",
+    "targetedEslint": "passed: npx eslint src/lib/three/reference-colors.ts src/components/ui/ColorPicker.tsx",
+    "typescript": "passed: npx tsc --noEmit --incremental false",
+    "liveChromeClassicOptions": "confirmed by leader: nine swatch images, order recorded in liveChromeObservation",
+    "newColourRendering": "Chrome: Classic9swatches and Blue face/plywood edge rendered; final source pixel colour equivalence not measured",
+    "build": "Integrated webpack production build passed"
+  },
+  "unconfirmed": [
+    "Availability and order for other products, regions, initial states and later visits",
+    "Reason the observed live option order differs from the public factory default",
+    "Reference plywood edge texture image and UV identity",
+    "Final rendered colour equivalence under the two viewers' lighting and tone mapping",
+    "All style, dimension, hardware and material combinations"
+  ],
+  "screenshots": [
+    "screenshots/material-classic-002-reference.png",
+    "screenshots/material-classic-002-befun.png"
+  ]
+}

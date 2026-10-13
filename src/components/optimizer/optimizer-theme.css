@@ -1,0 +1,62 @@
+/* 250709in src/styles/theme.css의 기본 테마 + 라이트 모드 변수. 옵티마이저 페이지에서만 적용한다.
+   upstream showToast 등은 팝업을 body에 직접 붙이므로 body에도 변수를 둔다. */
+body:has(.befun-optimizer),
+.befun-optimizer {
+  --theme: 254 92% 65%;
+  --theme-50: 254 92% 98%;
+  --theme-100: 254 92% 95%;
+  --theme-200: 254 92% 90%;
+  --theme-300: 254 92% 80%;
+  --theme-400: 254 92% 70%;
+  --theme-500: 254 92% 65%;
+  --theme-600: 254 87% 55%;
+  --theme-700: 254 82% 45%;
+  --theme-800: 254 77% 35%;
+  --theme-900: 254 72% 25%;
+
+  --theme-primary: hsl(var(--theme-500));
+  --theme-primary-hover: hsl(var(--theme-600));
+  --theme-primary-light: hsl(var(--theme) / 0.2);
+  --theme-primary-dark: hsl(var(--theme-700));
+  --theme-primary-gradient: linear-gradient(135deg, hsl(var(--theme-500)) 0%, hsl(var(--theme-700)) 100%);
+  --theme-primary-shadow: hsl(var(--theme-500) / 0.2);
+
+  --theme-background: #ffffff;
+  --theme-background-secondary: #f0f0f0;
+  --theme-surface: #ffffff;
+  --theme-text: #111827;
+  --theme-text-secondary: #4b5563;
+  --theme-text-muted: #6b7280;
+  --theme-border: #d1d5db;
+  --theme-border-hover: #cbd5e1;
+  --theme-shadow: rgba(0, 0, 0, 0.08);
+  --theme-overlay: rgba(255, 255, 255, 0.75);
+
+  --theme-danger: #ef4444;
+  --theme-danger-hover: #dc2626;
+  --theme-danger-light: rgba(239, 68, 68, 0.2);
+  --theme-error: #ef4444;
+  --theme-info: #3b82f6;
+  --theme-info-hover: #2563eb;
+  --theme-info-light: rgba(59, 130, 246, 0.2);
+  --theme-warning: #f59e0b;
+  --theme-warning-hover: #d97706;
+  --theme-warning-light: rgba(245, 158, 11, 0.2);
+  --theme-success: #10b981;
+  --theme-success-hover: #059669;
+  --theme-success-light: rgba(16, 185, 129, 0.2);
+
+  --theme-disabled-bg: #d1d5db;
+  --theme-disabled-text: #9ca3af;
+  --theme-secondary-bg: #f3f4f6;
+  --theme-secondary-bg-hover: #e5e7eb;
+
+  --text-secondary: #4b5563;
+  --border-color: #d1d5db;
+}
+
+.befun-optimizer {
+  background-color: var(--theme-background);
+  color: var(--theme-text);
+  min-height: 100vh;
+}

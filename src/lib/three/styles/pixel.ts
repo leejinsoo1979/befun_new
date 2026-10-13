@@ -1,21 +1,10 @@
-import type { PanelData } from '@/types/shelf';
 import { calculateGridPanels, type GridInput, type GridResult } from './grid';
+import type { PanelData } from '@/types/shelf';
+import { splitReferenceHorizontals } from '../reference-horizontal-splits.ts';
+import { calculateReferencePixelGradient } from './reference-pixel-gradient.ts';
 
-export interface PixelInput {
-  width: number;
-  height: number;
-  depth: number;
-  thickness: number;
-  density: number;
-  rowHeights: number[];
-  numRows: number;
-  hasBackPanel: boolean;
-  hardwareLayers?: number[];
-}
-
+export type PixelInput = GridInput;
 export type PixelResult = GridResult;
-
-// ── v1 calculateGaps 이식 ──
 
 export function calculateGaps(shelfWidth: number, density: number, thickness: number): number[] {
   let densityRatio: number;
@@ -63,6 +52,12 @@ export function calculateGaps(shelfWidth: number, density: number, thickness: nu
 // ── 메인: Pixel 패널 배치 계산 ──
 
 export function calculatePixelPanels(input: PixelInput): PixelResult {
+  // Type01 templates have not been verified; preserve its existing generation.
+  if (input.family === 'type01') return calculateLegacyPixelPanels(input);
+  return calculateReferencePixelGradient(input, 'pixel');
+}
+
+function calculateLegacyPixelPanels(input: PixelInput): PixelResult {
   const { width, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers = [] } = input;
 
   if (numRows === 1 || width < 78) {
@@ -207,5 +202,5 @@ export function calculatePixelPanels(input: PixelInput): PixelResult {
     currentY += rh + thickness;
   }
 
-  return { panels, panelCount: gaps.length + 1, panelSpacing: 0 };
+  return { panels: splitReferenceHorizontals(panels, input.width, 'pixel').panels, panelCount: gaps.length + 1, panelSpacing: 0 };
 }

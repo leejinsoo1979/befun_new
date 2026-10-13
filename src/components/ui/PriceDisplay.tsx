@@ -13,7 +13,12 @@ import { calculatePatternPanels } from '@/lib/three/styles/pattern';
 import { calculateMosaicPanels } from '@/lib/three/styles/mosaic';
 import type { ColorCategory } from '@/types/shelf';
 
-export function PriceDisplay() {
+interface PriceDisplayProps {
+  /** 모바일 하단 구매 바용 한 줄 요약 표시 */
+  compact?: boolean;
+}
+
+export function PriceDisplay({ compact = false }: PriceDisplayProps = {}) {
   const width = useShelfStore((s) => s.width);
   const height = useShelfStore((s) => s.height);
   const depth = useShelfStore((s) => s.depth);
@@ -26,6 +31,7 @@ export function PriceDisplay() {
   const colorCategory = useMaterialStore((s) => s.colorCategory);
   const doorsCreatedLayers = useHardwareStore((s) => s.doorsCreatedLayers);
   const drawersCreatedLayers = useHardwareStore((s) => s.drawersCreatedLayers);
+  const hardwareRowStyles = useHardwareStore((s) => s.rowStyles);
 
   const hardwareLayers = useMemo(() => {
     const layers = new Set<number>();
@@ -36,7 +42,8 @@ export function PriceDisplay() {
 
   const priceResult = useMemo(() => {
     // v1 방식: 실제 패널 부피 합산
-    const input = { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers };
+    const input = { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers, hardwareRowStyles,
+      family: colorCategory === 'classic' || colorCategory === 'natural' ? 'type01' as const : 'type02' as const };
     let panels;
     switch (style) {
       case 'grid':
@@ -67,9 +74,21 @@ export function PriceDisplay() {
       totalPanelVolume,
       colorCategory: colorCategory as ColorCategory,
     });
-  }, [width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel, hardwareLayers, colorCategory]);
+  }, [width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel, hardwareLayers, hardwareRowStyles, colorCategory]);
 
   const saveAmount = priceResult.originalPrice - priceResult.finalPrice;
+
+  if (compact) {
+    return (
+      <div className="leading-tight">
+        <div className="flex items-center gap-1.5 text-[11px]">
+          <span className="text-[#aaa] line-through">{formatPrice(priceResult.originalPrice)}</span>
+          <span className="font-semibold text-[var(--green)]">{priceResult.discountRate}%</span>
+        </div>
+        <p className="text-[19px] font-bold tabular-nums text-[#111]">{formatPrice(priceResult.finalPrice)}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="py-0.5">

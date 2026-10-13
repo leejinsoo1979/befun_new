@@ -1,0 +1,63 @@
+{
+  "caseId": "material-factory-003",
+  "observedAt": "2026-10-13T10:32:39.986Z",
+  "sourceUrl": "http://localhost:3003/configurator?skipLoad=true&check=hardware-final",
+  "request": "claude-graphics coordination relayed by user",
+  "inputs": {
+    "style": "Mosaic",
+    "widthCm": 232,
+    "densityPercent": 66,
+    "rowHeightsCm": [
+      28,
+      28,
+      28,
+      28
+    ],
+    "depthCm": 32,
+    "backPanels": false,
+    "doors": [],
+    "drawers": [],
+    "finish": "Solid",
+    "colours": [
+      "S_Midnight Blue",
+      "S_Teracotta",
+      "S_Cotton",
+      "S_White"
+    ],
+    "views": [
+      "front",
+      "standard (45-degree azimuth)"
+    ],
+    "initialSeed": null
+  },
+  "operations": [
+    "Remove only REFERENCE_COLORS material override in Shelf.tsx",
+    "Select each colour, inspect front and standard view"
+  ],
+  "observations": {
+    "referenceBaseEdgeHex": "unchanged",
+    "materialFactoryProperties": "preserved without post-processing; roughness0.5 and paint map/roughnessMap",
+    "ivoryOption": "Not present in current palette; White and Cotton checked separately, no equivalence assumed",
+    "screenPixelColour": null,
+    "referencePixelDifference": null
+  },
+  "screenshots": [
+    "screenshots/material-factory-003-blue-front.png",
+    "screenshots/material-factory-003-blue-angle.png",
+    "screenshots/material-factory-003-terracotta-front.png",
+    "screenshots/material-factory-003-terracotta-angle.png",
+    "screenshots/material-factory-003-cotton-front.png",
+    "screenshots/material-factory-003-cotton-angle.png",
+    "screenshots/material-factory-003-white-front.png",
+    "screenshots/material-factory-003-white-angle.png"
+  ],
+  "verification": {
+    "lint": "passed,0errors12existingwarnings",
+    "productionBuild": "passed: npm run build -- --webpack",
+    "manual": "colour switching and both views rendered"
+  },
+  "unconfirmed": [
+    "Final Tylko screen-colour equivalence",
+    "Midnight Blue remains dark in oblique view; no numerical colour calibration performed"
+  ]
+}

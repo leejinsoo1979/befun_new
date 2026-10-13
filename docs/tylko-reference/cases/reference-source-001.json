@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "caseId": "reference-source-001",
+  "observedAt": "2026-10-13T07:17:17.976Z",
+  "sourceUrl": "https://tylko.com/r_static/dist_vue/vueCrowV2-es6-adcb9eecc6cc1173956e.js",
+  "evidenceType": "public-script-static-analysis",
+  "sourceSha256": "c1c360c5db33998a46a58640949f25204485676b725dbb2457ddb4aad0b00694",
+  "inputs": null,
+  "initialState": null,
+  "actions": [
+    "Read already loaded public script through Chrome debugger source API",
+    "Inspect static bookcase label mapping and Grasshopper builder path; no function execution or hidden application state inspection"
+  ],
+  "observations": {
+    "styleMappings": {
+      "Pattern": "PATTERN",
+      "Grid": "GRID",
+      "Slant": "SLANT",
+      "Mosaic": "PORTO",
+      "Gradient": "GRADIENT",
+      "Pixel": "CHARLIE"
+    },
+    "candidatePatternGeneration": {
+      "inputs": [
+        "DNA serialization",
+        "motion",
+        "width",
+        "row_amount",
+        "row_heights",
+        "row_styles",
+        "depth",
+        "half_material",
+        "support_size",
+        "snapping",
+        "backpanels_rows",
+        "shelf_type"
+      ],
+      "rules": [
+        "Elements are filtered by width and motion ranges in design data",
+        "Coordinate lookup uses piecewise linear interpolation and integer rounding",
+        "Base coordinate and an optional motion-dependent offset are combined",
+        "Adjacent-row x coordinates can snap within a design-defined distance and lock order",
+        "Horizontal endpoint pairs define separate board segments",
+        "Vertical flags can span two rows",
+        "Pattern with snapping and nonempty back rows can remap motion using width/product-family tables",
+        "Row styles and depth affect available doors/drawers"
+      ]
+    }
+  },
+  "measurement": {
+    "unit": null,
+    "method": "Static source inspection",
+    "precision": null
+  },
+  "screenshots": {
+    "referenceFront": null,
+    "befunFront": null
+  },
+  "unverified": [
+    "Which serialization record this saved product selects",
+    "Actual current runtime path and material-family selection",
+    "Serialization knot tables and element definitions",
+    "Coordinate conversion to final 20mm board geometry",
+    "End-to-end UI equivalence",
+    "Whether initial design/history changes the serialization selection"
+  ],
+  "limitations": [
+    "Source facts do not establish that all branches apply to the current product",
+    "No complete proprietary bundle copied to project",
+    "No credentials, cookies, tokens or user data recorded"
+  ]
+}

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { REFERENCE_COLORS, REFERENCE_CLASSIC_COLORS } from '@/lib/three/reference-colors';
 import { useMaterialStore } from '@/stores/useMaterialStore';
 import type { ColorCategory } from '@/types/shelf';
 
@@ -11,11 +12,15 @@ interface ColorOption {
 }
 
 const CLASSIC_COLORS: ColorOption[] = [
-  { name: 'C_Black', image: '/imgs/classic_color/classic-black.svg', category: 'classic' },
   { name: 'C_White', image: '/imgs/classic_color/classic-white.svg', category: 'classic' },
-  { name: 'C_Pink', image: '/imgs/classic_color/classic-pink.svg', category: 'classic' },
+  { name: 'C_Moss Green', image: '/imgs/classic_color/classic-white.svg', category: 'classic' },
   { name: 'C_Gray', image: '/imgs/classic_color/classic-gray.svg', category: 'classic' },
+  { name: 'C_Black', image: '/imgs/classic_color/classic-black.svg', category: 'classic' },
+  { name: 'C_Pink', image: '/imgs/classic_color/classic-pink.svg', category: 'classic' },
   { name: 'C_Yellow', image: '/imgs/classic_color/classic-yellow.svg', category: 'classic' },
+  { name: 'C_Blue', image: '/imgs/classic_color/classic-white.svg', category: 'classic' },
+  { name: 'C_Cashmere', image: '/imgs/classic_color/classic-white.svg', category: 'classic' },
+  { name: 'C_Clay Brown', image: '/imgs/classic_color/classic-white.svg', category: 'classic' },
 ];
 
 const NATURAL_COLORS: ColorOption[] = [
@@ -24,22 +29,8 @@ const NATURAL_COLORS: ColorOption[] = [
   { name: 'N_Walnut', image: '/imgs/natural_color/natural-dark.png', category: 'natural' },
 ];
 
-const SOLID_COLORS: ColorOption[] = [
-  { name: 'S_Black', image: '/imgs/solid_color/solid-black.svg', category: 'solid' },
-  { name: 'S_Midnight Blue', image: '/imgs/solid_color/solid-blue.svg', category: 'solid' },
-  { name: 'S_Burgundy', image: '/imgs/solid_color/solid-burgundy.svg', category: 'solid' },
-  { name: 'S_Teracotta', image: '/imgs/solid_color/solid-cider.svg', category: 'solid' },
-  { name: 'S_Teracotta Orange', image: '/imgs/solid_color/solid-deepred.svg', category: 'solid' },
-  { name: 'S_Gray', image: '/imgs/solid_color/solid-gray.svg', category: 'solid' },
-  { name: 'S_Green', image: '/imgs/solid_color/solid-green.svg', category: 'solid' },
-  { name: 'S_Ivory', image: '/imgs/solid_color/solid-ivory.svg', category: 'solid' },
-  { name: 'S_Sand Beige', image: '/imgs/solid_color/solid-kakhi.svg', category: 'solid' },
-  { name: 'S_Olive Green', image: '/imgs/solid_color/solid-olive.svg', category: 'solid' },
-  { name: 'S_Sky Blue', image: '/imgs/solid_color/solid-skyblue.svg', category: 'solid' },
-  { name: 'S_Pink', image: '/imgs/solid_color/solid-pink.svg', category: 'solid' },
-  { name: 'S_Red', image: '/imgs/solid_color/solid-red.svg', category: 'solid' },
-  { name: 'S_Yellow', image: '/imgs/solid_color/solid-yellow.svg', category: 'solid' },
-];
+// Live Type02 swatches verified in material-source-001; legacy saved keys still render.
+const SOLID_COLORS: ColorOption[] = ["S_White", "S_Midnight Blue", "S_Matte Black", "S_Black", "S_Teracotta", "S_Sky Blue", "S_Stone Gray", "S_Gray", "S_Butter Yellow", "S_Cotton", "S_Olive Green", "S_Sage Green", "S_Burgundy", "S_Reisinger Pink", "S_Lilac", "S_Dark Brown"].map(name => ({ name, image: '', category: 'solid' }));
 
 const MIX_COLORS: ColorOption[] = [
   { name: 'Sand+Midnight Blue', image: '/imgs/edgemix_color/edgemix-blue.svg', category: 'edgeMix' },
@@ -110,21 +101,32 @@ export function ColorPicker() {
         </span>
         <div className="flex flex-1 flex-wrap gap-[5px]">
           {colors.map((c) => {
-            const isActive = currentColor === c.name;
+            const isActive = currentColor === c.name || (c.name === 'S_Teracotta' && currentColor === 'S_Teracotta Orange');
             return (
               <button
                 key={c.name}
                 onClick={() => setColor(c.name, c.category)}
                 className={`tylko-color-swatch ${isActive ? 'active' : ''}`}
                 title={c.name}
+                aria-label={c.name}
               >
-                <Image
+                {REFERENCE_COLORS[c.name] ? (
+                  <span aria-hidden="true" className="block h-6 w-6 rounded-full" style={{
+                    background: REFERENCE_COLORS[c.name].base === REFERENCE_COLORS[c.name].edge
+                      ? REFERENCE_COLORS[c.name].base
+                      : `linear-gradient(to bottom, ${REFERENCE_COLORS[c.name].base} 72%, ${REFERENCE_COLORS[c.name].edge} 72%)`,
+                  }} />
+                ) : REFERENCE_CLASSIC_COLORS[c.name] ? (
+                  <span aria-hidden="true" className="block h-6 w-6 rounded-full" style={{
+                    background: `linear-gradient(to bottom, ${REFERENCE_CLASSIC_COLORS[c.name]} 72%, transparent 72%), url("${c.image}") center / cover`,
+                  }} />
+                ) : <Image
                   src={c.image}
                   alt={c.name}
                   width={24}
                   height={24}
                   className="rounded-full"
-                />
+                />}
               </button>
             );
           })}

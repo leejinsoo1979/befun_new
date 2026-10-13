@@ -1,4 +1,8 @@
-import type { PanelData, MaterialType } from '@/types/shelf';
+import { splitReferenceHorizontals } from '../reference-horizontal-splits.ts';
+import { calculateReferenceGrid } from '../reference-grid-slant-grid.ts';
+import type { HardwareRowStyles } from '../hardware-state';
+import type { ReferenceFront } from '../reference-hardware';
+import type { PanelData } from '@/types/shelf';
 
 export interface GridInput {
   width: number;
@@ -9,6 +13,8 @@ export interface GridInput {
   rowHeights: number[];
   numRows: number;
   hasBackPanel: boolean;
+  family?: 'type01' | 'type02';
+  hardwareRowStyles?: HardwareRowStyles;
   hardwareLayers?: number[]; // 도어/서랍이 달린 행 인덱스
 }
 
@@ -16,6 +22,21 @@ export interface GridResult {
   panels: PanelData[];
   panelCount: number;
   panelSpacing: number;
+  fronts?: ReferenceFront[];
+  openings?: ReferenceOpening[];
+  bodyHeight?: number;
+  boardThickness?: number;
+}
+
+export interface ReferenceOpening {
+  rowIndex: number;
+  rowSpan: number;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  openLeft: boolean;
+  openRight: boolean;
 }
 
 // ── v1 calculateDensityGrid 완전 이식 ──
@@ -98,7 +119,6 @@ function calculateSupportPanelPositions(
   thickness: number,
   panelCount: number,
   panelSpacing: number,
-  density: number,
 ): number[] {
   const positions: number[] = [];
   const supPanelWidth = 12;
@@ -175,6 +195,10 @@ function calculateSupportPanelPositions(
 // ── 메인: Grid 패널 배치 계산 ──
 
 export function calculateGridPanels(input: GridInput): GridResult {
+  return input.family === 'type01' ? calculateLegacyGridPanels(input) : calculateReferenceGrid(input);
+}
+
+function calculateLegacyGridPanels(input: GridInput): GridResult {
   const { width, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers = [] } = input;
   const panels: PanelData[] = [];
   const hardwareSet = new Set(hardwareLayers);
@@ -228,7 +252,7 @@ export function calculateGridPanels(input: GridInput): GridResult {
   // === 백패널 또는 서포트 패널 (행별 판단) ===
   const supPanelWidth = 12;
   const supportPositions = calculateSupportPanelPositions(
-    width, thickness, panelCount, panelSpacing, density,
+    width, thickness, panelCount, panelSpacing,
   );
 
   let cy = 0;
@@ -273,5 +297,5 @@ export function calculateGridPanels(input: GridInput): GridResult {
     cy += rh + thickness;
   }
 
-  return { panels, panelCount, panelSpacing };
+  return { panels: splitReferenceHorizontals(panels, width, 'grid').panels, panelCount, panelSpacing };
 }

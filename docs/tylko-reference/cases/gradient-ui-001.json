@@ -1,0 +1,162 @@
+{
+  "caseId": "gradient-ui-001",
+  "recordedAt": "2026-10-13T11:19:16.469604+00:00",
+  "observedAt": null,
+  "observationDateLocal": "2026-10-13",
+  "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+  "befunUrl": "http://127.0.0.1:3008/configurator?skipLoad=true&check=style-reference",
+  "method": "existing VPN Chrome reference tab and production Befun tab; single density change at fixed displayed options",
+  "initialState": {
+    "referenceOriginalDesign": 3690311,
+    "editedSession": true,
+    "seed": null,
+    "fullPriorHistory": null,
+    "individualCellOverrides": null,
+    "hardwarePerRow": [
+      "none",
+      "none",
+      "none",
+      "none"
+    ]
+  },
+  "inputOptions": {
+    "style": "gradient",
+    "family": "Type02",
+    "widthDisplayedCm": 263,
+    "referenceWidthSliderAria": 263.3,
+    "referenceInternalWidthMm": null,
+    "befunWidthCm": 263,
+    "densityPercent": [
+      0,
+      100
+    ],
+    "rowHeightsCm": [
+      38,
+      38,
+      38,
+      38
+    ],
+    "heightDisplayedCm": 163,
+    "depthCm": 32,
+    "backPanels": false,
+    "referenceFinish": "Farbe",
+    "referenceColour": "Grey",
+    "befunFinish": "Solid",
+    "befunColour": "S_Gray",
+    "referenceColourHex": null,
+    "edgeOption": null,
+    "camera": "front",
+    "dimensions": true
+  },
+  "actions": [
+    "Keep four 38cm rows, displayed 263cm width, 32cm depth, backs off, Farbe/Solid grey and all row hardware None.",
+    "Select gradient.",
+    "Observe density 0%, then 100% without changing other options.",
+    "Capture both applications; Pixel Befun captured in reverse density order (100 then 0).",
+    "Slant reference 0% captured again after returning from other styles."
+  ],
+  "observations": {
+    "visibleWidthLabelsCmByDensityBottomToTop": {
+      "0": [
+        [
+          31,
+          39,
+          47,
+          26,
+          26,
+          38,
+          38
+        ],
+        [
+          31,
+          39,
+          47,
+          26,
+          26,
+          38,
+          38
+        ],
+        [
+          31,
+          39,
+          47,
+          26,
+          26,
+          38,
+          38
+        ],
+        [
+          31,
+          39,
+          47,
+          26,
+          26,
+          38,
+          38
+        ]
+      ],
+      "100": [
+        [
+          38,
+          38,
+          26,
+          26,
+          47,
+          39,
+          31
+        ],
+        [
+          38,
+          38,
+          26,
+          26,
+          47,
+          39,
+          31
+        ],
+        [
+          38,
+          38,
+          26,
+          26,
+          47,
+          39,
+          31
+        ],
+        [
+          38,
+          38,
+          26,
+          26,
+          47,
+          39,
+          31
+        ]
+      ]
+    },
+    "sameVisibleCountsAndWidthLabels": true,
+    "physicalCellCounts": null,
+    "dividerCoordinatesMm": null,
+    "panelCoordinatesMm": null,
+    "innerHeightLabelsCm": "38 generally; Pixel bottom openings without bottom board include 39",
+    "slantNarrowWingLabels": null
+  },
+  "precision": {
+    "screenLabels": "integer cm; source label module floors inner dimensions",
+    "geometryFromScreen": false,
+    "pixelDifference": null,
+    "warning": "Reference aria263.3 and visible263 do not establish 2633mm internal width. These screenshots compare displayed settings and labels; exact numeric equivalence uses separate source fixtures."
+  },
+  "screenshots": [
+    "screenshots/gradient-ui-001-d0-reference-front.png",
+    "screenshots/gradient-ui-001-d0-befun-front.png",
+    "screenshots/gradient-ui-001-d100-reference-front.png",
+    "screenshots/gradient-ui-001-d100-befun-front.png"
+  ],
+  "unconfirmed": [
+    "exact reference internal width after UI rounding",
+    "camera scale, exposure, shadows and pixel parity",
+    "all initial designs and arbitrary individual cell edits",
+    "Type01 family"
+  ]
+}

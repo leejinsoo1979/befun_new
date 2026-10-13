@@ -1,0 +1,10 @@
+{
+  "counts": {
+    "grid": 384,
+    "slant": 384,
+    "pixel": 384,
+    "gradient": 384,
+    "pattern": 384
+  },
+  "fail": []
+}

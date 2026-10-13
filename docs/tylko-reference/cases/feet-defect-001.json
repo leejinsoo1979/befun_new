@@ -1,0 +1,35 @@
+{
+  "caseId": "feet-defect-001",
+  "observedAt": "2026-10-13T09:38:45.201775+00:00",
+  "sourceUrl": null,
+  "initialState": null,
+  "inputs": {
+    "style": null,
+    "widthCm": null,
+    "heightCm": null,
+    "depthCm": null,
+    "densityPercent": null,
+    "finish": null,
+    "colour": null
+  },
+  "actions": [
+    "User supplied cropped screenshot and reported internal foot positions do not match vertical boards"
+  ],
+  "observed": {
+    "internalFeetOffsetFromVerticalAxes": true,
+    "exactCoordinates": null
+  },
+  "precision": {
+    "unit": "image observation only",
+    "coordinateError": null
+  },
+  "fix": "All styles now pass actual rendered panels to short-foot helper; removed separate uniform spacing formulas",
+  "verification": {
+    "nonUniformGeometryRegression": "passes",
+    "mosaicReferenceSameInputCases": 288,
+    "allStylesTylkoParity": null
+  },
+  "screenshots": [
+    "screenshots/feet-defect-001-user.png"
+  ]
+}

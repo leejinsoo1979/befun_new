@@ -54,9 +54,7 @@ export default function SharePage() {
     mat.setColor(cfg.color, cfg.colorCategory as 'classic' | 'natural' | 'solid' | 'edgeMix');
 
     const hw = useHardwareStore.getState();
-    hw.reset();
-    cfg.doorsCreatedLayers?.forEach((layer) => hw.toggleDoor(layer));
-    cfg.drawersCreatedLayers?.forEach((layer) => hw.toggleDrawer(layer));
+    hw.restore(cfg.doorsCreatedLayers ?? [], cfg.drawersCreatedLayers ?? [], cfg.hardwareRowStyles);
 
     router.push('/configurator');
   };

@@ -2,61 +2,64 @@
 
 import { useMemo, useRef, useEffect } from 'react';
 import * as THREE from 'three';
-import { useThree } from '@react-three/fiber';
+import { useThree, useFrame } from '@react-three/fiber';
+import { useHardwareStore } from '@/stores/useHardwareStore';
+import { useMaterialStore } from '@/stores/useMaterialStore';
 import { useShelfStore } from '@/stores/useShelfStore';
-import { calculateGridPanels } from '@/lib/three/styles/grid';
+import { calculateGridPanels, type ReferenceOpening } from '@/lib/three/styles/grid';
 import { calculateSlantPanels } from '@/lib/three/styles/slant';
 import { calculatePixelPanels } from '@/lib/three/styles/pixel';
 import { calculateGradientPanels } from '@/lib/three/styles/gradient';
 import { calculatePatternPanels } from '@/lib/three/styles/pattern';
+import { calculateMosaicPanels, type MosaicResult } from '@/lib/three/styles/mosaic';
 
-// ── V1 createLabel 이식: Canvas 텍스처 Sprite ──
-
-function createLabelSprite(text: string): THREE.Sprite {
+// Billboard meshes stay out of the AO depth pass. A screen-sized translucent
+// capsule matches the reference without producing opaque sprite rectangles.
+function createDimensionLabel(text: string): THREE.Mesh<THREE.PlaneGeometry, THREE.MeshBasicMaterial> {
   const canvas = document.createElement('canvas');
-  const context = canvas.getContext('2d')!;
   canvas.width = 160;
   canvas.height = 80;
-
-  // 배경: 어두운 반투명 둥근 사각형
-  context.fillStyle = 'rgba(51, 51, 51, 0.8)';
-  roundRect(context, 0, 0, canvas.width, canvas.height, 40);
-  context.fill();
-
-  // 텍스트: 흰색 볼드
-  context.font = 'bold 60px Arial';
-  context.fillStyle = 'white';
+  const context = canvas.getContext('2d')!;
+  context.font = '400 52px Arial';
   context.textAlign = 'center';
   context.textBaseline = 'middle';
-  context.fillText(text, canvas.width / 2, canvas.height / 2);
+  const capsuleWidth = context.measureText(text).width + 26;
+  context.fillStyle = 'rgba(90, 90, 90, 0.48)';
+  context.beginPath();
+  context.roundRect((canvas.width - capsuleWidth) / 2, 7, capsuleWidth, 66, 33);
+  context.fill();
+  context.fillStyle = '#ffffff';
+  context.fillText(text, canvas.width / 2, canvas.height / 2 + 1);
 
   const texture = new THREE.CanvasTexture(canvas);
-  const spriteMaterial = new THREE.SpriteMaterial({
+  texture.colorSpace = THREE.SRGBColorSpace;
+  const label = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({
     map: texture,
+    transparent: true,
     depthTest: false,
-  });
-  const sprite = new THREE.Sprite(spriteMaterial);
-  sprite.scale.set(10, 5, 1);
-  sprite.renderOrder = 9999;
-
-  return sprite;
+    depthWrite: false,
+    toneMapped: false,
+  }));
+  label.scale.set(10, 5, 1);
+  label.renderOrder = 9999;
+  label.userData.dimensionLabel = true;
+  label.userData.excludeFromAO = true;
+  return label;
 }
 
-function roundRect(
-  ctx: CanvasRenderingContext2D,
-  x: number, y: number, w: number, h: number, r: number,
-) {
-  ctx.beginPath();
-  ctx.moveTo(x + r, y);
-  ctx.lineTo(x + w - r, y);
-  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-  ctx.lineTo(x + w, y + h - r);
-  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-  ctx.lineTo(x + r, y + h);
-  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-  ctx.lineTo(x, y + r);
-  ctx.quadraticCurveTo(x, y, x + r, y);
-  ctx.closePath();
+function clearDimensionObjects(group: THREE.Group) {
+  for (const child of [...group.children]) {
+    group.remove(child);
+    if (child instanceof THREE.Mesh) {
+      child.geometry.dispose();
+      const material = child.material as THREE.MeshBasicMaterial;
+      material.map?.dispose();
+      material.dispose();
+    } else if (child instanceof THREE.Line) {
+      child.geometry.dispose();
+      (child.material as THREE.LineBasicMaterial).dispose();
+    }
+  }
 }
 
 // ── V1 createGuideline 이식: 메인 라인 + 양끝 수직 틱마크 ──
@@ -65,7 +68,7 @@ function createGuidelineObjects(
   start: THREE.Vector3,
   end: THREE.Vector3,
 ): THREE.Object3D[] {
-  const material = new THREE.LineBasicMaterial({ color: 0x111111 });
+  const material = new THREE.LineBasicMaterial({ color: 0x747474, transparent: true, opacity: 0.75, toneMapped: false });
   const objects: THREE.Object3D[] = [];
 
   // 메인 라인
@@ -109,9 +112,27 @@ function createGuidelineObjects(
 // ── 메인 컴포넌트 ──
 
 export function DimensionOverlay() {
-  const { scene } = useThree();
+  const { scene, camera, size } = useThree();
+  const labelPosition = useMemo(() => new THREE.Vector3(), []);
   const groupRef = useRef<THREE.Group>(null);
+  useFrame(() => {
+    for (const child of groupRef.current?.children ?? []) {
+      if (child.userData.dimensionLabel) {
+        child.quaternion.copy(camera.quaternion);
+        child.getWorldPosition(labelPosition).applyMatrix4(camera.matrixWorldInverse);
+        const worldPerPixel = camera instanceof THREE.PerspectiveCamera
+          ? 2 * Math.abs(labelPosition.z) * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) / size.height
+          : camera instanceof THREE.OrthographicCamera
+            ? (camera.top - camera.bottom) / camera.zoom / size.height : 1;
+        child.scale.set(40 * worldPerPixel, 20 * worldPerPixel, 1);
+      }
+      // The depth guide collapses in a frontal view; reveal it when rotated.
+      if (child.userData.depthDimension) child.visible = Math.abs(camera.position.x) > 15;
+    }
+  });
 
+  const category = useMaterialStore(s => s.colorCategory);
+  const family = category === 'classic' || category === 'natural' ? 'type01' as const : 'type02' as const;
   const width = useShelfStore((s) => s.width);
   const height = useShelfStore((s) => s.height);
   const depth = useShelfStore((s) => s.depth);
@@ -120,78 +141,77 @@ export function DimensionOverlay() {
   const density = useShelfStore((s) => s.density);
   const rowHeights = useShelfStore((s) => s.rowHeights);
   const numRows = useShelfStore((s) => s.numRows);
+  const doorsCreatedLayers = useHardwareStore(s=>s.doorsCreatedLayers);
+  const drawersCreatedLayers = useHardwareStore(s=>s.drawersCreatedLayers);
+  const hardwareRowStyles = useHardwareStore(s=>s.rowStyles);
+  const hardwareLayers = useMemo(()=>[...new Set([...doorsCreatedLayers,...drawersCreatedLayers])],[doorsCreatedLayers,drawersCreatedLayers]);
   const hasBackPanel = useShelfStore((s) => s.hasBackPanel);
 
   // 스타일별 패널 계산 결과
   const styleResult = useMemo(() => {
-    const input = { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel };
+    const input = { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers, hardwareRowStyles, family };
     switch (style) {
       case 'grid': return calculateGridPanels(input);
       case 'slant': return calculateSlantPanels(input);
       case 'pixel': return calculatePixelPanels(input);
       case 'gradient': return calculateGradientPanels(input);
       case 'pattern': return calculatePatternPanels(input);
+      case 'mosaic': return calculateMosaicPanels(input);
       default: return calculateGridPanels(input);
     }
-  }, [width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel]);
+  }, [width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel, hardwareLayers, hardwareRowStyles, family]);
 
   // 모든 라벨/가이드라인 생성
   useEffect(() => {
     const group = groupRef.current;
     if (!group) return;
 
-    // 이전 라벨 제거
-    while (group.children.length > 0) {
-      const child = group.children[0];
-      group.remove(child);
-      if (child instanceof THREE.Sprite) {
-        child.material.map?.dispose();
-        child.material.dispose();
-      }
-      if (child instanceof THREE.Line) {
-        child.geometry.dispose();
-      }
-    }
+    clearDimensionObjects(group);
 
     const { panelCount, panelSpacing } = styleResult;
+
+    const bodyHeight = styleResult.bodyHeight ?? height;
 
     // ── 외경 치수 (V1 동일: 가로 상단, 세로 우측, 깊이 우측 상단) ──
 
     // 가로 (width) — 상단
-    const widthLabel = createLabelSprite(`${width}`);
-    widthLabel.position.set(0, height + thickness * 3, depth + 1);
+    const widthLabel = createDimensionLabel(`${width}`);
+    widthLabel.position.set(0, bodyHeight + thickness * 3, depth + 1);
     group.add(widthLabel);
 
     createGuidelineObjects(
-      new THREE.Vector3(-width / 2, height + thickness * 3, depth + 1),
-      new THREE.Vector3(width / 2, height + thickness * 3, depth + 1),
+      new THREE.Vector3(-width / 2, bodyHeight + thickness * 3, depth + 1),
+      new THREE.Vector3(width / 2, bodyHeight + thickness * 3, depth + 1),
     ).forEach((obj) => group.add(obj));
 
     // 세로 (height + 조절발) — 우측
     const footHeight = 1; // 조절발 높이 1cm
-    const totalHeight = height + footHeight;
-    const heightLabel = createLabelSprite(`${totalHeight}`);
-    heightLabel.position.set(width / 2 + 10, height / 2 - footHeight / 2, depth + 1);
+    const totalHeight = Math.round(bodyHeight + footHeight);
+    const heightLabel = createDimensionLabel(`${totalHeight}`);
+    heightLabel.position.set(width / 2 + 10, bodyHeight / 2 - footHeight / 2, depth + 1);
     group.add(heightLabel);
 
     createGuidelineObjects(
       new THREE.Vector3(width / 2 + 10, -footHeight, depth + 1),
-      new THREE.Vector3(width / 2 + 10, height, depth + 1),
+      new THREE.Vector3(width / 2 + 10, bodyHeight, depth + 1),
     ).forEach((obj) => group.add(obj));
 
     // 깊이 (depth) — 우측 상단
-    const depthLabel = createLabelSprite(`${Math.ceil(depth)}`);
-    depthLabel.position.set(width / 2 + 10, height + thickness * 3, depth / 2);
+    const depthLabel = createDimensionLabel(`${Math.ceil(depth)}`);
+    depthLabel.position.set(width / 2 + 10, bodyHeight + thickness * 3, depth / 2);
+    depthLabel.userData.depthDimension = true;
     group.add(depthLabel);
 
     createGuidelineObjects(
-      new THREE.Vector3(width / 2 + 10, height + thickness * 3, depth),
-      new THREE.Vector3(width / 2 + 10, height + thickness * 3, 0),
-    ).forEach((obj) => group.add(obj));
+      new THREE.Vector3(width / 2 + 10, bodyHeight + thickness * 3, depth),
+      new THREE.Vector3(width / 2 + 10, bodyHeight + thickness * 3, 0),
+    ).forEach((obj) => { obj.userData.depthDimension = true; group.add(obj); });
 
     // ── 내경 치수 (스타일별 분기) ──
 
-    switch (style) {
+    if (styleResult.openings) {
+      createOpeningInnerLabels(group, depth, styleResult.openings);
+    } else switch (style) {
       case 'grid':
         createGridInnerLabels(group, width, height, depth, thickness, panelCount, panelSpacing, rowHeights, numRows);
         break;
@@ -202,28 +222,25 @@ export function DimensionOverlay() {
         createPixelInnerLabels(group, width, height, depth, thickness, density, rowHeights, numRows);
         break;
       case 'gradient':
-        createGradientInnerLabels(group, width, height, depth, thickness, styleResult, rowHeights, numRows);
+        createGradientInnerLabels(group, width, height, depth, thickness, 'internalWidths' in styleResult ? styleResult as { internalWidths: number[] } : {}, rowHeights, numRows);
         break;
       case 'pattern':
-        createPatternInnerLabels(group, width, height, depth, thickness, styleResult, rowHeights, numRows);
         break;
-      // mosaic: 외경만 표시 (V1 동일)
+      case 'mosaic':
+        if ('cells' in styleResult) {
+          for (const cell of (styleResult as MosaicResult).cells) {
+            const label = createDimensionLabel(`${Math.floor(cell.width + 1e-8)}`);
+            label.position.set(cell.x, cell.y - cell.height / 2 + 5, depth + 1);
+            group.add(label);
+            const heightLabel = createDimensionLabel(`${Math.floor(cell.height + 1e-8)}`);
+            heightLabel.position.set(cell.x - cell.width / 2 + 5, cell.y, depth + 1);
+            group.add(heightLabel);
+          }
+        }
+        break;
     }
 
-    return () => {
-      // 컴포넌트 언마운트 시 정리
-      while (group.children.length > 0) {
-        const child = group.children[0];
-        group.remove(child);
-        if (child instanceof THREE.Sprite) {
-          child.material.map?.dispose();
-          child.material.dispose();
-        }
-        if (child instanceof THREE.Line) {
-          child.geometry.dispose();
-        }
-      }
-    };
+    return () => clearDimensionObjects(group);
   }, [width, height, depth, thickness, style, density, rowHeights, numRows, styleResult, scene]);
 
   return <group ref={groupRef} />;
@@ -247,7 +264,7 @@ function createGridInnerLabels(
     let labelY = 1 * (rowHeights[1] + thickness) + thickness - (rowHeights[1] + 1 / 4);
 
     for (let i = 0; i < numRows; i++) {
-      const label = createLabelSprite(`${unitWidth.toFixed(0)}`);
+      const label = createDimensionLabel(`${unitWidth.toFixed(0)}`);
       label.position.set(labelX - thickness, labelY + thickness, depth + 1);
       group.add(label);
 
@@ -266,13 +283,13 @@ function createGridInnerLabels(
     if (rowHeights[i] === 18) {
       const gap = 7;
       labelY += rowHeights[i] + thickness + gap;
-      const label = createLabelSprite(`${rowHeights[i].toFixed(0)}`);
+      const label = createDimensionLabel(`${rowHeights[i].toFixed(0)}`);
       label.position.set(heightLabelX - 20, labelY, depth + 1);
       group.add(label);
       labelY -= gap;
     } else {
       labelY += rowHeights[i] + thickness;
-      const label = createLabelSprite(`${rowHeights[i].toFixed(0)}`);
+      const label = createDimensionLabel(`${rowHeights[i].toFixed(0)}`);
       label.position.set(heightLabelX - 20, labelY, depth + 1);
       group.add(label);
     }
@@ -300,7 +317,7 @@ function createSlantInnerLabels(
   for (let i = 0; i < panelCount - 1; i++) {
     const leftX = -adjustedShelfWidth / 2 + i * slantPanelSpacing + thickness / 2;
     const rightX = leftX + slantPanelSpacing;
-    let labelX = (leftX + rightX) / 2;
+    const labelX = (leftX + rightX) / 2;
 
     let unitWidth: number;
     if (i === 0 || i === panelCount - 2) {
@@ -312,11 +329,11 @@ function createSlantInnerLabels(
     let currentY = 0;
     for (let j = 0; j < numRows; j++) {
       if (j % 2 === 0) {
-        const label = createLabelSprite(`${unitWidth.toFixed(0)}`);
+        const label = createDimensionLabel(`${unitWidth.toFixed(0)}`);
         label.position.set(labelX - thickness - unitWidth / 4 + 2, currentY + 5, depth + 1);
         group.add(label);
       } else {
-        const label = createLabelSprite(`${unitWidth.toFixed(0)}`);
+        const label = createDimensionLabel(`${unitWidth.toFixed(0)}`);
         label.position.set(labelX - thickness + unitWidth / 4 + 2, currentY + 5, depth + 1);
         group.add(label);
       }
@@ -332,13 +349,13 @@ function createSlantInnerLabels(
     if (rowHeights[i] === 18) {
       const gap = 7;
       currentY += rowHeights[i] / 2 + thickness + gap;
-      const label = createLabelSprite(`${rowHeights[i].toFixed(0)}`);
+      const label = createDimensionLabel(`${rowHeights[i].toFixed(0)}`);
       label.position.set(heightLabelX - 16, currentY - 7.5, depth + 1);
       group.add(label);
       currentY += rowHeights[i] / 2 - gap;
     } else {
       currentY += rowHeights[i] / 2 + thickness;
-      const label = createLabelSprite(`${rowHeights[i].toFixed(0)}`);
+      const label = createDimensionLabel(`${rowHeights[i].toFixed(0)}`);
       label.position.set(heightLabelX - 16, currentY - 1, depth + 1);
       group.add(label);
       currentY += rowHeights[i] / 2;
@@ -411,7 +428,7 @@ function createPixelInnerLabels(
     let currentY = 0;
 
     for (let row = 0; row < numRows; row++) {
-      const label = createLabelSprite(`${unitWidth.toFixed(0)}`);
+      const label = createDimensionLabel(`${unitWidth.toFixed(0)}`);
       label.position.set(labelX, currentY + 6, depth + 1);
       group.add(label);
       currentY += rowHeights[row] + thickness;
@@ -428,13 +445,13 @@ function createPixelInnerLabels(
     if (rowHeights[i] === 18) {
       const gap = 7;
       currentY += rowHeights[i] / 2 + thickness + gap;
-      const label = createLabelSprite(`${rowHeights[i].toFixed(0)}`);
+      const label = createDimensionLabel(`${rowHeights[i].toFixed(0)}`);
       label.position.set(heightLabelX - 18, currentY - 7.5, depth + 1);
       group.add(label);
       currentY += rowHeights[i] / 2 - gap;
     } else {
       currentY += rowHeights[i] / 2 + thickness;
-      const label = createLabelSprite(`${rowHeights[i].toFixed(0)}`);
+      const label = createDimensionLabel(`${rowHeights[i].toFixed(0)}`);
       label.position.set(heightLabelX - 18, currentY - 1, depth + 1);
       group.add(label);
       currentY += rowHeights[i] / 2;
@@ -447,7 +464,7 @@ function createPixelInnerLabels(
 function createGradientInnerLabels(
   group: THREE.Group,
   width: number, height: number, depth: number, thickness: number,
-  styleResult: any,
+  styleResult: { internalWidths?: number[] },
   rowHeights: number[], numRows: number,
 ) {
   if (width < 60) return; // V1: fallback to grid
@@ -462,7 +479,7 @@ function createGradientInnerLabels(
     let currentY = 0;
 
     for (let j = 0; j < numRows; j++) {
-      const label = createLabelSprite(`${unitWidth.toFixed(0)}`);
+      const label = createDimensionLabel(`${unitWidth.toFixed(0)}`);
       label.position.set(labelX, currentY + 6, depth + 1);
       group.add(label);
       currentY += rowHeights[j] + thickness;
@@ -477,13 +494,13 @@ function createGradientInnerLabels(
     if (rowHeights[i] === 18) {
       const gap = 7;
       currentY += rowHeights[i] / 2 + thickness + gap;
-      const label = createLabelSprite(`${rowHeights[i].toFixed(0)}`);
+      const label = createDimensionLabel(`${rowHeights[i].toFixed(0)}`);
       label.position.set(-width / 2 - 7, currentY - 7.5, depth + 1);
       group.add(label);
       currentY += rowHeights[i] / 2 - gap;
     } else {
       currentY += rowHeights[i] / 2 + thickness;
-      const label = createLabelSprite(`${rowHeights[i].toFixed(0)}`);
+      const label = createDimensionLabel(`${rowHeights[i].toFixed(0)}`);
       label.position.set(-width / 2 - 7, currentY - 1, depth + 1);
       group.add(label);
       currentY += rowHeights[i] / 2;
@@ -491,72 +508,18 @@ function createGradientInnerLabels(
   }
 }
 
-// ── V1 createPatternLabels 이식 (패널 위치 분석 방식) ──
-
-function createPatternInnerLabels(
-  group: THREE.Group,
-  width: number, height: number, depth: number, thickness: number,
-  styleResult: any,
-  rowHeights: number[], numRows: number,
-) {
-  const panels = styleResult.panels;
-
-  // 각 행별로 세로 패널(verticalBase) x 위치를 분석하여 칸 너비 계산
-  let currentY = 0;
-  for (let row = 0; row < numRows; row++) {
-    const rowY = currentY + rowHeights[row] / 2 + thickness;
-    const rh = rowHeights[row];
-
-    // 해당 행의 세로 패널 x 위치 추출
-    const verticalXPositions: number[] = [];
-    for (const p of panels) {
-      if (
-        p.matType === 'verticalBase' &&
-        p.h === rh &&
-        Math.abs(p.y - (currentY + rh / 2 + thickness + 0.5)) < rh / 2 + 2
-      ) {
-        verticalXPositions.push(p.x);
-      }
-    }
-
-    // 좌우 외곽 패널 위치도 추가
-    verticalXPositions.push(-width / 2 + 1); // 왼쪽 외곽
-    verticalXPositions.push(width / 2 - 1);  // 오른쪽 외곽 (근사값)
-
-    // 정렬 후 중복 제거
-    const sorted = [...new Set(verticalXPositions.map(x => Math.round(x * 10) / 10))].sort((a, b) => a - b);
-
-    // 패널 사이 칸 너비 계산 & 라벨 배치
-    for (let i = 0; i < sorted.length - 1; i++) {
-      const compartmentWidth = sorted[i + 1] - sorted[i] - thickness;
-      if (compartmentWidth > 5) {
-        const labelX = sorted[i] + thickness / 2 + compartmentWidth / 2;
-        const label = createLabelSprite(`${Math.round(compartmentWidth)}`);
-        label.position.set(labelX, rowY, depth + 1);
-        group.add(label);
-      }
-    }
-
-    currentY += rowHeights[row] + thickness;
-  }
-
-  // 세로 패널 치수 (행 높이) — 왼쪽 패널 외부
-  const heightLabelX = -width / 2 - 15;
-  currentY = 0;
-  for (let i = 0; i < numRows; i++) {
-    if (rowHeights[i] === 18) {
-      const gap = 7;
-      currentY += rowHeights[i] / 2 + thickness + gap;
-      const label = createLabelSprite(`${rowHeights[i].toFixed(0)}`);
-      label.position.set(heightLabelX, currentY - 7.5, depth + 1);
-      group.add(label);
-      currentY += rowHeights[i] / 2 - gap;
-    } else {
-      currentY += rowHeights[i] / 2 + thickness;
-      const label = createLabelSprite(`${rowHeights[i].toFixed(0)}`);
-      label.position.set(heightLabelX, currentY - 1, depth + 1);
-      group.add(label);
-      currentY += rowHeights[i] / 2;
+// Use the same openings as the geometry, including cells spanning two rows.
+function createOpeningInnerLabels(group: THREE.Group, depth: number, openings: ReferenceOpening[]) {
+  for (const cell of openings) {
+    // Public dimension renderer omits openings smaller than 60 mm.
+    if (Math.min(cell.width, cell.height) < 6) continue;
+    const widthLabel = createDimensionLabel(`${Math.floor(cell.width + 1e-8)}`);
+    widthLabel.position.set(cell.x, cell.y - cell.height / 2 + 6, depth + 1);
+    group.add(widthLabel);
+    if (!cell.openLeft) {
+      const heightLabel = createDimensionLabel(`${Math.floor(cell.height + 1e-8)}`);
+      heightLabel.position.set(cell.x - cell.width / 2 + 5, cell.y, depth + 1);
+      group.add(heightLabel);
     }
   }
 }

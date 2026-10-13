@@ -27,14 +27,15 @@ export function StyleSelector() {
   return (
     <div className="cfg-row">
       <span className="cfg-label">Style</span>
-      <div className="flex flex-1 gap-1.5 overflow-x-auto">
+      {/* 모바일: 화면 끝까지 스크롤 영역을 늘려 잘린 칩으로 가로 스크롤 가능함을 보여줌 */}
+      <div className="-mr-4 flex flex-1 snap-x gap-1.5 overflow-x-auto pr-4 [scrollbar-width:none] lg:mr-0 lg:pr-0 [&::-webkit-scrollbar]:hidden">
         {STYLES.map((s) => {
           const isActive = style === s.value;
           return (
             <button
               key={s.value}
               onClick={() => handleStyleChange(s.value)}
-              className={`flex flex-col items-center justify-center rounded-[10px] border-[1.5px] px-2.5 py-2 min-w-[56px] cursor-pointer transition-all ${
+              className={`flex shrink-0 snap-start flex-col items-center justify-center rounded-[10px] border-[1.5px] px-2.5 py-2 min-w-[56px] cursor-pointer transition-all ${
                 isActive
                   ? 'border-[var(--green)] bg-white'
                   : 'border-transparent bg-[#f8f8f8] hover:border-[var(--green)]'

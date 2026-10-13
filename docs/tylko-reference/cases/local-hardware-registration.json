@@ -1,0 +1,147 @@
+{
+  "source": "Actual local GLBs + current Door/Drawer component useMemo registration",
+  "unit": "cm",
+  "cases": [
+    {
+      "kind": "door",
+      "side": "left",
+      "bottom": false,
+      "doorRear": 30.4,
+      "maxHinge": 30.4,
+      "handleMin": [
+        6.699999999999999,
+        36.799669969081876,
+        29.249999952316283
+      ],
+      "handleMax": [
+        19.7,
+        38.8,
+        33.15000004768372
+      ]
+    },
+    {
+      "kind": "door",
+      "side": "left",
+      "bottom": true,
+      "doorRear": 30.4,
+      "maxHinge": 30.4,
+      "handleMin": [
+        6.699999999999999,
+        1.1999999999999993,
+        29.249999952316283
+      ],
+      "handleMax": [
+        19.7,
+        3.2003300309181224,
+        33.15000004768372
+      ]
+    },
+    {
+      "kind": "door",
+      "side": "right",
+      "bottom": false,
+      "doorRear": 30.4,
+      "maxHinge": 30.4,
+      "handleMin": [
+        -19.7,
+        36.799669969081876,
+        29.249999952316283
+      ],
+      "handleMax": [
+        -6.699999999999999,
+        38.8,
+        33.15000004768372
+      ]
+    },
+    {
+      "kind": "door",
+      "side": "right",
+      "bottom": true,
+      "doorRear": 30.4,
+      "maxHinge": 30.4,
+      "handleMin": [
+        -19.7,
+        1.1999999999999993,
+        29.249999952316283
+      ],
+      "handleMax": [
+        -6.699999999999999,
+        3.2003300309181224,
+        33.15000004768372
+      ]
+    },
+    {
+      "kind": "drawer",
+      "handleMin": [
+        -19.7,
+        36.799669969081876,
+        29.249999952316283
+      ],
+      "handleMax": [
+        -6.699999999999999,
+        38.8,
+        33.15000004768372
+      ]
+    }
+  ],
+  "limits": [
+    "Closed-state hinge bounds and local handle orientation only; visual comparison performed separately by leader.",
+    "Local replacement profiles are not claimed identical to reference GLBs."
+  ],
+  "localAssetBounds": {
+    "handle_door": {
+      "min": [
+        -6.5,
+        -1.701043963432312,
+        -2.225116014480591
+      ],
+      "max": [
+        6.5,
+        0.2992860674858093,
+        1.6748840808868408
+      ],
+      "nodeTransforms": "identity",
+      "unitInterpretation": "Befun scene uses these local asset units as centimetres"
+    },
+    "hinge_right_fe": {
+      "min": [
+        -1.736189365386963,
+        -2.8690552711486816,
+        0.510083019733429
+      ],
+      "max": [
+        1.996260166168213,
+        2.950866937637329,
+        2.2700624465942383
+      ],
+      "nodeTransforms": "identity",
+      "unitInterpretation": "Befun scene uses these local asset units as centimetres"
+    },
+    "hinge_right": {
+      "min": [
+        -1.1670089960098267,
+        -0.7965821027755737,
+        -5.802927017211914
+      ],
+      "max": [
+        2.5562517642974854,
+        0.8783875107765198,
+        2.1531527042388916
+      ],
+      "nodeTransforms": "identity",
+      "unitInterpretation": "Befun scene uses these local asset units as centimetres"
+    }
+  },
+  "registrationMath": {
+    "hinges": "shared shiftZ = -max(fe.maxZ, wing.maxZ) = -2.2700624465942383cm; retain source pair alignment; reference anchor is rear face, -thickness/2; mirrorX for left hinge",
+    "slimHandle": "rotateY(pi), compute rotated bounds B, offset=(-centerX(B),0.05-maxY(B),-centerZ(B)); then attach outer group to the unchanged source anchor and handleRotation",
+    "sourceAnchors": "reference-hardware.ts unchanged",
+    "drawer": "same slim profile registration; legacy and full-top paths unchanged"
+  },
+  "checks": {
+    "targetedEslint": "passed",
+    "typescript": "passed",
+    "actualComponentAndGLBClosedBounds": "5 cases passed",
+    "browser": "leader verification pending"
+  }
+}

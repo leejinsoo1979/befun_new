@@ -1,21 +1,13 @@
+import { calculateReferenceSlant } from '../reference-grid-slant-slant.ts';
+import { splitReferenceHorizontals } from '../reference-horizontal-splits.ts';
 import type { PanelData } from '@/types/shelf';
 import { calculateGridPanels, type GridInput, type GridResult } from './grid';
 
-export interface SlantInput {
-  width: number;
-  height: number;
-  depth: number;
-  thickness: number;
-  density: number;
-  rowHeights: number[];
-  numRows: number;
-  hasBackPanel: boolean;
-  hardwareLayers?: number[];
-}
+export type SlantInput = GridInput;
 
 export type SlantResult = GridResult;
 
-// ── Tylko 역설계 Slant 칸 분할 알고리즘 ──
+// ── Unverified legacy Type01 layout, preserved pending its own reference DNA ──
 // 경계 테이블: 해당 width(전체 너비)에서 칸 수가 N이 되는 최소 너비
 // D0: 사용자가 Tylko에서 직접 수집 (1~4칸 확인, 5~8칸 외삽)
 // D100: 450cm에서 unclamped 16칸 기준 역산
@@ -165,7 +157,11 @@ function calculateSlantSupportPanelPositions(
 // ── 메인: Slant 패널 배치 계산 ──
 
 export function calculateSlantPanels(input: SlantInput): SlantResult {
-  const { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers = [] } = input;
+  return input.family === 'type01' ? calculateLegacySlantPanels(input) : calculateReferenceSlant(input);
+}
+
+function calculateLegacySlantPanels(input: SlantInput): SlantResult {
+  const { width, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers = [] } = input;
 
   // 행이 1이면 Grid로 폴백
   if (numRows <= 1) {
@@ -229,7 +225,7 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
       cy += rh + thickness;
     }
 
-    return { panels, panelCount, panelSpacing };
+    return { panels: splitReferenceHorizontals(panels, width, 'slant').panels, panelCount, panelSpacing };
   }
 
   const slantMargin = width >= 78 ? 24 : 14;
@@ -348,5 +344,5 @@ export function calculateSlantPanels(input: SlantInput): SlantResult {
     cy += rh + thickness;
   }
 
-  return { panels, panelCount, panelSpacing };
+  return { panels: splitReferenceHorizontals(panels, width, 'slant').panels, panelCount, panelSpacing };
 }

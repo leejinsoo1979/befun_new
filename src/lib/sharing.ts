@@ -18,6 +18,7 @@ export interface DesignConfig {
   numRows: number;
   doorsCreatedLayers: number[];
   drawersCreatedLayers: number[];
+  hardwareRowStyles?: Record<number,number>;
 }
 
 /**
@@ -56,6 +57,7 @@ export function encodeDesignToURL(config: DesignConfig, baseUrl: string): string
     rowHeightsURL: config.rowHeights,
     doorsURL: config.doorsCreatedLayers,
     drawersURL: config.drawersCreatedLayers,
+    hardwareRowStyles: config.hardwareRowStyles,
   }));
   return `${baseUrl}?state=${encoded}`;
 }
@@ -83,6 +85,7 @@ export function decodeDesignFromURL(url: string): DesignConfig | null {
       numRows: data.rowsURL,
       doorsCreatedLayers: data.doorsURL ?? [],
       drawersCreatedLayers: data.drawersURL ?? [],
+      hardwareRowStyles: data.hardwareRowStyles,
     };
   } catch {
     return null;
