@@ -4,6 +4,7 @@ import type { BefunDesign, BefunShelfModel } from './model';
 import { drawerPartSizes } from './model';
 import { befunColorLook } from './colors';
 import { applyConnectors, type ConnectorReport, type ConnectorSelection } from '@/lib/optimizer/connectors/apply';
+import { validateConnectorPanels } from '@/lib/optimizer/connectors/reapply';
 
 const CM_TO_MM = 10;
 const mm = (cm: number) => Math.round(cm * CM_TO_MM * 10) / 10;
@@ -130,5 +131,6 @@ export function toCncPanels(
 
   const connectorReport = options.connectors ? applyConnectors(panels, boxes, options.connectors) : null;
   applyBlumBorings(panels, boxes, model, design.thickness);
+  validateConnectorPanels(panels, connectorReport);
   return { panels, boxes, connectorReport };
 }

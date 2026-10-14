@@ -1,0 +1,34 @@
+✔ two panel connector systems are distinct and survive saved JSON (2.112458ms)
+✔ switching an existing OVVO plan to clip removes OVVO cuts but preserves custom holes (0.501375ms)
+✔ short joints never violate minimum edge distance; infeasible edge maximum is rejected (0.102833ms)
+✔ all catalog spacing output obeys every spacing constraint over 1..1200 mm (22.733083ms)
+✔ paired end/face slots share world centre lines and survive repeat application (0.452958ms)
+✔ both mating boards are blocked when thickness is changed without rebuilding geometry (0.138542ms)
+✔ opposing blind slots cannot meet through an 18 mm board (0.72925ms)
+✔ hinge holes colliding with connector slot travel are found, including crossing paths (0.481166ms)
+✔ slot radius and edge plane are validated, not just its endpoints (0.267167ms)
+✔ intentional two-hole connector housing is not reported as a collision (0.361333ms)
+✔ real generator pipeline marks conflicting machining as non-production (4.533792ms)
+✔ all six styles preserve paired connector coordinates at held-out sizes (74.648708ms)
+✔ production MPR gate rejects a detected connector collision (21.686209ms)
+✔ connector blocks survive JSON and clear without removing unrelated restrictions (0.406292ms)
+✔ an unexplained pre-existing manufacturing block is not cleared by switching (0.118375ms)
+✔ reapply keeps edited panel data and custom machining over repeated settings changes (0.906125ms)
+✔ collision validation is recalculated when connector settings change (0.406542ms)
+✔ QA-L4-01 real settings save/load keeps clip and remembered OVVO tooling (1.3575ms)
+✔ QA-L4-02 generated cuts removed, custom holes/hinge holes/custom slots unchanged (1.308709ms)
+✔ QA-L4-03 unconfirmed clip csv rejects whole mixed batch (0.314917ms)
+✔ QA-L4-03 unconfirmed clip dxf rejects whole mixed batch (0.143041ms)
+✔ QA-L4-03 unconfirmed clip mpr rejects whole mixed batch (0.178875ms)
+✔ QA-L4-03 unconfirmed clip cix rejects whole mixed batch (0.124834ms)
+✔ QA-L4-04 reapplying OVVO to same panels should clear ONLY obsolete clip block (0.420208ms)
+✔ QA-L4-05 actual snapshot regeneration returns to identical OVVO plan for six styles (23.191042ms)
+✔ QA-L4-06 shared hardware anchor and assembly motion agree before entry and after slide (9.495375ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 913.290417

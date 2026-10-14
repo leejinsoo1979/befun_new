@@ -101,3 +101,44 @@
 | DEV-WHITE | HMR 이후 개발viewer 흰 화면 | P1 claude-graphics 조율 | 미해결. Effects 폐기 객체 재사용 가능성, production3008 정상. 담당 잠금 파일 수정하지 않음 |
 
 최종 회귀1435통과·lint 오류0/기존경고10·webpack build통과. 미확인 항목을 완료로 전환하지 않았습니다.
+
+
+### GALLERY-001 — 상세 사진 재질 선택 부재
+- 우선순위: P1 / 담당: 리더 / 사례: gallery-materials-001 및 gallery-materials-001-befun.
+- 수정: 기본 컨피규레이터 갤러리에12개 원형 스와치와 재질별8장 교체·확대·키보드 조작 적용.
+- 재검증:12종 URL 대응,블루/옐로 로딩 및 확대,상단slider유지,390px overflow 정상. 이 범위 수정완료. 모든 제품군·96장 개별다운로드·원본모바일 동치는미검증.
+
+### CONNECTOR-001 — 접합 배치/양면 가공 정합
+- P1 / 리더. 사례: `scripts/connector-validation/connector.test.mjs`의 짧은 접합·양면 슬롯·실제 Grid 및 54설정(레퍼런스 실측 사례 아님).
+- 수정/재검증: 간격 제약·보링 보존·두께 mismatch 차단·양면/동일면 충돌 검출, MPR 제조 출력 차단. 신규11검사 통과.
+- 남은 차이: 충돌 자동 재배치, 주 컨피규레이터의 커넥터 타공 표시, Tylko 고유 위치/출고 커넥터·옷장 접합은 미완료. [상세](../panel-connector-validation.md).
+
+### INTEGRATION-002 — 신규 제품군 부품/패널 미연결
+- P1 / 리더 통합, UI·graphics·storefront 보조 / 근거: 2026-10-13 23:16 사용자 화면과 [2차 소스 점검](../development/furniture-parity/leader-review.md).
+- 옷장2·기타8 UI profile, ShortLeg/PlaneLeg/FullHeightHandle30은 독립 구현이나 실제 page/Shelf/Door 소비 연결 없음. 공통 UI 타입 게시, 상태·registry·적용/복구·생성기 연결 대기.
+- 테스트 통과와 제품 동치를 구분한다. Tylko 모든 카테고리 동일 구현 상태가 아니다.
+
+
+### GALLERY-004 / P1 / 담당 codex-analysis
+- 차이: 상단 색상 변경이 상세 사진에 반영되지 않음, 외부 CDN 이미지가 Befun에서 차단됨.
+- 수정: 선반·사이드보드58개 원본사진 세트를 로컬 파일로 제공하고 상단 색상과 갤러리 선택 연결.
+- 재검증: gallery-materials-004-local, 로컬 사진8장/색상 전환/확대/모바일 PASS.
+- 미해결: 다른 제품군, 미대응색상, 스타일별 사진 대응. 사진 촬영 속 구조는 고정이며 사용자 치수·칸배치 동일 재현 완료 아님.
+
+### LEG-001 / P1 / 리더 — 실제 연결 부분 수정
+- 사례legs-001: Feet옵션과장다리 렌더·높이+10cm·로컬저장복원 연결. 120조합 내부지지축검사 통과. source bbox를 사선다리로 해석한 오류 정정.
+- OPEN: product별DNA override·정확한개수/깊이좌표 레퍼런스 대조·Classic/Natural Plinth·Tone/Desk/옷장·실물3나사/중앙핀 정밀 타공. ‘모든 다리 완전 일치’로 완료 처리하지 않음.
+
+### GRID-TYPE01-220 — 이전 판단 (아래 정정으로 대체)
+- 사례 `grid-doors-220`: Natural Grid0% 220×63×32cm. Tylko4칸·표시내경52·하단단문4장, Befun 사용자화면3칸·단문3장. legacy type01 density/spacing 경로가 원인 후보로 확인됨.
+- 제품코드 수정/회귀검증 미완료. 임의 양개문 추가로 덮지 않고 type01 Grid 일반규칙부터 교정. 기존 Type02 Pattern 569mm 메모는 다른family/Grid에 무조건 적용 금지.
+
+
+### GRID-TYPE01-220 정정 / P1 / 리더
+- 앞의4칸 기준은 Type02 초기 구조 유지 사례. Type01 비교로 사용한 결론 철회.
+- Type01 실제 mesh2398로 일반 생성기 수정:220cm/0%3칸·양개문6장. 사례 grid-type01-doors-220.972+294 source 비교,1298Type02 회귀,9다리 검사 PASS. Chrome 닫힘/열림 확인. 이 구조 차이 수정완료; 전체 스타일/제품군 완료 아님.
+
+### DOOR-T01-HANDLE-GAP / P1 / 리더
+- 사용자 Pattern110cm Natural 사진에서 문 손잡이 쪽5–15mm 누락.10/30mm 판재공제량으로30/50mm 손잡이를 축소한 원인.
+- 관찰 단면·원래 앵커를 유지하도록 Door 연결 수정, 판재 크기/Blum 개폐는 보존.6개 외곽범위 검사 및 Pattern110·Grid220 닫힘/열림 확인. 사례 type01-handle-gap-pattern-110.
+- 미해결: 손잡이 원본 메시의 모서리/끝단 정밀 동치,19mm 문판 채널 가공 상세. 부분 수정으로 기록하며 완전 외형 동치로 처리하지 않음.

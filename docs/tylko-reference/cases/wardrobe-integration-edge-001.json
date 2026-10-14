@@ -1,0 +1,50 @@
+{
+  "caseId": "wardrobe-integration-edge-001",
+  "observedAt": "2026-10-14T01:25:46.263036+00:00",
+  "sourceUrl": "https://tylko.com/de-de/mobel/kleiderschrank/235218,w",
+  "initialState": {
+    "productUrl": "https://tylko.com/de-de/mobel/kleiderschrank/235218,w",
+    "reload": true,
+    "designSeed": null
+  },
+  "inputs": {
+    "widthMm": 1180,
+    "heightMm": 1980,
+    "depthMm": 600,
+    "topEdge": true,
+    "outerMaterial": {
+      "type": 4,
+      "id": 9
+    },
+    "sectionSeries": [
+      "Half_Rail_Rail_L_1drawers",
+      "Full_Rail_Rail_XL"
+    ]
+  },
+  "actions": [
+    "Open the existing VPN Chrome reference product",
+    "Read visible controls and colour swatches",
+    "Capture the reference viewport"
+  ],
+  "observations": {
+    "structureOracle": "scripts/furniture-wardrobe/edge-source-fixtures.json",
+    "roundedDisplayDimensionsAreInternalCoordinates": false,
+    "screenCameraExact": null,
+    "hardwareMeshExact": false,
+    "visibleMaterials": "See wardrobe-integration-materials-001"
+  },
+  "measurement": {
+    "geometryUnit": "mm",
+    "geometryPrecision": "Source numerical coordinates; independent rule comparisons recorded separately",
+    "screenUnit": "px",
+    "screenMeasurementTolerance": null
+  },
+  "screenshots": [
+    "../screenshots/wardrobe-integration-edge-001-reference.png"
+  ],
+  "unverified": [
+    "Full camera and illumination parity",
+    "Manufacturing drilling and connector positions",
+    "Product checkout integration"
+  ]
+}

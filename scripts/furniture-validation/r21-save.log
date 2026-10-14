@@ -1,0 +1,24 @@
+✔ DB/route imports and the real auth adapter are safe without DATABASE_URL (1.320166ms)
+✔ missing/blank environment returns 503 without constructing a client (undefined) (5.109375ms)
+✔ missing/blank environment returns 503 without constructing a client () (1.071791ms)
+✔ missing/blank environment returns 503 without constructing a client (   ) (0.760167ms)
+✔ bad input remains 400 even with an unconfigured database ({) (0.49925ms)
+✔ bad input remains 400 even with an unconfigured database ({}) (0.280459ms)
+✔ bad input remains 400 even with an unconfigured database (null) (0.164292ms)
+✔ bad input remains 400 even with an unconfigured database ([]) (0.270625ms)
+✔ bad input remains 400 even with an unconfigured database ("invalid") (0.127709ms)
+✔ bad input remains 400 even with an unconfigured database ({"config":null}) (0.145625ms)
+✔ anonymous list remains 401 while authenticated unconfigured list is 503 (0.221834ms)
+✔ installed adapter receives PoolConfig and existing Prisma methods stay bound/cached (0.298375ms)
+✔ anonymous create returns the same success contract and JSON survives shared fetch (2.892833ms)
+✔ authenticated create/list preserves user ownership filtering and thumbnail (0.851458ms)
+✔ configured missing shared code remains 404 (0.43075ms)
+✔ DB failures remain 500 and neither logs nor responses disclose driver messages (1.259958ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 360.814458

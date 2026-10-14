@@ -1,17 +1,19 @@
 'use client';
 
-import { useRef, useCallback } from 'react';
+import { useRef, useCallback, useMemo } from 'react';
 import { useThree, type ThreeEvent } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { useHardwareStore } from '@/stores/useHardwareStore';
 import { useUIStore } from '@/stores/useUIStore';
+import { RowHotspots, openRowPopup, closeRowPopup } from './RowHotspots';
 
 /**
  * V1 interactionHandler.js 이식:
  * 각 행(row)에 투명한 콜라이더를 배치하고,
- * 마우스 오버 시 해당 행을 하이라이트 + floating box 위치 계산
- * 터치: hover가 없으므로 탭으로 열고(같은 행·빈 곳 탭 시 닫힘), 드래그(궤도 회전)는 무시
+ * 마우스 오버 시 도어/서랍만 열어 보여준다(하이라이트·팝업은 우측 핫스팟에서 제어).
+ * 행 설정 팝업은 가구 우측 핫스팟(RowHotspots) 클릭으로 연다.
+ * 터치: hover가 없으므로 행 탭으로도 열고(같은 행·빈 곳 탭 시 닫힘), 드래그(궤도 회전)는 무시
  */
 const TAP_MAX_MOVE_PX = 8;
 export function RowColliders() {
@@ -20,100 +22,62 @@ export function RowColliders() {
   const thickness = useShelfStore((s) => s.thickness);
   const rowHeights = useShelfStore((s) => s.rowHeights);
   const numRows = useShelfStore((s) => s.numRows);
-  const setSelectedRow = useUIStore((s) => s.setSelectedRow);
-  const setHoveredRow = useUIStore((s) => s.setHoveredRow);
   const setDoorOpen = useHardwareStore((s) => s.setDoorOpen);
   const setDrawerOpen = useHardwareStore((s) => s.setDrawerOpen);
 
   const { camera, gl } = useThree();
   const hoveredIndex = useUIStore(s => s.hoveredRow);
-  const hideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const prevLayerRef = useRef<number | null>(null);
 
   // 행별 콜라이더 위치 계산 (V1 createRowColliders 이식)
-  const colliders: { index: number; y: number; height: number }[] = [];
-  let currentY = 0;
-  for (let i = 0; i < numRows; i++) {
-    const rh = rowHeights[i] ?? 32;
-    const yPosition = currentY + rh / 2 + thickness;
-    colliders.push({ index: i, y: yPosition, height: rh });
-    currentY += rh + thickness;
-  }
-
-  const handlePointerOver = useCallback((layerIndex: number) => {
-    if (hideTimeoutRef.current) {
-      clearTimeout(hideTimeoutRef.current);
-      hideTimeoutRef.current = null;
+  const colliders = useMemo(() => {
+    const list: { index: number; y: number; height: number }[] = [];
+    let currentY = 0;
+    for (let i = 0; i < numRows; i++) {
+      const rh = rowHeights[i] ?? 32;
+      list.push({ index: i, y: currentY + rh / 2 + thickness, height: rh });
+      currentY += rh + thickness;
     }
+    return list;
+  }, [numRows, rowHeights, thickness]);
 
-    // 이전 행 도어/서랍 닫기
+  // 팝업이 열려 있으면 hover는 무시한다(선택된 행의 하이라이트·열린 도어 유지).
+  const handlePointerOver = useCallback((layerIndex: number) => {
+    if (useUIStore.getState().selectedRow !== null) return;
     if (prevLayerRef.current !== null && prevLayerRef.current !== layerIndex) {
       setDoorOpen(prevLayerRef.current, false);
       setDrawerOpen(prevLayerRef.current, false);
     }
-
-    setHoveredRow(layerIndex);
-    setSelectedRow(layerIndex);
     prevLayerRef.current = layerIndex;
-
     // V1: 마우스 오버시 해당 행 도어/서랍 열기
     setDoorOpen(layerIndex, true);
     setDrawerOpen(layerIndex, true);
-
-    // 3D→2D 화면좌표 변환: 가구 우측 끝
-    const col = colliders.find((c) => c.index === layerIndex);
-    if (!col) return;
-
-    // 가구 우측 끝 정면 좌표를 화면 좌표로 변환
-    const worldPos = new THREE.Vector3(width / 2 + 5, col.y, 0);
-    worldPos.project(camera);
-
-    const canvas = gl.domElement;
-    const rect = canvas.getBoundingClientRect();
-    const screenX = ((worldPos.x + 1) / 2) * rect.width;
-    const screenY = ((-worldPos.y + 1) / 2) * rect.height;
-
-    useUIStore.setState({
-      floatingBoxX: screenX + 15,
-      floatingBoxY: screenY,
-    });
-  }, [camera, gl, width, depth, colliders, setHoveredRow, setSelectedRow, setDoorOpen, setDrawerOpen]);
+  }, [setDoorOpen, setDrawerOpen]);
 
   const handlePointerOut = useCallback((layerIndex: number) => {
+    if (useUIStore.getState().selectedRow !== null) return;
     setDoorOpen(layerIndex, false);
     setDrawerOpen(layerIndex, false);
-
-    hideTimeoutRef.current = setTimeout(() => {
-      const { isFloatingBoxHovered } = useUIStore.getState();
-      if (isFloatingBoxHovered) return;
-      setHoveredRow(null);
-      setSelectedRow(null);
-      prevLayerRef.current = null;
-    }, 800);
-  }, [setHoveredRow, setSelectedRow, setDoorOpen, setDrawerOpen]);
-
-  const closeRow = useCallback(() => {
-    if (prevLayerRef.current !== null) {
-      setDoorOpen(prevLayerRef.current, false);
-      setDrawerOpen(prevLayerRef.current, false);
-    }
-    setHoveredRow(null);
-    setSelectedRow(null);
     prevLayerRef.current = null;
-  }, [setHoveredRow, setSelectedRow, setDoorOpen, setDrawerOpen]);
+  }, [setDoorOpen, setDrawerOpen]);
 
   const handleTap = useCallback((e: ThreeEvent<MouseEvent>, layerIndex: number) => {
     const pointerType = (e.nativeEvent as PointerEvent).pointerType;
-    if (pointerType !== 'touch' && pointerType !== 'pen') return; // 마우스는 hover로 처리
+    if (pointerType !== 'touch' && pointerType !== 'pen') return; // 마우스는 핫스팟으로 연다
     if (e.delta > TAP_MAX_MOVE_PX) return; // 궤도 회전 드래그
     e.stopPropagation();
     // 닫기 버튼으로도 닫힐 수 있으므로 스토어의 현재 선택 행 기준으로 토글
     if (useUIStore.getState().selectedRow === layerIndex) {
-      closeRow();
-    } else {
-      handlePointerOver(layerIndex);
+      closeRowPopup();
+      return;
     }
-  }, [closeRow, handlePointerOver]);
+    const col = colliders.find((c) => c.index === layerIndex);
+    if (!col) return;
+    // 가구 우측 끝 정면 좌표를 화면 좌표로 변환(태블릿 가로 등 데스크톱 레이아웃용)
+    const p = new THREE.Vector3(width / 2 + 5, col.y, 0).project(camera);
+    const rect = gl.domElement.getBoundingClientRect();
+    openRowPopup(layerIndex, ((p.x + 1) / 2) * rect.width + 15, ((-p.y + 1) / 2) * rect.height);
+  }, [camera, gl, width, colliders]);
 
   const isTouch = (e: ThreeEvent<PointerEvent>) => e.pointerType === 'touch' || e.pointerType === 'pen';
 
@@ -121,7 +85,7 @@ export function RowColliders() {
     <group
       onPointerMissed={(e) => {
         // 터치로 빈 곳을 탭하면 열린 행 닫기
-        if ((e as PointerEvent).pointerType === 'touch' && useUIStore.getState().selectedRow !== null) closeRow();
+        if ((e as PointerEvent).pointerType === 'touch' && useUIStore.getState().selectedRow !== null) closeRowPopup();
       }}
     >
       {colliders.map((c) => (
@@ -150,6 +114,7 @@ export function RowColliders() {
           />
         </mesh>
       ))}
+      <RowHotspots rows={colliders} width={width} depth={depth} />
     </group>
   );
 }

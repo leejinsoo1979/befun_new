@@ -1,12 +1,19 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode, type WheelEvent } from 'react';
 import { FiArrowLeft, FiArrowRight, FiHeart, FiX } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
 import { formatPrice } from '@/lib/pricing';
 import { asset, palette, productDisplayHeight, productPrice, type CatalogProduct } from './catalog';
 import styles from './storefront.module.css';
 import { loadProductConfiguration } from './configuration';
+
+// Preserve document scrolling over the viewer; Ctrl/pinch gestures can still zoom.
+export function scrollPastCanvas(event: WheelEvent<HTMLElement>) {
+  if (event.target instanceof HTMLCanvasElement && !event.ctrlKey && !event.metaKey) {
+    event.stopPropagation();
+  }
+}
 
 export function ReferenceImage({ source, fallback, alt, sizes, className }: { source: string; fallback: string; alt: string; sizes: string; className?: string }) {
   const [failed, setFailed] = useState(false);

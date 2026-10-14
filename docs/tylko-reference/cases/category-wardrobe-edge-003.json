@@ -1,0 +1,227 @@
+{
+  "caseId": "category-wardrobe-edge-003",
+  "model": "Edge",
+  "observedAt": "2026-10-13T12:01:41.756Z",
+  "sourceUrl": "https://tylko.com/de-de/mobel/kleiderschrank/235218,w",
+  "steps": [
+    "edge-002: selected section2",
+    "Fassade: Nichts offen > Offen; all other controls unchanged"
+  ],
+  "ui": "- main:\n  - complementary:\n    - paragraph:\n      - link \"Tylko Club ist da. Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\":\n        - /url: /de-de/register-or-login/join-club\n        - strong: Tylko Club ist da.\n        - text: Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\n  - link:\n    - /url: /de-de\n  - list:\n    - link \"Shop\":\n      - /url: /de-de/mobel-c\n    - link \"Community\":\n      - /url: /de-de/inspirations\n    - link \"Tylko Pro\":\n      - /url: /de-de/tylko-pro\n    - link \"Showrooms\":\n      - /url: /de-de/showrooms\n    - link \"Tylko Club\":\n      - /url: /de-de/tylko-club\n  - list:\n    - button:\n    - link:\n      - /url: /de-de/account\n    - link:\n      - /url: /de-de/wunschliste\n    - link:\n      - /url: /de-de/cart/\n  - main:\n    - heading \"Kleiderschrank in Grün mit Kleiderstange\" [level=1]\n    - heading \"Versand in 4-5 Wochen\" [level=2]\n    - generic: 923 €\n    - text: 1488 €\n    - generic: \"|\"\n    - generic: Speichern\n    - generic: 565 €\n    - generic: bis 13.10\n    - paragraph: \"Niedrigster Preis in den letzten 30 Tagen: 1012 €\"\n    - complementary:\n      - button \"Entwurf speichern\":\n        - generic: Entwurf speichern\n      - button \"In den Warenkorb\":\n        - generic: In den Warenkorb\n    - heading \"Kleiderschrank in Grün mit Kleiderstange\" [level=1]\n    - button \"Zoom out\" [disabled]:\n    - button \"Zoom in\":\n    - button \"Dimensions\":\n    - button \"Doors\":\n    - button \"See product details\":\n    - button \"Share\":\n    - generic: 1488 €\n    - generic: \"| sparen\"\n    - generic: 565 €\n    - generic: zu\n    - generic: \"13.10\"\n    - paragraph:\n      - generic: 923 €\n    - paragraph: \"Niedrigster Preis in den letzten 30 Tagen:\"\n    - button \"Aussehen\"\n    - button \"Ausstattung\"\n    - generic: Ausstattung\n    - button \"Abschnitt 1\":\n      - generic: Abschnitt\n      - generic: \"1\"\n    - button \"Abschnitt 2\":\n      - generic: Abschnitt\n      - generic: \"2\"\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button\n    - button \"Show next thumbnails\":\n    - paragraph: Fassade\n    - button \"Offen\" [active]:\n      - generic: Offen\n    - button \"Mitte offen\":\n      - generic: Mitte offen\n    - button \"Unten offen\":\n      - generic: Unten offen\n    - button \"Nichts offen\":\n      - generic: Nichts offen\n    - paragraph:\n      - text: Kabelkanal\n    - paragraph: Hinzufügen\n    - paragraph: Säulenhöhe\n    - slider \"Size value in centimeters\":\n      - generic: 198cm\n    - paragraph\n    - paragraph: Diese Säule benötigt 208 cm an Deckenhöhe.\n    - paragraph:\n      - text: Abschnittstiefe\n    - button \"27cm\"\n    - button \"36cm\"\n    - button \"45cm\"\n    - button \"60cm\"\n    - generic: 60cm\n    - button \"In den Warenkorb\":\n      - generic: In den Warenkorb\n    - button \"Entwurf speichern\":\n      - generic: Entwurf speichern\n    - complementary:\n      - paragraph: Versand in 3-4 Wochen\n      - paragraph: Maßangefertigt in der EU\n    - generic: Zahlungsinformationen\n    - generic: Lieferung & Rückgabe\n",
+  "sliders": [
+    {
+      "max": "300.0",
+      "min": "138.0",
+      "text": "198cm",
+      "value": "198.0"
+    }
+  ],
+  "geometry": null,
+  "hiddenSeed": null,
+  "screenshots": [
+    "screenshots/category-wardrobe-edge-003-reference.png"
+  ],
+  "sourceIntro": {
+    "observedAt": "2026-10-13T12:00:44.511Z",
+    "edgeUrl": "https://tylko.com/de-de/mobel/kleiderschrank/235218,w",
+    "toneUrl": "https://tylko.com/de-de/mobel/kleiderschrank/92243,w"
+  },
+  "initialState": {
+    "observedAt": "2026-10-13T12:02:26.986Z",
+    "dna": [
+      {
+        "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=4&collection_type=Cabinet&dna_version=6",
+        "status": 200
+      },
+      {
+        "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=5&collection_type=Cabinet&dna_version=6",
+        "status": 200
+      }
+    ],
+    "preset": {
+      "id": 235218,
+      "category": "wardrobe",
+      "furniture_type": "watty",
+      "configurator_type": 3,
+      "shelf_type": 4,
+      "shelf_category": "wardrobe",
+      "width": 1180,
+      "height": 1980,
+      "depth": 600,
+      "pattern": 0,
+      "material": 9,
+      "configurator_params": {
+        "skin": "edge",
+        "depth": 600,
+        "width": 1180,
+        "height": 1980,
+        "density": 100,
+        "flatTop": false,
+        "geom_id": 2590,
+        "handles": false,
+        "material": 9,
+        "geom_type": "mesh",
+        "distortion": 0,
+        "additional_parameters": {
+          "collection_type": "Cabinet",
+          "doors_direction": 1
+        },
+        "configurator_custom_params": {
+          "lines": {},
+          "channels": {
+            "1": {
+              "order": 1,
+              "cables": [],
+              "local_x": null,
+              "door_flip": "left",
+              "series_id": "Half_Rail_Rail_L_1drawers",
+              "distortion": null,
+              "exposition": "half",
+              "local_depth": null,
+              "local_height": null,
+              "cables_system": "off",
+              "shelf_distribution": null
+            },
+            "2": {
+              "order": 1,
+              "cables": [],
+              "local_x": null,
+              "door_flip": null,
+              "series_id": "Full_Rail_Rail_XL",
+              "distortion": null,
+              "exposition": "full",
+              "local_depth": null,
+              "local_height": null,
+              "cables_system": "off",
+              "shelf_distribution": null
+            },
+            "3": {
+              "order": -1,
+              "cables": [],
+              "local_x": null,
+              "door_flip": "left",
+              "series_id": "Half_Shelves_Slabs",
+              "distortion": null,
+              "exposition": "half",
+              "local_depth": null,
+              "local_height": null,
+              "cables_system": "off",
+              "shelf_distribution": null
+            },
+            "4": {
+              "order": -1,
+              "cables": [],
+              "local_x": null,
+              "door_flip": null,
+              "series_id": "Half_Shelves_Slabs_4drawers",
+              "distortion": null,
+              "exposition": "half",
+              "local_depth": null,
+              "local_height": null,
+              "cables_system": "off",
+              "shelf_distribution": null
+            },
+            "5": {
+              "order": -1,
+              "cables": [],
+              "local_x": null,
+              "door_flip": null,
+              "series_id": "Half_Rail_Rail_XL",
+              "distortion": null,
+              "exposition": "half",
+              "local_depth": null,
+              "local_height": null,
+              "cables_system": "off",
+              "shelf_distribution": null
+            },
+            "6": {
+              "order": 5,
+              "cables": [],
+              "local_x": null,
+              "door_flip": null,
+              "series_id": "Half_Shelves_Slabs",
+              "distortion": null,
+              "exposition": "half",
+              "local_depth": null,
+              "local_height": null,
+              "cables_system": "off",
+              "shelf_distribution": null
+            },
+            "7": {
+              "order": 5,
+              "cables": [],
+              "local_x": null,
+              "door_flip": null,
+              "series_id": "Half_Shelves_Slabs",
+              "distortion": null,
+              "exposition": "half",
+              "local_depth": null,
+              "local_height": null,
+              "cables_system": "off",
+              "shelf_distribution": null
+            },
+            "8": {
+              "order": 5,
+              "cables": [],
+              "local_x": null,
+              "door_flip": null,
+              "series_id": "Half_Shelves_Slabs",
+              "distortion": null,
+              "exposition": "half",
+              "local_depth": null,
+              "local_height": null,
+              "cables_system": "off",
+              "shelf_distribution": null
+            },
+            "9": {
+              "order": 5,
+              "cables": [],
+              "local_x": null,
+              "door_flip": null,
+              "series_id": "Half_Shelves_Slabs",
+              "distortion": null,
+              "exposition": "half",
+              "local_depth": null,
+              "local_height": null,
+              "cables_system": "off",
+              "shelf_distribution": null
+            },
+            "10": {
+              "order": 5,
+              "cables": [],
+              "local_x": null,
+              "door_flip": null,
+              "series_id": "Half_Shelves_Slabs",
+              "distortion": null,
+              "exposition": "half",
+              "local_depth": null,
+              "local_height": null,
+              "cables_system": "off",
+              "shelf_distribution": null
+            }
+          }
+        }
+      },
+      "physical_product_version": 5
+    },
+    "presetUrl": "https://tylko.com/api/v1/watty_configurator/235218/"
+  },
+  "measurement": {
+    "uiUnit": "cm",
+    "apiDimensionUnit": "mm",
+    "physicalPrecision": null,
+    "sliderStep": null,
+    "notes": "Slider limits are observed attributes in this state; rendered cm labels are not exact manufacturing coordinates."
+  },
+  "unverified": [
+    "All layout thumbnails and width thresholds",
+    "Per-panel join positions",
+    "Feet dimensions and attachment details",
+    "All material and depth interactions",
+    "Befun equivalence"
+  ],
+  "currentInternalParameters": null,
+  "observations": [
+    "Facade changed to Offen; door-direction control disappears"
+  ]
+}

@@ -1,0 +1,19 @@
+
+ RUN  v3.2.7 /var/folders/6g/88hr_s5d1bd3qf45tzmk8zrr0000gn/T/befun-left4-ui-zVxLz9
+
+ ✓ independent.test.tsx (3 tests) 85ms
+ ✓ review.test.tsx (10 tests) 136ms
+stdout | r2-legacy.test.tsx > 관련 없는 상태 보존 > 기록: 깊이 변경은 store의 기존 하드웨어 보정(reconcileHardware)을 실행한다
+depth24 hardware {"before":[1],"after":[],"doors":[0]}
+
+ ✓ r2-legacy.test.tsx (28 tests) 266ms
+ ✓ optimizer.test.tsx (2 tests) 100ms
+ ✓ family.test.tsx (16 tests) 376ms
+ ✓ r2-preview-connector.test.tsx (6 tests) 405ms
+ ✓ panels.test.tsx (17 tests) 461ms
+
+ Test Files  7 passed (7)
+      Tests  82 passed (82)
+   Start at  06:23:16
+   Duration  1.65s (transform 652ms, setup 1.37s, collect 1.65s, tests 1.83s, environment 3.22s, prepare 468ms)
+

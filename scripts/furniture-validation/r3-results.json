@@ -1,0 +1,513 @@
+{
+  "generatedAt": "2026-10-14T08:15:37.437977+09:00",
+  "overall": "conditional / not full R3 acceptance",
+  "results": [
+    {
+      "id": "R3-QA-LEG-01",
+      "status": "conditional",
+      "input": {
+        "widthCm": 110,
+        "rowsCm": [
+          28,
+          28
+        ],
+        "depthCm": 32,
+        "density": 50,
+        "style": "grid",
+        "finish": "solid",
+        "back": true
+      },
+      "actions": "Standard -> Legs; front, bottom, perspective (azimuth45 via standard camera)",
+      "expected": "63 ->73; 6 legs on bottom support axes",
+      "actual": "Chrome63 ->73; six bottom-view legs; reference Board/Grid/Columns2/110x73x32 also visually six",
+      "captures": [
+        "docs/handoffs/assets/codex-qa/r3/grid-front.jpg",
+        "docs/handoffs/assets/codex-qa/r3/grid-bottom.jpg",
+        "docs/handoffs/assets/codex-qa/r3/grid-perspective.jpg",
+        "docs/handoffs/assets/codex-qa/r3/reference-grid2.jpg",
+        "docs/handoffs/assets/codex-qa/r3/reference-grid2.txt"
+      ],
+      "limits": [
+        "Reference initial Plywood200x63x40 differs from recorded older initial; manually changed to Board/Grid/Columns2",
+        "Reference density50 has no direct Columns mapping; doors differ; exact inset and DNA unknown",
+        "28/32 instruction variant is 67->77 in code, not63->73",
+        "Pixel offsets in perspective not treated as internal coordinate error"
+      ]
+    },
+    {
+      "id": "R3-QA-LEG-02",
+      "status": "conditional",
+      "input": "Pattern89/32/density37/[28,32]; Pattern90/40/density37/[28,32]",
+      "expectedSource": "Documented Befun bottom-axis alignment and pair invariants; NOT reference counts",
+      "actual": "Both 4legs, unique pairs/support axes; Chrome Pattern110/32 retained73cm",
+      "captures": [
+        "docs/handoffs/assets/codex-qa/r3/pattern-live.jpg"
+      ],
+      "referenceParity": "unknown"
+    },
+    {
+      "id": "R3-QA-LEG-03",
+      "status": "conditional",
+      "input": "Mosaic181/40/density61/[18,38]",
+      "actual": "8 legs; code alignment pass; ChromeMosaic110/40 Legs73 -> depth24 Standard63/Legsdisabled",
+      "captures": [
+        "docs/handoffs/assets/codex-qa/r3/mosaic-live.jpg",
+        "docs/handoffs/assets/codex-qa/r3/mosaic-live.txt",
+        "docs/handoffs/assets/codex-qa/r3/depth24.txt"
+      ],
+      "referenceParity": "unknown"
+    },
+    {
+      "id": "R3-QA-UI-01",
+      "status": "blocked",
+      "dependency": "UI-LIVE-READY",
+      "actual": "Operating panel changed during HMR; no final READY. Two URL/390px/keyboard/external restore acceptance pending.",
+      "captures": []
+    },
+    {
+      "id": "R3-QA-SAVE-01",
+      "status": "blocked",
+      "dependency": "SAVE-BASE-READY",
+      "actual": "Same-fixture save/restore/resave pending producer READY. Real DB not exercised this round; previous blocked not promoted.",
+      "captures": []
+    },
+    {
+      "id": "R3-QA-CNC-01",
+      "status": "blocked",
+      "dependency": "CNC-PRESERVE-READY",
+      "actual": "QA-R2-B01 OPEN: actual200x180 X100/Y90 diameter30 panel26->25. Need two original repetitions after leader fix.",
+      "captures": []
+    },
+    {
+      "id": "R3-QA-CNC-02",
+      "status": "blocked",
+      "dependency": "CNC-PRESERVE-READY",
+      "actual": "QA-R2-REFRESH-01 separate OPEN; must not close via B01. Direct store remount and manufacturing blocks pending fix.",
+      "captures": []
+    }
+  ],
+  "independentCoordinates": [
+    {
+      "id": "R3-QA-LEG-01",
+      "input": {
+        "width": 110,
+        "depth": 32,
+        "density": 50,
+        "rowHeights": [
+          28,
+          28
+        ],
+        "height": 62,
+        "thickness": 2,
+        "numRows": 2,
+        "hasBackPanel": false,
+        "family": "type02"
+      },
+      "units": "cm; rotations radians",
+      "expectedSource": "Documented Befun support contract: each leg on bottom vertical axis, unique front/back pair, bottom horizontal support; not a Tylko count oracle",
+      "expectedReferenceCount": null,
+      "actual": {
+        "bodyHeight": 62,
+        "standardHeight": 63,
+        "legsHeight": 73,
+        "axes": [
+          -54.1,
+          0,
+          54.1
+        ],
+        "legs": [
+          {
+            "position": [
+              -54.1,
+              -11,
+              0.9
+            ],
+            "rotationY": 1.5707963267948966
+          },
+          {
+            "position": [
+              -54.1,
+              -11,
+              31.1
+            ],
+            "rotationY": 3.141592653589793
+          },
+          {
+            "position": [
+              0,
+              -11,
+              0.9
+            ],
+            "rotationY": 0.7853981633974483
+          },
+          {
+            "position": [
+              0,
+              -11,
+              31.1
+            ],
+            "rotationY": -2.356194490192345
+          },
+          {
+            "position": [
+              54.1,
+              -11,
+              0.9
+            ],
+            "rotationY": 0
+          },
+          {
+            "position": [
+              54.1,
+              -11,
+              31.1
+            ],
+            "rotationY": -1.5707963267948966
+          }
+        ]
+      },
+      "status": "pass",
+      "error": null,
+      "referenceParity": "unknown",
+      "manufacturing": "unknown"
+    },
+    {
+      "id": "R3-QA-LEG-01-alt",
+      "input": {
+        "width": 110,
+        "depth": 32,
+        "density": 50,
+        "rowHeights": [
+          28,
+          32
+        ],
+        "height": 66,
+        "thickness": 2,
+        "numRows": 2,
+        "hasBackPanel": false,
+        "family": "type02"
+      },
+      "units": "cm; rotations radians",
+      "expectedSource": "Documented Befun support contract: each leg on bottom vertical axis, unique front/back pair, bottom horizontal support; not a Tylko count oracle",
+      "expectedReferenceCount": null,
+      "actual": {
+        "bodyHeight": 66,
+        "standardHeight": 67,
+        "legsHeight": 77,
+        "axes": [
+          -54.1,
+          0,
+          54.1
+        ],
+        "legs": [
+          {
+            "position": [
+              -54.1,
+              -11,
+              0.9
+            ],
+            "rotationY": 1.5707963267948966
+          },
+          {
+            "position": [
+              -54.1,
+              -11,
+              31.1
+            ],
+            "rotationY": 3.141592653589793
+          },
+          {
+            "position": [
+              0,
+              -11,
+              0.9
+            ],
+            "rotationY": 0.7853981633974483
+          },
+          {
+            "position": [
+              0,
+              -11,
+              31.1
+            ],
+            "rotationY": -2.356194490192345
+          },
+          {
+            "position": [
+              54.1,
+              -11,
+              0.9
+            ],
+            "rotationY": 0
+          },
+          {
+            "position": [
+              54.1,
+              -11,
+              31.1
+            ],
+            "rotationY": -1.5707963267948966
+          }
+        ]
+      },
+      "status": "pass",
+      "error": null,
+      "referenceParity": "unknown",
+      "manufacturing": "unknown"
+    },
+    {
+      "id": "R3-QA-LEG-02-a",
+      "input": {
+        "width": 89,
+        "depth": 32,
+        "density": 37,
+        "rowHeights": [
+          28,
+          32
+        ],
+        "height": 66,
+        "thickness": 2,
+        "numRows": 2,
+        "hasBackPanel": false,
+        "family": "type02"
+      },
+      "units": "cm; rotations radians",
+      "expectedSource": "Documented Befun support contract: each leg on bottom vertical axis, unique front/back pair, bottom horizontal support; not a Tylko count oracle",
+      "expectedReferenceCount": null,
+      "actual": {
+        "bodyHeight": 66,
+        "standardHeight": 67,
+        "legsHeight": 77,
+        "axes": [
+          -7.6,
+          -43.6,
+          43.6
+        ],
+        "legs": [
+          {
+            "position": [
+              -43.6,
+              -11,
+              0.9
+            ],
+            "rotationY": 1.5707963267948966
+          },
+          {
+            "position": [
+              -43.6,
+              -11,
+              31.1
+            ],
+            "rotationY": 3.141592653589793
+          },
+          {
+            "position": [
+              43.6,
+              -11,
+              0.9
+            ],
+            "rotationY": 0
+          },
+          {
+            "position": [
+              43.6,
+              -11,
+              31.1
+            ],
+            "rotationY": -1.5707963267948966
+          }
+        ]
+      },
+      "status": "pass",
+      "error": null,
+      "referenceParity": "unknown",
+      "manufacturing": "unknown"
+    },
+    {
+      "id": "R3-QA-LEG-02-b",
+      "input": {
+        "width": 90,
+        "depth": 40,
+        "density": 37,
+        "rowHeights": [
+          28,
+          32
+        ],
+        "height": 66,
+        "thickness": 2,
+        "numRows": 2,
+        "hasBackPanel": false,
+        "family": "type02"
+      },
+      "units": "cm; rotations radians",
+      "expectedSource": "Documented Befun support contract: each leg on bottom vertical axis, unique front/back pair, bottom horizontal support; not a Tylko count oracle",
+      "expectedReferenceCount": null,
+      "actual": {
+        "bodyHeight": 66,
+        "standardHeight": 67,
+        "legsHeight": 77,
+        "axes": [
+          -8.1,
+          -44.1,
+          44.1
+        ],
+        "legs": [
+          {
+            "position": [
+              -44.1,
+              -11,
+              0.9
+            ],
+            "rotationY": 1.5707963267948966
+          },
+          {
+            "position": [
+              -44.1,
+              -11,
+              39.1
+            ],
+            "rotationY": 3.141592653589793
+          },
+          {
+            "position": [
+              44.1,
+              -11,
+              0.9
+            ],
+            "rotationY": 0
+          },
+          {
+            "position": [
+              44.1,
+              -11,
+              39.1
+            ],
+            "rotationY": -1.5707963267948966
+          }
+        ]
+      },
+      "status": "pass",
+      "error": null,
+      "referenceParity": "unknown",
+      "manufacturing": "unknown"
+    },
+    {
+      "id": "R3-QA-LEG-03",
+      "input": {
+        "width": 181,
+        "depth": 40,
+        "density": 61,
+        "rowHeights": [
+          18,
+          38
+        ],
+        "height": 62,
+        "thickness": 2,
+        "numRows": 2,
+        "hasBackPanel": false,
+        "family": "type02"
+      },
+      "units": "cm; rotations radians",
+      "expectedSource": "Documented Befun support contract: each leg on bottom vertical axis, unique front/back pair, bottom horizontal support; not a Tylko count oracle",
+      "expectedReferenceCount": null,
+      "actual": {
+        "bodyHeight": 62,
+        "standardHeight": 63,
+        "legsHeight": 73,
+        "axes": [
+          -89.6,
+          -42.99999999999999,
+          3.700000000000003,
+          42.900000000000006,
+          89.6
+        ],
+        "legs": [
+          {
+            "position": [
+              -89.6,
+              -11,
+              0.9
+            ],
+            "rotationY": 1.5707963267948966
+          },
+          {
+            "position": [
+              -89.6,
+              -11,
+              39.1
+            ],
+            "rotationY": 3.141592653589793
+          },
+          {
+            "position": [
+              -43,
+              -11,
+              0.9
+            ],
+            "rotationY": 0.7853981633974483
+          },
+          {
+            "position": [
+              -43,
+              -11,
+              39.1
+            ],
+            "rotationY": -2.356194490192345
+          },
+          {
+            "position": [
+              3.7,
+              -11,
+              0.9
+            ],
+            "rotationY": 0.7853981633974483
+          },
+          {
+            "position": [
+              3.7,
+              -11,
+              39.1
+            ],
+            "rotationY": -2.356194490192345
+          },
+          {
+            "position": [
+              89.6,
+              -11,
+              0.9
+            ],
+            "rotationY": 0
+          },
+          {
+            "position": [
+              89.6,
+              -11,
+              39.1
+            ],
+            "rotationY": -1.5707963267948966
+          }
+        ]
+      },
+      "status": "pass",
+      "error": null,
+      "referenceParity": "unknown",
+      "manufacturing": "unknown"
+    }
+  ],
+  "hardware": {
+    "ready": "LEG-VISUAL-READY",
+    "status": "pass limited to renderer contract",
+    "log": "scripts/furniture-validation/r3-hardware.log",
+    "manufacturing": "unknown; screws,pin,keyholes absent; dimensions remain null",
+    "assembly": "blocked LEG-GUIDE-READY"
+  },
+  "validation": {
+    "eslint": "pass new r3-legs.mjs",
+    "build": "pass isolated webpack + TypeScript, network retry after fontDNS block",
+    "buildLog": "scripts/furniture-validation/r3-build-network.log",
+    "snapshot": "scripts/furniture-validation/r3-build-snapshot.json",
+    "originalFailures": "21 original QA files unchanged; no completedR2 rerun",
+    "drift": "r3-live-drift.json; concurrent hardware/index.ts only at final check"
+  },
+  "scope": "Only allowed QA files modified; product sources unchanged by QA; no other tabs or global viewport changed"
+}

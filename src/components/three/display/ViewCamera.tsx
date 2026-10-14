@@ -6,6 +6,7 @@ import { OrbitControls, OrthographicCamera, PerspectiveCamera } from '@react-thr
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 import * as THREE from 'three';
 import { useShelfStore } from '@/stores/useShelfStore';
+import { baseHeight } from '@/lib/three/furniture-base';
 import { CAMERA_RESET_EVENT } from '../cameraEvents';
 import { useDisplayStore } from './displayStore';
 import { assemblyPlayback, cinematicShot } from './cinematic';
@@ -13,10 +14,11 @@ import { fitView } from './viewMath';
 
 export function ViewCamera() {
   const projection = useDisplayStore((s) => s.projection);
+  // Match Scene's cm-scale depth range so the default camera preserves close surfaces.
   return <>
     {projection === 'orthographic'
-      ? <OrthographicCamera makeDefault position={[0, 100, 500]} near={0.1} far={10000} />
-      : <PerspectiveCamera makeDefault position={[0, 100, 500]} fov={40} near={0.1} far={10000} />}
+      ? <OrthographicCamera makeDefault position={[0, 100, 500]} near={1} far={5000} />
+      : <PerspectiveCamera makeDefault position={[0, 100, 500]} fov={40} near={1} far={5000} />}
     <CameraControls />
   </>;
 }
@@ -24,6 +26,8 @@ export function ViewCamera() {
 function CameraControls() {
   const controls = useRef<OrbitControlsImpl>(null);
   const { camera, size } = useThree();
+  const baseType = useShelfStore(s=>s.baseType);
+  const footHeight = baseHeight(baseType);
   const width = useShelfStore((s) => s.width);
   const height = useShelfStore((s) => s.height);
   const depth = useShelfStore((s) => s.depth);
@@ -44,8 +48,8 @@ function CameraControls() {
   useLayoutEffect(() => {
     const bounds = exploded ? stageBounds : null;
     const aspect = size.width / Math.max(1, size.height);
-    const frame = fitView(bounds?.width ?? width, bounds?.height ?? bodyHeight + 10, bounds?.depth ?? depth + 30, aspect, view);
-    const target = bounds ? new THREE.Vector3(...bounds.center) : new THREE.Vector3(0, bodyHeight / 2, depth / 2);
+    const frame = fitView(bounds?.width ?? width, bounds?.height ?? bodyHeight + footHeight + 10, bounds?.depth ?? depth + 30, aspect, view);
+    const target = bounds ? new THREE.Vector3(...bounds.center) : new THREE.Vector3(0, (bodyHeight + footHeight) / 2, depth / 2);
     const destination = goal.current;
     destination.position.copy(target).addScaledVector(frame.direction, frame.distance);
     destination.target.copy(target);
@@ -59,7 +63,7 @@ function CameraControls() {
       destination.camera = camera;
     }
     destination.active = true;
-  }, [camera, width, bodyHeight, depth, view, exploded, revision, stageBounds, size.width, size.height]);
+  }, [camera, width, bodyHeight, footHeight, depth, view, exploded, revision, stageBounds, size.width, size.height]);
 
   useFrame((_, delta) => {
     const state=useDisplayStore.getState();

@@ -1,0 +1,68 @@
+✔ QA-L4-01 real settings save/load keeps clip and remembered OVVO tooling (0.972416ms)
+✔ QA-L4-02 generated cuts removed, custom holes/hinge holes/custom slots unchanged (0.723417ms)
+✔ QA-L4-03 unconfirmed clip csv rejects whole mixed batch (0.179333ms)
+✔ QA-L4-03 unconfirmed clip dxf rejects whole mixed batch (0.076417ms)
+✔ QA-L4-03 unconfirmed clip mpr rejects whole mixed batch (0.066709ms)
+✔ QA-L4-03 unconfirmed clip cix rejects whole mixed batch (0.107667ms)
+✖ QA-L4-04 reapplying OVVO to same panels should clear ONLY obsolete clip block (1.08075ms)
+✔ QA-L4-05 actual snapshot regeneration returns to identical OVVO plan for six styles (16.549083ms)
+✔ QA-L4-06 shared hardware anchor and assembly motion agree before entry and after slide (7.050667ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 592.003292
+
+✖ failing tests:
+
+test at scripts/furniture-validation/left4-connectors.test.mjs:34:1
+✖ QA-L4-04 reapplying OVVO to same panels should clear ONLY obsolete clip block (1.08075ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        grain: 'N',
+        height: 380,
+        id: 'a',
+  ...
+          height: 380,
+  +       manufacturingBlockReasons: [
+  +         'Tylko 클립의 홈·나사·배치 규격이 미확정되어 제조 가공을 생성하지 않았습니다.'
+  +       ],
+  +       manufacturingReady: false,
+          material: 'PB',
+          panelId: 'a',
+          panelName: 'vertical',
+          panelType: 'partition',
+          thickness: 18,
+  ...
+          height: 320,
+  +       manufacturingBlockReasons: [
+  +         'Tylko 클립의 홈·나사·배치 규격이 미확정되어 제조 가공을 생성하지 않았습니다.'
+  +       ],
+  +       manufacturingReady: false,
+          material: 'PB',
+          panelId: 'b',
+          panelName: 'horizontal',
+          panelType: 'shelf',
+          thickness: 18,
+  
+      at TestContext.<anonymous> (file:///Users/leejinsoo/Downloads/befun_new-main/scripts/furniture-validation/left4-connectors.test.mjs:37:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { id: 'a', name: 'vertical', width: 320, height: 380, thickness: 18, quantity: 1, material: 'PB', grain: 'N', manufacturingBoring: [Object] }, { id: 'b', name: 'horizontal', width: 400, height: 320, thickness: 18, quantity: 1, material: 'PB', grain: 'N', manufacturingBoring: [Object] } ],
+    expected: [ { id: 'a', name: 'vertical', width: 320, height: 380, thickness: 18, quantity: 1, material: 'PB', grain: 'N', manufacturingBoring: [Object] }, { id: 'b', name: 'horizontal', width: 400, height: 320, thickness: 18, quantity: 1, material: 'PB', grain: 'N', manufacturingBoring: [Object] } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

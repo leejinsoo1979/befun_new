@@ -1,0 +1,32 @@
+(node:58165) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/backPanel.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ fixed pins install before spring compression; panel straightens before spring return (0.648334ms)
+✔ pivot and pin motion are continuous, and inserted lower pins stay fixed while panel turns (0.423375ms)
+✔ macro cameras follow the actual top pin while the panel rotates on desktop and mobile (1.30975ms)
+✔ the example approaches from outside the cabinet and clears the top before lower pin insertion (0.143917ms)
+(node:58166) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/sequence.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ example machining and connector locations consume the shared CNC planner (1.184166ms)
+✔ releasable assembly inserts before sliding; permanent assembly never slides (0.157667ms)
+✔ every chapter preserves pose at its boundary and hardware installs before panel insertion (0.107334ms)
+✔ seeking is deterministic, clamps invalid values, and keeps the complete part framed on mobile (0.761334ms)
+(node:58167) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/tylkoClip.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ uses the hardware owner dimensions and colour pairs without assigning lock roles (0.971375ms)
+✔ pins enter on the normal before any relative long-axis slide (0.188125ms)
+✔ all chapters are continuous, seeking deterministic, and motion transforms by the joint frame (0.159ms)
+✔ camera follows the joint and keeps both panels framed on mobile (1.617417ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 109.180542

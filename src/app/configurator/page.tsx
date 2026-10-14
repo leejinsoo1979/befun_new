@@ -3,28 +3,22 @@
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
+import { ConfiguratorLoading } from '@/components/ui/ConfiguratorLoading';
 import Link from 'next/link';
 import Image from 'next/image';
-import { TfiRulerAlt } from 'react-icons/tfi';
-import { FiShare } from 'react-icons/fi';
-import { TbAugmentedReality2, TbFocusCentered } from 'react-icons/tb';
-import { StyleSelector } from '@/components/ui/StyleSelector';
-import { DimensionPanel } from '@/components/ui/DimensionPanel';
-import { DensitySlider } from '@/components/ui/DensitySlider';
+import { LegacyShelfPanel, LEGACY_BEFORE_FEET, LEGACY_AFTER_FEET } from '@/components/ui/furniture-panels';
+import { FeetSelector } from '@/components/ui/FeetSelector';
 import { ColorPicker } from '@/components/ui/ColorPicker';
-import { BackPanelToggle } from '@/components/ui/BackPanelToggle';
 import { FloatingBox } from '@/components/ui/FloatingBox';
 import { PriceDisplay } from '@/components/ui/PriceDisplay';
 import { ShareModal } from '@/components/ui/ShareModal';
 import { ARModal } from '@/components/ui/ARModal';
 import { MobileConfiguratorPanel } from '@/components/ui/MobileConfiguratorPanel';
-import { requestCameraReset } from '@/components/three/cameraEvents';
 import { AROverlay } from '@/components/ui/AROverlay';
 import { QuickLookSheet } from '@/components/ui/QuickLookSheet';
 import { detectARMode } from '@/components/three/ar/arSupport';
 import { useARStore } from '@/components/three/ar/arStore';
 import { useShelfStore } from '@/stores/useShelfStore';
-import { useUIStore } from '@/stores/useUIStore';
 import { useMaterialStore } from '@/stores/useMaterialStore';
 import { useHardwareStore } from '@/stores/useHardwareStore';
 import { useCartStore } from '@/stores/useCartStore';
@@ -41,11 +35,7 @@ import type { ColorCategory } from '@/types/shelf';
 // R3F Canvas는 SSR 불가 → dynamic import
 const Scene = dynamic(() => import('@/components/three/Scene'), {
   ssr: false,
-  loading: () => (
-    <div className="flex h-full w-full items-center justify-center bg-white">
-      <p className="text-gray-500">3D 뷰어 로딩 중...</p>
-    </div>
-  ),
+  loading: () => <ConfiguratorLoading />,
 });
 
 export default function ConfiguratorPage() {
@@ -57,8 +47,6 @@ export default function ConfiguratorPage() {
   const [showQuickLook, setShowQuickLook] = useState(false);
   const arOverlayRef = useRef<HTMLDivElement>(null);
 
-  const showDimensions = useUIStore((s) => s.showDimensions);
-  const setShowDimensions = useUIStore((s) => s.setShowDimensions);
 
   const addItem = useCartStore((s) => s.addItem);
 
@@ -67,6 +55,8 @@ export default function ConfiguratorPage() {
     const { currentColor, colorCategory } = useMaterialStore.getState();
     const { doorsCreatedLayers, drawersCreatedLayers, rowStyles: hardwareRowStyles } = useHardwareStore.getState();
     return {
+      baseType: shelf.baseType,
+      legFinish: shelf.legFinish,
       style: shelf.style,
       density: shelf.density,
       width: shelf.width,
@@ -189,7 +179,7 @@ export default function ConfiguratorPage() {
 
   return (
     // 모바일: 화면 높이(dvh)에 고정한 앱형 레이아웃 / 데스크톱: 기존 레이아웃
-    <div className="flex h-[100dvh] flex-col overflow-hidden lg:h-auto lg:min-h-screen lg:overflow-visible">
+    <div onDragStartCapture={(event) => event.preventDefault()} className="flex h-[100dvh] select-none flex-col overflow-hidden lg:h-auto lg:min-h-screen lg:overflow-visible [&_input]:select-text [&_textarea]:select-text">
       {/* Header */}
       <header className="shrink-0 border-b border-[#eee]">
         <div className="flex h-[56px] items-center justify-between px-4 lg:h-[80px] lg:px-5">
@@ -220,37 +210,7 @@ export default function ConfiguratorPage() {
       <div className="flex min-h-0 flex-1 flex-col overflow-hidden border-b border-[#eee] lg:h-[calc(100vh-80px)] lg:flex-none lg:flex-row">
         {/* Canvas 영역: 모바일은 하단 시트를 뺀 나머지 전부, 데스크톱 flex-1 */}
         <div className="relative min-h-0 flex-1 overflow-hidden bg-white">
-          <Scene />
-
-          {/* Control buttons (ruler/share/AR) */}
-          <div style={{ position: 'absolute', right: 12, top: 12, zIndex: 10, display: 'flex', flexDirection: 'column', gap: 6 }}>
-            {[
-              { key: 'ruler', icon: <TfiRulerAlt size={18} color="#333" />, onClick: () => setShowDimensions(!showDimensions), isActive: showDimensions },
-              { key: 'share', icon: <FiShare size={18} color="#333" />, onClick: handleShareClick, disabled: saving },
-              { key: 'ar', icon: <TbAugmentedReality2 size={20} color="#333" />, onClick: handleARClick, disabled: saving },
-              { key: 'front', icon: <TbFocusCentered size={19} color="#333" />, onClick: requestCameraReset, title: '정면 보기 (Space)' },
-            ].map((btn) => (
-              <button
-                key={btn.key}
-                type="button"
-                title={btn.title}
-                aria-label={btn.title ?? btn.key}
-                onClick={btn.onClick}
-                disabled={btn.disabled}
-                style={{
-                  width: 36, height: 36, minWidth: 36, minHeight: 36,
-                  borderRadius: '50%',
-                  border: `1px solid ${btn.isActive ? 'var(--green)' : '#ccc'}`,
-                  background: '#fff',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  cursor: 'pointer', padding: 0,
-                  opacity: btn.disabled ? 0.5 : 1,
-                }}
-              >
-                {btn.icon}
-              </button>
-            ))}
-          </div>
+          <Scene onShare={handleShareClick} onAR={handleARClick} actionsDisabled={saving} />
 
           {/* Floating box - 행 마우스 오버 시 표시 */}
           <FloatingBox />
@@ -282,10 +242,10 @@ export default function ConfiguratorPage() {
           </div>
 
           {/* Controls */}
-          <StyleSelector />
-          <DensitySlider />
-          <DimensionPanel />
-          <BackPanelToggle />
+          {/* Style→Density→Width→Height→Depth (기존 선반 store 연결 패널) → Feet → Back panels */}
+          <LegacyShelfPanel controls={LEGACY_BEFORE_FEET} />
+          <FeetSelector />
+          <LegacyShelfPanel controls={LEGACY_AFTER_FEET} />
           <ColorPicker />
 
           {/* Purchase button */}

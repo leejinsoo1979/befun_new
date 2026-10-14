@@ -1,0 +1,19 @@
+{
+  "scope": "R2.1-SAVE client error flows, actual Chrome components; API mock responses do not prove DB persistence",
+  "baseUrl": "http://localhost:3003",
+  "cases": [
+    { "id": "SAVE-08-503", "kind": "actual-unconfigured-server", "action": "Product save", "http": 503, "code": "DESIGN_STORAGE_UNAVAILABLE", "result": "Local-only title, service-unavailable reason, embedded design-preview link; server success not claimed", "status": "pass" },
+    { "id": "SAVE-03-client", "kind": "browser-api-response-mock", "http": 400, "code": "INVALID_DESIGN", "result": "Input alert, dialog count0, save button enabled, no success link", "status": "pass" },
+    { "id": "SAVE-08-500", "kind": "browser-api-response-mock", "http": 500, "code": "DESIGN_STORAGE_FAILED", "result": "Server-error reason and separate local-only result", "status": "pass" },
+    { "id": "SAVE-08-network", "kind": "browser-network-failure-mock", "result": "Network reason and separate validated local-only result", "status": "pass" },
+    { "id": "SAVE-05-client", "kind": "browser-api-response-mock", "http": 200, "result": "Server-saved title and only returned R2SAVE01 server link; no real DB record", "status": "pass" },
+    { "id": "SAVE-malformed-success", "kind": "browser-api-response-mock", "http": 200, "result": "Missing shareCode gives error and no dialog/stale success link", "status": "pass" },
+    { "id": "SAVE-06-client", "kind": "browser-api-response-mock", "http": 404, "code": "DESIGN_NOT_FOUND", "result": "Not-found title and no service retry button", "status": "pass" },
+    { "id": "SAVE-07-client", "kind": "browser-api-response-mock", "http": 500, "code": "DESIGN_STORAGE_FAILED", "result": "Server lookup error and retry button", "status": "pass" },
+    { "id": "SAVE-share-network", "kind": "browser-network-failure-mock", "result": "Network-specific lookup alert and retry button", "status": "pass" },
+    { "id": "SAVE-09", "kind": "actual503-then-browser-api-response-mock200", "requestCode": "R2MOCK01", "result": "Retry uses same code; successful mock144cm/density37 config displays and existing restore applies144/37; handleLoadDesign source unchanged", "status": "pass" },
+    { "id": "SAVE-10", "kind": "real-database-round-trip", "result": "DATABASE_URL not configured; no env/schema/DB initialization performed", "status": "blocked" }
+  ],
+  "screenshot": { "path": "screenshots/share-unavailable.jpg", "kind": "actual-unconfigured-server", "note": "Native browser capture of real503 state, no success/DB mock" },
+  "cleanup": "All test-tab raw interception patterns cleared. Test tabs are ephemeral. No configured DB records created or deleted."
+}

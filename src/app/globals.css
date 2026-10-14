@@ -46,6 +46,8 @@ body {
    Configurator section row — consistent layout
    ================================================================ */
 .cfg-row {
+  -webkit-user-select: none;
+  user-select: none;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -403,8 +405,16 @@ body {
    Help (?) button
    ================================================================ */
 .tylko-help {
+  box-sizing: border-box;
   width: 24px;
   height: 24px;
+  min-width: 24px;
+  max-width: 24px;
+  min-height: 24px;
+  max-height: 24px;
+  aspect-ratio: 1;
+  padding: 0;
+  line-height: 1;
   border-radius: 50%;
   border: 1.5px solid var(--gray-border);
   display: inline-flex;
@@ -481,3 +491,6 @@ body {
   border-color: var(--green);
   box-shadow: 0 0 0 2px var(--green-light);
 }
+
+/* Suppress native image drag without blocking range pointer gestures. */
+.cfg-row img { -webkit-user-drag: none; user-select: none; }

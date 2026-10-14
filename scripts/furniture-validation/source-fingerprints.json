@@ -1,0 +1,15 @@
+{
+  "recordedAt": "2026-10-13T14:11:45.333557+00:00",
+  "sha256": {
+    "src/components/three/Scene.tsx": "1e8e006512c48cb3c8e4d73a512f6b275abe64637faf21d540a415dc8b9e7302",
+    "src/components/three/Background.tsx": "8ff0afe3b146a958bce06f3ea1521b1d527f9c8f198fd08cec2654168e2f72b0",
+    "src/components/storefront/ProductMaterialGallery.tsx": "36d69330d4dfc1af9c8257a280ab858068c8e07564c277484dd268a4174b84af",
+    "src/components/storefront/ProductDetails.tsx": "3ada6ae1554b13974649e8132f4838e597ba053e5dc5f1afb93bd96b8773db35",
+    "src/components/storefront/galleryMaterials.ts": "32ac086321afebfb1d982357e010d43072979f224ba23c39a9fcf6bf8a077ac8",
+    "src/components/storefront/configuration.ts": "9438fc6e4c37f9903bc143300ce7e1439ee2b4faffc889c0ceb64bc6a38514ec",
+    "src/components/storefront/savedDesign.ts": "bc563df4392e7e85b28a87b46da85a704651ce2ea0f7bf132bc7e7b17acac3c9",
+    "src/lib/optimizer/befun/model.ts": "84cd4d0aeb7e3b49b15c7df9529508346838eb6ba75efe49cf2b993247ffcbc4",
+    "src/lib/optimizer/befun/toCncPanels.ts": "946bd2186f55a2d96abb0b3dab9067e6d87fadb49b8b8edd24593626da65b374",
+    "src/components/three/display/assemblyPlan.ts": "4bfab39d2d4fe940859c8086b67a7b6c329620aa00e74680adde8a37f3eb059d"
+  }
+}

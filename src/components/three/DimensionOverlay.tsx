@@ -6,6 +6,7 @@ import { useThree, useFrame } from '@react-three/fiber';
 import { useHardwareStore } from '@/stores/useHardwareStore';
 import { useMaterialStore } from '@/stores/useMaterialStore';
 import { useShelfStore } from '@/stores/useShelfStore';
+import { baseHeight } from '@/lib/three/furniture-base';
 import { calculateGridPanels, type ReferenceOpening } from '@/lib/three/styles/grid';
 import { calculateSlantPanels } from '@/lib/three/styles/slant';
 import { calculatePixelPanels } from '@/lib/three/styles/pixel';
@@ -131,6 +132,7 @@ export function DimensionOverlay() {
     }
   });
 
+  const baseType = useShelfStore(s=>s.baseType);
   const category = useMaterialStore(s => s.colorCategory);
   const family = category === 'classic' || category === 'natural' ? 'type01' as const : 'type02' as const;
   const width = useShelfStore((s) => s.width);
@@ -185,7 +187,7 @@ export function DimensionOverlay() {
     ).forEach((obj) => group.add(obj));
 
     // 세로 (height + 조절발) — 우측
-    const footHeight = 1; // 조절발 높이 1cm
+    const footHeight = baseHeight(baseType);
     const totalHeight = Math.round(bodyHeight + footHeight);
     const heightLabel = createDimensionLabel(`${totalHeight}`);
     heightLabel.position.set(width / 2 + 10, bodyHeight / 2 - footHeight / 2, depth + 1);
@@ -241,7 +243,7 @@ export function DimensionOverlay() {
     }
 
     return () => clearDimensionObjects(group);
-  }, [width, height, depth, thickness, style, density, rowHeights, numRows, styleResult, scene]);
+  }, [width, height, depth, thickness, style, density, rowHeights, numRows, styleResult, scene, baseType]);
 
   return <group ref={groupRef} />;
 }

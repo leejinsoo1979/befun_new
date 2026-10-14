@@ -12,6 +12,8 @@ import { calculateMosaicPanels } from '@/lib/three/styles/mosaic';
 import type { ColorCategory, StyleType } from '@/types/shelf';
 import { productHeight, type CatalogProduct } from './catalog';
 import type { SavedDesign } from './savedDesign';
+import { parseSavedDesign } from './savedDesign';
+import { resolveHardwareRows } from '@/lib/three/hardware-state';
 
 const panelCalculators = {
   grid: calculateGridPanels, slant: calculateSlantPanels,
@@ -32,7 +34,7 @@ export function loadProductConfiguration(product: CatalogProduct, color = produc
   useUIStore.setState({ hoveredRow: null, selectedRow: null, isFloatingBoxHovered: false, showDimensions: false });
   useShelfStore.setState({
     width: product.width, height: productHeight(product), depth: product.depth,
-    thickness: 2, style: 'grid', density: 50, hasBackPanel: true,
+    baseType: 'standard', legFinish: 'silver', thickness: 2, style: 'grid', density: 50, hasBackPanel: true,
     rowHeights: [...product.rows], numRows: product.rows.length,
   });
   useMaterialStore.getState().setColor(color, color === product.color ? product.colorCategory : 'solid');
@@ -43,24 +45,32 @@ export function currentConfiguration() {
   const shelf = useShelfStore.getState();
   const material = useMaterialStore.getState();
   const hardware = useHardwareStore.getState();
+  const rowHeights = shelf.rowHeights.slice(0, shelf.numRows);
   return {
-    style: shelf.style, density: shelf.density, width: shelf.width,
-    height: shelf.height, depth: shelf.depth, hasBackPanel: shelf.hasBackPanel,
+    baseType: shelf.baseType, legFinish: shelf.legFinish, style: shelf.style, density: shelf.density, width: shelf.width,
+    height: 2 + rowHeights.reduce((total, height) => total + height + 2, 0), depth: shelf.depth, hasBackPanel: shelf.hasBackPanel,
     color: material.currentColor, colorCategory: material.colorCategory,
-    rowHeights: shelf.rowHeights.slice(0, shelf.numRows), numRows: shelf.numRows,
-    doorsCreatedLayers: hardware.doorsCreatedLayers,
-    drawersCreatedLayers: hardware.drawersCreatedLayers, hardwareRowStyles: hardware.rowStyles,
+    rowHeights, numRows: shelf.numRows,
+    doorsCreatedLayers: [...hardware.doorsCreatedLayers],
+    drawersCreatedLayers: [...hardware.drawersCreatedLayers],
+    hardwareRowStyles: resolveHardwareRows(hardware.doorsCreatedLayers, hardware.drawersCreatedLayers, hardware.rowStyles),
   };
 }
 
 export function restoreSavedConfiguration(config: SavedDesign['config']) {
+  const design = parseSavedDesign(JSON.stringify({ version: 1, name: '', config }));
+  if (!design) return false;
+  const saved = design.config;
   useUIStore.setState({ hoveredRow: null, selectedRow: null, isFloatingBoxHovered: false, showDimensions: false });
   useShelfStore.setState({
-    width: config.width, height: config.height, depth: config.depth, thickness: 2,
-    style: config.style, density: config.density, hasBackPanel: config.hasBackPanel,
-    rowHeights: [...config.rowHeights], numRows: config.numRows,
+    width: saved.width, height: saved.height, depth: saved.depth, thickness: 2,
+    style: saved.style, density: saved.density, hasBackPanel: saved.hasBackPanel,
+    rowHeights: [...saved.rowHeights], numRows: saved.numRows,
   });
-  useMaterialStore.getState().setColor(config.color, config.colorCategory);
-  useHardwareStore.getState().restore(config.doorsCreatedLayers, config.drawersCreatedLayers, config.hardwareRowStyles);
+  useMaterialStore.getState().setColor(saved.color, saved.colorCategory);
+  useShelfStore.getState().setBaseType(saved.baseType ?? 'standard');
+  useShelfStore.getState().setLegFinish(saved.legFinish ?? 'silver');
+  useHardwareStore.getState().restore(saved.doorsCreatedLayers, saved.drawersCreatedLayers, saved.hardwareRowStyles);
   useShelfStore.getState().reconcileHardware();
+  return true;
 }

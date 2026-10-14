@@ -1,0 +1,115 @@
+{
+  "caseId": "gallery-materials-001-befun",
+  "observedAt": "2026-10-13T12:44:09.299Z",
+  "url": "http://localhost:3003/configurator",
+  "materials": [
+    {
+      "name": "화이트 합판",
+      "id": "01p-white",
+      "photoCount": 8,
+      "urlsMatch": true
+    },
+    {
+      "name": "모스 그린 합판",
+      "id": "01p-moss-green",
+      "photoCount": 8,
+      "urlsMatch": true
+    },
+    {
+      "name": "그레이 합판",
+      "id": "01p-grey",
+      "photoCount": 8,
+      "urlsMatch": true
+    },
+    {
+      "name": "블랙 합판",
+      "id": "01p-black",
+      "photoCount": 8,
+      "urlsMatch": true
+    },
+    {
+      "name": "핑크 합판",
+      "id": "01p-dusty-pink",
+      "photoCount": 8,
+      "urlsMatch": true
+    },
+    {
+      "name": "옐로 합판",
+      "id": "01p-yellow",
+      "photoCount": 8,
+      "urlsMatch": true
+    },
+    {
+      "name": "블루 합판",
+      "id": "01p-blue",
+      "photoCount": 8,
+      "urlsMatch": true
+    },
+    {
+      "name": "캐시미어 베이지 합판",
+      "id": "01p-cashmere-beige-plywood",
+      "photoCount": 8,
+      "urlsMatch": true
+    },
+    {
+      "name": "클레이 브라운 합판",
+      "id": "01p-clay-brown-plywood",
+      "photoCount": 8,
+      "urlsMatch": true
+    },
+    {
+      "name": "라이트 오크 무늬목",
+      "id": "01v-ash",
+      "photoCount": 8,
+      "urlsMatch": true
+    },
+    {
+      "name": "오크 무늬목",
+      "id": "01v-oak",
+      "photoCount": 8,
+      "urlsMatch": true
+    },
+    {
+      "name": "월넛 무늬목",
+      "id": "01v-walnut",
+      "photoCount": 8,
+      "urlsMatch": true
+    }
+  ],
+  "sliderValuesBefore": [
+    "50",
+    "50",
+    "90",
+    "4",
+    "50"
+  ],
+  "sliderValuesAfter": [
+    "50",
+    "50",
+    "90",
+    "4",
+    "50"
+  ],
+  "checks": {
+    "blueEightImagesLoaded": true,
+    "yellowEightImagesLoaded": true,
+    "yellowZoomCorrect": true,
+    "dialogClosesAndRestoresScroll": true,
+    "keyboardArrowSelectsNext": true,
+    "mobileViewportWidth": 390,
+    "mobilePageWidth": 390,
+    "mobileToolbarScrollWidth": 436,
+    "unrelatedProductBrowserCheck": null
+  },
+  "notVerified": [
+    "All 96 images individually fully decoded",
+    "Tylko mobile appearance pixel equality",
+    "All product-family material variants",
+    "Unrelated product tab was in assembly mode without gallery; left untouched"
+  ],
+  "screenshots": [
+    "../screenshots/gallery-materials-001-befun-blue.png",
+    "../screenshots/gallery-materials-001-befun-yellow.png",
+    "../screenshots/gallery-materials-001-befun-mobile.png"
+  ]
+}

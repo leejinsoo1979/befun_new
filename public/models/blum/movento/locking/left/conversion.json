@@ -1,0 +1,29 @@
+{
+  "sourceSha256": "4930bcdf6adf67233c4c22652d57a9eb30fa1b9e1e40c5cbe568e8912166e631",
+  "glbSha256": "17b43d39fd58880f71c34fcc54478e5953b32b51b892b9d23b59bfc2a29600fb",
+  "sourceUnitMeter": 0.001,
+  "sourceUpAxis": "Y_UP",
+  "outputUnitMeter": 1,
+  "outputUpAxis": "Y_UP",
+  "loader": "Three.ColladaLoader",
+  "exporter": "Three.GLTFExporter",
+  "lengthRescaled": false,
+  "materialSymbolCorrections": [],
+  "meshes": [
+    {
+      "name": "bau0023102024",
+      "parent": "VisualSceneNode",
+      "minMm": [
+        21,
+        -24.929533004760746,
+        -51.49698257446289
+      ],
+      "maxMm": [
+        102.03852844238281,
+        -9.574999809265137,
+        37
+      ],
+      "triangles": 748
+    }
+  ]
+}

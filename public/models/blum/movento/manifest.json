@@ -1,0 +1,29 @@
+{
+  "repository": "https://github.com/leejinsoo1979/250709in",
+  "commit": "7ecfd99aabe98e1984d74ffe6056f86f9d296281",
+  "selectedPart": "760H3500S",
+  "locking": "T51.7601",
+  "cabinetDepthMm": 400,
+  "requiredInstallationDepthMm": 353,
+  "manufacturingReady": false,
+  "motion": "upstream reconstructed profiles; middle member half travel is illustrative",
+  "sha256": {
+    "upstream-provenance.json": "b67b9d4f5167302b6799c36cbc4183c22034756b09d5185263cc113642187889",
+    "350/right/source.dae": "6b62555d7b774df428213b6fedbb0e419d964d87d3fa8eff35689abfe972b26e",
+    "350/right/official.png": "66d07bf6c835995846970851373bc165cb736262c9d5edbb9963fae23c21d703",
+    "350/right/model.glb": "2d402e63ba0a9482ad59b390d0300970eef0efc5b67289059293e0ab7bda3071",
+    "350/right/conversion.json": "227fb3de0b4b032f520637c104e0becc31301ae6101fd143866b023779c84b0c",
+    "350/left/source.dae": "4860813c3f021190e6e5b240e66dae007e92a50155d2ce180df5019fdcecc4ed",
+    "350/left/official.png": "48cce07e8d8875484bf38c7f733e4beb81b757659c54655b85aa4588af92d55b",
+    "350/left/model.glb": "09bb73a14afd473358dfa642a49634b71b29b820e7912784172666170890fc09",
+    "350/left/conversion.json": "16f348d6100bc3aa3c602616e611b618720235f0f057ea28a1ffdf61a92717c6",
+    "locking/right/source.dae": "2f10c0efbc2ccdc9d3b8f008c71af55b1eae540b907e952262b231c7717145dd",
+    "locking/right/official.png": "8c7cf5eee638317205573fa8d6b4419a3e6662c3d0bca4d542da1f37e7fd081a",
+    "locking/right/model.glb": "de7c0bf386481cc7b845871a441b52d350d31ef2f39f8263331855306bf22b74",
+    "locking/right/conversion.json": "077fa07a6604fc38cdfe9f2b9f47a112ab06f9ab6aede08241ae100f4ce91dc7",
+    "locking/left/source.dae": "4930bcdf6adf67233c4c22652d57a9eb30fa1b9e1e40c5cbe568e8912166e631",
+    "locking/left/official.png": "b01b0f464a9c4c3aa1d7f475ac8d27aeda919dc50d81e000e395c3e56e14b8b3",
+    "locking/left/model.glb": "17b43d39fd58880f71c34fcc54478e5953b32b51b892b9d23b59bfc2a29600fb",
+    "locking/left/conversion.json": "3140b85c80eb8f4179e8e6ee4398e90b5ec311eb5fd88ec8d9ee0bc1a70106e5"
+  }
+}

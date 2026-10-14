@@ -1,6 +1,11 @@
+> **2026-10-14 최신 정정:** Grid220cm/4칸은 Type02 초기 구조 유지 관찰이며 Type01 판단으로 사용하지 않습니다. Type01 Grid 일반규칙·양개문 및 Type01 손잡이 폭축소 오류 수정. [구조 사례](cases/grid-type01-doors-220.json), [문 틈 사례](cases/type01-handle-gap-pattern-110.json). 정밀 손잡이 메시 동치는 미확인입니다.
+
 # Tylko 레퍼런스 일치 작업
 
 기록 시작: 2026-10-13. 담당: codex-analysis (리더). **진행 중이며 전체 일치를 검증하지 않았다.**
+
+- 사용자 결정 추가: [OVVO / Tylko 클립 두 접합 방식](connector-systems.md). 옵티마이저 선택·저장·가공 분기 구현. 클립 가공 치수·실제 모델·고객 설계 통합은 미완료. [실물 사진 사례](cases/connector-clip-001.json).
+- 다리 장착/잠금핀 분리 근거: [사용자 제공 도면](cases/hardware-leg-mount-001.json). 패널 접합 클립과 별개로 관리.
 
 ## 최신 구현 상태 — 2026-10-13 / 나머지 네 스타일
 
@@ -120,3 +125,36 @@ Pattern/Mosaic가 반환한 실제 칸 경계에서 하드웨어를 생성하도
 분절기만 동일 입력으로 공개 함수와 비교: 신규2,940설정 및 Mosaic960설정일치. 별도정수폭241~450/밀도0~100/4행구성/5스타일의424,200설정에서는 예외와240cm초과부재가없었습니다. 이대량검사는길이·안정성검사이며전체가구생성동치검사가아닙니다. Pattern240.1cm등소수폭규칙공백은미해결로기록합니다.
 
 최종검증: 회귀140개+CNC통합1개통과, 전체lint오류0(기존경고12), webpack production build통과. Chrome하드웨어닫힘·열림,깊이24제약,Classic9색/Blue,Slant분해도확인. 원본하드웨어메시·Type01전체구조·모든옵션동치는미완료입니다.
+
+## 카테고리10종 후속 조사 — 2026-10-13
+
+- [32개 초기 구성 대응표](category-inventory.md):10개 카테고리의 실제 모델 링크·옵션·collection/type, 활성 preset26개 확보.
+- [데이터 출처·분담 및 최신 결론](categories-and-data-provenance.md#5-후속-전수-조사--2026-10-13), [소스 구조 조사](category-source-notes.md).
+- cases/category-*-001.json10개와 screenshots/category-*32개. 로딩preview14개는시각비교불가로표시.
+- 미완료: 모델별 생성공식/다리/분절/개별편집/경계·전환·동치검증. 새 카테고리 제품코드 변경 없음.
+
+## 옷장·제품별 우측 UI 후속 — 2026-10-13
+
+- [옷장 Edge/Tone 조사](wardrobe.md): 추가2모델, Cabinet/type4/v6와 Wardrobe/type3/v4 확인. 현재 총11카테고리34초기모델, 활성preset28개 확보.
+- 외형/내부구성 탭과 구획별 편집, 높이확장, 내부/외부서랍, 조명, 복귀·새로고침을14개 JSON/PNG 사례에 기록.
+- [제품별 패널 구분](appearance-and-interactions.md): category만으로 옵션을 공유하지 않고 제품군/구조/편집상태별 순서·범위·조건부 UI를 분리할 것.
+- 옷장 생성기·다리·분절·전체 내부배치·모바일 및 Befun 동치 구현은 미완료.
+
+## 구현 작업 지시서 — 4인 공통 R1.1
+
+[개발 계획 및 담당자별 지시서](../development/furniture-parity/README.md)에 리더·Claude-1·Claude-2·Codex-보조의 담당 파일, 작업 순서, 공통 인터페이스, 검증·인계 기준을 정리했습니다. [공통 계약](../development/furniture-parity/contracts.md)은 신규 개발의 일관성 기준이며 기존 조사 사실과 구분합니다. 공유 TypeScript 계약은 리더 구현 전 상태입니다.
+
+## 인원 정정 — 5인 개발 R1.2
+
+이전4인 집계는 오류입니다. 리더 + Claude UI + Claude 하드웨어 + Codex 검증 + Codex 쇼핑몰 연결의 총5인입니다. [최신 개발 계획과 실제 Codex 작업 식별표](../development/furniture-parity/README.md)를 사용합니다. Claude의 실제 대화명은 미확인으로 명시했습니다.
+
+
+### 상세 갤러리 재질 전환
+- [관찰 및 구현 기록](gallery-materials.md), [원본 사례](cases/gallery-materials-001.json), [Befun 검증](cases/gallery-materials-001-befun.json). 기본 컨피규레이터에서12종×8장 전환 구현. 다른 제품군과 모바일 원본 시각 동치는 별도 검증 대상.
+
+
+- 2026-10-14 갤러리 후속: 선반·사이드보드 원본464장·재질아이콘29개 로컬 저장 및 색상 연결. [검증 기록](cases/gallery-materials-004-local.json), [범위와 제한](gallery-materials.md). 다른 제품군/스타일별 사진 대응은 미완료.
+
+### 2026-10-14 장다리 실제 연결
+- [장다리 배치·단위·제약 및 검증 한계](hardware-leg-placement-001.md), [실물 장착 영상/4장](cases/hardware-leg-mount-002.json), [비펀 연결 사례](cases/legs-001.json).
+- Standard/Legs 실제 화면·높이·로컬 저장 복원 연결. 전체 제품군 동치/Plinth/정밀 타공/다리 조립 안내는 미완료.

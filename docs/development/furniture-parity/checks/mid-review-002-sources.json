@@ -1,0 +1,86 @@
+{
+  "recordedAt": "2026-10-13T14:27:16.006811+00:00",
+  "scope": "source checkpoint; UI runtime and full Tylko parity not verified",
+  "files": [
+    {
+      "path": "src/types/furniture.ts",
+      "exists": true,
+      "sha256": "0cc24b6f5cbadf14e56cd529fffb6c0adb66e23c849df98e1d39604f92f34f76"
+    },
+    {
+      "path": "src/components/ui/furniture-panels/types.ts",
+      "exists": true,
+      "sha256": "433a069977a464f1a119562a594b2fc9eb635304bc9c4535caf2fde84e070b21"
+    },
+    {
+      "path": "src/components/ui/furniture-panels/controls.tsx",
+      "exists": true,
+      "sha256": "e97a471f08efae816c23fba47fc67e0ee52ef5532b9aaf53b46d56c78270f053"
+    },
+    {
+      "path": "src/components/ui/furniture-panels/FurniturePanel.tsx",
+      "exists": true,
+      "sha256": "db01f719aa8404db03df3cdc91c0fa58ec620f5db0cef815ca8461b57bf9b767"
+    },
+    {
+      "path": "src/components/three/furniture-hardware/specs/observedHardware.ts",
+      "exists": true,
+      "sha256": "f3c903cce59b6ba9985e22a019d226118610b05031de23d17d4cfb5542816bbe"
+    },
+    {
+      "path": "src/components/three/furniture-hardware/legs.tsx",
+      "exists": true,
+      "sha256": "3ec3fdf956dbfeccb192d5371432e0bd8f99ad98833e7bb9ea30c75e4e8b1e95"
+    },
+    {
+      "path": "src/components/three/furniture-hardware/handles.tsx",
+      "exists": true,
+      "sha256": "5a9f67f8dbd27a2340bfc096109d4fcf5573f0b81e6b41baeaa1590db8c41675"
+    },
+    {
+      "path": "src/components/three/Shelf.tsx",
+      "exists": true,
+      "sha256": "6448d3adac7ce87f8406cc52316e135af3b04b2ca6b5d54be22d0936bb3dbb33"
+    },
+    {
+      "path": "src/components/three/Panel.tsx",
+      "exists": true,
+      "sha256": "df4b4c432b72222f2cfa5ff2d850bbb7bcec1b36b4da634bf2466805db8dcf1f"
+    },
+    {
+      "path": "src/components/storefront/configuration.ts",
+      "exists": true,
+      "sha256": "9438fc6e4c37f9903bc143300ce7e1439ee2b4faffc889c0ceb64bc6a38514ec"
+    },
+    {
+      "path": "src/lib/sharing.ts",
+      "exists": true,
+      "sha256": "fbfa55b201e1948164d9f2c29e7ddc2a36da2fa8e0d52cc43610ae2cee8e474a"
+    },
+    {
+      "path": "src/lib/optimizer/connectors/apply.ts",
+      "exists": true,
+      "sha256": "286e15a87fd21f94e11d51e505456fc0fa782c730962f5e7bc38cf8c4921bcba"
+    },
+    {
+      "path": "src/lib/optimizer/connectors/validation.ts",
+      "exists": true,
+      "sha256": "6ef807425765d769048e2a1ba5d1030c17d4fc8ef6d1eeef1c0d21575d0f13ba"
+    },
+    {
+      "path": "src/lib/optimizer/befun/toCncPanels.ts",
+      "exists": true,
+      "sha256": "8cdd4386bef2ad58b1e743d985cceb3c6eef5dc09f2e4e3bdb294aadcf9af94e"
+    },
+    {
+      "path": "src/app/assembly-guide/page.tsx",
+      "exists": true,
+      "sha256": "7aceab8c9fac2a8c72fb4b80bd563a0d860dd6724e3b70af629a7b34f911dd46"
+    },
+    {
+      "path": "src/components/assembly-guide/AssemblyGuide.tsx",
+      "exists": false,
+      "sha256": null
+    }
+  ]
+}

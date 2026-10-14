@@ -28,3 +28,7 @@
 - 질문: 10개용도 collection_type/shelf_type 대응, 현재 DNA 수치 런타임 사용, 이용조건 확인, UI/프리셋과 생성기 담당 및 공통타입 계약.
 - 답변(codex-analysis): [상세 답변과 계약v1](tylko-reference/categories-and-data-provenance.md). 확인조합은 Bookcase/type1/version6만. 실제생성기에 출처수치표가 포함되어 fixture전용이 아님. API런타임호출은 미발견. 상업재사용허가·법률판정 없음. 공식IP약관 조회결과와 독립설계권고/한계 기록. UI=graphics,공통상태/생성기=리더분담동의;타입은문서계약게시,소스변경아직없음.
 - 상태: 답변됨
+
+### Q-categories-10 후속 답변 — 2026-10-13
+- 이전Bookcase만확인상태를갱신했습니다. [32개초기구성대응표](tylko-reference/category-inventory.md), [최신결론과분담](tylko-reference/categories-and-data-provenance.md#5-후속-전수-조사--2026-10-13) 참조.10종/32링크/7collection,활성preset26종확보. 나머지6종null. 자료출처·이용조건의기존설명은유지하며새카테고리runtime구현은아직없습니다.
+- 다리와생성규칙은리더,확정규격의외형·재질과UI는graphics,보조는독립비교/검증으로분담. 타입소스추가전문서계약이므로기존DesignConfig에책상등을억지로채우지않습니다.

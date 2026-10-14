@@ -1,0 +1,151 @@
+{
+  "caseId": "category-wardrobe-tone-003",
+  "model": "Tone",
+  "observedAt": "2026-10-13T12:03:25.542Z",
+  "sourceUrl": "https://tylko.com/de-de/mobel/kleiderschrank/92243,w",
+  "steps": [
+    "tone-002 > Standard"
+  ],
+  "ui": "- main:\n  - complementary:\n    - paragraph:\n      - link \"Tylko Club ist da. Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\":\n        - /url: /de-de/register-or-login/join-club\n        - strong: Tylko Club ist da.\n        - text: Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\n  - link:\n    - /url: /de-de\n  - list:\n    - link \"Shop\":\n      - /url: /de-de/mobel-c\n    - link \"Community\":\n      - /url: /de-de/inspirations\n    - link \"Tylko Pro\":\n      - /url: /de-de/tylko-pro\n    - link \"Showrooms\":\n      - /url: /de-de/showrooms\n    - link \"Tylko Club\":\n      - /url: /de-de/tylko-club\n  - list:\n    - button:\n    - link:\n      - /url: /de-de/account\n    - link:\n      - /url: /de-de/wunschliste\n    - link:\n      - /url: /de-de/cart/\n  - main:\n    - complementary:\n      - heading \"Kleiderschrank in Weiß mit Innenschubladen und Kleiderstange\" [level=1]\n      - paragraph:\n        - generic: 3024 €\n        - generic: \"| sparen\"\n        - generic: 1149 €\n        - generic: zu\n        - generic: \"13.10\"\n        - generic: 1875 €\n      - paragraph: \"Niedrigster Preis in den letzten 30 Tagen: 2272 €\"\n      - button \"Aussehen\"\n      - button \"Ausstattung\"\n      - generic: Aussehen\n      - paragraph: Breite\n      - slider:\n        - generic: 100cm\n      - paragraph: Höhe\n      - button \"200cm\"\n      - button \"237cm\"\n      - button \"Höhe+\"\n      - generic: 237cm\n      - paragraph: Tiefe\n      - slider:\n        - generic: 53cm\n      - paragraph: Bereit, deinen Raum auszumessen? Anleitung ansehen\n      - paragraph: Beleuchtung\n      - button \"Keine\"\n      - button \"Innen\"\n      - generic: Keine\n      - paragraph: Außen\n      - list:\n        - button\n        - button\n        - button\n      - paragraph: Innen\n      - list:\n        - button\n        - button\n        - button\n        - button\n        - button\n      - generic: Unentschlossen?\n      - generic: Muster bestellen\n      - button \"In den Warenkorb\":\n        - generic: In den Warenkorb\n      - button \"Entwurf speichern\":\n        - generic: Entwurf speichern\n      - complementary:\n        - paragraph: Versand in 4-5 Wochen\n        - paragraph: Maßangefertigt in der EU\n      - paragraph: Zahlungsinformationen\n      - paragraph: Lieferung & Rückgabe\n      - button:\n      - button:\n      - button:\n      - button:\n      - button:\n",
+  "sliders": [
+    {
+      "max": "600.0",
+      "min": "40.0",
+      "text": "100cm",
+      "value": "100.0"
+    },
+    {
+      "max": "80.0",
+      "min": "40.0",
+      "text": "53cm",
+      "value": "53.0"
+    }
+  ],
+  "geometry": null,
+  "hiddenSeed": null,
+  "screenshots": [
+    "screenshots/category-wardrobe-tone-003-reference.png"
+  ],
+  "sourceIntro": {
+    "observedAt": "2026-10-13T12:00:44.511Z",
+    "edgeUrl": "https://tylko.com/de-de/mobel/kleiderschrank/235218,w",
+    "toneUrl": "https://tylko.com/de-de/mobel/kleiderschrank/92243,w"
+  },
+  "initialState": {
+    "observedAt": "2026-10-13T12:02:53.714Z",
+    "dna": [
+      {
+        "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=3&collection_type=Wardrobe&dna_version=4",
+        "status": 200
+      }
+    ],
+    "preset": {
+      "id": 92243,
+      "category": "wardrobe",
+      "furniture_type": "watty",
+      "configurator_type": 3,
+      "shelf_type": 3,
+      "shelf_category": "wardrobe",
+      "width": 1000,
+      "height": 2000,
+      "depth": 530,
+      "pattern": 0,
+      "material": 0,
+      "configurator_params": {
+        "depth": 530,
+        "width": 1000,
+        "height": 2000,
+        "density": 0,
+        "geom_id": 2321,
+        "lighting": false,
+        "material": 0,
+        "geom_type": "mesh",
+        "distortion": 0,
+        "drawer_style": "internal",
+        "additional_parameters": {
+          "collection_type": "Wardrobe",
+          "doors_direction": 1
+        },
+        "configurator_custom_params": {
+          "lines": {},
+          "channels": {
+            "1": {
+              "order": -1,
+              "cables": null,
+              "local_x": "122",
+              "door_flip": null,
+              "series_id": 3739,
+              "distortion": null,
+              "exposition": null
+            },
+            "2": {
+              "order": -1,
+              "cables": null,
+              "local_x": null,
+              "door_flip": null,
+              "series_id": 3742,
+              "distortion": null,
+              "exposition": null
+            },
+            "3": {
+              "order": -1,
+              "cables": null,
+              "local_x": null,
+              "door_flip": 2,
+              "series_id": 3747,
+              "distortion": null,
+              "exposition": null
+            },
+            "4": {
+              "order": -1,
+              "cables": null,
+              "local_x": null,
+              "door_flip": null,
+              "series_id": 3747,
+              "distortion": null,
+              "exposition": null
+            },
+            "5": {
+              "order": -1,
+              "cables": null,
+              "local_x": null,
+              "door_flip": null,
+              "series_id": 3743,
+              "distortion": null,
+              "exposition": null
+            },
+            "6": {
+              "order": -1,
+              "cables": null,
+              "local_x": null,
+              "door_flip": null,
+              "series_id": 3743,
+              "distortion": null,
+              "exposition": null
+            }
+          }
+        }
+      },
+      "physical_product_version": 3
+    },
+    "presetUrl": "https://tylko.com/api/v1/watty_configurator/92243/"
+  },
+  "measurement": {
+    "uiUnit": "cm",
+    "apiDimensionUnit": "mm",
+    "physicalPrecision": null,
+    "sliderStep": null,
+    "notes": "Slider limits are observed attributes in this state; rendered cm labels are not exact manufacturing coordinates."
+  },
+  "unverified": [
+    "All layout thumbnails and width thresholds",
+    "Per-panel join positions",
+    "Feet dimensions and attachment details",
+    "All material and depth interactions",
+    "Befun equivalence"
+  ],
+  "currentInternalParameters": null,
+  "observations": [
+    "Standard changes height238→237, not original200"
+  ]
+}

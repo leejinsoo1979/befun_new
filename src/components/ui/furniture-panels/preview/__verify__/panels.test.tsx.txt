@@ -1,0 +1,127 @@
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen, fireEvent, within, act } from '@testing-library/react';
+import { FurniturePanel } from '@/components/ui/furniture-panels';
+import { WardrobePanelsPreview } from '@/components/ui/furniture-panels/preview/WardrobePanelsPreview';
+import { edgeView, EDGE_INITIAL, toneView, TONE_INITIAL } from '@/components/ui/furniture-panels/preview/wardrobeFixtures';
+import type { FurniturePanelView } from '@/components/ui/furniture-panels';
+
+const edge = () => within(screen.getByTestId('edge-panel'));
+const tone = () => within(screen.getByTestId('tone-panel'));
+
+describe('Edge 옷장 패널', () => {
+  it('외형 탭 항목 순서가 관찰과 같다', () => {
+    render(<WardrobePanelsPreview />);
+    const ids = [...screen.getByTestId('edge-panel').querySelectorAll('[data-control-id]')].map(e => e.getAttribute('data-control-id'));
+    expect(ids).toEqual(['width', 'height', 'depth', 'sections', 'topEdge', 'finish', 'color']);
+  });
+  it('내부 구성 탭 순서·구획 선택', () => {
+    render(<WardrobePanelsPreview />);
+    fireEvent.click(edge().getByRole('tab', { name: '내부 구성' }));
+    const ids = [...screen.getByTestId('edge-panel').querySelectorAll('[data-control-id]')].map(e => e.getAttribute('data-control-id'));
+    expect(ids).toEqual(['layout', 'facade', 'cableChannel', 'doorDirection', 'sectionHeight', 'sectionDepth']);
+    expect(edge().getByRole('radio', { name: '구획 2' })).toHaveAttribute('aria-checked', 'true');
+  });
+  it('edge-002→003→004: 전면 오픈이면 문 방향 숨김, 닫힘으로 복귀하면 다시 표시', () => {
+    render(<WardrobePanelsPreview />);
+    fireEvent.click(edge().getByRole('tab', { name: '내부 구성' }));
+    expect(edge().queryByRole('radiogroup', { name: '문 방향' })).not.toBeNull();
+    fireEvent.click(edge().getByRole('radio', { name: '오픈' }));
+    expect(edge().queryByRole('radiogroup', { name: '문 방향' })).toBeNull();
+    fireEvent.click(edge().getByRole('radio', { name: '닫힘' }));
+    expect(edge().queryByRole('radiogroup', { name: '문 방향' })).not.toBeNull();
+  });
+  it('구획 조작은 선택 구획 ID로만 intent를 보낸다(다른 구획 불변)', () => {
+    const onIntent = vi.fn();
+    render(<FurniturePanel view={edgeView(EDGE_INITIAL, 's2')} onIntent={onIntent} activeTabId="interior" />);
+    fireEvent.click(screen.getByRole('radio', { name: '오픈' }));
+    expect(onIntent).toHaveBeenCalledWith({ type: 'set', controlId: 'facade', target: { scope: 'section', sectionId: 's2' }, value: 'open' });
+  });
+  it('구획2 변경 후 구획1로 바꾸면 구획1 값은 그대로', () => {
+    render(<WardrobePanelsPreview />);
+    fireEvent.click(edge().getByRole('tab', { name: '내부 구성' }));
+    fireEvent.click(edge().getByRole('radio', { name: '오픈' }));            // 구획2 오픈
+    fireEvent.click(edge().getByRole('radio', { name: '1' }));               // 구획1 선택
+    expect(edge().getByRole('radio', { name: '닫힘' })).toHaveAttribute('aria-checked', 'true');
+    expect(edge().queryByRole('radiogroup', { name: '문 방향' })).not.toBeNull();
+  });
+  it('전역 슬라이더는 global target과 숫자 값을 보낸다', () => {
+    const onIntent = vi.fn();
+    render(<FurniturePanel view={edgeView(EDGE_INITIAL, 's1')} onIntent={onIntent} />);
+    fireEvent.change(screen.getByRole('slider', { name: '너비' }), { target: { value: '160' } });
+    expect(onIntent).toHaveBeenLastCalledWith({ type: 'set', controlId: 'width', target: { scope: 'global' }, value: 160 });
+    expect(screen.getByRole('slider', { name: '너비' })).toHaveAttribute('step', 'any');
+  });
+  it('이미 선택된 값을 다시 눌러도 intent를 보내지 않는다', () => {
+    const onIntent = vi.fn();
+    render(<FurniturePanel view={edgeView(EDGE_INITIAL, 's1')} onIntent={onIntent} />);
+    fireEvent.click(screen.getByRole('radio', { name: '60cm' }));
+    expect(onIntent).not.toHaveBeenCalled();
+  });
+});
+
+describe('Tone 옷장 패널', () => {
+  it('외형 탭 순서', () => {
+    render(<WardrobePanelsPreview />);
+    const ids = [...screen.getByTestId('tone-panel').querySelectorAll('[data-control-id]')].map(e => e.getAttribute('data-control-id'));
+    expect(ids).toEqual(['width', 'height', 'depth', 'measureGuide', 'lighting', 'outerColor', 'innerColor']);
+  });
+  it('tone-001→002→003: 높이+ 는 슬라이더(238–360), 기본은 237 선택', () => {
+    render(<WardrobePanelsPreview />);
+    fireEvent.click(tone().getByRole('button', { name: '높이+' }));
+    const s = tone().getByRole('slider', { name: '높이 (높이+)' });
+    expect(s).toHaveAttribute('min', '238'); expect(s).toHaveAttribute('max', '360'); expect((s as HTMLInputElement).value).toBe('238');
+    fireEvent.click(tone().getByRole('button', { name: '기본' }));
+    expect(tone().getByRole('radio', { name: '237cm' })).toHaveAttribute('aria-checked', 'true');
+  });
+  it('tone-006→007→008: 조명 내부일 때만 후면 4cm 안내', () => {
+    render(<WardrobePanelsPreview />);
+    expect(tone().queryByText(/4cm 여유/)).toBeNull();
+    fireEvent.click(tone().getByRole('radio', { name: '내부' }));
+    expect(tone().getByText(/4cm 여유/)).toBeTruthy();
+    fireEvent.click(tone().getByRole('radio', { name: '없음' }));
+    expect(tone().queryByText(/4cm 여유/)).toBeNull();
+  });
+  it('tone-004→005: 서랍 외부 선택 intent', () => {
+    const onIntent = vi.fn();
+    render(<FurniturePanel view={toneView(TONE_INITIAL)} onIntent={onIntent} activeTabId="interior" />);
+    fireEvent.click(screen.getByRole('radio', { name: '외부' }));
+    expect(onIntent).toHaveBeenCalledWith({ type: 'set', controlId: 'drawers', target: { scope: 'global' }, value: 'external' });
+  });
+});
+
+describe('공통 상태·키보드', () => {
+  const base = edgeView(EDGE_INITIAL, 's1');
+  const mut = (fn: (v: FurniturePanelView) => void) => { const v = structuredClone(base); fn(v); return v; };
+  it('hidden 컨트롤은 렌더하지 않는다', () => {
+    render(<FurniturePanel view={mut(v => { v.tabs[0].controls[2].visible = false; })} onIntent={() => {}} />);
+    expect(screen.queryByRole('radiogroup', { name: '깊이' })).toBeNull();
+  });
+  it('disabled 컨트롤은 intent를 보내지 않고 사유를 보여 준다', () => {
+    const onIntent = vi.fn();
+    render(<FurniturePanel view={mut(v => { Object.assign(v.tabs[0].controls[2], { enabled: false, disabledReason: '이 구성에서는 깊이를 바꿀 수 없습니다.' }); })} onIntent={onIntent} />);
+    const r = screen.getByRole('radio', { name: '27cm' });
+    expect(r).toBeDisabled(); fireEvent.click(r); expect(onIntent).not.toHaveBeenCalled();
+    expect(screen.getByText('이 구성에서는 깊이를 바꿀 수 없습니다.')).toBeTruthy();
+  });
+  it('비활성 옵션은 화살표 이동에서 건너뛴다', () => {
+    const onIntent = vi.fn();
+    render(<FurniturePanel view={mut(v => { const c = v.tabs[0].controls[2] as any; c.value = '27'; c.options[1].enabled = false; })} onIntent={onIntent} />);
+    fireEvent.keyDown(screen.getByRole('radio', { name: '27cm' }), { key: 'ArrowRight' });
+    expect(onIntent).toHaveBeenLastCalledWith(expect.objectContaining({ controlId: 'depth', value: '45' }));
+  });
+  it('탭은 화살표 키로 이동한다(role=tab, aria-selected)', () => {
+    render(<FurniturePanel view={base} onIntent={() => {}} />);
+    fireEvent.keyDown(screen.getByRole('tab', { name: '외형' }), { key: 'ArrowRight' });
+    expect(screen.getByRole('tab', { name: '내부 구성' })).toHaveAttribute('aria-selected', 'true');
+    expect(document.activeElement).toBe(screen.getByRole('tab', { name: '내부 구성' }));
+  });
+  it('라디오 그룹은 roving tabindex(선택 항목만 tabIndex 0)', () => {
+    render(<FurniturePanel view={base} onIntent={() => {}} />);
+    const radios = within(screen.getByRole('radiogroup', { name: '깊이' })).getAllByRole('radio');
+    expect(radios.map(r => r.tabIndex)).toEqual([-1, -1, -1, 0]);
+  });
+  it('preview 표시가 보인다', () => {
+    render(<FurniturePanel view={base} onIntent={() => {}} />);
+    expect(screen.getByRole('status').textContent).toMatch(/PREVIEW · 3D 미연결/);
+  });
+});

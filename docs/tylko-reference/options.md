@@ -58,3 +58,9 @@ Ohne/OFF도 설계표에 지정된 기본 부분 뒷판을 유지한다. 전체 
 - 문/서랍 None·Some·Max 결과를 스타일 생성기에서 결정하고 화면·CNC에 같은 front를 전달합니다. Pixel UI에서 하단 서랍Max 선택 시 도어None으로 상호 배제됨을 확인했습니다(`pixel-hardware-ui-002`).
 - Grid 축 간격568mm 초과는 이등분됩니다. Pixel 밀도46~54는50으로 정규화됩니다. Slant는 폭에 따라 밀도 remap이 있어 특정 폭에서는0과100의 결과가 같을 수 있습니다. 상세 수치 규칙은 스타일 문서/fixture 참조.
 - UI 폭 표시263cm와 slider aria263.3의 내부 변환은 미확인입니다. 소수폭 rule gap에서 공개 디코더가 기형 구조를 반환하는 사례가 있으므로 공개 함수 결과 일치와 정상 구매 가능 범위를 구분합니다. 허용범위/단위 전체를 확정한 것으로 처리하지 않습니다.
+
+## Befun 사용자 요구 확장 — Classic/Natural 금속 다리 / 2026-10-14
+- Tylko 관찰과 별개인 사용자 직접 요구. Classic/Natural에서 Legs 허용, 다리 색상은 실버 메탈(silver)/블랙(black), 기본 silver. Solid/Mix는 기존 본체 색상 다리 유지.
+- 옵션 노출: Classic/Natural + Legs일 때만. Standard↔Legs 또는 마감 변경 시 사용자가 선택한 금속 다리 색상은 유지. 깊이24cm/Pixel은 기존 Legs 제약 유지.
+- 저장/공유 필드 legFinish. 구버전 누락은 silver로 복원, 로컬 parser의 알 수 없는 enum은 거부. 3D는 목재 map과 독립된 재질을 사용.
+- 관찰 사례/검증: cases/legs-002-metal-finishes.json. 공급사 실물 금속 표면 측정값은 없으며 roughness/metalness는 Befun 표시 설정.

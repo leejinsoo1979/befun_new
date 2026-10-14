@@ -1,0 +1,97 @@
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { FurniturePanel } from '@/components/ui/furniture-panels';
+import type { FurniturePanelView, FurnitureControl, ChoiceOption } from '@/types/furniture';
+
+const G = { scope: 'global' } as const;
+const view = (profile: string, controls: FurnitureControl[]): FurniturePanelView =>
+  ({ panelProfileId: profile, layout: 'single', tabs: [{ id: 't', label: 't', controls }], sections: [], selectedSectionId: null });
+const width = (value: number, min = 40, max = 600, numberInput = false): FurnitureControl =>
+  ({ kind: 'slider', id: 'width', label: '너비', target: G, visible: true, enabled: true, value, min, max, step: null, unit: 'cm', numberInput });
+const choice = (value: string | null, options: ChoiceOption[], enabled = true): FurnitureControl =>
+  ({ kind: 'choice', id: 'depth', label: '깊이', target: G, visible: true, enabled, variant: 'pill', value, options });
+
+describe('UI-REVIEW-002 표시값은 항상 view', () => {
+  it('드래그 → pointercancel(blur 없음) → 새 view(범위 변경) 전달 시 새 값을 표시', () => {
+    const onIntent = vi.fn();
+    const { rerender } = render(<FurniturePanel view={view('edge', [width(100)])} onIntent={onIntent} />);
+    const s = screen.getByRole('slider', { name: '너비' });
+    fireEvent.change(s, { target: { value: '300' } });
+    expect(onIntent).toHaveBeenLastCalledWith({ type: 'set', controlId: 'width', target: G, value: 300 });
+    fireEvent.pointerCancel(s);
+    expect(onIntent).toHaveBeenCalledTimes(1); // cancel이 별도 intent를 만들지 않음
+    rerender(<FurniturePanel view={view('edge', [width(120, 80, 200)])} onIntent={onIntent} />);
+    expect(s).toHaveValue('120'); expect(s).toHaveAttribute('aria-valuetext', '120cm'); expect(s).toHaveAttribute('max', '200');
+  });
+  it('거절된 값(같은 view 재전달)이면 원래 값으로 돌아간다', () => {
+    const { rerender } = render(<FurniturePanel view={view('edge', [width(100)])} onIntent={() => {}} />);
+    const s = screen.getByRole('slider', { name: '너비' });
+    fireEvent.change(s, { target: { value: '590' } });
+    rerender(<FurniturePanel view={view('edge', [width(100)])} onIntent={() => {}} />);
+    expect(s).toHaveValue('100');
+  });
+  it('숫자 입력: 보정된 값이 view로 오면 그 값을 표시', () => {
+    let v = 100;
+    const onIntent = vi.fn((i) => { if (i.type === 'set') v = Math.min(Number(i.value), 600); });
+    const { rerender } = render(<FurniturePanel view={view('tone', [width(v, 40, 600, true)])} onIntent={onIntent} />);
+    const input = screen.getByRole('spinbutton', { name: '너비 직접 입력' });
+    fireEvent.change(input, { target: { value: '999' } }); fireEvent.keyDown(input, { key: 'Enter' });
+    rerender(<FurniturePanel view={view('tone', [width(v, 40, 600, true)])} onIntent={onIntent} />);
+    expect(input).toHaveValue(600);
+  });
+  it('숫자 입력 중 외부 값이 바뀌면 입력 중 글자를 버리고 blur해도 intent 없음', () => {
+    const onIntent = vi.fn();
+    const { rerender } = render(<FurniturePanel view={view('tone', [width(100, 40, 600, true)])} onIntent={onIntent} />);
+    const input = screen.getByRole('spinbutton', { name: '너비 직접 입력' });
+    fireEvent.change(input, { target: { value: '250' } });
+    rerender(<FurniturePanel view={view('tone', [width(140, 40, 600, true)])} onIntent={onIntent} />);
+    expect(input).toHaveValue(140);
+    fireEvent.blur(input);
+    expect(onIntent).not.toHaveBeenCalled();
+  });
+  it('숫자 입력 중 제품 profile A→B(같은 controlId) 후 blur: A의 입력값으로 intent를 보내지 않음', () => {
+    const onIntent = vi.fn();
+    const { rerender } = render(<FurniturePanel view={view('tone-low', [width(100, 40, 600, true)])} onIntent={onIntent} />);
+    fireEvent.change(screen.getByRole('spinbutton', { name: '너비 직접 입력' }), { target: { value: '250' } });
+    rerender(<FurniturePanel view={view('tone-14', [width(100, 40, 600, true)])} onIntent={onIntent} />);
+    const inputB = screen.getByRole('spinbutton', { name: '너비 직접 입력' });
+    expect(inputB).toHaveValue(100);
+    fireEvent.blur(inputB);
+    expect(onIntent).not.toHaveBeenCalled();
+  });
+});
+
+describe('UI-REVIEW-003 비활성 옵션과 키보드 진입점', () => {
+  const tabbable = () => screen.getAllByRole('radio').filter((r) => r.tabIndex === 0).map((r) => r.textContent);
+  const opts = (dis: string[]) => ['24', '32', '40'].map((id) => ({ id, label: id, enabled: !dis.includes(id) }));
+  it('미선택 + 첫 옵션 비활성 → 첫 활성 옵션이 진입점, aria-checked 없음', () => {
+    render(<FurniturePanel view={view('v', [choice(null, opts(['24']))])} onIntent={() => {}} />);
+    expect(tabbable()).toEqual(['32']);
+    expect(screen.getAllByRole('radio').every((r) => r.getAttribute('aria-checked') === 'false')).toBe(true);
+  });
+  it('선택값이 비활성 → 첫 활성 옵션이 진입점, 선택 표시는 유지', () => {
+    render(<FurniturePanel view={view('v', [choice('24', opts(['24', '32']))])} onIntent={() => {}} />);
+    expect(tabbable()).toEqual(['40']);
+    expect(screen.getByRole('radio', { name: '24' })).toHaveAttribute('aria-checked', 'true');
+  });
+  it('선택값이 활성이면 그대로 진입점', () => {
+    render(<FurniturePanel view={view('v', [choice('40', opts(['24']))])} onIntent={() => {}} />);
+    expect(tabbable()).toEqual(['40']);
+  });
+  it('전체 비활성 → 진입점 없음, 클릭해도 intent 없음', () => {
+    const onIntent = vi.fn();
+    render(<FurniturePanel view={view('v', [choice(null, opts([]), false)])} onIntent={onIntent} />);
+    expect(tabbable()).toEqual([]);
+    fireEvent.click(screen.getByRole('radio', { name: '32' }));
+    expect(onIntent).not.toHaveBeenCalled();
+  });
+  it('Tab 진입 후 화살표로 비활성 건너뛰기', () => {
+    const onIntent = vi.fn();
+    render(<FurniturePanel view={view('v', [choice(null, opts(['24']))])} onIntent={onIntent} />);
+    const r32 = screen.getByRole('radio', { name: '32' });
+    r32.focus(); fireEvent.keyDown(r32, { key: 'ArrowRight' });
+    expect(onIntent).toHaveBeenLastCalledWith({ type: 'set', controlId: 'depth', target: G, value: '40' });
+    fireEvent.keyDown(screen.getByRole('radio', { name: '40' }), { key: 'ArrowRight' });
+    expect(onIntent).toHaveBeenLastCalledWith({ type: 'set', controlId: 'depth', target: G, value: '32' });
+  });
+});

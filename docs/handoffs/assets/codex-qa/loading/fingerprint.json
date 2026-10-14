@@ -1,0 +1,10 @@
+{
+  "src/components/ui/ConfiguratorLoading.tsx": "3bbaa42fd8ad1c49bde54fc085927538de1378b0972ead95e857b115dbacde3e",
+  "src/components/ui/configurator-loading.module.css": "8a1c34db71759b05269fef89c8d52980ce05712c070ccfe1ef36c139a90c50b6",
+  "src/components/three/SceneReady.tsx": "9d72ae089a6951fcc21c59eb2ef179e9825f242f13a19fb3599789e8796725b2",
+  "src/components/three/Scene.tsx": "b7196739413b3fd5b576a7e28c71f90574e434b41e606b12bf4ceda691da5ebc",
+  "src/components/furniture/FurnitureScene.tsx": "1bff3844f72d5e0b0b0125777ac76d643f94ab08a09c3c01629f589d97b77f3b",
+  "src/components/furniture/FurnitureConfigurator.tsx": "974095a44db649516abeb257723fee4f608ee317659422cb8e32c238bf7b5619",
+  "src/components/storefront/ProductConfigurator.tsx": "52ce0754f4c8adc056f6a3e421ff591d186f9c6568c19f75bc5c38a96192e754",
+  "src/app/configurator/page.tsx": "d91f6187739eab37af78eff8c54b22c7680472126ffce6cc1006b960e7b315a3"
+}

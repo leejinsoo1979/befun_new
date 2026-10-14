@@ -9,9 +9,10 @@ import type { BlumDoorPlan } from '@/lib/three/blum/boring';
 import { BlumCup } from './blum/BlumHardware';
 import type { MaterialSet } from '@/lib/three/materials';
 import type { DoorPlacement } from '@/lib/three/hardware';
+import { createType01Handle } from '@/lib/three/type01-handle';
 
 useGLTF.preload('/models/handle_door.glb');
-useGLTF.preload('/models/handle_drawer_unit.glb');
+
 
 
 interface DoorProps {
@@ -29,7 +30,7 @@ export function Door({ placement, materials, isOpen, thickness, blum, revealBore
   const reference = placement.reference;
   const isReference = !!reference;
   const handleGltf = useGLTF('/models/handle_door.glb');
-  const fullHandleGltf = useGLTF('/models/handle_drawer_unit.glb');
+
 
   const panelThickness = reference?.thickness ?? thickness;
   const frontOffsetY = reference?.frontOffsetY ?? 0;
@@ -66,27 +67,13 @@ export function Door({ placement, materials, isOpen, thickness, blum, revealBore
     group.add(clone);
     return group;
   }, [handleGltf.scene, materials.backPanel, isReference]);
-  const fullSize = reference?.handleSize;
-  const fullWidth = fullSize?.w ?? 1;
-  const fullHeight = fullSize?.h ?? 1;
-  const fullDepth = fullSize?.d ?? 1;
-  const fullHandleScene = useMemo(() => {
-    // Temporary local profile: source anchor/bounds are exact; the reference
-    // skeleton GLB has not been obtained, so its cross-section is not claimed.
-    const clone = fullHandleGltf.scene.clone();
-    clone.rotation.z = Math.PI / 2;
-    clone.traverse(child => {
-      if ((child as THREE.Mesh).isMesh) (child as THREE.Mesh).material = materials.backPanel;
-    });
-    clone.updateMatrixWorld(true);
-    const bounds = new THREE.Box3().setFromObject(clone);
-    const size = bounds.getSize(new THREE.Vector3());
-    clone.position.sub(bounds.getCenter(new THREE.Vector3()));
-    const group = new THREE.Group();
-    group.add(clone);
-    group.scale.set(fullWidth / size.x, fullHeight / size.y, fullDepth / size.z);
-    return group;
-  }, [fullHandleGltf.scene, materials.backPanel, fullWidth, fullHeight, fullDepth]);
+  const fullKind = reference?.handleKind;
+  const fullHeight = reference?.handleSize?.h ?? 1;
+  const fullHandleGeometry = useMemo(() =>
+    fullKind === 'full-left' || fullKind === 'full-right'
+      ? createType01Handle(fullKind, fullHeight) : null,
+  [fullKind, fullHeight]);
+  useEffect(() => () => fullHandleGeometry?.dispose(), [fullHandleGeometry]);
   const handle = reference ? reference.handle : { x: -placement.width + 7.5, y: placement.height / 2 - .15, z: 1.1 };
   const sign = blum?.side === 'left' ? 1 : -1;
   const pivot: [number,number,number] = [placement.pivotOffsetX - sign * placement.width / 2, 0, -panelThickness/2];
@@ -96,8 +83,10 @@ export function Door({ placement, materials, isOpen, thickness, blum, revealBore
     <group ref={groupRef} position={pivot} userData={{displayDoorPivot:true}}>
     <group position={[-pivot[0],0,-pivot[2]]}>
       <mesh geometry={geometry} material={materials.backPanel} castShadow={false} receiveShadow />
-      {handle && <primitive object={reference?.handleKind === 'full-left' || reference?.handleKind === 'full-right' ? fullHandleScene : handleScene} position={[handle.x, handle.y, handle.z]}
-        rotation={[0, 0, reference?.handleRotation ?? 0]} />}
+      {handle && (fullHandleGeometry
+        ? <mesh geometry={fullHandleGeometry} material={materials.backPanel} position={[handle.x, handle.y, handle.z]} castShadow receiveShadow />
+        : <primitive object={handleScene} position={[handle.x, handle.y, handle.z]}
+          rotation={[0, 0, reference?.handleRotation ?? 0]} />)}
       <group visible={!revealBores} userData={{displayRestoreVisible:true}}>
       {blum?.cups.map((c,i) => {
         const center: [number,number,number] = [c[0]/10+placement.pivotOffsetX,c[1]/10+frontOffsetY,c[2]/10];

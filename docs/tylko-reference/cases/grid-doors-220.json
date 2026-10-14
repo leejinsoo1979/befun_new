@@ -1,0 +1,115 @@
+{
+  "id": "grid-doors-220",
+  "observedAt": "2026-10-14T08:37:39.070221+09:00",
+  "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/3690551,j",
+  "method": "Existing VPN Chrome, visible controls and screenshots only",
+  "inputs": {
+    "style": "Grid",
+    "densityPercent": 0,
+    "widthCm": 220,
+    "heightCm": 63,
+    "depthCm": 32,
+    "finish": "Furnier",
+    "colour": "Eiche",
+    "backPanels": true,
+    "rowClearHeightDisplayedCm": [
+      28,
+      28
+    ],
+    "doorsBottomToTop": [
+      "Max",
+      "None"
+    ],
+    "drawersBottomToTop": [
+      "None",
+      "None"
+    ],
+    "feet": "standard visible; no leg selector in this panel"
+  },
+  "initialState": {
+    "productId": "3690551,j",
+    "previousWidthCm": 393.5,
+    "previousDensityPercent": 100,
+    "previousHeightDisplayedCm": 333,
+    "previousFinish": "Farbe",
+    "previousColour": "Sand/Dunkelblau",
+    "seed": null,
+    "earlierHistory": "Previous leader reference observations; not a fresh reset"
+  },
+  "steps": [
+    "Select Grid",
+    "Set density to 0 by slider drag",
+    "Drag width to224",
+    "Height slider minimum:43",
+    "Select Furnier: Eiche selected",
+    "Decrease width224→220 in four1cm button steps",
+    "Height next step:83 (two38cm clear rows)",
+    "Back panels Mit",
+    "Bottom row28cm clear",
+    "Bottom doors Max",
+    "Top row28cm clear → total63cm",
+    "Enable dimensions",
+    "Observe bottom doors open and closed"
+  ],
+  "observed": {
+    "columnsPerRow": [
+      4,
+      4
+    ],
+    "displayedClearWidthsCm": [
+      [
+        52,
+        52,
+        52,
+        52
+      ],
+      [
+        52,
+        52,
+        52,
+        52
+      ]
+    ],
+    "bottomDoorLeaves": 4,
+    "leavesPerOpening": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "exactInternalWidthsMm": null,
+    "dividerPositionsMm": null,
+    "doubleDoorThresholdMm": null
+  },
+  "precision": {
+    "dimensions": "Integer cm viewer labels, rounded; not exact physical coordinates",
+    "counts": "Direct visual count"
+  },
+  "comparison": {
+    "befunSource": "User attached screenshot",
+    "befunColumnsPerRow": [
+      3,
+      3
+    ],
+    "befunBottomDoorLeaves": 3,
+    "codeCause": "Legacy Type01 geometry and one-leaf-per-bay path lacked paired fronts. The earlier four-column conclusion mixed families.",
+    "status": "SUPERSEDED_FAMILY_MISMATCH"
+  },
+  "unknowns": [
+    "Other widths/density transition boundaries",
+    "Fresh reload or different starting design equivalence",
+    "Double-door availability in other families/styles",
+    "Exact dimensions beneath rounded labels"
+  ],
+  "screenshots": [
+    "screenshots/grid-doors-220-reference-front.png",
+    "screenshots/grid-doors-220-reference-closed.png",
+    "screenshots/grid-doors-220-befun-user.png"
+  ],
+  "correction": {
+    "at": "2026-10-14T09:06:22.490649+09:00",
+    "reason": "The reference session retained a Type02 structural family after changing finish to Furnier. Its four-column observation is real but is NOT a Type01 family baseline.",
+    "replacementCase": "grid-type01-doors-220",
+    "type01Expected": "3 bays; 6 paired leaves at bottom Max"
+  }
+}

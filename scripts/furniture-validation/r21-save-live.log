@@ -1,0 +1,12 @@
+503 GET /api/designs/R2MISS01
+400 POST /api/designs
+400 POST /api/designs
+400 POST /api/designs
+401 GET /api/designs
+200 GET /api/auth/session
+401 GET /api/orders
+200 GET /login
+200 GET /configurator
+503 POST /api/designs
+PASS: unconfigured service, input/auth regressions, import-safe consumers
+BLOCKED: real database save/fetch round-trip (DATABASE_URL not configured)

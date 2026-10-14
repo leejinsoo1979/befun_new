@@ -2,6 +2,8 @@
 
 import { useMemo, useState, useEffect, useCallback } from 'react';
 import { useShelfStore } from '@/stores/useShelfStore';
+import { baseHeight } from '@/lib/three/furniture-base';
+import { setLegacyRowCount } from '@/components/ui/furniture-panels/legacy/actions';
 
 const THUMB_WIDTH = 72;
 
@@ -193,27 +195,13 @@ export function DimensionPanel() {
   const rowHeights = useShelfStore((s) => s.rowHeights);
   const thickness = useShelfStore((s) => s.thickness);
 
+  // 행 수 변경은 새 옵션 패널과 같은 공유 handler를 쓴다(행 높이 보관·32cm 추가·하드웨어 정리 포함).
   const handleRowCountChange = (newCount: number) => {
-    const count = Math.max(1, Math.min(10, Math.round(newCount)));
-    const newRowHeights = [...rowHeights];
-    while (newRowHeights.length < count) {
-      newRowHeights.push(32);
-    }
-    let totalHeight = thickness;
-    for (let i = 0; i < count; i++) {
-      totalHeight += (newRowHeights[i] ?? 32) + thickness;
-    }
-    useShelfStore.setState({
-      rowHeights: newRowHeights,
-      numRows: count,
-      height: totalHeight,
-    });
-
-    // 삭제된 행의 저장 모드와 변경된 높이의 하드웨어 제한도 함께 정리합니다.
-    useShelfStore.getState().reconcileHardware();
+    setLegacyRowCount(Math.max(1, Math.min(10, Math.round(newCount))));
   };
 
-  const footHeight = 1; // 조절발 높이 1cm
+  const baseType = useShelfStore(s=>s.baseType);
+  const footHeight = baseHeight(baseType);
   const totalHeight = thickness + rowHeights.slice(0, numRows).reduce((sum, h) => sum + h + thickness, 0) + footHeight;
 
   return (

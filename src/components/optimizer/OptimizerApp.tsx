@@ -10,6 +10,7 @@ import { toCncPanels, DEFAULT_CNC_PANEL_OPTIONS } from '@/lib/optimizer/befun/to
 import { useBefunCncStore } from '@/lib/optimizer/befun/store';
 import type { ConnectorReport, ConnectorSelection } from '@/lib/optimizer/connectors/apply';
 import { loadConnectorSelection, saveConnectorSelection } from '@/lib/optimizer/connectors/settings';
+import { reapplyConnectorSelection } from '@/lib/optimizer/connectors/reapply';
 import { ConnectorBar } from './ConnectorBar';
 import './optimizer-theme.css';
 
@@ -18,7 +19,7 @@ function snapshotDesign(connectors: ConnectorSelection): ConnectorReport | null 
   const design = loadDesignForOptimizer();
   const { panels, boxes, connectorReport } = toCncPanels(design, buildBefunShelfModel(design), {
     ...DEFAULT_CNC_PANEL_OPTIONS,
-    connectors: connectors.body || connectors.back ? connectors : undefined,
+    connectors: connectors.body || connectors.back || (connectors.system && connectors.system !== 'ovvo') ? connectors : undefined,
   });
   useBefunCncStore.getState().setSnapshot(design, panels, boxes);
   const { edgeBand } = befunColorLook(design.color);
@@ -36,9 +37,16 @@ export default function OptimizerApp() {
   const [report, setReport] = useState<ConnectorReport | null>(() => snapshotDesign(loadConnectorSelection()));
 
   const changeSelection = useCallback((next: ConnectorSelection) => {
+    const current = useBefunCncStore.getState();
+    if (current.design) {
+      const updated = reapplyConnectorSelection(current.panels, current.boxes, next);
+      current.setSnapshot(current.design, updated.panels, current.boxes);
+      setReport(updated.report);
+    } else {
+      setReport(snapshotDesign(next));
+    }
     saveConnectorSelection(next);
     setSelection(next);
-    setReport(snapshotDesign(next));
   }, []);
 
   return (

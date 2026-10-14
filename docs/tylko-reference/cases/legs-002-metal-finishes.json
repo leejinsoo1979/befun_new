@@ -1,0 +1,75 @@
+{
+  "caseId": "legs-002-metal-finishes",
+  "observedAt": "2026-10-13T23:11:55.827907+00:00",
+  "sourceUrl": "http://localhost:3003/furniture/sideboard-terra",
+  "basis": "User-requested Befun option; not a Tylko parity claim",
+  "inputs": {
+    "style": "grid",
+    "width": 110,
+    "depth": 32,
+    "density": 50,
+    "rowHeights": [
+      28,
+      28
+    ],
+    "numRows": 2,
+    "thickness": 2,
+    "baseType": "legs",
+    "hasBackPanel": true,
+    "doorsCreatedLayers": [
+      0
+    ],
+    "drawersCreatedLayers": [],
+    "hardwareRowStyles": {
+      "0": 12
+    },
+    "colors": [
+      "N_Oak",
+      "C_Black"
+    ],
+    "legFinishes": [
+      "silver",
+      "black"
+    ]
+  },
+  "units": "cm; screenshot pixels not manufacturing coordinates",
+  "initialState": {
+    "baseType": "standard",
+    "legFinish": "silver"
+  },
+  "actions": [
+    "Natural → Legs → silver → black",
+    "Classic (retains Legs and black) → silver → black",
+    "Save local fallback → design-preview link"
+  ],
+  "observations": {
+    "displayHeight": 73,
+    "silverBlackMaterialsIndependentOfWoodMap": true,
+    "naturalAndClassicButtonsVisible": true,
+    "oldSaveDefaults": "silver",
+    "measuredMetalRoughness": null,
+    "manufacturingDimensions": null
+  },
+  "screenshots": [
+    "../screenshots/legs-002-natural-silver.jpg",
+    "../screenshots/legs-002-natural-black.jpg",
+    "../screenshots/legs-002-classic-silver.jpg",
+    "../screenshots/legs-002-classic-black.jpg",
+    "../screenshots/legs-002-restored.jpg"
+  ],
+  "validation": {
+    "legTests": 7,
+    "heldOutLayoutChecks": 120,
+    "savedDesignTests": 17,
+    "serverSaveTestsMock": 21,
+    "lintErrors": 0,
+    "existingLintWarnings": 7,
+    "productionBuild": "pass: isolated webpack compilation, TypeScript and static generation",
+    "browserRestore": "pass: local design-preview restored Classic C_Black, legs and black selected",
+    "actualServerDatabaseRoundTrip": "not tested: service unavailable",
+    "browserNotes": [
+      "Old gallery useId hydration mismatch observed during concurrent HMR; no leg-specific error observed.",
+      "UI worker mounted new LegacyShelfPanel during verification; both old and new panel expose finish selector."
+    ]
+  }
+}

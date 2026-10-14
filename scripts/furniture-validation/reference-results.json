@@ -1,0 +1,4400 @@
+{
+  "generatedAt": "2026-10-13T12:45:12.484Z",
+  "scope": "Evidence audit, NOT furniture equivalence",
+  "duplicateIds": [],
+  "counts": {
+    "files": 61,
+    "inventoryModels": 32,
+    "activePresets": 26,
+    "unknownActivePresets": 6,
+    "uniqueInitialProducts": 34,
+    "uniqueKnownInitialPresets": 28,
+    "wardrobeEdits": 14,
+    "wardrobeInitialProducts": 2,
+    "loadingPreviews": 14,
+    "pass": 416,
+    "fail": 0,
+    "unknown": 322
+  },
+  "results": [
+    {
+      "id": "all-style-split-heldout-results.json",
+      "kind": "derived-artifact",
+      "file": "all-style-split-heldout-results.json",
+      "initialProductUrl": null,
+      "checks": [
+        {
+          "field": "adapter",
+          "status": "not-applicable",
+          "detail": "Derived results; not a reference observation"
+        }
+      ]
+    },
+    {
+      "id": "all-style-split-integer-stress.json",
+      "kind": "derived-artifact",
+      "file": "all-style-split-integer-stress.json",
+      "initialProductUrl": null,
+      "checks": [
+        {
+          "field": "adapter",
+          "status": "not-applicable",
+          "detail": "Derived results; not a reference observation"
+        }
+      ]
+    },
+    {
+      "id": "all-style-split-results.json",
+      "kind": "derived-artifact",
+      "file": "all-style-split-results.json",
+      "initialProductUrl": null,
+      "checks": [
+        {
+          "field": "adapter",
+          "status": "not-applicable",
+          "detail": "Derived results; not a reference observation"
+        }
+      ]
+    },
+    {
+      "id": "category-bedside_table-001#0:Original Classic",
+      "kind": "inventory",
+      "file": "category-bedside_table-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/nachttisch/3533435,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=3533435; initial preset=3533435"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-bedside_table-original-classic-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-bedside_table-original-classic-reference.png",
+          "status": "unknown",
+          "detail": "Loading preview is unusable for visual equivalence"
+        }
+      ]
+    },
+    {
+      "id": "category-bedside_table-001#1:Original Modern",
+      "kind": "inventory",
+      "file": "category-bedside_table-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/nachttisch/3763450,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "unknown",
+          "detail": "URL product=3763450; initial preset=unknown"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-bedside_table-original-modern-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-bedside_table-original-modern-reference.png",
+          "status": "unknown",
+          "detail": "Loading preview is unusable for visual equivalence"
+        }
+      ]
+    },
+    {
+      "id": "category-bedside_table-001#2:Edge",
+      "kind": "inventory",
+      "file": "category-bedside_table-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/nachttisch/1614717,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=1614717; initial preset=1614717"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-bedside_table-edge-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-bedside_table-edge-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-bedside_table-001#3:Tone",
+      "kind": "inventory",
+      "file": "category-bedside_table-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/configure/657092,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=657092; initial preset=657092"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-bedside_table-tone-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-bedside_table-tone-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-bookcase-001#0:Original Classic",
+      "kind": "inventory",
+      "file": "category-bookcase-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/bucherregal/7197274,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=7197274; initial preset=7197274"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-bookcase-original-classic-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-bookcase-original-classic-reference.png",
+          "status": "unknown",
+          "detail": "Loading preview is unusable for visual equivalence"
+        }
+      ]
+    },
+    {
+      "id": "category-bookcase-001#1:Original Modern",
+      "kind": "inventory",
+      "file": "category-bookcase-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/bucherregal/486320,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "unknown",
+          "detail": "URL product=486320; initial preset=unknown"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-bookcase-original-modern-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-bookcase-original-modern-reference.png",
+          "status": "unknown",
+          "detail": "Loading preview is unusable for visual equivalence"
+        }
+      ]
+    },
+    {
+      "id": "category-bookcase-001#2:Edge",
+      "kind": "inventory",
+      "file": "category-bookcase-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/bucherregal/539982,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=539982; initial preset=539982"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-bookcase-edge-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-bookcase-edge-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-bookcase-001#3:Tone",
+      "kind": "inventory",
+      "file": "category-bookcase-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/configure/1948627,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=1948627; initial preset=1948627"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-bookcase-tone-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-bookcase-tone-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-chest-of-drawers-001#0:Original Classic",
+      "kind": "inventory",
+      "file": "category-chest-of-drawers-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kommode/5141667,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=5141667; initial preset=5141667"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-chest-of-drawers-original-classic-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-chest-of-drawers-original-classic-reference.png",
+          "status": "unknown",
+          "detail": "Loading preview is unusable for visual equivalence"
+        }
+      ]
+    },
+    {
+      "id": "category-chest-of-drawers-001#1:Original Modern",
+      "kind": "inventory",
+      "file": "category-chest-of-drawers-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kommode/5142251,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "unknown",
+          "detail": "URL product=5142251; initial preset=unknown"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-chest-of-drawers-original-modern-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-chest-of-drawers-original-modern-reference.png",
+          "status": "unknown",
+          "detail": "Loading preview is unusable for visual equivalence"
+        }
+      ]
+    },
+    {
+      "id": "category-chest-of-drawers-001#2:Edge",
+      "kind": "inventory",
+      "file": "category-chest-of-drawers-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kommode/520406,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=520406; initial preset=520406"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-chest-of-drawers-edge-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-chest-of-drawers-edge-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-chest-of-drawers-001#3:Tone",
+      "kind": "inventory",
+      "file": "category-chest-of-drawers-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/configure/658504,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=658504; initial preset=658504"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-chest-of-drawers-tone-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-chest-of-drawers-tone-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-desk-001#0:Original Classic",
+      "kind": "inventory",
+      "file": "category-desk-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/schreibtisch/3760569,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=3760569; initial preset=3760569"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-desk-original-classic-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-desk-original-classic-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-desk-001#1:Original Modern",
+      "kind": "inventory",
+      "file": "category-desk-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/schreibtisch/3854739,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=3854739; initial preset=3854739"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-desk-original-modern-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-desk-original-modern-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-dressing_table-001#0:Original Classic",
+      "kind": "inventory",
+      "file": "category-dressing_table-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/schminktisch/7389030,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=7389030; initial preset=7389030"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-dressing_table-original-classic-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-dressing_table-original-classic-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-dressing_table-001#1:Original Modern",
+      "kind": "inventory",
+      "file": "category-dressing_table-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/schminktisch/7388995,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=7388995; initial preset=7388995"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-dressing_table-original-modern-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-dressing_table-original-modern-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-shoerack-001#0:Original Classic",
+      "kind": "inventory",
+      "file": "category-shoerack-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/schuhregal/3516418,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=3516418; initial preset=3516418"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-shoerack-original-classic-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-shoerack-original-classic-reference.png",
+          "status": "unknown",
+          "detail": "Loading preview is unusable for visual equivalence"
+        }
+      ]
+    },
+    {
+      "id": "category-shoerack-001#1:Original Modern",
+      "kind": "inventory",
+      "file": "category-shoerack-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/schuhregal/3516416,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "unknown",
+          "detail": "URL product=3516416; initial preset=unknown"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-shoerack-original-modern-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-shoerack-original-modern-reference.png",
+          "status": "unknown",
+          "detail": "Loading preview is unusable for visual equivalence"
+        }
+      ]
+    },
+    {
+      "id": "category-shoerack-001#2:Edge",
+      "kind": "inventory",
+      "file": "category-shoerack-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/schuhregal/1614538,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=1614538; initial preset=1614538"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-shoerack-edge-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-shoerack-edge-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-sideboard-001#0:Original Classic",
+      "kind": "inventory",
+      "file": "category-sideboard-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/sideboard/4665612,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=4665612; initial preset=4665612"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-sideboard-original-classic-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-sideboard-original-classic-reference.png",
+          "status": "unknown",
+          "detail": "Loading preview is unusable for visual equivalence"
+        }
+      ]
+    },
+    {
+      "id": "category-sideboard-001#1:Original Modern",
+      "kind": "inventory",
+      "file": "category-sideboard-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/sideboard/3516437,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "unknown",
+          "detail": "URL product=3516437; initial preset=unknown"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-sideboard-original-modern-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-sideboard-original-modern-reference.png",
+          "status": "unknown",
+          "detail": "Loading preview is unusable for visual equivalence"
+        }
+      ]
+    },
+    {
+      "id": "category-sideboard-001#2:Edge",
+      "kind": "inventory",
+      "file": "category-sideboard-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/sideboard/1430061,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=1430061; initial preset=1430061"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-sideboard-edge-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-sideboard-edge-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-sideboard-001#3:Tone",
+      "kind": "inventory",
+      "file": "category-sideboard-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/configure/907980,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=907980; initial preset=907980"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-sideboard-tone-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-sideboard-tone-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-tv-stand-001#0:Original Classic",
+      "kind": "inventory",
+      "file": "category-tv-stand-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/fernsehtisch/4665733,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=4665733; initial preset=4665733"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-tv-stand-original-classic-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-tv-stand-original-classic-reference.png",
+          "status": "unknown",
+          "detail": "Loading preview is unusable for visual equivalence"
+        }
+      ]
+    },
+    {
+      "id": "category-tv-stand-001#1:Original Modern",
+      "kind": "inventory",
+      "file": "category-tv-stand-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/fernsehtisch/4665821,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "unknown",
+          "detail": "URL product=4665821; initial preset=unknown"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-tv-stand-original-modern-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-tv-stand-original-modern-reference.png",
+          "status": "unknown",
+          "detail": "Loading preview is unusable for visual equivalence"
+        }
+      ]
+    },
+    {
+      "id": "category-tv-stand-001#2:Edge",
+      "kind": "inventory",
+      "file": "category-tv-stand-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/fernsehtisch/1614814,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=1614814; initial preset=1614814"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-tv-stand-edge-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-tv-stand-edge-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-tv-stand-001#3:Tone",
+      "kind": "inventory",
+      "file": "category-tv-stand-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/configure/657770,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=657770; initial preset=657770"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-tv-stand-tone-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-tv-stand-tone-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-vinyl_storage-001#0:null",
+      "kind": "inventory",
+      "file": "category-vinyl_storage-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/schallplattenregal/3763292,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=3763292; initial preset=3763292"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-vinyl_storage-direct-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-vinyl_storage-direct-reference.png",
+          "status": "unknown",
+          "detail": "Loading preview is unusable for visual equivalence"
+        }
+      ]
+    },
+    {
+      "id": "category-wallstorage-001#0:Original Classic",
+      "kind": "inventory",
+      "file": "category-wallstorage-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690551,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=3690551; initial preset=3690551"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-wallstorage-original-classic-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wallstorage-original-classic-reference.png",
+          "status": "unknown",
+          "detail": "Loading preview is unusable for visual equivalence"
+        }
+      ]
+    },
+    {
+      "id": "category-wallstorage-001#1:Original Modern",
+      "kind": "inventory",
+      "file": "category-wallstorage-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/1596673,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=1596673; initial preset=1596673"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-wallstorage-original-modern-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wallstorage-original-modern-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wallstorage-001#2:Edge",
+      "kind": "inventory",
+      "file": "category-wallstorage-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/519975,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=519975; initial preset=519975"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-wallstorage-edge-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wallstorage-edge-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wallstorage-001#3:Tone",
+      "kind": "inventory",
+      "file": "category-wallstorage-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/configure/1964452,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=1964452; initial preset=1964452"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/category-wallstorage-tone-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wallstorage-tone-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wardrobe-edge-001",
+      "kind": "wardrobe-edit",
+      "file": "category-wardrobe-edge-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kleiderschrank/235218,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=235218; initial preset=235218"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "editedInternalState",
+          "status": "unknown",
+          "detail": "Initial preset never substitutes for edited internal parameters"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "UI cm and API mm are separate; no conversion of slider row indices"
+        },
+        {
+          "field": "sliderStep",
+          "status": "unknown",
+          "detail": "Null remains unknown"
+        },
+        {
+          "field": "screenshot:screenshots/category-wardrobe-edge-001-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wardrobe-edge-001-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wardrobe-edge-002",
+      "kind": "wardrobe-edit",
+      "file": "category-wardrobe-edge-002.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kleiderschrank/235218,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=235218; initial preset=235218"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "editedInternalState",
+          "status": "unknown",
+          "detail": "Initial preset never substitutes for edited internal parameters"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "UI cm and API mm are separate; no conversion of slider row indices"
+        },
+        {
+          "field": "sliderStep",
+          "status": "unknown",
+          "detail": "Null remains unknown"
+        },
+        {
+          "field": "screenshot:screenshots/category-wardrobe-edge-002-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wardrobe-edge-002-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wardrobe-edge-003",
+      "kind": "wardrobe-edit",
+      "file": "category-wardrobe-edge-003.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kleiderschrank/235218,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=235218; initial preset=235218"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "editedInternalState",
+          "status": "unknown",
+          "detail": "Initial preset never substitutes for edited internal parameters"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "UI cm and API mm are separate; no conversion of slider row indices"
+        },
+        {
+          "field": "sliderStep",
+          "status": "unknown",
+          "detail": "Null remains unknown"
+        },
+        {
+          "field": "screenshot:screenshots/category-wardrobe-edge-003-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wardrobe-edge-003-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wardrobe-edge-004",
+      "kind": "wardrobe-edit",
+      "file": "category-wardrobe-edge-004.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kleiderschrank/235218,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=235218; initial preset=235218"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "editedInternalState",
+          "status": "unknown",
+          "detail": "Initial preset never substitutes for edited internal parameters"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "UI cm and API mm are separate; no conversion of slider row indices"
+        },
+        {
+          "field": "sliderStep",
+          "status": "unknown",
+          "detail": "Null remains unknown"
+        },
+        {
+          "field": "screenshot:screenshots/category-wardrobe-edge-004-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wardrobe-edge-004-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wardrobe-edge-005",
+      "kind": "wardrobe-edit",
+      "file": "category-wardrobe-edge-005.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kleiderschrank/235218,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=235218; initial preset=235218"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "editedInternalState",
+          "status": "unknown",
+          "detail": "Initial preset never substitutes for edited internal parameters"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "UI cm and API mm are separate; no conversion of slider row indices"
+        },
+        {
+          "field": "sliderStep",
+          "status": "unknown",
+          "detail": "Null remains unknown"
+        },
+        {
+          "field": "screenshot:screenshots/category-wardrobe-edge-005-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wardrobe-edge-005-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wardrobe-tone-001",
+      "kind": "wardrobe-edit",
+      "file": "category-wardrobe-tone-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kleiderschrank/92243,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=92243; initial preset=92243"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "editedInternalState",
+          "status": "unknown",
+          "detail": "Initial preset never substitutes for edited internal parameters"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "UI cm and API mm are separate; no conversion of slider row indices"
+        },
+        {
+          "field": "sliderStep",
+          "status": "unknown",
+          "detail": "Null remains unknown"
+        },
+        {
+          "field": "screenshot:screenshots/category-wardrobe-tone-001-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wardrobe-tone-001-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wardrobe-tone-002",
+      "kind": "wardrobe-edit",
+      "file": "category-wardrobe-tone-002.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kleiderschrank/92243,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=92243; initial preset=92243"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "editedInternalState",
+          "status": "unknown",
+          "detail": "Initial preset never substitutes for edited internal parameters"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "UI cm and API mm are separate; no conversion of slider row indices"
+        },
+        {
+          "field": "sliderStep",
+          "status": "unknown",
+          "detail": "Null remains unknown"
+        },
+        {
+          "field": "screenshot:screenshots/category-wardrobe-tone-002-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wardrobe-tone-002-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wardrobe-tone-003",
+      "kind": "wardrobe-edit",
+      "file": "category-wardrobe-tone-003.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kleiderschrank/92243,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=92243; initial preset=92243"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "editedInternalState",
+          "status": "unknown",
+          "detail": "Initial preset never substitutes for edited internal parameters"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "UI cm and API mm are separate; no conversion of slider row indices"
+        },
+        {
+          "field": "sliderStep",
+          "status": "unknown",
+          "detail": "Null remains unknown"
+        },
+        {
+          "field": "screenshot:screenshots/category-wardrobe-tone-003-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wardrobe-tone-003-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wardrobe-tone-004",
+      "kind": "wardrobe-edit",
+      "file": "category-wardrobe-tone-004.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kleiderschrank/92243,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=92243; initial preset=92243"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "editedInternalState",
+          "status": "unknown",
+          "detail": "Initial preset never substitutes for edited internal parameters"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "UI cm and API mm are separate; no conversion of slider row indices"
+        },
+        {
+          "field": "sliderStep",
+          "status": "unknown",
+          "detail": "Null remains unknown"
+        },
+        {
+          "field": "screenshot:screenshots/category-wardrobe-tone-004-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wardrobe-tone-004-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wardrobe-tone-005",
+      "kind": "wardrobe-edit",
+      "file": "category-wardrobe-tone-005.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kleiderschrank/92243,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=92243; initial preset=92243"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "editedInternalState",
+          "status": "unknown",
+          "detail": "Initial preset never substitutes for edited internal parameters"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "UI cm and API mm are separate; no conversion of slider row indices"
+        },
+        {
+          "field": "sliderStep",
+          "status": "unknown",
+          "detail": "Null remains unknown"
+        },
+        {
+          "field": "screenshot:screenshots/category-wardrobe-tone-005-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wardrobe-tone-005-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wardrobe-tone-006",
+      "kind": "wardrobe-edit",
+      "file": "category-wardrobe-tone-006.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kleiderschrank/92243,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=92243; initial preset=92243"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "editedInternalState",
+          "status": "unknown",
+          "detail": "Initial preset never substitutes for edited internal parameters"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "UI cm and API mm are separate; no conversion of slider row indices"
+        },
+        {
+          "field": "sliderStep",
+          "status": "unknown",
+          "detail": "Null remains unknown"
+        },
+        {
+          "field": "screenshot:screenshots/category-wardrobe-tone-006-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wardrobe-tone-006-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wardrobe-tone-007",
+      "kind": "wardrobe-edit",
+      "file": "category-wardrobe-tone-007.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kleiderschrank/92243,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=92243; initial preset=92243"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "editedInternalState",
+          "status": "unknown",
+          "detail": "Initial preset never substitutes for edited internal parameters"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "UI cm and API mm are separate; no conversion of slider row indices"
+        },
+        {
+          "field": "sliderStep",
+          "status": "unknown",
+          "detail": "Null remains unknown"
+        },
+        {
+          "field": "screenshot:screenshots/category-wardrobe-tone-007-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wardrobe-tone-007-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wardrobe-tone-008",
+      "kind": "wardrobe-edit",
+      "file": "category-wardrobe-tone-008.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kleiderschrank/92243,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=92243; initial preset=92243"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "editedInternalState",
+          "status": "unknown",
+          "detail": "Initial preset never substitutes for edited internal parameters"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "UI cm and API mm are separate; no conversion of slider row indices"
+        },
+        {
+          "field": "sliderStep",
+          "status": "unknown",
+          "detail": "Null remains unknown"
+        },
+        {
+          "field": "screenshot:screenshots/category-wardrobe-tone-008-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wardrobe-tone-008-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "category-wardrobe-tone-009",
+      "kind": "wardrobe-edit",
+      "file": "category-wardrobe-tone-009.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/kleiderschrank/92243,w",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "presetIdentity",
+          "status": "pass",
+          "detail": "URL product=92243; initial preset=92243"
+        },
+        {
+          "field": "presetPayloadIdentity",
+          "status": "pass",
+          "detail": "Payload ID must agree with initial preset ID"
+        },
+        {
+          "field": "geometry",
+          "status": "unknown",
+          "detail": "No calibrated component coordinates/topology in this inventory adapter"
+        },
+        {
+          "field": "manufacturingPrecision",
+          "status": "unknown",
+          "detail": "UI labels and public preset dimensions do not establish manufacturing precision"
+        },
+        {
+          "field": "editedInternalState",
+          "status": "unknown",
+          "detail": "Initial preset never substitutes for edited internal parameters"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "UI cm and API mm are separate; no conversion of slider row indices"
+        },
+        {
+          "field": "sliderStep",
+          "status": "unknown",
+          "detail": "Null remains unknown"
+        },
+        {
+          "field": "screenshot:screenshots/category-wardrobe-tone-009-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/category-wardrobe-tone-009-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "cnc-verification.json",
+      "kind": "derived-artifact",
+      "file": "cnc-verification.json",
+      "initialProductUrl": null,
+      "checks": [
+        {
+          "field": "adapter",
+          "status": "not-applicable",
+          "detail": "Derived results; not a reference observation"
+        }
+      ]
+    },
+    {
+      "id": "feet-defect-001",
+      "kind": "other-case",
+      "file": "feet-defect-001.json",
+      "initialProductUrl": null,
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/feet-defect-001-user.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/feet-defect-001-user.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "gallery-materials-001-befun",
+      "kind": "other-case",
+      "file": "gallery-materials-001-befun.json",
+      "initialProductUrl": "http://localhost:3003/configurator",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "unknown",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "unknown",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:../screenshots/gallery-materials-001-befun-blue.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:../screenshots/gallery-materials-001-befun-blue.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:../screenshots/gallery-materials-001-befun-yellow.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:../screenshots/gallery-materials-001-befun-yellow.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:../screenshots/gallery-materials-001-befun-mobile.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:../screenshots/gallery-materials-001-befun-mobile.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "gallery-materials-001",
+      "kind": "other-case",
+      "file": "gallery-materials-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/7197227,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "unknown",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshots",
+          "status": "unknown",
+          "detail": "No screenshot evidence"
+        }
+      ]
+    },
+    {
+      "id": "gradient-source-001",
+      "kind": "other-case",
+      "file": "gradient-source-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "unknown",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshots",
+          "status": "unknown",
+          "detail": "No screenshot evidence"
+        }
+      ]
+    },
+    {
+      "id": "gradient-ui-001",
+      "kind": "other-case",
+      "file": "gradient-ui-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/gradient-ui-001-d0-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/gradient-ui-001-d0-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/gradient-ui-001-d0-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/gradient-ui-001-d0-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/gradient-ui-001-d100-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/gradient-ui-001-d100-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/gradient-ui-001-d100-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/gradient-ui-001-d100-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "grid-source-001",
+      "kind": "other-case",
+      "file": "grid-source-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "unknown",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshots",
+          "status": "unknown",
+          "detail": "No screenshot evidence"
+        }
+      ]
+    },
+    {
+      "id": "grid-ui-001",
+      "kind": "other-case",
+      "file": "grid-ui-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/grid-ui-001-d0-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/grid-ui-001-d0-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/grid-ui-001-d0-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/grid-ui-001-d0-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/grid-ui-001-d100-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/grid-ui-001-d100-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/grid-ui-001-d100-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/grid-ui-001-d100-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "hardware-reference-ui-001",
+      "kind": "other-case",
+      "file": "hardware-reference-ui-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/hardware-mosaic-some-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/hardware-mosaic-some-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/hardware-mosaic-max-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/hardware-mosaic-max-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/hardware-mosaic-mixed-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/hardware-mosaic-mixed-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/hardware-mosaic-drawers-max-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/hardware-mosaic-drawers-max-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "hardware-source-001",
+      "kind": "other-case",
+      "file": "hardware-source-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshots",
+          "status": "unknown",
+          "detail": "No screenshot evidence"
+        }
+      ]
+    },
+    {
+      "id": "hardware-ui-001",
+      "kind": "other-case",
+      "file": "hardware-ui-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "unknown",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/hardware-mosaic-befun-doors-final.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/hardware-mosaic-befun-doors-final.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/hardware-mosaic-befun-drawers.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/hardware-mosaic-befun-drawers.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/hardware-mosaic-befun-open.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/hardware-mosaic-befun-open.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/hardware-pattern-befun-drawers.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/hardware-pattern-befun-drawers.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/hardware-pattern-befun-open.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/hardware-pattern-befun-open.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/material-classic-002-befun.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/material-classic-002-befun.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "local-hardware-registration.json",
+      "kind": "derived-artifact",
+      "file": "local-hardware-registration.json",
+      "initialProductUrl": null,
+      "checks": [
+        {
+          "field": "adapter",
+          "status": "not-applicable",
+          "detail": "Derived results; not a reference observation"
+        }
+      ]
+    },
+    {
+      "id": "material-classic-002",
+      "kind": "other-case",
+      "file": "material-classic-002.json",
+      "initialProductUrl": "https://tylko.com/r_static/dist_vue/vueCrowV2-es6-adcb9eecc6cc1173956e.js",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/material-classic-002-reference.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/material-classic-002-reference.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/material-classic-002-befun.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/material-classic-002-befun.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "material-factory-003",
+      "kind": "other-case",
+      "file": "material-factory-003.json",
+      "initialProductUrl": "http://localhost:3003/configurator?skipLoad=true&check=hardware-final",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/material-factory-003-blue-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/material-factory-003-blue-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/material-factory-003-blue-angle.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/material-factory-003-blue-angle.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/material-factory-003-terracotta-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/material-factory-003-terracotta-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/material-factory-003-terracotta-angle.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/material-factory-003-terracotta-angle.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/material-factory-003-cotton-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/material-factory-003-cotton-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/material-factory-003-cotton-angle.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/material-factory-003-cotton-angle.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/material-factory-003-white-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/material-factory-003-white-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/material-factory-003-white-angle.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/material-factory-003-white-angle.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "material-source-001",
+      "kind": "other-case",
+      "file": "material-source-001.json",
+      "initialProductUrl": "https://tylko.com/r_static/dist_vue/vueCrowV2-es6-adcb9eecc6cc1173956e.js",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/mosaic-001-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/mosaic-001-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/mosaic-001-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/mosaic-001-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "mosaic-001",
+      "kind": "other-case",
+      "file": "mosaic-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/mosaic-001-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/mosaic-001-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/mosaic-001-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/mosaic-001-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "mosaic-source-001",
+      "kind": "other-case",
+      "file": "mosaic-source-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "unknown",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshots",
+          "status": "unknown",
+          "detail": "No screenshot evidence"
+        }
+      ]
+    },
+    {
+      "id": "pattern-001",
+      "kind": "other-case",
+      "file": "pattern-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "unknown",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:docs/tylko-reference/screenshots/pattern-001-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:docs/tylko-reference/screenshots/pattern-001-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "pattern-002",
+      "kind": "other-case",
+      "file": "pattern-002.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:docs/tylko-reference/screenshots/pattern-002-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:docs/tylko-reference/screenshots/pattern-002-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "pattern-003",
+      "kind": "other-case",
+      "file": "pattern-003.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:docs/tylko-reference/screenshots/pattern-003-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:docs/tylko-reference/screenshots/pattern-003-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "pattern-004",
+      "kind": "other-case",
+      "file": "pattern-004.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:docs/tylko-reference/screenshots/pattern-004-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:docs/tylko-reference/screenshots/pattern-004-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "pattern-005",
+      "kind": "other-case",
+      "file": "pattern-005.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:docs/tylko-reference/screenshots/pattern-005-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:docs/tylko-reference/screenshots/pattern-005-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:docs/tylko-reference/screenshots/pattern-005-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:docs/tylko-reference/screenshots/pattern-005-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "pattern-006",
+      "kind": "other-case",
+      "file": "pattern-006.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:docs/tylko-reference/screenshots/pattern-006-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:docs/tylko-reference/screenshots/pattern-006-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:docs/tylko-reference/screenshots/pattern-006-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:docs/tylko-reference/screenshots/pattern-006-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "pattern-007",
+      "kind": "other-case",
+      "file": "pattern-007.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:docs/tylko-reference/screenshots/pattern-007-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:docs/tylko-reference/screenshots/pattern-007-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:docs/tylko-reference/screenshots/pattern-007-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:docs/tylko-reference/screenshots/pattern-007-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "pattern-008",
+      "kind": "other-case",
+      "file": "pattern-008.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:docs/tylko-reference/screenshots/pattern-008-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:docs/tylko-reference/screenshots/pattern-008-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:docs/tylko-reference/screenshots/pattern-008-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:docs/tylko-reference/screenshots/pattern-008-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "pixel-hardware-ui-002",
+      "kind": "other-case",
+      "file": "pixel-hardware-ui-002.json",
+      "initialProductUrl": "http://127.0.0.1:3008/configurator?skipLoad=true&check=style-reference",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/pixel-hardware-max-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/pixel-hardware-max-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/pixel-drawers-max-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/pixel-drawers-max-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "pixel-source-001",
+      "kind": "other-case",
+      "file": "pixel-source-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "unknown",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshots",
+          "status": "unknown",
+          "detail": "No screenshot evidence"
+        }
+      ]
+    },
+    {
+      "id": "pixel-ui-001",
+      "kind": "other-case",
+      "file": "pixel-ui-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/pixel-ui-001-d0-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/pixel-ui-001-d0-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/pixel-ui-001-d0-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/pixel-ui-001-d0-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/pixel-ui-001-d100-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/pixel-ui-001-d100-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/pixel-ui-001-d100-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/pixel-ui-001-d100-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "reference-source-001",
+      "kind": "other-case",
+      "file": "reference-source-001.json",
+      "initialProductUrl": "https://tylko.com/r_static/dist_vue/vueCrowV2-es6-adcb9eecc6cc1173956e.js",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "unknown",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshots",
+          "status": "unknown",
+          "detail": "No screenshot evidence"
+        }
+      ]
+    },
+    {
+      "id": "reference-source-002",
+      "kind": "other-case",
+      "file": "reference-source-002.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshots",
+          "status": "unknown",
+          "detail": "No screenshot evidence"
+        }
+      ]
+    },
+    {
+      "id": "slant-source-001",
+      "kind": "other-case",
+      "file": "slant-source-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "unknown",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshots",
+          "status": "unknown",
+          "detail": "No screenshot evidence"
+        }
+      ]
+    },
+    {
+      "id": "slant-split-001",
+      "kind": "other-case",
+      "file": "slant-split-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "pass",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/slant-split-001-befun.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/slant-split-001-befun.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    },
+    {
+      "id": "slant-split-002",
+      "kind": "other-case",
+      "file": "slant-split-002.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "unknown",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "unknown",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshots",
+          "status": "unknown",
+          "detail": "No screenshot evidence"
+        }
+      ]
+    },
+    {
+      "id": "slant-ui-001",
+      "kind": "other-case",
+      "file": "slant-ui-001.json",
+      "initialProductUrl": "https://tylko.com/de-de/mobel/regalsystem/3690311,j",
+      "checks": [
+        {
+          "field": "initialState",
+          "status": "pass",
+          "detail": "Presence only; does not establish reproducibility"
+        },
+        {
+          "field": "actions",
+          "status": "pass",
+          "detail": "Recorded action sequence"
+        },
+        {
+          "field": "inputOptions",
+          "status": "pass",
+          "detail": "Presence only; completeness not inferred"
+        },
+        {
+          "field": "units",
+          "status": "unknown",
+          "detail": "Explicit unit needed per measurement field; prose precision is not a normalization rule"
+        },
+        {
+          "field": "screenshot:screenshots/slant-ui-001-d0-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/slant-ui-001-d0-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/slant-ui-001-d0-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/slant-ui-001-d0-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/slant-ui-001-d100-reference-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/slant-ui-001-d100-reference-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        },
+        {
+          "field": "screenshot:screenshots/slant-ui-001-d100-befun-front.png",
+          "status": "pass",
+          "detail": "File existence only"
+        },
+        {
+          "field": "visualEvidence:screenshots/slant-ui-001-d100-befun-front.png",
+          "status": "unknown",
+          "detail": "File present; camera/options/calibration equivalence not verified"
+        }
+      ]
+    }
+  ]
+}

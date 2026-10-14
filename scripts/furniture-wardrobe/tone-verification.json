@@ -1,0 +1,19 @@
+{
+  "source": "legacy wardrobe engine1888, DNA Wardrobe Type03 v4, mesh2321",
+  "checked": 720,
+  "failed": 0,
+  "savedFixtures": 155,
+  "compared": [
+    "slabs",
+    "walls",
+    "backs",
+    "frame",
+    "masking_bars",
+    "doors",
+    "drawers",
+    "bars",
+    "lighting",
+    "components"
+  ],
+  "maxCoordinateToleranceMm": 1e-7
+}

@@ -1,0 +1,90 @@
+{
+  "source": "Blum E-SERVICES",
+  "productSourceUrl": "https://e-services.blum.com/main/?authenticationType=manual#/PAI048&productSearch",
+  "configurationSourceUrl": "https://e-services.blum.com/opc/?country=KR&uid=-86097286&externalConfigurationId=34ff146c-7efb-42e0-842c-244402541cb9&externalApplication=OPC&industryCode=26",
+  "acquiredDate": "2026-09-20",
+  "sourceReport": "movento-download-report.md",
+  "items": [
+    {
+      "partNumber": "760H5000S",
+      "nominalLengthMm": 500,
+      "hand": "left",
+      "sourceFile": "760H5000S_48346342.dae",
+      "folder": "500/left"
+    },
+    {
+      "partNumber": "760H5000S",
+      "nominalLengthMm": 500,
+      "hand": "right",
+      "sourceFile": "760H5000S_49027541.dae",
+      "folder": "500/right"
+    },
+    {
+      "partNumber": "760H4500S",
+      "nominalLengthMm": 450,
+      "hand": "left",
+      "sourceFile": "760H4500S_46204387.dae",
+      "folder": "450/left"
+    },
+    {
+      "partNumber": "760H4500S",
+      "nominalLengthMm": 450,
+      "hand": "right",
+      "sourceFile": "760H4500S_46581677.dae",
+      "folder": "450/right"
+    },
+    {
+      "partNumber": "760H4000S",
+      "nominalLengthMm": 400,
+      "hand": "left",
+      "sourceFile": "760H4000S_45431782.dae",
+      "folder": "400/left"
+    },
+    {
+      "partNumber": "760H4000S",
+      "nominalLengthMm": 400,
+      "hand": "right",
+      "sourceFile": "760H4000S_46103240.dae",
+      "folder": "400/right"
+    },
+    {
+      "partNumber": "760H3500S",
+      "nominalLengthMm": 350,
+      "hand": "left",
+      "sourceFile": "760H3500S_47558526.dae",
+      "folder": "350/left"
+    },
+    {
+      "partNumber": "760H3500S",
+      "nominalLengthMm": 350,
+      "hand": "right",
+      "sourceFile": "760H3500S_48228093.dae",
+      "folder": "350/right"
+    },
+    {
+      "partNumber": "T51.7601",
+      "hand": "left",
+      "sourceFile": "T51.7601_46166126.dae",
+      "folder": "locking/left"
+    },
+    {
+      "partNumber": "T51.7601",
+      "hand": "right",
+      "sourceFile": "T51.7601_43107713.dae",
+      "folder": "locking/right"
+    }
+  ],
+  "reference": {
+    "internalWidthMm": 564,
+    "nominalLengthMm": 500,
+    "sideThicknessMm": 16,
+    "bottomThicknessMm": 16,
+    "bottomInsetMm": 13,
+    "sideHeightMm": 150,
+    "bomLockingSet": "T51.7600",
+    "individualLockingPart": "T51.7601",
+    "note": "구성 BOM와 개별 부품 품번은 구분. 좌우는 조립 CAD의 부품 ID·동일 정점 배치를 대조하여 판정."
+  },
+  "animation": "none supplied",
+  "manufacturingReady": false
+}

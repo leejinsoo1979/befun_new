@@ -4,7 +4,7 @@ import { useEffect, useMemo } from 'react';
 import type { PanelData } from '@/types/shelf';
 import type { DoorPlacement, DrawerPlacement } from '@/lib/three/hardware';
 import { useDisplayStore } from '../display/displayStore';
-import { arrangeDecor, decorSlots } from './layout';
+import { arrangeShelfDecor } from './layout';
 import { buildDecor, createDecorAssets } from './models';
 
 export function ShelfDecor({ panels, doors, drawers }: {panels:PanelData[];doors:DoorPlacement[];drawers:DrawerPlacement[]}) {
@@ -13,7 +13,7 @@ export function ShelfDecor({ panels, doors, drawers }: {panels:PanelData[];doors
   return visible?<DecorObjects panels={panels} doors={doors} drawers={drawers}/>:null;
 }
 function DecorObjects({panels,doors,drawers}:{panels:PanelData[];doors:DoorPlacement[];drawers:DrawerPlacement[]}) {
-  const arrangement=useMemo(()=>arrangeDecor(decorSlots(panels,doors,drawers)),[panels,doors,drawers]);
+  const arrangement=useMemo(()=>arrangeShelfDecor(panels,doors,drawers),[panels,doors,drawers]);
   const assets=useMemo(()=>createDecorAssets(),[]);
   useEffect(()=>()=>assets.dispose(),[assets]);
   const model=useMemo(()=>buildDecor(arrangement,assets),[arrangement,assets]);

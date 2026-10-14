@@ -1,0 +1,1 @@
+export default function Image(props: Record<string, unknown>) { const { unoptimized, ...rest } = props; void unoptimized; return <img {...(rest as object)} />; }

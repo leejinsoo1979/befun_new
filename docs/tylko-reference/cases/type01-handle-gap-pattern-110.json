@@ -1,0 +1,54 @@
+{
+  "id": "type01-handle-gap-pattern-110",
+  "observedAt": "2026-10-14T09:06:22.490649+09:00",
+  "sourceUrl": "https://media.tylko.com/cloudinary/image/upload/v1/renderer/geometry/vertical_handle_30.glb",
+  "sourceEvidence": "HW observed profile in docs/handoffs/claude-2-hardware.md; public renderer placement rules. Source mesh download this turn returned403.",
+  "inputs": {
+    "family": "type01",
+    "style": "pattern",
+    "widthCm": 110,
+    "densityPercent": 0,
+    "rowClearLabelsCm": [
+      28,
+      28
+    ],
+    "depthCm": 32,
+    "backPanels": true,
+    "finish": "Natural",
+    "color": "N_Oak",
+    "baseType": "legs",
+    "legFinish": "black",
+    "hardwareRowStyles": {
+      "0": 13,
+      "1": 11
+    }
+  },
+  "initialState": {
+    "seed": null,
+    "individualEdits": null
+  },
+  "steps": [
+    "Load local design preview",
+    "Bottom row DOORS Max",
+    "Inspect closed door and save screenshot"
+  ],
+  "observed": {
+    "bottomDoorLeaves": 3,
+    "oldCause": "Front width deductions10/30mm were mistakenly used to scale complete30/50mm handle profiles, dropping5–15mm from the combined door envelope.",
+    "fix": "Use observed profile with its asymmetric anchor and authored size; front board formulas unchanged.",
+    "nominalOuterGapMm": 3,
+    "nominalPairedCentreGapMm": 3,
+    "observedProfileBoundsToleranceMm": 0.8,
+    "pixelGapMeasurement": null
+  },
+  "unknowns": [
+    "50mm rear wing corner radius",
+    "One30mm arc vertex inferred by symmetry",
+    "Machining for19mm door into16.7mm handle channel",
+    "Exact material and pixel parity"
+  ],
+  "screenshots": [
+    "screenshots/type01-handle-gap-pattern-110-before.png",
+    "screenshots/type01-handle-gap-pattern-110-after.png"
+  ]
+}

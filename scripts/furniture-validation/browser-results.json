@@ -1,0 +1,61 @@
+{
+  "observedAt": "2026-10-13T14:11:45.333557+00:00",
+  "environment": {
+    "browser": "Chrome via CUA",
+    "application": "localhost:3003",
+    "mobileViewport": {
+      "width": 390,
+      "height": 844
+    },
+    "node": "v24.19.0"
+  },
+  "checks": [
+    {
+      "id": "GALLERY-12",
+      "status": "pass",
+      "scope": "/configurator?skipLoad=true",
+      "result": "12 selections, each 8 loaded photos; URL material path changes; top range values and pressed view controls unchanged"
+    },
+    {
+      "id": "GALLERY-ZOOM",
+      "status": "pass",
+      "result": "Desktop walnut photo1 and mobile walnut photo8: enlarged image URL matches clicked image and image loaded"
+    },
+    {
+      "id": "GALLERY-MOBILE",
+      "status": "pass",
+      "result": "390px viewport, document scrollWidth390, gallery width390; 12 radios and8 photos; last swatch reachable; zoom image312px wide"
+    },
+    {
+      "id": "GALLERY-SCOPE",
+      "status": "pass",
+      "result": "bookcase-plum retains its own 7-photo gallery and has no material selector"
+    },
+    {
+      "id": "LOCAL-SHARE",
+      "status": "pass",
+      "result": "bookcase-plum width150→171; save creates local design; open generated design-preview link; reload retains width171, 7 rows, displayed height223"
+    },
+    {
+      "id": "SERVER-SAVE",
+      "status": "fail",
+      "result": "UI reports server saving unavailable and falls back to local browser storage; DB/auth root cause not established"
+    },
+    {
+      "id": "UNSAVED-RELOAD",
+      "status": "fail",
+      "criterion": "Requested edit recovery across refresh; autosave policy needs leader decision",
+      "result": "bookcase-plum width150→171; reload resets to150"
+    },
+    {
+      "id": "NEW-FAMILY-PARITY",
+      "status": "unknown",
+      "result": "No src/types/furniture.ts, measured reference parts or implemented common result adapter available at audit"
+    },
+    {
+      "id": "EXACT-VISUAL-PARITY",
+      "status": "unknown",
+      "result": "No matched camera/lighting/calibrated geometry; successful image loading is not pixel/material parity"
+    }
+  ]
+}

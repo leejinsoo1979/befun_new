@@ -4,15 +4,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { FiArrowRight, FiHeart, FiSearch, FiSliders, FiSave, FiLayers, FiGrid, FiDroplet } from 'react-icons/fi';
+import { FiArrowRight, FiHeart, FiSearch, FiSliders } from 'react-icons/fi';
 import { asset, products, referenceProducts, productPrice, type CatalogProduct } from './catalog';
 import { catalogCategories, catalogHref, categoryLinks } from './navigation';
-import { Carousel, Dialog, ProductCard, ReferenceImage, productHref } from './StorefrontUI';
+import { ProductCard, ReferenceImage, productHref } from './StorefrontUI';
 import { useSavedProducts } from './useSavedProducts';
-import { ProductConfigurator, ProductSpecifications } from './ProductConfigurator';
-import { JoinSection } from './JoinSection';
+import { ProductConfigurator } from './ProductConfigurator';
+import { ProductDetails } from './ProductDetails';
 import { CatalogFilters, filterColors } from './CatalogFilters';
-import { productGalleries } from './productGalleries';
 import { ReferenceCatalogCards } from './ReferenceCatalogPages';
 import { categoryReferences } from './referenceCatalog';
 import styles from './storefront.module.css';
@@ -63,36 +62,7 @@ export function CatalogPage({ slug = '', query }: { slug?: string; query: Record
   </section>;
 }
 export function ProductPage({ product }: { product: CatalogProduct }) {
-  const router = useRouter();
-  const { saved, toggleSaved } = useSavedProducts();
-  const [zoom, setZoom] = useState<string | null>(null);
-  const gallery = productGalleries[product.id] ?? [asset(product.image), asset(product.alternate)];
-  return <>
-    <ProductConfigurator product={product} />
-    <section className={`${styles.section} ${styles.productIntroduction}`}>
-      <h2>{product.name}</h2><p>{product.collection} · 크기와 컬러, 수납 방식을 직접 바꿔보세요.</p>
-      <div className={styles.productBenefits}>{[
-        { title: '크기를 직접 조절', text: '공간에 맞는 너비와 높이', icon: FiSliders, href: '/configurator-intro' },
-        { title: '컬러와 마감 선택', text: '취향에 맞는 색과 소재', icon: FiDroplet, href: '/material-samples' },
-        { title: '다양한 선반 스타일', text: '여섯 가지 형태로 시작', icon: FiGrid, href: '/product-lines' },
-        { title: '나만의 수납 구성', text: '오픈 선반과 도어·서랍', icon: FiLayers, href: '/faq' },
-        { title: '디자인 저장과 공유', text: '완성한 구성을 링크로', icon: FiSave, href: '/faq' },
-      ].map(({title, text, icon: Icon, href}) => <Link key={title} href={href}><Icon /><div><h3>{title}</h3><p>{text}</p><span>더 알아보기</span></div></Link>)}</div>
-      <div className={styles.productPhotoGrid}>{gallery.map((image, index) => <button key={image} onClick={() => setZoom(image)} aria-label={`상품 이미지 ${index + 1} 크게 보기`}><ReferenceImage source={image} fallback={index % 2 ? product.alternate : product.image} alt={`${product.name} 디자인 레퍼런스 ${index + 1}`} sizes="(max-width:700px) 90vw, 45vw" /></button>)}</div>
-      <p className={styles.caption}>사진은 Tylko 디자인 레퍼런스입니다. 선택한 Befun 구성은 위의 3D 화면에 표시됩니다.</p>
-    </section>
-    <ProductSpecifications />
-    <section className={styles.section}><h2>공간에 맞게, 취향에 맞게</h2><Carousel label="디자인 특징">{[
-      ['크기는 공간에 맞춰', '너비와 행 높이, 깊이를 조절해 원하는 크기를 만드세요.', '3/3AP/3AP', 'step-1.avif'],
-      ['좋아하는 색으로', '컬러와 마감을 바꾸며 공간에 어울리는 조합을 찾아보세요.', '5/5AP/5AP', 'step-2.avif'],
-      ['보여주거나, 담아두거나', '오픈 선반과 도어, 서랍으로 수납 방식을 조절하세요.', '6/6AP1/6AP1', 'step-3.avif'],
-    ].map(([title, description, image, fallback]) => <article key={title} className={styles.productHighlight}><div><ReferenceImage source={`https://media.tylko.com/cloudinary/pdp/section-highlights-carousel/AP/${image}.webp`} fallback={fallback} alt={title} sizes="(max-width:700px) 85vw, 30vw" /></div><h3>{title}</h3><p>{description}</p></article>)}</Carousel></section>
-    <section className={`${styles.section} ${styles.productConsultation}`}><h2>당신의 디자인을 완성하세요.</h2><p>선반의 크기와 구성을 정하기 어렵다면 함께 살펴보세요.</p><Link href="/contact" className={styles.darkButton}>상담하기 <FiArrowRight /></Link></section>
-    <section className={styles.section}><h2>함께 둘러볼 디자인</h2><Carousel label="추천 디자인">{products.filter(item => item.id !== product.id).map(item => <ProductCard key={item.id} product={item} saved={saved.includes(item.id)} toggleSaved={() => toggleSaved(item.id)} open={() => router.push(productHref(item))} />)}</Carousel></section>
-    <section className={styles.section}><div className={styles.supportTiles}><Link className={styles.supportTile} href="/showrooms"><h2>공간에서 만나보세요</h2><span>쇼룸 보기 <FiArrowRight /></span></Link><Link className={styles.supportTile} href="/material-samples"><h2>소재와 색을 살펴보세요</h2><span>소재 보기 <FiArrowRight /></span></Link><Link className={styles.supportTile} href="/inspirations"><h2>취향을 발견하세요</h2><span>커뮤니티 보기 <FiArrowRight /></span></Link></div></section>
-    <JoinSection />
-    {zoom ? <Dialog title={product.name} close={() => setZoom(null)}><div className={styles.detailImage}><ReferenceImage source={zoom} fallback={product.image} alt={product.name} sizes="800px" /></div></Dialog> : null}
-  </>;
+  return <><div id="configuration"><ProductConfigurator product={product} /></div><ProductDetails product={product} /></>;
 }
 export function ReferenceProductPage({ id }: { id: string }) {
   const product = referenceProducts.find(item=>item.id===id)!;

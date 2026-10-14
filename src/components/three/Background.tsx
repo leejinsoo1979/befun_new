@@ -6,7 +6,7 @@ import * as THREE from 'three';
 
 // 룸 색상 — 무채색 라이트그레이 벽 + 한 톤 낮은 바닥 (albedo 값, 노란 기 없이 중성 유지)
 const WALL_COLOR = '#d9d9d9';
-const FLOOR_COLOR = '#a9a9a9';
+const FLOOR_COLOR = '#bababa';
 
 interface BackgroundProps {
   shelfWidth: number;
@@ -89,7 +89,7 @@ export function Background({ shelfWidth, shelfDepth }: BackgroundProps) {
   return (
     <group>
       {/* 바닥: 선반은 z=0(벽)~depth에 놓인다 */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, floorDepth / 2]} userData={{ excludeFromAO: true }}>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, floorDepth / 2]} receiveShadow userData={{ excludeFromAO: true }}>
         <planeGeometry args={[roomWidth, floorDepth]} />
         <meshStandardMaterial color={FLOOR_COLOR} roughness={0.95} metalness={0} />
       </mesh>

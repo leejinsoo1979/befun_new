@@ -1,0 +1,48 @@
+{
+  "caseId": "connector-clip-004",
+  "observedAt": "2026-10-14T00:00:39.667699+09:00",
+  "sourceUrl": null,
+  "sourceType": "user-supplied photo explicitly identifying the requested Tylko connector",
+  "inputOptions": null,
+  "initialState": null,
+  "actions": [
+    "Inspect supplied photo",
+    "Preserve original image",
+    "Link to official assembly PDF case connector-clip-003"
+  ],
+  "observations": [
+    {
+      "status": "photo-observation",
+      "description": "Stacked plywood panels have elongated, rounded-end connector inserts recessed into their narrow edges."
+    },
+    {
+      "status": "photo-observation",
+      "description": "Central stack repeatedly shows a black insert and an orange insert on the same visible panel edge; openings and metallic interior details are visible."
+    },
+    {
+      "status": "cross-reference",
+      "description": "Black/orange appearance matches the older colour coding described in the official PDF, connector-clip-003. This does not identify supplier or part number."
+    }
+  ],
+  "measurements": {
+    "unit": "mm",
+    "precision": null,
+    "clipLength": null,
+    "clipWidth": null,
+    "pocketDepth": null,
+    "centreSpacing": null,
+    "edgeOffset": null
+  },
+  "manufacturer": null,
+  "partNumber": null,
+  "lockingFunctionByColour": null,
+  "screenshots": [
+    "docs/tylko-reference/screenshots/connector-clip-004-reference.png"
+  ],
+  "relatedCases": [
+    "connector-clip-001",
+    "connector-clip-002",
+    "connector-clip-003"
+  ],
+  "implementationStatus": "User-designated appearance reference; no runtime model change in this update."
+}

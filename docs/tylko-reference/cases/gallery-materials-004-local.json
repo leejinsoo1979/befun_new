@@ -1,0 +1,2988 @@
+{
+  "id": "gallery-materials-004-local",
+  "observedAt": "2026-10-13T22:27:42.687Z",
+  "sourceUrls": [
+    "https://tylko.com/de-de/mobel/sideboard/3516437,j",
+    "https://tylko.com/de-de/mobel/regalsystem/3690551,j"
+  ],
+  "method": "Original public images read from the loaded Chrome page resources; no image alterations; no cookies, tokens or request headers saved.",
+  "assets": [
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-midnight-blue/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-midnight-blue/7/D.avif",
+      "bytes": 9252,
+      "sha256": "9e54237c27f0fe04763ade8a5aed1ab187be377140567c56a8e50addc48eede9"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-midnight-blue/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-midnight-blue/8/D.avif",
+      "bytes": 9611,
+      "sha256": "55f491b7dfce7390e37d1ba76e5f4737aa4e032e66091087417fcb309a258bf0"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-midnight-blue/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-midnight-blue/2/D.avif",
+      "bytes": 116907,
+      "sha256": "e8c43675debb809cfb60133e337cfb707a189ffd0ef3b4587b667034dc35441c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-midnight-blue/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-midnight-blue/3/D.avif",
+      "bytes": 108175,
+      "sha256": "0b71398bd971c32c8742ea17b58152e76e0a652591a22ced3d262f350ac6568a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-midnight-blue/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-midnight-blue/4/D.avif",
+      "bytes": 36841,
+      "sha256": "7e3cd5256cf3f47c3de2456569539a9cb12994e81b378e500c917f0b92d95734"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-midnight-blue/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-midnight-blue/5/D.avif",
+      "bytes": 8239,
+      "sha256": "e4c16f7dcc70d2d27c7f842e6a638c0402a11b9aff25f6a00cbdd8b57634fc09"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-midnight-blue/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-midnight-blue/6/D.avif",
+      "bytes": 16004,
+      "sha256": "17ae4728d09561e34d9bcc329abd1679504079a56b55c0afc3eb9a49d833fc03"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-midnight-blue/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-midnight-blue/1/D.avif",
+      "bytes": 45515,
+      "sha256": "06421601258cf87d39400d879bfbb9164a196b95b001ea008eef154b65cf6cdf"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-white/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-white/8/D.avif",
+      "bytes": 5007,
+      "sha256": "3f32a695dd53f6328ab652042352826ba9957481929fc1333eea4710b1baeda4"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-white/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-white/5/D.avif",
+      "bytes": 9125,
+      "sha256": "de5a288d881abe10c1be8c453b96726ecf1c62a159dda06cdff32450dc9e1f30"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-white/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-white/1/D.avif",
+      "bytes": 41156,
+      "sha256": "e42c6adea0d637f5611075488994d8dc59e82869a723df086efe3ede57540c55"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-white/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-white/4/D.avif",
+      "bytes": 5051,
+      "sha256": "c4d3770c7b5a28e108f0bc12035a027becfa8a237fa8a183368ddb4c4f455602"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-white/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-white/2/D.avif",
+      "bytes": 130950,
+      "sha256": "97a1813d365832d18e43a7ed83c27df88b3a98e57438d1dfd4c09ebcb2d34507"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-white/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-white/7/D.avif",
+      "bytes": 4924,
+      "sha256": "e5b8ba7a725ce448927db4649ce3f20f13bf85ff6140c665ed8c07f016b78fea"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-white/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-white/3/D.avif",
+      "bytes": 127363,
+      "sha256": "1f47d59ca5f8698d5d9a9bbafa0cf32b429d27d9c5a685ba848ec10083594c99"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-white/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-white/6/D.avif",
+      "bytes": 15338,
+      "sha256": "97dfb4c4ffde75d0318e6299dd860310dbfe76b54f38e22c7907a8544d0bd02a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-cotton/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-cotton/3/D.avif",
+      "bytes": 111186,
+      "sha256": "573ed25908ae3b866cc5f55544ea0d1e3b9649fba4d54fb606f5236176ea65e5"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-cotton/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-cotton/8/D.avif",
+      "bytes": 3172,
+      "sha256": "5cbac9825ab7525f3265f88d1a89c4b23420b017af250800ca0dd674f2df3f69"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-cotton/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-cotton/6/D.avif",
+      "bytes": 16190,
+      "sha256": "b8d1954f3e8e06f1a04c3055745924bc1c88b89071ce45444271d36737231fda"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-cotton/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-cotton/5/D.avif",
+      "bytes": 12192,
+      "sha256": "c2e460d6496b9cceb0fbdaaa099ba2c5f4a10f7797e9f66f9aa1ccc2b193ddd4"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-cotton/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-cotton/7/D.avif",
+      "bytes": 5563,
+      "sha256": "936556bc2bf74e9cfaf26921308c18a16236c01a3086e392d8994304d613b38c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-cotton/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-cotton/1/D.avif",
+      "bytes": 43064,
+      "sha256": "2c211c4986bd5bfd9a925865ec22de5a10db0c41e53d425310f6d77749abdd59"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-cotton/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-cotton/4/D.avif",
+      "bytes": 5024,
+      "sha256": "d5af33f2515659f092d4ee23b74d2bd3d668d6e723ce4e2294963d3f1aff5400"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-cotton/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-cotton/2/D.avif",
+      "bytes": 125588,
+      "sha256": "064d1088daa88ae94150d59884c95bf2ee8d94ca29fbdcdb7b84184c96dabc7a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sand/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sand/5/D.avif",
+      "bytes": 13514,
+      "sha256": "aceb20a487ea5ef25fa91282b29c3a68d263620ff4b1185f30e4d723c15e2638"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sand/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sand/6/D.avif",
+      "bytes": 16307,
+      "sha256": "9836c5f748ab89d7c20c6187c9f159a528936794b50d2866c080c94a92023d33"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sand/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sand/7/D.avif",
+      "bytes": 14333,
+      "sha256": "9f2817629429d4582d7564603610b7de0e1ad7cf43199ce708ecfc10cc1d8ff9"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sand/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sand/8/D.avif",
+      "bytes": 9149,
+      "sha256": "35e0ffb5c0fd1571fad11de1c8bf010835ecdf89eff8ac2c2afa50ddf854d782"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sand/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sand/4/D.avif",
+      "bytes": 8190,
+      "sha256": "27bf87a8a0c0dab6c6a6366e29f7c674d00eec0bb234e5818b8fb5d5e4b42e49"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sand/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sand/1/D.avif",
+      "bytes": 118187,
+      "sha256": "fb5da167f20321f308b59e9a039d4fc9ed0f8f7fbe12ec965ecc0a32ac411e3a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sand/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sand/2/D.avif",
+      "bytes": 128673,
+      "sha256": "d9b12d3e8c006e1a734504b6ecdf3b3dd85f431ea94920844378a992938b2d61"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sand/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sand/3/D.avif",
+      "bytes": 114520,
+      "sha256": "88d42eec2d963e6bc63e938d85440b9df6ac23bc42fee0108d2f5883e6ecc935"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-terracotta/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-terracotta/4/D.avif",
+      "bytes": 15555,
+      "sha256": "b55f42ef60cbd85638c329c1b51e58a47900eb6d1de2807fb9688881b5ad42f9"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-terracotta/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-terracotta/1/D.avif",
+      "bytes": 47797,
+      "sha256": "b21e1db45802e935adc9bcd82d7e1bc9787ca8221b06266e343b3651618df2bc"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-terracotta/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-terracotta/2/D.avif",
+      "bytes": 115833,
+      "sha256": "3f6230a766861f05d2d11779e7b309c479f0874c1ca8478753bac56e78780a92"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-terracotta/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-terracotta/5/D.avif",
+      "bytes": 11988,
+      "sha256": "e4a477aaaa24ebf3c80430fe06a3b60f2ee1718fb45b67df4a2dd943cfd150de"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-terracotta/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-terracotta/3/D.avif",
+      "bytes": 123911,
+      "sha256": "b1a77df8d96d41b286bf1964d01b204846edaf810502fdf7f6abcd431d9bd37b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-terracotta/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-terracotta/7/D.avif",
+      "bytes": 11046,
+      "sha256": "b2b21a169d7ae58f2714117466b4c4b2c9bd219e2399069a893543312fb33d8d"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-terracotta/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-terracotta/8/D.avif",
+      "bytes": 8486,
+      "sha256": "5c1aa608c2637a6d0ce4c2c74d8df0c130456480ec39a6d154e4c1942f27e82a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-terracotta/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-terracotta/6/D.avif",
+      "bytes": 16741,
+      "sha256": "830e570d407ed81be434e4de400da8fa3524284fe635a13c58865c6f16d6e13b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-burgundy/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-burgundy/2/D.avif",
+      "bytes": 113559,
+      "sha256": "e4f33ac5d7c54ddea6ca5ff4939c84fa25d3f1cce12fc7bd48d25022d7467dfb"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-burgundy/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-burgundy/7/D.avif",
+      "bytes": 9614,
+      "sha256": "78939b546171f42cfff7ccc1c19d1fa81746fe9405e8b61ce194b8b5389072a2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sage-green/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sage-green/4/D.avif",
+      "bytes": 15107,
+      "sha256": "f82299df8e480c7636c231dd7032711b89ccaa37e6c7a8a57af20cedd94d84d7"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sky-blue/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sky-blue/5/D.avif",
+      "bytes": 12853,
+      "sha256": "4c67267a08452e14592175756b7006b5e8f4cee26dca580389c1dd5cbdf8eeaa"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sky-blue/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sky-blue/2/D.avif",
+      "bytes": 119610,
+      "sha256": "ae0013a1e6551ddf7dfb2e2890361d94a43bc1262103022251c2028dc1e771ea"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sky-blue/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sky-blue/6/D.avif",
+      "bytes": 16364,
+      "sha256": "0221356ad24867428d69f958e342d6fd360e99156838f617889935878511f9bb"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sky-blue/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sky-blue/1/D.avif",
+      "bytes": 47884,
+      "sha256": "e6ee19c7f9b112b19a6beeddd930d75ad586d1705930f979330dcf8142c6c73b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-matte-black/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-matte-black/2/D.avif",
+      "bytes": 111424,
+      "sha256": "9990e71c2573518b12060d768126942f0f26eb7e6592f9d7fb1c822b14696112"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-matte-black/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-matte-black/4/D.avif",
+      "bytes": 10047,
+      "sha256": "e33b5f3a9473faadd94d81b409d1ac003c4322f50de75904c71090c9504b7c4b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-matte-black/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-matte-black/8/D.avif",
+      "bytes": 9120,
+      "sha256": "2e81a72fe0eea72b539c1b83a30dac480ae9399a3dbd6fa5a88d1eca38845b4c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-black/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-black/5/D.avif",
+      "bytes": 11815,
+      "sha256": "630512c113cd2a7b15e233ec6850c5e0cb0edf83ce399a820d07d59212e90e82"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-black/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-black/1/D.avif",
+      "bytes": 44127,
+      "sha256": "fb9689dcea0ebbe7fa4f8a5a76e4a9aa73e2a3f6a4afd139284af0a29f0f83ee"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-black/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-black/7/D.avif",
+      "bytes": 12700,
+      "sha256": "60995cbd0f69d096e0e6d7358c79a7fe12fcce170a254d45799c58a8b4727402"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-black/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-black/8/D.avif",
+      "bytes": 16559,
+      "sha256": "cacf5ff02b472ab0c2d0480bceda59bc313841e4c23877dce64e6e49b6e211f6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-black/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-black/6/D.avif",
+      "bytes": 60608,
+      "sha256": "b2492c27281c777852ec3fbca4b0ddd3a3da315d30ab109c6a0deed9868d081f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-black/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-black/2/D.avif",
+      "bytes": 111424,
+      "sha256": "9990e71c2573518b12060d768126942f0f26eb7e6592f9d7fb1c822b14696112"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-black/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-black/4/D.avif",
+      "bytes": 32521,
+      "sha256": "c4aec0993b8b50deed0df6ca446169a18e0256c467d781ce1b53f54762e2eb15"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-black/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-black/3/D.avif",
+      "bytes": 108753,
+      "sha256": "990dfda5cdaab138637d4d6e676d9b5b8a747d7234bb4e94d551a68c0eee90e2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-pale-lilac/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-pale-lilac/1/D.avif",
+      "bytes": 44893,
+      "sha256": "c71ab9817d29533a78959096977176956abaaf9713a64b516fd1d49ea2175f13"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-pale-lilac/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-pale-lilac/5/D.avif",
+      "bytes": 12237,
+      "sha256": "0ce908efafa21f40fc8f189e64e3b3b7c81e3ea175e288326bd16e5725075126"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-dark-brown/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-dark-brown/7/D.avif",
+      "bytes": 5417,
+      "sha256": "97448fd578cf60a43d0855ed9cd95d9cafa7530d5cda7d75c621f51a57776b68"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-dark-brown/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-dark-brown/6/D.avif",
+      "bytes": 22608,
+      "sha256": "1bd9ed725d3f1b51b06997569b6cdb6129a9ffb524d8936c753c29b6fd7b35db"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-dark-brown/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-dark-brown/8/D.avif",
+      "bytes": 7172,
+      "sha256": "f34ed3ef90bf469db4fd749ee3666a42fd9855e81a946e262612a3cf1cc973a9"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-dark-brown/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-dark-brown/4/D.avif",
+      "bytes": 6091,
+      "sha256": "fdc5795255b5ebd0359a1b6ee94edf3f34876b750d26bed5335f4b51f8bb37b6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-dark-brown/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-dark-brown/2/D.avif",
+      "bytes": 105303,
+      "sha256": "df3a166452f79ce7488757fb689bb8257a1280f1ea693244ed09deab15adbc43"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-dark-brown/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-dark-brown/5/D.avif",
+      "bytes": 8648,
+      "sha256": "6687ec056c23d06b15aa6d67728407e95c8a2995a4c3d0ccf648f5c9c5d4f46f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-dark-brown/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-dark-brown/1/D.avif",
+      "bytes": 42383,
+      "sha256": "abaeb315c21bed585af131b1c8ef527f7552086e325ade06c2256c9e6b264e46"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-dark-brown/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-dark-brown/3/D.avif",
+      "bytes": 94325,
+      "sha256": "af8163d294601dd9c05aa808c6bbc0c9dba9ee13da3a558c1f0c565548dd92c7"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sky-blue/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sky-blue/3/D.avif",
+      "bytes": 137769,
+      "sha256": "b986fea71b37bb638bb1a1ec5ad42520ff5ab51044793ab0da322d2e53384b79"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sky-blue/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sky-blue/4/D.avif",
+      "bytes": 8224,
+      "sha256": "0bd8ce968697cd94b53e46506ed77271d84f18554899fb300bd82c3c93a06e9d"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sky-blue/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sky-blue/7/D.avif",
+      "bytes": 9283,
+      "sha256": "5819354bb8a91843bcd6a3e6a070d5fde50a2efab69aa36ca977f8552aca51ff"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sky-blue/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sky-blue/8/D.avif",
+      "bytes": 5207,
+      "sha256": "aa6d78d64c6d0ad4e4c595138ff348a027864e6364e44efd8677562a253675a5"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-grey/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-grey/1/D.avif",
+      "bytes": 43834,
+      "sha256": "e3b387d8229f4fc23143487314e8a12f7435470ca66b1050b5bd3a92319a7c48"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-grey/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-grey/2/D.avif",
+      "bytes": 124523,
+      "sha256": "c98e15e9e78aeb3064dea1d13bac2f65bfb0a776b36783a857750ed12a98b2c2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-grey/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-grey/3/D.avif",
+      "bytes": 114693,
+      "sha256": "9c2632aa2ecfc783b4777260c24e51083e205eaa45d3f880a54cfc224e4be9bf"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-grey/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-grey/4/D.avif",
+      "bytes": 8333,
+      "sha256": "d2b6443d24ec14ec772345ac9a0d01c4288fe92de272d4ade9cd106f90f3b90b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-grey/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-grey/5/D.avif",
+      "bytes": 10441,
+      "sha256": "f52b9b6c3917fb99d6bcef73d9853a5d993667367f26dad6d3f080f35710076f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-grey/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-grey/6/D.avif",
+      "bytes": 16491,
+      "sha256": "10d14e9420105c4efd996ab124bf09c83a68a8ae1e87378e3689097150fbffc0"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-grey/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-grey/7/D.avif",
+      "bytes": 5678,
+      "sha256": "cf2cfbc58aa5cd6d5bd144f9823b4a448e07dd918a04037d085158e33414b868"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-grey/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-grey/8/D.avif",
+      "bytes": 4253,
+      "sha256": "bb780eb196485132ddc1774593c994093198c4c29bd93b351fd434d2be4d92e5"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-stone-grey/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-stone-grey/1/D.avif",
+      "bytes": 45213,
+      "sha256": "7ea60c641ba5fdd96a03a9116ab94c6d14767f225f980eafbf2e06aa03530c28"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-stone-grey/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-stone-grey/2/D.avif",
+      "bytes": 124976,
+      "sha256": "8a1e70c41bc5c074f853a5d7636478d505b84f1f7122e91c127ebccf27b473fc"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-stone-grey/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-stone-grey/3/D.avif",
+      "bytes": 113812,
+      "sha256": "d8258d232c6b6679f4fe20d12a3374de2cdc55a93f92bc1405a304a2d1240d19"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-stone-grey/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-stone-grey/4/D.avif",
+      "bytes": 23263,
+      "sha256": "b1863d1ce49a5cb242a1abe15e320515ee882267ac4a2dc7e22df56c7130a54e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-stone-grey/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-stone-grey/5/D.avif",
+      "bytes": 14318,
+      "sha256": "39f92ebf67c27089221443ac158c2731e5cc206c775b7345117674a2c2767db3"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-stone-grey/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-stone-grey/6/D.avif",
+      "bytes": 17836,
+      "sha256": "19b48910e65d44d264cced6bdd850d64cf784203cc8c4edcbf67d9d2a17ba820"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-stone-grey/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-stone-grey/7/D.avif",
+      "bytes": 8230,
+      "sha256": "7a71446a81388b015767bfecf3bbdfe066921674491f9ada1669d8c2df4c10ad"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-stone-grey/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-stone-grey/8/D.avif",
+      "bytes": 12995,
+      "sha256": "d85ec07a538c667ac7c3a5d91bc9f08da08f5f7b0dd727d1cd39eb54b8b325f3"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-olive-green/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-olive-green/1/D.avif",
+      "bytes": 44006,
+      "sha256": "dd8fb70792abe039606fcaf54af01f984275e5768ecd42dad73defea5037b5b9"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-olive-green/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-olive-green/2/D.avif",
+      "bytes": 106472,
+      "sha256": "cac02229c31fee350f9c93bbe53eb6cf717de6d4e4825f5f59754bc01eecfb3a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-olive-green/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-olive-green/3/D.avif",
+      "bytes": 102465,
+      "sha256": "508e65b670ce34d01b5e86f1f2b13e7de533b8c568673ff253421bf020753c0b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-olive-green/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-olive-green/4/D.avif",
+      "bytes": 11444,
+      "sha256": "6122047251acc8a72062708da44434faa4828cfa181cb129cc5c4061e5bef40b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-olive-green/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-olive-green/5/D.avif",
+      "bytes": 13255,
+      "sha256": "72e3f0b566a9009de8f29349d9ceb3e628a1017aea256bee3e66c6a63c317356"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-olive-green/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-olive-green/6/D.avif",
+      "bytes": 27697,
+      "sha256": "3bc336828aa84ee2af436d6c6d222b1d6bf0959503e7ac2f548acfbb027920a1"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-olive-green/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-olive-green/7/D.avif",
+      "bytes": 9301,
+      "sha256": "d54f324805b87b752a595e34081b87e0d4c924b6e1c7f5f27aa4a92518689115"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-olive-green/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-olive-green/8/D.avif",
+      "bytes": 7798,
+      "sha256": "9b1981da4980ab204ac027d43a58095a0b5317e6f671846525207ada7c1f60cb"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-burgundy/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-burgundy/1/D.avif",
+      "bytes": 44638,
+      "sha256": "df90856ecd30008dbefa932f0d7dd1e03c388d714cd4e478020f5a091c057f35"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-burgundy/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-burgundy/3/D.avif",
+      "bytes": 109891,
+      "sha256": "a1caed25c4b3779675fabf4563eac0cdc8b1db51e8337c37457853976487efc3"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-burgundy/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-burgundy/4/D.avif",
+      "bytes": 19948,
+      "sha256": "d36b37a894798673386a89273df161852f2578530303f2e7cadb36e47b37e963"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-burgundy/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-burgundy/5/D.avif",
+      "bytes": 8317,
+      "sha256": "1ad993cf613c239b2f293423cd2b7066d1ce2992b046bc90e1c43188a5ccba59"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-burgundy/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-burgundy/6/D.avif",
+      "bytes": 13325,
+      "sha256": "6cd48ffbe90021732566a958d5231f63c3846af3512e7f89c1fdb1b1c655f42b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-burgundy/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-burgundy/8/D.avif",
+      "bytes": 8034,
+      "sha256": "b2adc4affabb454c7a124a3668bc501c133ba8b1ebab952a95573632da4c0743"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sage-green/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sage-green/1/D.avif",
+      "bytes": 44298,
+      "sha256": "d504b88e1822ddb135202bdb53cd25503573713d8648c1219f667d410573224a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sage-green/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sage-green/2/D.avif",
+      "bytes": 124035,
+      "sha256": "62d1323e4a9a8652cc8b7674acab8317e40332add59d7f442eb282a66e72704a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sage-green/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sage-green/3/D.avif",
+      "bytes": 128145,
+      "sha256": "fca7093fd950c2ec12cd44ae68abf3e89f3f38afac3dc4a946a17cb1ee004edb"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sage-green/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sage-green/5/D.avif",
+      "bytes": 13342,
+      "sha256": "85c14d1ea917437c91972e609fc57683efb26611b84f2bcb1570de4f09e276c0"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sage-green/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sage-green/6/D.avif",
+      "bytes": 18130,
+      "sha256": "cd838e9deba5b8e23c0c0f7ff237d0f631a65c30440bcc2f300380999b74bb46"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sage-green/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sage-green/7/D.avif",
+      "bytes": 7893,
+      "sha256": "f41bb994000a7d75f6309078a6973f5441acb7ee9877ed15604055e61f7749ea"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-sage-green/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-sage-green/8/D.avif",
+      "bytes": 7814,
+      "sha256": "b7baf40064793f312ddf24da58deb2d46995e2402ead8a801b909f1565da7c52"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-reisingers-pink/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-reisingers-pink/1/D.avif",
+      "bytes": 47020,
+      "sha256": "43bd841475c33ffb866e363fedb2f5a0424af59e5191f1eed1a1fb16f82030cd"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-reisingers-pink/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-reisingers-pink/2/D.avif",
+      "bytes": 120837,
+      "sha256": "c509acb93e01c699cabd6a683fd619187c4f0c1f6f60a1a0f5ceb29371bf6b17"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-reisingers-pink/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-reisingers-pink/3/D.avif",
+      "bytes": 121512,
+      "sha256": "8aac4f4b7feab34771f59846a9c53064e7289ea6846e389f0962257505fea4c2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-reisingers-pink/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-reisingers-pink/4/D.avif",
+      "bytes": 23265,
+      "sha256": "90a6c09108b854b225ab1b492fc0cccd58ba17a7efce6a4e9b371cbf99bb0b8f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-reisingers-pink/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-reisingers-pink/5/D.avif",
+      "bytes": 14294,
+      "sha256": "1b396c5d8a6ed84a6fd0dadaa970354b6e6c5c748fa9ec68e4e128de21fc00ac"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-reisingers-pink/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-reisingers-pink/6/D.avif",
+      "bytes": 20615,
+      "sha256": "ddfcf5b7ea42863be736b89067a02617319212f66d8fef88d65d5617f159526b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-reisingers-pink/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-reisingers-pink/7/D.avif",
+      "bytes": 8134,
+      "sha256": "1e67c016bedea378d185d4906129a55e631ffc247c06b2e4d19e3336f51898cd"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-reisingers-pink/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-reisingers-pink/8/D.avif",
+      "bytes": 11723,
+      "sha256": "59a5e379e9317fe8e09a78bb16ad864bb0c0b888978b1c9d076be4d504a5cc3a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-butter-yellow/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-butter-yellow/1/D.avif",
+      "bytes": 46524,
+      "sha256": "b69a32cb766df9dfeeb3677b6a2d9bab81e22fdbc216eb3b23538bc24e620258"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-butter-yellow/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-butter-yellow/2/D.avif",
+      "bytes": 108946,
+      "sha256": "ea13fd860a68e54027c7cca402106c7597fef68a7aac3fc9874f811636f1be94"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-butter-yellow/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-butter-yellow/3/D.avif",
+      "bytes": 158105,
+      "sha256": "38c0ba3864a3c9e7b2ccfa5c7e668a25bf82d512d5439ee68332d52ef8fae88e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-butter-yellow/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-butter-yellow/4/D.avif",
+      "bytes": 9709,
+      "sha256": "af00e3696b99e8bc8e1240d1b61612407dde57ef07e2c26619246e2aeacc9ca6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-butter-yellow/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-butter-yellow/5/D.avif",
+      "bytes": 12937,
+      "sha256": "956dfaddd554c74b447f340899234e002efd99f9512724c00f7e37e3a1eea37f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-butter-yellow/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-butter-yellow/6/D.avif",
+      "bytes": 26418,
+      "sha256": "13ff8c37e2de3c776b37d320eb229c55623084664b7c47b6a119165171f09108"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-butter-yellow/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-butter-yellow/7/D.avif",
+      "bytes": 8495,
+      "sha256": "f78f442bceafdb6cea955093a2e5459babe22fe4a65e8779606502237332fda8"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-butter-yellow/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-butter-yellow/8/D.avif",
+      "bytes": 4700,
+      "sha256": "5bfa09fc781151b973837f3eea34ea248124b8fbda63835d461b8ee4f51e6a56"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-pale-lilac/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-pale-lilac/2/D.avif",
+      "bytes": 110676,
+      "sha256": "b1dfd3b6cf57951a0cdeaa40d5092b0440c38df2b74416094663f5bd3a7db494"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-pale-lilac/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-pale-lilac/3/D.avif",
+      "bytes": 98091,
+      "sha256": "35851446de57f3af40b2afdf7d907013df93832375cdf5d33c36c9a9f17a553f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-pale-lilac/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-pale-lilac/4/D.avif",
+      "bytes": 9599,
+      "sha256": "d12833843ed93cb8313c5dd5583102f86eb84355c8d25aeb0179b69f0933ec15"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-pale-lilac/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-pale-lilac/6/D.avif",
+      "bytes": 25024,
+      "sha256": "bc8672ab79fc7da0716a057b7c712827a35b267a7596b5d69ca5ca5c5b3e1936"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-pale-lilac/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-pale-lilac/7/D.avif",
+      "bytes": 7343,
+      "sha256": "26e3946b038496edbf61f6e0677ccd050008d17f3ef4cbeecad5a1fe4a800f1f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-pale-lilac/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-pale-lilac/8/D.avif",
+      "bytes": 4778,
+      "sha256": "63f98a41217e4528a18b0ab5a9d2a9626868704c274dfe3d6da05ad743de6d14"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-matte-black/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-matte-black/1/D.avif",
+      "bytes": 44127,
+      "sha256": "fb9689dcea0ebbe7fa4f8a5a76e4a9aa73e2a3f6a4afd139284af0a29f0f83ee"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-matte-black/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-matte-black/3/D.avif",
+      "bytes": 108753,
+      "sha256": "990dfda5cdaab138637d4d6e676d9b5b8a747d7234bb4e94d551a68c0eee90e2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-matte-black/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-matte-black/5/D.avif",
+      "bytes": 7337,
+      "sha256": "d61b513b4931fcd04717f10c635539609e01a147850ff5c5c09be4f47a9e7e4e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-matte-black/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-matte-black/6/D.avif",
+      "bytes": 14610,
+      "sha256": "cf9e36ace556f8f1040e436d6403331a6efcfc3bccb70b09cbccba38a77e2395"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-modern/02-matte-black/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-modern/02-matte-black/7/D.avif",
+      "bytes": 7168,
+      "sha256": "76373e1ee29529a70511ee9e3f242950eaf02a205cebaed066797f275d94cc27"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-white/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-white/1/D.avif",
+      "bytes": 148900,
+      "sha256": "30b9c0ed9b0d53cb3dc31cebbd018dd1fbff3c3570969ae6db1afd884a366330"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-white/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-white/2/D.avif",
+      "bytes": 84739,
+      "sha256": "027ce78c39fcdddd04b982253338b19ff789dbce4b24197baebe47d4b0701520"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-white/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-white/3/D.avif",
+      "bytes": 57109,
+      "sha256": "5ae5673057476ea8eb18c576704f874ff9f4df3bf075bc3feb5e7d59ef6846f2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-white/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-white/4/D.avif",
+      "bytes": 86228,
+      "sha256": "7ffd1b39cd3beb5184682ca2241f28591a6a2640251adb0e7c44f2bd6303ffa7"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-white/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-white/5/D.avif",
+      "bytes": 17924,
+      "sha256": "c3c55359f0123c9a82abf8d5d06b3a44f246306ad96c0f01188f36d13231e31e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-white/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-white/6/D.avif",
+      "bytes": 17341,
+      "sha256": "baf6e5ebc29b02fb408ceffe57e523a2fe82861b62cea5a9b85a8409e99ef7f8"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-white/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-white/7/D.avif",
+      "bytes": 22060,
+      "sha256": "b02ad16954a9f5e3eca1488523abe3d5435672bd39253b6faa19e0d803726471"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-white/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-white/8/D.avif",
+      "bytes": 28385,
+      "sha256": "f0b45554290f03febcd62473063aa749014a67507a01767cbb88f4405d0d93e8"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-moss-green/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-moss-green/6/D.avif",
+      "bytes": 17379,
+      "sha256": "e9359347bb92ee30228384b3929cbb3ad8314c7b2a8f328ceea186d8d33e5a6c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-black/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-black/1/D.avif",
+      "bytes": 170449,
+      "sha256": "3445007d88f7bef186479720f8bf9da997a1cc5b3fab523046caaa7480ac786e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-black/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-black/2/D.avif",
+      "bytes": 74964,
+      "sha256": "279b8c2a740d6b8d3eb00946eefce10509839846d6f825a92ec3b15e8d745528"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-black/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-black/3/D.avif",
+      "bytes": 16214,
+      "sha256": "41116a03528a7a07186d4137e1749099af029b4625fb5a81a3a016409e35ac8d"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-black/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-black/4/D.avif",
+      "bytes": 51431,
+      "sha256": "1e8f5cb716bca79cba070c8344a52fd854348460d90ebdbb8924508d931bac8e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-black/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-black/5/D.avif",
+      "bytes": 19119,
+      "sha256": "f2da1074fd62b4d0616f14c210f3126f572afe41d98b6421fd035e8a1f9af966"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-black/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-black/6/D.avif",
+      "bytes": 16385,
+      "sha256": "426a39ad5d8925c44a4d55188a1df8e370b14351a49e6779ae72f5613e58332a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-black/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-black/7/D.avif",
+      "bytes": 25877,
+      "sha256": "c5ce866fceff7463faaee56ca694b8062f047d506e3c787c472ce7993695f04c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-black/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-black/8/D.avif",
+      "bytes": 20402,
+      "sha256": "c637c57d05e3f7c0aaf4293eb043e53e601ea813172737f8abac296e055caead"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-blue/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-blue/5/D.avif",
+      "bytes": 20826,
+      "sha256": "94c406f33ddf64dd2db7f57a3ab8e76195590ab96e7e904a68709d63c0d89374"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-clay-brown-plywood/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-clay-brown-plywood/1/D.avif",
+      "bytes": 107776,
+      "sha256": "15d70c2b1f3fd374aa94bc91fdefaa5ed7cfcbcbf32252aa8f6a90dc4a18b85e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-clay-brown-plywood/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-clay-brown-plywood/2/D.avif",
+      "bytes": 71225,
+      "sha256": "a46d22700aab3aa381cfcbea5dac8ed538a037a9bc465491f809517816c9542e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-clay-brown-plywood/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-clay-brown-plywood/3/D.avif",
+      "bytes": 38357,
+      "sha256": "8b738657c1684385b09a08b0f3b7a96e5840c72dd523038eef476a1e321ba028"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-clay-brown-plywood/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-clay-brown-plywood/4/D.avif",
+      "bytes": 53272,
+      "sha256": "ea55d9369c846033400cbde2ba188c09be806faa9a2ae4e45e72356165f921cd"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-clay-brown-plywood/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-clay-brown-plywood/5/D.avif",
+      "bytes": 29076,
+      "sha256": "4203f5f161477cf34bf2d5df98231ffe7ccb8107c43fdc0bf48f46747cb879b8"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-clay-brown-plywood/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-clay-brown-plywood/6/D.avif",
+      "bytes": 27025,
+      "sha256": "95547360f8f09cd2f078a38aaad9a8b9c48d32823a91bb03044a64c9c642363a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-clay-brown-plywood/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-clay-brown-plywood/7/D.avif",
+      "bytes": 19183,
+      "sha256": "c928b2a289f1b8b06f9f31d55bc568b88db85251c07797d71293891a732f588f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-clay-brown-plywood/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-clay-brown-plywood/8/D.avif",
+      "bytes": 22077,
+      "sha256": "1135ab10f911ca669212b931b0f0b7accf719ed9e1028bac996df9ac6a8b9397"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-moss-green/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-moss-green/1/D.avif",
+      "bytes": 160943,
+      "sha256": "83dc74f44334b3bbe8674c13ba1a6265813a379bf0db174e5d2625a4d501aaaa"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-moss-green/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-moss-green/2/D.avif",
+      "bytes": 93186,
+      "sha256": "811b990bd99bac9af9810a02b84e10344b9ef0770513058286fdd4563363b598"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-moss-green/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-moss-green/3/D.avif",
+      "bytes": 15924,
+      "sha256": "9fd9349a5a0881cb6b4908bfb8460b70decb1e968e6159f892fd0f5c1e29f9f3"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-moss-green/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-moss-green/4/D.avif",
+      "bytes": 50864,
+      "sha256": "ab52a40fb797c1274165159b9a125f53b337647cbb91c2fc5ed2ae86aa5913b4"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-moss-green/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-moss-green/5/D.avif",
+      "bytes": 21934,
+      "sha256": "b522c5cf770c2d6cebaad2214e7d6293e04387b341b9dc313edb8084780dcbc0"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-moss-green/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-moss-green/7/D.avif",
+      "bytes": 24674,
+      "sha256": "3014f5a214955cbc6683c44cd69c988a958a45a3d635f0e1deeed079e78e7193"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-moss-green/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-moss-green/8/D.avif",
+      "bytes": 25280,
+      "sha256": "3afa5e7104953b7a3655d3a65ae5aece6871eb91b454dbc18ee8c25b99701b85"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-grey/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-grey/1/D.avif",
+      "bytes": 148332,
+      "sha256": "c6818694a8f487b8bf438ee8d3039f2503e55fe82c3e48ba7d9ca221fedf3f40"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-grey/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-grey/2/D.avif",
+      "bytes": 79777,
+      "sha256": "0f15bdc39b29037ca3050353a5d03019089873ba8919ea847aecb953284f5c4f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-grey/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-grey/3/D.avif",
+      "bytes": 45150,
+      "sha256": "17ef23fb1eb40bbdb4cbfbdcf77a09f2e399d02e88a5fc6c84328c145e49310d"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-grey/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-grey/4/D.avif",
+      "bytes": 78663,
+      "sha256": "a1567f5165ca163f37363c2c1bbde68e01f65272824c0712289b0a1a4c4298c6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-grey/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-grey/5/D.avif",
+      "bytes": 18009,
+      "sha256": "61912dbb45fbe7917ac8a949488d6804e45bb1a07dcbcef73dbc8f2c27171d54"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-grey/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-grey/6/D.avif",
+      "bytes": 17783,
+      "sha256": "0095965065a99d14acf9a4f14dcc9775e134784fb3fbf904b475d4594ee4a945"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-grey/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-grey/7/D.avif",
+      "bytes": 25100,
+      "sha256": "eb8b3dc0943eb149154b085fae9e3be0498fc81ad3bcefa6ef918e8c27bc7643"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-grey/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-grey/8/D.avif",
+      "bytes": 31902,
+      "sha256": "2f61cbfa7ba0516bd6f08c3c746c627a5252ab7f71da5a44859260959c78c1b3"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-dusty-pink/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-dusty-pink/1/D.avif",
+      "bytes": 151606,
+      "sha256": "7ba2bbe4c8b8d28844548da7a6cd5730b586d5bb0c3260d7a456d2277de25bc8"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-dusty-pink/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-dusty-pink/2/D.avif",
+      "bytes": 85615,
+      "sha256": "62be7e4de298b242a38a10bdac7483f3cce7605f0a5d9a2f48e196443e94d4b3"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-dusty-pink/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-dusty-pink/3/D.avif",
+      "bytes": 49331,
+      "sha256": "eb8fc4c0d2e031a4d7ee5fa395fa50ca4b24f840e7af2774fa6480735a3c1ae6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-dusty-pink/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-dusty-pink/4/D.avif",
+      "bytes": 64273,
+      "sha256": "6f6ec5b30477a63c1ebe95e468c00301d9b38ee21c2be4ff41d8dbd2b4f68ac7"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-dusty-pink/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-dusty-pink/5/D.avif",
+      "bytes": 20722,
+      "sha256": "1d029e1dc9d532a90eb962496a4f87b656af85adcc4233bcf7610848af0e6687"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-dusty-pink/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-dusty-pink/6/D.avif",
+      "bytes": 19840,
+      "sha256": "a34ca619aa1dd983c111e4f658aea29789e95c9ff8d0180cd7e2a4d4e6e6764c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-dusty-pink/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-dusty-pink/7/D.avif",
+      "bytes": 15188,
+      "sha256": "8bf73902e7713a9fe00c0483c93aab051e6b4428a2652e81e383ce7943bf99fb"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-dusty-pink/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-dusty-pink/8/D.avif",
+      "bytes": 34132,
+      "sha256": "2bd0ff299b3e8229bd125eec0481b58a172d21218f1b9164abb0df419dfc9c44"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-yellow/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-yellow/1/D.avif",
+      "bytes": 151378,
+      "sha256": "8984113d319d582d8331959fe8865aff59b536de40aa15d95e7486e75ab7bada"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-yellow/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-yellow/2/D.avif",
+      "bytes": 84141,
+      "sha256": "7cc7b8483a6700dd890efc88bad54b594cbd16de601c944b5cc090f3637f56c6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-yellow/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-yellow/3/D.avif",
+      "bytes": 55151,
+      "sha256": "fdd9e705d3699eb0d22c2fb969971bc021d16fdec29703009d37dacbfe6e841e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-yellow/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-yellow/4/D.avif",
+      "bytes": 68814,
+      "sha256": "8cde313673e3aafb6df763981b49543c17bd78d74439bf9311e1ef97ad12a3b2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-yellow/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-yellow/5/D.avif",
+      "bytes": 20785,
+      "sha256": "cb9c7fdf80faeb2781f07b652ac116d8694a603dbccded3f9a8bb24f929deb97"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-yellow/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-yellow/6/D.avif",
+      "bytes": 23877,
+      "sha256": "31facbbeb6846b1342738e283d26a15e9a77220e9f16c7f9c091d284ee97d625"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-yellow/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-yellow/7/D.avif",
+      "bytes": 23271,
+      "sha256": "9af03f18c16280beda55783196ecc9abfcba91d3d97b34ec75b0773f9b91954e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-yellow/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-yellow/8/D.avif",
+      "bytes": 41554,
+      "sha256": "a7e9866907ac4c50317496da3f9b164434d115de4b0f880f775ee0a63143f6ba"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-blue/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-blue/1/D.avif",
+      "bytes": 208980,
+      "sha256": "f794ee7f3bc4ff45a4e9d387cf7c65d5bc31a8083d68c1ee85c5fc4b657085cd"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-blue/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-blue/2/D.avif",
+      "bytes": 85143,
+      "sha256": "2cf9223e5ee9c752e385d5760edb0df8226c59b96dd4c32559e88ae8c058ac25"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-blue/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-blue/3/D.avif",
+      "bytes": 24535,
+      "sha256": "9b10f87e2e3c22b5c12d834a968a4c728aee1bbfa4d76341a46762e7d26811ea"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-blue/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-blue/4/D.avif",
+      "bytes": 55940,
+      "sha256": "5f2a9d64e8dd4b68efcaa319c71db91bd0abf1eb087f93e962f0b753b266b571"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-blue/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-blue/6/D.avif",
+      "bytes": 18190,
+      "sha256": "9eb13fa1312bab347ba42ccf40088bfbbd316e3cf364067676f1d2f04added33"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-blue/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-blue/7/D.avif",
+      "bytes": 19980,
+      "sha256": "020fea4ee05483e6b48578d50195457841977ca9b463020d08e0884ac22bf938"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-blue/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-blue/8/D.avif",
+      "bytes": 22552,
+      "sha256": "93935980f688df1b2882cd1b69086fcf8ce14c652ca45ca146b1db54b7c4d650"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/1/D.avif",
+      "bytes": 174434,
+      "sha256": "6483f48dd129e02db22beb7958c323e5e23d280db43ac25f6ad6ee44f5c2e163"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/2/D.avif",
+      "bytes": 78537,
+      "sha256": "af6ee81a3ed1eb791ca2e43c41e8f23b5a888baf2baddf06b642161097b41508"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/3/D.avif",
+      "bytes": 14144,
+      "sha256": "d998de1cf8c4d9c9a26ce86235e883a1f2e0a6a8f818d1633bf56d95814708bf"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/4/D.avif",
+      "bytes": 47965,
+      "sha256": "82f80cbca87ae6b89b442e5b48ecbba5471927b412a51ed69356f822809741ce"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/5/D.avif",
+      "bytes": 24145,
+      "sha256": "e2d3d45de1113596dd47fefef438171903967900e04494365e7ec9dcdddfb5b8"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/6/D.avif",
+      "bytes": 21651,
+      "sha256": "1d0b97ed9662f163bca624d0639168e5ce47983c2e8d83f368916f24c9d004a2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/7/D.avif",
+      "bytes": 12746,
+      "sha256": "ccb9433b96675b768d6685b5c05761a104cf49ef8e4b390a16dde45efbeba0a2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01p-cashmere-beige-plywood/8/D.avif",
+      "bytes": 18195,
+      "sha256": "249ad1630196817faac310aa96a5dac09ad6fe9a8f53dac7eb70985dab7d1a30"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-ash/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-ash/1/D.avif",
+      "bytes": 76778,
+      "sha256": "896b6b9751e90f8a198f584c12072907f376e4ef3951a340e491de88817e3290"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-ash/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-ash/2/D.avif",
+      "bytes": 86822,
+      "sha256": "89cc6e2660790f95c7dfbaffabe2fc583739f966259728c7c967ed8497895422"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-ash/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-ash/3/D.avif",
+      "bytes": 121777,
+      "sha256": "b4d78d4aad24b76cc1fd05333f1989286f92aa79bef026a119dc3f5eb4bbe82a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-ash/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-ash/4/D.avif",
+      "bytes": 50785,
+      "sha256": "4f6987155af0933d24fd49394014622f8c8cb7a099fadcfebd44d94d31b86910"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-ash/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-ash/5/D.avif",
+      "bytes": 49014,
+      "sha256": "22b50048ab3ef841d8379b4ae653b8bfa65ccde79f513169eb5cd8adcfa22348"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-ash/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-ash/6/D.avif",
+      "bytes": 49694,
+      "sha256": "798964667a2513d9f6b3d2501d8603e5067c65a7c65c827cf6a639a4c6f4e4c8"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-ash/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-ash/7/D.avif",
+      "bytes": 68324,
+      "sha256": "d8a20ee689cd622369bfeb9dc877fca1fbd11a46667ea48e7561672828cb4b59"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-ash/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-ash/8/D.avif",
+      "bytes": 49355,
+      "sha256": "d61ad570a186b98172a89d7983fc7fd72a0c873fa914a91fdd051891066249b7"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-oak/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-oak/1/D.avif",
+      "bytes": 80523,
+      "sha256": "2b73ec5499f50c34bcaae53249d034b2d9d239d9a33be00453c3233cf08a25b1"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-oak/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-oak/2/D.avif",
+      "bytes": 98341,
+      "sha256": "bb4d652c5547d83d5eda389ff94e30a5ec24affbe9324d6b5c4c71e87b5c3666"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-oak/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-oak/3/D.avif",
+      "bytes": 142371,
+      "sha256": "915038e3a320eff799b601c853a3308cd782bde42aee07557d4b54da51ca2935"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-oak/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-oak/4/D.avif",
+      "bytes": 60637,
+      "sha256": "4806eca688bdcce4ded8204c5d1a52695eb131ae574c727e4756268a897fa2da"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-oak/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-oak/5/D.avif",
+      "bytes": 53987,
+      "sha256": "099b7c8bad674ecc94591f1b1c2f4b446e8f38876d2e0998465ff44df484af5b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-oak/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-oak/6/D.avif",
+      "bytes": 67788,
+      "sha256": "2f222a724e6f966939b6e0700b80af4ef87d5d80d37800c5cfcdd00d61ec0259"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-oak/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-oak/7/D.avif",
+      "bytes": 83823,
+      "sha256": "5429674b1afc18c4905e9ad2b4b3add4fdf307f8493962179fcba0bb791ec829"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-oak/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-oak/8/D.avif",
+      "bytes": 59372,
+      "sha256": "3c4dfc83f94169293a3dce5af4d82ef11fe7319fc62944d1e5d66a5a38cee3a4"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-walnut/1/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-walnut/1/D.avif",
+      "bytes": 77770,
+      "sha256": "d21f6de8b4e30a70527ed55b859e6ad9cf1d42f0d1575e1e27cb1f9bd18b752e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-walnut/2/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-walnut/2/D.avif",
+      "bytes": 84453,
+      "sha256": "b20adbd955ef6a458e720cb72371368fc41f1bc016e63477902960bf65accfee"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-walnut/3/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-walnut/3/D.avif",
+      "bytes": 142725,
+      "sha256": "6b8b0f3c3c6c633356ed818e817ec481bfd68b8a9f843b1bd16d9047d831ad9a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-walnut/4/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-walnut/4/D.avif",
+      "bytes": 71894,
+      "sha256": "19fe2306b8dfbcfca3e53a107d64028ef19297eb8594382bccfa96fea3fb7a79"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-walnut/5/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-walnut/5/D.avif",
+      "bytes": 42174,
+      "sha256": "6f72879bf46aafd594f53296209a3d9c675b707e1f858c3d9ef58e97703b94b1"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-walnut/6/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-walnut/6/D.avif",
+      "bytes": 51430,
+      "sha256": "6e223bcf90dc61ce97514945fb1d9bfe02dfc2c21e22419d6f532270d6353f9c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-walnut/7/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-walnut/7/D.avif",
+      "bytes": 83925,
+      "sha256": "fbb6b21b0457e5612ac2e1d9db23061c73d074e7bebe57e90b159db49efb1862"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/sideboard/cplus/original-classic/01v-walnut/8/D.avif",
+      "local": "/imgs/tylko-gallery/sideboard/cplus/original-classic/01v-walnut/8/D.avif",
+      "bytes": 57390,
+      "sha256": "337c6c2e4a2a727f89c81e5d0d0c43be8cf53be52d206a2ee2a4aa906646d2bd"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t01p/white/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t01p/white/small/A.svg",
+      "bytes": 559,
+      "sha256": "6a77f5b45ac59bef28b597cff675b4131a42b885d62f3e53dbdfe342abf69f25"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t01p/moss_green/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t01p/moss_green/small/A.svg",
+      "bytes": 1077,
+      "sha256": "2a934d01c7711b7266fded70d51f9b97db782ee1a7cf1070ed37e28bc4899b76"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t01p/grey/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t01p/grey/small/A.svg",
+      "bytes": 561,
+      "sha256": "c1adee5773788714c3d6cb5b962b5018e21a6bc43e9b58aecaedb0de52c18162"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t01p/black/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t01p/black/small/A.svg",
+      "bytes": 561,
+      "sha256": "64e8561d00b4741a8cc55b82fe830a17f9a9429b89a28c76c3e3c5059b16617f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t01p/dusty-pink/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t01p/dusty-pink/small/A.svg",
+      "bytes": 561,
+      "sha256": "7782a78d1a1e528e7816a96a32e927b9df1402a2eaecdeab13dd8a0dffd1ee4b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t01p/yellow/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t01p/yellow/small/A.svg",
+      "bytes": 561,
+      "sha256": "89a4f29f0b6037fa0558cadec035c791a4585c94ca49d6fddc8bd1c554a547e0"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t01p/blue/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t01p/blue/small/A.svg",
+      "bytes": 1079,
+      "sha256": "fce58e27cafcd62acb93d42338d3cf43d41c83efc7cfe06ebb45e25ce24d7371"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t01p/cashmere-beige-plywood/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t01p/cashmere-beige-plywood/small/A.svg",
+      "bytes": 963,
+      "sha256": "203f0de81a65feedd9a09150dbd826b5be21cc430aa937e83ae3beff47a01f43"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t01p/clay-brown-plywood/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t01p/clay-brown-plywood/small/A.svg",
+      "bytes": 971,
+      "sha256": "1d44775cafc03094fb4d1e6e9f7d10898cb43bdbe180766555d6685cdc5e368f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t01v/ash/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t01v/ash/small/A.svg",
+      "bytes": 4523,
+      "sha256": "307ffc30060b213ef256b3f77ae4e5a50a28f1189afc2f830accb927f831db8a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t01v/oak/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t01v/oak/small/A.svg",
+      "bytes": 4479,
+      "sha256": "83cd60f6385b9e1208a613f4cc87c591d99a7fe031460afa8cbc8b8199078712"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t01v/walnut/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t01v/walnut/small/A.svg",
+      "bytes": 6938,
+      "sha256": "076f7fcd1a3da707f521ebdc1eaf6544bbf57ce83bbd7fb5438055b209b95c3b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/white/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/white/small/A.svg",
+      "bytes": 193,
+      "sha256": "2ccd5b30b8fb3aae66018bb53fabb5091e7e6acc52b52214c97e879dfd7cbccf"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/cotton/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/cotton/small/A.svg",
+      "bytes": 284,
+      "sha256": "174e40998b83c436793910f501fd3a314e4934fccd90f675e9e607a408546384"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/grey/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/grey/small/A.svg",
+      "bytes": 157,
+      "sha256": "240decc3492e20503b43e5f264590a8aeb9ca407060f388fadb502e7bc49ccd1"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/stone-grey/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/stone-grey/small/A.svg",
+      "bytes": 190,
+      "sha256": "20456ffa1a00a41c9271e74b056d3c9673e9e16b25c0532d63369aa60541013a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/olive-green/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/olive-green/small/A.svg",
+      "bytes": 347,
+      "sha256": "970c951bc22fe255dae4f66c0fdd75552539091de3598b1d7764eb0cace5fb64"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/beige/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/beige/small/A.svg",
+      "bytes": 1041,
+      "sha256": "bfa63fce3ec2b4e1392f8f4f2cd2cdd93b00373510d32017c866054668187a45"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/terracotta/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/terracotta/small/A.svg",
+      "bytes": 147,
+      "sha256": "746ac69d30c3f322332cf713f5bc9fe1e09dd0ae5def9c91863ddc89d845c53d"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/burgundy/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/burgundy/small/A.svg",
+      "bytes": 1617,
+      "sha256": "74e1e163a9786736693e001599447b3e7bf8c4947b7e47b23f9063f455104be8"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/sage-green/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/sage-green/small/A.svg",
+      "bytes": 322,
+      "sha256": "eee1a37977f0be65b163eb3ace3af95f523e79d8774034d3df666d906b61e0b2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/sky-blue/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/sky-blue/small/A.svg",
+      "bytes": 147,
+      "sha256": "04e689aaf7056632eeeb0c142d224faa38fd8c233f529492ee45fc7f9e1170fe"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/indygo/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/indygo/small/A.svg",
+      "bytes": 147,
+      "sha256": "b7615ad6df7f8b47c182bdba865aa9d2f7af6bd98d9ff72bca2a1dd3c19e8b30"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/reisingers-pink/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/reisingers-pink/small/A.svg",
+      "bytes": 324,
+      "sha256": "45eaff293514ad6f2cf37a8f2d1233cf28e6ec28d218eecedb35497699940326"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/matte-black/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/matte-black/small/A.svg",
+      "bytes": 284,
+      "sha256": "8e2be014024a6f5e7983db3032c8beb2482e8c723791f74b8940e16430145f6f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/black/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/black/small/A.svg",
+      "bytes": 347,
+      "sha256": "169c1cf4b65eabaf4782cbba9c347bf85452a3ca06533ec1be2a04046a7000ff"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/butter-yellow/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/butter-yellow/small/A.svg",
+      "bytes": 312,
+      "sha256": "688cf1775f8df6b7d269d7936c54cb71d228093976b39441445c82327a140da3"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/pale-lilac/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/pale-lilac/small/A.svg",
+      "bytes": 314,
+      "sha256": "1cc838c16470984f613c03dfa199e65df9de0f87f15a2ffd4ecb3c16f624f7ce"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/common/swatch/t02/dark-brown/small/A.svg",
+      "local": "/imgs/tylko-gallery/swatches/t02/dark-brown/small/A.svg",
+      "bytes": 320,
+      "sha256": "4db788047c7d2e1b63f7fc1742e59a36b40aed6e31920fd2e9ca1c9b8684bef9"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-white/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-white/1/D.avif",
+      "bytes": 74575,
+      "sha256": "7af2ef725cdb3b4329314fb874cf8b09dc65601644bd2036585129ccff633a0d"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-white/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-white/2/D.avif",
+      "bytes": 41425,
+      "sha256": "5ec48f643a22feccc5c8fd2a3fb5dfc36f0a622a4a9a5d7ea1a8d2de138e0869"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-white/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-white/3/D.avif",
+      "bytes": 40602,
+      "sha256": "0c8404d75cedeb09c3a2ee41c3b39a0f09f50c44c9208e8aecd73c37fbf28c36"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-white/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-white/4/D.avif",
+      "bytes": 95453,
+      "sha256": "4ed7b97fc4cea9af694f62113b9bcf704d4d711e35f276f114adc8c902e84285"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-white/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-white/5/D.avif",
+      "bytes": 23705,
+      "sha256": "d029fdc6e3bed9554019459aa4019e68d853a4419c307787009d2b14101565f8"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-white/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-white/6/D.avif",
+      "bytes": 7804,
+      "sha256": "1a1c3c9c510cba941988c177c9e26b476dfe74f8092c564facd6a365cb5b3443"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-white/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-white/7/D.avif",
+      "bytes": 25941,
+      "sha256": "b1809a8b4d88ea2052881bdc77ef796e82a09e66e3247376c85c0e152c88f4de"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-white/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-white/8/D.avif",
+      "bytes": 20394,
+      "sha256": "fb84e2ffc54547c96bb749da3f4af1146920b41e071272752348c1a4fbbe7594"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-moss-green/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-moss-green/1/D.avif",
+      "bytes": 144387,
+      "sha256": "c545ac6c7ff44d463c283f9d9482f271c1a99958eff7d10f9b4b1408f488b1fa"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-moss-green/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-moss-green/2/D.avif",
+      "bytes": 56185,
+      "sha256": "a2f438941fc6b7afca05bf62b8356d8231e3d5ced2da71ddb1842760ece3e30f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-moss-green/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-moss-green/3/D.avif",
+      "bytes": 53219,
+      "sha256": "65626bfd05050158c63cbbeacf5dddb9aa59ba89c1d00f21bcf2a4d9aea00677"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-moss-green/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-moss-green/4/D.avif",
+      "bytes": 50864,
+      "sha256": "ab52a40fb797c1274165159b9a125f53b337647cbb91c2fc5ed2ae86aa5913b4"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-moss-green/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-moss-green/5/D.avif",
+      "bytes": 24674,
+      "sha256": "3014f5a214955cbc6683c44cd69c988a958a45a3d635f0e1deeed079e78e7193"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-moss-green/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-moss-green/6/D.avif",
+      "bytes": 11768,
+      "sha256": "44a38321863a365fe089a9312df992cc99ae07883254f7048fca773b5cf3c56a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-moss-green/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-moss-green/7/D.avif",
+      "bytes": 28736,
+      "sha256": "e2c8ced4a3f524842ff95e93346c592496a564635c4efe5c06734cb10e76d79b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-moss-green/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-moss-green/8/D.avif",
+      "bytes": 28729,
+      "sha256": "fe6709793aa2f3ab6a6b355b2340f70e8035bae0f411e25dfee3696239a849be"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-grey/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-grey/1/D.avif",
+      "bytes": 76772,
+      "sha256": "43871f1abbadd8b2e2ab2994f83306f040f0ceba7f7a0560c968bf1762b833a0"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-grey/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-grey/2/D.avif",
+      "bytes": 49669,
+      "sha256": "f8a290121a975ac46c104a9f67448d0b3b393ceb42a8bc4678271536ebaff8e9"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-grey/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-grey/3/D.avif",
+      "bytes": 48339,
+      "sha256": "aa4b9addac4b0ecc6131b4a35c9d6396de85db77b46280794688751134111b76"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-grey/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-grey/4/D.avif",
+      "bytes": 84799,
+      "sha256": "6c6383fb51047cf7719ada630826c9b7df792a21a01ee32fda212dd8bbcb167f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-grey/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-grey/5/D.avif",
+      "bytes": 27632,
+      "sha256": "21d005ada5e973e9ec7b3b1e7a464b1394058522c54eae9635da1513229bb330"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-grey/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-grey/6/D.avif",
+      "bytes": 8682,
+      "sha256": "cf9d0b5a9fbc2360502972b3949fdc420d3b41e80c45f2f716a4d568468aa727"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-grey/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-grey/7/D.avif",
+      "bytes": 32375,
+      "sha256": "423f70515082a337efec9f0e7ae56c1f0070849548b0f9f59506ca1a74d92d54"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-grey/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-grey/8/D.avif",
+      "bytes": 21720,
+      "sha256": "61883eff797057f294b5296e8c71b5cd3467fa6a2b8275598d0ce241bd3d04a6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-black/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-black/1/D.avif",
+      "bytes": 82420,
+      "sha256": "41feab8e432e619778b2fd07dedbd7957a572d2b6e7edcf9fcbaccaed83c1def"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-black/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-black/2/D.avif",
+      "bytes": 47538,
+      "sha256": "0243ab2cd46a29564d0316bfe09edd5ccda247b7da27360c3f1113dcdd340a13"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-black/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-black/3/D.avif",
+      "bytes": 52221,
+      "sha256": "91cccc5d6558548fc0b818fd3616169c036d69d4ad8d203aab90c79bda55aa4e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-black/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-black/4/D.avif",
+      "bytes": 56296,
+      "sha256": "5bcd565ee4b9998a2f3a8efd31666cbd64864cb0bd201ce04ad42950ace887ad"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-black/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-black/5/D.avif",
+      "bytes": 27834,
+      "sha256": "829d3073da1d1c8c25f886d707421aaf9fb5f85c36d3b1e13a6a8f1f02caa488"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-black/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-black/6/D.avif",
+      "bytes": 7019,
+      "sha256": "962589be32fde520f50e436a6e786cf0743ea53728673134adc7f22e664f5a79"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-black/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-black/7/D.avif",
+      "bytes": 29972,
+      "sha256": "ecbc98805519e5895b2e832cdd16caa26a279d38653d70d618c9b8cb6c735f3d"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-black/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-black/8/D.avif",
+      "bytes": 25400,
+      "sha256": "904365d36396a681e6181d014e5312ac8acfc552bbed0affb9a37f66aff4b7e2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-dusty-pink/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-dusty-pink/1/D.avif",
+      "bytes": 76959,
+      "sha256": "17eec5255f75f615f9a5f18c4fbe761a2b2107c009629b15a805dc65713dee73"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-dusty-pink/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-dusty-pink/2/D.avif",
+      "bytes": 48943,
+      "sha256": "236d74d28692ad1bde0e4b5c525849d9d8c4c19ad2e78c2953323e44fcbb6113"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-dusty-pink/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-dusty-pink/3/D.avif",
+      "bytes": 47534,
+      "sha256": "da7ba9153cefe2b13c3e1cfaab82e1804cdf52b9842ee922d0eb8159a8568141"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-dusty-pink/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-dusty-pink/4/D.avif",
+      "bytes": 64532,
+      "sha256": "a6421bf7011c815b8500e77bad1de6c2741abf37ce42ec135109e62116a2b4f9"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-dusty-pink/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-dusty-pink/5/D.avif",
+      "bytes": 17353,
+      "sha256": "6477ee7bfcea3e53000758a6e26992e5bb45a78cc1c807337bbfb985fcf98fbe"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-dusty-pink/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-dusty-pink/6/D.avif",
+      "bytes": 7904,
+      "sha256": "fcb13a10604678d9db1c58a5dbd76ccb651b4436ab88716c892c3d8199166334"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-dusty-pink/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-dusty-pink/7/D.avif",
+      "bytes": 22812,
+      "sha256": "944e7880aac03534297b6afea31d7fd3c3c3ffe813579de0fee6291bd6dadfed"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-dusty-pink/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-dusty-pink/8/D.avif",
+      "bytes": 23253,
+      "sha256": "b78029912bba955f60e14ca8b7755e1d107bfba2b0362bda329f7939c5ffc5b8"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-yellow/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-yellow/1/D.avif",
+      "bytes": 79319,
+      "sha256": "c2a9996ac0ab761c6d25e2375e4c51c10fb0e283d9e8aecb1a2907a514f97129"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-yellow/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-yellow/2/D.avif",
+      "bytes": 52930,
+      "sha256": "8f6a5cc0463343fe51b2b9eeab049823765e700a7931f5451418096afb7382bf"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-yellow/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-yellow/3/D.avif",
+      "bytes": 42567,
+      "sha256": "5c66efae700130de4a2d5bc44a6972d266ce956871fc592e158cf763cd6e3ea8"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-yellow/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-yellow/4/D.avif",
+      "bytes": 68814,
+      "sha256": "8cde313673e3aafb6df763981b49543c17bd78d74439bf9311e1ef97ad12a3b2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-yellow/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-yellow/5/D.avif",
+      "bytes": 22660,
+      "sha256": "3abcc8f96b9070b4e6bd46cdf2b5c204ef07f6835a4ac7c07d07cf82084cbe8e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-yellow/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-yellow/6/D.avif",
+      "bytes": 8261,
+      "sha256": "d30eb43083a9a0d5095fc5c598ab704ccecab7f1de76d8056381d01649e6916d"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-yellow/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-yellow/7/D.avif",
+      "bytes": 24391,
+      "sha256": "503490f23d5c293b0a005a93330a248749999d2ad239b4cdecb178ef9e5da960"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-yellow/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-yellow/8/D.avif",
+      "bytes": 25424,
+      "sha256": "c2933d4e62db3d9df3ee33c721e70d616ddf5081d14714c7cd7ea3c008400c5c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-blue/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-blue/1/D.avif",
+      "bytes": 77820,
+      "sha256": "15be1917d6507e58c1aaa336d462e6d855ebfc3b80dac490d1ba3cb91210fd5d"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-blue/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-blue/2/D.avif",
+      "bytes": 53905,
+      "sha256": "e58b6f2b1726c57c058fbc880f7a03143c111ff0d47edd89355a1ab18e91c55b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-blue/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-blue/3/D.avif",
+      "bytes": 49562,
+      "sha256": "b233e0685f40e2928e59b6c6bb60c95d60365e0c8778924b6c156578af1fe9b6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-blue/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-blue/4/D.avif",
+      "bytes": 55940,
+      "sha256": "5f2a9d64e8dd4b68efcaa319c71db91bd0abf1eb087f93e962f0b753b266b571"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-blue/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-blue/5/D.avif",
+      "bytes": 19980,
+      "sha256": "020fea4ee05483e6b48578d50195457841977ca9b463020d08e0884ac22bf938"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-blue/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-blue/6/D.avif",
+      "bytes": 10722,
+      "sha256": "55e96beadfb8929322e9aa9687987fc024f8959b4bb26c32b77b5195f9900991"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-blue/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-blue/7/D.avif",
+      "bytes": 29107,
+      "sha256": "321ead4308a71e4b764b759ef3d45ed31e969cfa0eb8a73856ed90ada367c382"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-blue/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-blue/8/D.avif",
+      "bytes": 24447,
+      "sha256": "4c78b114f06fd0c71f761c6e420c85d07c86637751a5d03c041fb918cd7b3454"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-cashmere-beige-plywood/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-cashmere-beige-plywood/1/D.avif",
+      "bytes": 119371,
+      "sha256": "8f505fed0d9cae96fadc9a4b550ac1d89b004ff1fa5907658cec1145cacd2f39"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-cashmere-beige-plywood/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-cashmere-beige-plywood/2/D.avif",
+      "bytes": 54171,
+      "sha256": "0afc84e6ae571d10003a9240be58a3c045b362c028a8affe8be53b49be3031e5"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-cashmere-beige-plywood/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-cashmere-beige-plywood/3/D.avif",
+      "bytes": 52312,
+      "sha256": "dc6e8a804263f18658355d92d1675bda7718e301dfa25ffc56cbe1ec353552d4"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-cashmere-beige-plywood/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-cashmere-beige-plywood/4/D.avif",
+      "bytes": 47965,
+      "sha256": "82f80cbca87ae6b89b442e5b48ecbba5471927b412a51ed69356f822809741ce"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-cashmere-beige-plywood/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-cashmere-beige-plywood/5/D.avif",
+      "bytes": 12746,
+      "sha256": "ccb9433b96675b768d6685b5c05761a104cf49ef8e4b390a16dde45efbeba0a2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-cashmere-beige-plywood/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-cashmere-beige-plywood/6/D.avif",
+      "bytes": 11670,
+      "sha256": "53e8b6efc73f05d6de3c0b4f789f0ff5870a9fbd1e338dc1304e9ae1cedd676a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-cashmere-beige-plywood/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-cashmere-beige-plywood/7/D.avif",
+      "bytes": 26883,
+      "sha256": "b986b2057cb39de1263e1420a3eccacb6e6a123ba1d88147ccf0d118aac35f30"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-cashmere-beige-plywood/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-cashmere-beige-plywood/8/D.avif",
+      "bytes": 25608,
+      "sha256": "327b2b83bba623c77e527246d8e40cbc215f5bde9beba3f462db6082213ea387"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-clay-brown-plywood/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-clay-brown-plywood/1/D.avif",
+      "bytes": 70933,
+      "sha256": "ce1dc788077b6ec1e35e2d71f0a534201198084bf43756e5ecc9d2c08c47176b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-clay-brown-plywood/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-clay-brown-plywood/2/D.avif",
+      "bytes": 47443,
+      "sha256": "6a74ac923bd303eeb1d5c61dbb27c84da404cae475d8ffae686f25d959a531c7"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-clay-brown-plywood/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-clay-brown-plywood/3/D.avif",
+      "bytes": 43057,
+      "sha256": "a5b184b329c22ff63ab78df6065beb9cc28ab702901f2eb35e75d946507b5cc6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-clay-brown-plywood/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-clay-brown-plywood/4/D.avif",
+      "bytes": 53272,
+      "sha256": "ea55d9369c846033400cbde2ba188c09be806faa9a2ae4e45e72356165f921cd"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-clay-brown-plywood/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-clay-brown-plywood/5/D.avif",
+      "bytes": 19183,
+      "sha256": "c928b2a289f1b8b06f9f31d55bc568b88db85251c07797d71293891a732f588f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-clay-brown-plywood/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-clay-brown-plywood/6/D.avif",
+      "bytes": 13998,
+      "sha256": "76fb4820e647ce3f0c78d7f791a0888a78baea5bff79810cc594bcbc06bc4def"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-clay-brown-plywood/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-clay-brown-plywood/7/D.avif",
+      "bytes": 30746,
+      "sha256": "7055934a9c2ea42e83a88dd198ac6c61900cd67ae7aa592ca8247dbfeb3d0064"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01p-clay-brown-plywood/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01p-clay-brown-plywood/8/D.avif",
+      "bytes": 31231,
+      "sha256": "d8bd80eb77f2bf059091c4a46a43c3d7216bf29b8d86469a60c56916f2356e74"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-ash/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-ash/1/D.avif",
+      "bytes": 64163,
+      "sha256": "2b94287a310c132c236dba32ff6777c9de6a66df252423c32094659c782f2f83"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-ash/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-ash/2/D.avif",
+      "bytes": 50903,
+      "sha256": "5d89fde4f7a02f3718e3c4dd6b8fa6aea017535964456364c2fca5629f7c5b67"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-ash/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-ash/3/D.avif",
+      "bytes": 57000,
+      "sha256": "0d2ca90748b47a0f36f91c1af4a96beff6718a5cd96307e2eeb3570632a50ed6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-ash/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-ash/6/D.avif",
+      "bytes": 59095,
+      "sha256": "cadb867fbdefa5e5d3c1b41d68c15de2f7e479b6fbeea1f60a124c25abf93584"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-ash/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-ash/7/D.avif",
+      "bytes": 78982,
+      "sha256": "c322bd7ef37be4e234c390dc9572dbbe9f9240a14c54776c742ad1ca90dbefd4"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-oak/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-oak/1/D.avif",
+      "bytes": 72662,
+      "sha256": "60cc91a9d0b0905e1d73aeae3c4d481befaa43879ad9f4a26f1c461b40c0e1ab"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-oak/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-oak/2/D.avif",
+      "bytes": 54004,
+      "sha256": "3b8ac0852639652ffefb45cfce73d66ead21604c97d244052d74378a4312985c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-oak/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-oak/3/D.avif",
+      "bytes": 62621,
+      "sha256": "5baa5783ec48341e762b0e480829db83ccaade547258b57ff5b2fd1270ac7365"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-oak/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-oak/4/D.avif",
+      "bytes": 60637,
+      "sha256": "4806eca688bdcce4ded8204c5d1a52695eb131ae574c727e4756268a897fa2da"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-oak/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-oak/5/D.avif",
+      "bytes": 83823,
+      "sha256": "5429674b1afc18c4905e9ad2b4b3add4fdf307f8493962179fcba0bb791ec829"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-oak/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-oak/6/D.avif",
+      "bytes": 118119,
+      "sha256": "282620eb9a49584fc95b59abe51b75688f26c5177766570ee61e54e292215942"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-oak/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-oak/7/D.avif",
+      "bytes": 90145,
+      "sha256": "42ea229813ba37110aeba77ca538e7ef47fdffd42f977963433ebd153ee93697"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-oak/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-oak/8/D.avif",
+      "bytes": 80523,
+      "sha256": "87c13e2b7381071c3c7d1cc4e19f3e60de930cfcb8a0014768bb935458390996"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-walnut/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-walnut/1/D.avif",
+      "bytes": 62185,
+      "sha256": "e8cdc6e0a90678373c1a236d72329ba1129b7901064fa7f449dab20d48ea3a5a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-walnut/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-walnut/2/D.avif",
+      "bytes": 50464,
+      "sha256": "dd3cff980f5c3bded9f425ecfa27353fff94b1610577e223053ed41474d6bbac"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-walnut/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-walnut/3/D.avif",
+      "bytes": 63028,
+      "sha256": "1d4a2228b7ef132623d3f9ad3a6884589f85846182dafe1f7e7ae96bd4c320b7"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-walnut/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-walnut/4/D.avif",
+      "bytes": 71894,
+      "sha256": "19fe2306b8dfbcfca3e53a107d64028ef19297eb8594382bccfa96fea3fb7a79"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-walnut/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-walnut/5/D.avif",
+      "bytes": 83925,
+      "sha256": "fbb6b21b0457e5612ac2e1d9db23061c73d074e7bebe57e90b159db49efb1862"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-walnut/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-walnut/6/D.avif",
+      "bytes": 89571,
+      "sha256": "bd7ae2e013a4d1f6b3362b0f40a1cb5825be16097cd3b8c54d4566b1b7728698"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-walnut/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-walnut/7/D.avif",
+      "bytes": 69470,
+      "sha256": "d3f09dbf48477b7c3c9696f81d1440c0a4a12948be481a6f70cd72fae352e3b6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-walnut/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-walnut/8/D.avif",
+      "bytes": 61036,
+      "sha256": "fee856e75cf2c74cff33ec1375d210b52c982d411e2ce93ea1053e3cbc2a72d6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-white/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-white/1/D.avif",
+      "bytes": 55048,
+      "sha256": "c0d38e5e4c7b898a4838080bf4efae5aad242f14f6e71987a5f3a136876f9fe2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-white/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-white/2/D.avif",
+      "bytes": 99339,
+      "sha256": "276477c191323cd3570c19e1ba01f884146884d82f5642387b825e9196a6decd"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-white/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-white/3/D.avif",
+      "bytes": 50591,
+      "sha256": "24ad07e213d576b06986b5de26ef38145223abcd3cebe96a71de03e3c30fab0c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-white/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-white/4/D.avif",
+      "bytes": 5038,
+      "sha256": "674f5c08d87dbd4ccc39546d74ba53c28bc7edefad0b14cf3e762ff53da0ae3c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-white/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-white/5/D.avif",
+      "bytes": 5269,
+      "sha256": "37e5b9e6fa31444261e00350d1085d5fd9f0ab339b9f17e5da8ce678075902be"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-white/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-white/6/D.avif",
+      "bytes": 6267,
+      "sha256": "eaaf7e95782f628b3b1b58b24b2baf5874ee1132b8a05f504d2292b27220c412"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-white/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-white/7/D.avif",
+      "bytes": 8184,
+      "sha256": "77c84379cc9e860bce3298f3ef28189fc947802319bac0ea433bb040dba9917f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-white/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-white/8/D.avif",
+      "bytes": 5521,
+      "sha256": "8dcb98559f71c4c4c9a89206d9d5308c97a1f899893ee28e744c77eb1e6e6571"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-cotton/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-cotton/1/D.avif",
+      "bytes": 59766,
+      "sha256": "bdf16809769d743f1008c9aa5e50d55408eb2f869f0bc7f7d2caf6aaa2ac9cdc"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-cotton/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-cotton/2/D.avif",
+      "bytes": 106494,
+      "sha256": "6ad92cd961aaa1aa8b3b42c6dd4f54f746614874f0f3167186dba096a73f23f3"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-cotton/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-cotton/3/D.avif",
+      "bytes": 35990,
+      "sha256": "d244dbc45cd18789ee9e4c7486674865d3bc2919d04b1ba3b26f6cf813394ac7"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-cotton/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-cotton/4/D.avif",
+      "bytes": 8156,
+      "sha256": "91958f024d68a78a48fd6bcf33474f79c3a28a81aefbb1013aaf5a1371b0f1d7"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-cotton/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-cotton/5/D.avif",
+      "bytes": 5704,
+      "sha256": "1b4c9414abf8826fc34590fed94c0f0d83c17af3d69dd79b4ac0dee09b1a617b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-cotton/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-cotton/6/D.avif",
+      "bytes": 6357,
+      "sha256": "747c0d33f0018792c4a0848a2f079997506df3fe906f2d9fd61c72f04e809a3e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-cotton/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-cotton/7/D.avif",
+      "bytes": 10410,
+      "sha256": "148bae9f646cde1755161f055cddd500855ecbe43599642c026db1450efb3291"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-cotton/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-cotton/8/D.avif",
+      "bytes": 6836,
+      "sha256": "f2d5ebe67f15e3324115919db0bbec53b185f17575337c3b3b93fbe100612e51"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-grey/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-grey/1/D.avif",
+      "bytes": 60395,
+      "sha256": "ba8c9fb90a8f17973c80b491d8fdc82dde418729a2b9451d6477b471f9e8fa83"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-grey/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-grey/2/D.avif",
+      "bytes": 106602,
+      "sha256": "67b6ef0c14f140ef19109c305e930fc459e4f1180f281444208e1ac5301dcccd"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-grey/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-grey/3/D.avif",
+      "bytes": 49627,
+      "sha256": "aaac44d5914902536b66d6e97cecd5dce76fbbfac658ecc64a53a9919fdbf443"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-grey/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-grey/4/D.avif",
+      "bytes": 6379,
+      "sha256": "8a89d4b4edd3ddf1f8266f8a0bcd535718d0838a04a30e4bfc29b4265c48688f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-grey/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-grey/5/D.avif",
+      "bytes": 8319,
+      "sha256": "db1abceb9ce60b6c4c5ed4df87f8f9060b86ff23fdef148de8306b322bde2df2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-grey/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-grey/6/D.avif",
+      "bytes": 6204,
+      "sha256": "791f77b5988a466acef4993295ef441453b8e3c5b5f403689cca698d0745385c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-grey/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-grey/7/D.avif",
+      "bytes": 8591,
+      "sha256": "e2c29ed14cf4757ccb79ab89c437a0b701570eb6fa661a3fb86b81456251f3b6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-grey/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-grey/8/D.avif",
+      "bytes": 6301,
+      "sha256": "457c9e464cce7c31131d209f709f28edc59f0c28e721509b8bfd20b6ec9da7b5"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-stone-grey/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-stone-grey/1/D.avif",
+      "bytes": 62120,
+      "sha256": "3628231476ff599dde6a69ac6ced1116010d5d07c3aee385076d750625905609"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-stone-grey/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-stone-grey/2/D.avif",
+      "bytes": 100224,
+      "sha256": "40c60de2456b741577d785a17377029cf09a19aed1da3e5b61f756233f5a12c2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-stone-grey/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-stone-grey/3/D.avif",
+      "bytes": 47879,
+      "sha256": "f43ae28ef5d3a6dc6a4c6fbd85685e38eb078ba7ba9173378027d7db624d1039"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-stone-grey/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-stone-grey/4/D.avif",
+      "bytes": 10119,
+      "sha256": "b3dd6cd9a85bf4acabcffba2b7e274a3b6738bb57d9120b7593a7f416ba4e0fc"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-stone-grey/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-stone-grey/5/D.avif",
+      "bytes": 23263,
+      "sha256": "b1863d1ce49a5cb242a1abe15e320515ee882267ac4a2dc7e22df56c7130a54e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-stone-grey/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-stone-grey/6/D.avif",
+      "bytes": 7595,
+      "sha256": "4ce1202392e1b3e9f2cdb1323c58224786727cf9dfc22221505acba8eea76375"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-stone-grey/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-stone-grey/7/D.avif",
+      "bytes": 11045,
+      "sha256": "bd004aa1da5709e1988feee7d2ba79009e7d4546dda7f66cad55336f159a0be8"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-stone-grey/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-stone-grey/8/D.avif",
+      "bytes": 6559,
+      "sha256": "bad3c1901e84fade53467b392ae5de155106fbb11e64ab6f8a2880c7f17e1e3c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-olive-green/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-olive-green/1/D.avif",
+      "bytes": 66795,
+      "sha256": "856efbf5c6371fb5ce167aef73d5e1a1249f42e0e4c59c6b41c84c5f002e8ca4"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-olive-green/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-olive-green/2/D.avif",
+      "bytes": 98772,
+      "sha256": "6d4b68591d6c49bc0e54a1ec4140e405df76ea6bef836d20aadbad6b5334dda1"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-olive-green/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-olive-green/3/D.avif",
+      "bytes": 29893,
+      "sha256": "7579bb7e84e48da3ce1f2c7643b28d9b06371834470aff1dc5167a5b6f7b0c1b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-olive-green/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-olive-green/4/D.avif",
+      "bytes": 9301,
+      "sha256": "d54f324805b87b752a595e34081b87e0d4c924b6e1c7f5f27aa4a92518689115"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-olive-green/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-olive-green/5/D.avif",
+      "bytes": 11444,
+      "sha256": "6122047251acc8a72062708da44434faa4828cfa181cb129cc5c4061e5bef40b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-olive-green/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-olive-green/6/D.avif",
+      "bytes": 7083,
+      "sha256": "21b976e1cf51cc09dd8bd38fc85eed539493f729d2c1367e8b908d2f2de0297b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-olive-green/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-olive-green/7/D.avif",
+      "bytes": 11618,
+      "sha256": "78d750778e5642f2362d4b2dc51bc6f0ec1359cdf911931a0849f52f8f21cf56"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-olive-green/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-olive-green/8/D.avif",
+      "bytes": 6477,
+      "sha256": "9fc821258c7a9be23bdd2f380d75d65cd1998c248923b14202b2df48f4040c31"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sand/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sand/1/D.avif",
+      "bytes": 61791,
+      "sha256": "39427b78370b60b451589e73ea9fb8d4ea6fb6ee575afece23a9864a68eb8324"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sand/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sand/2/D.avif",
+      "bytes": 97834,
+      "sha256": "f6d625cbb6cd90a54f973cb665cb27062d134e8ae5ad156fa1dcf0e223600cc9"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sand/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sand/3/D.avif",
+      "bytes": 50655,
+      "sha256": "e314331cb0c24eda30e585fe87906ef44f8c6dc36d11a98406ab86f3b7c0e61b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sand/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sand/4/D.avif",
+      "bytes": 16756,
+      "sha256": "6cd2fc709336f3746e56fe6325f912be99cf7d91016a2376d05a9f4cdaf21ab7"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sand/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sand/5/D.avif",
+      "bytes": 8579,
+      "sha256": "3082c7c34ebffef746ae324afe040a4ec58ac3db483e0189a82a91170ea5f884"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sand/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sand/6/D.avif",
+      "bytes": 10611,
+      "sha256": "be9562ee73e544d4c9224531d38dbb6438e4b587c2e691030cebc8b07810aa87"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sand/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sand/7/D.avif",
+      "bytes": 12645,
+      "sha256": "9f6f6eaa1c94c763dad1984d27f7d67fec9dd4f10e9bb1625a28df4c5e4e9aa7"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sand/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sand/8/D.avif",
+      "bytes": 7716,
+      "sha256": "9c5324bc58834acba12d47e1b0449c0ece441f6c61799f48b03a7912bfc29e1e"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-terracotta/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-terracotta/1/D.avif",
+      "bytes": 65161,
+      "sha256": "1d992f3ba4a52e6e676016bb3c6749bf087bfb05ed871d0e641af346cf8a68e0"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-terracotta/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-terracotta/2/D.avif",
+      "bytes": 99971,
+      "sha256": "3058de53dc43aab66f7ea2a3886e29ff4bc0dfd680df2ac79d5f04934763fa6d"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-terracotta/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-terracotta/3/D.avif",
+      "bytes": 35163,
+      "sha256": "24e0831900a6bfdaff0730f18c17f796e53556d63ef390d51b7704faf5d89baf"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-terracotta/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-terracotta/4/D.avif",
+      "bytes": 9280,
+      "sha256": "2508aa77ab6bea6428bc97851a696d4ad2fd3de6a3fec1f9099f3448dd35bf3b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-terracotta/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-terracotta/5/D.avif",
+      "bytes": 17173,
+      "sha256": "d8e8d1d026e5d86861579dbf1d98dbe6ef8bccc824e1b6850e9e71544ec1c8d7"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-terracotta/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-terracotta/6/D.avif",
+      "bytes": 8021,
+      "sha256": "0332ade29d3b09cfd3d3fd0594274b2b500beee18589cdc0de816a6bf212f61b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-terracotta/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-terracotta/7/D.avif",
+      "bytes": 10008,
+      "sha256": "ef1ea0a54fe202c65750bf8108c96918dcdcc2b7e27b1f3e3409b30069f10da6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-terracotta/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-terracotta/8/D.avif",
+      "bytes": 8015,
+      "sha256": "484d2a40f0d6aa5d8f19bec262db6d4ec4cf536aaad814a17e6460e127db8b1b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-burgundy/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-burgundy/1/D.avif",
+      "bytes": 61794,
+      "sha256": "7f7ab8625b7cfdfa24bdaf99547afeebbe91f73fb236e9176de82b440f868272"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-burgundy/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-burgundy/2/D.avif",
+      "bytes": 100061,
+      "sha256": "7bc48efc3c5ec72bbafb2e33053001da3bee58e8993c51491a3c1ffa12f241a4"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-burgundy/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-burgundy/3/D.avif",
+      "bytes": 26961,
+      "sha256": "0dcbe3fd2bac86ceaa23b73189bc0cc6faebe466000993c63a5abf81ac5c95bb"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-burgundy/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-burgundy/4/D.avif",
+      "bytes": 7011,
+      "sha256": "48024b23b691e6891ef3fd3349609673b4b2526837a8a2732e0412693dd620ba"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-burgundy/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-burgundy/5/D.avif",
+      "bytes": 23235,
+      "sha256": "e232bc3a6362acb3fb1a8be679e97b57915621f29bfef3bdf81a1946a55bbd71"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-burgundy/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-burgundy/6/D.avif",
+      "bytes": 6503,
+      "sha256": "2f45208820373e0834a789ff33dde9f4ef4949f5bea78d4fb01ffea12c08325f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-burgundy/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-burgundy/7/D.avif",
+      "bytes": 8340,
+      "sha256": "f97f097a8853783953768e761d50085b3f24f5460a7d19e57b54c20f8f6f11a6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-burgundy/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-burgundy/8/D.avif",
+      "bytes": 7446,
+      "sha256": "f46b0ea8b8a898b5fffdb3a0b5aec635ae6e05f06a9d7f3f6c1ff44b6091ff45"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sage-green/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sage-green/1/D.avif",
+      "bytes": 61441,
+      "sha256": "3e6f1ddca8c2d3161dc5b9de34f524e9b2135fea143554e6bd5c78f71462d089"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sage-green/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sage-green/2/D.avif",
+      "bytes": 104519,
+      "sha256": "4764d60d93d5c0652cca56dfa89ad3abfc124e5c3f76e5d2e4522cfc137a1b0d"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sage-green/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sage-green/3/D.avif",
+      "bytes": 34953,
+      "sha256": "18570c6abdd290c91a9297c48796ff10a52926ecca58c1dfc57f6a67ec16f48f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sage-green/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sage-green/4/D.avif",
+      "bytes": 10148,
+      "sha256": "e8c3c5ccfa10bcbc0ee26375b5fed157a0ea8d34f82efc687fd086190e7bd065"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sage-green/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sage-green/5/D.avif",
+      "bytes": 15107,
+      "sha256": "f82299df8e480c7636c231dd7032711b89ccaa37e6c7a8a57af20cedd94d84d7"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sage-green/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sage-green/6/D.avif",
+      "bytes": 8068,
+      "sha256": "49b6c8a0963466116643964a55d31aa4f3a57fe80fafa7094bed580376eda8b9"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sage-green/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sage-green/7/D.avif",
+      "bytes": 11745,
+      "sha256": "f8d07d9469e607f21135c78624b422d3375a9c96f6835703df450b342e2a5927"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sage-green/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sage-green/8/D.avif",
+      "bytes": 7198,
+      "sha256": "e9f894fd228a4a123a9405e5fb924a1810a206dd0d8cee7ffad7b25b256c3373"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sky-blue/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sky-blue/1/D.avif",
+      "bytes": 65546,
+      "sha256": "3a01968ee3b50a5d6c75da4551e917646d22fa079a80eb825236f2b9de3e97c7"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sky-blue/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sky-blue/2/D.avif",
+      "bytes": 100646,
+      "sha256": "35dedbd0d6544bf6e19899be86711384ee2937f96a579835f7d5238e698c7b46"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sky-blue/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sky-blue/3/D.avif",
+      "bytes": 35044,
+      "sha256": "f32e56e4fd13410a3d9c06dd7b566fbaff0d400f547b12e8abcc25fd9b1a1a6d"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sky-blue/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sky-blue/4/D.avif",
+      "bytes": 7487,
+      "sha256": "1a6a5f39adb461bfc55f8ebde56ebcd10cc2222164bb3fa743e230d3cb28517c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sky-blue/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sky-blue/5/D.avif",
+      "bytes": 8788,
+      "sha256": "f87ad01f863bdfb8aaacc2b6e19841aa152db12469cf808bb5c9b4ea7d09091f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sky-blue/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sky-blue/6/D.avif",
+      "bytes": 7623,
+      "sha256": "7701a12aca97f3c82062f1961dcc0548968870d99d972532bddb4fb23d5a5a4c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sky-blue/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sky-blue/7/D.avif",
+      "bytes": 10127,
+      "sha256": "8cfb9ede464a5ec30a8f6eb81bc1302a38e124353d08ca83cee01b4b4b99eaf6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-sky-blue/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-sky-blue/8/D.avif",
+      "bytes": 7242,
+      "sha256": "a8cb034fbb786cc8f639f8835c6a2525220d32cb0cd67b4efea28e0b6e58a06a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-midnight-blue/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-midnight-blue/1/D.avif",
+      "bytes": 61284,
+      "sha256": "582798832a5198eed278c43b6017745ca7965bdf5eb29ecc1100dc4b18a8988d"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-midnight-blue/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-midnight-blue/2/D.avif",
+      "bytes": 102161,
+      "sha256": "01988b546e2f3b2661fb273a02e353ac2cdfa56234bf186df677ddd2b229a84a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-midnight-blue/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-midnight-blue/3/D.avif",
+      "bytes": 28281,
+      "sha256": "ac409a0a0615ddac6f68369b7f6ede86e6385d6d594024da9c7346e1ffce6835"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-midnight-blue/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-midnight-blue/4/D.avif",
+      "bytes": 8514,
+      "sha256": "bc87623678ede82a1c30533f2ea434570d8b538f31f469c74df28b8a40ccefa5"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-midnight-blue/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-midnight-blue/5/D.avif",
+      "bytes": 39162,
+      "sha256": "6e5c67be5b584511cb0fb0bd1e314bb3f741e4ac3d2b0253b9b25582d588ecae"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-midnight-blue/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-midnight-blue/6/D.avif",
+      "bytes": 7271,
+      "sha256": "aabd209dd47932296d6d957c3ad3a267e1e7678716f43e136603b44be88d5d47"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-midnight-blue/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-midnight-blue/7/D.avif",
+      "bytes": 7978,
+      "sha256": "8fe6773c5c0a4e1fa4f4b7a1ee5925ad188e80f175c413eb7507c86ffadd31f0"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-midnight-blue/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-midnight-blue/8/D.avif",
+      "bytes": 6893,
+      "sha256": "b697d18deb92082bce3dcdbd8aae0ca6321acc437b52364d94cd576d146590d6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-reisingers-pink/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-reisingers-pink/1/D.avif",
+      "bytes": 66209,
+      "sha256": "bbdfc896f964fbccad14461645687b4f61d90fabd1bca862989fe22f5c1905e3"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-reisingers-pink/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-reisingers-pink/2/D.avif",
+      "bytes": 98405,
+      "sha256": "7b055ef805e01a1caa36af3e9d395fd2109f9cba973d4fc488330328d0cd2df4"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-reisingers-pink/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-reisingers-pink/3/D.avif",
+      "bytes": 37901,
+      "sha256": "c6ee5f59729f41299f70028d4dd4db33fc095c0bfce1a588aea3b8e8469fc0a8"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-reisingers-pink/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-reisingers-pink/4/D.avif",
+      "bytes": 11061,
+      "sha256": "3e8d891d97af29d4f01b66df715f326bc89bafbeab4dd6926739dcb48caa518a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-reisingers-pink/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-reisingers-pink/5/D.avif",
+      "bytes": 23265,
+      "sha256": "90a6c09108b854b225ab1b492fc0cccd58ba17a7efce6a4e9b371cbf99bb0b8f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-reisingers-pink/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-reisingers-pink/6/D.avif",
+      "bytes": 8528,
+      "sha256": "0f9e20f020c4d09fac86002dd7bdc4ea29ddb641c00ecbe4f3cd228bfe9b1496"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-reisingers-pink/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-reisingers-pink/7/D.avif",
+      "bytes": 12391,
+      "sha256": "82e2998d84048c01a942e9a2b07c0bbea0dacf8165f40fc5bd80db76eed2ea00"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-reisingers-pink/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-reisingers-pink/8/D.avif",
+      "bytes": 7534,
+      "sha256": "2ecd57427f6a556b4f3c3f8ddd7b7dbcc9c3ff50e9438f14e815b4f1bd5ade51"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-matte-black/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-matte-black/1/D.avif",
+      "bytes": 62440,
+      "sha256": "e92b314bd5502cfebd93af6c82632d4aa4aeab9d94703fa052e6a09239f2c4e9"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-matte-black/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-matte-black/2/D.avif",
+      "bytes": 104482,
+      "sha256": "a5ffae290f18af6e6200b882c1394e90beff0b6eeea7baf7170dbe4f5d808b29"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-matte-black/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-matte-black/3/D.avif",
+      "bytes": 24152,
+      "sha256": "a0b7049ef6ef3d284bbb6c9469e963f71f48676b856bfeaec72810c18b687bef"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-matte-black/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-matte-black/4/D.avif",
+      "bytes": 6722,
+      "sha256": "6b64cfffc99f6968bc8c63a4a74e93085a7625b2d27a4347ee2e46ded28c24fe"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-matte-black/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-matte-black/5/D.avif",
+      "bytes": 11186,
+      "sha256": "adb74ca80712621091b2598e1da7de2f643a322e279fc376d67899a7fc90f905"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-matte-black/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-matte-black/6/D.avif",
+      "bytes": 3259,
+      "sha256": "cb81f912dc91e1c0e20888ef084e45328c61b6533c4bfa98950a50fab3c306aa"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-matte-black/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-matte-black/7/D.avif",
+      "bytes": 8426,
+      "sha256": "c3fb5f4e3b12bd4ffeb13bf89350cc228e6f63e9701fbdd0f227ee54456786db"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-matte-black/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-matte-black/8/D.avif",
+      "bytes": 6133,
+      "sha256": "403a9edfa23fac7c138a564b0386fedffe3809c3ca4a7e27f3f43b2ad453837c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-black/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-black/1/D.avif",
+      "bytes": 62440,
+      "sha256": "e92b314bd5502cfebd93af6c82632d4aa4aeab9d94703fa052e6a09239f2c4e9"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-black/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-black/2/D.avif",
+      "bytes": 104482,
+      "sha256": "a5ffae290f18af6e6200b882c1394e90beff0b6eeea7baf7170dbe4f5d808b29"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-black/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-black/3/D.avif",
+      "bytes": 24152,
+      "sha256": "a0b7049ef6ef3d284bbb6c9469e963f71f48676b856bfeaec72810c18b687bef"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-black/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-black/4/D.avif",
+      "bytes": 12700,
+      "sha256": "60995cbd0f69d096e0e6d7358c79a7fe12fcce170a254d45799c58a8b4727402"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-black/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-black/5/D.avif",
+      "bytes": 32521,
+      "sha256": "c4aec0993b8b50deed0df6ca446169a18e0256c467d781ce1b53f54762e2eb15"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-black/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-black/6/D.avif",
+      "bytes": 7449,
+      "sha256": "d95dd3c90d1bed4cbbe668dce78415b63cd51e12d1b3484575434a4b1133ba35"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-black/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-black/7/D.avif",
+      "bytes": 10601,
+      "sha256": "c04c91ca51ac978c016b2869272f254a0d4a6e929345409229de87be4e249be9"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-black/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-black/8/D.avif",
+      "bytes": 63828,
+      "sha256": "f13870e16c9181fed83dba19be4a51bbfa3fe7c5bbcb2ca5141ac7943deb9a2c"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-butter-yellow/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-butter-yellow/1/D.avif",
+      "bytes": 66146,
+      "sha256": "57f3d8e4c53823203cd103954a624b6e6d94c58cd04b39cc6954f5502767f75b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-butter-yellow/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-butter-yellow/2/D.avif",
+      "bytes": 125807,
+      "sha256": "2f657e91bda1c92a7f6200326711233d174a512123453e3199ae65be7bbb6ece"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-butter-yellow/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-butter-yellow/3/D.avif",
+      "bytes": 29820,
+      "sha256": "b36271e5bed5e59580b7e1fbbe38a76cfb88d7c2590fb3fff7f1c7a270dbc841"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-butter-yellow/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-butter-yellow/4/D.avif",
+      "bytes": 8495,
+      "sha256": "f78f442bceafdb6cea955093a2e5459babe22fe4a65e8779606502237332fda8"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-butter-yellow/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-butter-yellow/5/D.avif",
+      "bytes": 9709,
+      "sha256": "af00e3696b99e8bc8e1240d1b61612407dde57ef07e2c26619246e2aeacc9ca6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-butter-yellow/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-butter-yellow/6/D.avif",
+      "bytes": 5157,
+      "sha256": "bdf67551149dac9fe5d131762a5a10094385bc009f11d3e647c455e93a5153ab"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-butter-yellow/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-butter-yellow/7/D.avif",
+      "bytes": 10972,
+      "sha256": "950e9a4daad09396e7f1a00c5e0734a81e29cd3d134b2564778dcbf8ecde519a"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-butter-yellow/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-butter-yellow/8/D.avif",
+      "bytes": 5958,
+      "sha256": "97065ec144061ac73c99d20e104f0d77c128d0b39123a24557b01a816d959088"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-pale-lilac/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-pale-lilac/1/D.avif",
+      "bytes": 65040,
+      "sha256": "81ea9eb6db2be576f87006778bd626245749e78c4bc05685b00a3ded12bf6aa9"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-pale-lilac/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-pale-lilac/2/D.avif",
+      "bytes": 97817,
+      "sha256": "b74c85587435dce99970ca0eb6038852ed41edbe34879536fd728f5a5e40e4bf"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-pale-lilac/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-pale-lilac/3/D.avif",
+      "bytes": 26184,
+      "sha256": "1015fefcc44e208774ad7fd02bb8b9d8c6fe71df88440393ba85be25197425d2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-pale-lilac/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-pale-lilac/4/D.avif",
+      "bytes": 7343,
+      "sha256": "26e3946b038496edbf61f6e0677ccd050008d17f3ef4cbeecad5a1fe4a800f1f"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-pale-lilac/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-pale-lilac/5/D.avif",
+      "bytes": 9599,
+      "sha256": "d12833843ed93cb8313c5dd5583102f86eb84355c8d25aeb0179b69f0933ec15"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-pale-lilac/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-pale-lilac/6/D.avif",
+      "bytes": 6382,
+      "sha256": "6b61d455a6dd84a0fdfcc8f2b817803999d8255ef6779c44581d62d8ce395bbe"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-pale-lilac/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-pale-lilac/7/D.avif",
+      "bytes": 10751,
+      "sha256": "86899c75153aaece305dee6f286502bfe601a4b992ef67a741445315f460f0f4"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-pale-lilac/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-pale-lilac/8/D.avif",
+      "bytes": 7226,
+      "sha256": "a65707e8ae71a9533d74736565ccc676445efcfd7d76225b465b8a7e9cbd9cb7"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-dark-brown/1/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-dark-brown/1/D.avif",
+      "bytes": 65238,
+      "sha256": "1852f5206839fa628e4bbb4cefd853b7906b065268441cf90cd14baa186066ce"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-dark-brown/2/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-dark-brown/2/D.avif",
+      "bytes": 98370,
+      "sha256": "781c2f52f63b5a9f9009f07cdd4162d157fd2c2daed6bec5163dff0f9152c7d2"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-dark-brown/3/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-dark-brown/3/D.avif",
+      "bytes": 24229,
+      "sha256": "06a107d009ee638c3f7ae455b87cda7cef291e43e37e8dcce9fe1734451708db"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-dark-brown/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-dark-brown/4/D.avif",
+      "bytes": 5417,
+      "sha256": "97448fd578cf60a43d0855ed9cd95d9cafa7530d5cda7d75c621f51a57776b68"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-dark-brown/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-dark-brown/5/D.avif",
+      "bytes": 6091,
+      "sha256": "fdc5795255b5ebd0359a1b6ee94edf3f34876b750d26bed5335f4b51f8bb37b6"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-dark-brown/6/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-dark-brown/6/D.avif",
+      "bytes": 5361,
+      "sha256": "d6a12c3d016721da99f42749339b6533d1a20faa541baeee759b6837c61605cd"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-dark-brown/7/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-dark-brown/7/D.avif",
+      "bytes": 9087,
+      "sha256": "e4a5ffed3d102a80d2d36a3a001fea05a60f31d21be0a18067e29ba94348b70b"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-modern/02-dark-brown/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-modern/02-dark-brown/8/D.avif",
+      "bytes": 6520,
+      "sha256": "12edc58c9615530bb40b4b8adddcfc1ebf9a4fc68e5241fe37786445133e3d14"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-ash/4/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-ash/4/D.avif",
+      "bytes": 50785,
+      "sha256": "4f6987155af0933d24fd49394014622f8c8cb7a099fadcfebd44d94d31b86910"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-ash/5/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-ash/5/D.avif",
+      "bytes": 68324,
+      "sha256": "d8a20ee689cd622369bfeb9dc877fca1fbd11a46667ea48e7561672828cb4b59"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wallstorage/original-classic/01v-ash/8/D.avif",
+      "local": "/imgs/tylko-gallery/wallstorage/original-classic/01v-ash/8/D.avif",
+      "bytes": 54212,
+      "sha256": "7dd80e58ee0af0972fde2edb72f1269e67340199bd88fa97c55053205a854c58"
+    }
+  ],
+  "validation": {
+    "photoCount": 464,
+    "swatchCount": 29,
+    "completePhotoSets": 58,
+    "photosPerSet": 8,
+    "browserChecks": [
+      "Sideboard Solid Midnight Blue: 8/8 local photos loaded",
+      "Sideboard lower Butter Yellow selection and zoom use original local photo",
+      "Upper Classic C_Blue resets lower gallery choice and selects blue photo set",
+      "Configurator Classic blue and yellow: original wallstorage photos loaded",
+      "Mobile 390px: document width 390px; all gallery image sources same origin"
+    ],
+    "screenshots": [
+      "docs/tylko-reference/screenshots/gallery-004-sideboard-blue.png",
+      "docs/tylko-reference/screenshots/gallery-004-wallstorage-blue.png",
+      "docs/tylko-reference/screenshots/gallery-004-wallstorage-yellow.png",
+      "docs/tylko-reference/screenshots/gallery-004-mobile.png"
+    ]
+  }
+}

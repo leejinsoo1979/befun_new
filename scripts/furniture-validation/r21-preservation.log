@@ -1,0 +1,16 @@
+✔ R2-QA-01 repeated roundtrip preserves IDs, custom hole/slot and external producer block (3.931042ms)
+✔ R2-QA-02 unattributed manufacturing block remains through connector roundtrip (0.342875ms)
+✔ R2-QA-03 single unconfirmed clip csv blocks output (0.333959ms)
+✔ R2-QA-03 single unconfirmed clip dxf blocks output (0.129916ms)
+✔ R2-QA-03 single unconfirmed clip mpr blocks output (0.249333ms)
+✔ R2-QA-03 single unconfirmed clip cix blocks output (0.185667ms)
+✔ QA-R2-02 JSON roundtrip preserves ownership and user machining (0.343042ms)
+✔ QA-R2-04/05 collision blocks export then no connector clears only its collision (0.276708ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 589.098084

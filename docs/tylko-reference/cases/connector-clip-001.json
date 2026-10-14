@@ -1,0 +1,67 @@
+{
+  "caseId": "connector-clip-001",
+  "observedAt": "2026-10-13T14:45:22.908717+00:00",
+  "sourceUrl": "https://www.dasheimwerkerforum.de/threads/tylko-regal-mit-klicksystem.25990/",
+  "sourceType": "first-person forum report and photographs, not manufacturer specification",
+  "sourcePostDate": "2022-12-13",
+  "inputOptions": null,
+  "initialState": {
+    "productId": null,
+    "productFamilyId": null,
+    "dimensionsMm": null,
+    "history": null
+  },
+  "observationSteps": [
+    "read original first post",
+    "open CF57655C-0997-45CC-9599-7BB3A3721163.jpeg in Chrome gallery",
+    "advance to 562F409F-933C-4BB2-9444-C29DEDE0D16B.jpeg",
+    "inspect visible mating components"
+  ],
+  "observedGeometry": [
+    "elongated orange and black inserts recessed into narrow panel edge",
+    "projecting fastener components on broad face of mating panel"
+  ],
+  "authorReported": "Loosened screws not retightened before fitting subsequent panels, followed by looseness and removal difficulty. Not independently reproduced.",
+  "measurementUnit": "mm",
+  "measurementPrecision": null,
+  "measurements": {
+    "clipLength": null,
+    "clipWidth": null,
+    "clipDepth": null,
+    "mountingScrewCenters": null,
+    "matingScrewDiameter": null,
+    "matingScrewProtrusion": null,
+    "engagementTravel": null,
+    "jointOffsets": null
+  },
+  "unverified": [
+    "Exact hardware manufacturer/model/material",
+    "Machining recipe and installation tolerances",
+    "Lock and release mechanism details",
+    "Applicable product families/current production versions"
+  ],
+  "screenshots": [
+    "docs/tylko-reference/screenshots/connector-clip-001-edge-reference.png",
+    "docs/tylko-reference/screenshots/connector-clip-001-face-reference.png"
+  ],
+  "befunScreenshot": "docs/tylko-reference/screenshots/connector-clip-001-befun-selection.png",
+  "status": "observed; clip manufacturing specification unverified",
+  "befunVerification": {
+    "scope": "optimizer only",
+    "url": "http://localhost:3003/optimizer",
+    "actions": [
+      "OVVO to Tylko clip",
+      "reload",
+      "restore OVVO"
+    ],
+    "observed": [
+      "two system options visible",
+      "clip pending specification message visible",
+      "OVVO model fields hidden while clip selected",
+      "clip selection and pending message retained after reload",
+      "restored OVVO; body and back both none"
+    ],
+    "manufacturingExportViaBrowser": null,
+    "mainConfiguratorAndShareRoundtrip": null
+  }
+}

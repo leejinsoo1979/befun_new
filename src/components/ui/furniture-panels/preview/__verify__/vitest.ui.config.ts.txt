@@ -1,0 +1,12 @@
+import { defineConfig } from 'vitest/config';
+import path from 'path';
+const B = '/Users/leejinsoo/Downloads/befun_new-main';
+export default defineConfig({
+  test: { root: path.resolve('uitest'), environment: 'jsdom', setupFiles: [path.resolve('uitest/setup.ts')], include: ['**/*.test.tsx'], css: { modules: { classNameStrategy: 'non-scoped' } } },
+  esbuild: { jsx: 'automatic' },
+  resolve: { alias: [
+    { find: /^@\/(.*)$/, replacement: B + '/src/$1' },
+    { find: 'next/image', replacement: path.resolve('uitest/next-image.tsx') },
+    { find: /^(react|react-dom)(\/.*)?$/, replacement: B + '/node_modules/$1$2' },
+  ] },
+});

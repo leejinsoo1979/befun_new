@@ -1,0 +1,142 @@
+{
+  "at": "2026-10-14T07:01:39.433582+09:00",
+  "overall": "fail",
+  "productSourcesEditedByQA": false,
+  "originalFailureTestsUnchanged": true,
+  "fingerprint": "r21-final-fingerprints.json",
+  "cases": [
+    {
+      "id": "QA-L4-04",
+      "verdict": "pass",
+      "scope": "Original in-place OVVO/clip/OVVO regression unchanged",
+      "evidence": "r21-original-connectors.log",
+      "owner": "leader"
+    },
+    {
+      "id": "QA-L4-08",
+      "verdict": "pass",
+      "scope": "Original OptimizerApp test; CNC editor mocked, Befun store injected",
+      "evidence": "r21-original-ui.log",
+      "owner": "leader"
+    },
+    {
+      "id": "QA-R2-01",
+      "verdict": "pass",
+      "scope": "Repeated roundtrip keeps named/unattributed external manufacturing blocks",
+      "evidence": "r21-preservation.log",
+      "owner": "leader"
+    },
+    {
+      "id": "QA-R2-02",
+      "verdict": "pass",
+      "scope": "JSON roundtrip preserves ownership and user hole",
+      "evidence": "r21-preservation.log",
+      "owner": "leader"
+    },
+    {
+      "id": "QA-R2-03",
+      "verdict": "pass",
+      "scope": "Real OptimizerApp + mocked CNC editor; hole/slot/name/quantity/IDs kept in Befun store",
+      "evidence": "r21-optimizer.log",
+      "owner": "leader"
+    },
+    {
+      "id": "QA-R2-04/05",
+      "verdict": "pass",
+      "scope": "Collision blocks MPR; deselect connector removes only its collision; hole and external reason retained",
+      "evidence": "r21-preservation.log",
+      "owner": "leader"
+    },
+    {
+      "id": "QA-R2-06",
+      "verdict": "pass",
+      "scope": "Mixed batch CSV/DXF/MPR/CIX produces zero files; individual entry checked too",
+      "evidence": "r21-original-connectors.log + r21-preservation.log",
+      "owner": "leader"
+    },
+    {
+      "id": "QA-R2-B01",
+      "verdict": "fail",
+      "scope": "P1: real drawing editor added panel with circular through-cut disappears 26→25 on clip change",
+      "evidence": "user-hole-before.png → user-panel-after-clip.png",
+      "owner": "leader/CNC"
+    },
+    {
+      "id": "QA-R2-B02",
+      "verdict": "pass",
+      "scope": "Actual clip MPR and CIX buttons reject 25 panels; boring CSV disabled",
+      "evidence": "clip-mpr-block.txt + clip-cix-block.txt + clip-export-menu.png",
+      "owner": "leader/CNC"
+    },
+    {
+      "id": "QA-R2-B03",
+      "verdict": "pass",
+      "scope": "Real drawing editor 200×180 panel and hole x100 y90 diameter30 restore after refresh without connector change",
+      "evidence": "user-hole-restored-values.png",
+      "owner": "leader/CNC"
+    },
+    {
+      "id": "QA-R2-B04",
+      "verdict": "pass",
+      "scope": "Clip selection survives refresh; final OVVO V-1230P/back none/25 restored in separate QA tab",
+      "evidence": "final-ovvo-restored.png",
+      "owner": "leader/CNC"
+    },
+    {
+      "id": "QA-R2-REFRESH-01",
+      "verdict": "fail",
+      "scope": "Separate P2/limited: direct Befun store user hole lost on OptimizerApp remount; not the persisted drawing-editor path",
+      "evidence": "r21-optimizer.log",
+      "owner": "leader/persistence"
+    },
+    {
+      "id": "QA-R2-HW",
+      "verdict": "pass",
+      "scope": "READY export/axes/mm/mounts and illustrative envelope contract checks; actual CAD/undercut UNKNOWN",
+      "evidence": "r21-hardware.log",
+      "owner": "HW"
+    },
+    {
+      "id": "QA-R2-ASM",
+      "verdict": "pass",
+      "scope": "ASM-CONNECTED import and removed duplicate primitives; P press/R slide 0/50/100 observed; 24 tests",
+      "evidence": "r21-assembly.log + assembly-*.png",
+      "owner": "ASM"
+    },
+    {
+      "id": "QA-R2-UI",
+      "verdict": "pass",
+      "scope": "Source/store37 tests; [18,28,38]→4 rows body126 display127; reset/depth agreement",
+      "evidence": "r21-ui-crosscheck.log",
+      "owner": "UI"
+    },
+    {
+      "id": "QA-R2-UI-MOUNT",
+      "verdict": "unknown",
+      "scope": "Operating-page mount not published; mobile/keyboard new adapter not independently browser-tested this round",
+      "evidence": "UI handoff",
+      "owner": "leader/UI"
+    },
+    {
+      "id": "QA-R2-SAVE",
+      "verdict": "pass",
+      "scope": "17 mocked DB tests + actual generated client/import guard PASS; real503/400/401 and local fallback/retry PASS; DB roundtrip unknown",
+      "evidence": "r21-save-updated.log + r21-save-import.log + r21-save-live.log + save-local-fallback.png + share503-retry.png",
+      "owner": "SAVE"
+    },
+    {
+      "id": "QA-R2-SAVE-DB",
+      "verdict": "unknown",
+      "scope": "Real DB roundtrip blocked: DATABASE_URL not configured. Missing-design404 only test double verified",
+      "evidence": "r21-save-final.log",
+      "owner": "SAVE"
+    },
+    {
+      "id": "QA-R2-CORE",
+      "verdict": "unknown",
+      "scope": "CORE-01-READY/CORE-WARDROBE-READY not published at report; design A/B and wardrobe actual integration unapproved",
+      "evidence": "readiness snapshot",
+      "owner": "leader"
+    }
+  ]
+}

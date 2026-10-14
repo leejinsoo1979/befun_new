@@ -1,0 +1,140 @@
+/* Route wrapper: keep the shared 3D/AR and mobile controls owned by graphics intact. */
+.workspace { position: relative; scroll-margin-top: 148px; margin-top: 32px; background: #e6e6e6; }
+.workspace h2 { font-size: 14px; line-height: 20px; font-weight: 400; letter-spacing: normal; }
+.workspace :global(.cfg-label) { width: 85px; white-space: nowrap; }
+.workspace :global(.cfg-row) { gap: 16px; }
+.workspace :global(.cfg-row) > div > button:has(img) { width: 60px; min-width: 60px; height: 49px; padding: 4px; }
+.workspace :global(.cfg-row) > div:has(> button > img) { gap: 8px; }
+.workspace :global(.tylko-pill-btn) { min-height: 32.9px; font-size: 13px; line-height: 16.9px; padding: 6.5px 14px; }
+.workspace :global(.tylko-color-swatch) { width: 24px; height: 24px; }
+.workspace > div { height: auto; min-height: 0; overflow: visible; }
+.workspace > div > header { display: none; }
+.workspace > div > div { height: auto; min-height: 0; flex: none; overflow: visible; }
+.workspace > div > div > div:first-child { flex: none; height: clamp(320px, 56svh, 540px); }
+.workspace canvas { touch-action: pan-y !important; }
+.workspace :global([role='tabpanel']) { overscroll-behavior-y: auto; }
+.detailNavigation { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 24px; padding: 20px 16px; border-bottom: 1px solid #e3e1de; font-size: 14px; }
+.detailNavigation a:hover { text-decoration: underline; }
+.details { background: var(--paper); }
+.section { padding: 96px var(--gutter); scroll-margin-top: 100px; }
+.section > h2 { margin-bottom: 40px; }
+.eyebrow { font-size: 14px; line-height: 20px; margin-bottom: 16px !important; }
+.introduction { padding-top: 20px; padding-bottom: 72px; background: white; }
+.introduction > h2 { font-size: 18px; line-height: 25.2px; letter-spacing: normal; margin-bottom: 4px; }
+.introduction > p { font-size: 14px; color: #666; }
+.benefits { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; margin-top: 64px; }
+.benefits > a { display: flex; gap: 16px; }
+.benefits svg { width: 24px; height: 24px; flex-shrink: 0; }
+.benefits h3 { font-size: 16px; font-weight: 600; line-height: 24px; }
+.benefits p, .benefits span { font-size: 12px; line-height: 18px; }
+.benefits span { display: block; margin-top: 12px; text-decoration: underline; }
+.gallerySection { padding-top: 72px; }
+.galleryTop, .galleryBottom, .galleryRegular { display: grid; gap: 16px; }
+.galleryTop { grid-template-columns: 2fr 1fr; grid-template-rows: repeat(2, 1fr); }
+.galleryTop > button:first-child { grid-row: span 2; aspect-ratio: 4 / 3; }
+.galleryBottom { grid-template-columns: 1fr 1fr 2fr; grid-template-rows: repeat(2, 1fr); margin-top: 16px; }
+.galleryBottom > button { aspect-ratio: 4 / 3; }
+.galleryBottom > button:last-child { grid-column: 3; grid-row: 1 / 3; }
+.galleryBottom > button:nth-child(3) { grid-column: 1; grid-row: 2; }
+.galleryBottom > button:nth-child(4) { grid-column: 2; grid-row: 2; }
+.galleryRegular { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.galleryRegular > button { aspect-ratio: 4 / 3; }
+.galleryTop > button, .galleryBottom > button, .galleryRegular > button { position: relative; min-width: 0; overflow: hidden; background: #e6e3de; }
+.galleryTop img, .galleryBottom img, .galleryRegular img { object-fit: cover; }
+.caption { font-size: 12px; line-height: 18px; color: #777; margin-top: 16px !important; }
+.textLink { display: inline-flex; gap: 8px; align-items: center; margin-top: 24px; font-size: 14px; text-decoration: underline; }
+.contactLine { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; padding: 24px 16px; font-size: 14px; background: white; }
+.contactLine a { text-decoration: underline; }
+.brandSection { padding-bottom: 0; }
+.brandMedia { position: relative; display: block; aspect-ratio: 16 / 9; margin: 64px calc(-1 * var(--gutter)) 0; overflow: hidden; }
+.brandMedia img { object-fit: cover; }
+.brandMedia > span { position: absolute; bottom: 48px; left: var(--gutter); }
+.highlight { position: relative; width: calc((100% - 32px) / 3); aspect-ratio: 3 / 4; overflow: hidden; border-radius: 24px; background: #dedbd6; }
+.highlight img { object-fit: cover; }
+.highlight > div { position: absolute; inset: 0; padding: 32px; background: linear-gradient(#0005, transparent 60%); color: white; }
+.highlight p { font-size: 12px; line-height: 18px; text-transform: uppercase; margin-bottom: 8px; }
+.highlight h3 { font-size: 28px; line-height: 39.2px; font-weight: 600; }
+.highlight span { position: absolute; bottom: 24px; right: 24px; display: flex; align-items: center; gap: 8px; background: white; color: #222; padding: 10px 18px; border-radius: 30px; font-size: 14px; }
+.experienceGrid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 96px; margin-top: 64px; }
+.experienceGrid aside { align-self: start; border: 1px solid #ccc; border-radius: 8px; padding: 48px; text-align: center; }
+.experienceGrid aside h3 { font-size: 40px; line-height: 48px; font-weight: 600; }
+.experienceGrid aside p { margin: 24px 0; font-size: 14px; }
+.experienceGrid article { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid #ccc; }
+.experienceGrid article h3 { font-size: 18px; font-weight: 600; line-height: 25.2px; margin: 12px 0; }
+.experienceGrid article p { font-size: 12px; color: #666; }
+.experienceGrid > div > a { margin-top: 32px; }
+.reviewImage { position: relative; flex: 0 0 180px; aspect-ratio: 1; overflow: hidden; border-radius: 8px; }
+.reviewImage img { object-fit: cover; }
+.soundBanner { position: relative; aspect-ratio: 1.9; overflow: hidden; color: white; }
+.soundBanner img { object-fit: cover; }
+.soundBanner > div { position: absolute; inset: 0; padding: 80px var(--gutter); background: linear-gradient(#0003, transparent); }
+.soundBanner a { margin-top: 32px; }
+.discoverGrid { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+.discoverGrid > a { position: relative; min-height: 520px; overflow: hidden; }
+.discoverGrid img { object-fit: cover; }
+.discoverGrid > a > div { position: absolute; inset: 0; display: flex; justify-content: flex-end; flex-direction: column; padding: 32px; background: linear-gradient(transparent 40%, #0007); color: white; }
+.discoverGrid h3 { font-size: 28px; font-weight: 600; line-height: 39.2px; margin-bottom: 12px; }
+.discoverGrid span { display: inline-flex; gap: 8px; align-items: center; font-size: 14px; }
+.giftBanner { position: relative; min-height: 420px; overflow: hidden; background: #e6e3de; }
+.giftBanner img { object-fit: cover; }
+.giftBanner > div { position: relative; width: 50%; padding: 96px var(--gutter); }
+.giftBanner h2 { font-size: 32px; line-height: 38.4px; letter-spacing: normal; }
+.giftBanner p { margin: 16px 0 24px; }
+.recommendations { background: #e6e3de; }
+.showroomHeading { font-size: 32px; line-height: 38.4px; font-weight: 600; margin: 56px 0 32px; }
+.showroom { width: calc((100% - 48px) / 4); background: white; }
+.showroom > div { position: relative; aspect-ratio: 4 / 3; }
+.showroom img { object-fit: cover; }
+.showroom > div > span { position: absolute; left: 8px; top: 8px; padding: 4px 8px; border-radius: 16px; font-size: 12px; background: white; }
+.showroom h3 { font-size: 18px; font-weight: 600; line-height: 25.2px; margin: 20px 16px 12px; }
+.showroom > p, .showroom > span { display: block; font-size: 14px; margin: 12px 16px 20px; }
+.showroom > span svg { display: inline; }
+@media (min-width:1024px) {
+  .workspace > div > div { height: clamp(640px, calc(100svh - 148px), 820px); padding-right: max(24px, calc(var(--gutter) - 30px)); overflow: visible; }
+  .workspace > div > div > div:first-child { flex: 1; height: auto; }
+  .workspace > div > div > div:first-child > div:has(> button[aria-label='ruler']) { right: 40px !important; top: 84px !important; }
+  .workspace div:has(> button[aria-controls='viewer-display-options']) { left: auto; right: 40px; top: 40px; }
+  .workspace > div > div > div:has(> div > h2) { width: 420px; align-self: flex-start; margin: 16px 0; padding: 16px; border-radius: 12px; overflow: visible; box-shadow: none; }
+  .workspace > div > div > div:has(> div > h2) > div:first-child > h2 { position: absolute; left: var(--gutter); top: 20px; width: 340px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 16px; line-height: 24px; font-weight: 600; }
+  .workspace > div > div > div:has(> div > h2) > div:last-child > button { height: 48px; padding: 12px 24px; font-size: 16px; line-height: 24px; }
+}
+@media (max-width:1023px) {
+  .benefits { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .experienceGrid { gap: 32px; }
+  .experienceGrid aside { padding: 24px; }
+  .reviewImage { flex-basis: 120px; }
+  .showroom { width: calc((100% - 16px) / 2); }
+}
+@media (max-width:767px) {
+  .section { padding: 64px var(--gutter); }
+  .section h2 { font-size: 32px; line-height: 38.4px; letter-spacing: -.5px; }
+  .introduction { padding-top: 20px; padding-bottom: 32px; }
+  .introduction > h2 { font-size: 18px; line-height: 25.2px; }
+  .benefits { grid-template-columns: 1fr 1fr; gap: 24px 16px; margin-top: 32px; }
+  .benefits > a { gap: 8px; }
+  .benefits h3 { font-size: 14px; line-height: 19.6px; }
+  .gallerySection { padding-top: 24px; }
+  .galleryTop, .galleryBottom, .galleryRegular { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 8px; }
+  .galleryTop > button, .galleryBottom > button, .galleryRegular > button { grid-column: auto; grid-row: auto; aspect-ratio: 4 / 3; }
+  .galleryBottom > button:nth-child(n) { grid-column: auto; grid-row: auto; }
+  .brandMedia { margin-top: 32px; aspect-ratio: 4 / 3; }
+  .brandMedia > span { left: 16px; bottom: 16px; }
+  .highlight { width: 82%; }
+  .highlight > div { padding: 24px; }
+  .highlight h3 { font-size: 24px; line-height: 33.6px; }
+  .experienceGrid { grid-template-columns: 1fr; margin-top: 32px; }
+  .experienceGrid aside h3 { font-size: 32px; line-height: 38.4px; }
+  .experienceGrid article { gap: 16px; }
+  .reviewImage { flex-basis: 110px; }
+  .soundBanner { aspect-ratio: 1; }
+  .soundBanner > div { padding: 32px 16px; }
+  .soundBanner h2 { font-size: 32px; line-height: 38.4px; }
+  .discoverGrid { grid-template-columns: 1fr; }
+  .discoverGrid > a { min-height: 360px; }
+  .discoverGrid h3 { font-size: 24px; line-height: 33.6px; }
+  .giftBanner { min-height: 440px; }
+  .giftBanner img { object-position: 70%; opacity: .5; }
+  .giftBanner > div { width: 100%; padding: 64px 16px; }
+  .showroomHeading { font-size: 24px; line-height: 33.6px; margin-top: 40px; }
+  .showroom { width: 82%; }
+}

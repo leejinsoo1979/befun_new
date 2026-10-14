@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Warstwa_1" xmlns="http://www.w3.org/2000/svg" width="17.6mm" height="17.6mm" version="1.1" viewBox="0 0 50 50">
+  <!-- Generator: Adobe Illustrator 29.3.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 146)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #bfb8aa;
+      }
+
+      .st1 {
+        fill: #63674f;
+      }
+
+      .st2 {
+        fill: #e9dabd;
+      }
+    </style>
+  </defs>
+  <path class="st2" d="M50,35H0v2h50v-2Z"/>
+  <path class="st0" d="M50,37H0v2h50v-2Z"/>
+  <path class="st2" d="M50,39H0v2h50v-2Z"/>
+  <path class="st0" d="M50,41H0v2h50v-2Z"/>
+  <path class="st2" d="M50,43H0v2h50v-2Z"/>
+  <path class="st0" d="M50,45H0v2h50v-2Z"/>
+  <path class="st2" d="M50,47H0v2h50v-2Z"/>
+  <path class="st0" d="M50,49H0v1h50v-1Z"/>
+  <path class="st0" d="M50,33H0v2h50v-2Z"/>
+  <path class="st1" d="M50,0H0v33h50V0Z"/>
+  <metadata>
+    <sfw xmlns="http://ns.adobe.com/SaveForWeb/1.0/">
+      <slices/>
+      <sliceSourceBounds x="0" y="0" width="50" height="50" bottomLeftOrigin="true"/>
+    </sfw>
+  </metadata>
+</svg>

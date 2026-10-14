@@ -1,0 +1,48 @@
+{
+  "caseId": "wardrobe-integration-tone-001",
+  "observedAt": "2026-10-14T01:25:46.264563+00:00",
+  "sourceUrl": "https://tylko.com/de-de/mobel/kleiderschrank/92243,w",
+  "initialState": {
+    "productUrl": "https://tylko.com/de-de/mobel/kleiderschrank/92243,w",
+    "reload": true,
+    "designSeed": null
+  },
+  "inputs": {
+    "widthMm": 1000,
+    "heightMm": 2000,
+    "depthMm": 530,
+    "drawerStyle": "internal",
+    "lighting": false,
+    "outerColor": "white",
+    "innerColor": "white",
+    "sectionSeries": [
+      3739
+    ]
+  },
+  "actions": [
+    "Open the existing VPN Chrome reference product",
+    "Read visible controls and colour swatches",
+    "Capture the reference viewport"
+  ],
+  "observations": {
+    "structureOracle": "scripts/furniture-wardrobe/tone-source-fixtures.json",
+    "roundedDisplayDimensionsAreInternalCoordinates": false,
+    "screenCameraExact": null,
+    "hardwareMeshExact": false,
+    "visibleMaterials": "See wardrobe-integration-materials-001"
+  },
+  "measurement": {
+    "geometryUnit": "mm",
+    "geometryPrecision": "Source numerical coordinates; independent rule comparisons recorded separately",
+    "screenUnit": "px",
+    "screenMeasurementTolerance": null
+  },
+  "screenshots": [
+    "../screenshots/wardrobe-integration-tone-001-reference.png"
+  ],
+  "unverified": [
+    "Full camera and illumination parity",
+    "Manufacturing drilling and connector positions",
+    "Product checkout integration"
+  ]
+}

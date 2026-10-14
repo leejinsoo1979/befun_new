@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-14",
+  "engine": "BmbMCiqU2.js",
+  "renderer": "legacy wardrobe drawer renderer (toDrawerSegment)",
+  "units": "mm, rendered panels cm",
+  "geometryComparisons": {
+    "boundarySweep": 1120,
+    "all108SeriesSweep": 5184,
+    "flatTopSweep": 1120,
+    "mixedLocalDimensions": 400,
+    "failures": 0
+  },
+  "physicalDrawerComparisons": {
+    "cases": 1036,
+    "failures": 0
+  },
+  "frozenGeometryCases": 492,
+  "frozenDrawerCases": 160,
+  "notVerified": [
+    "Edge veneer/round handle variant",
+    "hinge meshes and machining",
+    "lighting assets",
+    "cable opening machining",
+    "browser visual comparison"
+  ],
+  "fixtureDescription": "Read-only reference outputs. Product uses general geometry rules and structural catalog, not these fixtures."
+}

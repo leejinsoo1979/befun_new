@@ -130,3 +130,13 @@ Public asset base string: `https://media.tylko.com/cloudinary/raw/upload/v1/rend
 Implementation uses the existing local slim handle model at the exact source anchor. Type01 full handles reuse the existing local full-handle profile normalized to source part bounds (rotated for vertical handles). This is explicitly a **temporary profile approximation**, not source mesh equivalence. Source skeleton assets must replace this to claim exact visual hardware parity. Existing local hinge halves remain with corrected reference anchor/spacing; their vertices likewise remain unverified.
 
 Module334 material/color: Type01 and Type02 front/sides/bottom/back all use `material:'laminate', colors:t.colors` (same selected palette); do not introduce a white box interior without evidence. Veneer01 alone uses `drawersStructure.colors` separately.
+
+## User-supplied leg mounting / dismantling diagrams
+
+Case: [hardware-leg-mount-001](cases/hardware-leg-mount-001.json). Two original screenshots saved: [installation detail](screenshots/hardware-leg-mount-001-installation-reference.png), [Dismantling legs, p24](screenshots/hardware-leg-mount-001-dismantling-reference.png). Exact manual URL/product identity unknown; the linked video has not been watched.
+
+The illustrated cylindrical leg includes a mounting plate, screw heads in keyhole-shaped apertures and a central silver release pin. The manual describes pressing the pin with a screwdriver, sliding the attachment element upward in the drawing while holding the pin, then releasing the pin and pulling out the leg. This evidence supplements the earlier description of a screw-mounted plate: removal is a pin-release/slide operation, not simply undoing all mounting screws. Internal latch construction and whether separate nested plates exist are unverified.
+
+The pictured furniture has eight legs in two rows of four. Intermediate and corner plate orientations differ in the drawing. These observations do not establish a universal leg count, exact angle, spacing or a mapping to short_leg/long_leg. Dimensions, pin/slide travel, installation axis and CNC hole centers remain null. Drawing-up is not automatically world +Y because the unit is lying down.
+
+Implementation handoff: Claude hardware should model the verified visible assembly when dimensions are available; leader owns placement/anchors/holes. codex-assembly should represent the supported release sequence in the diagram's local mounting frame and keep this leg latch separate from panel-to-panel OVVO connectors. Do not show this as measured geometry or verified production instructions merely because the diagram exists.

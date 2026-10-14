@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-14T00:20:09.776559+09:00",
+  "sha256": {
+    "src/components/optimizer/OptimizerApp.tsx": "fe647f336eadeae1b1e3b339663beb105fd4b1fa5504896a9d9ff38d603b434f",
+    "src/components/optimizer/ConnectorBar.tsx": "cb726c79ac6c7a43c9a178c5455feb45d8ca3f3ad707f5ed10aee823698a507d",
+    "src/lib/optimizer/connectors/apply.ts": "113f357f56da97f6071e2a44a941db5685a1598e5fdbb056ddc67ad7a2716a1a",
+    "src/lib/optimizer/connectors/settings.ts": "f8a1fd08d8a46b4cbc986ca5a9d621cbb9e2bf095bbd6a8d0d5ba007cdd8747d",
+    "src/lib/optimizer/befun/toCncPanels.ts": "8cdd4386bef2ad58b1e743d985cceb3c6eef5dc09f2e4e3bdb294aadcf9af94e",
+    "src/components/ui/furniture-panels/controls.tsx": "89ef0ab56b739ea117bd47aed1ebbe749efc31ea075fe6b1ef515b249ed8bbab",
+    "src/components/ui/furniture-panels/FurniturePanel.tsx": "e9d8b2b1b4be2427a7a3eaa43683a2a2a4b7d48a0d26347fcde1b1dc9c0a104d",
+    "src/types/furniture.ts": "0cc24b6f5cbadf14e56cd529fffb6c0adb66e23c849df98e1d39604f92f34f76",
+    "src/lib/assembly-guide/tylkoClip.ts": "7e2a0c11e8c68adae0c85e0d32ffaa1972f5cbc4d81ab2a2037a8bf2d5e320c8",
+    "src/components/three/furniture-hardware/connectors/clipContract.ts": "8d6932856f1a90552016fba08b101ec0953e9a74f8f9ef9875e8822a444a557e"
+  }
+}

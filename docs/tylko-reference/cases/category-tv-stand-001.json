@@ -1,0 +1,598 @@
+{
+  "caseId": "category-tv-stand-001",
+  "sourceIntroUrl": "https://tylko.com/de-de/configurator-intro",
+  "scope": "Initial category/model inventory; not full behavioral equivalence",
+  "models": [
+    {
+      "model": "Original Classic",
+      "sourceUrl": "https://tylko.com/de-de/mobel/fernsehtisch/4665733,j",
+      "observedAt": "2026-10-13T11:41:31.443Z",
+      "metadataObservedAt": null,
+      "steps": [
+        "Existing VPN Chrome: select category in German configurator-intro",
+        "Record actual model link; open linked initial product",
+        "Wait for option controls; record DOM and observed public product/DNA responses",
+        "Read-only metadata retries where needed; no saved design or cart mutation"
+      ],
+      "initialState": {
+        "presetId": 4665733,
+        "activeShelfType": 0,
+        "collectionType": "Sideboard",
+        "publicPreset": {
+          "id": 4665733,
+          "category": "tvstand",
+          "furniture_type": "jetty",
+          "configurator_type": 2,
+          "shelf_type": 0,
+          "shelf_category": "tvstand",
+          "width": 1400,
+          "height": 630,
+          "depth": 320,
+          "pattern": 4,
+          "material": 0,
+          "configurator_params": {
+            "depth": 320,
+            "width": 1400,
+            "height": 600,
+            "plinth": false,
+            "density": 0,
+            "geom_id": 2458,
+            "material": 0,
+            "geom_type": "mesh",
+            "backpanels": false,
+            "distortion": 0,
+            "additional_parameters": {
+              "collection_type": "Sideboard"
+            },
+            "configurator_custom_params": {
+              "lines": {
+                "1_2": 0,
+                "2_3": 0,
+                "3_4": 0
+              },
+              "channels": {
+                "1": {
+                  "order": -1,
+                  "cables": null,
+                  "inserts": null,
+                  "local_x": null,
+                  "door_flip": "right",
+                  "series_id": 4222,
+                  "distortion": {},
+                  "exposition": null,
+                  "inserts_available": null
+                },
+                "2": {
+                  "order": -1,
+                  "cables": null,
+                  "inserts": null,
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": 4229,
+                  "distortion": {},
+                  "exposition": null,
+                  "inserts_available": null
+                }
+              }
+            }
+          },
+          "physical_product_version": 7
+        },
+        "hiddenSeed": null,
+        "priorEditHistory": null
+      },
+      "observedDnaRequests": [
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=0&collection_type=Sideboard&dna_version=6",
+          "status": 200
+        }
+      ],
+      "sliders": [
+        {
+          "max": "450.0",
+          "min": "30.0",
+          "text": "140cm",
+          "value": "140.0"
+        },
+        {
+          "max": "123.0",
+          "min": "33.0",
+          "text": "63cm",
+          "value": "63.0"
+        }
+      ],
+      "optionUiSnapshot": "- main:\n  - complementary:\n    - paragraph:\n      - link \"Tylko Club ist da. Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\":\n        - /url: /de-de/register-or-login/join-club\n        - strong: Tylko Club ist da.\n        - text: Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\n  - link:\n    - /url: /de-de\n  - list:\n    - link \"Shop\":\n      - /url: /de-de/mobel-c\n    - link \"Community\":\n      - /url: /de-de/inspirations\n    - link \"Tylko Pro\":\n      - /url: /de-de/tylko-pro\n    - link \"Showrooms\":\n      - /url: /de-de/showrooms\n    - link \"Tylko Club\":\n      - /url: /de-de/tylko-club\n  - list:\n    - button:\n    - link:\n      - /url: /de-de/account\n    - link:\n      - /url: /de-de/wunschliste\n    - link:\n      - /url: /de-de/cart/\n  - main:\n    - heading [level=1]\n    - button:\n    - button:\n    - paragraph: Stil\n    - button \"Frame\":\n      - paragraph: Frame\n    - button \"Grid\":\n      - paragraph: Grid\n    - button \"Gradient\":\n      - paragraph: Gradient\n    - button \"Mosaic\":\n      - paragraph: Mosaic\n    - button \"Pattern\":\n      - paragraph: Pattern\n    - button \"Pixel\":\n      - paragraph: Pixel\n    - paragraph: Breite\n    - slider:\n      - generic: 140cm\n    - paragraph: Höhe\n    - slider:\n      - generic: 63cm\n    - paragraph: Tiefe\n    - button \"24cm\"\n    - button \"32cm\"\n    - button \"40cm\"\n    - button \"50cm\"\n    - generic: 32cm\n    - paragraph: Basis\n    - button \"Füße\"\n    - button \"Sockel\"\n    - generic: Füße\n    - paragraph: Rückwände\n    - button \"Aus\"\n    - button \"Mit\"\n    - generic: Aus\n    - paragraph: Finish\n    - button \"Farbe\"\n    - button \"Multiplexplatte\"\n    - button \"Furnier\"\n    - generic: Multiplexplatte\n    - paragraph: Farbe neu\n    - list:\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n    - generic: Unentschlossen?\n    - generic: Muster bestellen\n    - button \"In den Warenkorb\":\n      - generic: In den Warenkorb\n    - button \"Entwurf speichern\":\n      - text: Entwurf speichern\n    - complementary:\n      - paragraph\n      - paragraph: Maßangefertigt in der EU\n    - paragraph: Zahlungsinformationen\n    - paragraph: Lieferung & Rückgabe\n    - button:\n    - button:\n    - button:\n    - button:\n    - button:\n    - img \"Fernsehtisch in Weiß mit Türen und Schubladen\"\n    - heading \"Fernsehtisch in Weiß mit Türen und Schubladen\" [level=1]\n    - paragraph: Breite 140cm • Höhe 63cm • Tiefe 32cm\n    - paragraph: Farbe\n    - paragraph: Wir erstellen dein Regal. Nur noch einen kurzen Augenblick...\n    - heading \"Fernsehtisch in Weiß mit Türen und Schubladen...\" [level=1]\n    - paragraph:\n      - text: Steuern inklusive\n    - paragraph:\n      - text: Versand in 3-4 Wochen\n    - generic: Entwurf speichern\n    - text: In den Warenkorb\n    - generic: Zahlungsoptionen anzeigen\n",
+      "geometry": {
+        "rows": null,
+        "columns": null,
+        "partitionCoordinatesMm": null,
+        "horizontalPanelJointsMm": null,
+        "feetCoordinatesMm": null
+      },
+      "precision": {
+        "ui": "cm labels are rounded; some slider ranges are row indices or legroom positions",
+        "api": "public numeric preset values retained without asserting physical manufacturing precision",
+        "geometry": "not measured in this category inventory"
+      },
+      "screenshots": [
+        {
+          "path": "screenshots/category-tv-stand-original-classic-reference.png",
+          "status": "loading-preview-only",
+          "note": "Captured before 3D finished; not suitable for visual equivalence. Loaded option DOM was captured separately."
+        }
+      ],
+      "unverified": [
+        "Single-option boundary transitions",
+        "Category switch reset/retention",
+        "All individual hardware edits",
+        "Leg and panel-joint formulas",
+        "Befun structural and visual equivalence"
+      ]
+    },
+    {
+      "model": "Original Modern",
+      "sourceUrl": "https://tylko.com/de-de/mobel/fernsehtisch/4665821,j",
+      "observedAt": "2026-10-13T11:34:51.414Z",
+      "metadataObservedAt": null,
+      "steps": [
+        "Existing VPN Chrome: select category in German configurator-intro",
+        "Record actual model link; open linked initial product",
+        "Wait for option controls; record DOM and observed public product/DNA responses",
+        "Read-only metadata retries where needed; no saved design or cart mutation"
+      ],
+      "initialState": {
+        "presetId": null,
+        "activeShelfType": null,
+        "collectionType": null,
+        "publicPreset": null,
+        "hiddenSeed": null,
+        "priorEditHistory": null
+      },
+      "observedDnaRequests": [
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=1&collection_type=Sideboard&dna_version=6",
+          "status": 200
+        }
+      ],
+      "sliders": [
+        {
+          "max": "450.0",
+          "min": "30.0",
+          "text": "140cm",
+          "value": "140.0"
+        },
+        {
+          "max": "123.0",
+          "min": "33.0",
+          "text": "33cm",
+          "value": "33.0"
+        }
+      ],
+      "optionUiSnapshot": "- main:\n  - complementary:\n    - paragraph:\n      - link \"Tylko Club ist da. Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\":\n        - /url: /de-de/register-or-login/join-club\n        - strong: Tylko Club ist da.\n        - text: Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\n  - link:\n    - /url: /de-de\n  - list:\n    - link \"Shop\":\n      - /url: /de-de/mobel-c\n    - link \"Community\":\n      - /url: /de-de/inspirations\n    - link \"Tylko Pro\":\n      - /url: /de-de/tylko-pro\n    - link \"Showrooms\":\n      - /url: /de-de/showrooms\n    - link \"Tylko Club\":\n      - /url: /de-de/tylko-club\n  - list:\n    - button:\n    - link:\n      - /url: /de-de/account\n    - link:\n      - /url: /de-de/wunschliste\n    - link:\n      - /url: /de-de/cart/\n  - main:\n    - heading [level=1]\n    - button:\n    - button:\n    - button:\n    - paragraph: Stil\n    - button \"Grid\":\n      - paragraph: Grid\n    - button \"Gradient\":\n      - paragraph: Gradient\n    - button \"Mosaic\":\n      - paragraph: Mosaic\n    - button \"Frame\":\n      - paragraph: Frame\n    - button \"Pattern\":\n      - paragraph: Pattern\n    - button \"Pixel\":\n      - paragraph: Pixel\n    - paragraph: Breite\n    - slider:\n      - generic: 140cm\n    - paragraph: Höhe\n    - slider:\n      - generic: 33cm\n    - paragraph: Tiefe\n    - button \"24cm\"\n    - button \"32cm\"\n    - button \"40cm\"\n    - button \"50cm\"\n    - generic: 40cm\n    - paragraph: Abschnitte\n    - button [disabled]\n    - paragraph: \"3\"\n    - button\n    - paragraph: Basis\n    - button \"Füße\"\n    - button \"Beine\"\n    - generic: Füße\n    - paragraph: Rückwände\n    - paragraph: Fächer mit Schubladen und Türen haben stets Rückwände.\n    - paragraph: Finish\n    - button \"Farbe\"\n    - button \"Multiplexplatte\"\n    - button \"Furnier\"\n    - generic: Farbe\n    - paragraph: Farbe neu\n    - list:\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n    - generic: Unentschlossen?\n    - generic: Muster bestellen\n    - button \"In den Warenkorb\":\n      - generic: In den Warenkorb\n    - button \"Entwurf speichern\":\n      - text: Entwurf speichern\n    - complementary:\n      - paragraph\n      - paragraph: Maßangefertigt in der EU\n    - paragraph: Zahlungsinformationen\n    - paragraph: Lieferung & Rückgabe\n    - button:\n    - button:\n    - button:\n    - button:\n    - button:\n    - img \"Fernsehtisch in Terrakotta mit Türen\"\n    - heading \"Fernsehtisch in Terrakotta mit Türen\" [level=1]\n    - paragraph: Breite 140cm • Höhe 33cm • Tiefe 40cm\n    - paragraph: Farbe Terrakotta\n    - paragraph: Wir erstellen dein Regal. Nur noch einen kurzen Augenblick...\n    - heading \"Fernsehtisch in Terrakotta mit Türen...\" [level=1]\n    - paragraph:\n      - text: Steuern inklusive\n    - paragraph:\n      - text: Versand in 5-6 Wochen\n    - generic: Entwurf speichern\n    - text: In den Warenkorb\n    - generic: Zahlungsoptionen anzeigen\n    - list:\n      - button \"Bewertung basierend auf 614 Bewertungen gesammelt auf tylko.com 4.8/5\":\n        - paragraph: Bewertung basierend auf 614 Bewertungen gesammelt auf tylko.com\n        - paragraph: 4.8/5\n      - heading \"Lieferung inklusive\" [level=5]\n      - paragraph: Direkt zu dir nach Hause\n      - generic: Weiterlesen\n      - heading \"100 Tage kostenlose Rückgabe\" [level=5]\n      - paragraph: Genug Zeit zum Verlieben\n      - generic: Weiterlesen\n      - heading \"Optionaler Aufbau-Service\" [level=5]\n      - paragraph: \"Hier erhältlich: Deutschland\"\n      - generic: Weiterlesen\n      - heading \"10 Jahre Garantie\" [level=5]\n      - paragraph: Gebaut für die Ewigkeit\n      - generic: Weiterlesen\n    - radio \"Weiß\"\n    - text: Weiß\n    - radio \"Cremebeige\"\n    - text: Cremebeige\n    - radio \"Grau\"\n    - text: Grau\n    - radio \"Steingrau\"\n    - text: Steingrau\n    - radio \"Olivgrün\"\n    - text: Olivgrün\n    - radio \"Sand + Mitternachtsblau\"\n    - text: Sand + Mitternachtsblau\n    - radio \"Terrakotta\" [checked]\n    - text: Terrakotta\n    - radio \"Weinrot\"\n    - text: Weinrot\n    - radio \"Salbeigrün\"\n    - text: Salbeigrün\n    - radio \"Hellblau\"\n    - text: Hellblau\n    - radio \"Mitternachtsblau\"\n    - text: Mitternachtsblau\n    - radio \"Reisinger Pink\"\n    - text: Reisinger Pink\n    - radio \"Premium-Mattschwarz\"\n    - text: Premium-Mattschwarz\n    - radio \"Schwarz\"\n    - text: Schwarz\n    - radio \"Buttergelb\"\n    - text: Buttergelb\n    - radio \"Flieder\"\n    - text: Flieder\n    - radio \"Dunkelbraun\"\n    - text: Dunkelbraun\n    - button \"Fernsehtisch in Terrakotta mit Türen 1\":\n      - img \"Fernsehtisch in Terrakotta mit Türen 1\"\n    - button \"Fernsehtisch in Terrakotta mit Türen 2\":\n      - img \"Fernsehtisch in Terrakotta mit Türen 2\"\n    - button \"Fernsehtisch in Terrakotta mit Türen 3\":\n      - img \"Fernsehtisch in Terrakotta mit Türen 3\"\n    - button \"Fernsehtisch in Terrakotta mit Türen 4\":\n      - img \"Fernsehtisch in Terrakotta mit Türen 4\"\n    - button \"Fernsehtisch in Terrakotta mit Türen 5\":\n      - img \"Fernsehtisch in Terrakotta mit Türen 5\"\n    - button \"Fernsehtisch in Terrakotta mit Türen 6\":\n      - img \"Fernsehtisch in Terrakotta mit Türen 6\"\n    - button \"Fernsehtisch in Terrakotta mit Türen 7\":\n      - img \"Fernsehtisch in Terrakotta mit Türen 7\"\n    - button \"Fernsehtisch in Terrakotta mit Türen 8\":\n      - img \"Fernsehtisch in Terrakotta mit Türen 8\"\n    - paragraph:\n      - link \"Mehr Stile ansehen\":\n        - /url: /de-de/mobel-c\n    - heading \"Angaben zu deinem Möbelstück\" [level=2]\n    - button \"Abmessungen & Details\":\n      - heading \"Abmessungen & Details\" [level=3]\n    - button \"Material\":\n      - heading \"Material\" [level=3]\n    - button \"Lieferung & Rückgabe\":\n      - heading \"Lieferung & Rückgabe\" [level=3]\n    - button \"Aufbauinformationen\":\n      - heading \"Aufbauinformationen\" [level=3]\n    - button \"Sicherheit\":\n      - heading \"Sicherheit\" [level=3]\n    - paragraph: Hilfe gefällig? Schreib uns eine Nachricht über\n    - paragraph:\n      - button \"Live-Chat\":\n        - text: Live-Chat\n      - generic: oder\n      - button \"WhatsApp\":\n        - text: WhatsApp\n    - complementary\n    - paragraph: Tylko Original\n    - heading \"Perfekt passende Möbel für Menschen, die aus der Masse hervorstechen\" [level=2]\n    - button [disabled]:\n    - button:\n    - heading \"FERNSEHTISCH\" [level=3]\n    - heading \"Richte das ultimative Unterhaltungsuniversum ein\" [level=2]\n    - img \"Regale mit Charakter\"\n    - heading \"ORIGINAL MODERN\" [level=3]\n    - heading \"Regale mit Charakter\" [level=2]\n    - button \"Mehr\"\n    - heading [level=3]\n    - button \"Mehr\"\n    - img \"Mach dir jeden Zentimeter zu eigen\"\n    - heading \"CustomFit®-Technologie\" [level=3]\n    - heading \"Mach dir jeden Zentimeter zu eigen\" [level=2]\n    - button \"Mehr\"\n    - img \"Platz zum Durchatmen\"\n    - heading \"Beine oder Sockel\" [level=3]\n    - heading \"Platz zum Durchatmen\" [level=2]\n    - button \"Mehr\"\n    - img \"Ausgewählte Farben\"\n    - heading [level=3]\n    - heading \"Ausgewählte Farben\" [level=2]\n    - img \"Schluss mit Kabelsalat\"\n    - heading \"FERNSEHTISCHE\" [level=3]\n    - heading \"Schluss mit Kabelsalat\" [level=2]\n    - button \"Mehr\"\n    - img \"Wenn’s Klick macht\"\n    - heading \"SimpleClick®-Montage\" [level=3]\n    - heading \"Wenn’s Klick macht\" [level=2]\n    - button \"Mehr\"\n    - img \"Dein Regal, deine einzigartige Nummer\"\n    - heading \"Einzigartiges Möbelstück\" [level=3]\n    - heading \"Dein Regal, deine einzigartige Nummer\" [level=2]\n    - img \"Regale mit Charakter\"\n    - heading \"ORIGINAL MODERN\" [level=3]\n    - heading \"Regale mit Charakter\" [level=2]\n    - button \"Mehr\"\n    - heading [level=3]\n    - button \"Mehr\"\n    - img \"Mach dir jeden Zentimeter zu eigen\"\n    - heading \"CustomFit®-Technologie\" [level=3]\n    - heading \"Mach dir jeden Zentimeter zu eigen\" [level=2]\n    - button \"Mehr\"\n    - img \"Platz zum Durchatmen\"\n    - heading \"Beine oder Sockel\" [level=3]\n    - heading \"Platz zum Durchatmen\" [level=2]\n    - button \"Mehr\"\n    - img \"Ausgewählte Farben\"\n    - heading [level=3]\n    - heading \"Ausgewählte Farben\" [level=2]\n    - img \"Schluss mit Kabelsalat\"\n    - heading \"FERNSEHTISCHE\" [level=3]\n    - heading \"Schluss mit Kabelsalat\" [level=2]\n    - button \"Mehr\"\n    - img \"Wenn’s Klick macht\"\n    - heading \"SimpleClick®-Montage\" [level=3]\n    - heading \"Wenn’s Klick macht\" [level=2]\n    - button \"Mehr\"\n    - img \"Dein Regal, deine einzigartige Nummer\"\n    - heading \"Einzigartiges Möbelstück\" [level=3]\n    - heading \"Dein Regal, deine einzigartige Nummer\" [level=2]\n    - button:\n    - button:\n    - heading \"DIE TYLKO-ERFAHRUNG\" [level=3]\n    - heading \"Wir haben über 300.000 zufriedene Kunden in 28 Ländern\" [level=2]\n    - complementary:\n      - paragraph: 4,8\n      - paragraph: 97% unserer Kunden empfehlen unsere Produkte weiter. Bewertung basierend auf 618 Bewertungen, die auf Tylko.com abgegeben wurden.\n      - link \"Mehr über Bewertungen erfahren\":\n        - /url: https://tylko.com/en-uk/privacy_policy/the-basis-and-purpose-of-personal-data-processing\n        - generic: Mehr über Bewertungen erfahren\n    - complementary:\n      - list:\n        - button \"Assembly\"\n        - button \"Comfort\"\n        - button \"Customer Support\"\n        - button \"Delivery\"\n        - button \"Style\"\n        - button \"Quality\"\n    - article:\n      - img \"Begeisterter Kunde\"\n      - generic: Claire Gee\n      - time: 27. August 2026\n      - generic: \"Farbe: Terrakotta\"\n      - heading \"Begeisterter Kunde\" [level=3]\n      - paragraph: Ich habe zwei Möbelstücke von Tylko für mein Wohnzimmer gekauft. Das erste, im Oktober letzten Jahres, ist ein Möbelstück für meinen Plattenspieler und meine Schallplatten. Bei der Planung habe ich auch zwei Schubladen eingeplant, in denen ich meine CDs aufbewahre. Es hat einen wunderschönen satten Ockergelb-Farbton und fügt sich perfekt in den Raum ein, ganz im Einklang mit den Möbeln, die ich bereits hatte. Das zweite ist ein TV-Schrank, aber das so zu sagen, würde dem Ganzen nicht gerecht werden, denn in den Schubladen und Fächern habe ich einen Teil meines Geschirrs und meiner Ramen-Schüsseln, Tischdecken, Kabel, Batterien und Fernbedienungen untergebracht (er ist schön lang, fast zweieinhalb Meter!). Ich bin total begeistert! Denn die Möbel sind maßgefertigt – was mir natürlich ermöglicht hat, den mir zur Verfügung stehenden Platz optimal zu nutzen –, aber vor allem bin ich von der Qualität der Materialien und der hohen Stabilität begeistert. Außerdem, wenn du ein Lego-Nostalgiker bist, macht das Zusammenbauen extrem viel Spaß und … ist kinderleicht! Keine Schraubendreher, keine kniffligen Rätsel. Alles passt wunderbar zusammen. Ich bin auch von der technischen Konzeption dieser Produkte begeistert. Die Schubladenführungen zum Beispiel. Ich weiß nicht, ob jemand anderes etwas Ähnliches entwickelt hat. Der so einfache Aufbau sorgt nicht nur dafür, dass der Kunde beim Zusammenbau nicht nervös wird, sondern auch, dass das Endergebnis präzise und sauber ist, als hätte ein Profi alles zusammengebaut.\n      - paragraph: \"Originalsprache: ItalianOriginal anzeigen\"\n    - article:\n      - img \"Perfekt\"\n      - generic: Rian\n      - time: 27. Juni 2026\n      - generic: \"Farbe: Olivgrün\"\n      - heading \"Perfekt\" [level=3]\n      - paragraph: Absolut perfekt und genau das, was wir bestellt haben\n      - paragraph: \"Originalsprache: EnglishOriginal anzeigen\"\n    - article:\n      - img \"Unfassbar gut\"\n      - generic: Christian\n      - time: 15. Mai 2022\n      - generic: \"Farbe: Terrakotta\"\n      - heading \"Unfassbar gut\" [level=3]\n      - paragraph: Ich habe noch nie so ein präzise gefertigtes „Selbstbaumöbel“ gesehen. Es ist wunderschön und ich kann mit nicht vorstellen, dass irgendjemand das nicht selbst aufbauen könnte und keine Freude an einem so hochwertigen Möbel hätte. Absolute Empfehlung!\n      - paragraph: \"Originalsprache: DeutschOriginal anzeigen\"\n    - button \"Mehr zeigen\"\n    - img \"Fernsehtisch in Terrakotta mit Türen\"\n    - heading \"Hi-Fi fürs Regal\" [level=2]\n    - heading \"Klang, der hierher gehört\" [level=1]\n    - link \"Tylko Sound entdecken\":\n      - /url: /de-de/tylko-sound\n    - paragraph: Finde dein perfektes Match\n    - heading \"Du bist noch unentschlossen? Dann sieh dir das hier an.\" [level=2]\n    - link \"Was ist anders bei Tylko? Was ist anders bei Tylko? Mehr erfahren\":\n      - /url: /de-de/about-tylko\n      - img \"Was ist anders bei Tylko?\"\n      - heading \"Was ist anders bei Tylko?\" [level=3]\n      - paragraph:\n        - generic: Mehr erfahren\n    - link \"Entdecke unsere Qualität aus nächster Nähe Entdecke unsere Qualität aus nächster Nähe Muster bestellen\":\n      - /url: /de-de/muster\n      - img \"Entdecke unsere Qualität aus nächster Nähe\"\n      - heading \"Entdecke unsere Qualität aus nächster Nähe\" [level=3]\n      - paragraph:\n        - generic: Muster bestellen\n    - link \"Fernsehtische entdecken\":\n      - /url: /de-de/mobel-c/fernsehtische\n      - paragraph:\n        - generic: Fernsehtische entdecken\n    - heading \"Dieses Geschenk passt immer\" [level=1]\n    - generic: Verschenke die Freude, sich ein eigenes Tylko auszusuchen\n    - link \"E-Geschenkkarte entdecken\":\n      - /url: /de-de/e-geschenkkarte/1\n    - paragraph: Siehe auch\n    - heading \"Das könnte dir auch gefallen\" [level=2]\n    - heading \"Showrooms\" [level=3]\n    - paragraph: Finde einen Showroom in deiner Nähe.\n    - heading \"Tylko Showrooms & Tylko Friends\" [level=2]\n    - img \"Tylko Space Berlin\"\n    - generic: Showroom\n    - heading \"Tylko Space Berlin\" [level=3]\n    - paragraph:\n      - text: Gipsstraße 7\n      - text: 10119 Berlin\n    - paragraph:\n      - link \"+493027695161\":\n        - /url: \"tel:+493027695161}\"\n      - link \"berlin@tylko.com\":\n        - /url: mailto:berlin@tylko.com\n    - link \"Zur Wegbeschreibung\":\n      - /url: https://maps.app.goo.gl/nZmGK6ahnW4VVW6k9\n    - img \"Tylko Dresden @ RW Showrooms\"\n    - generic: Showroom\n    - heading \"Tylko Dresden @ RW Showrooms\" [level=3]\n    - paragraph:\n      - text: Elisenstraße 23\n      - text: 01307 Dresden\n    - paragraph:\n      - link \"+4935148458859\":\n        - /url: \"tel:+4935148458859}\"\n      - link \"hello@tylko.com\":\n        - /url: mailto:hello@tylko.com\n    - link \"Zur Wegbeschreibung\":\n      - /url: https://maps.app.goo.gl/8Mhamv4cfDyRo34G7\n    - img \"Tylko Hamburg @ RW Showrooms\"\n    - generic: Showroom\n    - heading \"Tylko Hamburg @ RW Showrooms\" [level=3]\n    - paragraph:\n      - text: Baakenallee 36\n      - text: 20457 Hamburg\n    - paragraph:\n      - link \"+494033310936\":\n        - /url: \"tel:+494033310936}\"\n      - link \"hello@tylko.com\":\n        - /url: mailto:hello@tylko.com\n    - link \"Zur Wegbeschreibung\":\n      - /url: https://maps.app.goo.gl/hvAUGc19T9ABG2jV9\n    - img \"Tylko Hannover @ RW Showrooms\"\n    - generic: Showroom\n    - heading \"Tylko Hannover @ RW Showrooms\" [level=3]\n    - paragraph:\n      - text: Expo Plaza 11\n      - text: 30539 Hannover\n    - paragraph:\n      - link \"+49511 98247739\":\n        - /url: \"tel:+49511 98247739}\"\n      - link \"hello@tylko.com\":\n        - /url: mailto:hello@tylko.com\n    - link \"Zur Wegbeschreibung\":\n      - /url: https://maps.app.goo.gl/Ar5DVbcLjeeXWeyGA\n    - button \"Alle sehen\"\n  - heading \"Werde Teil der Tylko-Community\" [level=2]\n  - heading \"Jetzt anmelden und 300€ Gutschein erhalten\" [level=3]\n  - textbox \"Deine E-Mail-Adresse\"\n  - button \"Hol dir 300€\"\n  - paragraph:\n    - text: Ich möchte einen Newsletter über Angebote, Rabattaktionen und andere Marketing-Informationen von Tylko S.A. an die angegebene E-Mail-Adresse erhalten. Ich kann meine Zustimmung jederzeit widerrufen, dies wird nicht die Rechtmäßigkeit der Verarbeitung beeinträchtigen, die vor dem Widerruf stattgefunden hat.\n    - text: \"*Der Verwalter deiner personenbezogenen Daten ist Tylko S.A. mit Sitz in 8/10 Czerska St., 00-732 Warschau, Polen, KRS 000983931, to contact us, im Folgenden \\\"Tylko\\\". Ich habe die\"\n    - strong:\n      - link \"Allgemeinen Geschäftsbedingungen (bezüglich des Newsletter-Versands)\":\n        - /url: /de/terms/benutzerkonto\n    - text: und die\n    - strong:\n      - link \"Datenschutzbestimmungen\":\n        - /url: /de/privacy_policy/\n    - text: gelesen und stimme diesen zu.\n  - heading \"Möbel, die sich dir anpassen und nicht umgekehrt. Willkommen in der Zukunft des Wohnens.\" [level=1]\n  - generic: Unternehmen\n  - checkbox \"Unternehmen\"\n  - list:\n    - link \"Über Tylko\":\n      - /url: /de-de/about-tylko\n      - generic: Über Tylko\n    - link \"Showrooms\":\n      - /url: /showrooms\n      - generic: Showrooms\n    - link \"E-Geschenkkarte\":\n      - /url: /de-de/e-geschenkkarte/1\n      - generic: E-Geschenkkarte\n    - link \"Journal\":\n      - /url: https://journal.tylko.com/\n      - generic: Journal\n    - link \"Presse & Medien\":\n      - /url: /de-de/press\n      - generic: Presse & Medien\n    - link \"Jobs\":\n      - /url: https://tylko.recruitee.com/\n      - generic: Jobs\n    - link \"Investorenbeziehungen\":\n      - /url: /de-de/investor-relations\n      - generic: Investorenbeziehungen\n    - link \"Gesetz über digitale Dienste\":\n      - /url: /de-de/digital-services-act\n      - generic: Gesetz über digitale Dienste\n    - link \"Tylko Pro\":\n      - /url: /de-de/tylko-pro\n      - generic: Tylko Pro\n  - generic: Einkaufen bei Tylko\n  - checkbox \"Einkaufen bei Tylko\"\n  - list:\n    - link \"FAQ\":\n      - /url: /de-de/faq\n      - generic: FAQ\n    - link \"AGB\":\n      - /url: /de-de/terms\n      - generic: AGB\n    - link \"Nutzungsbedingungen der E-Geschenkkarte\":\n      - /url: /de-de/terms-gift-card\n      - generic: Nutzungsbedingungen der E-Geschenkkarte\n    - link \"Datenschutz-erklärung\":\n      - /url: /de-de/privacy_policy\n      - generic: Datenschutz-erklärung\n    - button \"Cookies bearbeiten\":\n      - generic: Cookies bearbeiten\n    - link \"Lieferung & Rücksendungen\":\n      - /url: /de-de/shipping\n      - generic: Lieferung & Rücksendungen\n    - li",
+      "geometry": {
+        "rows": null,
+        "columns": null,
+        "partitionCoordinatesMm": null,
+        "horizontalPanelJointsMm": null,
+        "feetCoordinatesMm": null
+      },
+      "precision": {
+        "ui": "cm labels are rounded; some slider ranges are row indices or legroom positions",
+        "api": "public numeric preset values retained without asserting physical manufacturing precision",
+        "geometry": "not measured in this category inventory"
+      },
+      "screenshots": [
+        {
+          "path": "screenshots/category-tv-stand-original-modern-reference.png",
+          "status": "loading-preview-only",
+          "note": "Captured before 3D finished; not suitable for visual equivalence. Loaded option DOM was captured separately."
+        }
+      ],
+      "unverified": [
+        "Single-option boundary transitions",
+        "Category switch reset/retention",
+        "All individual hardware edits",
+        "Leg and panel-joint formulas",
+        "Befun structural and visual equivalence"
+      ]
+    },
+    {
+      "model": "Edge",
+      "sourceUrl": "https://tylko.com/de-de/mobel/fernsehtisch/1614814,w",
+      "observedAt": "2026-10-13T11:44:31.442Z",
+      "metadataObservedAt": "2026-10-13T11:52:59.365Z",
+      "steps": [
+        "Existing VPN Chrome: select category in German configurator-intro",
+        "Record actual model link; open linked initial product",
+        "Wait for option controls; record DOM and observed public product/DNA responses",
+        "Read-only metadata retries where needed; no saved design or cart mutation"
+      ],
+      "initialState": {
+        "presetId": 1614814,
+        "activeShelfType": 4,
+        "collectionType": "TvStand",
+        "publicPreset": {
+          "id": 1614814,
+          "category": "tvstand",
+          "furniture_type": "watty",
+          "configurator_type": 3,
+          "shelf_type": 4,
+          "shelf_category": "tvstand",
+          "width": 1560,
+          "height": 480,
+          "depth": 360,
+          "pattern": 0,
+          "material": 13,
+          "configurator_params": {
+            "skin": "edge",
+            "depth": 360,
+            "width": 1560,
+            "height": 480,
+            "density": 100,
+            "flatTop": false,
+            "geom_id": 2590,
+            "handles": false,
+            "material": 13,
+            "geom_type": "mesh",
+            "distortion": 0,
+            "additional_parameters": {
+              "collection_type": "TvStand",
+              "doors_direction": 1
+            },
+            "configurator_custom_params": {
+              "lines": {},
+              "channels": {
+                "1": {
+                  "order": 1,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": "left",
+                  "series_id": "Open_Low_ch_fullDoors",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 360,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": "Low"
+                },
+                "2": {
+                  "order": 1,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Low_ch_fullDrawers",
+                  "distortion": null,
+                  "exposition": null,
+                  "local_depth": 360,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": "Low"
+                },
+                "3": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Low_ch_fullDrawers",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 360,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": "Low"
+                },
+                "4": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Low_ch_openTop",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 360,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": "Low"
+                },
+                "5": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_High_ch_fullDoors",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 360,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": "High"
+                },
+                "6": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_ch_fullDrawers",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 360,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "7": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_ch_fullDrawers",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 360,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "8": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_ch_fullDrawers",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 360,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "9": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_ch_fullDrawers",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 360,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "10": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_ch_fullDrawers",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 360,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                }
+              }
+            }
+          },
+          "physical_product_version": 5
+        },
+        "hiddenSeed": null,
+        "priorEditHistory": null
+      },
+      "observedDnaRequests": [
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=4&collection_type=TvStand&dna_version=6",
+          "status": 200
+        },
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=5&collection_type=TvStand&dna_version=6",
+          "status": 200
+        }
+      ],
+      "sliders": [
+        {
+          "max": "600.0",
+          "min": "40.0",
+          "text": "156cm",
+          "value": "156.0"
+        },
+        {
+          "max": "300.0",
+          "min": "48.0",
+          "text": "48cm",
+          "value": "48.0"
+        }
+      ],
+      "optionUiSnapshot": "- main:\n  - complementary:\n    - paragraph:\n      - link \"🔨 Wir kümmern uns drum. Aufbauservice jetzt 30% günstiger. Endet am 13.10\":\n        - /url: /de-de/mobel-c?additional=sale\n        - text: 🔨 Wir kümmern uns drum.\n        - strong: Aufbauservice jetzt 30% günstiger\n        - text: . Endet am 13.10\n    - generic: 10 h\n    - generic: 14 m\n    - generic: 29 s\n  - link:\n    - /url: /de-de\n  - list:\n    - link \"Shop\":\n      - /url: /de-de/mobel-c\n    - link \"Community\":\n      - /url: /de-de/inspirations\n    - link \"Tylko Pro\":\n      - /url: /de-de/tylko-pro\n    - link \"Showrooms\":\n      - /url: /de-de/showrooms\n    - link \"Tylko Club\":\n      - /url: /de-de/tylko-club\n  - list:\n    - button:\n    - link:\n      - /url: /de-de/account\n    - link:\n      - /url: /de-de/wunschliste\n    - link:\n      - /url: /de-de/cart/\n  - main:\n    - heading \"Fernsehtisch in Steingrau mit Aussen Schubladen\" [level=1]\n    - heading \"Versand in 4-5 Wochen\" [level=2]\n    - generic: 1287 €\n    - text: 2076 €\n    - generic: \"|\"\n    - generic: Speichern\n    - generic: 789 €\n    - generic: bis 13.10\n    - paragraph: \"Niedrigster Preis in den letzten 30 Tagen: 1250 €\"\n    - complementary:\n      - button \"Entwurf speichern\":\n        - generic: Entwurf speichern\n      - button \"In den Warenkorb\":\n        - generic: In den Warenkorb\n    - heading \"Fernsehtisch in Steingrau mit Aussen Schubladen\" [level=1]\n    - button \"Zoom out\" [disabled]:\n    - button \"Zoom in\":\n    - button \"Dimensions\":\n    - button \"Shelves\":\n    - button \"Doors\":\n    - button \"See product details\":\n    - button \"Share\":\n    - generic: 2076 €\n    - generic: \"| sparen\"\n    - generic: 789 €\n    - generic: zu\n    - generic: \"13.10\"\n    - paragraph:\n      - generic: 1287 €\n    - paragraph: \"Niedrigster Preis in den letzten 30 Tagen: 1250 €\"\n    - button \"Aussehen\"\n    - button \"Ausstattung\"\n    - generic: Aussehen\n    - paragraph: Breite\n    - slider \"Size value in centimeters\":\n      - generic: 156cm\n    - paragraph: Höhe\n    - slider \"Size value in centimeters\":\n      - generic: 48cm\n    - paragraph:\n      - text: Tiefe\n    - button \"36cm\"\n    - button \"45cm\"\n    - button \"60cm\"\n    - generic: 36cm\n    - paragraph: Spalten\n    - button \"Decrease\":\n    - paragraph: \"3\"\n    - button \"Increase\" [disabled]:\n    - paragraph:\n      - text: Oberseite mit Kanten\n    - button \"Mit\"\n    - button \"Aus\"\n    - generic: Mit\n    - paragraph:\n      - text: Finish\n    - button \"Farbe\"\n    - button \"Multiplexplatte\"\n    - button \"Holzoptik\"\n    - generic: Farbe\n    - paragraph: Farbe\n    - list:\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n    - paragraph\n    - generic: Unentschlossen?\n    - generic: Muster bestellen\n    - button \"In den Warenkorb\":\n      - generic: In den Warenkorb\n    - button \"Entwurf speichern\":\n      - generic: Entwurf speichern\n    - complementary:\n      - paragraph: Versand in 4-5 Wochen\n      - paragraph: Maßangefertigt in der EU\n    - generic: Zahlungsinformationen\n    - generic: Lieferung & Rückgabe\n",
+      "geometry": {
+        "rows": null,
+        "columns": null,
+        "partitionCoordinatesMm": null,
+        "horizontalPanelJointsMm": null,
+        "feetCoordinatesMm": null
+      },
+      "precision": {
+        "ui": "cm labels are rounded; some slider ranges are row indices or legroom positions",
+        "api": "public numeric preset values retained without asserting physical manufacturing precision",
+        "geometry": "not measured in this category inventory"
+      },
+      "screenshots": [
+        {
+          "path": "screenshots/category-tv-stand-edge-reference.png",
+          "status": "rendered-reference",
+          "note": "Overview evidence; no calibrated geometry measurement"
+        }
+      ],
+      "unverified": [
+        "Single-option boundary transitions",
+        "Category switch reset/retention",
+        "All individual hardware edits",
+        "Leg and panel-joint formulas",
+        "Befun structural and visual equivalence"
+      ]
+    },
+    {
+      "model": "Tone",
+      "sourceUrl": "https://tylko.com/de-de/configure/657770,w",
+      "observedAt": "2026-10-13T11:42:15.506Z",
+      "metadataObservedAt": null,
+      "steps": [
+        "Existing VPN Chrome: select category in German configurator-intro",
+        "Record actual model link; open linked initial product",
+        "Wait for option controls; record DOM and observed public product/DNA responses",
+        "Read-only metadata retries where needed; no saved design or cart mutation"
+      ],
+      "initialState": {
+        "presetId": 657770,
+        "activeShelfType": 6,
+        "collectionType": "Sideboard",
+        "publicPreset": {
+          "id": 657770,
+          "category": "tvstand",
+          "furniture_type": "watty",
+          "configurator_type": 3,
+          "shelf_type": 6,
+          "shelf_category": "tvstand",
+          "width": 1800,
+          "height": 450,
+          "depth": 360,
+          "pattern": 0,
+          "material": 3,
+          "configurator_params": {
+            "depth": 360,
+            "width": 1800,
+            "height": 450,
+            "plinth": true,
+            "density": 0,
+            "geom_id": 2590,
+            "material": 3,
+            "geom_type": "mesh",
+            "distortion": 0,
+            "drawers_merge": "off",
+            "shelf_distribution": "MixDense",
+            "additional_parameters": {
+              "collection_type": "Sideboard",
+              "doors_direction": 1
+            },
+            "configurator_custom_params": {
+              "lines": {},
+              "channels": {
+                "1": {
+                  "order": 1,
+                  "cables": null,
+                  "local_x": null,
+                  "door_flip": "right",
+                  "series_id": "Full_MixDense_Full_doors_standard",
+                  "distortion": null,
+                  "exposition": "full",
+                  "drawer_merge": "off",
+                  "cables_system": "off",
+                  "shelf_distribution": "MixDense",
+                  "cables_height_percent": null
+                },
+                "2": {
+                  "order": 1,
+                  "cables": null,
+                  "local_x": null,
+                  "door_flip": "right",
+                  "series_id": "Full_MixDense_Full_doors_standard",
+                  "distortion": null,
+                  "exposition": "full",
+                  "drawer_merge": "off",
+                  "cables_system": "off",
+                  "shelf_distribution": "MixDense",
+                  "cables_height_percent": null
+                },
+                "3": {
+                  "order": 1,
+                  "cables": null,
+                  "local_x": null,
+                  "door_flip": "right",
+                  "series_id": "Full_MixDense_Full_drawers_default",
+                  "distortion": null,
+                  "exposition": "full",
+                  "drawer_merge": "off",
+                  "cables_system": "off",
+                  "shelf_distribution": "MixDense",
+                  "cables_height_percent": null
+                },
+                "4": {
+                  "order": 1,
+                  "cables": null,
+                  "local_x": null,
+                  "door_flip": "right",
+                  "series_id": "Full_Low_Full_drawers_default",
+                  "distortion": null,
+                  "exposition": "full",
+                  "drawer_merge": "off",
+                  "cables_system": "off",
+                  "shelf_distribution": "Low",
+                  "cables_height_percent": null
+                }
+              }
+            }
+          },
+          "physical_product_version": 3
+        },
+        "hiddenSeed": null,
+        "priorEditHistory": null
+      },
+      "observedDnaRequests": [
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=6&collection_type=Sideboard&dna_version=6",
+          "status": 200
+        },
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=8&collection_type=Sideboard&dna_version=6",
+          "status": 200
+        },
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=7&collection_type=Sideboard&dna_version=6",
+          "status": 200
+        }
+      ],
+      "sliders": [
+        {
+          "max": "240.0",
+          "min": "40.0",
+          "text": "180",
+          "value": "180.0"
+        },
+        {
+          "max": "125.0",
+          "min": "25.0",
+          "text": "45cm",
+          "value": "45.0"
+        }
+      ],
+      "optionUiSnapshot": "- main:\n  - main:\n    - button \"Zurück\":\n      - generic: Zurück\n    - complementary\n    - button \"Zoom out\" [disabled]:\n    - button \"Zoom in\":\n    - button \"Dimensions\":\n    - button \"Shelves\":\n    - button \"Doors\":\n    - button \"See product details\":\n    - button \"Share\":\n    - button \"Abschnitt bearbeiten\":\n      - generic: Abschnitt bearbeiten\n    - button \"Stil\":\n      - generic: Stil\n    - button \"Größe\":\n      - generic: Größe\n    - button \"Farbe\":\n      - generic: Farbe\n    - button \"Layout\":\n      - generic: Layout\n    - button \"Übersicht\":\n      - generic: Übersicht\n    - heading \"Stil wählen\" [level=3]:\n      - text: Stil wählen\n    - img \"Minimalistisch\"\n    - img \"Hanging\"\n    - img \"Mit Beinen\"\n    - paragraph: \"Stil: Minimalistisch\"\n    - button \"Unsere Möbelstile vergleichen\":\n      - generic: Unsere Möbelstile vergleichen\n    - heading \"Größe anpassen\" [level=3]:\n      - generic: Größe anpassen\n    - paragraph: Breite\n    - slider \"Breite\"\n    - spinbutton \"Breite\": \"180\"\n    - generic: cm\n    - button \"Edit size as number\":\n    - paragraph: Höhe\n    - slider \"Höhe\"\n    - spinbutton \"Höhe\": \"45\"\n    - generic: cm\n    - button \"Edit size as number\":\n    - heading \"Tiefe\" [level=3]:\n      - generic: Tiefe\n    - radiogroup:\n      - radio \"36cm\" [checked]:\n        - generic: 36cm\n      - radio \"46cm\":\n        - generic: 46cm\n      - radio \"56cm\":\n        - generic: 56cm\n    - heading \"Farbe wählen\" [level=3]\n    - generic: Du willst die Materialien in echt sehen?Muster bestellen\n    - img \"Cremeweiß\"\n    - img \"Kaschmirbeige\"\n    - img \"Pistaziengrün\"\n    - img \"Tintenschwarz\"\n    - img \"Blassrosa\"\n    - paragraph: \"Außen: Tintenschwarz\"\n    - paragraph: \"Innen: Graphitgrau\"\n    - button \"Unsere ausgewählte Farbpalette entdecken\":\n      - generic: Unsere ausgewählte Farbpalette entdecken\n    - heading \"Anzahl der Abschnitte\" [level=3]\n    - radiogroup:\n      - radio \"2\" [checked]:\n        - generic: \"2\"\n      - radio \"3\":\n        - generic: \"3\"\n    - generic: Du hast Fragen?\n    - paragraph: Unser Team hilft dir weiter und berät dich gern.\n    - button \"Mit uns chatten\":\n      - generic: Mit uns chatten\n    - heading \"Dein neues sieht klasse aus.\" [level=2]:\n      - text: Dein neues\n      - text: sieht klasse aus.\n    - generic: \"Abmessungen: 180cm x 45cm\"\n    - generic: Mehr Details\n    - paragraph: Versand in 3-4 Wochen\n    - generic: 30 Tage kostenlose Rückgabe\n    - generic: Total\n    - paragraph: 1158 €\n    - button \"In den Warenkorb\":\n      - generic: In den Warenkorb\n    - button \"Design speichern\":\n      - generic: Design speichern\n    - paragraph: Hergestellt in der EU",
+      "geometry": {
+        "rows": null,
+        "columns": null,
+        "partitionCoordinatesMm": null,
+        "horizontalPanelJointsMm": null,
+        "feetCoordinatesMm": null
+      },
+      "precision": {
+        "ui": "cm labels are rounded; some slider ranges are row indices or legroom positions",
+        "api": "public numeric preset values retained without asserting physical manufacturing precision",
+        "geometry": "not measured in this category inventory"
+      },
+      "screenshots": [
+        {
+          "path": "screenshots/category-tv-stand-tone-reference.png",
+          "status": "rendered-reference",
+          "note": "Overview evidence; no calibrated geometry measurement"
+        }
+      ],
+      "unverified": [
+        "Single-option boundary transitions",
+        "Category switch reset/retention",
+        "All individual hardware edits",
+        "Leg and panel-joint formulas",
+        "Befun structural and visual equivalence"
+      ]
+    }
+  ]
+}

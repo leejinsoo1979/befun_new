@@ -1,0 +1,44 @@
+/* 가구 우측 행 핫스팟 — 반투명 + 숨쉬듯 깜빡이는 초록 글로우.
+   위치는 RowHotspots의 useFrame이 매 프레임 style.transform으로 쓰므로 애니메이션은 transform을 쓰지 않는다. */
+.hotspot {
+  background: rgba(255, 255, 255, 0.55);
+  border-color: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  animation: hotspotBreathe 2.4s ease-in-out infinite;
+}
+.hotspot .dot { background: rgba(51, 51, 51, 0.75); }
+
+@keyframes hotspotBreathe {
+  0%, 100% {
+    opacity: 0.6;
+    box-shadow: 0 0 0 0 rgba(47, 198, 20, 0), 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 0 5px rgba(47, 198, 20, 0.16), 0 0 16px 5px rgba(47, 198, 20, 0.45);
+  }
+}
+
+/* 마우스·키보드로 가리키면 숨쉬기를 멈추고 또렷하게 */
+.hotspot:hover, .hotspot:focus-visible {
+  animation: none;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.9);
+  border-color: #2fc614;
+  box-shadow: 0 0 0 4px rgba(47, 198, 20, 0.2), 0 0 12px 3px rgba(47, 198, 20, 0.4);
+}
+
+/* 열린 행: 불투명 초록 + 고정 글로우 */
+.hotspot.active {
+  animation: none;
+  opacity: 1;
+  background: #2fc614;
+  border-color: #2fc614;
+  box-shadow: 0 0 0 4px rgba(47, 198, 20, 0.22), 0 0 14px 4px rgba(47, 198, 20, 0.45);
+}
+.hotspot.active .dot { background: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hotspot { animation: none; opacity: 0.85; }
+}

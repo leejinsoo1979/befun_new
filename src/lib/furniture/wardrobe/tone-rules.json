@@ -1,0 +1,2384 @@
+{
+  "source": {
+    "dna": "Wardrobe Type03 version4",
+    "mesh": 2321
+  },
+  "setups": [
+    {
+      "range": [
+        358,
+        1018
+      ],
+      "ratios": [
+        1
+      ],
+      "channels": [
+        1
+      ],
+      "defaults": [
+        3739
+      ]
+    },
+    {
+      "range": [
+        1019,
+        1236
+      ],
+      "ratios": [
+        1,
+        1
+      ],
+      "channels": [
+        1,
+        2
+      ],
+      "defaults": [
+        3738,
+        3741
+      ]
+    },
+    {
+      "range": [
+        1237,
+        1536
+      ],
+      "ratios": [
+        2,
+        1
+      ],
+      "channels": [
+        1,
+        2
+      ],
+      "defaults": [
+        3738,
+        3741
+      ]
+    },
+    {
+      "range": [
+        1537,
+        2036
+      ],
+      "ratios": [
+        1,
+        1
+      ],
+      "channels": [
+        1,
+        2
+      ],
+      "defaults": [
+        3738,
+        3741
+      ]
+    },
+    {
+      "range": [
+        2037,
+        2554
+      ],
+      "ratios": [
+        2,
+        2,
+        1
+      ],
+      "channels": [
+        1,
+        3,
+        2
+      ],
+      "defaults": [
+        3738,
+        3741,
+        3741
+      ]
+    },
+    {
+      "range": [
+        2555,
+        3054
+      ],
+      "ratios": [
+        1,
+        1,
+        1
+      ],
+      "channels": [
+        1,
+        3,
+        2
+      ],
+      "defaults": [
+        3738,
+        3741,
+        3741
+      ]
+    },
+    {
+      "range": [
+        3055,
+        3572
+      ],
+      "ratios": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "channels": [
+        1,
+        4,
+        3,
+        2
+      ],
+      "defaults": [
+        3738,
+        3738,
+        3741,
+        3741
+      ]
+    },
+    {
+      "range": [
+        3573,
+        4072
+      ],
+      "ratios": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "channels": [
+        1,
+        4,
+        3,
+        2
+      ],
+      "defaults": [
+        3738,
+        3738,
+        3741,
+        3741
+      ]
+    },
+    {
+      "range": [
+        4073,
+        4590
+      ],
+      "ratios": [
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "channels": [
+        1,
+        4,
+        5,
+        3,
+        2
+      ],
+      "defaults": [
+        3738,
+        3738,
+        3741,
+        3741,
+        3741
+      ]
+    },
+    {
+      "range": [
+        4591,
+        5090
+      ],
+      "ratios": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "channels": [
+        1,
+        4,
+        5,
+        3,
+        2
+      ],
+      "defaults": [
+        3738,
+        3738,
+        3741,
+        3741,
+        3741
+      ]
+    },
+    {
+      "range": [
+        5090,
+        5508
+      ],
+      "ratios": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "channels": [
+        1,
+        4,
+        6,
+        5,
+        3,
+        2
+      ],
+      "defaults": [
+        3738,
+        3738,
+        3738,
+        3741,
+        3741,
+        3741
+      ]
+    },
+    {
+      "range": [
+        5509,
+        6108
+      ],
+      "ratios": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "channels": [
+        1,
+        4,
+        6,
+        5,
+        3,
+        2
+      ],
+      "defaults": [
+        3738,
+        3738,
+        3738,
+        3741,
+        3741,
+        3741
+      ]
+    }
+  ],
+  "layouts": {
+    "3738": {
+      "label": "rail",
+      "recipes": {
+        "internal": [
+          {
+            "kind": "shelf",
+            "height": 1929,
+            "inserts": [
+              400,
+              800
+            ],
+            "rods": [
+              -100
+            ],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ],
+        "external": [
+          {
+            "kind": "shelf",
+            "height": 1929,
+            "inserts": [
+              400,
+              800
+            ],
+            "rods": [
+              -100
+            ],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "3739": {
+      "label": "rail_2drawers",
+      "recipes": {
+        "internal": [
+          {
+            "kind": "shelf",
+            "height": 400,
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "drawers",
+            "height": 400,
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": 1129,
+            "inserts": [],
+            "rods": [
+              -100
+            ],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ],
+        "external": [
+          {
+            "kind": "drawers",
+            "height": 573,
+            "inserts": [],
+            "rods": [],
+            "external": true,
+            "extensionInserts": []
+          },
+          {
+            "kind": "drawers",
+            "height": 227,
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": 1129,
+            "inserts": [],
+            "rods": [
+              -100
+            ],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "3740": {
+      "label": "rail_2x",
+      "recipes": {
+        "internal": [
+          {
+            "kind": "shelf",
+            "height": 1929,
+            "inserts": [],
+            "rods": [
+              -100,
+              910
+            ],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ],
+        "external": [
+          {
+            "kind": "shelf",
+            "height": 1929,
+            "inserts": [],
+            "rods": [
+              -100,
+              910
+            ],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "3741": {
+      "label": "rail_4drawers",
+      "recipes": {
+        "internal": [
+          {
+            "kind": "drawers",
+            "height": 800,
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": 1129,
+            "inserts": [],
+            "rods": [
+              -100
+            ],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ],
+        "external": [
+          {
+            "kind": "drawers",
+            "height": 573,
+            "inserts": [],
+            "rods": [],
+            "external": true,
+            "extensionInserts": []
+          },
+          {
+            "kind": "drawers",
+            "height": 227,
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": 1129,
+            "inserts": [],
+            "rods": [
+              -100
+            ],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "3742": {
+      "label": "rail_l",
+      "recipes": {
+        "internal": [
+          {
+            "kind": "shelf",
+            "height": 1929,
+            "inserts": [
+              400
+            ],
+            "rods": [
+              -100
+            ],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ],
+        "external": [
+          {
+            "kind": "shelf",
+            "height": 1929,
+            "inserts": [
+              400
+            ],
+            "rods": [
+              -100
+            ],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "3743": {
+      "label": "rail_l_2drawers",
+      "recipes": {
+        "internal": [
+          {
+            "kind": "drawers",
+            "height": 400,
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": 1529,
+            "inserts": [],
+            "rods": [
+              -100
+            ],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ],
+        "external": [
+          {
+            "kind": "drawers",
+            "height": 573,
+            "inserts": [],
+            "rods": [],
+            "external": true,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": 1356,
+            "inserts": [],
+            "rods": [
+              -100
+            ],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "3744": {
+      "label": "rail_xl",
+      "recipes": {
+        "internal": [
+          {
+            "kind": "shelf",
+            "height": 1929,
+            "inserts": [],
+            "rods": [
+              -100
+            ],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ],
+        "external": [
+          {
+            "kind": "shelf",
+            "height": 1929,
+            "inserts": [],
+            "rods": [
+              -100
+            ],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "3745": {
+      "label": "slabs",
+      "recipes": {
+        "internal": [
+          {
+            "kind": "shelf",
+            "height": 1929,
+            "inserts": [
+              400,
+              800,
+              1200,
+              1564,
+              1929
+            ],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ],
+        "external": [
+          {
+            "kind": "shelf",
+            "height": 1929,
+            "inserts": [
+              400,
+              800,
+              1200,
+              1564,
+              1929
+            ],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "3746": {
+      "label": "slabs_2drawers",
+      "recipes": {
+        "internal": [
+          {
+            "kind": "shelf",
+            "height": 400,
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "drawers",
+            "height": 400,
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": 1129,
+            "inserts": [
+              -365,
+              -729
+            ],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ],
+        "external": [
+          {
+            "kind": "drawers",
+            "height": 573,
+            "inserts": [],
+            "rods": [],
+            "external": true,
+            "extensionInserts": []
+          },
+          {
+            "kind": "drawers",
+            "height": 227,
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": 1129,
+            "inserts": [
+              400,
+              764
+            ],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "3747": {
+      "label": "slabs_4drawers",
+      "recipes": {
+        "internal": [
+          {
+            "kind": "shelf",
+            "height": 400,
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "drawers",
+            "height": 800,
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": 729,
+            "inserts": [
+              -365
+            ],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ],
+        "external": [
+          {
+            "kind": "drawers",
+            "height": 573,
+            "inserts": [],
+            "rods": [],
+            "external": true,
+            "extensionInserts": []
+          },
+          {
+            "kind": "drawers",
+            "height": 227,
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": 1129,
+            "inserts": [
+              400,
+              764
+            ],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "3748": {
+      "label": "slabs_6drawers",
+      "recipes": {
+        "internal": [
+          {
+            "kind": "drawers",
+            "height": 1200,
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": 729,
+            "inserts": [
+              -365
+            ],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ],
+        "external": [
+          {
+            "kind": "drawers",
+            "height": 573,
+            "inserts": [],
+            "rods": [],
+            "external": true,
+            "extensionInserts": []
+          },
+          {
+            "kind": "drawers",
+            "height": 627,
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": 729,
+            "inserts": [
+              364
+            ],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "3749": {
+      "label": "slabs_dense",
+      "recipes": {
+        "internal": [
+          {
+            "kind": "shelf",
+            "height": 1929,
+            "inserts": [
+              400,
+              706,
+              1012,
+              1318,
+              1624,
+              1929
+            ],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ],
+        "external": [
+          {
+            "kind": "shelf",
+            "height": 1929,
+            "inserts": [
+              400,
+              706,
+              1012,
+              1318,
+              1624,
+              1929
+            ],
+            "rods": [],
+            "external": false,
+            "extensionInserts": []
+          },
+          {
+            "kind": "shelf",
+            "height": "extension",
+            "inserts": [],
+            "rods": [],
+            "external": false,
+            "extensionInserts": [
+              {
+                "range": [
+                  738,
+                  1000
+                ],
+                "inserts": [
+                  369
+                ]
+              },
+              {
+                "range": [
+                  1000,
+                  1200
+                ],
+                "inserts": [
+                  469
+                ]
+              },
+              {
+                "range": [
+                  1200,
+                  1300
+                ],
+                "inserts": [
+                  569
+                ]
+              },
+              {
+                "range": [
+                  1300,
+                  1400
+                ],
+                "inserts": [
+                  669
+                ]
+              },
+              {
+                "range": [
+                  1400,
+                  1500
+                ],
+                "inserts": [
+                  369,
+                  769
+                ]
+              },
+              {
+                "range": [
+                  1500,
+                  1607
+                ],
+                "inserts": [
+                  369,
+                  869
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

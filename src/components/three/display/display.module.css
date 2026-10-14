@@ -53,3 +53,14 @@
 .transportActions {flex-wrap:wrap;}
 .transportActions button[aria-pressed="true"] {border-color:#8dbc83;background:#42653b;color:#fff;}
 @media(prefers-reduced-motion:reduce) {.cinemaFrame span {transition:none;}}
+
+/* All viewer tools expand below the single View button. */
+.toolbar { left:auto; right:12px; width:320px; max-width:calc(100% - 24px); flex-direction:column; align-items:flex-end; gap:6px; }
+.options { width:100%; box-sizing:border-box; flex-direction:column; flex-wrap:nowrap; max-height:min(65svh,440px); overflow-y:auto; overscroll-behavior:contain; }
+.views,.actions { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); width:100%; }
+.actions,.appearance { border-left:0; padding-left:0; border-top:1px solid #eee; padding-top:6px; }
+.appearance { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); width:100%; }
+@media(max-width:767px) { .options { margin-top:0; } }
+
+.toolbar { max-height:calc(100% - 60px); }
+@media(max-width:1023px) { .toolbar { max-height:calc(100% - 24px); } }

@@ -6,6 +6,8 @@ import { useMaterialStore } from '@/stores/useMaterialStore';
 import { useHardwareStore } from '@/stores/useHardwareStore';
 import { REFERENCE_COLORS, REFERENCE_CLASSIC_COLORS } from '@/lib/three/reference-colors';
 import { Panel } from './Panel';
+import { HorizontalPanelSeams } from './HorizontalPanelSeams';
+import { horizontalSeams } from '@/lib/three/horizontal-seams';
 import { ShelfDecor } from './decor/ShelfDecor';
 import { createBlumShelfPlans } from '@/lib/three/blum/boring';
 import { BlumPlate } from './blum/BlumHardware';
@@ -17,6 +19,9 @@ import { Door } from './Door';
 import { Drawer } from './Drawer';
 import { RowColliders } from './RowColliders';
 import { LevelingFeet } from './LevelingFeet';
+import { FurnitureLegs } from './FurnitureLegs';
+import { baseHeight } from '@/lib/three/furniture-base';
+import { Suspense } from 'react';
 import { DimensionOverlay } from './DimensionOverlay';
 import {
   createMaterialsForColor,
@@ -46,6 +51,7 @@ interface ShelfProps {
 export function Shelf({ showDimensions = false, exploded = false, presentation = false }: ShelfProps) {
   const boreView = useDisplayStore(s => s.showBores);
   const revealBores = presentation && boreView;
+  const assembledRealistic = useDisplayStore(s => s.phase === 'assembled' && s.appearance === 'realistic');
   const width = useShelfStore((s) => s.width);
   const height = useShelfStore((s) => s.height);
   const depth = useShelfStore((s) => s.depth);
@@ -138,6 +144,7 @@ export function Shelf({ showDimensions = false, exploded = false, presentation =
 
   const panels: PanelData[] = styleResult.panels;
   const { panelCount, panelSpacing } = styleResult;
+  const seamByPanel = useMemo(() => new Map(horizontalSeams(panels).map(seam => [seam.panelIndex, seam])), [panels]);
   const fronts = useMemo(() => styleResult.fronts
     ? (styleResult.fronts as ReferenceFront[]).map(front => ({ ...front,
         family: (currentColor.startsWith('C_') || currentColor.startsWith('N_') ? 'type01' : 'type02') as 'type01' | 'type02',
@@ -181,7 +188,8 @@ export function Shelf({ showDimensions = false, exploded = false, presentation =
     [panels, doorPlacements, drawerPlacements, width, height, depth, thickness, panelHardware]);
 
   // 조절발 높이만큼 선반 전체를 올려서 조절발이 바닥 위에 보이게 함
-  const footHeight = 1; // 조절발 높이 10mm
+  const baseType = useShelfStore(s=>s.baseType);
+  const footHeight = baseHeight(baseType);
 
   return (
     <AssemblySequence plan={assemblyPlan} enabled={presentation}>
@@ -200,8 +208,11 @@ export function Shelf({ showDimensions = false, exploded = false, presentation =
           castShadow={p.castShadow}
           receiveShadow={p.receiveShadow}
         />
+        {(!presentation || assembledRealistic) && seamByPanel.has(i) && <HorizontalPanelSeams seam={seamByPanel.get(i)!} />}
         <group visible={!revealBores} userData={{displayRestoreVisible:true}}>{panelHardware[i].mounts.map((mount,j) => <BlumPlate key={j} mount={mount}/>)}</group>
-        {p.matType === 'horizontalBase' && <LevelingFeet panels={panels} panelIndex={i} />}
+        {p.matType === 'horizontalBase' && (baseType === 'legs'
+          ? <Suspense fallback={null}><FurnitureLegs panels={panels} panelIndex={i} depth={depth} style={style} material={materials.horizontalBase} /></Suspense>
+          : <LevelingFeet panels={panels} panelIndex={i} />)}
         </ExplodedPart>
       ))}
 

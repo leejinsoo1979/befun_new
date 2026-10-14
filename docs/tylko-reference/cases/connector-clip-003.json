@@ -1,0 +1,127 @@
+{
+  "caseId": "connector-clip-003",
+  "observedAt": "2026-10-13T23:59:21.918547+09:00",
+  "sourceUrl": "https://tylko.elevio.help/en/articles/34-aligning-horizontal-and-vertical-elements",
+  "sourceFile": "docs/tylko-reference/sources/connector-clip-003-tylko-aligning.pdf",
+  "sourceSha256": "33da2e9a47035b941031f6536e6b7c0ae31b370548e70aac805fb3f5952335e4",
+  "sourceType": "user-supplied PDF print of Tylko help article",
+  "articleUpdatedAtAsPrinted": "February 13, 2025 at 3:27 AM; timezone unspecified",
+  "productScope": "Assembling Your Tylko Original",
+  "inputOptions": null,
+  "initialState": null,
+  "actions": [
+    "Extract text from all 13 pages",
+    "Render all 13 pages at 1100px maximum dimension",
+    "Visually inspect all 13 pages",
+    "Preserve PDF and selected full-page renders"
+  ],
+  "observations": [
+    {
+      "pages": [
+        1,
+        2
+      ],
+      "status": "explicit-text",
+      "finding": "Black pins match black connectors; silver pins match silver connectors. Older black/orange version uses orange-to-orange and black-to-black."
+    },
+    {
+      "pages": [
+        2
+      ],
+      "status": "explicit-text",
+      "finding": "Click-in system contains locking and non-locking connectors; resistance can occur during assembly. The article does not explicitly map colour to locking function."
+    },
+    {
+      "pages": [
+        3,
+        4
+      ],
+      "status": "diagram-observation",
+      "finding": "Match paired pins and clip entry positions; approach the mating panel. Example shows two connectors on the illustrated mating edge; not a universal quantity rule."
+    },
+    {
+      "pages": [
+        5,
+        6
+      ],
+      "status": "diagram-observation",
+      "finding": "After pin entry, slide panel along elongated clip direction. Page 5 arrow points downward in drawing; page 6 shows seated pins and flush end alignment."
+    },
+    {
+      "pages": [
+        6,
+        8,
+        10,
+        12
+      ],
+      "status": "explicit-text-and-diagram",
+      "finding": "Check aligned, square horizontal/vertical elements before wall fixing; correct front/back offsets with felt-covered board and gentle rubber-mallet taps, from lower elements upward. Preserve helper/stabilisation instructions in customer guidance."
+    }
+  ],
+  "assemblyContract": {
+    "stages": [
+      "match-colours",
+      "align-entries",
+      "insert-pins",
+      "slide-to-seat",
+      "check-flush-and-square"
+    ],
+    "motionCoordinates": "joint-local axes; drawing down is not automatically furniture world down",
+    "lockingRoleByColour": null,
+    "disassemblySequence": null
+  },
+  "measurements": {
+    "unit": "mm",
+    "method": null,
+    "precision": null,
+    "clipLength": null,
+    "clipWidth": null,
+    "pocketDepth": null,
+    "screwCentres": null,
+    "pinProjection": null,
+    "slideTravel": null,
+    "jointEdgeOffset": null
+  },
+  "unknowns": [
+    "Actual connector manufacturer and part number",
+    "Colour-to-locking-role mapping",
+    "Metric manufacturing dimensions and assembly travel",
+    "Applicability to other product families",
+    "Release procedure"
+  ],
+  "relatedCases": [
+    "connector-clip-001",
+    "connector-clip-002"
+  ],
+  "screenshots": [
+    {
+      "page": 2,
+      "path": "docs/tylko-reference/screenshots/connector-clip-003-reference-page-02.png"
+    },
+    {
+      "page": 3,
+      "path": "docs/tylko-reference/screenshots/connector-clip-003-reference-page-03.png"
+    },
+    {
+      "page": 4,
+      "path": "docs/tylko-reference/screenshots/connector-clip-003-reference-page-04.png"
+    },
+    {
+      "page": 5,
+      "path": "docs/tylko-reference/screenshots/connector-clip-003-reference-page-05.png"
+    },
+    {
+      "page": 6,
+      "path": "docs/tylko-reference/screenshots/connector-clip-003-reference-page-06.png"
+    },
+    {
+      "page": 10,
+      "path": "docs/tylko-reference/screenshots/connector-clip-003-reference-page-10.png"
+    },
+    {
+      "page": 12,
+      "path": "docs/tylko-reference/screenshots/connector-clip-003-reference-page-12.png"
+    }
+  ],
+  "implementationStatus": "Reference and team contract updated; no clip geometry/CNC/animation implementation claimed."
+}

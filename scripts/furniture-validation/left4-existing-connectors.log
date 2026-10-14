@@ -1,0 +1,21 @@
+✔ two panel connector systems are distinct and survive saved JSON (1.33825ms)
+✔ switching an existing OVVO plan to clip removes OVVO cuts but preserves custom holes (0.189917ms)
+✔ short joints never violate minimum edge distance; infeasible edge maximum is rejected (0.05575ms)
+✔ all catalog spacing output obeys every spacing constraint over 1..1200 mm (15.100209ms)
+✔ paired end/face slots share world centre lines and survive repeat application (0.364916ms)
+✔ both mating boards are blocked when thickness is changed without rebuilding geometry (0.064292ms)
+✔ opposing blind slots cannot meet through an 18 mm board (0.257875ms)
+✔ hinge holes colliding with connector slot travel are found, including crossing paths (0.166375ms)
+✔ slot radius and edge plane are validated, not just its endpoints (0.074958ms)
+✔ intentional two-hole connector housing is not reported as a collision (0.081375ms)
+✔ real generator pipeline marks conflicting machining as non-production (2.265ms)
+✔ all six styles preserve paired connector coordinates at held-out sizes (54.594542ms)
+✔ production MPR gate rejects a detected connector collision (19.307917ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 502.577667

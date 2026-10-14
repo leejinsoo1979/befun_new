@@ -1,0 +1,44 @@
+{
+  "sourceSha256": "6b62555d7b774df428213b6fedbb0e419d964d87d3fa8eff35689abfe972b26e",
+  "glbSha256": "2d402e63ba0a9482ad59b390d0300970eef0efc5b67289059293e0ab7bda3071",
+  "sourceUnitMeter": 0.001,
+  "sourceUpAxis": "Y_UP",
+  "outputUnitMeter": 1,
+  "outputUpAxis": "Y_UP",
+  "loader": "Three.ColladaLoader",
+  "exporter": "Three.GLTFExporter",
+  "lengthRescaled": false,
+  "materialSymbolCorrections": [],
+  "meshes": [
+    {
+      "name": "bau0019179630-1",
+      "parent": "bau0086118659",
+      "minMm": [
+        -65.7750015258789,
+        -38.10000228881836,
+        -315.4950256347656
+      ],
+      "maxMm": [
+        2.352642481328292e-14,
+        12.925000190734865,
+        35
+      ],
+      "triangles": 3174
+    },
+    {
+      "name": "bau0086023290-1",
+      "parent": "bau0086118659",
+      "minMm": [
+        -67.2750015258789,
+        -34.27499771118164,
+        -303.0000036621093
+      ],
+      "maxMm": [
+        -52.77499771118164,
+        -10.375,
+        -49.99999984741201
+      ],
+      "triangles": 352
+    }
+  ]
+}

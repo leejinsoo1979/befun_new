@@ -1,0 +1,41 @@
+{
+  "caseId": "wardrobe-integration-materials-001",
+  "observedAt": "2026-10-14T01:25:46.265025+00:00",
+  "sources": [
+    "https://tylko.com/de-de/mobel/kleiderschrank/235218,w",
+    "https://tylko.com/de-de/mobel/kleiderschrank/92243,w"
+  ],
+  "edgePaintSwatches": [
+    "white",
+    "grey",
+    "stone-grey",
+    "black",
+    "sand",
+    "clay-brown",
+    "butter-yellow",
+    "olive-green",
+    "denim-blue",
+    "indigo-blue",
+    "deep-plum"
+  ],
+  "toneOuter": [
+    "white",
+    "cashmere",
+    "graphite"
+  ],
+  "toneInner": [
+    "antique-pink",
+    "stone-gray",
+    "sage-green",
+    "misty-blue",
+    "selected outer colour"
+  ],
+  "colourSource": "Renderer colour table and TYPE_13/TYPE_03 material mapping; visible DOM swatch file names cross-checked",
+  "implementation": "src/lib/furniture/wardrobe-colors.ts",
+  "unknown": {
+    "surfaceRoughnessExact": null,
+    "lightTemperature": null,
+    "woodEffectTextures": null
+  },
+  "observationNotMeasurement": "Matching hex does not establish matching rendered pixels."
+}

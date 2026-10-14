@@ -45,7 +45,7 @@
 
 ## R3-ASM 수신·착수 — 2026-10-14 08:10 KST
 
-- 실제 세션 `01a13548-3202-7aa2-8a54-0ff6840d3f75`, Codex `/root` / codex-assembly. R3 지시 `docs/development/furniture-parity/assignments/r3/05-assembly.md`와 전체 배정을 읽었다.
+- 실제 세션 `01a13548-3202-7aa2-8a54-0ff6840d3f75`, Codex `/root` / codex-assembly. [R3 지시](development/furniture-parity/assignments/r3/05-assembly.md)와 전체 배정을 읽었다.
 - 허용 잠금: assembly-guide 컴포넌트/lib/route, 본 문서, cinematic/r3-legs 증거. 신규 원본 복사만 public/assembly-guide/legs 허용. 공유 HW·제품·CNC 소스 읽기 전용.
 - 기존 미제출 cinematic 최종 검증부터 완료하고 다리 원본 안내·topic·단계/카메라/입력 연결을 진행한다. LEG-VISUAL-READY의 원본 rigid group을 소비하며 나사/핀 위치·이동거리 null을 임의 수치로 채우지 않는다. 기존 R2.1 보고와 증거는 유지한다.
 

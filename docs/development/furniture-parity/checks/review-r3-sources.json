@@ -1,0 +1,16 @@
+{
+  "observedAt": "2026-10-13T23:25:38.218667+00:00",
+  "scope": "read-only review snapshot; concurrent work may change files",
+  "files": {
+    "src/components/three/furniture-hardware/legs/LongLeg.tsx": "f2df692aff2b9ce2103cb0330835c6e08b62ae96b6b3455c9e392ea6193680b6",
+    "src/components/three/furniture-hardware/legs/longLegInstance.ts": "195865dd33ccd3831ac6d91745dd702dbf99eef1cd26dd01315c271ab7cf54ae",
+    "src/components/storefront/savedDesign.ts": "c26a01854d4a3e70e64bcce06ce3e079c518f6d6a85f6613e09bb5121a6996be",
+    "src/components/storefront/configuration.ts": "7dcc936bd98ab216c05a54e3afb56521efe12fe08205f2052e1848549d506979",
+    "src/app/share/[code]/page.tsx": "8fcdcbab530e6497b5e7890b0bcea446afa2cef28d0424adf122551bf8112db2",
+    "src/app/configurator/page.tsx": "60c3b9b421914c1f02cfbd258765e797c29a12e973601929729ddffa960e9fee",
+    "src/components/assembly-guide/AssemblyGuide.tsx": "b6eb7f02161f7ad961ad21948a7fc5b611b7403207ff29bd40fa8463cb9d1e4a",
+    "src/components/assembly-guide/LegScene.tsx": "8ccea3f5893c356414c7f06d7de1fdd6b33fc3175b123785650ec8bdcf828aed",
+    "src/lib/assembly-guide/legs.ts": "c1d155abeac04849350fa40bf57153d22cc3cf4041c5ed1702a45ffaddc69d3f",
+    "src/components/ui/furniture-panels/legacy/LegacyShelfPanel.tsx": "6eb7ed1aca69cfa0c1957b9ff7773ad14f4063afae60292e3c2137430b710645"
+  }
+}

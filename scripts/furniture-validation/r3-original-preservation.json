@@ -1,0 +1,110 @@
+{
+  "at": "2026-10-14T08:14:38.677289+09:00",
+  "checks": {
+    "scripts/furniture-validation/archive-r2/r2-legacy.test.tsx.txt": {
+      "before": "5a21be738d2a52e53c895a64525615de6ed8bd075cb3bd4768e8603158394d0c",
+      "now": "5a21be738d2a52e53c895a64525615de6ed8bd075cb3bd4768e8603158394d0c",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/audit.test.mjs": {
+      "before": "e9f80511d1c34bd2767eaf92e6d8cabf1c6f9df9f626bcbcb00b3ca276cfe710",
+      "now": "e9f80511d1c34bd2767eaf92e6d8cabf1c6f9df9f626bcbcb00b3ca276cfe710",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/compare.mjs": {
+      "before": "199fa8b8600af7e51d2a54fdfe01e195fab444dc745486a2e638c54b858188f0",
+      "now": "199fa8b8600af7e51d2a54fdfe01e195fab444dc745486a2e638c54b858188f0",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/compare.test.mjs": {
+      "before": "22e7e6e19c0d096f05a33e1cbb026f5042da9f920618ba0d1e854c62c94f7019",
+      "now": "22e7e6e19c0d096f05a33e1cbb026f5042da9f920618ba0d1e854c62c94f7019",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/gallery.test.mjs": {
+      "before": "ba19af2900d17db2991f86921c5970ec682d391f69253c08a77f5c4977eba104",
+      "now": "ba19af2900d17db2991f86921c5970ec682d391f69253c08a77f5c4977eba104",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/integration.test.mjs": {
+      "before": "8179b4b2ae547d4a879981da3ff63a25fbbdd764a2cd307374e788e55d500e4c",
+      "now": "8179b4b2ae547d4a879981da3ff63a25fbbdd764a2cd307374e788e55d500e4c",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/left4-connectors.test.mjs": {
+      "before": "db385bf10cc0f5e3cd2ee1f4502568a6e26526f68a26321f1ff1f31821389f82",
+      "now": "db385bf10cc0f5e3cd2ee1f4502568a6e26526f68a26321f1ff1f31821389f82",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/load-ts.mjs": {
+      "before": "24c1d7b977558f483c3070cb04616cf82280b411322e571cdf61dc06e65eebd2",
+      "now": "24c1d7b977558f483c3070cb04616cf82280b411322e571cdf61dc06e65eebd2",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/r2-preservation.test.mjs": {
+      "before": "c88e7dd9f60d19f3550f06e591b976e61120220f1b8cc85f95a9cdd0f902faa9",
+      "now": "c88e7dd9f60d19f3550f06e591b976e61120220f1b8cc85f95a9cdd0f902faa9",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/reference-audit.mjs": {
+      "before": "3897a595a107eb8e396a476cd7b6bf6c2ef29ca1e32bb814254077511e1d9010",
+      "now": "3897a595a107eb8e396a476cd7b6bf6c2ef29ca1e32bb814254077511e1d9010",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/run-left4-ui.mjs": {
+      "before": "b32ce706c3c647cf4fa68e7973295e582fe611eae0907e6774f8d2ce40a04969",
+      "now": "b32ce706c3c647cf4fa68e7973295e582fe611eae0907e6774f8d2ce40a04969",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/ui-left4/family.test.tsx.txt": {
+      "before": "539a1a965b01e8c3a9c4b51afa607cd0c2ede8461fd0fadd016cfcb83627d3e3",
+      "now": "539a1a965b01e8c3a9c4b51afa607cd0c2ede8461fd0fadd016cfcb83627d3e3",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/ui-left4/independent.test.tsx.txt": {
+      "before": "c9c808d7c82fa52f9239bfb9aa73135e16b1c788bbec494ca60f838203e0b398",
+      "now": "c9c808d7c82fa52f9239bfb9aa73135e16b1c788bbec494ca60f838203e0b398",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/ui-left4/next-image.tsx.txt": {
+      "before": "f0c68e92c126dc004990e8c3fb2e481e6de3d447077396e5366b441e92443a1b",
+      "now": "f0c68e92c126dc004990e8c3fb2e481e6de3d447077396e5366b441e92443a1b",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/ui-left4/optimizer.test.tsx.txt": {
+      "before": "40d3d399b5c6329eaf35b1e41f52a6ec0adab406a5e28d2910f033b7a125beda",
+      "now": "40d3d399b5c6329eaf35b1e41f52a6ec0adab406a5e28d2910f033b7a125beda",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/ui-left4/panels.test.tsx.txt": {
+      "before": "89e09b535984fd0ff87f4751bb93d90916de9f276d9c9bdc9d5692f8e655f000",
+      "now": "89e09b535984fd0ff87f4751bb93d90916de9f276d9c9bdc9d5692f8e655f000",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/ui-left4/review.test.tsx.txt": {
+      "before": "4c6e7e087dbfe8f0723ffe2b2e072d44ed36e172a274063e34d45b9687895bc2",
+      "now": "4c6e7e087dbfe8f0723ffe2b2e072d44ed36e172a274063e34d45b9687895bc2",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/ui-r21/legacy-r21.test.tsx.txt": {
+      "before": "318d1c9d0d3dce100a9e6601cbb2b4d8c4a5a0cd6eb3bba4a5abda426f709077",
+      "now": "318d1c9d0d3dce100a9e6601cbb2b4d8c4a5a0cd6eb3bba4a5abda426f709077",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/ui-r21/next-image.tsx.txt": {
+      "before": "f0c68e92c126dc004990e8c3fb2e481e6de3d447077396e5366b441e92443a1b",
+      "now": "f0c68e92c126dc004990e8c3fb2e481e6de3d447077396e5366b441e92443a1b",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/ui-r21/r2-preview-connector.test.tsx.txt": {
+      "before": "625beba3548df3d23c30f4bf004270f08200a1e07b75d0598da55731eea65757",
+      "now": "625beba3548df3d23c30f4bf004270f08200a1e07b75d0598da55731eea65757",
+      "unchanged": true
+    },
+    "scripts/furniture-validation/ui-r21/r21-optimizer.test.tsx.txt": {
+      "before": "a6aeff5ab431e1b5e3a340e27bd62e11c729bfa5259949d5df592fdce9c640bc",
+      "now": "a6aeff5ab431e1b5e3a340e27bd62e11c729bfa5259949d5df592fdce9c640bc",
+      "unchanged": true
+    }
+  }
+}

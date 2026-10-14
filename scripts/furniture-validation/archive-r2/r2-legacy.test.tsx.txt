@@ -1,0 +1,165 @@
+import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { render, screen, fireEvent, within, act } from '@testing-library/react';
+import { LegacyShelfPanel } from '@/components/ui/furniture-panels';
+import { applyLegacyShelfIntent, LEGACY_STYLES, LEGACY_DEPTHS } from '@/components/ui/furniture-panels/legacy/legacyShelfAdapter';
+import { useShelfStore } from '@/stores/useShelfStore';
+import { useHardwareStore } from '@/stores/useHardwareStore';
+import { useMaterialStore } from '@/stores/useMaterialStore';
+import { StyleSelector } from '@/components/ui/StyleSelector';
+import { DimensionPanel } from '@/components/ui/DimensionPanel';
+import type { FurnitureEditIntent } from '@/types/furniture';
+
+const G = { scope: 'global' } as const;
+const data = <T extends object>(s: T) => JSON.parse(JSON.stringify(s, (_, v) => typeof v === 'function' ? undefined : v));
+const shelf = () => data(useShelfStore.getState());
+const group = (name: string) => screen.getByRole('radiogroup', { name });
+const store = () => { const s = useShelfStore.getState(); return { ...s, getState: useShelfStore.getState }; };
+
+beforeEach(() => {
+  useShelfStore.setState(useShelfStore.getInitialState(), true);
+  useHardwareStore.setState(useHardwareStore.getInitialState(), true);
+  useMaterialStore.setState(useMaterialStore.getInitialState(), true);
+  localStorage.clear();
+});
+
+describe('운영 패널과 허용값·순서 일치', () => {
+  it('스타일 순서 = StyleSelector', () => {
+    render(<StyleSelector />);
+    const ops = screen.getAllByRole('button').map(b => b.textContent);
+    expect(ops).toEqual(LEGACY_STYLES.map(s => s.label));
+  });
+  it('깊이 선택지 = DimensionPanel, 높이 표시 = DimensionPanel 표시', () => {
+    const { unmount } = render(<DimensionPanel />);
+    for (const d of LEGACY_DEPTHS) expect(screen.getByRole('button', { name: `${d}cm` })).toBeTruthy();
+    const opsHeight = [...document.querySelectorAll('.tylko-pill')].map(e => e.textContent).find(t => t !== `${useShelfStore.getState().width}cm`);
+    unmount();
+    render(<LegacyShelfPanel />);
+    expect(screen.getByRole('slider', { name: '높이' })).toHaveAttribute('aria-valuetext', opsHeight!);
+  });
+});
+
+describe('패널 → 실제 store', () => {
+  it('순서: 스타일·밀도·너비·높이·깊이·뒷판', () => {
+    const { container } = render(<LegacyShelfPanel />);
+    expect([...container.querySelectorAll('[data-control-id]')].map(e => e.getAttribute('data-control-id'))).toEqual(['style', 'density', 'width', 'height', 'depth', 'backPanel']);
+  });
+  it('너비·밀도 슬라이더', () => {
+    render(<LegacyShelfPanel />);
+    fireEvent.change(screen.getByRole('slider', { name: '너비' }), { target: { value: '200' } });
+    fireEvent.change(screen.getByRole('slider', { name: '밀도' }), { target: { value: '70' } });
+    expect(useShelfStore.getState()).toMatchObject({ width: 200, density: 70 });
+    expect(screen.getByRole('slider', { name: '너비' })).toHaveAttribute('aria-valuetext', '200cm');
+  });
+  it('높이(행 수): 초기 4행 배열에서도 6행으로 정확히 증가, 이후 감소', () => {
+    render(<LegacyShelfPanel />);
+    const h = screen.getByRole('slider', { name: '높이' });
+    fireEvent.change(h, { target: { value: '6' } });
+    expect(useShelfStore.getState().numRows).toBe(6);
+    expect(useShelfStore.getState().height).toBe(2 + 6 * 30);
+    expect(h).toHaveValue('6'); expect(h).toHaveAttribute('aria-valuetext', `${2 + 6 * 30 + 1}cm`);
+    fireEvent.change(h, { target: { value: '2' } });
+    expect(useShelfStore.getState().numRows).toBe(2);
+  });
+  it('깊이·스타일·뒷판', () => {
+    render(<LegacyShelfPanel />);
+    fireEvent.click(within(group('깊이')).getByRole('radio', { name: '40cm' }));
+    fireEvent.click(within(group('스타일')).getByRole('radio', { name: 'Mosaic' }));
+    fireEvent.click(within(group('뒷판')).getByRole('radio', { name: '있음' }));
+    expect(useShelfStore.getState()).toMatchObject({ depth: 40, style: 'mosaic', hasBackPanel: true });
+  });
+});
+
+describe('외부 store 변경 → 패널 즉시 반영', () => {
+  it('setter·setState 변경이 바로 표시된다', () => {
+    render(<LegacyShelfPanel />);
+    act(() => { useShelfStore.getState().setWidth(321); useShelfStore.getState().setStyle('pixel'); useShelfStore.getState().setDepth(24); useShelfStore.getState().setHasBackPanel(true); });
+    expect(screen.getByRole('slider', { name: '너비' })).toHaveValue('321');
+    expect(within(group('스타일')).getByRole('radio', { name: 'Pixel' })).toHaveAttribute('aria-checked', 'true');
+    expect(within(group('깊이')).getByRole('radio', { name: '24cm' })).toHaveAttribute('aria-checked', 'true');
+    expect(within(group('뒷판')).getByRole('radio', { name: '있음' })).toHaveAttribute('aria-checked', 'true');
+    act(() => { useShelfStore.getState().setHeight(2 + 3 * 30); });
+    expect(screen.getByRole('slider', { name: '높이' })).toHaveValue('3');
+  });
+  it('store가 범위를 보정하면 보정된 값이 표시된다', () => {
+    render(<LegacyShelfPanel />);
+    act(() => useShelfStore.getState().setWidth(9999));
+    expect(screen.getByRole('slider', { name: '너비' })).toHaveValue('450');
+  });
+});
+
+describe('잘못된 입력·미지원 intent는 store 무변경', () => {
+  const bad: [string, FurnitureEditIntent][] = [
+    ['미지원 type', { type: 'applyPreset', presetId: 'x' }],
+    ['action', { type: 'action', controlId: 'width', target: G }],
+    ['heightMode', { type: 'heightMode', controlId: 'height', target: G, to: 'extended' }],
+    ['구획 대상', { type: 'set', controlId: 'width', target: { scope: 'section', sectionId: 's1' }, value: 100 }],
+    ['미지원 컨트롤', { type: 'set', controlId: 'color', target: G, value: 'S_White' }],
+    ['너비 문자열', { type: 'set', controlId: 'width', target: G, value: '100' }],
+    ['너비 NaN', { type: 'set', controlId: 'width', target: G, value: NaN }],
+    ['너비 Infinity', { type: 'set', controlId: 'width', target: G, value: Infinity }],
+    ['밀도 문자열', { type: 'set', controlId: 'density', target: G, value: '50' }],
+    ['높이 0', { type: 'set', controlId: 'height', target: G, value: 0 }],
+    ['높이 11', { type: 'set', controlId: 'height', target: G, value: 11 }],
+    ['높이 소수', { type: 'set', controlId: 'height', target: G, value: 2.5 }],
+    ['깊이 33', { type: 'set', controlId: 'depth', target: G, value: '33' }],
+    ['깊이 문자', { type: 'set', controlId: 'depth', target: G, value: 'deep' }],
+    ['스타일 미지원', { type: 'set', controlId: 'style', target: G, value: 'frame' }],
+    ['뒷판 값', { type: 'set', controlId: 'backPanel', target: G, value: 'yes' }],
+  ];
+  it.each(bad)('%s', (_, intent) => {
+    const before = shelf(); const hw = data(useHardwareStore.getState());
+    const spies = (['setWidth', 'setHeight', 'setDepth', 'setStyle', 'setDensity', 'setHasBackPanel'] as const).map(k => vi.fn());
+    const [setWidth, setHeight, setDepth, setStyle, setDensity, setHasBackPanel] = spies;
+    const r = applyLegacyShelfIntent(intent, { setWidth, setHeight, setDepth, setStyle, setDensity, setHasBackPanel, getState: useShelfStore.getState });
+    expect(r.applied).toBe(false);
+    spies.forEach(s => expect(s).not.toHaveBeenCalled());
+    expect(shelf()).toEqual(before); expect(data(useHardwareStore.getState())).toEqual(hw);
+  });
+  it('실제 store로도 무변경', () => {
+    const before = shelf();
+    for (const [, i] of bad) applyLegacyShelfIntent(i, store());
+    expect(shelf()).toEqual(before);
+  });
+});
+
+describe('관련 없는 상태 보존', () => {
+  it('스타일·밀도 변경은 색상·하드웨어·가공 선택(localStorage)을 바꾸지 않는다', () => {
+    act(() => {
+      useMaterialStore.getState().setColor('S_Sage Green', 'solid');
+      useHardwareStore.getState().restore([1], [0], {});
+    });
+    localStorage.setItem('befun-connector-selection', '{"system":"ovvo","body":"V-1230R"}');
+    const mat = data(useMaterialStore.getState()), hw = data(useHardwareStore.getState()), ls = { ...localStorage };
+    render(<LegacyShelfPanel />);
+    fireEvent.click(within(group('스타일')).getByRole('radio', { name: 'Slant' }));
+    fireEvent.change(screen.getByRole('slider', { name: '밀도' }), { target: { value: '20' } });
+    expect(useShelfStore.getState()).toMatchObject({ style: 'slant', density: 20 });
+    expect(data(useMaterialStore.getState())).toEqual(mat);
+    expect(data(useHardwareStore.getState())).toEqual(hw);
+    expect({ ...localStorage }).toEqual(ls);
+  });
+  it('기록: 깊이 변경은 store의 기존 하드웨어 보정(reconcileHardware)을 실행한다', () => {
+    act(() => useHardwareStore.getState().restore([0], [1], {}));
+    const before = data(useHardwareStore.getState());
+    render(<LegacyShelfPanel />);
+    fireEvent.click(within(group('깊이')).getByRole('radio', { name: '24cm' }));
+    const after = data(useHardwareStore.getState());
+    // 깊이 24cm에서는 서랍 불가 → 기존 store 규칙으로 서랍 행이 정리될 수 있다(어댑터 규칙 아님).
+    console.log('depth24 hardware', JSON.stringify({ before: before.drawersCreatedLayers, after: after.drawersCreatedLayers, doors: after.doorsCreatedLayers }));
+    expect(after.doorsCreatedLayers).toEqual(before.doorsCreatedLayers);
+  });
+});
+
+describe('키보드', () => {
+  it('스타일·깊이 라디오 화살표로 실제 store 변경, 진입점은 현재값', () => {
+    render(<LegacyShelfPanel />);
+    const grid = within(group('스타일')).getByRole('radio', { name: 'Grid' });
+    expect(grid.tabIndex).toBe(0);
+    fireEvent.keyDown(grid, { key: 'ArrowRight' });
+    expect(useShelfStore.getState().style).toBe('slant');
+    const d32 = within(group('깊이')).getByRole('radio', { name: '32cm' });
+    expect(d32.tabIndex).toBe(0);
+    fireEvent.keyDown(d32, { key: 'ArrowLeft' });
+    expect(useShelfStore.getState().depth).toBe(24);
+  });
+});

@@ -1,0 +1,90 @@
+{
+  "id": "grid-type01-doors-220",
+  "observedAt": "2026-10-14T09:06:22.490649+09:00",
+  "sourceUrl": "https://tylko.com/api/v1/furniture_dna/?shelf_type=0&collection_type=Bookcase&dna_version=6",
+  "method": "Captured Type01 DNA mesh2398 with independent public decoder/clean/gallery/manufacturing-split comparison; Befun actual Chrome UI. Not a fresh matched Tylko UI screenshot.",
+  "inputs": {
+    "family": "type01",
+    "style": "grid",
+    "widthCm": 220,
+    "densityPercent": 0,
+    "rowClearLabelsCm": [
+      28,
+      28
+    ],
+    "depthCm": 32,
+    "backPanels": true,
+    "finish": "Natural",
+    "color": "N_Oak",
+    "baseType": "standard",
+    "hardwareRowStyles": {
+      "0": 13,
+      "1": 11
+    }
+  },
+  "initialState": {
+    "seed": null,
+    "individualEdits": null,
+    "dnaVersion": 6,
+    "container": 3,
+    "mesh": 2398
+  },
+  "steps": [
+    "Load Pattern110 Natural preview",
+    "Select Grid, width220, Standard",
+    "Bottom row DOORS Max",
+    "Capture closed",
+    "Click front and capture open"
+  ],
+  "observed": {
+    "columnsPerRow": [
+      3,
+      3
+    ],
+    "clearWidthsMm": [
+      710,
+      709,
+      709
+    ],
+    "clearHeightMm": 282,
+    "bottomLeaves": 6,
+    "leavesPerOpening": [
+      2,
+      2,
+      2
+    ],
+    "frontEnvelopeWidthsBeforeGapsMm": [
+      355,
+      355,
+      355,
+      354,
+      355,
+      354
+    ]
+  },
+  "precision": {
+    "sourceCoordinateUnit": "mm",
+    "comparisonRoundingMm": 1e-05,
+    "physicalManufacturingToleranceMm": null,
+    "viewerPixels": "visual only"
+  },
+  "verification": {
+    "fixtures": 972,
+    "heldoutConfigurations": 294,
+    "type02RegressionTests": 1298,
+    "legTests": 9,
+    "handleEnvelopeTests": 6,
+    "lint": "0 errors, 7 existing warnings",
+    "build": "isolated webpack build + TypeScript pass"
+  },
+  "unknowns": [
+    "Exact handle end/corner mesh parity",
+    "All custom compartment edits",
+    "Other Type01 styles not covered by this Grid change",
+    "CNC export end-to-end not tested in this case"
+  ],
+  "screenshots": [
+    "screenshots/grid-type01-220-paired-after.png",
+    "screenshots/grid-type01-220-paired-open-after.png"
+  ]
+}

@@ -2,7 +2,9 @@
 
 작성: codex-analysis, 2026-10-13. claude-graphics의 착수 전 질문에 대한 답변입니다. **확인한 Bookcase 범위를 10종 전체에 일반화하지 않습니다.** 이번 변경은 문서만이며 기존 생성기를 제거하거나 구현 목표를 변경하지 않았습니다.
 
-## 1. 확인된 API 범위
+> **2026-10-13 후속 전수 조사:** 아래 1절은 조사 전 답변으로 보존합니다. 최신 결과는 [카테고리 32개 초기 구성 대응표](category-inventory.md)와 본문 마지막의 후속 조사입니다. 현재 10개 카테고리·32개 모델 링크, 7개 collection을 관찰했고 활성 preset 응답은 26개 확보했습니다.
+
+## 1. 확인된 API 범위 — 이전 기록
 
 실제 응답 확보 및 생성 결과 비교에 사용한 조합은 다음 하나입니다.
 
@@ -98,3 +100,54 @@ interface PresetSelectionProps {
 - 리더 수정 범위: types/furniture.ts, types/shelf.ts, lib/sharing.ts, stores와 생성기 dispatch/CNC의 통합 부분. claude-graphics는 이 공통 파일을 직접 수정하지 않습니다.
 - claude-graphics 수정 범위: 기존 ConfiguratorIntro의 카테고리/프리셋 화면, 신규 lib/furniture/presets.ts 및 카테고리 UI. storefront 담당이 현재 소유 중인지 team-tasks에서 먼저 조율하고 담당자를 한 명으로 정합니다. 기존 storefront/마감 팔레트/가격 정책을 덮어쓰지 않습니다.
 - 완료 기준: 열 가지 UI 구분, 검증된 카테고리만 올바른 생성기로 연결, 같은 프리셋 재적용/카테고리 왕복/새로고침/공유복구/문서랍초기화 검증. 프리셋 화면 완성과 카테고리 생성기 완성을 별도 보고합니다.
+
+## 5. 후속 전수 조사 — 2026-10-13
+
+기존 VPN Chrome의 독일어 intro에서 요청한 10개 카테고리의 실제 모델 링크 32개를 전부 열고 초기 옵션 UI를 기록했습니다. 각 카테고리의 `cases/category-<slug>-001.json`에 모델별 URL, 시각, slider 범위, 공개 preset의 개별 편집 상태, 관찰 요청, 측정하지 않은 값(null)을 보관합니다. 숫자는 원문을 보존하며 화면 cm와 내부 mm를 동일 좌표로 단정하지 않습니다.
+
+| 카테고리 | Original Classic / Modern의 collection | Edge | Tone |
+|---|---|---|---|
+| Sideboards | Sideboard | Sideboard | Sideboard |
+| Bookcases | Bookcase | Bookcase | Bookcase |
+| Wall storage | Bookcase | Wallstorage | Wallstorage |
+| Desks | Desk | 이번 intro 링크 없음 | 이번 intro 링크 없음 |
+| Dressing tables | Desk | 이번 intro 링크 없음 | 이번 intro 링크 없음 |
+| TV Stands | Sideboard | TvStand | Sideboard |
+| Chest of Drawers | Sideboard | Chest | Sideboard |
+| Shoe Racks | Bookcase | Sideboard | 이번 intro 링크 없음 |
+| Bedside Tables | Sideboard | Sideboard | Sideboard |
+| Vinyl Storage | VinylStorage, 모델 단계 없이 직접 진입 | 이번 intro 링크 없음 | 이번 intro 링크 없음 |
+
+이 표는 관찰한 초기 제품의 collection입니다. 일부 Modern은 DNA 요청으로만 확인했고 활성 preset이 없는 6개는 상세 표에서 unknown으로 남겼습니다. 동일 category의 모든 상품을 동일 collection으로 일반화하지 않습니다. 실제 관찰 collection은 Bookcase, Sideboard, Desk, VinylStorage, Chest, TvStand, Wallstorage입니다. 소스의 ShoeRack enum은 이번 신발장 초기 제품에서 사용되지 않았습니다.
+
+제품군/type 대응:
+- 확보한 Original Classic 활성 preset은0, Modern은1입니다. Veneer2는 별도 마감 분기이며 선취득 요청만으로 현재 선택 상태를 판정하지 않습니다.
+- 이번 Edge 7개 활성 preset은 모두4. 함께 요청한5는 veneer 계열이며 활성 타입과 구분합니다.
+- Tone 낮은 수납은6/7/8 요청을 사용합니다. 초기 Sideboard는8(다리형), TV/Chest/Bedside는6(Minimalistisch)입니다.7의 벽걸이 렌더 경로는 소스로 확인했으나 이번 초기 preset 중 활성7 사례는 없습니다.
+- Tone 책장과 벽수납은14입니다. Tone을 구형 enum3 또는6/7/8 하나로 묶으면 안 됩니다.
+- Type01 Bookcase 응답도 이번에 확보했습니다. 기존 '미확보' 상태는 해소했으나 Type01 생성기 구현·동치 검증 완료라는 뜻은 아닙니다.
+
+중요한 UI/구조 차이:
+- Original 행 구성에서 현재 보인 스타일 버튼은 Pattern/Grid/Mosaic/Gradient/Pixel 5개입니다. 구형 Slant enum과 현재 선택 UI를 구분합니다. 열 구성은 Frame을 포함한6개, Vinyl은 Pattern/Standard Grid/Dense Grid 3개입니다.
+- Desk와 Dressing table은 Desk 전용 열 구조입니다. UI 높이73cm 고정, 폭90–240cm, 깊이40/50/60cm, 수납 구획 수·다리 공간 위치를 사용합니다. 기존 책장의 아래 행 삭제로 구현하지 않습니다.
+- Vinyl 초기 구성은 깊이40cm,24/32 비활성, 뒷판 Mit이며 Ohne 비활성, 밀도 UI 없음. 이 초기 상태의 제약과 소스의 rowAlwaysOn을 구분해 기록했습니다.
+- Edge 깊이는 카테고리별27/36/45/60의 부분집합입니다. Tone 낮은 수납은36/46/56, Tone14는27–65cm slider입니다.45와46을 합치지 않습니다.
+- Tone14는 Original Bookcase와 다른 생성 경로·상태 구조입니다. 같은 collection 이름만으로 기존 스타일 함수를 연결하지 않습니다.
+
+조사 범위와 한계:
+- 32종 모두 초기 옵션 DOM을 확인했고, 활성 preset 응답26종을 확보했습니다. 나머지6종의 추가 요청 확인 도중 Chrome 연결 변경과 로딩 정지를 관찰했습니다. 이미 확보한 자료는 보존했습니다.
+- screenshot32개 중18개는 렌더된 개요,14개는 로딩 preview입니다. 각 JSON에 상태를 명시했으며 로딩 이미지를 구조/시각 비교 근거로 사용하지 않습니다.
+- 자동 기록 중 이전 페이지의 요청이 혼입된 Modern Wallstorage 사례를 검출·격리하고 실제 URL과 preset ID로 재확인했습니다. 최종 활성값1/Bookcase입니다. 일부 초기 요청 누락은 이벤트 버퍼 truncation이 원인이며 캐시라고 확정하지 않습니다.
+- 카테고리별 생성 공식, 모든 범위 경계, 문·서랍 개별 편집, 변경 순서, 재질·카메라 및 Befun 동치 검증은 후속 작업입니다. 이번에는 제품 코드를 수정하지 않았습니다.
+
+## 6. 구현 분담 보완 — 사용자 후속 질문 반영
+
+리더가 레퍼런스 규칙·공통 상태·생성기·통합을 소유하고, 확인한 규격을 공유 문서로 전달해 독립 작업을 분담합니다. 여러 작업자가 각자 추정한 생성 공식을 동시에 넣지 않습니다.
+
+- 리더: category와 제품군/생성기 식별을 분리하는 공통 계약, 판재 분절, 다리 좌표·수량·종류, 문/서랍 좌표 및 CNC 데이터 일관성.
+- claude-graphics: 확정된 규격을 입력받는 다리·손잡이 등의 외형/재질, 기존 카테고리 선택/프리셋 UI. 생성/배치 공식 변경은 리더에게 문서 요청.
+- 보조 작업자: 구조 비교 도구와 독립 검증, assigned 파일만 수정. 담당 이름과 잠금은 team-tasks가 기준.
+- 다리 사양은 유형, 관찰 제품/옵션, 외형 치수·정밀도, 몸체 기준 좌표, 발 개수 변화 경계, 판재 분절/하단 세로판과의 관계, 체결부 미확인 항목, 비교 사례를 포함해야 합니다. 현재 이 정밀 사양은 미완료입니다.
+- 중간 조절발을 전체 폭의 등간격으로 가정하지 않습니다. 하단 세로판·가로판 분절과의 관계를 레퍼런스로 검증한 뒤 반영합니다. 화면에서 숨겨진 연결부를 추측으로 확정하지 않습니다.
+- 공통 계약v1의 DesignConfig만으로 Desk/Edge/Tone을 표현할 수 없습니다. `category`와 별도 Befun 제품군/생성 구조를 먼저 설계하고 미구현 프리셋 config는 null을 유지합니다. Tylko 내부 enum을 서비스 영구 식별자로 강제하지 않습니다.
+- 순서: 공통 상태 계약 → 한 카테고리/제품군 구현 → 보류 사례로 구조/시각 재검증 → 다음 계열 확대. UI 프리셋 완성과 생성기 완성을 별도 보고합니다.

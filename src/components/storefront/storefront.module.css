@@ -20,10 +20,16 @@
 .storefront h2 { font-size: 54px; line-height: 1.2; font-weight: 600; letter-spacing: -1px; word-break: keep-all; }
 .skipLink { position: fixed; top: -100px; left: 20px; z-index: 150; background: white; padding: 14px 20px; border-radius: 30px; }
 .skipLink:focus { top: 12px; }
+/* 알림바 높이 — 닫으면 0으로 바뀌어 헤더·히어로가 위로 붙는다 */
+.storefront { --announce-h: 52px; }
+.storefront.noAnnouncement { --announce-h: 0px; }
 .announcement { position: sticky; top: 0; z-index: 70; height: 52px; background: #f4f88b; display: flex; align-items: center; justify-content: center; padding: 0 16px; font-size: 14px; text-align: center; }
 .announcement strong { color: #df5129; font-weight: 600; }
 .announcement span { margin-left: 18px; display: inline-flex; align-items: center; gap: 5px; }
-.header { position: fixed; z-index: 60; top: 76px; left: var(--gutter); right: var(--gutter); display: flex; justify-content: space-between; align-items: center; gap: 40px; transition: transform .3s, opacity .3s; }
+.announcementClose { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: #1d1e1f; }
+.announcementClose:hover, .announcementClose:focus-visible { background: #0000000f; }
+.announcementClose svg { width: 18px; height: 18px; }
+.header { position: fixed; z-index: 60; top: calc(var(--announce-h) + 24px); left: var(--gutter); right: var(--gutter); display: flex; justify-content: space-between; align-items: center; gap: 40px; transition: transform .3s, opacity .3s; }
 .headerHidden { transform: translateY(-180px); opacity: 0; pointer-events: none; }
 .logo { display: block; flex: 0 0 120px; line-height: 1; }
 .brandLogo { display: block; width: 120px; height: auto; }
@@ -43,10 +49,10 @@
 .menuFeature { position: relative; min-height: 320px; border-radius: 15px; overflow: hidden; }
 .menuFeature img { object-fit: cover; }
 .menuFeature span { position: absolute; bottom: 30px; left: 30px; color: white; font-size: 36px; line-height: 1.2; }
-.hero { position: relative; height: calc(100svh - 52px); min-height: 620px; max-height: 1080px; background: #c3b7a7; overflow: hidden; }
+.hero { position: relative; height: calc(100svh - var(--announce-h)); min-height: 620px; max-height: 1080px; background: #c3b7a7; overflow: hidden; }
 .cover { object-fit: cover; }
 .videoCover { position: absolute; inset: 0; overflow: hidden; }
-.videoCover iframe { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: max(100vw, calc((100svh - 52px) * 1.954167)); height: max(calc(100svh - 52px), 51.173vw); border: none; pointer-events: none; }
+.videoCover iframe { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: max(100vw, calc((100svh - var(--announce-h)) * 1.954167)); height: max(calc(100svh - var(--announce-h)), 51.173vw); border: none; pointer-events: none; }
 .heroShade { position: absolute; inset: 0; background: linear-gradient(180deg, #0000 40%, #1d1e1f70 100%); pointer-events: none; }
 .heroContent { position: absolute; bottom: 96px; left: var(--gutter); right: var(--gutter); color: white; }
 .eyebrow { font-size: 18px; font-weight: 600; letter-spacing: normal; line-height: 1.4; margin-bottom: 26px !important; }
@@ -223,7 +229,7 @@
   .desktopNav { display: none; }
   .mobileMenu { display: flex; }
   .navPill { width: auto; gap: 28px; padding: 10px 16px; }
-  .header { top: 68px; }
+  .header { top: calc(var(--announce-h) + 16px); }
   .heroContent { bottom: 76px; }
   .videoControls { bottom: 76px; }
   .categorySection { padding: 80px var(--gutter); }
@@ -237,21 +243,23 @@
   .toneBanner > div { width: 70%; }
 }
 @media (max-width: 700px) {
-  .announcement { height: 40px; font-size: 11px; line-height: 1.4; }
+  .storefront:not(.noAnnouncement) { --announce-h: 40px; }
+  .announcement { height: 40px; font-size: 11px; line-height: 1.4; padding: 0 44px; }
+  .announcementClose { right: 6px; width: 28px; height: 28px; }
   .announcement span { display: none; }
-  .header { top: 56px; gap: 12px; }
+  .header { top: calc(var(--announce-h) + 16px); gap: 12px; }
   .logo { font-size: 34px; }
   .navPill { padding: 5px 9px; min-height: 48px; gap: 4px; }
   .navIcons { gap: 0; }
   .iconButton { width: 33px; height: 36px; }
   .iconButton svg { width: 20px; height: 20px; }
   .navIcons > a[aria-label=로그인], .navIcons > a[aria-label=마이페이지] { display: none; }
-  .hero { min-height: 580px; height: calc(100svh - 40px); max-height: 880px; }
+  .hero { min-height: 580px; height: calc(100svh - var(--announce-h)); max-height: 880px; }
   .heroContent { bottom: 90px; }
   .heroContent .eyebrow { font-size: 12px; line-height: 18px; margin-bottom: 20px !important; }
   .heroContent h1 { font-size: 32px; line-height: 1.2; margin-bottom: 28px; }
   .mobileBreak { display: block; }
-  .videoCover iframe { width: max(100vw,calc((100svh - 40px) * 1.954167)); height: max(calc(100svh - 40px),51.173vw); }
+  .videoCover iframe { width: max(100vw,calc((100svh - var(--announce-h)) * 1.954167)); height: max(calc(100svh - var(--announce-h)),51.173vw); }
   .videoControls { bottom: 24px; right: 78px; }
   .videoControls button { width: 38px; height: 38px; }
   .whiteButton, .outlineButton, .darkButton, .orangeButton { min-height: 48px; padding: 8px 24px; font-size: 16px; line-height: 1.4; }
@@ -324,7 +332,9 @@
 
 .heroContent .eyebrow { font-size: 16px; line-height: 1.4; }
 .innerStorefront { background: white; min-height: 100vh; }
-.innerStorefront > main { padding-top: 64px; min-height: 65vh; }
+/* 헤더(고정) 상하 여백까지 흰 헤더 영역 안에 들어오도록: 24 + 알약64 + 24 */
+.innerStorefront > main { padding-top: 112px; min-height: 65vh; }
+@media (max-width: 950px) { .innerStorefront > main { padding-top: 96px; } }
 .innerStorefront .navPill { background: var(--ink); color: white; }
 .innerStorefront .iconButton:hover { background: #ffffff25; }
 .fullMenu { width: 100%; grid-template-columns: repeat(5,minmax(0,1fr)); color: var(--ink); z-index: 80; }
@@ -332,7 +342,7 @@
 .fullMenu a { display: block; padding: 5px 0; font-size: 14px; }
 .fullMenu a:hover { text-decoration: underline; }
 .mobilePrimary { display: none; }
-.menuBackdrop { position: fixed; inset: 52px 0 0; background: #0004; z-index: 50; }
+.menuBackdrop { position: fixed; inset: var(--announce-h) 0 0; background: #0004; z-index: 50; }
 .footerLogo { display: block; }
 .pageSection { padding: 40px var(--gutter) 96px; }
 .breadcrumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; line-height: 1.4; margin-bottom: 32px; color: #686868; }
@@ -490,6 +500,7 @@
 
 .productConfigurator { display: grid; grid-template-columns: minmax(0,1fr) 420px; gap: 0; padding: 48px 74px 0 0; background: #e6e6e6; }
 .productScene { position: absolute; inset: 52px 0 0; }
+.productScene canvas { touch-action: pan-y !important; }
 .viewerPhoto { object-fit: contain; }
 .viewerThumbnails { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); max-width: calc(100% - 48px); display: flex; gap: 8px; overflow-x: auto; padding: 4px; z-index: 2; }
 .viewerThumbnails button { position: relative; width: 75px; height: 56px; flex: 0 0 75px; background: white; border-radius: 8px; border: 1px solid transparent; overflow: hidden; font-size: 14px; }
@@ -562,10 +573,13 @@
 .fullscreenButton { position: absolute; left: var(--gutter); bottom: 24px; z-index: 2; background: white; border-radius: 24px; padding: 12px 20px; display: flex; align-items: center; gap: 8px; font-size: 14px !important; }
 .productOptions { --label-w: 64px; --section-py: 8px; padding: 16px; margin-bottom: 16px; border-radius: 12px; background: white; align-self: start; min-width: 0; }
 .productOptions > :global(.cfg-row) > div { gap: 4px; }
-.productOptions > :global(.cfg-row) > div > button { min-width: 49px; width: 49px; height: 60px; padding: 4px; }
+.productOptions > :global(.cfg-row) > div > button:has(img) { min-width: 49px; width: 49px; height: 60px; padding: 4px; }
 .productOptions :global(.cfg-label) { font-size: 14px; }
 .productOptions :global(.tylko-pill-btn) { font-size: 13px; padding: 7px 10px; }
-.productOptions :global(.tylko-help) { font-size: 12px; }
+.productOptions :global(.tylko-help) { box-sizing: border-box; flex: 0 0 24px; width: 24px; height: 24px; min-width: 24px; max-width: 24px; min-height: 24px; max-height: 24px; padding: 0; line-height: 1; border-radius: 50%; font-size: 12px; }
+.productOptions { -webkit-user-select: none; user-select: none; }
+.productOptions img { -webkit-user-drag: none; }
+.productOptions input, .productOptions textarea { -webkit-user-select: text; user-select: text; }
 .productOptions :global(.cfg-row) { gap: 8px; }
 .configPrice { padding-bottom: 16px; }
 .configPrice > div { display: flex; align-items: center; gap: 8px; font-size: 12px; line-height: 18px; }

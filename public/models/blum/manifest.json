@@ -1,0 +1,94 @@
+[
+  {
+    "part": "71B3790",
+    "status": "converted-not-integrated",
+    "source": "cad44579144_hinge_1_cad_bau_$sall_$acaddae_$v1.dae",
+    "sourceSha256": "e468d3553048ab8ef2012949bd9e5ab2d978b8c9f771319ef0103fafd344e174",
+    "glbSha256": "a7ec8989c8b8cfee063398327d5e729231de9d0e49da726f6f3dfdf4883f16f0",
+    "sourceUnit": "millimetres",
+    "glbUnit": "metres",
+    "geometry": "supplier mesh preserved without decimation",
+    "materials": "source colours; PBR metalness/roughness are rendering choices",
+    "sizeMetres": [
+      0.04796652222114167,
+      0.057,
+      0.08072953033447365
+    ],
+    "parts": [
+      {
+        "name": "bau0015157579-1",
+        "minMetres": [
+          -0.049966522221141674,
+          -0.0285,
+          0.03209999847412208
+        ],
+        "maxMetres": [
+          -0.0076000003858145235,
+          0.0285,
+          0.051299999237061536
+        ],
+        "vertices": 12396
+      },
+      {
+        "name": "bau0015113441-1",
+        "minMetres": [
+          -0.039233154296875,
+          -0.008875000000000001,
+          -0.0285
+        ],
+        "maxMetres": [
+          -0.002916066646575928,
+          0.008875000000000001,
+          0.04566231536865235
+        ],
+        "vertices": 7770
+      },
+      {
+        "name": "bau0015088853-1",
+        "minMetres": [
+          -0.030164982795716132,
+          -0.003650000095367432,
+          0.031171981811524457
+        ],
+        "maxMetres": [
+          -0.008151159286499824,
+          0.003650000095367432,
+          0.04494068527221782
+        ],
+        "vertices": 1200
+      },
+      {
+        "name": "bau0019416036-1",
+        "minMetres": [
+          -0.014924966812133789,
+          -0.007550000190734863,
+          -0.02942953109741211
+        ],
+        "maxMetres": [
+          -0.002,
+          0.007550000190734863,
+          0.0225
+        ],
+        "vertices": 732
+      },
+      {
+        "name": "bau0015088783-1",
+        "minMetres": [
+          -0.03837213706970305,
+          -0.007275000095367432,
+          0.03943309020996187
+        ],
+        "maxMetres": [
+          -0.013194464683533615,
+          0.007275000095367432,
+          0.0501308517456064
+        ],
+        "vertices": 828
+      }
+    ]
+  },
+  {
+    "part": "174H7100E",
+    "status": "source-not-downloaded"
+  }
+]

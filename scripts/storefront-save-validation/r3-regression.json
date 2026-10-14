@@ -1,0 +1,120 @@
+{
+  "input": {
+    "baseType": "legs",
+    "legFinish": "black",
+    "style": "pattern",
+    "density": 41,
+    "width": 163,
+    "height": 122,
+    "depth": 40,
+    "hasBackPanel": true,
+    "color": "S_Midnight Blue",
+    "colorCategory": "solid",
+    "rowHeights": [
+      28,
+      38,
+      18,
+      28
+    ],
+    "numRows": 4,
+    "doorsCreatedLayers": [
+      0,
+      3
+    ],
+    "drawersCreatedLayers": [
+      1,
+      3
+    ],
+    "hardwareRowStyles": {
+      "0": 13,
+      "1": 31,
+      "3": 22
+    }
+  },
+  "initial": {
+    "height": 32,
+    "numRows": 1,
+    "rowHeights": [
+      28
+    ],
+    "style": "pixel",
+    "depth": 24,
+    "color": "C_White"
+  },
+  "results": {
+    "before": {
+      "snapshot": {
+        "baseType": "legs",
+        "legFinish": "black",
+        "style": "pattern",
+        "density": 41,
+        "width": 163,
+        "height": 32,
+        "depth": 40,
+        "hasBackPanel": true,
+        "color": "S_Midnight Blue",
+        "colorCategory": "solid",
+        "rowHeights": [
+          28
+        ],
+        "numRows": 1,
+        "doorsCreatedLayers": [
+          0,
+          3
+        ],
+        "drawersCreatedLayers": [
+          1,
+          3
+        ],
+        "hardwareRowStyles": {
+          "0": 13,
+          "1": 31,
+          "3": 22
+        }
+      },
+      "routes": [
+        "/configurator"
+      ],
+      "sourceSHA256": "01fce174900857af4015b8558b58d861caed632a6d12c327f180dd23967c6204"
+    },
+    "after": {
+      "snapshot": {
+        "baseType": "legs",
+        "legFinish": "black",
+        "style": "pattern",
+        "density": 41,
+        "width": 163,
+        "height": 122,
+        "depth": 40,
+        "hasBackPanel": true,
+        "color": "S_Midnight Blue",
+        "colorCategory": "solid",
+        "rowHeights": [
+          28,
+          38,
+          18,
+          28
+        ],
+        "numRows": 4,
+        "doorsCreatedLayers": [
+          0,
+          3
+        ],
+        "drawersCreatedLayers": [
+          1,
+          3
+        ],
+        "hardwareRowStyles": {
+          "0": 13,
+          "1": 31,
+          "3": 22
+        }
+      },
+      "routes": [
+        "/configurator"
+      ],
+      "sourceSHA256": "8fcdcbab530e6497b5e7890b0bcea446afa2cef28d0424adf122551bf8112db2"
+    }
+  },
+  "kind": "Actual store / extracted click handler; no browser/API/DB mock or queries"
+}

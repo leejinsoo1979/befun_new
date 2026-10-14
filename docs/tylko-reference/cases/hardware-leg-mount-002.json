@@ -1,0 +1,35 @@
+{
+  "caseId": "hardware-leg-mount-002",
+  "observedAt": "2026-10-13T22:43:31.724377+00:00",
+  "sourceUrl": "https://www.youtube.com/watch?v=y_6rMHwOIzo&t=6s",
+  "sourceTitle": "Leg Assembly and Disassembly — Tylko",
+  "inputs": {
+    "productId": null,
+    "dimensionsMm": null,
+    "legCount": null
+  },
+  "observations": [
+    "Round straight leg attached to a mounting plate with folded edges",
+    "Three screw heads pass through keyhole slots",
+    "Small central silver pin locks the plate against sliding",
+    "Press the central pin, slide the leg and plate together, then remove them",
+    "After removal the three screws and central silver pin remain on the horizontal panel"
+  ],
+  "precision": {
+    "method": "visual observation of user screenshots and video at 3 and 7 seconds",
+    "unit": "mm",
+    "measuredDimensions": null
+  },
+  "unknown": [
+    "Screw and pin centre coordinates",
+    "Plate thickness and hole profiles",
+    "Slide travel and insertion depth",
+    "Mapping to every furniture family"
+  ],
+  "screenshots": [
+    "docs/tylko-reference/screenshots/hardware-leg-mount-002-user-1.png",
+    "docs/tylko-reference/screenshots/hardware-leg-mount-002-user-2.png",
+    "docs/tylko-reference/screenshots/hardware-leg-mount-002-user-3.png",
+    "docs/tylko-reference/screenshots/hardware-leg-mount-002-user-4.png"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-14T08:15:37.437977+09:00",
+  "sha256": {
+    "docs/handoffs/assets/codex-qa/r3/mosaic-live.jpg": "e10be90537173ed800827907d68e724a4e1ebc327f7fc7ba975323aceb0ca77e",
+    "docs/handoffs/assets/codex-qa/r3/reference-grid2.jpg": "23946de516af4d42198adda93d50cd2ff5db034095b7a867263ced357ecfe5be",
+    "docs/handoffs/assets/codex-qa/r3/grid-perspective.jpg": "6f93572055c5f7146de856e55d463ea654f85affdde31b6b29226a90cfc6afad",
+    "docs/handoffs/assets/codex-qa/r3/mosaic-live.txt": "7c76ee9e41792b8781e13fd53471149f04e82ea071396312d6d2431ccfaa1c74",
+    "docs/handoffs/assets/codex-qa/r3/pattern-live.jpg": "9b8f4efed7af53e33c49d066bb788c35440855cd08c78e703b1faddccd8b1bf7",
+    "docs/handoffs/assets/codex-qa/r3/reference-grid2.txt": "78fec7274c3ce3856f96ea487cb7fd91e15a4bc193aa4a4cf53c77c4d9156269",
+    "docs/handoffs/assets/codex-qa/r3/reference-initial.txt": "aad240f6e4e373db5ab3100513473811ab6217b0e79bb20673ecc26b69ce3017",
+    "docs/handoffs/assets/codex-qa/r3/browser-errors.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "docs/handoffs/assets/codex-qa/r3/grid-front.jpg": "aaa406c4a7f0c8d6197551d3d3fc4ada09ec71d19ace4b32aab318f9a3284fb2",
+    "docs/handoffs/assets/codex-qa/r3/depth24.txt": "dce5a224f9aae3b4829825dcab9fe712bf344c489d7a8b7268ff5b13d19c3e32",
+    "docs/handoffs/assets/codex-qa/r3/grid-bottom.jpg": "0c2707d11d254346f13dc1b8d2de698bab177a4356104c43d399d5f23aca6bfa",
+    "scripts/furniture-validation/r3-results.json": "8c12a422a49e59bc87a1eea86fb114739455c13b4fd31221f36903c94ef90401",
+    "scripts/furniture-validation/r3-live-drift.json": "7f2465079a58dfdf5d59930c7f0b971204ac73ecd2d2251e0afac24b8a2a171f",
+    "scripts/furniture-validation/r3-hardware.log": "ab58fc0f7e88549c55ebbb059d9d0061f41210ad17c096f4df076992c6e04258",
+    "scripts/furniture-validation/r3-legs-results.json": "47102f760d35518afcdc67e5191b66e075859e197f5ef1941e2507712f15d0da",
+    "scripts/furniture-validation/r3-build.log": "86c78897e8102901faa4652c279db1b6ace5608c51c1988cb67da32d16875e37",
+    "scripts/furniture-validation/r3-original-preservation.json": "8ebe1b90687980cd8a1748623d4f720cdc7a2cfea5c1c2510d9c07a0b1da5ea8",
+    "scripts/furniture-validation/r3-build-snapshot.json": "30410edd6eedbd8b66d4473b4aa33e238ab712415b02b38dd9297580f6f1662f",
+    "scripts/furniture-validation/r3-build-network.log": "40f1c799a26942f2f752611b234b87bee320d9a5b1aa8d961e0bf2bdbe3d7da4",
+    "scripts/furniture-validation/r3-legs.mjs": "765ae01fa2be2fb24e9a34e49a82934f825bfc98c7c70a9c0c4259ef97ad8f37"
+  }
+}

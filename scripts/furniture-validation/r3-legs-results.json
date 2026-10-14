@@ -1,0 +1,436 @@
+{
+  "generatedAt": "2026-10-13T23:09:24.957Z",
+  "scope": "New independent cases only; code consistency is not reference equality",
+  "results": [
+    {
+      "id": "R3-QA-LEG-01",
+      "input": {
+        "width": 110,
+        "depth": 32,
+        "density": 50,
+        "rowHeights": [
+          28,
+          28
+        ],
+        "height": 62,
+        "thickness": 2,
+        "numRows": 2,
+        "hasBackPanel": false,
+        "family": "type02"
+      },
+      "units": "cm; rotations radians",
+      "expectedSource": "Documented Befun support contract: each leg on bottom vertical axis, unique front/back pair, bottom horizontal support; not a Tylko count oracle",
+      "expectedReferenceCount": null,
+      "actual": {
+        "bodyHeight": 62,
+        "standardHeight": 63,
+        "legsHeight": 73,
+        "axes": [
+          -54.1,
+          0,
+          54.1
+        ],
+        "legs": [
+          {
+            "position": [
+              -54.1,
+              -11,
+              0.9
+            ],
+            "rotationY": 1.5707963267948966
+          },
+          {
+            "position": [
+              -54.1,
+              -11,
+              31.1
+            ],
+            "rotationY": 3.141592653589793
+          },
+          {
+            "position": [
+              0,
+              -11,
+              0.9
+            ],
+            "rotationY": 0.7853981633974483
+          },
+          {
+            "position": [
+              0,
+              -11,
+              31.1
+            ],
+            "rotationY": -2.356194490192345
+          },
+          {
+            "position": [
+              54.1,
+              -11,
+              0.9
+            ],
+            "rotationY": 0
+          },
+          {
+            "position": [
+              54.1,
+              -11,
+              31.1
+            ],
+            "rotationY": -1.5707963267948966
+          }
+        ]
+      },
+      "status": "pass",
+      "error": null,
+      "referenceParity": "unknown",
+      "manufacturing": "unknown"
+    },
+    {
+      "id": "R3-QA-LEG-01-alt",
+      "input": {
+        "width": 110,
+        "depth": 32,
+        "density": 50,
+        "rowHeights": [
+          28,
+          32
+        ],
+        "height": 66,
+        "thickness": 2,
+        "numRows": 2,
+        "hasBackPanel": false,
+        "family": "type02"
+      },
+      "units": "cm; rotations radians",
+      "expectedSource": "Documented Befun support contract: each leg on bottom vertical axis, unique front/back pair, bottom horizontal support; not a Tylko count oracle",
+      "expectedReferenceCount": null,
+      "actual": {
+        "bodyHeight": 66,
+        "standardHeight": 67,
+        "legsHeight": 77,
+        "axes": [
+          -54.1,
+          0,
+          54.1
+        ],
+        "legs": [
+          {
+            "position": [
+              -54.1,
+              -11,
+              0.9
+            ],
+            "rotationY": 1.5707963267948966
+          },
+          {
+            "position": [
+              -54.1,
+              -11,
+              31.1
+            ],
+            "rotationY": 3.141592653589793
+          },
+          {
+            "position": [
+              0,
+              -11,
+              0.9
+            ],
+            "rotationY": 0.7853981633974483
+          },
+          {
+            "position": [
+              0,
+              -11,
+              31.1
+            ],
+            "rotationY": -2.356194490192345
+          },
+          {
+            "position": [
+              54.1,
+              -11,
+              0.9
+            ],
+            "rotationY": 0
+          },
+          {
+            "position": [
+              54.1,
+              -11,
+              31.1
+            ],
+            "rotationY": -1.5707963267948966
+          }
+        ]
+      },
+      "status": "pass",
+      "error": null,
+      "referenceParity": "unknown",
+      "manufacturing": "unknown"
+    },
+    {
+      "id": "R3-QA-LEG-02-a",
+      "input": {
+        "width": 89,
+        "depth": 32,
+        "density": 37,
+        "rowHeights": [
+          28,
+          32
+        ],
+        "height": 66,
+        "thickness": 2,
+        "numRows": 2,
+        "hasBackPanel": false,
+        "family": "type02"
+      },
+      "units": "cm; rotations radians",
+      "expectedSource": "Documented Befun support contract: each leg on bottom vertical axis, unique front/back pair, bottom horizontal support; not a Tylko count oracle",
+      "expectedReferenceCount": null,
+      "actual": {
+        "bodyHeight": 66,
+        "standardHeight": 67,
+        "legsHeight": 77,
+        "axes": [
+          -7.6,
+          -43.6,
+          43.6
+        ],
+        "legs": [
+          {
+            "position": [
+              -43.6,
+              -11,
+              0.9
+            ],
+            "rotationY": 1.5707963267948966
+          },
+          {
+            "position": [
+              -43.6,
+              -11,
+              31.1
+            ],
+            "rotationY": 3.141592653589793
+          },
+          {
+            "position": [
+              43.6,
+              -11,
+              0.9
+            ],
+            "rotationY": 0
+          },
+          {
+            "position": [
+              43.6,
+              -11,
+              31.1
+            ],
+            "rotationY": -1.5707963267948966
+          }
+        ]
+      },
+      "status": "pass",
+      "error": null,
+      "referenceParity": "unknown",
+      "manufacturing": "unknown"
+    },
+    {
+      "id": "R3-QA-LEG-02-b",
+      "input": {
+        "width": 90,
+        "depth": 40,
+        "density": 37,
+        "rowHeights": [
+          28,
+          32
+        ],
+        "height": 66,
+        "thickness": 2,
+        "numRows": 2,
+        "hasBackPanel": false,
+        "family": "type02"
+      },
+      "units": "cm; rotations radians",
+      "expectedSource": "Documented Befun support contract: each leg on bottom vertical axis, unique front/back pair, bottom horizontal support; not a Tylko count oracle",
+      "expectedReferenceCount": null,
+      "actual": {
+        "bodyHeight": 66,
+        "standardHeight": 67,
+        "legsHeight": 77,
+        "axes": [
+          -8.1,
+          -44.1,
+          44.1
+        ],
+        "legs": [
+          {
+            "position": [
+              -44.1,
+              -11,
+              0.9
+            ],
+            "rotationY": 1.5707963267948966
+          },
+          {
+            "position": [
+              -44.1,
+              -11,
+              39.1
+            ],
+            "rotationY": 3.141592653589793
+          },
+          {
+            "position": [
+              44.1,
+              -11,
+              0.9
+            ],
+            "rotationY": 0
+          },
+          {
+            "position": [
+              44.1,
+              -11,
+              39.1
+            ],
+            "rotationY": -1.5707963267948966
+          }
+        ]
+      },
+      "status": "pass",
+      "error": null,
+      "referenceParity": "unknown",
+      "manufacturing": "unknown"
+    },
+    {
+      "id": "R3-QA-LEG-03",
+      "input": {
+        "width": 181,
+        "depth": 40,
+        "density": 61,
+        "rowHeights": [
+          18,
+          38
+        ],
+        "height": 62,
+        "thickness": 2,
+        "numRows": 2,
+        "hasBackPanel": false,
+        "family": "type02"
+      },
+      "units": "cm; rotations radians",
+      "expectedSource": "Documented Befun support contract: each leg on bottom vertical axis, unique front/back pair, bottom horizontal support; not a Tylko count oracle",
+      "expectedReferenceCount": null,
+      "actual": {
+        "bodyHeight": 62,
+        "standardHeight": 63,
+        "legsHeight": 73,
+        "axes": [
+          -89.6,
+          -42.99999999999999,
+          3.700000000000003,
+          42.900000000000006,
+          89.6
+        ],
+        "legs": [
+          {
+            "position": [
+              -89.6,
+              -11,
+              0.9
+            ],
+            "rotationY": 1.5707963267948966
+          },
+          {
+            "position": [
+              -89.6,
+              -11,
+              39.1
+            ],
+            "rotationY": 3.141592653589793
+          },
+          {
+            "position": [
+              -43,
+              -11,
+              0.9
+            ],
+            "rotationY": 0.7853981633974483
+          },
+          {
+            "position": [
+              -43,
+              -11,
+              39.1
+            ],
+            "rotationY": -2.356194490192345
+          },
+          {
+            "position": [
+              3.7,
+              -11,
+              0.9
+            ],
+            "rotationY": 0.7853981633974483
+          },
+          {
+            "position": [
+              3.7,
+              -11,
+              39.1
+            ],
+            "rotationY": -2.356194490192345
+          },
+          {
+            "position": [
+              89.6,
+              -11,
+              0.9
+            ],
+            "rotationY": 0
+          },
+          {
+            "position": [
+              89.6,
+              -11,
+              39.1
+            ],
+            "rotationY": -1.5707963267948966
+          }
+        ]
+      },
+      "status": "pass",
+      "error": null,
+      "referenceParity": "unknown",
+      "manufacturing": "unknown"
+    }
+  ],
+  "fingerprintsBefore": {
+    "src/lib/three/furniture-base.ts": "142f56f11400fbf1b52fe66cc3e2f2423ed97e4c8aa832408e04fe83b2bd11de",
+    "src/components/three/FurnitureLegs.tsx": "e6051b98880a9210adeadac09224ac99d390d7655a5e133cac8675b72687285e",
+    "src/stores/useShelfStore.ts": "0ee4d3cf9f2665d2a26178e940301c6bad35f22360957a3f688ee658f53aee0c",
+    "src/components/storefront/configuration.ts": "7dcc936bd98ab216c05a54e3afb56521efe12fe08205f2052e1848549d506979",
+    "src/components/storefront/savedDesign.ts": "a3280ff617653e5f899cf2ad62c27a3c7d2ca8442626060a9302cc2e24190f41",
+    "src/lib/three/styles/grid.ts": "b8851d0562846daa873f0cad301c95d844a19e544f05ad044d9a43609f7256e7",
+    "src/lib/three/styles/pattern.ts": "67010f3bfe13a9853567c0717f5b355ecd363f7119560d89b346d19980b5db62",
+    "src/lib/three/styles/mosaic.ts": "887cf929f62bc208fbed7b360162d49f8ffb0b0777ba4da80ff733433a28133b",
+    "scripts/furniture-validation/left4-connectors.test.mjs": "db385bf10cc0f5e3cd2ee1f4502568a6e26526f68a26321f1ff1f31821389f82",
+    "docs/tylko-reference/cases/legs-001.json": "cabff18c7e61aed8ebfc1d81ea798c0df19b3ba517867d12c424d222c59b4e66"
+  },
+  "fingerprintsAfter": {
+    "src/lib/three/furniture-base.ts": "142f56f11400fbf1b52fe66cc3e2f2423ed97e4c8aa832408e04fe83b2bd11de",
+    "src/components/three/FurnitureLegs.tsx": "e6051b98880a9210adeadac09224ac99d390d7655a5e133cac8675b72687285e",
+    "src/stores/useShelfStore.ts": "0ee4d3cf9f2665d2a26178e940301c6bad35f22360957a3f688ee658f53aee0c",
+    "src/components/storefront/configuration.ts": "7dcc936bd98ab216c05a54e3afb56521efe12fe08205f2052e1848549d506979",
+    "src/components/storefront/savedDesign.ts": "a3280ff617653e5f899cf2ad62c27a3c7d2ca8442626060a9302cc2e24190f41",
+    "src/lib/three/styles/grid.ts": "b8851d0562846daa873f0cad301c95d844a19e544f05ad044d9a43609f7256e7",
+    "src/lib/three/styles/pattern.ts": "67010f3bfe13a9853567c0717f5b355ecd363f7119560d89b346d19980b5db62",
+    "src/lib/three/styles/mosaic.ts": "887cf929f62bc208fbed7b360162d49f8ffb0b0777ba4da80ff733433a28133b",
+    "scripts/furniture-validation/left4-connectors.test.mjs": "db385bf10cc0f5e3cd2ee1f4502568a6e26526f68a26321f1ff1f31821389f82",
+    "docs/tylko-reference/cases/legs-001.json": "cabff18c7e61aed8ebfc1d81ea798c0df19b3ba517867d12c424d222c59b4e66"
+  }
+}

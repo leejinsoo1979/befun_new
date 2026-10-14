@@ -1,0 +1,62 @@
+{
+  "caseId": "horizontal-seam-318",
+  "observedAt": "2026-10-14T06:52:20.460830+09:00",
+  "sourceUrl": "http://localhost:3003/furniture/sideboard-terra",
+  "reference": "User screenshot codex-clipboard-54ae126c-a0f5-474f-8c99-200bbaf4effd.png",
+  "inputs": {
+    "style": "pattern",
+    "densityPercent": 70,
+    "widthCm": 318,
+    "displayHeightCm": 131,
+    "rowCount": 4,
+    "rowHeightsCm": null,
+    "depthCm": 32,
+    "backPanels": false,
+    "finish": "mix",
+    "colour": "Sand+Midnight Blue",
+    "individualEdits": null
+  },
+  "initialState": {
+    "product": "sideboard-terra",
+    "exactOriginalStateRecovered": false,
+    "note": "HMR required reload; visible options restored, original individual edits were not captured."
+  },
+  "actions": [
+    "Select Pattern; restore visible width/density/row count/depth/back/finish options",
+    "Inspect top view",
+    "Inspect oblique view"
+  ],
+  "observations": {
+    "topJointVisible": true,
+    "displayedPriceKRW": 1170400,
+    "referenceJointCoordinates": null,
+    "referenceJointWidthMm": null,
+    "cellDimensions": null
+  },
+  "implementation": {
+    "jointSource": "Touching horizontalBase panel end faces only",
+    "lineWidthScreenPx": 0.85,
+    "opacity": 0.5,
+    "surfaceBiasCm": 0.005,
+    "manufacturingGeometryChanged": false
+  },
+  "precision": {
+    "unit": "cm except explicit screen px",
+    "screenDimensionsRounded": true,
+    "referenceMeasurement": null
+  },
+  "validation": {
+    "tests": "4 passed: real adjacency, negative cases, float/order invariance, generated 318/70 and 393/43",
+    "lint": "pass; 7 existing warnings",
+    "isolatedWebpackBuild": "pass"
+  },
+  "screenshots": [
+    "docs/tylko-reference/screenshots/horizontal-seam-318-befun-top.png",
+    "docs/tylko-reference/screenshots/horizontal-seam-318-befun-oblique.png"
+  ],
+  "limitations": [
+    "Line width is a visibility treatment, not measured Tylko joint width.",
+    "No new proof of reference split-rule parity.",
+    "393/43 tested structurally, not visually."
+  ]
+}

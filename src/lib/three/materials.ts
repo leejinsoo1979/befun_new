@@ -113,25 +113,40 @@ function createPaintTextures(): { map?: THREE.Texture; roughnessMap?: THREE.Text
   return { map, roughnessMap };
 }
 
+// ── 단색 화면 보정 ──
+// Tylko 재질값(예: Midnight Blue #101323)은 Tylko 렌더에서 밝은 환경 반사가 얹혀 훨씬 밝게 보인다
+// (측정: Midnight #393943, Black #414141, Terracotta #b45c48). 우리 조명은 환경광을 바꿀 수 없으므로(원목 영향)
+// 광택 대신 단색 재질의 linear 색을 out = albedo×GAIN + LIFT로 보정해 화면 밝기를 맞춘다. 단색 전용.
+const SOLID_DISPLAY_GAIN = 1.25;
+const SOLID_DISPLAY_LIFT = 0.038;
+
+export function solidDisplayColor(hex: string): THREE.Color {
+  const c = new THREE.Color(hex); // sRGB hex → linear
+  c.r = Math.min(1, c.r * SOLID_DISPLAY_GAIN + SOLID_DISPLAY_LIFT);
+  c.g = Math.min(1, c.g * SOLID_DISPLAY_GAIN + SOLID_DISPLAY_LIFT);
+  c.b = Math.min(1, c.b * SOLID_DISPLAY_GAIN + SOLID_DISPLAY_LIFT);
+  return c;
+}
+
 /** Solid/EdgeMix 용 단색 머티리얼 세트 생성 */
 export function createColorMaterials(baseHex: string, edgeHex: string): MaterialSet {
   const base = new THREE.MeshStandardMaterial({
     ...createPaintTextures(),
-    color: new THREE.Color(baseHex),
+    color: solidDisplayColor(baseHex),
     roughness: SOLID_ROUGHNESS,
     metalness: 0.0,
     side: THREE.DoubleSide,
   });
   const edge = new THREE.MeshStandardMaterial({
     ...createPaintTextures(),
-    color: new THREE.Color(edgeHex),
+    color: solidDisplayColor(edgeHex),
     roughness: SOLID_ROUGHNESS,
     metalness: 0.0,
     side: THREE.DoubleSide,
   });
   const back = new THREE.MeshStandardMaterial({
     ...createPaintTextures(),
-    color: new THREE.Color(baseHex),
+    color: solidDisplayColor(baseHex),
     roughness: SOLID_ROUGHNESS,
     metalness: 0.0,
     side: THREE.DoubleSide,

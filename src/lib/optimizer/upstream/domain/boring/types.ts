@@ -135,6 +135,13 @@ export interface PanelBoringData {
   manufacturingReady?: false;
   /** 위 표시의 사유. 사용자에게 그대로 보여 준다. */
   manufacturingBlockReasons?: string[];
+  /** [Befun] 자동 검사별 사유 소유권. 재계산 시 다른 검사/사용자 차단은 보존한다. */
+  manufacturingBlockOwnership?: {
+    reasons: Record<string, string[]>;
+    unattributedBlocked?: true;
+  };
+  /** [Befun] 접합 차단 표시만을 위해 생성한 빈 가공 데이터. */
+  connectorBlockPlaceholder?: true;
 }
 
 // ============================================

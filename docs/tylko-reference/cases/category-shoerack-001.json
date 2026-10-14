@@ -1,0 +1,467 @@
+{
+  "caseId": "category-shoerack-001",
+  "sourceIntroUrl": "https://tylko.com/de-de/configurator-intro",
+  "scope": "Initial category/model inventory; not full behavioral equivalence",
+  "models": [
+    {
+      "model": "Original Classic",
+      "sourceUrl": "https://tylko.com/de-de/mobel/schuhregal/3516418,j",
+      "observedAt": "2026-10-13T11:41:38.757Z",
+      "metadataObservedAt": null,
+      "steps": [
+        "Existing VPN Chrome: select category in German configurator-intro",
+        "Record actual model link; open linked initial product",
+        "Wait for option controls; record DOM and observed public product/DNA responses",
+        "Read-only metadata retries where needed; no saved design or cart mutation"
+      ],
+      "initialState": {
+        "presetId": 3516418,
+        "activeShelfType": 0,
+        "collectionType": "Bookcase",
+        "publicPreset": {
+          "id": 3516418,
+          "category": "shoerack",
+          "furniture_type": "jetty",
+          "configurator_type": 1,
+          "shelf_type": 0,
+          "shelf_category": "shoerack",
+          "width": 1500,
+          "height": 530,
+          "depth": 320,
+          "pattern": 1,
+          "material": 0,
+          "configurator_params": {
+            "depth": 320,
+            "stack": {
+              "top": {
+                "1": {
+                  "active": false,
+                  "height": 700
+                }
+              },
+              "bottom": {
+                "1": {
+                  "active": false,
+                  "height": 600
+                }
+              }
+            },
+            "width": 1500,
+            "motion": 72,
+            "geom_id": 1,
+            "material": 0,
+            "snapping": true,
+            "row_amount": 2,
+            "row_styles": [
+              12,
+              21,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11
+            ],
+            "shelf_type": 0,
+            "row_heights": [
+              300,
+              200,
+              200,
+              300,
+              300,
+              300,
+              300,
+              300,
+              300,
+              300,
+              300,
+              300
+            ],
+            "support_size": 125,
+            "half_material": 9,
+            "styles_slider": -1,
+            "prefabrication": null,
+            "backpanels_rows": [],
+            "shadow_settings": [
+              2,
+              2,
+              4,
+              2
+            ],
+            "additional_parameters": {
+              "collection_type": "Bookcase"
+            },
+            "gen_row_styles_for_buttons": true
+          },
+          "physical_product_version": 7
+        },
+        "hiddenSeed": null,
+        "priorEditHistory": null
+      },
+      "observedDnaRequests": [
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=0&collection_type=Bookcase&dna_version=6",
+          "status": 200
+        }
+      ],
+      "sliders": [
+        {
+          "max": "100.0",
+          "min": "0.0",
+          "text": "72%",
+          "value": "72.0"
+        },
+        {
+          "max": "450.0",
+          "min": "30.0",
+          "text": "150cm",
+          "value": "150.0"
+        },
+        {
+          "max": "9.0",
+          "min": "0.0",
+          "text": "53cm",
+          "value": "1.0"
+        }
+      ],
+      "optionUiSnapshot": "- main:\n  - complementary:\n    - paragraph:\n      - link \"Tylko Club ist da. Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\":\n        - /url: /de-de/register-or-login/join-club\n        - strong: Tylko Club ist da.\n        - text: Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\n  - link:\n    - /url: /de-de\n  - list:\n    - link \"Shop\":\n      - /url: /de-de/mobel-c\n    - link \"Community\":\n      - /url: /de-de/inspirations\n    - link \"Tylko Pro\":\n      - /url: /de-de/tylko-pro\n    - link \"Showrooms\":\n      - /url: /de-de/showrooms\n    - link \"Tylko Club\":\n      - /url: /de-de/tylko-club\n  - list:\n    - button:\n    - link:\n      - /url: /de-de/account\n    - link:\n      - /url: /de-de/wunschliste\n    - link:\n      - /url: /de-de/cart/\n  - main:\n    - heading [level=1]\n    - heading \"Reihen anpassen\" [level=2]\n    - paragraph: NaN €\n    - paragraph: Stil\n    - button \"Gradient\":\n      - paragraph: Gradient\n    - button \"Pattern\":\n      - paragraph: Pattern\n    - button \"Grid\":\n      - paragraph: Grid\n    - button \"Slant\":\n      - paragraph: Slant\n    - button \"Mosaic\":\n      - paragraph: Mosaic\n    - button \"Pixel\":\n      - paragraph: Pixel\n    - paragraph: Dichte\n    - slider:\n      - generic: 72%\n    - paragraph: Breite\n    - slider:\n      - generic: 150cm\n    - paragraph: Höhe\n    - slider:\n      - generic: 53cm\n    - paragraph: Tiefe\n    - button \"24cm\"\n    - button \"32cm\"\n    - button \"40cm\"\n    - generic: 32cm\n    - paragraph: Rückwände\n    - button \"Ohne\"\n    - button \"Mit\"\n    - generic: Ohne\n    - paragraph: Finish\n    - button \"Farbe\"\n    - button \"Multiplexplatte\"\n    - button \"Furnier\"\n    - generic: Multiplexplatte\n    - paragraph: Farbe neu\n    - list:\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n    - generic: Unentschlossen?\n    - generic: Muster bestellen\n    - button \"In den Warenkorb\":\n      - generic: In den Warenkorb\n    - button \"Entwurf speichern\":\n      - text: Entwurf speichern\n    - complementary:\n      - paragraph\n      - paragraph: Maßangefertigt in der EU\n    - paragraph: Zahlungsinformationen\n    - paragraph: Lieferung & Rückgabe\n    - button:\n    - button:\n    - button:\n    - button:\n    - img \"Schuhregal in Weiß mit Türen und Schubladen\"\n    - heading \"Schuhregal in Weiß mit Türen und Schubladen\" [level=1]\n    - paragraph: Breite 150cm • Höhe 53cm • Tiefe 32cm\n    - paragraph: Farbe\n    - paragraph: Wir erstellen dein Regal. Nur noch einen kurzen Augenblick...\n    - heading \"Schuhregal in Weiß mit Türen und Schubladen...\" [level=1]\n    - paragraph:\n      - text: Steuern inklusive\n    - paragraph:\n      - text: Versand in 3-4 Wochen\n    - generic: Entwurf speichern\n    - text: In den Warenkorb\n    - generic: Zahlungsoptionen anzeigen\n",
+      "geometry": {
+        "rows": null,
+        "columns": null,
+        "partitionCoordinatesMm": null,
+        "horizontalPanelJointsMm": null,
+        "feetCoordinatesMm": null
+      },
+      "precision": {
+        "ui": "cm labels are rounded; some slider ranges are row indices or legroom positions",
+        "api": "public numeric preset values retained without asserting physical manufacturing precision",
+        "geometry": "not measured in this category inventory"
+      },
+      "screenshots": [
+        {
+          "path": "screenshots/category-shoerack-original-classic-reference.png",
+          "status": "loading-preview-only",
+          "note": "Captured before 3D finished; not suitable for visual equivalence. Loaded option DOM was captured separately."
+        }
+      ],
+      "unverified": [
+        "Single-option boundary transitions",
+        "Category switch reset/retention",
+        "All individual hardware edits",
+        "Leg and panel-joint formulas",
+        "Befun structural and visual equivalence"
+      ]
+    },
+    {
+      "model": "Original Modern",
+      "sourceUrl": "https://tylko.com/de-de/mobel/schuhregal/3516416,j",
+      "observedAt": "2026-10-13T11:35:10.506Z",
+      "metadataObservedAt": null,
+      "steps": [
+        "Existing VPN Chrome: select category in German configurator-intro",
+        "Record actual model link; open linked initial product",
+        "Wait for option controls; record DOM and observed public product/DNA responses",
+        "Read-only metadata retries where needed; no saved design or cart mutation"
+      ],
+      "initialState": {
+        "presetId": null,
+        "activeShelfType": null,
+        "collectionType": null,
+        "publicPreset": null,
+        "hiddenSeed": null,
+        "priorEditHistory": null
+      },
+      "observedDnaRequests": [
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=1&collection_type=Bookcase&dna_version=6",
+          "status": 200
+        }
+      ],
+      "sliders": [
+        {
+          "max": "100.0",
+          "min": "0.0",
+          "text": "12%",
+          "value": "12.0"
+        },
+        {
+          "max": "450.0",
+          "min": "30.0",
+          "text": "88cm",
+          "value": "88.0"
+        },
+        {
+          "max": "9.0",
+          "min": "0.0",
+          "text": "43cm",
+          "value": "1.0"
+        }
+      ],
+      "optionUiSnapshot": "- main:\n  - complementary:\n    - paragraph:\n      - link \"Tylko Club ist da. Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\":\n        - /url: /de-de/register-or-login/join-club\n        - strong: Tylko Club ist da.\n        - text: Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\n  - link:\n    - /url: /de-de\n  - list:\n    - link \"Shop\":\n      - /url: /de-de/mobel-c\n    - link \"Community\":\n      - /url: /de-de/inspirations\n    - link \"Tylko Pro\":\n      - /url: /de-de/tylko-pro\n    - link \"Showrooms\":\n      - /url: /de-de/showrooms\n    - link \"Tylko Club\":\n      - /url: /de-de/tylko-club\n  - list:\n    - button:\n    - link:\n      - /url: /de-de/account\n    - link:\n      - /url: /de-de/wunschliste\n    - link:\n      - /url: /de-de/cart/\n  - main:\n    - heading [level=1]\n    - heading \"Reihen anpassen\" [level=2]\n    - paragraph: NaN €\n    - paragraph: Stil\n    - button \"Pattern\":\n      - paragraph: Pattern\n    - button \"Grid\":\n      - paragraph: Grid\n    - button \"Slant\":\n      - paragraph: Slant\n    - button \"Mosaic\":\n      - paragraph: Mosaic\n    - button \"Gradient\":\n      - paragraph: Gradient\n    - button \"Pixel\":\n      - paragraph: Pixel\n    - paragraph: Dichte\n    - slider:\n      - generic: 12%\n    - paragraph: Breite\n    - slider:\n      - generic: 88cm\n    - paragraph: Höhe\n    - slider:\n      - generic: 43cm\n    - paragraph: Tiefe\n    - button \"24cm\"\n    - button \"32cm\"\n    - button \"40cm\"\n    - generic: 32cm\n    - paragraph: Rückwände\n    - button \"Ohne\"\n    - button \"Mit\"\n    - generic: Ohne\n    - paragraph: Finish\n    - button \"Farbe\"\n    - button \"Multiplexplatte\"\n    - button \"Furnier\"\n    - generic: Farbe\n    - paragraph: Farbe neu\n    - list:\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n    - generic: Unentschlossen?\n    - generic: Muster bestellen\n    - button \"In den Warenkorb\":\n      - generic: In den Warenkorb\n    - button \"Entwurf speichern\":\n      - text: Entwurf speichern\n    - complementary:\n      - paragraph\n      - paragraph: Maßangefertigt in der EU\n    - paragraph: Zahlungsinformationen\n    - paragraph: Lieferung & Rückgabe\n    - button:\n    - button:\n    - button:\n    - button:\n    - img \"Schuhregal in Premium-Schwarz mit Schubladen\"\n    - heading \"Schuhregal in Premium-Schwarz mit Schubladen\" [level=1]\n    - paragraph: Breite 88cm • Höhe 43cm • Tiefe 32cm\n    - paragraph: Farbe Premium-Mattschwarz\n    - paragraph: Wir erstellen dein Regal. Nur noch einen kurzen Augenblick...\n    - heading \"Schuhregal in Premium-Schwarz mit Schubladen...\" [level=1]\n    - paragraph:\n      - text: Steuern inklusive\n    - paragraph:\n      - text: Versand in 6-7 Wochen\n    - generic: Entwurf speichern\n    - text: In den Warenkorb\n    - generic: Zahlungsoptionen anzeigen\n    - list:\n      - button \"Bewertung basierend auf 307 Bewertungen gesammelt auf tylko.com 4.8/5\":\n        - paragraph: Bewertung basierend auf 307 Bewertungen gesammelt auf tylko.com\n        - paragraph: 4.8/5\n      - heading \"Lieferung inklusive\" [level=5]\n      - paragraph: Direkt zu dir nach Hause\n      - generic: Weiterlesen\n      - heading \"100 Tage kostenlose Rückgabe\" [level=5]\n      - paragraph: Genug Zeit zum Verlieben\n      - generic: Weiterlesen\n      - heading \"Optionaler Aufbau-Service\" [level=5]\n      - paragraph: \"Hier erhältlich: Deutschland\"\n      - generic: Weiterlesen\n      - heading \"10 Jahre Garantie\" [level=5]\n      - paragraph: Gebaut für die Ewigkeit\n      - generic: Weiterlesen\n    - radio \"Weiß\"\n    - text: Weiß\n    - radio \"Cremebeige\"\n    - text: Cremebeige\n    - radio \"Grau\"\n    - text: Grau\n    - radio \"Steingrau\"\n    - text: Steingrau\n    - radio \"Olivgrün\"\n    - text: Olivgrün\n    - radio \"Sand + Mitternachtsblau\"\n    - text: Sand + Mitternachtsblau\n    - radio \"Terrakotta\"\n    - text: Terrakotta\n    - radio \"Weinrot\"\n    - text: Weinrot\n    - radio \"Salbeigrün\"\n    - text: Salbeigrün\n    - radio \"Hellblau\"\n    - text: Hellblau\n    - radio \"Mitternachtsblau\"\n    - text: Mitternachtsblau\n    - radio \"Reisinger Pink\"\n    - text: Reisinger Pink\n    - radio \"Premium-Mattschwarz\" [checked]\n    - text: Premium-Mattschwarz\n    - radio \"Schwarz\"\n    - text: Schwarz\n    - radio \"Buttergelb\"\n    - text: Buttergelb\n    - radio \"Flieder\"\n    - text: Flieder\n    - radio \"Dunkelbraun\"\n    - text: Dunkelbraun\n    - button \"Schuhregal in Premium-Schwarz mit Schubladen 1\":\n      - img \"Schuhregal in Premium-Schwarz mit Schubladen 1\"\n    - button \"Schuhregal in Premium-Schwarz mit Schubladen 2\":\n      - img \"Schuhregal in Premium-Schwarz mit Schubladen 2\"\n    - button \"Schuhregal in Premium-Schwarz mit Schubladen 3\":\n      - img \"Schuhregal in Premium-Schwarz mit Schubladen 3\"\n    - button \"Schuhregal in Premium-Schwarz mit Schubladen 4\":\n      - img \"Schuhregal in Premium-Schwarz mit Schubladen 4\"\n    - button \"Schuhregal in Premium-Schwarz mit Schubladen 5\":\n      - img \"Schuhregal in Premium-Schwarz mit Schubladen 5\"\n    - button \"Schuhregal in Premium-Schwarz mit Schubladen 6\":\n      - img \"Schuhregal in Premium-Schwarz mit Schubladen 6\"\n    - button \"Schuhregal in Premium-Schwarz mit Schubladen 7\":\n      - img \"Schuhregal in Premium-Schwarz mit Schubladen 7\"\n    - button \"Schuhregal in Premium-Schwarz mit Schubladen 8\":\n      - img \"Schuhregal in Premium-Schwarz mit Schubladen 8\"\n    - paragraph:\n      - link \"Mehr Stile ansehen\":\n        - /url: /de-de/mobel-c\n    - heading \"Angaben zu deinem Möbelstück\" [level=2]\n    - button \"Abmessungen & Details\":\n      - heading \"Abmessungen & Details\" [level=3]\n    - button \"Material\":\n      - heading \"Material\" [level=3]\n    - button \"Lieferung & Rückgabe\":\n      - heading \"Lieferung & Rückgabe\" [level=3]\n    - button \"Aufbauinformationen\":\n      - heading \"Aufbauinformationen\" [level=3]\n    - button \"Sicherheit\":\n      - heading \"Sicherheit\" [level=3]\n    - paragraph: Hilfe gefällig? Schreib uns eine Nachricht über\n    - paragraph:\n      - button \"Live-Chat\":\n        - text: Live-Chat\n      - generic: oder\n      - button \"WhatsApp\":\n        - text: WhatsApp\n    - complementary\n    - paragraph: Tylko Original\n    - heading \"Perfekt passende Möbel für Menschen, die aus der Masse hervorstechen\" [level=2]\n    - button [disabled]:\n    - button:\n    - heading \"SCHUHREGAL\" [level=3]\n    - heading \"Schaffe Platz für jedes Paar\" [level=2]\n    - img \"Regale mit Charakter\"\n    - heading \"ORIGINAL MODERN\" [level=3]\n    - heading \"Regale mit Charakter\" [level=2]\n    - button \"Mehr\"\n    - heading [level=3]\n    - button \"Mehr\"\n    - img \"Mach dir jeden Zentimeter zu eigen\"\n    - heading \"CustomFit®-Technologie\" [level=3]\n    - heading \"Mach dir jeden Zentimeter zu eigen\" [level=2]\n    - button \"Mehr\"\n    - img \"Platz zum Durchatmen\"\n    - heading \"Beine oder Sockel\" [level=3]\n    - heading \"Platz zum Durchatmen\" [level=2]\n    - button \"Mehr\"\n    - img \"Ausgewählte Farben\"\n    - heading [level=3]\n    - heading \"Ausgewählte Farben\" [level=2]\n    - img \"Hallo Platz im Flur\"\n    - heading \"SCHUHREGALE\" [level=3]\n    - heading \"Hallo Platz im Flur\" [level=2]\n    - button \"Mehr\"\n    - img \"Wenn’s Klick macht\"\n    - heading \"SimpleClick®-Montage\" [level=3]\n    - heading \"Wenn’s Klick macht\" [level=2]\n    - button \"Mehr\"\n    - img \"Dein Regal, deine einzigartige Nummer\"\n    - heading \"Einzigartiges Möbelstück\" [level=3]\n    - heading \"Dein Regal, deine einzigartige Nummer\" [level=2]\n    - img \"Regale mit Charakter\"\n    - heading \"ORIGINAL MODERN\" [level=3]\n    - heading \"Regale mit Charakter\" [level=2]\n    - button \"Mehr\"\n    - heading [level=3]\n    - button \"Mehr\"\n    - img \"Mach dir jeden Zentimeter zu eigen\"\n    - heading \"CustomFit®-Technologie\" [level=3]\n    - heading \"Mach dir jeden Zentimeter zu eigen\" [level=2]\n    - button \"Mehr\"\n    - img \"Platz zum Durchatmen\"\n    - heading \"Beine oder Sockel\" [level=3]\n    - heading \"Platz zum Durchatmen\" [level=2]\n    - button \"Mehr\"\n    - img \"Ausgewählte Farben\"\n    - heading [level=3]\n    - heading \"Ausgewählte Farben\" [level=2]\n    - img \"Hallo Platz im Flur\"\n    - heading \"SCHUHREGALE\" [level=3]\n    - heading \"Hallo Platz im Flur\" [level=2]\n    - button \"Mehr\"\n    - img \"Wenn’s Klick macht\"\n    - heading \"SimpleClick®-Montage\" [level=3]\n    - heading \"Wenn’s Klick macht\" [level=2]\n    - button \"Mehr\"\n    - img \"Dein Regal, deine einzigartige Nummer\"\n    - heading \"Einzigartiges Möbelstück\" [level=3]\n    - heading \"Dein Regal, deine einzigartige Nummer\" [level=2]\n    - button:\n    - button:\n    - heading \"DIE TYLKO-ERFAHRUNG\" [level=3]\n    - heading \"Wir haben über 300.000 zufriedene Kunden in 28 Ländern\" [level=2]\n    - complementary:\n      - paragraph: 4,8\n      - paragraph: 95% unserer Kunden empfehlen unsere Produkte weiter. Bewertung basierend auf 307 Bewertungen, die auf Tylko.com abgegeben wurden.\n      - link \"Mehr über Bewertungen erfahren\":\n        - /url: https://tylko.com/en-uk/privacy_policy/the-basis-and-purpose-of-personal-data-processing\n        - generic: Mehr über Bewertungen erfahren\n    - complementary:\n      - list:\n        - button \"Assembly\"\n        - button \"Comfort\"\n        - button \"Customer Support\"\n        - button \"Delivery\"\n        - button \"Style\"\n        - button \"Quality\"\n    - article:\n      - img \"Perfekt für unseren schwierigen Flur\"\n      - generic: Suzie\n      - time: 16. Mai 2023\n      - generic: \"Farbe: Weiß\"\n      - heading \"Perfekt für unseren schwierigen Flur\" [level=3]\n      - paragraph: Das ist meine zweite Bestellung bei Tylko. Das Möbelstück ist sehr stabil, hat eine wunderschöne Farbe, war einfach aufzubauen und passt perfekt in den Raum. Was ich bei der Bestellung nicht gemerkt hatte, war, dass das Möbelstück mit kleinen, höhenverstellbaren Füßen geliefert wird. Das war sehr praktisch. Mir gefällt das Möbelstück so gut, dass ich ein extra Kissen gemacht habe, das obendrauf liegt\n      - paragraph: \"Originalsprache: EnglishOriginal anzeigen\"\n    - article:\n      - img \"Nur zu empfehlen\"\n      - generic: Kyungwoo\n      - time: 4. Januar 2023\n      - generic: \"Farbe: Blau\"\n      - heading \"Nur zu empfehlen\" [level=3]\n      - paragraph: Mir gefielen das Design, die Farbe und die Unterstützung vom Kundenserviceteam, das ich wegen Problemen beim Aufbau kontaktiert habe.\n      - paragraph: \"Originalsprache: Deutsch\"\n    - article:\n      - img \"Super Preis-Leistungs-Verhältnis, hochwertiges Produkt\"\n      - generic: GLENN\n      - time: 18. Dezember 2023\n      - generic: \"Farbe: Premium-Schwarz\"\n      - heading \"Super Preis-Leistungs-Verhältnis, hochwertiges Produkt\" [level=3]\n      - paragraph: Ich habe das Sideboard für unter einen neuen Fernseher in einem neu eingerichteten Fernseh-/Musikzimmer gekauft. Das Sideboard war einfach aufzubauen und es war genial, dass keine Schrauben benötigt wurden. Das Produkt ist sehr gut verarbeitet – ich wünschte nur, dass ich für die beiden Enden des Regals ein Regalbrett bestellt hätte. Alles in allem bin ich mit dem Möbelstück sehr zufrieden.\n      - paragraph: \"Originalsprache: EnglishOriginal anzeigen\"\n    - button \"Mehr zeigen\"\n    - img \"Lass dich von unserer Community inspirieren\"\n    - heading \"Tylko im echten Leben\" [level=2]\n    - heading \"Lass dich von unserer Community inspirieren\" [level=1]\n    - link \"Mehr entdecken\":\n      - /url: /de-de/gallery\n    - paragraph: Finde dein perfektes Match\n    - heading \"Du bist noch unentschlossen? Dann sieh dir das hier an.\" [level=2]\n    - link \"Was ist anders bei Tylko? Was ist anders bei Tylko? Mehr erfahren\":\n      - /url: /de-de/about-tylko\n      - img \"Was ist anders bei Tylko?\"\n      - heading \"Was ist anders bei Tylko?\" [level=3]\n      - paragraph:\n        - generic: Mehr erfahren\n    - link \"Entdecke unsere Qualität aus nächster Nähe Entdecke unsere Qualität aus nächster Nähe Muster bestellen\":\n      - /url: /de-de/muster\n      - img \"Entdecke unsere Qualität aus nächster Nähe\"\n      - heading \"Entdecke unsere Qualität aus nächster Nähe\" [level=3]\n      - paragraph:\n        - generic: Muster bestellen\n    - link \"Schuhregale entdecken\":\n      - /url: /de-de/mobel-c/schuhregale\n      - paragraph:\n        - generic: Schuhregale entdecken\n    - heading \"Dieses Geschenk passt immer\" [level=1]\n    - generic: Verschenke die Freude, sich ein eigenes Tylko auszusuchen\n    - link \"E-Geschenkkarte entdecken\":\n      - /url: /de-de/e-geschenkkarte/1\n    - paragraph: Siehe auch\n    - heading \"Das könnte dir auch gefallen\" [level=2]\n    - heading \"Showrooms\" [level=3]\n    - paragraph: Finde einen Showroom in deiner Nähe.\n    - heading \"Tylko Showrooms & Tylko Friends\" [level=2]\n    - img \"Tylko Space Berlin\"\n    - generic: Showroom\n    - heading \"Tylko Space Berlin\" [level=3]\n    - paragraph:\n      - text: Gipsstraße 7\n      - text: 10119 Berlin\n    - paragraph:\n      - link \"+493027695161\":\n        - /url: \"tel:+493027695161}\"\n      - link \"berlin@tylko.com\":\n        - /url: mailto:berlin@tylko.com\n    - link \"Zur Wegbeschreibung\":\n      - /url: https://maps.app.goo.gl/nZmGK6ahnW4VVW6k9\n    - img \"Tylko Dresden @ RW Showrooms\"\n    - generic: Showroom\n    - heading \"Tylko Dresden @ RW Showrooms\" [level=3]\n    - paragraph:\n      - text: Elisenstraße 23\n      - text: 01307 Dresden\n    - paragraph:\n      - link \"+4935148458859\":\n        - /url: \"tel:+4935148458859}\"\n      - link \"hello@tylko.com\":\n        - /url: mailto:hello@tylko.com\n    - link \"Zur Wegbeschreibung\":\n      - /url: https://maps.app.goo.gl/8Mhamv4cfDyRo34G7\n    - img \"Tylko Hamburg @ RW Showrooms\"\n    - generic: Showroom\n    - heading \"Tylko Hamburg @ RW Showrooms\" [level=3]\n    - paragraph:\n      - text: Baakenallee 36\n      - text: 20457 Hamburg\n    - paragraph:\n      - link \"+494033310936\":\n        - /url: \"tel:+494033310936}\"\n      - link \"hello@tylko.com\":\n        - /url: mailto:hello@tylko.com\n    - link \"Zur Wegbeschreibung\":\n      - /url: https://maps.app.goo.gl/hvAUGc19T9ABG2jV9\n    - img \"Tylko Hannover @ RW Showrooms\"\n    - generic: Showroom\n    - heading \"Tylko Hannover @ RW Showrooms\" [level=3]\n    - paragraph:\n      - text: Expo Plaza 11\n      - text: 30539 Hannover\n    - paragraph:\n      - link \"+49511 98247739\":\n        - /url: \"tel:+49511 98247739}\"\n      - link \"hello@tylko.com\":\n        - /url: mailto:hello@tylko.com\n    - link \"Zur Wegbeschreibung\":\n      - /url: https://maps.app.goo.gl/Ar5DVbcLjeeXWeyGA\n    - button \"Alle sehen\"\n  - heading \"Werde Teil der Tylko-Community\" [level=2]\n  - heading \"Jetzt anmelden und 300€ Gutschein erhalten\" [level=3]\n  - textbox \"Deine E-Mail-Adresse\"\n  - button \"Hol dir 300€\"\n  - paragraph:\n    - text: Ich möchte einen Newsletter über Angebote, Rabattaktionen und andere Marketing-Informationen von Tylko S.A. an die angegebene E-Mail-Adresse erhalten. Ich kann meine Zustimmung jederzeit widerrufen, dies wird nicht die Rechtmäßigkeit der Verarbeitung beeinträchtigen, die vor dem Widerruf stattgefunden hat.\n    - text: \"*Der Verwalter deiner personenbezogenen Daten ist Tylko S.A. mit Sitz in 8/10 Czerska St., 00-732 Warschau, Polen, KRS 000983931, to contact us, im Folgenden \\\"Tylko\\\". Ich habe die\"\n    - strong:\n      - link \"Allgemeinen Geschäftsbedingungen (bezüglich des Newsletter-Versands)\":\n        - /url: /de/terms/benutzerkonto\n    - text: und die\n    - strong:\n      - link \"Datenschutzbestimmungen\":\n        - /url: /de/privacy_policy/\n    - text: gelesen und stimme diesen zu.\n  - heading \"Möbel, die sich dir anpassen und nicht umgekehrt. Willkommen in der Zukunft des Wohnens.\" [level=1]\n  - generic: Unternehmen\n  - checkbox \"Unternehmen\"\n  - list:\n    - link \"Über Tylko\":\n      - /url: /de-de/about-tylko\n      - generic: Über Tylko\n    - link \"Showrooms\":\n      - /url: /showrooms\n      - generic: Showrooms\n    - link \"E-Geschenkkarte\":\n      - /url: /de-de/e-geschenkkarte/1\n      - generic: E-Geschenkkarte\n    - link \"Journal\":\n      - /url: https://journal.tylko.com/\n      - generic: Journal\n    - link \"Presse & Medien\":\n      - /url: /de-de/press\n      - generic: Presse & Medien\n    - link \"Jobs\":\n      - /url: https://tylko.recruitee.com/\n      - generic: Jobs\n    - link \"Investorenbeziehungen\":\n      - /url: /de-de/investor-relations\n      - generic: Investorenbeziehungen\n    - link \"Gesetz über digitale Dienste\":\n      - /url: /de-de/digital-services-act\n      - generic: Gesetz über digitale Dienste\n    - link \"Tylko Pro\":\n      - /url: /de-de/tylko-pro\n      - generic: Tylko Pro\n  - generic: Einkaufen bei Tylko\n  - checkbox \"Einkaufen bei Tylko\"\n  - list:\n    - link \"FAQ\":\n      - /url: /de-de/faq\n      - generic: FAQ\n    - link \"AGB\":\n      - /url: /de-de/terms\n      - generic: AGB\n    - link \"Nutzungsbedingungen der E-Geschenkkarte\":\n      - /url: /de-de/terms-gift-card\n      - generic: Nutzungsbedingungen der E-Geschenkkarte\n    - link \"Datenschutz-erklärung\":\n      - /url: /de-de/privacy_policy\n      - generic: Datenschutz-erklärung\n    - button \"Cookies bearbeiten\":\n      - generic: Cookies bearbeiten\n    - link \"Lieferung & Rücksendungen\":\n      - /url: /de-de/shipping\n      - generic: Lieferung & Rücksendungen\n    - link \"Bestellstornierung\":\n      - /url: /de-de/contact?topic=cancellation\n      - generic: Bestellstornierung\n    - link \"Bestellstatus ansehen\":\n      - /url: /de-de/contact?topic=order_status\n      - generic: Bestellstatus ansehen\n  - generic: Kundenservice\n  - checkbox \"Kundenservice\"\n  - list:\n    - link \"Kontaktdaten\":\n      - /url: /de-de/contact\n      - generic: Kontaktdaten\n    - button \"WhatsApp\":\n      - generic: WhatsApp\n    - link \"Verstöße melden\":\n      - /url: https://tylko.whistlelink.com/\n      - generic: Verstöße melden\n    - generic: Mon. - Fr. 10:00 - 20:00 Uhr\n    - generic: Sa. 10:00 - 14:00 Uhr\n    - generic: Sonntags geschlossen\n    - button \"LiveChat\":\n      - generic: LiveChat\n  - generic: Folge uns auf\n  - checkbox \"Folge uns auf\"\n  - list:\n    - link \"",
+      "geometry": {
+        "rows": null,
+        "columns": null,
+        "partitionCoordinatesMm": null,
+        "horizontalPanelJointsMm": null,
+        "feetCoordinatesMm": null
+      },
+      "precision": {
+        "ui": "cm labels are rounded; some slider ranges are row indices or legroom positions",
+        "api": "public numeric preset values retained without asserting physical manufacturing precision",
+        "geometry": "not measured in this category inventory"
+      },
+      "screenshots": [
+        {
+          "path": "screenshots/category-shoerack-original-modern-reference.png",
+          "status": "loading-preview-only",
+          "note": "Captured before 3D finished; not suitable for visual equivalence. Loaded option DOM was captured separately."
+        }
+      ],
+      "unverified": [
+        "Single-option boundary transitions",
+        "Category switch reset/retention",
+        "All individual hardware edits",
+        "Leg and panel-joint formulas",
+        "Befun structural and visual equivalence"
+      ]
+    },
+    {
+      "model": "Edge",
+      "sourceUrl": "https://tylko.com/de-de/mobel/schuhregal/1614538,w",
+      "observedAt": "2026-10-13T11:44:56.965Z",
+      "metadataObservedAt": null,
+      "steps": [
+        "Existing VPN Chrome: select category in German configurator-intro",
+        "Record actual model link; open linked initial product",
+        "Wait for option controls; record DOM and observed public product/DNA responses",
+        "Read-only metadata retries where needed; no saved design or cart mutation"
+      ],
+      "initialState": {
+        "presetId": 1614538,
+        "activeShelfType": 4,
+        "collectionType": "Sideboard",
+        "publicPreset": {
+          "id": 1614538,
+          "category": "shoerack",
+          "furniture_type": "watty",
+          "configurator_type": 3,
+          "shelf_type": 4,
+          "shelf_category": "shoerack",
+          "width": 1730,
+          "height": 480,
+          "depth": 450,
+          "pattern": 0,
+          "material": 9,
+          "configurator_params": {
+            "skin": "edge",
+            "depth": 450,
+            "width": 1730,
+            "height": 480,
+            "density": 100,
+            "flatTop": true,
+            "geom_id": 2590,
+            "handles": false,
+            "material": 9,
+            "geom_type": "mesh",
+            "distortion": 0,
+            "additional_parameters": {
+              "collection_type": "Sideboard",
+              "doors_direction": 1
+            },
+            "configurator_custom_params": {
+              "lines": {},
+              "channels": {
+                "1": {
+                  "order": 1,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": "left",
+                  "series_id": "Open_Low_ch_slabs",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 450,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": "Low"
+                },
+                "2": {
+                  "order": 1,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_ch_slabs",
+                  "distortion": null,
+                  "exposition": null,
+                  "local_depth": 450,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": "High"
+                },
+                "3": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Low_ch_slabs",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 450,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": "Low"
+                },
+                "4": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_High_ch_veryVeryOpenTop",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 450,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": "High"
+                },
+                "5": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_ch_fullDrawers",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 450,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "6": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_ch_fullDrawers",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 450,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "7": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_ch_fullDrawers",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 450,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "8": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_ch_fullDrawers",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 450,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "9": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_ch_fullDrawers",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 450,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "10": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_ch_fullDrawers",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 450,
+                  "local_height": 480,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                }
+              }
+            }
+          },
+          "physical_product_version": 5
+        },
+        "hiddenSeed": null,
+        "priorEditHistory": null
+      },
+      "observedDnaRequests": [
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=4&collection_type=Sideboard&dna_version=6",
+          "status": 200
+        },
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=5&collection_type=Sideboard&dna_version=6",
+          "status": 200
+        }
+      ],
+      "sliders": [
+        {
+          "max": "600.0",
+          "min": "40.0",
+          "text": "173cm",
+          "value": "173.0"
+        },
+        {
+          "max": "158.0",
+          "min": "48.0",
+          "text": "48cm",
+          "value": "48.0"
+        }
+      ],
+      "optionUiSnapshot": "- main:\n  - complementary:\n    - paragraph:\n      - link \"Spare 38% auf ausgewählte Produkte\":\n        - /url: /de-de/mobel-c?additional=sale\n        - strong: Spare 38% auf ausgewählte Produkte\n      - text: 👉🏻\n  - link:\n    - /url: /de-de\n  - list:\n    - link \"Shop\":\n      - /url: /de-de/mobel-c\n    - link \"Community\":\n      - /url: /de-de/inspirations\n    - link \"Tylko Pro\":\n      - /url: /de-de/tylko-pro\n    - link \"Showrooms\":\n      - /url: /de-de/showrooms\n    - link \"Tylko Club\":\n      - /url: /de-de/tylko-club\n  - list:\n    - button:\n    - link:\n      - /url: /de-de/account\n    - link:\n      - /url: /de-de/wunschliste\n    - link:\n      - /url: /de-de/cart/\n  - main:\n    - heading \"Schuhregal in Grün\" [level=1]\n    - heading \"Versand in 4-5 Wochen\" [level=2]\n    - generic: 660 €\n    - generic: Tylko Club\n    - generic: 1064 €\n    - generic: Regulär\n    - complementary:\n      - button \"Entwurf speichern\":\n        - generic: Entwurf speichern\n      - button \"In den Warenkorb\":\n        - generic: In den Warenkorb\n    - heading \"Schuhregal in Grün\" [level=1]\n    - button \"Zoom out\" [disabled]:\n    - button \"Zoom in\":\n    - button \"Dimensions\":\n    - button \"Shelves\":\n    - button \"Doors\":\n    - button \"See product details\":\n    - button \"Share\":\n    - paragraph:\n      - generic: 660 €\n      - generic: Tylko Club\n    - paragraph:\n      - generic: 1064 €\n      - generic: Regulär\n    - paragraph:\n      - button \"Werde Mitglied im Tylko Club,\"\n      - text: um Mitgliederpreise freizuschalten\n    - button \"Aussehen\"\n    - button \"Ausstattung\"\n    - generic: Aussehen\n    - paragraph: Breite\n    - slider \"Size value in centimeters\":\n      - generic: 173cm\n    - paragraph: Höhe\n    - slider \"Size value in centimeters\":\n      - generic: 48cm\n    - paragraph:\n      - text: Tiefe\n    - button \"36cm\"\n    - button \"45cm\"\n    - button \"60cm\"\n    - generic: 45cm\n    - paragraph: Spalten\n    - button \"Decrease\":\n    - paragraph: \"3\"\n    - button \"Increase\" [disabled]:\n    - paragraph:\n      - text: Oberseite mit Kanten\n    - button \"Mit\"\n    - button \"Aus\"\n    - generic: Aus\n    - paragraph:\n      - text: Finish\n    - button \"Farbe\"\n    - button \"Multiplexplatte\"\n    - button \"Holzoptik\"\n    - generic: Farbe\n    - paragraph: Farbe\n    - list:\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n    - paragraph\n    - generic: Unentschlossen?\n    - generic: Muster bestellen\n    - button \"In den Warenkorb\":\n      - generic: In den Warenkorb\n    - button \"Entwurf speichern\":\n      - generic: Entwurf speichern\n    - complementary:\n      - paragraph: Versand in 3-4 Wochen\n      - paragraph: Maßangefertigt in der EU\n    - generic: Zahlungsinformationen\n    - generic: Lieferung & Rückgabe\n",
+      "geometry": {
+        "rows": null,
+        "columns": null,
+        "partitionCoordinatesMm": null,
+        "horizontalPanelJointsMm": null,
+        "feetCoordinatesMm": null
+      },
+      "precision": {
+        "ui": "cm labels are rounded; some slider ranges are row indices or legroom positions",
+        "api": "public numeric preset values retained without asserting physical manufacturing precision",
+        "geometry": "not measured in this category inventory"
+      },
+      "screenshots": [
+        {
+          "path": "screenshots/category-shoerack-edge-reference.png",
+          "status": "rendered-reference",
+          "note": "Overview evidence; no calibrated geometry measurement"
+        }
+      ],
+      "unverified": [
+        "Single-option boundary transitions",
+        "Category switch reset/retention",
+        "All individual hardware edits",
+        "Leg and panel-joint formulas",
+        "Befun structural and visual equivalence"
+      ]
+    }
+  ]
+}

@@ -14,7 +14,7 @@ import type { StyleType } from '@/types/shelf';
 
 /**
  * 개발용 가구 렌더러(/render-shelf). 컨피규레이터와 같은 Shelf·재질·톤매핑으로 가구만 투명 배경에 그린다.
- * 파라미터: style, color, width, height, depth, density, back(1), doors/drawers(행 번호 쉼표), yaw/pitch(도), w/h(px)
+ * 파라미터: style, color, width, height 또는 rows(행 높이 쉼표), depth, density, back(1), doors/drawers(행 번호 쉼표), yaw/pitch(도), fov, w/h(px)
  */
 function Studio() {
   return (
@@ -58,7 +58,11 @@ export default function ShelfRender() {
     const shelf = useShelfStore.getState();
     shelf.setStyle((params.get('style') ?? 'grid') as StyleType);
     shelf.setWidth(num('width', 120));
-    shelf.setHeight(num('height', 113));
+    const rows = (params.get('rows') ?? '').split(',').filter(Boolean).map(Number);
+    if (rows.length) {
+      shelf.setHeight(2 + rows.reduce((total, row) => total + row + 2, 0));
+      shelf.setRowHeights(rows);
+    } else shelf.setHeight(num('height', 113));
     shelf.setDepth(num('depth', 32));
     shelf.setDensity(num('density', 50));
     shelf.setHasBackPanel(params.get('back') === '1');
@@ -79,11 +83,12 @@ export default function ShelfRender() {
         shadows
         dpr={1}
         gl={{ antialias: true, alpha: true, preserveDrawingBuffer: true }}
-        onCreated={({ gl }) => { gl.toneMapping = THREE.NeutralToneMapping; gl.toneMappingExposure = 0.85; gl.setClearColor(0x000000, 0); }}
+        onCreated={({ gl }) => { gl.toneMapping = THREE.NeutralToneMapping; gl.toneMappingExposure = num('exposure', 1.15); gl.setClearColor(0x000000, 0); }}
         camera={{ fov: num('fov', 30), near: 1, far: 5000 }}
       >
         <Studio />
-        <directionalLight position={[-160, 320, 300]} intensity={1.2} />
+        <directionalLight position={[-160, 320, 300]} intensity={num('key', 2.2)} />
+        <hemisphereLight args={['#ffffff', '#d8d2c8', num('fill', 0.6)]} />
         <Suspense fallback={null}>
           <Shelf presentation />
         </Suspense>

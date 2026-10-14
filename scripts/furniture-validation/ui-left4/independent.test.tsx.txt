@@ -1,0 +1,26 @@
+import {it,expect,vi} from 'vitest';
+import {render,screen,fireEvent} from '@testing-library/react';
+import {FurniturePanel} from '@/components/ui/furniture-panels';
+const target={scope:'global'} as const;
+const slider=(value:number)=>({kind:'slider',id:'width',label:'QA width',target,visible:true,enabled:true,value,min:40,max:600,step:1,unit:'cm',numberInput:true});
+const view=(controls:any[],profile='qa')=>({panelProfileId:profile,layout:'single',tabs:[{id:'t',label:'t',controls}],sections:[],selectedSectionId:null} as any);
+it('QA independent: external update wins over abandoned numeric draft even on Enter',()=>{
+ const onIntent=vi.fn(),{rerender}=render(<FurniturePanel view={view([slider(171)])} onIntent={onIntent}/>);
+ fireEvent.change(screen.getByRole('spinbutton'),{target:{value:'555'}});
+ rerender(<FurniturePanel view={view([slider(232)])} onIntent={onIntent}/>);
+ expect(screen.getByRole('spinbutton')).toHaveValue(232);
+ fireEvent.keyDown(screen.getByRole('spinbutton'),{key:'Enter'});
+ expect(onIntent.mock.calls.every(([i])=>i.value!==555)).toBe(true);
+});
+it('QA independent: all individual choices disabled has no tab stop or intent',()=>{
+ const onIntent=vi.fn();render(<FurniturePanel view={view([{kind:'choice',id:'joint',label:'joint',target,visible:true,enabled:true,variant:'pill',value:null,options:[{id:'a',label:'A',enabled:false},{id:'b',label:'B',enabled:false}]}])} onIntent={onIntent}/>);
+ for(const r of screen.getAllByRole('radio')){expect(r.tabIndex).toBe(-1);fireEvent.click(r);fireEvent.keyDown(r,{key:'ArrowRight'});}
+ expect(onIntent).not.toHaveBeenCalled();
+});
+it('QA independent: cancel emits no second value and profile change replaces range',()=>{
+ const onIntent=vi.fn(),{rerender}=render(<FurniturePanel view={view([slider(171)])} onIntent={onIntent}/>);
+ fireEvent.change(screen.getByRole('slider'),{target:{value:'333'}});fireEvent.pointerCancel(screen.getByRole('slider'));
+ expect(onIntent).toHaveBeenCalledTimes(1);
+ rerender(<FurniturePanel view={view([{...slider(90),max:120}],'other-product')} onIntent={onIntent}/>);
+ expect(screen.getByRole('slider')).toHaveValue('90');expect(screen.getByRole('slider')).toHaveAttribute('max','120');
+});

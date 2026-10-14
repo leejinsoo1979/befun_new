@@ -1,0 +1,266 @@
+{
+  "caseId": "category-desk-001",
+  "sourceIntroUrl": "https://tylko.com/de-de/configurator-intro",
+  "scope": "Initial category/model inventory; not full behavioral equivalence",
+  "models": [
+    {
+      "model": "Original Classic",
+      "sourceUrl": "https://tylko.com/de-de/mobel/schreibtisch/3760569,j",
+      "observedAt": "2026-10-13T11:38:35.348Z",
+      "metadataObservedAt": null,
+      "steps": [
+        "Existing VPN Chrome: select category in German configurator-intro",
+        "Record actual model link; open linked initial product",
+        "Wait for option controls; record DOM and observed public product/DNA responses",
+        "Read-only metadata retries where needed; no saved design or cart mutation"
+      ],
+      "initialState": {
+        "presetId": 3760569,
+        "activeShelfType": 0,
+        "collectionType": "Desk",
+        "publicPreset": {
+          "id": 3760569,
+          "category": "desk",
+          "furniture_type": "jetty",
+          "configurator_type": 2,
+          "shelf_type": 0,
+          "shelf_category": "desk",
+          "width": 1020,
+          "height": 730,
+          "depth": 500,
+          "pattern": 3,
+          "material": 7,
+          "configurator_params": {
+            "depth": 500,
+            "width": 1020,
+            "height": 700,
+            "plinth": false,
+            "density": 52,
+            "geom_id": 2498,
+            "material": 7,
+            "geom_type": "mesh",
+            "backpanels": true,
+            "distortion": 60,
+            "additional_parameters": {
+              "collection_type": "Desk"
+            },
+            "configurator_custom_params": {
+              "lines": {},
+              "channels": {
+                "1": {
+                  "order": -1,
+                  "cables": null,
+                  "inserts": null,
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": 4751,
+                  "distortion": null,
+                  "exposition": null,
+                  "cables_system": "off",
+                  "inserts_available": null
+                },
+                "2": {
+                  "order": -1,
+                  "cables": null,
+                  "inserts": null,
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": 4753,
+                  "distortion": null,
+                  "exposition": null,
+                  "cables_system": "off",
+                  "inserts_available": null
+                },
+                "3": {
+                  "order": -1,
+                  "cables": null,
+                  "inserts": null,
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": 4754,
+                  "distortion": null,
+                  "exposition": null,
+                  "cables_system": "off",
+                  "inserts_available": null
+                },
+                "4": {
+                  "order": -1,
+                  "cables": null,
+                  "inserts": null,
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": 4753,
+                  "distortion": null,
+                  "exposition": null,
+                  "cables_system": "off",
+                  "inserts_available": null
+                }
+              }
+            }
+          },
+          "physical_product_version": 4
+        },
+        "hiddenSeed": null,
+        "priorEditHistory": null
+      },
+      "observedDnaRequests": [
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=0&collection_type=Desk&dna_version=6",
+          "status": 200
+        }
+      ],
+      "sliders": [
+        {
+          "max": "240.0",
+          "min": "90.0",
+          "text": "102cm",
+          "value": "102.0"
+        },
+        {
+          "max": "68.0",
+          "min": "34.0",
+          "text": "\n\n\n\n",
+          "value": "68.0"
+        }
+      ],
+      "optionUiSnapshot": "- main:\n  - complementary:\n    - paragraph:\n      - link \"Spare 38% auf ausgewählte Produkte\":\n        - /url: /de-de/mobel-c?additional=sale\n        - strong: Spare 38% auf ausgewählte Produkte\n      - text: 👉🏻\n  - link:\n    - /url: /de-de\n  - list:\n    - link \"Shop\":\n      - /url: /de-de/mobel-c\n    - link \"Community\":\n      - /url: /de-de/inspirations\n    - link \"Tylko Pro\":\n      - /url: /de-de/tylko-pro\n    - link \"Showrooms\":\n      - /url: /de-de/showrooms\n    - link \"Tylko Club\":\n      - /url: /de-de/tylko-club\n  - list:\n    - button:\n    - link:\n      - /url: /de-de/account\n    - link:\n      - /url: /de-de/wunschliste\n    - link:\n      - /url: /de-de/cart/\n  - main:\n    - complementary:\n      - heading \"Schreibtisch in Gelb mit Türen und Ruckwanden\" [level=1]\n      - button:\n      - button:\n      - paragraph:\n        - generic: 760 € Tylko Club\n      - paragraph:\n        - generic: 1225 € Regulär\n      - paragraph:\n        - button \"Werde Mitglied im Tylko Club,\"\n        - text: um Mitgliederpreise freizuschalten\n      - paragraph: Breite\n      - slider:\n        - generic: 102cm\n      - paragraph: Höhe\n      - paragraph: Alle Schreibtische sind 73 cm hoch\n      - paragraph: Tiefe\n      - button \"40cm\"\n      - button \"50cm\"\n      - button \"60cm\"\n      - generic: 50cm\n      - paragraph: Stauraum- abschnitte\n      - button [disabled]\n      - paragraph: \"1\"\n      - button [disabled]\n      - paragraph: Fußraum- bereich\n      - slider:\n      - paragraph: Rückwände\n      - paragraph: Hinter den Schubladen, Türen und dem Fußraumbereich werden standardmäßig Rückwände hinzugefügt.\n      - paragraph: Farbe\n      - list:\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n      - generic: Unentschlossen?\n      - generic: Muster bestellen\n      - button \"In den Warenkorb\":\n        - generic: In den Warenkorb\n      - button \"Entwurf speichern\":\n        - text: Entwurf speichern\n      - complementary:\n        - paragraph: Versand in 3-4 Wochen\n        - paragraph: Maßangefertigt in der EU\n      - paragraph: Zahlungsinformationen\n      - paragraph: Lieferung & Rückgabe\n      - button:\n      - button:\n      - button:\n      - button:\n      - button:\n      - button:\n",
+      "geometry": {
+        "rows": null,
+        "columns": null,
+        "partitionCoordinatesMm": null,
+        "horizontalPanelJointsMm": null,
+        "feetCoordinatesMm": null
+      },
+      "precision": {
+        "ui": "cm labels are rounded; some slider ranges are row indices or legroom positions",
+        "api": "public numeric preset values retained without asserting physical manufacturing precision",
+        "geometry": "not measured in this category inventory"
+      },
+      "screenshots": [
+        {
+          "path": "screenshots/category-desk-original-classic-reference.png",
+          "status": "rendered-reference",
+          "note": "Overview evidence; no calibrated geometry measurement"
+        }
+      ],
+      "unverified": [
+        "Single-option boundary transitions",
+        "Category switch reset/retention",
+        "All individual hardware edits",
+        "Leg and panel-joint formulas",
+        "Befun structural and visual equivalence"
+      ]
+    },
+    {
+      "model": "Original Modern",
+      "sourceUrl": "https://tylko.com/de-de/mobel/schreibtisch/3854739,j",
+      "observedAt": "2026-10-13T11:31:12.639Z",
+      "metadataObservedAt": "2026-10-13T11:54:04.396Z",
+      "steps": [
+        "Existing VPN Chrome: select category in German configurator-intro",
+        "Record actual model link; open linked initial product",
+        "Wait for option controls; record DOM and observed public product/DNA responses",
+        "Read-only metadata retries where needed; no saved design or cart mutation"
+      ],
+      "initialState": {
+        "presetId": 3854739,
+        "activeShelfType": 1,
+        "collectionType": "Desk",
+        "publicPreset": {
+          "id": 3854739,
+          "category": "desk",
+          "furniture_type": "jetty",
+          "configurator_type": 2,
+          "shelf_type": 1,
+          "shelf_category": "desk",
+          "width": 1200,
+          "height": 730,
+          "depth": 500,
+          "pattern": 3,
+          "material": 10,
+          "configurator_params": {
+            "depth": 500,
+            "width": 1200,
+            "height": 700,
+            "plinth": false,
+            "density": 52,
+            "geom_id": 2498,
+            "material": 10,
+            "geom_type": "mesh",
+            "backpanels": true,
+            "distortion": 100,
+            "additional_parameters": {
+              "collection_type": "Desk"
+            },
+            "configurator_custom_params": {
+              "lines": {},
+              "channels": {
+                "1": {
+                  "order": -1,
+                  "cables": null,
+                  "inserts": null,
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": 4751,
+                  "distortion": null,
+                  "exposition": null,
+                  "cables_system": "off",
+                  "inserts_available": null
+                },
+                "2": {
+                  "order": -1,
+                  "cables": null,
+                  "inserts": null,
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": 4754,
+                  "distortion": null,
+                  "exposition": null,
+                  "cables_system": "off",
+                  "inserts_available": null
+                }
+              }
+            }
+          },
+          "physical_product_version": 6
+        },
+        "hiddenSeed": null,
+        "priorEditHistory": null
+      },
+      "observedDnaRequests": [
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=1&collection_type=Desk&dna_version=6",
+          "status": 200
+        }
+      ],
+      "sliders": null,
+      "optionUiSnapshot": "- main:\n  - complementary:\n    - paragraph:\n      - link \"Tylko Club ist da. Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\":\n        - /url: /de-de/register-or-login/join-club\n        - strong: Tylko Club ist da.\n        - text: Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\n  - link:\n    - /url: /de-de\n  - list:\n    - link \"Shop\":\n      - /url: /de-de/mobel-c\n    - link \"Community\":\n      - /url: /de-de/inspirations\n    - link \"Tylko Pro\":\n      - /url: /de-de/tylko-pro\n    - link \"Showrooms\":\n      - /url: /de-de/showrooms\n    - link \"Tylko Club\":\n      - /url: /de-de/tylko-club\n  - list:\n    - button:\n    - link:\n      - /url: /de-de/account\n    - link:\n      - /url: /de-de/wunschliste\n    - link:\n      - /url: /de-de/cart/\n  - main:\n    - complementary:\n      - heading \"Schreibtisch in Grau mit Türen und Schubladen\" [level=1]\n      - button:\n      - button:\n      - paragraph:\n        - generic: 724 € Tylko Club\n      - paragraph:\n        - generic: 1167 € Regulär\n      - paragraph:\n        - button \"Werde Mitglied im Tylko Club,\"\n        - text: um Mitgliederpreise freizuschalten\n      - paragraph: Breite\n      - slider:\n        - generic: 120cm\n      - paragraph: Höhe\n      - paragraph: Alle Schreibtische sind 73 cm hoch\n      - paragraph: Tiefe\n      - button \"40cm\"\n      - button \"50cm\"\n      - button \"60cm\"\n      - generic: 50cm\n      - paragraph: Stauraum- abschnitte\n      - button [disabled]\n      - paragraph: \"1\"\n      - button [disabled]\n      - paragraph: Fußraum- bereich\n      - slider:\n      - paragraph: Rückwände\n      - button \"Aus\"\n      - button \"Mit\"\n      - generic: Mit\n      - paragraph: Farbe\n      - list:\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n      - generic: Unentschlossen?\n      - generic: Muster bestellen\n      - button \"In den Warenkorb\":\n        - generic: In den Warenkorb\n      - button \"Entwurf speichern\":\n        - text: Entwurf speichern\n      - complementary:\n        - paragraph: Versand in 3-4 Wochen\n        - paragraph: Maßangefertigt in der EU\n      - paragraph: Zahlungsinformationen\n      - paragraph: Lieferung & Rückgabe\n      - button:\n      - button:\n      - button:\n      - button:\n      - button:\n      - button:\n",
+      "geometry": {
+        "rows": null,
+        "columns": null,
+        "partitionCoordinatesMm": null,
+        "horizontalPanelJointsMm": null,
+        "feetCoordinatesMm": null
+      },
+      "precision": {
+        "ui": "cm labels are rounded; some slider ranges are row indices or legroom positions",
+        "api": "public numeric preset values retained without asserting physical manufacturing precision",
+        "geometry": "not measured in this category inventory"
+      },
+      "screenshots": [
+        {
+          "path": "screenshots/category-desk-original-modern-reference.png",
+          "status": "rendered-reference",
+          "note": "Overview evidence; no calibrated geometry measurement"
+        }
+      ],
+      "unverified": [
+        "Single-option boundary transitions",
+        "Category switch reset/retention",
+        "All individual hardware edits",
+        "Leg and panel-joint formulas",
+        "Befun structural and visual equivalence"
+      ]
+    }
+  ]
+}

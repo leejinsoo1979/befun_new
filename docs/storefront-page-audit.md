@@ -2,7 +2,17 @@
 
 2026-10-13 · codex-storefront. 실제 참고 사이트: https://tylko.com/en-uk
 
-## 최신 보완 — 사용자 “계속해” 지시
+## 최신 보완 — 컨피규레이터 하단 스크롤 (첨부 상품 화면 지시)
+
+- 원인: `/configurator`가 3D/GUI에서 끝났고, 모바일 외곽이 `h-[100dvh] overflow-hidden`이었다. 기존 상품 상세의 하단 콘텐츠도 별도 페이지에만 있었다.
+- 신규 `configurator/layout.tsx` + `ConfiguratorShell`에서 동일 쇼핑몰 헤더·메뉴·푸터와 상세 콘텐츠를 연결했다. graphics 잠금의 `configurator/page.tsx`, 모바일 패널, Scene/AR/카메라 로직을 수정하지 않았다. 래퍼 CSS는 이 route에만 적용하며 한 화면 고정을 풀고 3D 캔버스에는 명시적인 높이를 남겼다. 중복 기존 헤더를 숨기고 CNC 버튼은 상세 메뉴에서 동일 저장/진입 동작으로 유지했다.
+- `ProductDetails`를 6개 상품 상세와 `/configurator`가 함께 사용한다. 갤러리 → 사양 5개 → 브랜드 → 특징 7개 → 공간 사례 → Sound 배너 → 브랜드/소재 → 선물 → 추천 → 쇼룸 → 계정 안내 → 푸터 순서. 8장 갤러리는 첨부 화면의 큰 사진/작은 사진 모자이크로, 그 외 갤러리는 빠짐없이 규칙형으로 배치한다. 모바일은 한 열이며 확대·닫기 지원.
+- 첨부 파일의 상품을 원본 목록 링크에서 실제로 열었다: `https://tylko.com/de-de/mobel/regalsysteme/3690311,j,grosses-graue-multiplex-platte-regalsystem-mit-turen-und-schubladen-multiplexplatten-232x243x32cm`. 현재 공개 갤러리의 `wallstorage/original-classic/01p-grey` 8장과 원본 특징/리뷰 사진/스피커/쇼룸 자산을 확인했다. 원본의 현재 사진은 첨부 화면의 이전 짙은 색 사진과 차이가 있다. 브랜드 동영상 URL은 여전히 미확보라 사진으로 표시한다. 리뷰/쇼룸은 Tylko 레퍼런스이며 Befun 실제 후기·매장·보증으로 전환하지 않는다.
+- 일반 휠은 캔버스에서 OrbitControls가 소비하기 전에 문서로 전달한다. Ctrl/핀치 확대 및 포인터 회전은 기존 동작을 남겼다. 두 3D 진입점 모두 세로 터치의 `pan-y`를 허용하며 모바일 옵션 영역도 끝에서 문서로 스크롤이 이어진다.
+- 데스크톱 브라우저: 캔버스 위 일반 스크롤 후 문서 Y=881, 갤러리 도달 확인. 6개 스타일 버튼 모두 49×60, GUI 제목14px 유지. 모바일390px: 문서 폭390, 옵션 깊이40cm 변경 후 사양90×123×40 표시, 갤러리 확대→닫기 후 body overflow 복구 확인. 상품 상세에도 동일 섹션/사진8장 연결 확인.
+- 변경 파일 ESLint 통과, 전체 lint 오류0/기존경고8. 다른 담당 개발서버의 `.next/dev`와 기존 production route 타입이 섞인 첫 tsc는 layout 타입 오류였으므로 공유 서버를 중단하지 않고 `/private/tmp/befun-scroll-preview-1sro1bbp` 독립 스냅샷에서 webpack production build/TypeScript를 검증했다. 전체 원본의 폰트·브랜드 동영상·운영 기능/픽셀 일치 완료를 주장하지 않는다.
+
+## 이전 보완 — 사용자 “계속해” 지시
 
 - 상품 상세 상단에 실제 Befun `Scene`과 스타일·밀도·치수·뒷판·컬러·행 설정을 재사용했다. 기존 3D 담당 파일은 수정하지 않았다. 변경 구성·계산 금액을 장바구니에 직접 전달하며 전체 화면 이동에서도 유지한다.
 - 구성 초기화 전에는 로딩 상태를 보여 이전 제품/default의 가격·치수가 잠깐 표시되는 문제를 막았다. `GridInput.family`와 행별 하드웨어를 카탈로그/상세 가격 계산에도 전달한다.

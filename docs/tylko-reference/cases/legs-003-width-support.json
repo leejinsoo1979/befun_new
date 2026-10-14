@@ -1,0 +1,131 @@
+{
+  "caseId": "legs-003-width-support",
+  "observedAt": "2026-10-13T23:20:32.061321+00:00",
+  "sourceUrl": "http://localhost:3003/design-preview",
+  "evidenceType": "Befun implementation and browser verification; not a Tylko parity measurement",
+  "initialState": {
+    "baseType": "legs",
+    "legFinish": "black",
+    "style": "grid",
+    "width": 110,
+    "depth": 32,
+    "density": 50,
+    "height": 62,
+    "color": "C_Black",
+    "colorCategory": "classic",
+    "hasBackPanel": true,
+    "rowHeights": [
+      28,
+      28
+    ],
+    "numRows": 2,
+    "doorsCreatedLayers": [
+      0
+    ],
+    "drawersCreatedLayers": [],
+    "hardwareRowStyles": {
+      "0": 12
+    }
+  },
+  "operations": [
+    "Width End:110→450",
+    "Finish Classic→Natural (visible Oak selected)",
+    "Style Grid→Gradient",
+    "Width Home:450→30"
+  ],
+  "browserResult": {
+    "widthChangesVisible": true,
+    "legsRemainSelected": true,
+    "blackRemainsSelected": true,
+    "displayHeightCm": 73,
+    "exactRenderedCoordinates": null
+  },
+  "regression": {
+    "style": "gradient",
+    "width": 450,
+    "density": 50,
+    "depth": 32,
+    "family": "type01",
+    "height": 62,
+    "rowHeights": [
+      28,
+      28
+    ],
+    "hasBackPanel": false,
+    "thickness": 2,
+    "beforeMaxSupportGapCm": 112.146264,
+    "afterSupportAxesCm": [
+      -224,
+      -170.966802,
+      -121.957922,
+      -43.149462,
+      41.996802,
+      68.996802,
+      136.582899,
+      224
+    ],
+    "afterMaxSupportGapCm": 87.417101,
+    "afterLegCount": 16
+  },
+  "internalChecks": {
+    "styles": [
+      "grid",
+      "pattern",
+      "mosaic",
+      "slant",
+      "gradient"
+    ],
+    "families": [
+      "type01",
+      "type02"
+    ],
+    "widthsCm": [
+      60,
+      110,
+      160,
+      240,
+      318,
+      393,
+      450
+    ],
+    "densities": [
+      1,
+      50,
+      100
+    ],
+    "depthsCm": [
+      32,
+      40
+    ],
+    "layoutCount": 420,
+    "pass": true,
+    "assertions": [
+      "end supports retained",
+      "each support on actual bottom vertical axis",
+      "front/back pair has same x",
+      "no gap over90cm skips an existing vertical axis"
+    ]
+  },
+  "precision": {
+    "unit": "cm",
+    "computedAxisTolerance": 1e-05,
+    "screenMeasurement": null,
+    "manufacturingTolerance": null
+  },
+  "screenshots": [
+    "screenshots/legs-003-classic-450.jpg",
+    "screenshots/legs-003-natural-gradient-450.jpg",
+    "screenshots/legs-003-natural-30.jpg"
+  ],
+  "validation": {
+    "legTests": "9/9 pass",
+    "targetedLint": "pass",
+    "isolatedWebpackBuild": "pass; includes TypeScript/static generation"
+  },
+  "limits": [
+    "90cm is existing general placement rule, not verified load rating",
+    "No invented support axis inside a wide bay without a vertical; its span can exceed90cm",
+    "Product-specific Tylko support count/offset overrides not exhaustively compared",
+    "Leg count depends on generated columns and density, not monotonically on width alone"
+  ]
+}

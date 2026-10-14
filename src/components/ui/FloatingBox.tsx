@@ -3,7 +3,7 @@
 import { useRef, useEffect, useSyncExternalStore } from 'react';
 import { FiX } from 'react-icons/fi';
 import { useUIStore } from '@/stores/useUIStore';
-import { useHardwareStore } from '@/stores/useHardwareStore';
+import { closeRowPopup } from '@/components/three/RowHotspots';
 import { RowControls } from './RowControls';
 
 // lg(1024px) 미만은 모바일 레이아웃 — 행 옆 팝업 대신 뷰어 하단에 고정
@@ -17,8 +17,10 @@ const getMobile = () => window.matchMedia(MOBILE_QUERY).matches;
 
 /**
  * V1 floating-box: 3D 뷰어 위에 행 컨트롤을 오버레이로 표시
- * 가구 행에 마우스 오버하면 해당 행 옆에 나타남 (모바일: 행을 탭하면 뷰어 하단에 고정 표시)
+ * 가구 우측 핫스팟을 클릭하면 해당 행 옆에 나타남 (모바일: 뷰어 하단에 고정 표시)
+ * 닫기: 닫기 버튼, 같은 핫스팟 재클릭, 팝업 바깥 클릭(드래그 제외), Esc
  */
+const CLICK_MAX_MOVE_PX = 6;
 export function FloatingBox() {
   const selectedRow = useUIStore((s) => s.selectedRow);
   const floatingBoxX = useUIStore((s) => s.floatingBoxX);
@@ -44,26 +46,46 @@ export function FloatingBox() {
     }
   }, [selectedRow, floatingBoxX, floatingBoxY, isMobile]);
 
+  // 바깥 클릭·Esc로 닫기. 궤도 회전 드래그와 핫스팟 클릭(행 전환/토글)은 제외한다.
+  useEffect(() => {
+    if (selectedRow === null) return;
+    let down: { x: number; y: number } | null = null;
+    const isInside = (target: EventTarget | null) =>
+      target instanceof Element && (boxRef.current?.contains(target) || target.closest('[data-row-hotspot]') !== null);
+    const onDown = (e: PointerEvent) => { down = isInside(e.target) ? null : { x: e.clientX, y: e.clientY }; };
+    const onUp = (e: PointerEvent) => {
+      if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) <= CLICK_MAX_MOVE_PX && !isInside(e.target)) closeRowPopup();
+      down = null;
+    };
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') closeRowPopup(); };
+    document.addEventListener('pointerdown', onDown, true);
+    document.addEventListener('pointerup', onUp, true);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onDown, true);
+      document.removeEventListener('pointerup', onUp, true);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [selectedRow]);
+
   if (selectedRow === null) return null;
 
+  const closeButton = (
+    <button
+      type="button"
+      aria-label="칸 설정 닫기"
+      onClick={closeRowPopup}
+      className="absolute -top-3 -right-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white text-[#333] shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
+    >
+      <FiX size={16} />
+    </button>
+  );
+
   if (isMobile) {
-    const close = () => {
-      const { setDoorOpen, setDrawerOpen } = useHardwareStore.getState();
-      setDoorOpen(selectedRow, false);
-      setDrawerOpen(selectedRow, false);
-      useUIStore.setState({ selectedRow: null, hoveredRow: null });
-    };
     return (
       <div className="pointer-events-none absolute inset-x-0 bottom-7 z-10 flex justify-center px-3">
-        <div className="pointer-events-auto relative">
-          <button
-            type="button"
-            aria-label="칸 설정 닫기"
-            onClick={close}
-            className="absolute -top-3 -right-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white text-[#333] shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
-          >
-            <FiX size={16} />
-          </button>
+        <div ref={boxRef} className="pointer-events-auto relative">
+          {closeButton}
           <RowControls />
         </div>
       </div>
@@ -77,24 +99,15 @@ export function FloatingBox() {
   return (
     <div
       ref={boxRef}
-      className="pointer-events-auto absolute z-10 transition-opacity duration-200"
+      className="pointer-events-auto absolute z-10"
       style={{
         left: `${floatingBoxX}px`,
         top: `${top}px`,
       }}
-      onMouseEnter={() => {
-        useUIStore.getState().setFloatingBoxHovered(true);
-      }}
-      onMouseLeave={() => {
-        useUIStore.getState().setFloatingBoxHovered(false);
-        setTimeout(() => {
-          const { isFloatingBoxHovered } = useUIStore.getState();
-          if (!isFloatingBoxHovered && useUIStore.getState().selectedRow === selectedRow) {
-            useUIStore.setState({ selectedRow: null, hoveredRow: null });
-          }
-        }, 600);
-      }}
+      role="dialog"
+      aria-label={`아래에서 ${selectedRow + 1}번째 칸 설정`}
     >
+      {closeButton}
       <RowControls />
     </div>
   );

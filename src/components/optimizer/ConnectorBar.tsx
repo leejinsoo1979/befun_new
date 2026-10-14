@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { OVVO_CONNECTORS } from '@/lib/optimizer/connectors/ovvo';
 import type { ConnectorReport, ConnectorSelection } from '@/lib/optimizer/connectors/apply';
+import { CLIP_SPEC_PENDING, PANEL_CONNECTOR_SYSTEMS, type PanelConnectorSystem } from '@/types/connectors';
 
 interface ConnectorBarProps {
   selection: ConnectorSelection;
@@ -17,8 +18,9 @@ const FAMILY_LABEL: Record<string, string> = {
 /** 관리자용 접합부 커넥터 선택. 선택은 브라우저에 저장되고 옵티마이저 판재(MPR·시뮬레이션)에 반영된다. */
 export function ConnectorBar({ selection, report, onChange }: ConnectorBarProps) {
   const [showDetail, setShowDetail] = useState(false);
+  const system = selection.system ?? 'ovvo';
   const used = useMemo(() => [...new Set([selection.body, selection.back].filter((m): m is string => !!m))], [selection]);
-  const specs = used.map((model) => OVVO_CONNECTORS.find((c) => c.model === model)).filter((c) => !!c);
+  const specs = system === 'ovvo' ? used.map((model) => OVVO_CONNECTORS.find((c) => c.model === model)).filter((c) => !!c) : [];
 
   const select = (group: 'body' | 'back') => (
     <select
@@ -40,9 +42,17 @@ export function ConnectorBar({ selection, report, onChange }: ConnectorBarProps)
   return (
     <div className="border-b border-gray-200 bg-gray-50 px-4 py-2 text-xs text-gray-700">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-        <span className="font-semibold">OVVO 커넥터</span>
-        <label className="flex items-center gap-1">몸통(가로판·세로판) {select('body')}</label>
-        <label className="flex items-center gap-1">백패널·보강대 {select('back')}</label>
+        <label className="flex items-center gap-1 font-semibold">패널 접합 방식
+          <select value={system} onChange={(e) => { setShowDetail(false); onChange({ ...selection, system: e.target.value as PanelConnectorSystem }); }}
+            className="rounded border border-gray-300 bg-white px-2 py-1 text-xs">
+            {PANEL_CONNECTOR_SYSTEMS.map(option => <option key={option.id} value={option.id}>{option.label}</option>)}
+          </select>
+        </label>
+        {system === 'ovvo' && <>
+          <label className="flex items-center gap-1">몸통(가로판·세로판) {select('body')}</label>
+          <label className="flex items-center gap-1">백패널·보강대 {select('back')}</label>
+        </>}
+        {system === 'tylko-clip' && <p role="status" className="text-amber-700">{CLIP_SPEC_PENDING}</p>}
         {specs.map((spec) => (
           <label key={spec.model} className="flex items-center gap-1">
             {spec.model} 커터 공구번호

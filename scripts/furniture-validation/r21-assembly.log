@@ -1,0 +1,56 @@
+(node:41570) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/backPanel.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ fixed pins install before spring compression; panel straightens before spring return (1.238709ms)
+✔ pivot and pin motion are continuous, and inserted lower pins stay fixed while panel turns (0.731667ms)
+✔ macro cameras follow the actual top pin while the panel rotates on desktop and mobile (2.637667ms)
+✔ the example approaches from outside the cabinet and clears the top before lower pin insertion (0.242083ms)
+(node:41571) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/sequence.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ ASM-01: all P/R chapters sample absolutely at 0/0.5/1 and withstand backward seeking (2.151875ms)
+✔ ASM-02/03: both planner joints consume provider anchors once, including the upper PH flip (0.340417ms)
+✔ ASM-04: actual mounted PH/RH bodies and PC/RC fit the observed capsule at both joints (36.163208ms)
+✔ ASM-03/04: reversed asymmetric RC fails lip/window engagement instead of silently passing (0.17175ms)
+✔ ASM-07: fixed inspection cameras fit corrected hardware bounds without object scaling (75.226541ms)
+(node:41572) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/ovvoMotion.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ official P and R part pairings keep face receiver and central connector separate (1.544708ms)
+✔ assembly displacement comes from the input contract; 15 mm release never substitutes for unknown movement (0.39775ms)
+✔ P presses without a slide and refuses the R release operation (0.363667ms)
+✔ R inserts before assembly sliding and completes release sliding before lifting (0.115833ms)
+(node:41573) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/pocketAudit.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ independently reproduces OVVO-AUDIT-003 endcap corner outside the official slot footprint (0.511417ms)
+✔ outer footprint fit cannot certify the unknown undercut profile or manufacturing (0.09875ms)
+✔ exposed lips are excluded; nonfinite transforms and invalid pockets fail explicitly (0.219125ms)
+(node:41574) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/sequence.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ example machining and connector locations consume the shared CNC planner (1.459625ms)
+✔ releasable assembly inserts before sliding; permanent assembly never slides (0.538459ms)
+✔ every chapter preserves pose at its boundary and hardware installs before panel insertion (0.384667ms)
+✔ seeking is deterministic, clamps invalid values, and keeps the complete part framed on mobile (1.509709ms)
+(node:41575) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/tylkoClip.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ uses the hardware owner dimensions and colour pairs without assigning lock roles (0.844708ms)
+✔ pins enter on the normal before any relative long-axis slide (0.384167ms)
+✔ all chapters are continuous, seeking deterministic, and motion transforms by the joint frame (0.282458ms)
+✔ camera follows the joint and keeps both panels framed on mobile (2.019333ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 289.048167

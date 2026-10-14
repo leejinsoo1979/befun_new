@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useShelfStore } from '@/stores/useShelfStore';
-import { useHardwareStore } from '@/stores/useHardwareStore';
+import { setLegacyStyle } from '@/components/ui/furniture-panels/legacy/actions';
 import type { StyleType } from '@/types/shelf';
 
 const STYLES: { value: StyleType; label: string; iconDefault: string; iconActive: string }[] = [
@@ -16,13 +16,9 @@ const STYLES: { value: StyleType; label: string; iconDefault: string; iconActive
 
 export function StyleSelector() {
   const style = useShelfStore((s) => s.style);
-  const setStyle = useShelfStore((s) => s.setStyle);
-  const resetHardware = useHardwareStore((s) => s.reset);
 
-  const handleStyleChange = (newStyle: StyleType) => {
-    setStyle(newStyle);
-    resetHardware();
-  };
+  // 스타일 변경(setStyle + 하드웨어 초기화)은 새 옵션 패널과 같은 공유 handler를 쓴다.
+  const handleStyleChange = (newStyle: StyleType) => setLegacyStyle(newStyle);
 
   return (
     <div className="cfg-row">

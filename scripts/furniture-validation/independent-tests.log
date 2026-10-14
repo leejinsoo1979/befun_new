@@ -1,0 +1,38 @@
+✔ inventory adapter gives pass to matching identity, not loading preview (2.866625ms)
+✔ wrong preset and missing screenshot fail (0.650625ms)
+✔ wardrobe edited null cannot be filled with initial preset (2.485ms)
+✔ derived result file not counted as observed reference (0.313959ms)
+✔ stable IDs match reordered components (0.923583ms)
+✔ extra, missing and numeric error stay separate (0.349583ms)
+✔ null geometry and absent tolerance cannot pass (4.546417ms)
+✔ connections and roles matter independently of coordinates (0.885375ms)
+✔ centimeters are never silently treated as mm (0.436666ms)
+✔ 12 gallery materials retain all 96 observed URLs and swatches (0.735209ms)
+✔ grid/90: same generated boards reach assembly and CNC; feet assigned (3.382834ms)
+✔ grid/232: same generated boards reach assembly and CNC; feet assigned (0.78575ms)
+✔ grid/393: same generated boards reach assembly and CNC; feet assigned (1.611542ms)
+✔ slant/90: same generated boards reach assembly and CNC; feet assigned (1.945416ms)
+✔ slant/232: same generated boards reach assembly and CNC; feet assigned (1.359833ms)
+✔ slant/393: same generated boards reach assembly and CNC; feet assigned (2.061709ms)
+✔ pattern/90: same generated boards reach assembly and CNC; feet assigned (1.284917ms)
+✔ pattern/232: same generated boards reach assembly and CNC; feet assigned (0.633542ms)
+✔ pattern/393: same generated boards reach assembly and CNC; feet assigned (1.119541ms)
+✔ mosaic/90: same generated boards reach assembly and CNC; feet assigned (0.714209ms)
+✔ mosaic/232: same generated boards reach assembly and CNC; feet assigned (8.676541ms)
+✔ mosaic/393: same generated boards reach assembly and CNC; feet assigned (1.522459ms)
+✔ pixel/90: same generated boards reach assembly and CNC; feet assigned (0.802709ms)
+✔ pixel/232: same generated boards reach assembly and CNC; feet assigned (0.515625ms)
+✔ pixel/393: same generated boards reach assembly and CNC; feet assigned (0.894625ms)
+✔ gradient/90: same generated boards reach assembly and CNC; feet assigned (0.212291ms)
+✔ gradient/232: same generated boards reach assembly and CNC; feet assigned (0.269083ms)
+✔ gradient/393: same generated boards reach assembly and CNC; feet assigned (0.584459ms)
+✔ local parser / JSON save / actual store restoration preserve hardware and geometry (1.444791ms)
+✔ width and density edit order yields same existing shelf output (0.454167ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 504.982084

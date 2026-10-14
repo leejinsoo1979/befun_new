@@ -1,0 +1,15 @@
+.loader{position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 50% 42%,#fafbf6 0%,#eeeFE9 48%,#e6e4e0 100%);color:#263923;opacity:1;transition:opacity .55s ease,visibility .55s;isolation:isolate;pointer-events:auto}
+.ready{opacity:0;visibility:hidden;pointer-events:none}.ready *{animation-play-state:paused!important}
+.composition{position:relative;width:240px;height:240px;margin-top:-22px}.halo{position:absolute;inset:24px;border:1px solid #72995b20;border-radius:50%;box-shadow:0 0 0 25px #72995b08,0 0 0 50px #72995b05;animation:breathe 3.2s ease-in-out infinite}.shelf{position:relative;width:100%;height:100%;filter:drop-shadow(0 12px 12px #4b673015)}
+.tier{animation:assemble 3.6s cubic-bezier(.22,.8,.25,1) infinite;animation-delay:calc(var(--tier)*.24s)}.uprights{animation:uprights 3.6s cubic-bezier(.22,.8,.25,1) infinite;animation-delay:calc(var(--tier)*.24s)}
+.blueprint{opacity:.4}.shadow{transform-origin:120px 205px;filter:blur(4px);animation:shadow 3.6s ease-in-out infinite}.sweep{position:absolute;inset:15% -30%;background:linear-gradient(110deg,transparent 40%,#ffffff80 50%,transparent 60%);transform:translateX(-110%);animation:sweep 3.6s ease-in-out infinite;pointer-events:none;mix-blend-mode:soft-light}
+.copy{position:relative;text-align:center;padding:0 20px}.eyebrow{font-size:9px;letter-spacing:.28em;color:#76856d;font-weight:600}.copy p{margin:12px 0 18px;font-size:18px;font-weight:500;letter-spacing:-.035em}.caption{display:block;margin-top:15px;color:#8a9184;font-size:11px;letter-spacing:.02em}.track{width:112px;height:2px;margin:auto;border-radius:2px;background:#6d8c5020;overflow:hidden}.track span{display:block;width:45%;height:100%;background:linear-gradient(90deg,transparent,#579636,transparent);animation:travel 1.8s ease-in-out infinite}
+@keyframes assemble{0%,8%{opacity:0;transform:translateY(-30px)}28%,76%{opacity:1;transform:translateY(0)}95%,100%{opacity:0;transform:translateY(8px)}}
+@keyframes uprights{0%,17%{opacity:0;transform:translateY(-12px)}35%,78%{opacity:1;transform:translateY(0)}95%,100%{opacity:0;transform:translateY(5px)}}
+@keyframes breathe{0%,100%{opacity:.5;transform:scale(.92)}50%{opacity:1;transform:scale(1)}}
+@keyframes sweep{0%,42%{transform:translateX(-110%)}82%,100%{transform:translateX(110%)}}
+@keyframes travel{0%{transform:translateX(-110%)}100%{transform:translateX(330%)}}
+@media(max-width:600px){.composition{width:190px;height:190px}.copy p{font-size:16px}.caption{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.loader,.loader *{animation:none!important;transition:none!important}.sweep{display:none}.tier,.uprights{opacity:1;transform:none}.track span{width:100%;opacity:.6}}
+
+@keyframes shadow{0%,100%{opacity:.07;transform:scale(.85)}50%{opacity:.15;transform:scale(1)}}

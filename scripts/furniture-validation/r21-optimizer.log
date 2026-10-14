@@ -1,0 +1,29 @@
+
+ RUN  v3.2.7 /var/folders/6g/88hr_s5d1bd3qf45tzmk8zrr0000gn/T/befun-left4-ui-77yaXg
+
+ ❯ r21-optimizer.test.tsx (2 tests | 1 failed) 106ms
+   ✓ QA-R2-03 actual OptimizerApp preserves user hole, slot, name, quantity and panel IDs 77ms
+   × QA-R2-REFRESH-01 remount should retain user machining separately from connector selection 29ms
+     → expected false to be true // Object.is equality
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  r21-optimizer.test.tsx > QA-R2-REFRESH-01 remount should retain user machining separately from connector selection
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ r21-optimizer.test.tsx:38:131
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  06:33:04
+   Duration  1.29s (transform 222ms, setup 126ms, collect 328ms, tests 106ms, environment 370ms, prepare 60ms)
+

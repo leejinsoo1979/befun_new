@@ -1,0 +1,14 @@
+
+ RUN  v3.2.7 /var/folders/6g/88hr_s5d1bd3qf45tzmk8zrr0000gn/T/befun-left4-ui-0som8S
+
+ ✓ independent.test.tsx (3 tests) 87ms
+ ✓ review.test.tsx (10 tests) 131ms
+ ✓ optimizer.test.tsx (2 tests) 87ms
+ ✓ family.test.tsx (16 tests) 307ms
+ ✓ panels.test.tsx (17 tests) 378ms
+
+ Test Files  5 passed (5)
+      Tests  48 passed (48)
+   Start at  06:55:41
+   Duration  1.22s (transform 412ms, setup 607ms, collect 948ms, tests 990ms, environment 1.65s, prepare 326ms)
+

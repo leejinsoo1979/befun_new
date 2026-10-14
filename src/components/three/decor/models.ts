@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { createElectronicMaterials, createSpeaker, createSmallLamp } from './electronics.ts';
+import { createHouseBird } from './bird.ts';
 import { createSurfaceTextures } from './surfaces.ts';
 import type { DecorPlacement } from './layout';
 
@@ -57,8 +59,12 @@ export function createDecorAssets() {
   const leaves=['#739867','#96b480'].map(color=>new THREE.MeshPhysicalMaterial({color,map:surface.leaf,
     roughness:.48,roughnessMap:surface.roughness,bumpMap:surface.leaf,bumpScale:.018,
     clearcoat:.18,clearcoatRoughness:.4,side:THREE.DoubleSide,envMapIntensity:.65}));
-  const materials=[...palette,spine,pages,cloth,ceramic,charcoal,soil,stem,...leaves];
-  return {palette,spine,pages,cloth,ceramic,charcoal,soil,stem,leaves,
+  const birdLacquer=new THREE.MeshPhysicalMaterial({color:'#171918',roughness:.3,clearcoat:.3,clearcoatRoughness:.27,envMapIntensity:.85});
+  const birdSteel=new THREE.MeshStandardMaterial({color:'#252827',metalness:.75,roughness:.28});
+  const birdEye=new THREE.MeshPhysicalMaterial({color:'#090a09',roughness:.12,clearcoat:1});
+  const electronics=createElectronicMaterials();
+  const materials=[...Object.values(electronics),birdLacquer,birdSteel,birdEye,...palette,spine,pages,cloth,ceramic,charcoal,soil,stem,...leaves];
+  return {electronics,palette,spine,pages,cloth,ceramic,charcoal,soil,stem,leaves,birdLacquer,birdSteel,birdEye,
     dispose(){surface.dispose();materials.forEach(m=>m.dispose());[atlas,paper,linen].forEach(t=>t.dispose());}};
 }
 /** Original procedural assets, batched by material so a large shelf stays inexpensive. */
@@ -113,16 +119,36 @@ export function buildDecor(placements:DecorPlacement[], shared?:ReturnType<typeo
   for(const p of placements) {
     const group=new THREE.Group();group.position.set(...p.position);source.add(group);
     if(p.kind==='books') {
-      let x=-p.size[0]/2+.5;
+      // Parallel spines lean toward the supporting side; each lower corner rests on the shelf.
+      const angle=(p.bookSide==='right'?-1:1)*(p.variant%3===0?0:.07);
+      const cos=Math.cos(angle),sin=Math.sin(angle);
+      let x=0;
       for(let i=0;i<p.count;i++) {
-        const w=1.65+(i%3)*.45,h=p.size[1]-(i*3%5)*.75,d=p.size[2]-.6-(i%3)*.5;
-        const item=new THREE.Group();item.rotation.y=(i%3-1)*.025;item.position.set(x+w/2,0,(i%2)*.12);group.add(item);book(item,w,h,d,p.variant+i);x+=w+.22;
+        const w=1.65+(i%3)*.45,h=p.size[1]-.3-(i*3%5)*.75,d=p.size[2]-.6-(i%3)*.5;
+        const item=new THREE.Group();item.rotation.z=angle;
+        item.position.set(x+w/2,Math.abs(sin)*w/2,(i%2)*.12);
+        group.add(item);book(item,w,h,d,p.variant+i);x+=w/cos+.08;
       }
+      group.updateMatrixWorld(true);
+      const bounds=new THREE.Box3().setFromObject(group);
+      const shift=p.bookSide==='right' ? p.position[0]+p.size[0]/2-bounds.max.x : p.position[0]-p.size[0]/2-bounds.min.x;
+      for(const item of group.children) item.position.x+=shift;
     } else if(p.kind==='stack') {
       for(let i=0;i<3;i++) {
         const item=new THREE.Group();item.rotation.z=-Math.PI/2;item.rotation.y=(i-1)*.025;
         item.position.set(-(20-i*.8)/2,i*2.35+1.05,(i%2)*.3);group.add(item);book(item,2.1,20-i*.8,13.3-i*.3,p.variant+i);
       }
+    } else if(p.kind==='bird') {
+      if(p.variant===1) for(let i=0;i<2;i++) {
+        const item=new THREE.Group();item.rotation.z=-Math.PI/2;
+        item.position.set(-12+i*.4,i*2.4+1.2,0);group.add(item);book(item,2.4,24-i*.8,14-i*.4,i===0?7:1);
+      }
+      const bird=createHouseBird(assets.birdLacquer,assets.birdSteel,assets.birdEye);
+      bird.position.y=p.variant===1?4.8:0;group.add(bird);
+    } else if(p.kind==='speaker') {
+      group.add(createSpeaker(p.size[1],assets.electronics));
+    } else if(p.kind==='lamp') {
+      group.add(createSmallLamp(assets.electronics));
     } else if(p.kind==='vase') {
       vessel(group,p.size[1],5.3,p.variant>4?ceramic:charcoal,false,p.variant%3);
     } else if(p.kind==='plant') plant(group);

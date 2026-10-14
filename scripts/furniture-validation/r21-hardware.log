@@ -1,0 +1,18 @@
+HW-02 pass — legacy GuideScene endcap corner exceeds slot arc by 1.105 mm (reproduced)
+HW-02 pass — corrected PH excess -0.100 mm, RH excess -0.200 mm (<= 0, inside capsule)
+HW-04 pass — RC correct orientation: neck/lip/barb/window all pass
+HW-04 pass — RC reversed (Z π) is rejected: locked tongue not under lip region, inserted tongue does not fit the window
+HW-04 pass — reversed RC also leaves the slot envelope at the inserted pose
+HW-04 pass — PC is symmetric: both orientations fit (P has no direction requirement)
+HW-03 pass — slot→guide matrix is a proper rotation (det +1, right-handed)
+HW-03 pass — quaternion (−.5,−.5,−.5,.5) equals matrix: X_S→+Z, Y_S→+X, Z_S→+Y
+HW-03 pass — S frame handedness X×Y=Z
+HW-03 pass — S origin → guide (0, faceY, centerZ): mm, no extra scale
+HW-03 pass — slot↔guide round trip
+HW-03 pass — R inserted connector sits +15 mm along guide +Z (slide axis −Z on lock)
+HW-03 pass — end-panel housing normal points down (−Y): B 아래 끝 홈이 A를 향함
+HW-03 pass — R locked: connector and base housing share the slot anchor
+HW-05 pass — each factory call returns an independent geometry (no shared buffers)
+HW-05 pass — disposing one geometry leaves the other intact
+HW-05 pass — 40× create/dispose cycles stable (phGeometry:1248, rhGeometry:2100, pcGeometry:3936, rcGeometry:3936)
+all R2.1-HW checks passed

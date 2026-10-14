@@ -1,0 +1,78 @@
+{
+  "caseId": "connector-clip-002",
+  "observedAt": "2026-10-13T23:55:45.882771+09:00",
+  "sourceUrl": "https://knappconnectors.com/industries/furniture-manufacturing/",
+  "sourceType": "user-supplied screenshots and manufacturer web text",
+  "relatedCases": [
+    "connector-clip-001",
+    "hardware-leg-mount-001"
+  ],
+  "inputOptions": null,
+  "initialState": null,
+  "actions": [
+    "Read user-supplied Mod-eez Sets and Anti-Rotation screenshots",
+    "Read manufacturer furniture page and Mod-eez set listings",
+    "Locate manufacturer instruction manual and 4030 series drawing",
+    "Attempt PDF page screenshots; failed with 404/cache miss"
+  ],
+  "observations": [
+    {
+      "scope": "Mod-eez general mechanism",
+      "status": "confirmed-manufacturer-description",
+      "description": "Spring steel ramp clip engages a collared shoulder screw; mating parts slide together."
+    },
+    {
+      "scope": "Double Clips",
+      "status": "confirmed-manufacturer-description",
+      "description": "Used with two shoulder screws; do not substitute the Anti-Rotation variant specification."
+    },
+    {
+      "scope": "Mod-eez sets",
+      "status": "confirmed-manufacturer-listing",
+      "functions": [
+        "Non-Locking",
+        "Semi-Locking",
+        "Locking",
+        "Pass-Thru"
+      ]
+    },
+    {
+      "scope": "Tylko supplier and part number",
+      "status": "unconfirmed",
+      "value": null
+    }
+  ],
+  "measurement": {
+    "unit": "mm",
+    "method": null,
+    "precision": null,
+    "clipDimensions": null,
+    "pocketDimensions": null,
+    "screwProtrusion": null,
+    "placementOffsets": null,
+    "assemblyTravel": null,
+    "note": "No dimensions inferred from photographs. Located PDF text remains unverified against diagrams and is not a production specification."
+  },
+  "documentLeads": [
+    {
+      "url": "https://knappconnectors.com/wp-content/uploads/2020/03/Mod-eez-Instruction-Manual-32020.pdf",
+      "revisionInIndexedText": "VERSION 03, 2015-02-26",
+      "status": "indexed text read; page rendering failed 404",
+      "candidateFamilies": [
+        "4031/4032/4035",
+        "2075/2076",
+        "5075/5076"
+      ]
+    },
+    {
+      "url": "https://knappconnectors.com/wp-content/uploads/2025/08/4030-Series-Clip-Drawings.pdf",
+      "status": "indexed text read; page rendering failed cache miss",
+      "restriction": "Drawing text marks reference geometry unsuitable for fit/function; installation/pocket instructions required."
+    }
+  ],
+  "screenshots": [
+    "docs/tylko-reference/screenshots/connector-clip-002-knapp-sets-reference.png",
+    "docs/tylko-reference/screenshots/connector-clip-002-knapp-antirotation-reference.png"
+  ],
+  "implementationEffect": "Documentation only; preserve ovvo and tylko-clip system choices and pending clip manufacturing status."
+}

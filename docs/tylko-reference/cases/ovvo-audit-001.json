@@ -1,0 +1,61 @@
+{
+  "caseId": "ovvo-audit-001",
+  "observedAt": "2026-10-14T00:17:21.884969+09:00",
+  "models": [
+    "V-1230P",
+    "V-1230R"
+  ],
+  "sourceUrls": [
+    "https://ovvotech.com/wp-content/uploads/2022/09/V-1230P-Combined.pdf",
+    "https://ovvotech.com/wp-content/uploads/2022/09/V-1230R-Releasable-Miling-Connector-Instructions.pdf",
+    "https://ovvotech.com/wp-content/uploads/2022/06/OVVO-V-1230R.pdf"
+  ],
+  "method": "Official PDF first-page renders visually compared with current source geometry; no live browser comparison in this audit",
+  "sourceSnapshot": {
+    "path": "src/components/assembly-guide/GuideScene.tsx",
+    "sha256": "0cf0263171a939e5b2f8b123c6c77abdba2d549ef165d95470d1224efce2ee65"
+  },
+  "findings": [
+    {
+      "id": "OVVO-AUDIT-001",
+      "status": "fail",
+      "description": "Housing uses rectangular walls/endcaps instead of illustrated shaped retaining profile; connector appearance is schematic custom extrusion, not verified CAD."
+    },
+    {
+      "id": "OVVO-AUDIT-002",
+      "status": "fail",
+      "description": "Guide and optimizer CSG use a constant-width capsule extrusion, missing the undercut cutter profile shown in official installation section."
+    },
+    {
+      "id": "OVVO-AUDIT-003",
+      "status": "fail-static-geometry",
+      "description": "Housing endcap corner lies outside current capsule cavity in the seated pose. This is a mismatch between current app shapes, not supplier tolerance measurement.",
+      "unit": "mm",
+      "calculation": {
+        "slotRadius": 4.7,
+        "endArcCentreZ": 10.3,
+        "endcapCorner": [
+          4.3,
+          14.2
+        ],
+        "radialExcess": 1.105170109479996
+      }
+    },
+    {
+      "id": "OVVO-AUDIT-004",
+      "status": "partial-match",
+      "description": "P versus R part pairing and push versus insert/slide sequence broadly agree with instructions. R drawing labels release travel 15mm; exact current engagement and orientation have not been verified."
+    },
+    {
+      "id": "OVVO-AUDIT-005",
+      "status": "unconfirmed",
+      "description": "Catalog has unresolved guessed/shared values for other models marked autoApplicable; all 19 model documents were not audited in this pass."
+    }
+  ],
+  "manufacturingApproval": false,
+  "screenshots": [
+    "docs/tylko-reference/screenshots/ovvo-audit-001-r.png",
+    "docs/tylko-reference/screenshots/ovvo-audit-001-p.png",
+    "docs/tylko-reference/screenshots/ovvo-audit-001-spec.png"
+  ]
+}

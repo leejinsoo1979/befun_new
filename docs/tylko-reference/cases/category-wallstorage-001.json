@@ -1,0 +1,791 @@
+{
+  "caseId": "category-wallstorage-001",
+  "sourceIntroUrl": "https://tylko.com/de-de/configurator-intro",
+  "scope": "Initial category/model inventory; not full behavioral equivalence",
+  "models": [
+    {
+      "model": "Original Classic",
+      "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/3690551,j",
+      "observedAt": "2026-10-13T11:41:52.869Z",
+      "metadataObservedAt": null,
+      "steps": [
+        "Existing VPN Chrome: select category in German configurator-intro",
+        "Record actual model link; open linked initial product",
+        "Wait for option controls; record DOM and observed public product/DNA responses",
+        "Read-only metadata retries where needed; no saved design or cart mutation"
+      ],
+      "initialState": {
+        "presetId": 3690551,
+        "activeShelfType": 0,
+        "collectionType": "Bookcase",
+        "publicPreset": {
+          "id": 3690551,
+          "category": "wallstorage",
+          "furniture_type": "jetty",
+          "configurator_type": 1,
+          "shelf_type": 0,
+          "shelf_category": "wallstorage",
+          "width": 1200,
+          "height": 1930,
+          "depth": 320,
+          "pattern": 2,
+          "material": 0,
+          "configurator_params": {
+            "depth": 320,
+            "stack": {
+              "top": {
+                "1": {
+                  "active": false,
+                  "height": 700
+                }
+              },
+              "bottom": {
+                "1": {
+                  "active": false,
+                  "height": 600
+                }
+              }
+            },
+            "width": 1200,
+            "motion": 90,
+            "geom_id": 2,
+            "material": 0,
+            "snapping": true,
+            "row_amount": 6,
+            "row_styles": [
+              13,
+              11,
+              13,
+              12,
+              21,
+              11,
+              11,
+              11,
+              11,
+              11
+            ],
+            "shelf_type": 0,
+            "row_heights": [
+              400,
+              300,
+              300,
+              300,
+              300,
+              300,
+              300,
+              300,
+              300,
+              300,
+              300,
+              300
+            ],
+            "support_size": 125,
+            "half_material": 9,
+            "styles_slider": -1,
+            "prefabrication": null,
+            "backpanels_rows": [],
+            "shadow_settings": [
+              2,
+              2,
+              4,
+              2
+            ],
+            "additional_parameters": {
+              "collection_type": "Bookcase"
+            },
+            "gen_row_styles_for_buttons": true
+          },
+          "physical_product_version": 7
+        },
+        "hiddenSeed": null,
+        "priorEditHistory": null
+      },
+      "observedDnaRequests": [
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=0&collection_type=Bookcase&dna_version=6",
+          "status": 200
+        }
+      ],
+      "sliders": [
+        {
+          "max": "100.0",
+          "min": "0.0",
+          "text": "90%",
+          "value": "90.0"
+        },
+        {
+          "max": "450.0",
+          "min": "30.0",
+          "text": "120cm",
+          "value": "120.0"
+        },
+        {
+          "max": "9.0",
+          "min": "0.0",
+          "text": "193cm",
+          "value": "5.0"
+        }
+      ],
+      "optionUiSnapshot": "- main:\n  - complementary:\n    - paragraph:\n      - link \"Tylko Club ist da. Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\":\n        - /url: /de-de/register-or-login/join-club\n        - strong: Tylko Club ist da.\n        - text: Tritt jetzt bei und freu dich auf Club-Preise und weitere Vorteile 👉\n  - link:\n    - /url: /de-de\n  - list:\n    - link \"Shop\":\n      - /url: /de-de/mobel-c\n    - link \"Community\":\n      - /url: /de-de/inspirations\n    - link \"Tylko Pro\":\n      - /url: /de-de/tylko-pro\n    - link \"Showrooms\":\n      - /url: /de-de/showrooms\n    - link \"Tylko Club\":\n      - /url: /de-de/tylko-club\n  - list:\n    - button:\n    - link:\n      - /url: /de-de/account\n    - link:\n      - /url: /de-de/wunschliste\n    - link:\n      - /url: /de-de/cart/\n  - main:\n    - heading [level=1]\n    - heading \"Reihen anpassen\" [level=2]\n    - paragraph: NaN €\n    - paragraph: Stil\n    - button \"Pattern\":\n      - paragraph: Pattern\n    - button \"Grid\":\n      - paragraph: Grid\n    - button \"Slant\":\n      - paragraph: Slant\n    - button \"Mosaic\":\n      - paragraph: Mosaic\n    - button \"Gradient\":\n      - paragraph: Gradient\n    - button \"Pixel\":\n      - paragraph: Pixel\n    - paragraph: Dichte\n    - slider:\n      - generic: 90%\n    - paragraph: Breite\n    - slider:\n      - generic: 120cm\n    - paragraph: Höhe\n    - slider:\n      - generic: 193cm\n    - paragraph: Tiefe\n    - button \"24cm\"\n    - button \"32cm\"\n    - button \"40cm\"\n    - generic: 32cm\n    - paragraph: Rückwände\n    - button \"Ohne\"\n    - button \"Mit\"\n    - generic: Ohne\n    - paragraph: Finish\n    - button \"Farbe\"\n    - button \"Multiplexplatte\"\n    - button \"Furnier\"\n    - generic: Multiplexplatte\n    - paragraph: Farbe neu\n    - list:\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n    - generic: Unentschlossen?\n    - generic: Muster bestellen\n    - button \"In den Warenkorb\":\n      - generic: In den Warenkorb\n    - button \"Entwurf speichern\":\n      - text: Entwurf speichern\n    - complementary:\n      - paragraph\n      - paragraph: Maßangefertigt in der EU\n    - paragraph: Zahlungsinformationen\n    - paragraph: Lieferung & Rückgabe\n    - button:\n    - button:\n    - button:\n    - button:\n    - img \"Regalsystem in Weiß mit Türen\"\n    - heading \"Regalsystem in Weiß mit Türen\" [level=1]\n    - paragraph: Breite 120cm • Höhe 193cm • Tiefe 32cm\n    - paragraph: Farbe\n    - paragraph: Wir erstellen dein Regal. Nur noch einen kurzen Augenblick...\n    - heading \"Regalsystem in Weiß mit Türen...\" [level=1]\n    - paragraph:\n      - text: Steuern inklusive\n    - paragraph:\n      - text: Versand in 3-4 Wochen\n    - generic: Entwurf speichern\n    - text: In den Warenkorb\n    - generic: Zahlungsoptionen anzeigen\n",
+      "geometry": {
+        "rows": null,
+        "columns": null,
+        "partitionCoordinatesMm": null,
+        "horizontalPanelJointsMm": null,
+        "feetCoordinatesMm": null
+      },
+      "precision": {
+        "ui": "cm labels are rounded; some slider ranges are row indices or legroom positions",
+        "api": "public numeric preset values retained without asserting physical manufacturing precision",
+        "geometry": "not measured in this category inventory"
+      },
+      "screenshots": [
+        {
+          "path": "screenshots/category-wallstorage-original-classic-reference.png",
+          "status": "loading-preview-only",
+          "note": "Captured before 3D finished; not suitable for visual equivalence. Loaded option DOM was captured separately."
+        }
+      ],
+      "unverified": [
+        "Single-option boundary transitions",
+        "Category switch reset/retention",
+        "All individual hardware edits",
+        "Leg and panel-joint formulas",
+        "Befun structural and visual equivalence"
+      ]
+    },
+    {
+      "model": "Original Modern",
+      "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/1596673,j",
+      "observedAt": "2026-10-13T11:38:08.251Z",
+      "metadataObservedAt": null,
+      "steps": [
+        "Existing VPN Chrome: select category in German configurator-intro",
+        "Record actual model link; open linked initial product",
+        "Wait for option controls; record DOM and observed public product/DNA responses",
+        "Read-only metadata retries where needed; no saved design or cart mutation"
+      ],
+      "initialState": {
+        "presetId": 1596673,
+        "activeShelfType": 1,
+        "collectionType": "Bookcase",
+        "publicPreset": {
+          "id": 1596673,
+          "category": "wallstorage",
+          "furniture_type": "jetty",
+          "configurator_type": 1,
+          "shelf_type": 1,
+          "shelf_category": "wallstorage",
+          "width": 840,
+          "height": 2230,
+          "depth": 320,
+          "pattern": 2,
+          "material": 1,
+          "configurator_params": {
+            "depth": 320,
+            "stack": {
+              "top": {
+                "1": {
+                  "active": false,
+                  "height": 700
+                }
+              },
+              "bottom": {
+                "1": {
+                  "active": false,
+                  "height": 600
+                }
+              }
+            },
+            "width": 840,
+            "motion": 0,
+            "geom_id": 2,
+            "material": 1,
+            "snapping": true,
+            "row_amount": 6,
+            "row_styles": [
+              22,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11
+            ],
+            "shelf_type": 1,
+            "row_heights": [
+              400,
+              300,
+              400,
+              400,
+              300,
+              400,
+              300,
+              400,
+              300,
+              300,
+              300,
+              300,
+              300
+            ],
+            "support_size": 125,
+            "half_material": 9,
+            "styles_slider": -1,
+            "prefabrication": null,
+            "backpanels_rows": [],
+            "shadow_settings": [
+              2,
+              2,
+              4,
+              2
+            ],
+            "additional_parameters": {
+              "collection_type": "Bookcase"
+            },
+            "gen_row_styles_for_buttons": true
+          },
+          "physical_product_version": 7
+        },
+        "hiddenSeed": null,
+        "priorEditHistory": null
+      },
+      "observedDnaRequests": [
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=1&collection_type=Bookcase&dna_version=6",
+          "status": 200
+        }
+      ],
+      "sliders": [
+        {
+          "max": "100.0",
+          "min": "0.0",
+          "text": "0%",
+          "value": "0.0"
+        },
+        {
+          "max": "450.0",
+          "min": "30.0",
+          "text": "84cm",
+          "value": "84.0"
+        },
+        {
+          "max": "9.0",
+          "min": "0.0",
+          "text": "223cm",
+          "value": "5.0"
+        }
+      ],
+      "optionUiSnapshot": "- main:\n  - complementary:\n    - paragraph:\n      - link \"Spare 38% auf ausgewählte Produkte\":\n        - /url: /de-de/mobel-c?additional=sale\n        - strong: Spare 38% auf ausgewählte Produkte\n      - text: 👉🏻\n  - link:\n    - /url: /de-de\n  - list:\n    - link \"Shop\":\n      - /url: /de-de/mobel-c\n    - link \"Community\":\n      - /url: /de-de/inspirations\n    - link \"Tylko Pro\":\n      - /url: /de-de/tylko-pro\n    - link \"Showrooms\":\n      - /url: /de-de/showrooms\n    - link \"Tylko Club\":\n      - /url: /de-de/tylko-club\n  - list:\n    - button:\n    - link:\n      - /url: /de-de/account\n    - link:\n      - /url: /de-de/wunschliste\n    - link:\n      - /url: /de-de/cart/\n  - main:\n    - complementary:\n      - heading \"Regalsystem in Terrakotta mit Türen und Schubladen\" [level=1]\n      - heading \"Reihen anpassen\" [level=2]\n      - paragraph:\n        - generic: 1459 €\n        - generic: \"| sparen\"\n        - generic: 554 €\n        - generic: zu\n        - generic: \"13.10\"\n        - generic: 905 €\n      - paragraph: \"Niedrigster Preis in den letzten 30 Tagen: 903 €\"\n      - paragraph: Stil\n      - button \"Pattern\":\n        - paragraph: Pattern\n      - button \"Grid\":\n        - paragraph: Grid\n      - button \"Slant\":\n        - paragraph: Slant\n      - button \"Mosaic\":\n        - paragraph: Mosaic\n      - button \"Gradient\":\n        - paragraph: Gradient\n      - button \"Pixel\":\n        - paragraph: Pixel\n      - paragraph: Dichte\n      - slider:\n        - generic: 0%\n      - paragraph: Breite\n      - slider:\n        - generic: 84cm\n      - paragraph: Höhe\n      - slider:\n        - generic: 223cm\n      - paragraph: Tiefe\n      - button \"24cm\"\n      - button \"32cm\"\n      - button \"40cm\"\n      - generic: 32cm\n      - paragraph: Rückwände\n      - button \"Ohne\"\n      - button \"Mit\"\n      - generic: Ohne\n      - paragraph: Finish\n      - button \"Farbe\"\n      - button \"Multiplexplatte\"\n      - button \"Furnier\"\n      - generic: Farbe\n      - paragraph: Farbe neu\n      - list:\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n        - button\n      - generic: Unentschlossen?\n      - generic: Muster bestellen\n      - button \"In den Warenkorb\":\n        - generic: In den Warenkorb\n      - button \"Entwurf speichern\":\n        - text: Entwurf speichern\n      - complementary:\n        - paragraph: Versand in 5-6 Wochen\n        - paragraph: Maßangefertigt in der EU\n      - paragraph: Zahlungsinformationen\n      - paragraph: Lieferung & Rückgabe\n      - button:\n      - button:\n      - button:\n      - button:\n      - button:\n",
+      "geometry": {
+        "rows": null,
+        "columns": null,
+        "partitionCoordinatesMm": null,
+        "horizontalPanelJointsMm": null,
+        "feetCoordinatesMm": null
+      },
+      "precision": {
+        "ui": "cm labels are rounded; some slider ranges are row indices or legroom positions",
+        "api": "public numeric preset values retained without asserting physical manufacturing precision",
+        "geometry": "not measured in this category inventory"
+      },
+      "screenshots": [
+        {
+          "path": "screenshots/category-wallstorage-original-modern-reference.png",
+          "status": "rendered-reference",
+          "note": "Overview evidence; no calibrated geometry measurement"
+        }
+      ],
+      "unverified": [
+        "Single-option boundary transitions",
+        "Category switch reset/retention",
+        "All individual hardware edits",
+        "Leg and panel-joint formulas",
+        "Befun structural and visual equivalence"
+      ]
+    },
+    {
+      "model": "Edge",
+      "sourceUrl": "https://tylko.com/de-de/mobel/regalsystem/519975,w",
+      "observedAt": "2026-10-13T11:45:26.548Z",
+      "metadataObservedAt": null,
+      "steps": [
+        "Existing VPN Chrome: select category in German configurator-intro",
+        "Record actual model link; open linked initial product",
+        "Wait for option controls; record DOM and observed public product/DNA responses",
+        "Read-only metadata retries where needed; no saved design or cart mutation"
+      ],
+      "initialState": {
+        "presetId": 519975,
+        "activeShelfType": 4,
+        "collectionType": "Wallstorage",
+        "publicPreset": {
+          "id": 519975,
+          "category": "wallstorage",
+          "furniture_type": "watty",
+          "configurator_type": 3,
+          "shelf_type": 4,
+          "shelf_category": "wallstorage",
+          "width": 1270,
+          "height": 1680,
+          "depth": 360,
+          "pattern": 0,
+          "material": 9,
+          "configurator_params": {
+            "skin": "edge",
+            "depth": 360,
+            "width": 1270,
+            "height": 1680,
+            "density": 0,
+            "flatTop": false,
+            "geom_id": 2590,
+            "handles": false,
+            "material": 9,
+            "geom_type": "mesh",
+            "distortion": 0,
+            "additional_parameters": {
+              "collection_type": "Wallstorage",
+              "doors_direction": 1
+            },
+            "configurator_custom_params": {
+              "lines": {},
+              "channels": {
+                "1": {
+                  "order": 1,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Split_Standard_Slabs_bottom_drawer",
+                  "distortion": null,
+                  "exposition": "split",
+                  "local_depth": 360,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "2": {
+                  "order": 1,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Half_Standard_Slabs_bottom_drawer",
+                  "distortion": null,
+                  "exposition": "half",
+                  "local_depth": 360,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "3": {
+                  "order": 1,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Half_Standard_Slabs_bottom_drawer",
+                  "distortion": null,
+                  "exposition": "half",
+                  "local_depth": 360,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "4": {
+                  "order": 1,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Half_Standard_Slabs_bottom_drawer",
+                  "distortion": null,
+                  "exposition": "half",
+                  "local_depth": 360,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "5": {
+                  "order": 1,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Half_Standard_Slabs_bottom_drawer",
+                  "distortion": null,
+                  "exposition": "half",
+                  "local_depth": 360,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "6": {
+                  "order": 1,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Half_Standard_Slabs_bottom_drawer",
+                  "distortion": null,
+                  "exposition": "half",
+                  "local_depth": 360,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "7": {
+                  "order": 1,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Half_Standard_Slabs_bottom_drawer",
+                  "distortion": null,
+                  "exposition": "half",
+                  "local_depth": 360,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "8": {
+                  "order": 1,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Half_Standard_Slabs_bottom_drawer",
+                  "distortion": null,
+                  "exposition": "half",
+                  "local_depth": 360,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "9": {
+                  "order": 1,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Half_Standard_Slabs_bottom_drawer",
+                  "distortion": null,
+                  "exposition": "half",
+                  "local_depth": 360,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "10": {
+                  "order": 1,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Half_Standard_Slabs_bottom_drawer",
+                  "distortion": null,
+                  "exposition": "half",
+                  "local_depth": 360,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                }
+              }
+            }
+          },
+          "physical_product_version": 5
+        },
+        "hiddenSeed": null,
+        "priorEditHistory": null
+      },
+      "observedDnaRequests": [
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=5&collection_type=Wallstorage&dna_version=6",
+          "status": 200
+        },
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=4&collection_type=Wallstorage&dna_version=6",
+          "status": 200
+        }
+      ],
+      "sliders": [
+        {
+          "max": "600.0",
+          "min": "40.0",
+          "text": "127cm",
+          "value": "127.0"
+        },
+        {
+          "max": "300.0",
+          "min": "48.0",
+          "text": "168cm",
+          "value": "168.0"
+        }
+      ],
+      "optionUiSnapshot": "- main:\n  - complementary:\n    - paragraph:\n      - link \"Spare 38% auf ausgewählte Produkte\":\n        - /url: /de-de/mobel-c?additional=sale\n        - strong: Spare 38% auf ausgewählte Produkte\n      - text: 👉🏻\n  - link:\n    - /url: /de-de\n  - list:\n    - link \"Shop\":\n      - /url: /de-de/mobel-c\n    - link \"Community\":\n      - /url: /de-de/inspirations\n    - link \"Tylko Pro\":\n      - /url: /de-de/tylko-pro\n    - link \"Showrooms\":\n      - /url: /de-de/showrooms\n    - link \"Tylko Club\":\n      - /url: /de-de/tylko-club\n  - list:\n    - button:\n    - link:\n      - /url: /de-de/account\n    - link:\n      - /url: /de-de/wunschliste\n    - link:\n      - /url: /de-de/cart/\n  - main:\n    - heading \"Regalsystem in Grün mit Aussen Schubladen\" [level=1]\n    - heading \"Versand in 3-4 Wochen\" [level=2]\n    - generic: 1166 €\n    - generic: Tylko Club\n    - generic: 1881 €\n    - generic: Regulär\n    - complementary:\n      - button \"Entwurf speichern\":\n        - generic: Entwurf speichern\n      - button \"In den Warenkorb\":\n        - generic: In den Warenkorb\n    - heading \"Regalsystem in Grün mit Aussen Schubladen\" [level=1]\n    - button \"Zoom out\" [disabled]:\n    - button \"Zoom in\":\n    - button \"Dimensions\":\n    - button \"Shelves\":\n    - button \"Doors\":\n    - button \"See product details\":\n    - button \"Share\":\n    - paragraph:\n      - generic: 1166 €\n      - generic: Tylko Club\n    - paragraph:\n      - generic: 1881 €\n      - generic: Regulär\n    - paragraph:\n      - button \"Werde Mitglied im Tylko Club,\"\n      - text: um Mitgliederpreise freizuschalten\n    - button \"Aussehen\"\n    - button \"Ausstattung\"\n    - generic: Aussehen\n    - paragraph: Breite\n    - slider \"Size value in centimeters\":\n      - generic: 127cm\n    - paragraph: Höhe\n    - slider \"Size value in centimeters\":\n      - generic: 168cm\n    - paragraph:\n      - text: Tiefe\n    - button \"27cm\"\n    - button \"36cm\"\n    - button \"45cm\"\n    - button \"60cm\"\n    - generic: 36cm\n    - paragraph: Spalten\n    - paragraph:\n      - generic: Abschnitte können nur bei Möbeln mit einer Mindestbreite von 156 cm hinzugefügt werden.\n    - paragraph:\n      - text: Oberseite mit Kanten\n    - button \"Mit\"\n    - button \"Aus\"\n    - generic: Mit\n    - paragraph:\n      - text: Finish\n    - button \"Farbe\"\n    - button \"Multiplexplatte\"\n    - button \"Holzoptik\"\n    - generic: Farbe\n    - paragraph: Farbe\n    - list:\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n      - button\n    - paragraph\n    - generic: Unentschlossen?\n    - generic: Muster bestellen\n    - button \"In den Warenkorb\":\n      - generic: In den Warenkorb\n    - button \"Entwurf speichern\":\n      - generic: Entwurf speichern\n    - complementary:\n      - paragraph: Versand in 4-5 Wochen\n      - paragraph: Maßangefertigt in der EU\n    - generic: Zahlungsinformationen\n    - generic: Lieferung & Rückgabe\n",
+      "geometry": {
+        "rows": null,
+        "columns": null,
+        "partitionCoordinatesMm": null,
+        "horizontalPanelJointsMm": null,
+        "feetCoordinatesMm": null
+      },
+      "precision": {
+        "ui": "cm labels are rounded; some slider ranges are row indices or legroom positions",
+        "api": "public numeric preset values retained without asserting physical manufacturing precision",
+        "geometry": "not measured in this category inventory"
+      },
+      "screenshots": [
+        {
+          "path": "screenshots/category-wallstorage-edge-reference.png",
+          "status": "rendered-reference",
+          "note": "Overview evidence; no calibrated geometry measurement"
+        }
+      ],
+      "unverified": [
+        "Single-option boundary transitions",
+        "Category switch reset/retention",
+        "All individual hardware edits",
+        "Leg and panel-joint formulas",
+        "Befun structural and visual equivalence"
+      ]
+    },
+    {
+      "model": "Tone",
+      "sourceUrl": "https://tylko.com/de-de/configure/1964452,w",
+      "observedAt": "2026-10-13T11:43:44.813Z",
+      "metadataObservedAt": null,
+      "steps": [
+        "Existing VPN Chrome: select category in German configurator-intro",
+        "Record actual model link; open linked initial product",
+        "Wait for option controls; record DOM and observed public product/DNA responses",
+        "Read-only metadata retries where needed; no saved design or cart mutation"
+      ],
+      "initialState": {
+        "presetId": 1964452,
+        "activeShelfType": 14,
+        "collectionType": "Wallstorage",
+        "publicPreset": {
+          "id": 1964452,
+          "category": "wallstorage",
+          "furniture_type": "watty",
+          "configurator_type": 3,
+          "shelf_type": 14,
+          "shelf_category": "wallstorage",
+          "width": 2440,
+          "height": 1640,
+          "depth": 450,
+          "pattern": 0,
+          "material": 0,
+          "configurator_params": {
+            "skin": "plane",
+            "depth": 450,
+            "width": 2440,
+            "height": 1680,
+            "density": 50,
+            "flatTop": false,
+            "geom_id": 2590,
+            "handles": true,
+            "material": 0,
+            "geom_type": "mesh",
+            "distortion": 0,
+            "additional_parameters": {
+              "collection_type": "Wallstorage",
+              "doors_direction": 1
+            },
+            "configurator_custom_params": {
+              "lines": {},
+              "channels": {
+                "1": {
+                  "order": 1,
+                  "cables": [
+                    80
+                  ],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Split_High_Slabs",
+                  "distortion": null,
+                  "exposition": "split",
+                  "local_depth": 450,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "2": {
+                  "order": 1,
+                  "cables": [
+                    480,
+                    780,
+                    1080,
+                    1680
+                  ],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Split_High_Slabs",
+                  "distortion": null,
+                  "exposition": "split",
+                  "local_depth": 450,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": "High"
+                },
+                "3": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_High_Slabs",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 450,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "4": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Full_High_Slabs",
+                  "distortion": null,
+                  "exposition": "full",
+                  "local_depth": 450,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "5": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Full_High_Slabs",
+                  "distortion": null,
+                  "exposition": "full",
+                  "local_depth": 450,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "6": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Full_Standard_Slabs",
+                  "distortion": null,
+                  "exposition": "full",
+                  "local_depth": 450,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "7": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_Slabs_top_drawer",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 450,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "8": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_Slabs_top_drawer",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 450,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "9": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_Slabs_top_drawer",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 450,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                },
+                "10": {
+                  "order": 2,
+                  "cables": [],
+                  "local_x": null,
+                  "door_flip": null,
+                  "series_id": "Open_Standard_Slabs_top_drawer",
+                  "distortion": null,
+                  "exposition": "open",
+                  "local_depth": 450,
+                  "local_height": 1680,
+                  "cables_system": "off",
+                  "shelf_distribution": null
+                }
+              }
+            }
+          },
+          "physical_product_version": 5
+        },
+        "hiddenSeed": null,
+        "priorEditHistory": null
+      },
+      "observedDnaRequests": [
+        {
+          "url": "https://tylko.com/api/v1/furniture_dna/?shelf_type=14&collection_type=Wallstorage&dna_version=6",
+          "status": 200
+        }
+      ],
+      "sliders": [
+        {
+          "max": "600.0",
+          "min": "40.0",
+          "text": "244",
+          "value": "244.0"
+        },
+        {
+          "max": "296.0",
+          "min": "44.0",
+          "text": "164cm",
+          "value": "164.0"
+        },
+        {
+          "max": "65.0",
+          "min": "27.0",
+          "text": "45",
+          "value": "45.0"
+        }
+      ],
+      "optionUiSnapshot": "- main:\n  - main:\n    - button \"Zurück\":\n      - generic: Zurück\n    - complementary\n    - button \"Zoom out\" [disabled]:\n    - button \"Zoom in\":\n    - button \"Dimensions\":\n    - button \"Shelves\":\n    - button \"Doors\":\n    - button \"See product details\":\n    - button \"Share\":\n    - button \"Abschnitt bearbeiten\":\n      - generic: Abschnitt bearbeiten\n    - button \"Größe\":\n      - generic: Größe\n    - button \"Farbe\":\n      - generic: Farbe\n    - button \"Spalten\":\n      - generic: Spalten\n    - button \"Griffart\":\n      - generic: Griffart\n    - button \"Übersicht\":\n      - generic: Übersicht\n    - heading \"Größe anpassen\" [level=3]\n    - paragraph: Breite\n    - slider \"Breite\"\n    - spinbutton \"Breite\": \"244\"\n    - generic: cm\n    - button \"Edit size as number\":\n    - paragraph: Höhe\n    - slider \"Höhe\"\n    - spinbutton \"Höhe\": \"164\"\n    - generic: cm\n    - button \"Edit size as number\":\n    - paragraph: Tiefe\n    - slider \"Tiefe\"\n    - spinbutton \"Tiefe\": \"45\"\n    - generic: cm\n    - button \"Edit size as number\":\n    - heading \"Wähle Finish & Farbe\" [level=3]\n    - button \"Muster bestellen\": Blick aus der Nähe gefällig?Muster bestellen\n    - radiogroup:\n      - radio \"Standard\" [checked]:\n        - generic: Standard\n      - radio \"Premium-Matt\":\n        - generic: Premium-Matt\n    - img \"Cremeweiß\"\n    - img \"Kaschmirbeige\"\n    - img \"Pistaziengrün\"\n    - img \"Aschgrau\"\n    - img \"Mitternachtsblau\"\n    - img \"Nebelblau\"\n    - paragraph:\n      - generic: \"Außen:\"\n      - generic: Cremeweiß\n    - paragraph:\n      - generic: \"Innen:\"\n      - generic: Cremeweiß\n    - button \"Entdecke die Farben und Finishes\":\n      - generic: Entdecke die Farben und Finishes\n    - heading \"Anzahl der Abschnitte\" [level=3]\n    - group \"Anzahl der Abschnitte\":\n      - button \"Decrease\" [disabled]:\n      - paragraph: \"3\"\n      - button \"Increase\":\n    - paragraph: Die Anzahl der verfügbaren Abschnitte hängt von der Gesamtbreite und deiner Konfiguration ab.\n    - heading \"Wähle deine Öffnungsart\" [level=3]\n    - img \"Griffe\"\n    - img \"Drucksystem\"\n    - paragraph: \"Griffart (gilt nur für Türen): Griffe\"\n    - button \"Mehr über Öffnungsoptionen erfahren\":\n      - generic: Mehr über Öffnungsoptionen erfahren\n    - generic: Du hast Fragen?\n    - paragraph: Unser Team hilft dir weiter und berät dich gern.\n    - button \"Mit uns chatten\":\n      - generic: Mit uns chatten\n    - heading \"Dein neues sieht klasse aus.\" [level=2]:\n      - text: Dein neues\n      - text: sieht klasse aus.\n    - generic: \"Abmessungen: 244cm x 164cm\"\n    - generic: Mehr Details\n    - paragraph: Versand in 7-8 Wochen\n    - generic: 30 Tage kostenlose Rückgabe\n    - generic: Total\n    - paragraph: 3023 €\n    - button \"In den Warenkorb\":\n      - generic: In den Warenkorb\n    - button \"Design speichern\":\n      - generic: Design speichern\n    - paragraph: Hergestellt in der EU",
+      "geometry": {
+        "rows": null,
+        "columns": null,
+        "partitionCoordinatesMm": null,
+        "horizontalPanelJointsMm": null,
+        "feetCoordinatesMm": null
+      },
+      "precision": {
+        "ui": "cm labels are rounded; some slider ranges are row indices or legroom positions",
+        "api": "public numeric preset values retained without asserting physical manufacturing precision",
+        "geometry": "not measured in this category inventory"
+      },
+      "screenshots": [
+        {
+          "path": "screenshots/category-wallstorage-tone-reference.png",
+          "status": "rendered-reference",
+          "note": "Overview evidence; no calibrated geometry measurement"
+        }
+      ],
+      "unverified": [
+        "Single-option boundary transitions",
+        "Category switch reset/retention",
+        "All individual hardware edits",
+        "Leg and panel-joint formulas",
+        "Befun structural and visual equivalence"
+      ]
+    }
+  ]
+}

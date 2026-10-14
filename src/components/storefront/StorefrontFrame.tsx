@@ -16,6 +16,20 @@ const subscribeMobileFooter = (update: () => void) => {
   return () => media.removeEventListener('change', update);
 };
 const isMobileFooter = () => window.matchMedia('(max-width: 700px)').matches;
+
+// 상단 알림바 닫힘 상태 — 이 브라우저에 보관(localStorage). 다른 탭/프레임과 동기화.
+const ANNOUNCEMENT_KEY = 'befun-announcement-dismissed';
+const announcementListeners = new Set<() => void>();
+const subscribeAnnouncement = (update: () => void) => {
+  announcementListeners.add(update);
+  window.addEventListener('storage', update);
+  return () => { announcementListeners.delete(update); window.removeEventListener('storage', update); };
+};
+const isAnnouncementDismissed = () => { try { return localStorage.getItem(ANNOUNCEMENT_KEY) === '1'; } catch { return false; } };
+const dismissAnnouncement = () => {
+  try { localStorage.setItem(ANNOUNCEMENT_KEY, '1'); } catch { /* 저장 불가 환경에서는 이번 화면에서만 닫힘 */ }
+  announcementListeners.forEach(update => update());
+};
 function FooterGroup({ group }: { group: typeof footerGroups[number] }) {
   const mobile = useSyncExternalStore(subscribeMobileFooter, isMobileFooter, () => false);
   const [expanded, setExpanded] = useState(false);
@@ -28,6 +42,7 @@ function FooterGroup({ group }: { group: typeof footerGroups[number] }) {
 export function StorefrontFrame({ children, overlay = false }: { children: ReactNode; overlay?: boolean }) {
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const announcementDismissed = useSyncExternalStore(subscribeAnnouncement, isAnnouncementDismissed, () => false);
   const menuRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const lastScroll = useRef(0);
@@ -54,9 +69,9 @@ export function StorefrontFrame({ children, overlay = false }: { children: React
       window.scrollTo({top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
     }
   };
-  return <div className={`${styles.storefront} ${overlay ? '' : styles.innerStorefront}`}>
+  return <div className={`${styles.storefront} ${overlay ? '' : styles.innerStorefront} ${announcementDismissed ? styles.noAnnouncement : ''}`}>
     <a href="#main" className={styles.skipLink}>본문으로 바로가기</a>
-    <div className={styles.announcement}><Link href="/furniture-c">공간에 딱 맞는 수납. <strong>나만의 디자인, 20% 할인.</strong><span> 지금 만나보세요 <FiArrowRight /></span></Link></div>
+    {announcementDismissed ? null : <div className={styles.announcement} role="region" aria-label="프로모션 알림"><Link href="/furniture-c">공간에 딱 맞는 수납. <strong>나만의 디자인, 20% 할인.</strong><span> 지금 만나보세요 <FiArrowRight /></span></Link><button type="button" className={styles.announcementClose} aria-label="알림 닫기" onClick={dismissAnnouncement}><FiX /></button></div>}
     <header className={`${styles.header} ${hidden && !open ? styles.headerHidden : ''}`}>
       <Link href="/" aria-label="Befun 홈" className={styles.logo} onClick={goHome}><BrandLogo /></Link>
       <div className={styles.navPill}>

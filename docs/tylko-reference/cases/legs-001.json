@@ -1,0 +1,52 @@
+{
+  "caseId": "legs-001",
+  "observedAt": "2026-10-13T22:52:11.433865+00:00",
+  "referenceUrl": "https://tylko.com/en-de/furniture/sideboard/4665612,j",
+  "befunUrl": "http://localhost:3003/furniture/sideboard-terra",
+  "inputs": {
+    "widthCm": 110,
+    "rowHeightsCm": [
+      28,
+      28
+    ],
+    "depthCm": 32,
+    "densityPercent": 50,
+    "style": "grid",
+    "color": "S_Teracotta Orange",
+    "baseType": "legs",
+    "hasBackPanel": true
+  },
+  "observations": {
+    "heightBeforeCm": 63,
+    "heightAfterCm": 73,
+    "gridLegCount": 6,
+    "patternLegCount": 8,
+    "referenceLegCountForSameInputs": null,
+    "referenceDepthInsetMm": null,
+    "precision": "UI display cm and code-derived Befun coordinates; reference exact placement not measured"
+  },
+  "operations": [
+    "Standard→Legs",
+    "bottom view",
+    "front view+dimensions",
+    "Grid→Pattern",
+    "save locally after server503",
+    "open saved design link and confirm Legs/Pattern/73cm"
+  ],
+  "asset": {
+    "url": "https://media.tylko.com/cloudinary/image/upload/v1/renderer/geometry/long_leg.glb",
+    "localPath": "public/models/furniture/long-leg.glb",
+    "bytes": 17392,
+    "sha256": "ce1bd336615cba1887185b44cdd99eb9ceeda2fcb470c98c983624dc17b51b2a",
+    "purpose": "visual rendering; not CNC"
+  },
+  "screenshots": [
+    "docs/tylko-reference/screenshots/legs-001-befun-bottom.jpg",
+    "docs/tylko-reference/screenshots/legs-001-befun-pattern.jpg"
+  ],
+  "verification": {
+    "internalLayouts": 120,
+    "referenceEquivalent": null,
+    "manufacturingApproved": false
+  }
+}

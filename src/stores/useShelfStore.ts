@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { supportsLongLegs, type FurnitureBaseType, type FurnitureLegFinish } from '@/lib/three/furniture-base';
 import type { StyleType, RowHeight } from '@/types/shelf';
 import { effectiveHardwareStyle, resolveHardwareRows } from '@/lib/three/hardware-state';
 import { useHardwareStore } from './useHardwareStore';
@@ -14,6 +15,10 @@ interface ShelfState {
   style: StyleType;
   density: number;
   hasBackPanel: boolean;
+  baseType: FurnitureBaseType;
+  legFinish: FurnitureLegFinish;
+  setLegFinish: (value: FurnitureLegFinish) => void;
+  setBaseType: (value: FurnitureBaseType) => void;
 
   // 행 관리
   rowHeights: number[];
@@ -74,6 +79,10 @@ export const useShelfStore = create<ShelfState>((set, get) => ({
   style: 'grid',
   density: 50,
   hasBackPanel: false,
+  baseType: 'standard',
+  legFinish: 'silver',
+  setLegFinish: value => { if (value === 'silver' || value === 'black') set({ legFinish: value }); },
+  setBaseType: value => set({ baseType: value === 'legs' && supportsLongLegs(get().depth,get().style) ? 'legs' : 'standard' }),
   rowHeights: [28, 28, 28, 28],
   numRows: 4,
   panelCount: 0,
@@ -88,11 +97,11 @@ export const useShelfStore = create<ShelfState>((set, get) => ({
 
   setDepth: (d) => {
     const depth=Math.max(24,Math.min(40,d));
-    set({depth});
+    set({depth, ...(depth<=24 ? {baseType:'standard' as const}: {})});
     get().reconcileHardware();
   },
 
-  setStyle: (s) => set({ style: s }),
+  setStyle: (s) => set({ style: s, ...(s==='pixel' ? {baseType:'standard' as const}: {}) }),
 
   setDensity: (d) => set({ density: Math.max(0, Math.min(100, d)) }),
 

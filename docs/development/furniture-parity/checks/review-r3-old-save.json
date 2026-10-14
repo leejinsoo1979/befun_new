@@ -1,0 +1,48 @@
+{
+  "caseId": "REVIEW-R3-SAVE-01",
+  "oldSnapshot": {
+    "baseType": "standard",
+    "legFinish": "silver",
+    "style": "grid",
+    "density": 50,
+    "width": 110,
+    "height": 62,
+    "depth": 32,
+    "hasBackPanel": false,
+    "color": "S_Midnight Blue",
+    "colorCategory": "solid",
+    "rowHeights": [
+      28,
+      28,
+      28,
+      28
+    ],
+    "numRows": 2,
+    "doorsCreatedLayers": [],
+    "drawersCreatedLayers": [],
+    "hardwareRowStyles": {}
+  },
+  "canonicalSnapshot": {
+    "baseType": "standard",
+    "legFinish": "silver",
+    "style": "grid",
+    "density": 50,
+    "width": 110,
+    "height": 62,
+    "depth": 32,
+    "hasBackPanel": false,
+    "color": "S_Midnight Blue",
+    "colorCategory": "solid",
+    "rowHeights": [
+      28,
+      28
+    ],
+    "numRows": 2,
+    "doorsCreatedLayers": [],
+    "drawersCreatedLayers": [],
+    "hardwareRowStyles": {}
+  },
+  "oldAccepted": false,
+  "canonicalAccepted": true,
+  "source": "Actual store rowCount 4→2; manual configurator snapshot retains inactive row heights; share page strict parser rejects"
+}

@@ -1,0 +1,81 @@
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen, fireEvent, within } from '@testing-library/react';
+import { FurniturePanel } from '@/components/ui/furniture-panels';
+import { FAMILY_PRESETS } from '@/components/ui/furniture-panels/preview/familyFixtures';
+import { FamilyPanelsPreview } from '@/components/ui/furniture-panels/preview/FamilyPanelsPreview';
+
+const preset = (id: string) => FAMILY_PRESETS.find(p => p.id === id)!;
+const order = (el: HTMLElement) => [...el.querySelectorAll('[data-control-id]')].map(e => e.getAttribute('data-control-id'));
+const mount = (id: string, onIntent = vi.fn()) => { const p = preset(id); const r = render(<FurniturePanel view={p.view(p.initial)} onIntent={onIntent} />); return { ...r, onIntent }; };
+
+describe('제품군별 항목 순서(관찰 스냅샷)', () => {
+  it.each([
+    ['original-row', ['style', 'density', 'width', 'height', 'depth', 'backPanel', 'finish', 'color']],
+    ['original-column', ['style', 'width', 'height', 'depth', 'base', 'backPanel', 'finish', 'color']],
+    ['original-column-tv-modern', ['style', 'width', 'height', 'depth', 'sections', 'base', 'backPanel', 'finish', 'color']],
+    ['desk', ['width', 'height', 'depth', 'storageSections', 'legSpace', 'backPanel', 'color']],
+    ['vinyl', ['style', 'width', 'height', 'depth', 'backPanel', 'color']],
+    ['edge-low', ['width', 'height', 'depth', 'columns', 'topEdge', 'finish', 'color']],
+    ['tone-low', ['styleTone', 'width', 'height', 'depth', 'color', 'sectionsCount', 'drawerDensity', 'summary']],
+    ['tone-14', ['width', 'height', 'depth', 'finishTone', 'color', 'sections', 'handle', 'summary']],
+  ])('%s', (id, expected) => { const { container } = mount(id); expect(order(container)).toEqual(expected); });
+});
+
+describe('제품군별 조건 표현', () => {
+  it('Original 행 높이: 인덱스 슬라이더, 표시값은 view 문자열(163cm)', () => {
+    mount('original-row');
+    const s = screen.getByRole('slider', { name: '높이' });
+    expect(s).toHaveAttribute('min', '0'); expect(s).toHaveAttribute('max', '9'); expect(s).toHaveAttribute('aria-valuetext', '163cm');
+  });
+  it('Desk: 높이는 고정 안내문, 수납 구획 −/+ 둘 다 비활성, 다리 공간 값 표시 없음', () => {
+    const { container } = mount('desk');
+    expect(screen.queryByRole('slider', { name: '높이' })).toBeNull();
+    expect(screen.getByText('모든 책상은 높이 73cm입니다.')).toBeTruthy();
+    expect(screen.getByRole('button', { name: '수납 구획 줄이기' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: '수납 구획 늘리기' })).toBeDisabled();
+    const leg = container.querySelector('[data-control-id="legSpace"]')!;
+    expect(leg.textContent).not.toMatch(/\d/);
+  });
+  it('Vinyl: 24/32cm·뒷판 없음 비활성', () => {
+    mount('vinyl');
+    expect(screen.getByRole('radio', { name: '24cm' })).toBeDisabled();
+    expect(screen.getByRole('radio', { name: '32cm' })).toBeDisabled();
+    expect(screen.getByRole('radio', { name: '40cm' })).not.toBeDisabled();
+    expect(screen.getByRole('radio', { name: '없음' })).toBeDisabled();
+  });
+  it('Original 열 / Edge / Tone 깊이 선택지가 서로 다르다', () => {
+    const depths = (id: string) => { const { unmount } = mount(id); const r = within(screen.getByRole('radiogroup', { name: '깊이' })).getAllByRole('radio').map(e => e.textContent); unmount(); return r; };
+    expect(depths('original-column')).toEqual(['24cm', '32cm', '40cm', '50cm']);
+    expect(depths('edge-low')).toEqual(['36cm', '45cm', '60cm']);
+    expect(depths('tone-low')).toEqual(['36cm', '46cm', '56cm']);
+  });
+  it('Tone14: 깊이는 슬라이더(27–65)+숫자 입력, 숫자 입력은 Enter에서만 intent', () => {
+    const { onIntent } = mount('tone-14');
+    expect(screen.getByRole('slider', { name: '깊이' })).toHaveAttribute('min', '27');
+    const input = screen.getByRole('spinbutton', { name: '깊이 직접 입력' });
+    fireEvent.change(input, { target: { value: '50' } });
+    expect(onIntent).not.toHaveBeenCalled();
+    fireEvent.keyDown(input, { key: 'Enter' });
+    expect(onIntent).toHaveBeenCalledWith({ type: 'set', controlId: 'depth', target: { scope: 'global' }, value: 50 });
+  });
+  it('Tone14 스테퍼 +는 value+1 intent, −는 비활성', () => {
+    const { onIntent } = mount('tone-14');
+    expect(screen.getByRole('button', { name: '구획 수 줄이기' })).toBeDisabled();
+    fireEvent.click(screen.getByRole('button', { name: '구획 수 늘리기' }));
+    expect(onIntent).toHaveBeenCalledWith({ type: 'set', controlId: 'sections', target: { scope: 'global' }, value: 4 });
+  });
+  it('Tone 단계형: 단계 버튼 5개와 섹션 제목, 모든 단계 내용이 한 화면에', () => {
+    mount('tone-low');
+    const nav = screen.getByRole('navigation', { name: '단계' });
+    expect(within(nav).getAllByRole('button').map(b => b.textContent)).toEqual(['스타일', '크기', '색상', '배치', '요약']);
+    expect(screen.getAllByRole('heading', { level: 4 }).map(h => h.textContent)).toEqual(['스타일 선택', '크기 조정', '색상 선택', '배치', '요약']);
+    fireEvent.click(within(nav).getByRole('button', { name: '색상' }));
+    expect(within(nav).getByRole('button', { name: '색상' })).toHaveAttribute('aria-current', 'step');
+  });
+  it('하네스 echo: 스타일 선택이 반영된다', () => {
+    render(<FamilyPanelsPreview />);
+    const row = within(screen.getByTestId('family-original-row'));
+    fireEvent.click(row.getByRole('radio', { name: 'Grid' }));
+    expect(row.getByRole('radio', { name: 'Grid' })).toHaveAttribute('aria-checked', 'true');
+  });
+});

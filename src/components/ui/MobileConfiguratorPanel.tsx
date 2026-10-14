@@ -1,10 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { StyleSelector } from './StyleSelector';
-import { DensitySlider } from './DensitySlider';
-import { DimensionPanel } from './DimensionPanel';
-import { BackPanelToggle } from './BackPanelToggle';
+import { LegacyShelfPanel, LEGACY_MOBILE_TABS } from './furniture-panels';
+import { FeetSelector } from '@/components/ui/FeetSelector';
 import { ColorPicker } from './ColorPicker';
 import { PriceDisplay } from './PriceDisplay';
 
@@ -92,16 +90,14 @@ export function MobileConfiguratorPanel({ onPurchase, inOverlay = false }: Mobil
       >
         <div className="py-2">
           {tab === 'style' && (
-            <>
-              <StyleSelector />
-              <DensitySlider />
-            </>
+            <LegacyShelfPanel controls={LEGACY_MOBILE_TABS.style} />
           )}
-          {tab === 'size' && <DimensionPanel />}
+          {tab === 'size' && <LegacyShelfPanel controls={LEGACY_MOBILE_TABS.size} />}
           {tab === 'color' && <ColorPicker />}
           {tab === 'option' && (
             <>
-              <BackPanelToggle />
+              <FeetSelector />
+              <LegacyShelfPanel controls={LEGACY_MOBILE_TABS.option} />
               <p className="pb-2 text-[12px] leading-relaxed text-[#999]">
                 선반의 칸을 탭하면 칸 높이·도어·서랍을 바꿀 수 있어요.
               </p>

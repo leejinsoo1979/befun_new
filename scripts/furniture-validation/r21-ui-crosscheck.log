@@ -1,0 +1,10 @@
+
+ RUN  v3.2.7 /var/folders/6g/88hr_s5d1bd3qf45tzmk8zrr0000gn/T/befun-left4-ui-NRJZxi
+
+ ✓ legacy-r21.test.tsx (37 tests) 291ms
+
+ Test Files  1 passed (1)
+      Tests  37 passed (37)
+   Start at  06:52:14
+   Duration  1.26s (transform 160ms, setup 124ms, collect 190ms, tests 291ms, environment 328ms, prepare 63ms)
+

@@ -53,7 +53,7 @@ export function Effects() {
     const ao = new OpaqueGTAOPass(scene, camera, 1, 1);
     ao.updateGtaoMaterial({ radius: 12, distanceExponent: 1.5, thickness: 4, scale: 1, samples: 16, distanceFallOff: 1 });
     ao.updatePdMaterial({ lumaPhi: 10, depthPhi: 2, normalPhi: 3, radius: 8, rings: 2, samples: 16 });
-    ao.blendIntensity = 0.65;
+    ao.blendIntensity = 0.85;
     c.addPass(ao);
 
     c.addPass(new OutputPass());

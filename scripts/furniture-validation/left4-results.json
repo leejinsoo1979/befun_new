@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-14",
+  "role": "left4-independent-QA",
+  "uiTests": {"pass":47,"fail":1,"log":"left4-ui.log"},
+  "connectorTests": {"pass":8,"fail":1,"log":"left4-connectors.log"},
+  "existingConnectorTests": {"pass":13,"fail":0},
+  "failures": [
+    {"id":"QA-L4-04","scope":"in-place applyConnectors","issue":"obsolete clip manufacturing block persists after returning to OVVO"},
+    {"id":"QA-L4-08","scope":"actual OptimizerApp with CNC view stub","issue":"snapshot regeneration drops existing user machining"}
+  ],
+  "browser": {
+    "url":"http://localhost:3003/optimizer",
+    "clipReload":"pass",
+    "mprProductionBlock":"pass: alert identifies 25 blocked panels and clip specification pending",
+    "returnToOvvo":"unknown: browser control timeout after alert",
+    "lastConfirmedSelection":"tylko-clip",
+    "otherExportButtons":"unknown"
+  },
+  "manufacturingParity":"unknown: illustrative hardware dimensions only"
+}

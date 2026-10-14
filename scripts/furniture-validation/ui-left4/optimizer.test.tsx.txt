@@ -1,0 +1,25 @@
+import {it,expect,vi} from 'vitest';
+import {render,screen,fireEvent} from '@testing-library/react';
+vi.mock('@/lib/optimizer/upstream/editor/CNCOptimizer/CNCOptimizerPro',()=>({default:()=>null}));
+vi.mock('@/lib/optimizer/upstream/store/core/spaceConfigStore',()=>({setOptimizerSpaceInfo:vi.fn()}));
+vi.mock('@/lib/optimizer/befun/session',()=>({loadDesignForOptimizer:()=>({width:171,height:92,depth:32,thickness:2,style:'grid',density:63,rowHeights:[28,28,28],numRows:3,hasBackPanel:false,doorsCreatedLayers:[],drawersCreatedLayers:[],hardwareRowStyles:{},color:'S_Teracotta',colorCategory:'solid'})}));
+import OptimizerApp from '@/components/optimizer/OptimizerApp';
+import {useBefunCncStore} from '@/lib/optimizer/befun/store';
+it('QA-L4-07 actual OptimizerApp keeps selection over remount and restores OVVO snapshot',()=>{
+ localStorage.setItem('befun-optimizer-connectors',JSON.stringify({system:'ovvo',body:'V-1230P'}));
+ let app=render(<OptimizerApp/>);
+ const baseline=structuredClone(useBefunCncStore.getState().panels);
+ fireEvent.change(screen.getByRole('combobox',{name:'패널 접합 방식'}),{target:{value:'tylko-clip'}});
+ expect(screen.getByRole('status')).toHaveTextContent('미확정');app.unmount();app=render(<OptimizerApp/>);
+ expect(screen.getByRole('combobox',{name:'패널 접합 방식'})).toHaveValue('tylko-clip');
+ fireEvent.change(screen.getByRole('combobox',{name:'패널 접합 방식'}),{target:{value:'ovvo'}});
+ expect(useBefunCncStore.getState().panels).toEqual(baseline);
+});
+it('QA-L4-08 actual OptimizerApp should preserve a user hole when switching system',()=>{
+ localStorage.setItem('befun-optimizer-connectors',JSON.stringify({system:'ovvo',body:'V-1230P'}));
+ render(<OptimizerApp/>);
+ const panel=useBefunCncStore.getState().panels.find(p=>p.manufacturingBoring)!;
+ panel.manufacturingBoring!.borings.push({id:'user:qa-preserve',type:'custom',face:'top',x:12,y:20,diameter:3,depth:2} as any);
+ fireEvent.change(screen.getByRole('combobox',{name:'패널 접합 방식'}),{target:{value:'tylko-clip'}});
+ expect(useBefunCncStore.getState().panels.find(p=>p.id===panel.id)?.manufacturingBoring?.borings.some(b=>b.id==='user:qa-preserve')).toBe(true);
+});

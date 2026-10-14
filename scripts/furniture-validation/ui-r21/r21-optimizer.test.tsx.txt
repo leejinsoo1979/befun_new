@@ -1,0 +1,39 @@
+import {it,expect,vi} from 'vitest';
+import {render,screen,fireEvent} from '@testing-library/react';
+vi.mock('@/lib/optimizer/upstream/editor/CNCOptimizer/CNCOptimizerPro',()=>({default:()=>null}));
+vi.mock('@/lib/optimizer/upstream/store/core/spaceConfigStore',()=>({setOptimizerSpaceInfo:vi.fn()}));
+vi.mock('@/lib/optimizer/befun/session',()=>({loadDesignForOptimizer:()=>({width:171,height:92,depth:32,thickness:2,style:'grid',density:63,rowHeights:[28,28,28],numRows:3,hasBackPanel:false,doorsCreatedLayers:[],drawersCreatedLayers:[],hardwareRowStyles:{},color:'S_Teracotta',colorCategory:'solid'})}));
+import OptimizerApp from '@/components/optimizer/OptimizerApp';
+import {useBefunCncStore} from '@/lib/optimizer/befun/store';
+it('QA-R2-03 actual OptimizerApp preserves user hole, slot, name, quantity and panel IDs',()=>{
+ localStorage.setItem('befun-optimizer-connectors',JSON.stringify({system:'ovvo',body:'V-1230P'}));
+ render(<OptimizerApp/>);
+ const panels=useBefunCncStore.getState().panels;
+ const ids=panels.map(p=>p.id);
+ const p=panels.find(p=>p.manufacturingBoring)!;
+ const hole={id:'user:r21-hole',type:'custom' as const,face:'top' as const,x:150,y:150,diameter:3,depth:2};
+ const slot={id:'user:r21-slot',face:'top' as const,x1:150,y1:250,x2:170,y2:250,width:3,depth:2};
+ p.manufacturingBoring!.borings.push(hole);
+ p.manufacturingBoring!.connectorSlots!.push(slot);
+ p.name='QA edited name';p.quantity=3;
+ for(const value of ['tylko-clip','ovvo']) {
+  fireEvent.change(screen.getByRole('combobox',{name:'패널 접합 방식'}),{target:{value}});
+  const updated=useBefunCncStore.getState().panels;
+  expect(updated.map(p=>p.id)).toEqual(ids);
+  const q=updated.find(q=>q.id===p.id)!;
+  expect(q.name).toBe('QA edited name');expect(q.quantity).toBe(3);
+  expect(q.manufacturingBoring!.borings.find(b=>b.id===hole.id)).toEqual(hole);
+  expect(q.manufacturingBoring!.connectorSlots!.find(b=>b.id===slot.id)).toEqual(slot);
+ }
+});
+it('QA-R2-REFRESH-01 remount should retain user machining separately from connector selection',()=>{
+ localStorage.setItem('befun-optimizer-connectors',JSON.stringify({system:'ovvo',body:'V-1230P'}));
+ const app=render(<OptimizerApp/>);
+ const p=useBefunCncStore.getState().panels.find(p=>p.manufacturingBoring)!;
+ p.manufacturingBoring!.borings.push({id:'user:r21-refresh',type:'custom',face:'top',x:150,y:150,diameter:3,depth:2});
+ fireEvent.change(screen.getByRole('combobox',{name:'패널 접합 방식'}),{target:{value:'tylko-clip'}});
+ expect(useBefunCncStore.getState().panels.find(q=>q.id===p.id)!.manufacturingBoring!.borings.some(b=>b.id==='user:r21-refresh')).toBe(true);
+ app.unmount();render(<OptimizerApp/>);
+ expect(screen.getByRole('combobox',{name:'패널 접합 방식'})).toHaveValue('tylko-clip');
+ expect(useBefunCncStore.getState().panels.find(q=>q.id===p.id)?.manufacturingBoring?.borings.some(b=>b.id==='user:r21-refresh')).toBe(true);
+});

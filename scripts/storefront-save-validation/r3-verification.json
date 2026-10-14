@@ -1,0 +1,45 @@
+{
+  "capturedAt": "2026-10-13T23:26:06.073421+00:00",
+  "sourceSnapshotCapturedAt": "2026-10-13T23:24:22.900266+00:00",
+  "buildSnapshot": "/private/tmp/befun-r3-save-final-rrwzs0xs",
+  "source": {
+    "src/components/storefront/configuration.ts": {
+      "sha256": "7dcc936bd98ab216c05a54e3afb56521efe12fe08205f2052e1848549d506979",
+      "matchesBuildSnapshot": true
+    },
+    "src/components/storefront/savedDesign.ts": {
+      "sha256": "c26a01854d4a3e70e64bcce06ce3e079c518f6d6a85f6613e09bb5121a6996be",
+      "matchesBuildSnapshot": true
+    },
+    "src/components/storefront/savedDesign.test.ts": {
+      "sha256": "b28cabfc028daf9e4820b31e33128befffc0c3b25b40800fa009bf763825c519",
+      "matchesBuildSnapshot": true
+    },
+    "src/components/storefront/SavedDesignPages.tsx": {
+      "sha256": "1505b8c4629cd1c052297d71e97875d4812e9339793293a9c206f6b2eef7cb4f",
+      "matchesBuildSnapshot": true
+    },
+    "src/lib/sharing.ts": {
+      "sha256": "36d2fadccff83d281ac0bede75e8b2bd481929b1b389c9661b3f043b5859504a",
+      "matchesBuildSnapshot": true
+    },
+    "src/app/share/[code]/page.tsx": {
+      "sha256": "8fcdcbab530e6497b5e7890b0bcea446afa2cef28d0424adf122551bf8112db2",
+      "matchesBuildSnapshot": true
+    }
+  },
+  "consumerPatch": {
+    "path": "scripts/storefront-save-validation/r3-consumer.patch",
+    "sha256": "b5e0f73cfa811fcb49d83211aae7b182338f4c6f4caae216d1bd07cc4aac26d7",
+    "appliedToLiveSource": false,
+    "dryRun": true,
+    "isolatedPreviewTypecheck": true
+  },
+  "checks": {
+    "tests": "44/44 pass",
+    "changedLint": "0 errors / 1 existing img warning",
+    "fullLint": "0 errors / 7 existing warnings",
+    "finalBuild": "pass webpack / TypeScript / static generation",
+    "actualDatabaseRoundTrip": "blocked DATABASE_URL absent"
+  }
+}

@@ -1,0 +1,80 @@
+--- a/src/app/configurator/page.tsx
++++ b/src/app/configurator/page.tsx
+@@ -1,6 +1,6 @@
+ 'use client';
+ 
+-import { useRef, useState } from 'react';
++import { useEffect, useRef, useState } from 'react';
+ import { useRouter } from 'next/navigation';
+ import dynamic from 'next/dynamic';
+ import Link from 'next/link';
+@@ -23,6 +23,8 @@
+ import { useCartStore } from '@/stores/useCartStore';
+ import { calculatePrice } from '@/lib/pricing';
+ import { saveDesignForOptimizer } from '@/lib/optimizer/befun/session';
++import { currentConfiguration, restoreSavedConfiguration } from '@/components/storefront/configuration';
++import { decodeDesignFromURL } from '@/lib/sharing';
+ import { calculateGridPanels } from '@/lib/three/styles/grid';
+ import { calculateSlantPanels } from '@/lib/three/styles/slant';
+ import { calculatePixelPanels } from '@/lib/three/styles/pixel';
+@@ -53,28 +55,16 @@
+ 
+   const addItem = useCartStore((s) => s.addItem);
+ 
+-  const getDesignConfig = () => {
+-    const shelf = useShelfStore.getState();
+-    const { currentColor, colorCategory } = useMaterialStore.getState();
+-    const { doorsCreatedLayers, drawersCreatedLayers, rowStyles: hardwareRowStyles } = useHardwareStore.getState();
+-    return {
+-      baseType: shelf.baseType,
+-      legFinish: shelf.legFinish,
+-      style: shelf.style,
+-      density: shelf.density,
+-      width: shelf.width,
+-      height: shelf.height,
+-      depth: shelf.depth,
+-      hasBackPanel: shelf.hasBackPanel,
+-      color: currentColor,
+-      colorCategory,
+-      rowHeights: shelf.rowHeights,
+-      numRows: shelf.numRows,
+-      doorsCreatedLayers,
+-      drawersCreatedLayers,
+-      hardwareRowStyles,
+-    };
+-  };
++  const getDesignConfig = currentConfiguration;
++
++  useEffect(() => {
++    const url = window.location.href;
++    if (!new URL(url).searchParams.has('state')) return;
++    const config = decodeDesignFromURL(url);
++    if (!config || !restoreSavedConfiguration(config)) {
++      alert('공유 링크의 디자인을 불러올 수 없습니다.');
++    }
++  }, []);
+ 
+   const getPrice = () => {
+     const shelf = useShelfStore.getState();
+@@ -131,6 +121,10 @@
+   };
+ 
+   const handleSaveDesign = async (): Promise<string | null> => {
++    if (saving) return null;
++    setShareUrl('');
++    setShowShareModal(false);
++    setShowARModal(false);
+     setSaving(true);
+     try {
+       const res = await fetch('/api/designs', {
+@@ -139,7 +133,9 @@
+         body: JSON.stringify({ config: getDesignConfig() }),
+       });
+       if (!res.ok) throw new Error();
+-      const { shareCode } = await res.json();
++      const result = await res.json();
++      if (typeof result?.id !== 'string' || !result.id || typeof result?.shareCode !== 'string' || !/^[A-Za-z0-9_-]{8}$/.test(result.shareCode)) throw new Error();
++      const { shareCode } = result;
+       const url = `${window.location.origin}/share/${shareCode}`;
+       setShareUrl(url);
+       return url;

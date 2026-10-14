@@ -1,6 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { FiShare } from 'react-icons/fi';
+import { TbAugmentedReality2 } from 'react-icons/tb';
 import { useDisplayStore, type ViewDirection } from './displayStore';
 import { useUIStore } from '@/stores/useUIStore';
 import styles from './display.module.css';
@@ -22,16 +25,23 @@ function CubeIcon({ face, split = false }: { face?: ViewDirection; split?: boole
   </svg>;
 }
 
-export function ViewToolbar() {
-  // 데스크톱은 펼친 상태, 모바일(767px 이하)은 접힌 상태로 시작 (Scene은 ssr:false라 window 접근 가능)
-  const [expanded, setExpanded] = useState(() => typeof window === 'undefined' || !window.matchMedia('(max-width: 767px)').matches);
+export interface ViewToolbarActions {
+  onShare?: () => void;
+  onAR?: () => void;
+  actionsDisabled?: boolean;
+}
+
+export function ViewToolbar({ onShare, onAR, actionsDisabled = false }: ViewToolbarActions = {}) {
+  const router = useRouter();
+  // Keep the product view clear; every tool remains available under the View toggle.
+  const [expanded, setExpanded] = useState(false);
   const { showDecor, toggleDecor, boringSummary, showBores, toggleBores, phase, view, projection, appearance, setAppearance, exploded, freeOrbit, selectView, setProjection, toggleExploded } = useDisplayStore();
   const dimensions = useUIStore((s) => s.showDimensions);
   const setDimensions = useUIStore((s) => s.setShowDimensions);
   const moving = phase === 'assembling' || phase === 'disassembling';
-  return <><div className={styles.toolbar}>
+  return <><div className={styles.toolbar} onKeyDown={(event) => { if (event.key === 'Escape') { setExpanded(false); event.currentTarget.querySelector<HTMLButtonElement>('button[aria-controls]')?.focus(); } }}>
     <button className={styles.menu} aria-expanded={expanded} aria-controls="viewer-display-options" title={expanded ? '보기 도구 접기' : '보기 도구 펼치기'} onClick={() => setExpanded(!expanded)}>
-      <CubeIcon face="standard" /> 보기 <span aria-hidden="true" className={styles.chevron}>{expanded ? '‹' : '›'}</span>
+      <CubeIcon face="standard" /> 보기 <span aria-hidden="true" className={styles.chevron}>{expanded ? '⌃' : '⌄'}</span>
     </button>
     <div id="viewer-display-options" role="group" aria-label="선반 보기 모드" className={`${styles.options} ${expanded ? styles.expanded : ''}`}>
       <div className={styles.views}>
@@ -51,6 +61,7 @@ export function ViewToolbar() {
           <span>평행 투영</span>
         </button>
         <button title={exploded ? '조립 시뮬레이션 시작' : '부품을 바닥에 펼치기'} aria-label={phase === 'laidOut' ? '조립' : '분해'} disabled={moving} aria-pressed={exploded} onClick={() => { useUIStore.setState({ hoveredRow: null, selectedRow: null }); toggleExploded(); }}><CubeIcon split /><span>{phase === 'laidOut' ? '조립' : moving ? '재생 중' : '분해'}</span></button>
+        <button title="Tylko 클립·OVVO·백패널의 단계별 3D 조립 예시" aria-label="커넥터 조립 안내 예시" onClick={() => router.push('/assembly-guide')}><CubeIcon split /><span>조립 안내</span></button>
         <button title="경첩을 숨기고 실제 컵홀과 측판 보링을 확인" aria-label="보링 보기" aria-pressed={showBores} onClick={toggleBores}>
           <svg viewBox="0 0 28 28" width="24" height="24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="3" width="22" height="22" rx="2"/><circle cx="14" cy="12" r="6"/><circle cx="6.5" cy="18" r="1.5"/><circle cx="21.5" cy="18" r="1.5"/></svg><span>보링</span>
         </button>
@@ -58,6 +69,10 @@ export function ViewToolbar() {
           <svg viewBox="0 0 28 28" width="24" height="24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 9h22v10H3Zm4 0v6m4-6v4m4-4v6m4-6v4"/></svg><span>치수</span>
         </button>
       </div>
+      {(onShare || onAR) && <div className={styles.actions} role="group" aria-label="공유 및 AR">
+        {onShare && <button type="button" aria-label="디자인 공유" disabled={actionsDisabled} onClick={onShare}><FiShare size={24} aria-hidden="true" /><span>공유</span></button>}
+        {onAR && <button type="button" aria-label="내 공간에서 보기 AR" disabled={actionsDisabled} onClick={onAR}><TbAugmentedReality2 size={24} aria-hidden="true" /><span>AR</span></button>}
+      </div>}
       <div className={styles.appearance} role="group" aria-label="표시 방식">
         <button aria-label="실사 모드" aria-pressed={appearance === 'realistic'} onClick={() => setAppearance('realistic')}><CubeIcon face="standard" /><span>실사</span></button>
         <button aria-label="반투명 모드" aria-pressed={appearance === 'transparent'} onClick={() => setAppearance('transparent')}>

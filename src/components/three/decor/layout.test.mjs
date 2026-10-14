@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Group, Mesh, BoxGeometry, MeshStandardMaterial } from 'three';
-import { decorSlots, arrangeDecor } from './layout.ts';
+import { decorSlots, arrangeDecor, arrangeTopDecor, arrangeShelfDecor } from './layout.ts';
 import { assembledClone } from '../display/assembledClone.ts';
 const board=(x,y,w,h,d,matType,z=16)=>({x,y,z,w,h,d,matType,castShadow:true,receiveShadow:true});
 const shelf=(width=120,height=28,depth=32)=>[
@@ -53,4 +53,55 @@ test('next-row staggered uprights do not split the usable space below the shelf'
  const base=shelf(120,28,32);
  const above=board(-25,46,2,28,32,'verticalBase');
  assert.deepEqual(decorSlots([...base,above],[],[]),decorSlots(base,[],[]));
+});
+
+test('standing book groups sit at a compartment side, never centered',()=>{
+ const slots=Array.from({length:20},(_,i)=>({left:0,right:70,bottom:2,height:28,back:2,front:30,row:i,index:i%4}));
+ const books=arrangeDecor(slots).filter(p=>p.kind==='books');assert.ok(books.length>2);
+ for(const p of books){assert.ok(p.bookSide==='left'||p.bookSide==='right');assert.ok(Math.min(Math.abs(p.position[0]-p.size[0]/2),Math.abs(70-p.position[0]-p.size[0]/2))<1e-6);}
+});
+
+test('one house bird keeps real scale and disappears when the opening becomes too short',()=>{
+ const slot={left:0,right:45,bottom:2,height:38,back:2,front:30,row:1,index:0};
+ const bird=arrangeDecor([slot]).find(p=>p.kind==='bird');assert.ok(bird);assert.deepEqual(bird.size,[27.8,32.4,15]);
+ const bare=arrangeDecor([{...slot,height:30}]).find(p=>p.kind==='bird');assert.deepEqual(bare.size,[27.8,27.6,8.5]);
+ assert.equal(arrangeDecor([{...slot,height:26}]).some(p=>p.kind==='bird'),false);
+ assert.equal(arrangeDecor(Array.from({length:30},(_,i)=>({...slot,row:i,index:0}))).filter(p=>p.kind==='bird').length,1);
+});
+
+test('speaker and dome lamp fit without stretching and survive the large-shelf budget',()=>{
+ const slots=Array.from({length:60},(_,i)=>({left:0,right:48,bottom:i*40,height:36,back:0,front:30,row:i,index:0}));
+ const layout=arrangeDecor(slots);assert.ok(layout.length<=14);
+ for(const kind of ['speaker','lamp','bird'])assert.equal(layout.filter(p=>p.kind===kind).length,1,kind);
+ assert.deepEqual(layout.find(p=>p.kind==='speaker').size,[12,34,15]);
+ assert.deepEqual(layout.find(p=>p.kind==='lamp').size,[18,25,18]);
+ const short=arrangeDecor(slots.map(s=>({...s,height:18})));assert.ok(short.every(p=>p.kind!=='speaker'&&p.kind!=='lamp'));
+});
+
+test('low wide tops keep full-size objects supported and the middle clear',()=>{
+ for(const w of [100,120,179,180,232,450]) for(const d of [24,32,40]) {
+  const panels=shelf(w,58,d),items=arrangeTopDecor(panels);
+  assert.equal(items.length,w>=180?3:2);
+  for(const p of items){
+   assert.equal(p.position[1],62);
+   assert.ok(p.position[0]-p.size[0]/2>=-w/2+3);
+   assert.ok(p.position[0]+p.size[0]/2<=w/2-3);
+   assert.ok(p.position[2]-p.size[2]/2>=3);
+   assert.ok(p.position[2]+p.size[2]/2<=d-3);
+   assert.ok(p.position[0]+p.size[0]/2<=-w*.1 || p.position[0]-p.size[0]/2>=w*.1);
+  }
+  assert.deepEqual(items.find(p=>p.kind==='lamp').size,[18,25,18]);
+  const combined=arrangeShelfDecor(panels,[],[]);
+  for(const k of ['bird','lamp'])assert.equal(combined.filter(p=>p.kind===k).length,1);
+  assert.ok(combined.length<=14);
+ }
+});
+test('tall narrow shallow and unsupported tops do not receive forced scaled props',()=>{
+ assert.equal(arrangeTopDecor(shelf(90,58,32)).length,0);
+ assert.equal(arrangeTopDecor(shelf(200,108,32)).length,0);
+ assert.equal(arrangeTopDecor(shelf(100,90,32)).length,0);
+ assert.equal(arrangeTopDecor(shelf(150,58,12)).length,0);
+ const split=[board(-50,61,20,2,32,'horizontalBase'),board(50,61,20,2,32,'horizontalBase'),board(0,1,120,2,32,'horizontalBase')];
+ assert.equal(arrangeTopDecor(split).length,0);
+ assert.deepEqual(arrangeTopDecor([]),[]);
 });
