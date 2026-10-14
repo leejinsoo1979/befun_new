@@ -95,6 +95,8 @@
 
 ## 조율 요청
 
+- `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 15:40: **관리자 페이지 전면 개편(운영용) → 완료·잠금 해제.** 신규 OrderEvent·Order.adminMemo(migration `20261014064411_admin_order_events`). 사이드바·통합검색·로그아웃 셸, 대시보드(기간 전환·전기 대비 KPI·일별 매출 차트·처리할 일 4종·단계별 현황·인기 스타일/색상·최근 주문/회원), 주문 목록(상태 탭·검색·기간·정렬·페이지·일괄 변경·CSV), 주문 상세(진행 단계·사양 칩·도식 썸네일·배송(택배사/송장, 저장 후 발송)·메모·결제·처리 이력·취소 확인), 회원 목록/상세(가입 방법·구매 금액·권한 지정), 디자인 갤러리, 통합 검색, 설정(시스템 상태·관리자·개발 전용 데모 데이터 생성/삭제). 상태 변경 시 결제/배송 레코드 동기화·이력 기록, 발송은 송장 필수, 배송 완료 취소 금지. 3003(재시작 후)에서 데모 10명·33주문으로 전 화면·발송/배송 완료·일괄 변경·CSV(비관리자 403)·모바일 넘침0·오류0 확인, QA 계정 삭제. 격리 build PASS. 데모 데이터는 미리보기용으로 남겨 둠(설정에서 삭제). 잠금: `src/app/admin/**`, 신규 `src/app/api/admin/**`, `src/lib/admin.ts`, `prisma/schema.prisma`의 **Order.adminMemo 필드와 신규 OrderEvent 모델만** + migration, 신규 `scripts/admin-demo-data.mjs`. 주문 생성·결제 API, storefront 저장 경로는 수정하지 않음.
+
 - `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 14:50: **회원가입·소셜 로그인(구글·카카오·네이버)·쇼핑몰 관리자 페이지 → 구현 완료·잠금 해제.** [디자인 개편(사용자 지시): 좌측 라이프스타일 사진(creator-10) + 우측 카드, 네이버·카카오·구글 공식 로고/브랜드색 버튼, 입력칸·가입 약관 박스 정리, 390px 단일 열. 신규 `components/account/AuthShell.tsx`. 1440/390 넘침 0, 오류 0.] User에 role(USER/ADMIN)·passwordHash(scrypt)·termsAgreedAt·marketingAgreed, email optional(카카오) — migration `20261014054634_auth_roles`. auth.ts: 네이버 추가, 구글·네이버 이메일 계정 연결, Credentials는 비밀번호 검증(기존 '비밀번호 없이 아무 이메일 로그인/자동 가입' 제거), ADMIN_EMAILS로 관리자 승격(.env.local). /signup·/api/auth/signup·/login 개편, /admin(대시보드·주문 상태 변경·회원 권한·저장 디자인) — 서버에서 DB role 재확인. 별도 3005 테스트 서버에서 가입→자동 로그인→중복 409→일반회원 /admin 거부→틀린 비번 안내→관리자 4페이지→본인 권한 해제 비활성→네이버/카카오/구글 인증 페이지 이동 확인, 테스트 계정 삭제. 격리 build PASS(.env 없이). **주의: 3003 공유 dev 서버는 스키마 변경 전 Prisma 클라이언트를 메모리에 들고 있어 재시작 전까지 가입 500 — 재시작 필요(사용자 승인 대기).** → 사용자 승인으로 2026-10-14 15:10 3003 dev 서버 재시작(`npx next dev -p 3003`, nohup). 재시작 후 가입 201, /·/configurator 200 확인. 다른 작업자는 HMR 상태가 초기화됐을 수 있음. 잠금: `src/lib/auth.ts`, 신규 `src/lib/password.ts`·`src/lib/admin.ts`, `src/types/next-auth.d.ts`, `prisma/schema.prisma`의 **User 모델(role·passwordHash·약관 동의 필드, email optional)과 UserRole enum만** + 신규 migration, `src/app/login/page.tsx`, 신규 `src/app/signup/**`·`src/app/admin/**`·`src/app/api/auth/signup/**`. 주문·결제·디자인 API/모델과 storefront 저장 경로는 수정하지 않음(관리자 화면은 읽기·상태 변경만). 보안 수정: 기존 Credentials가 비밀번호 없이 아무 이메일로 로그인/계정 생성되던 개발용 동작 제거.
 
 - `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 14:30: **Supabase DB 연결.** 사용자가 Supabase 프로젝트 `befun`(서울 ap-northeast-2, Free)을 생성. `.env.local`에 `DATABASE_URL`(Session pooler 5432) 저장 — 값은 사용자 입력 창(osascript)으로만 받고 출력하지 않음(`scripts/set-database-url.sh`, `scripts/set-database-password.sh`). 기존 schema 그대로 `prisma migrate dev --name init` → 신규 `prisma/migrations/20261014052759_init/`(스키마 변경 없음, 리더 schema 소유 유지). 테이블 10개 생성 확인, 3003에서 `/api/designs` 저장→조회 실제 DB 왕복 성공(검사 행은 삭제). 다음: 회원가입·구글/카카오/네이버 로그인·관리자 페이지(키 필요, 착수 시 별도 잠금).
@@ -1534,4 +1536,21 @@
 - 캐비넷 진입링크 연관 잠금: 기존 src/components/assembly-guide/guide.module.css의 신규 .cabinetEntry 스타일만. 이전 화살표 및 기타스타일/리더R7 CSS는 보존.
 
 - 캐비넷 광원 소비 추가잠금: src/components/assembly-guide/GuideEnvironment.tsx의선택적 lightingScale/shadows props만. 기존단품시연 기본광원값은 유지, 전체캐비넷 내부에 들어오는 단품전용shadow광원을 비활성화하고 캐비넷전용광원으로그림자검증.
+- `claude-graphics` (사용자 제공 영상 Tylko_Configure_Yours_Storage.mp4, 2026-10-14 15:58) → PLP 그리드 첫 칸 "Configure yours" 카드 배경을 `public/videos/configure-yours-storage.mp4`(720×1006, 6s) 자동재생(muted loop playsInline)+첫 프레임 포스터로 교체. `DownloadedCatalog.tsx`·`.plpPromo video` CSS.
+- `claude-graphics` (사용자 지적 configurator-intro 썸네일, 2026-10-14 15:40) → `ConfiguratorIntro.tsx` 1단계 13개 분류 이미지를 원격 Tylko 시도+중복 대체사진에서 R6 다운로드 원본 썸네일(각 CSV 카테고리 1번째, `/imgs/product-cards/`)로 교체, 분류명 t() 적용. 2단계 모델 이미지는 미변경.
 - `claude-graphics` (사용자 직접 지시 "푸터에 기업정보", 2026-10-14) → `StorefrontFrame.tsx` 푸터 하단에 `<address>` 기업정보 추가: 상호 (주)유에이블 코퍼레이션 · 대표자 이진수 · 주소 서울시 강남구 언주로 97길 7, 5F · 이메일 contact@befun.co.kr(mailto). en/ja 라벨·주소 표기(messages.ts), 상호는 법인명 원문 유지. CSS `.footerCompany`.
+
+### R8 직접 수정·검증 결과 / 2026-10-14
+- Tone 서랍 최종 패널 보정·순위별 인출, 책상/옷장 공통 보기·배경·후처리·화면맞춤·줌·fullscreen 대체를 반영했다. `docs/handoffs/wardrobe-viewer-review/README.md`와 `wardrobe-viewer-r8-001`에 화면/검사/미완료 구분 기록.
+- lint 오류0(기존경고8), 타입·격리webpack build PASS. Tone72 최종표시설정/1170판재, 기존 구조/도어/힌지/저장·책상UI PASS. Chrome 실제 desktop/mobile/zoom/fullscreen/닫기·열기 확인.
+- 원본 모든 시각/hover 전이 동치는 여전히 미완료. 다른 작업자는 별도 viewer/background/camera를 추가하지 말고 FurnitureScene + FurnitureViewToolbar 통합점을 사용한다. 변경 필요 시 이 문서에 사유/근거를 남긴다.
+- R8 수정 파일 잠금 해제. 상세페이지 작업 및 공통 UI 패널 변경 보존. 공유3003 유지. 이 기록은 자동 전달/작업자 착수 완료를 의미하지 않는다.
+
+
+### 상세페이지 브랜드 사진 중복 제거 — codex-storefront / 2026-10-14 착수
+- 사용자 캡처와 후속 지시 수신: /configurator 상세의 갤러리 첫 사진을 반복하는 브랜드 이야기 대형 배너를 /about-tylko 기존 브랜드 hero로 이동. 선반·책상·옷장 상세 모두 같은 반복 제거, 남은 브랜드/소재 탐색은 텍스트 링크로 정리.
+- 좁은 단독 잠금: ProductDetails.tsx/FurnitureProductDetails.tsx의 brandSection·discover 영역, EditorialPages.tsx의 AboutPage hero/해당 import, product-details.module.css의 brandSection/brandMedia·contactLine 링크 배치만; 본인 handoff append. 갤러리47/8사진·재질전환·뷰어/계정/저장·가격/관리자 잠금 영역 미수정.
+
+- codex-storefront → 캐비넷 담당: 상세 브랜드 사진 이동의 HEAD 격리 전체lint에서 CabinetScene.tsx:67 기존 useMemo 의존배열의 `props.phase === 'complete'`가 react-hooks/use-memo 오류로 검출됩니다. 잠금 파일 미수정, 본인4소스 범위lint0. 현재 수정 중인 캐비넷 완료검사에 포함 부탁드립니다.
+
+- 상세 브랜드 사진 이동 완료 / codex-storefront: 대형 중복brandMedia를 선반·책상·옷장 상세에서 제거, 같은 그레이 원본사진은 /about-tylko hero로 이동. 브랜드/소재 안내는 사진없는 링크로 통일. 실제3003 4경로·About 링크 이동 확인, scoped lint0, 격리 HEAD+4변경 build/TypeScript20페이지PASS. 전체lint 기존 CabinetScene useMemo 오류는 담당요청으로 분리. 위좁은4소스·본인handoff 잠금해제; 다른진행중소스/공유3003보존.

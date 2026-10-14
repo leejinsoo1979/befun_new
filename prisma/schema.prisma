@@ -118,10 +118,28 @@ model Order {
   shipZipCode String
   shipAddress String
   shipDetail  String?
+  // 관리자 전용 메모(고객에게 보이지 않음)
+  adminMemo   String?
+  events      OrderEvent[]
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
 
   @@index([userId])
+}
+
+// 주문 처리 이력(상태 변경·송장 입력·메모 등). 관리자 화면 타임라인용
+model OrderEvent {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  type      String   // STATUS | SHIPPING | MEMO | NOTE
+  fromValue String?
+  toValue   String?
+  note      String?
+  actor     String?  // 처리한 관리자 이메일/이름
+  createdAt DateTime @default(now())
+
+  @@index([orderId, createdAt])
 }
 
 model OrderItem {

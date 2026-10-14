@@ -15,10 +15,10 @@ export const menuGroups = [
   { title: '액세서리', links: ['blankets', 'bookends', 'accessories'].map(slug => [catalogCategories[slug], catalogHref(slug)]) },
 ];
 export const footerGroups = [
-  { title: 'Befun', links: [['브랜드 이야기', '/about-tylko'], ['쇼룸', '/showrooms'], ['기프트카드', '/e-gift-card/1'], ['디자인 저널', '/journal'], ['프레스', '/press'], ['채용', 'https://tylko.recruitee.com/'], ['투자자 정보', '/investor-relations-login'], ['디지털 서비스', '/digital-services-act'], ['Befun Pro', '/tylko-pro']] },
+  { title: 'Befun', links: [['브랜드 이야기', '/about-tylko'], ['쇼룸', '/showrooms'], ['기프트카드', '/e-gift-card/1'], ['디자인 저널', '/journal'], ['프레스', '/press'], ['투자자 정보', '/investor-relations-login'], ['디지털 서비스', '/digital-services-act'], ['Befun Pro', '/tylko-pro']] },
   { title: '고객 지원', links: [['자주 묻는 질문', '/faq'], ['이용약관', '/terms'], ['기프트카드 약관', '/terms-gift-card'], ['개인정보 처리', '/privacy_policy'], ['쿠키 설정', '/cookie-settings'], ['배송 안내', '/shipping'], ['주문 취소', '/contact?topic=cancellation'], ['주문 상태', '/contact?topic=order_status']] },
-  { title: '문의하기', links: [['고객 문의', '/contact'], ['주문 조회', '/mypage'], ['도움말', '/faq'], ['문제 신고', '/contact?topic=issue'], ['WhatsApp', '/contact?topic=whatsapp'], ['LiveChat', '/contact?topic=chat'], ['Tylko 신고 채널', 'https://tylko.whistlelink.com/']] },
-  { title: '함께해요', links: [['커뮤니티', '/inspirations'], ['크리에이터', '/creators'], ['즐겨찾기', '/wishlist'], ['저장한 디자인', '/saved-designs'], ['로그인', '/login'], ['Instagram', 'https://www.instagram.com/tylko/'], ['Facebook', 'https://www.facebook.com/tylko/'], ['Pinterest', 'https://www.pinterest.com/tylko/'], ['TikTok', 'https://www.tiktok.com/@tylko.com']] },
+  { title: '문의하기', links: [['고객 문의', '/contact'], ['주문 조회', '/mypage'], ['도움말', '/faq'], ['문제 신고', '/contact?topic=issue'], ['WhatsApp', '/contact?topic=whatsapp'], ['LiveChat', '/contact?topic=chat']] },
+  { title: '함께해요', links: [['커뮤니티', '/inspirations'], ['크리에이터', '/creators'], ['즐겨찾기', '/wishlist'], ['저장한 디자인', '/saved-designs'], ['로그인', '/login']] },
 ];
 export const infoTitles: Record<string, string> = {
   'about-tylko': '우리의 이야기', showrooms: '공간에서 만나는 디자인', 'tylko-pro': 'Befun Pro', inspirations: '당신의 공간에서 시작하는 영감', creators: '크리에이터의 공간', 'product-lines': '컬렉션', 'material-samples': '소재와 컬러', 'e-gift-card/1': '취향을 선물하세요', 'review-list': '디자인 리뷰', 'tylko-sound': '공간에 흐르는 음악', journal: 'Befun Life', 'collaborations/reisinger': '상상에서 시작하는 컬러', press: '프레스', 'investor-relations-login': '투자자 정보', 'digital-services-act': '디지털 서비스 안내', faq: '무엇을 도와드릴까요?', contact: '문의하기', shipping: '배송 안내', terms: '이용약관', 'terms-gift-card': '기프트카드 이용 안내', privacy_policy: '개인정보 처리 안내', 'terms/user-account-and-promo-codes': '계정과 프로모션 안내', 'cookie-settings': '쿠키 설정', search: '제품 검색', wishlist: '즐겨찾기',
