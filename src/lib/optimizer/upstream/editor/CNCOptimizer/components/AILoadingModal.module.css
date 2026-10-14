@@ -23,7 +23,9 @@
 }
 
 .modal {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--theme-primary) 15%, #171717) 0%,
+    color-mix(in srgb, var(--theme-primary) 25%, #171717) 100%);
   border-radius: 24px;
   padding: 48px;
   min-width: 500px;
@@ -31,9 +33,9 @@
   position: relative;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
-              0 0 100px rgba(0, 255, 204, 0.1);
+              0 0 100px hsl(var(--theme) / 0.1);
   animation: scaleIn 0.4s ease-out;
-  border: 1px solid rgba(0, 255, 204, 0.2);
+  border: 1px solid hsl(var(--theme) / 0.2);
 }
 
 @keyframes scaleIn {
@@ -123,7 +125,7 @@
   text-align: center;
   margin: 0 0 12px 0;
   letter-spacing: -0.5px;
-  text-shadow: 0 2px 20px rgba(0, 255, 204, 0.3);
+  text-shadow: 0 2px 20px hsl(var(--theme) / 0.3);
 }
 
 .dots {
