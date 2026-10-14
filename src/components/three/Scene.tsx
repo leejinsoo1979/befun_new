@@ -29,9 +29,10 @@ export default function Scene(actions: ViewToolbarActions) {
   // 안드로이드 WebXR 중에는 룸/궤도 카메라/후처리를 끄고 카메라 영상 위에 선반만 그린다
   const ar = useARStore((s) => s.webxrActive);
   const exploded = useDisplayStore((s) => s.exploded);
+  const assemblyResult = useDisplayStore((s) => s.phase === 'assembled' && s.progress === 1);
   const view = useDisplayStore((s) => s.view);
   const appearance = useDisplayStore((s) => s.appearance);
-  const studio = appearance === 'realistic' && !exploded && (view === 'front' || view === 'standard');
+  const studio = appearance === 'realistic' && !exploded && !assemblyResult && (view === 'front' || view === 'standard');
 
   return (
     <>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, OrthographicCamera, PerspectiveCamera } from '@react-three/drei';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
@@ -40,6 +40,8 @@ function CameraControls() {
   const stageBounds = useDisplayStore(s=>s.stageBounds);
   const appearance = useDisplayStore(s=>s.appearance);
   const wasCinematic=useRef(false);
+  const shotPosition = useMemo(() => new THREE.Vector3(), []);
+  const shotTarget = useMemo(() => new THREE.Vector3(), []);
   const goal = useRef({ position: new THREE.Vector3(), target: new THREE.Vector3(), halfHeight: 100, active: false, camera: null as THREE.Camera | null });
   // Some presets carry a nominal height differing from the sum of their rows.
   // The store retains up to 12 row heights, including inactive rows.
@@ -83,23 +85,24 @@ function CameraControls() {
 
   useFrame((_, delta) => {
     const state=useDisplayStore.getState();
-    const tracking=state.cinematic && assemblyPlayback.active && !!stageBounds && camera instanceof THREE.PerspectiveCamera;
+    const tracking=state.cinematic && !state.freeOrbit && assemblyPlayback.active && !!stageBounds && camera instanceof THREE.PerspectiveCamera;
     if(tracking && controls.current && stageBounds) {
       wasCinematic.current=true;
+      goal.current.active=false;
       if(state.paused) return;
-      const shot=cinematicShot({phase:state.phase,progress:assemblyPlayback.elapsed/assemblyPlayback.duration,outro:assemblyPlayback.outro,
-        width,height:bodyHeight,depth,aspect:size.width/Math.max(1,size.height),focus:assemblyPlayback.focus,kind:assemblyPlayback.kind,beat:assemblyPlayback.beat,stage:stageBounds});
-      const blend=1-Math.exp(-Math.min(delta,.05)*1.7);
+      const shot=cinematicShot({phase:assemblyPlayback.phase,progress:assemblyPlayback.elapsed/assemblyPlayback.duration,outro:assemblyPlayback.outro,
+        width,height:bodyHeight+footHeight,depth,aspect:size.width/Math.max(1,size.height),focus:assemblyPlayback.focus,kind:assemblyPlayback.kind,beat:assemblyPlayback.beat,extent:assemblyPlayback.extent,elapsed:assemblyPlayback.elapsed,layout:assemblyPlayback.layout ?? undefined,stage:stageBounds});
+      const blend=1-Math.exp(-Math.min(delta,.05)*4.8);
       camera.up.set(0,1,0);
-      camera.position.lerp(new THREE.Vector3(...shot.position),blend);
-      controls.current.target.lerp(new THREE.Vector3(...shot.target),blend);
+      camera.position.lerp(shotPosition.set(...shot.position),blend);
+      controls.current.target.lerp(shotTarget.set(...shot.target),blend);
       controls.current.update();
       return;
     }
     if(wasCinematic.current) {
       wasCinematic.current=false;
       // Hold the closing shot instead of snapping back to the generic preset.
-      if(state.phase==='assembled' && state.progress===1) goal.current.active=false;
+      if(state.progress===1 || state.freeOrbit) goal.current.active=false;
     }
     const destination = goal.current;
     if (!destination.active || !controls.current) return;
