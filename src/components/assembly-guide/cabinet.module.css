@@ -21,7 +21,7 @@
 .viewTools button { display:flex; gap:5px; align-items:center; border:1px solid #dde1e5; padding:7px 10px; border-radius:99px; background:#ffffffeb; color:#687078; font-size:11px; }
 .viewTools button[aria-pressed=true] { background:#1d1e1f; color:#fff; border-color:#1d1e1f; }
 .viewTools button:disabled { opacity:.35; }
-.caption { position:absolute; bottom:20px; left:24px; right:24px; text-align:center; color:#535b65; font-size:13px; line-height:1.6; pointer-events:none; }
+.caption { position:absolute; bottom:20px; left:24px; right:24px; width:fit-content; max-width:calc(100% - 48px); margin-inline:auto; padding:7px 14px; border-radius:99px; background:#ffffffeb; text-align:center; color:#535b65; font-size:13px; line-height:1.6; pointer-events:none; }
 .parts { border-left:1px solid #dfe3e7; padding:28px 18px 18px; display:flex; flex-direction:column; min-height:0; background:#f8f9fa; }
 .partsHeading { display:flex; align-items:center; justify-content:space-between; font-size:12px; margin:0 8px 18px; }
 .partsHeading strong { font-weight:400; font-variant-numeric:tabular-nums; color:#8b9299; }
@@ -39,6 +39,7 @@
 .primary { display:inline-flex; gap:12px; align-items:center; justify-content:center; min-width:170px; height:42px; padding:0 22px; border:0; border-radius:99px; background:#1d1e1f; color:#fff; font-size:12px; }
 .primary:disabled { background:#e8ebee; color:#9ba1a8; }
 .primary svg { width:15px; height:15px; }
+.secondary { height:42px; padding:0 22px; border:1px solid #d9dee3; border-radius:99px; color:#4f5964; background:#fff; font-size:12px; }
 .timeline { display:flex; align-items:center; gap:18px; }
 .timeline nav { display:flex; gap:8px; }
 .timeline nav button,.icon { display:grid; place-items:center; border:1px solid #d9dee3; border-radius:50%; width:28px; height:28px; font-size:11px; color:#7a828c; background:#fff; }
@@ -86,6 +87,7 @@
   .footer { min-height:132px; padding:10px 14px 27px; gap:9px; }
   .footer>p { font-size:10px; text-align:center; }
   .primary { height:37px; min-width:130px; padding:0 13px; font-size:10px; gap:8px; }
+  .secondary { height:37px; padding:0 13px; font-size:10px; }
   .timeline { gap:9px; } .timeline nav { gap:6px; }
   .timeline nav button,.icon { width:25px; height:25px; font-size:10px; }
   .controls { gap:9px; } .seek { font-size:9px; gap:5px; } .seek input { width:92px; }

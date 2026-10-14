@@ -1,0 +1,57 @@
+{
+  "baselineCommit": "43a8ba0",
+  "fileCount": 10,
+  "isolatedSourceDifferences": 0,
+  "files": [
+    {
+      "path": "src/components/assembly-guide/CabinetScene.tsx",
+      "sha256": "561f3b2bf460e4f811674a3f3891b49a3883170634c77ee78d298500c03d76e5",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/CabinetPanel.tsx",
+      "sha256": "b5bd7508cf26d9dfb553997861c6aef7fa88e5af33bba188be1a29e5f2137796",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/CabinetSimulator.tsx",
+      "sha256": "c84a4a0a1c6ac1dafe433d9cc810764599a3b6aecfacd9816e53407e397e49eb",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/cabinet.module.css",
+      "sha256": "8a49958dc8555324435576c1031f0c573ebeeae029d30b89487a8a4aacb7a0a2",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/SpringDowel.tsx",
+      "sha256": "1037abfe1b6556465c45520ea7c7ee8497bcba996d63618b1abf7f3a47df30ec",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/BackPanelScene.tsx",
+      "sha256": "03f5114cf5816fc321402d8cd91f05a48a77bd25049363d9aedfa0cebfc18e15",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/cabinet.ts",
+      "sha256": "b5b770515c8bbfe700072c23bf36e795a24b9949a0af5ec25a0e3bcd3f93744e",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/cabinet.test.mjs",
+      "sha256": "2f085c83cdf6f1f306a2f928e52d08b0177428435b8924a3077a0a33731bdd44",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/cabinetFilm.ts",
+      "sha256": "6e22b2b4e86fa35c9357aea79262d322b4d8a74d6160da8d682b72f86b41152d",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/cabinetFilm.test.mjs",
+      "sha256": "ff38d5ab35ff1b984c0502d40fdde63e0750def9932bf563834f5cfaf692095a",
+      "isolatedMatches": true
+    }
+  ]
+}

@@ -3,10 +3,11 @@
 import { memo, Suspense, useCallback, useEffect, useMemo, useRef, useState, type ComponentRef, type RefObject } from 'react';
 import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
 import { Edges, Html, OrbitControls, useGLTF } from '@react-three/drei';
-import { Box3, Euler, Group, Quaternion, TextureLoader, Vector3 } from 'three';
+import { Box3, Euler, Group, PerspectiveCamera, Quaternion, TextureLoader, Vector3 } from 'three';
 import { cabinetPartPose, type CabinetPart, type CabinetPlan, type CabinetState, type CabinetPhase } from '@/lib/assembly-guide/cabinet';
 import { birchEdgeTexture } from '@/lib/assembly-guide/panelMaterials';
 import { befunColorLook } from '@/lib/optimizer/befun/colors';
+import { cabinetFilmShot } from '@/lib/assembly-guide/cabinetFilm';
 import { CabinetPanel } from './CabinetPanel';
 import { createCameraRig, updateCameraRig } from './cameraRig';
 import { GuideEnvironment } from './GuideEnvironment';
@@ -17,6 +18,7 @@ interface Props {
   plan: CabinetPlan; state: RefObject<CabinetState>; preview: boolean; inside: boolean; doorOpen: boolean;
   step: number; phase: CabinetPhase;
   view: CabinetView; revision: number; onTick: (seconds: number) => void;
+  cinematic: boolean; reducedMotion: boolean;
   onSelect: (id: string) => void; onPlace: () => void; onLost: () => void;
 }
 
@@ -32,9 +34,10 @@ const Part = memo(function Part({ part, plan, state, preview, inside, doorOpen, 
     const pose = cabinetPartPose(part, state.current, preview);
     root.current?.position.set(...pose.position.map(value => value * 10) as [number, number, number]);
     root.current?.quaternion.copy(rotation).slerp(identity, pose.rotationProgress);
+    if (pose.tilt) root.current?.rotateX(pose.tilt);
     if (label.current) {
       const laidOut = !preview && part.number - 1 >= state.current.step && state.current.phase !== 'complete';
-      label.current.style.visibility = laidOut && (part.number - 1 !== state.current.step || !['placing', 'check'].includes(state.current.phase)) ? 'visible' : 'hidden';
+      label.current.style.visibility = !state.current.automatic && laidOut && (part.number - 1 !== state.current.step || !['placing', 'spring-press', 'spring-seat', 'spring-lock', 'check'].includes(state.current.phase)) ? 'visible' : 'hidden';
       label.current.dataset.expected = String(part.number - 1 === state.current.step);
     }
   }, -.5);
@@ -73,6 +76,19 @@ function AssemblyWorld(props: Props) {
     const key = revision * 100 + state.current.step + (state.current.phase === 'complete' ? 20 : 0) + (doorOpen ? 40 : 0);
     if (previous.current !== key) { manual.current = false; previous.current = key; }
     if (manual.current || !controls.current) return;
+    if (props.cinematic) {
+      const shot = cabinetFilmShot(plan, state.current, size.width / Math.max(1, size.height), props.reducedMotion);
+      if (camera instanceof PerspectiveCamera && Math.abs(camera.fov - shot.fov) > .01) {
+        camera.fov = shot.fov;
+        camera.updateProjectionMatrix();
+      }
+      updateCameraRig(camera, controls.current, cameraRig, shot, key, seconds, true);
+      return;
+    }
+    if (camera instanceof PerspectiveCamera && camera.fov !== 42) {
+      camera.fov = 42;
+      camera.updateProjectionMatrix();
+    }
     let radius: number;
     if (view === 'overview') {
       const assembled = preview || state.current.phase === 'complete';
@@ -87,9 +103,11 @@ function AssemblyWorld(props: Props) {
     } else {
       const pose = cabinetPartPose(active, state.current, preview);
       focus.target.set(...pose.position.map(value => value * 10) as [number, number, number]);
-      if (view === 'joint' && active.hardware.length) {
+      if (view === 'joint' && (active.hardware.length || active.pinCenters.length)) {
         focus.q.setFromEuler(new Euler(...active.animation.rotation)).slerp(focus.identity, pose.rotationProgress);
-        focus.target.add(new Vector3(...active.hardware[0].at).applyQuaternion(focus.q));
+        focus.q.multiply(new Quaternion().setFromAxisAngle(new Vector3(1, 0, 0), pose.tilt));
+        const at = active.hardware[0]?.at ?? [active.pinCenters[0], active.box.h * 5, 0];
+        focus.target.add(new Vector3(...at).applyQuaternion(focus.q));
         radius = 72;
       } else radius = Math.hypot(active.box.w, active.box.h, active.box.d) * 5 + 55;
       focus.target.setY(focus.target.y + 10);
@@ -100,18 +118,19 @@ function AssemblyWorld(props: Props) {
     if (view === 'joint' && active.hardware.length) {
       const normal = new Vector3(0, 0, 1).applyQuaternion(new Quaternion(...active.hardware[0].quaternion)).applyQuaternion(focus.q);
       direction.copy(normal).multiplyScalar(1.5).add(new Vector3(.3, .5, .7)).normalize();
-    }
+    } else if (view === 'joint' && active.pinCenters.length) direction.set(.7, -.25, -1.2).normalize();
     const position = direction.multiplyScalar(distance).add(focus.target);
     updateCameraRig(camera, controls.current, cameraRig, { target: focus.target.toArray() as [number, number, number], position: position.toArray() as [number, number, number] }, key, seconds);
   }, -1);
   const active = plan.parts[props.step];
-  const showTarget = !preview && props.phase === 'ready';
+    const showTarget = !preview && !props.cinematic && props.phase === 'ready';
+    const springDetail = props.cinematic && props.phase.startsWith('spring-');
   return <>
     <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow><planeGeometry args={[14000, 14000]} /><shadowMaterial transparent opacity={.14} /></mesh>
     <directionalLight position={[-1200, 2400, 1600]} intensity={1.8} castShadow={view !== 'joint' && !inside} shadow-mapSize={[2048, 2048]} shadow-radius={4}
       shadow-camera-left={-2600} shadow-camera-right={2600} shadow-camera-top={2600} shadow-camera-bottom={-2600} shadow-camera-far={9000} shadow-bias={-.0001} shadow-normalBias={1.5} />
     <group position={[0, 10, 0]}>
-      {plan.parts.map(part => <Part key={part.id} part={part} plan={plan} state={state} preview={preview} inside={inside} doorOpen={doorOpen} finish={finish} onSelect={onSelect} />)}
+      {plan.parts.map(part => <Part key={part.id} part={part} plan={plan} state={state} preview={preview} inside={inside || springDetail && (part.id === active.id || part.box.kind === 'horizontal' && !part.feet)} doorOpen={doorOpen} finish={finish} onSelect={onSelect} />)}
       {showTarget && <group position={[active.box.x * 10, active.box.y * 10, active.box.z * 10]}>
         <mesh onClick={event => { event.stopPropagation(); onPlace(); }}>
           <boxGeometry args={[active.box.w * 10, active.box.h * 10, active.box.d * 10]} />
@@ -123,7 +142,7 @@ function AssemblyWorld(props: Props) {
         </Html>
       </group>}
     </group>
-    <OrbitControls ref={controls} makeDefault minDistance={70} maxDistance={18000} maxPolarAngle={Math.PI * .49} enableDamping onStart={() => { manual.current = true; }} />
+    <OrbitControls ref={controls} makeDefault minDistance={70} maxDistance={18000} maxPolarAngle={Math.PI * .75} enableDamping onStart={() => { manual.current = true; if (props.cinematic) props.onLost(); }} />
   </>;
 }
 

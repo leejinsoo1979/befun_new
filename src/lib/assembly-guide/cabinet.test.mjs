@@ -4,11 +4,11 @@ import { registerHooks } from 'node:module';
 import { pathToFileURL } from 'node:url';
 import { Quaternion, Vector3 } from 'three';
 registerHooks({ resolve(s, c, next) {
-  if (s.startsWith('@/')) return next(pathToFileURL(`${process.cwd()}/src/${s.slice(2)}.ts`).href, c);
+  if (s.startsWith('@/')) return next(pathToFileURL(`${process.cwd()}/src/${s.slice(2)}${/\.[a-z]+$/i.test(s) ? '' : '.ts'}`).href, c);
   if (s.startsWith('.') && !/\.[a-z]+$/i.test(s)) return next(new URL(`${s}.ts`, c.parentURL).href, c);
   return next(s, c);
 } });
-const { cabinetDesign, createCabinetPlan, createCabinetPanelGeometry, cabinetPartPose, initialCabinetState, selectCabinetPart, placeCabinetPart, advanceCabinet, confirmCabinetPart } = await import('./cabinet.ts');
+const { cabinetDesign, createCabinetPlan, createCabinetPanelGeometry, cabinetPartPose, cabinetPinExtension, initialCabinetState, selectCabinetPart, placeCabinetPart, advanceCabinet, confirmCabinetPart } = await import('./cabinet.ts');
 const { buildBefunShelfModel } = await import('../optimizer/befun/model.ts');
 const { isLaminateSkin } = await import('./panelMaterials.ts');
 
@@ -71,11 +71,32 @@ test('manual assembly gates wrong parts, hardware preparation, seating and confi
 test('automatic full assembly is equal at 60fps and after one long frame', () => {
   const plan = createCabinetPlan();
   let short = { ...initialCabinetState(), automatic: true, playing: true };
-  for (let i = 0; i < 60 * 30; i++) short = advanceCabinet(short, 1 / 60, plan);
-  const long = advanceCabinet({ ...initialCabinetState(), automatic: true, playing: true }, 30, plan);
+  for (let i = 0; i < 60 * 120; i++) short = advanceCabinet(short, 1 / 60, plan);
+  const long = advanceCabinet({ ...initialCabinetState(), automatic: true, playing: true }, 120, plan);
   assert.deepEqual(short, long);
   assert.equal(long.phase, 'complete');
   assert.equal(long.playing, false);
+});
+
+test('support and back panel share fixed-lower / spring-upper dowels after the top is installed', () => {
+  const plan = createCabinetPlan(), top = plan.parts.find(p => p.box.kind === 'horizontal' && !p.feet);
+  const rears = plan.parts.filter(p => p.pinCenters.length);
+  assert.equal(rears.length, 2);
+  for (const part of rears) {
+    assert.ok(top.number < part.number);
+    assert.equal(part.pinCenters.length, 2);
+    assert.equal(part.hardware.length, 0, 'rear dowels must not use OVVO');
+    const state = { ...initialCabinetState(), step: part.number - 1, phase: 'spring-press', progress: 1 };
+    assert.equal(cabinetPinExtension(part, state), 0);
+    const bottom = pose => new Vector3(0, -part.box.h / 2, 0).applyAxisAngle(new Vector3(1, 0, 0), pose.tilt).add(new Vector3(...pose.position));
+    const a = bottom(cabinetPartPose(part, { ...state, phase: 'spring-seat', progress: 0 }));
+    const b = bottom(cabinetPartPose(part, { ...state, phase: 'spring-seat', progress: .5 }));
+    const c = bottom(cabinetPartPose(part, { ...state, phase: 'spring-seat', progress: 1 }));
+    assert.ok(a.distanceTo(b) < 1e-8 && b.distanceTo(c) < 1e-8, 'lower fixed dowels remain the seating pivot');
+    assert.equal(cabinetPinExtension(part, { ...state, phase: 'spring-lock' }), 5);
+    assert.ok(top.displayBorings.some(h => h.id.includes(part.id)));
+    assert.ok(!part.panel.manufacturingBoring?.borings.some(h => h.id.startsWith('display-')), 'illustrative holes must stay out of CNC data');
+  }
 });
 
 test('the machined door retains two laminate skins and centered real bounds', () => {

@@ -1,0 +1,49 @@
+{
+  "status": "CABINET-SPRING-FILM-READY",
+  "route": "/assembly-guide/cabinet",
+  "rearMechanisms": [
+    "support: lower fixed dowels / upper spring dowels",
+    "back: lower fixed dowels / upper spring dowels"
+  ],
+  "topBeforeRear": true,
+  "film": {
+    "parts": 8,
+    "durationSeconds": 52.2,
+    "oneClickContinuous": true,
+    "globalSeek": true,
+    "absoluteCameraSampling": true,
+    "randomCameraShake": false,
+    "exportedMp4": false
+  },
+  "sourceFurnitureChanged": false,
+  "cncDataChanged": false,
+  "manufacturingApproved": false,
+  "tests": {
+    "passed": 56,
+    "failed": 0
+  },
+  "build": "PASS",
+  "lint": {
+    "scopeErrors": 0,
+    "scopeWarnings": 0,
+    "fullErrors": 0,
+    "existingWarnings": 8
+  },
+  "browser": {
+    "manualPartsCompleted": 8,
+    "mobileDocumentWidth": 390,
+    "rearPressSeatLockObserved": true,
+    "mobileContinuousFilmCompleted": 8,
+    "pauseSeekRestart": true,
+    "movieStageResume": true,
+    "consoleErrors": 0,
+    "consoleWarnings": 0
+  },
+  "unconfirmed": [
+    "supplier dowel CAD",
+    "real dowel spacing/diameter/depth/travel",
+    "spring stiffness",
+    "physical deformation",
+    "manufacturing approval"
+  ]
+}

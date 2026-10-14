@@ -1597,3 +1597,11 @@
 
 - 추천 카드 초기 구성 추가 잠금 / codex-assistant: 원본6상품의 공개 configurator 응답 확보 완료(Cloudflare 미확인 상태 해소). 신규 src/lib/three/catalog-presets.{ts,json}, 공통 shelf-geometry.ts, Shelf/DimensionOverlay/PriceDisplay의 생성기 호출부, useShelfStore의 catalogPreset 식별자, savedDesign/configuration의 식별자 복원, ProductConfigurator의 가격입력, optimizer model의 공통 생성기 연결을 좁게 수정. 기존 사진과 원본 fixture는 그대로 보존. WardrobeModel/fronts/주문 production.ts 등 타 담당 잠금 미수정.
 - 주문 담당 연계 요청: 상품 preset은 이제 행 책장 외에 원본 열 기반 가구도 포함. 새 catalogPreset ID가 있는 구성은 공통 calculateShelfGeometry를 통해 계산해야 함. production.ts의 별도 스타일 switch에 일반 Grid를 적용하면 안 됨. 제조 승인과 초기 외관 재현은 별개이며 신규 preset의 제조 출력은 검증 전 차단 필요.
+
+
+### 캐비넷 스프링 다보·전체 영상 완료 — 왼쪽5 / 2026-10-14
+- 사용자 정정 반영: 보강 패널과 백패널 동일 하단 고정 다보 → 상단 눌림 → 패널 세움 → 복귀/잠금. 상판 선행으로 순서 교정. 기존 본체/도어/공통 CNC ID/치수/OVVO 접합은 보존하고 다보용 표시 구멍은 시연 메시에서만 생성, 제조 데이터 미혼입.
+- 전체 영상 한 번 재생52.2초(1.5×약35초), 부품/운반 추적/접합 확대/하단→상단 잠금/완성 회전·도어 열림. 전체 시간 탐색/정지/재시작/단계 재생·동작줄이기/수동관찰. 기존 수동 조립8부품완주 및390px전체연속완주/overflow0/console0 확인.
+- 56검사PASS, 변경eslint0/0, 전체lint0오류/기존8경고, 독립production build/TypeScript PASS. 원격43a8ba0 역할enum반영 후Prisma client재생성, DB/migration/관리자소스미수정. 자세한근거·6캡처·10소스SHA차이0: cabinet-film/README.md/verification.json/source-fingerprint.json.
+- 기존백패널7은설명용SpringPin을공유SpringDowel로추출해형상·기본색·동작을보존. OVVO P/R/Tylko5/다리원본기구구분 유지. 다보치수·간격·스프링강성·실물CAD/제조승인미확인,manufacturingApproved=false. 실시간3D전체영상이며MP4파일출력아님.
+- 이번CabinetScene/Panel/Simulator/CSS·cabinet.ts/test·신규cabinetFilm.ts/test·SpringDowel·BackPanelScene추출소비·본인증거잠금해제. 공유3003/.next/.git·다른작업자실행/공통생성/HW/CNC/저장/부모route미수정. Git/운영배포상태는별도기록.

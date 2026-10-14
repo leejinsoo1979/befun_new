@@ -7,11 +7,25 @@ import { Box3, DoubleSide, Group, Mesh, MeshStandardMaterial, Vector3 } from 'th
 import type { RefObject } from 'react';
 import { OvvoPH, OvvoPC } from '@/components/three/furniture-hardware/ovvo/OvvoParts';
 import { BlumCup, BlumPlate } from '@/components/three/blum/BlumHardware';
-import { createCabinetPanelGeometry, type CabinetPart, type CabinetPlan, type CabinetState } from '@/lib/assembly-guide/cabinet';
+import { cabinetPinExtension, createCabinetPanelGeometry, type CabinetPart, type CabinetPlan, type CabinetState } from '@/lib/assembly-guide/cabinet';
 import { GuidePanel } from './GuidePanel';
 import { usePanelMaterials } from './usePanelMaterials';
+import { SpringDowel } from './SpringDowel';
 
 const clamp = (value: number) => Math.max(0, Math.min(1, value));
+
+function RearDowel({ x, part, state, inside, preview }: { x: number; part: CabinetPart; state: RefObject<CabinetState>; inside: boolean; preview: boolean }) {
+  const extension = useRef<Group>(null), springRoot = useRef<Group>(null);
+  useFrame(() => {
+    const distance = cabinetPinExtension(part, state.current, preview);
+    extension.current?.position.setY(distance);
+    springRoot.current?.traverse(object => { if (object.name === 'example-spring') object.scale.y = .3 + distance / 5 * .7; });
+  });
+  return <group position={[x, 0, 0]}>
+    <mesh position={[0, -part.box.h * 5 - 2.5, 0]}><cylinderGeometry args={[1.5, 1.5, 5, 24]} /><meshStandardMaterial color="#b8c1bd" metalness={.7} roughness={.3} /></mesh>
+    <group ref={springRoot} position={[0, part.box.h * 5, 0]}><SpringDowel extension={extension} inside={inside} housingColor="#89929a" /></group>
+  </group>;
+}
 
 function CabinetHandle({ part, plan, finish }: { part: CabinetPart; plan: CabinetPlan; finish: string }) {
   const gltf = useGLTF('/models/handle_door.glb');
@@ -56,7 +70,7 @@ export function CabinetPanel({ part, plan, inside, finish, state, preview, doorO
   const vectors = useMemo(() => ({ normal: new Vector3() }), []);
   useFrame((_, delta) => {
     const value = state.current;
-    const installed = preview || value.phase === 'complete' || part.number - 1 < value.step;
+    const installed = preview || value.phase === 'complete' || value.phase === 'reveal' || part.number - 1 < value.step;
     const active = part.number - 1 === value.step;
     const preparing = active && value.phase === 'hardware';
     const hardwareProgress = installed || active && !['choose', 'hardware'].includes(value.phase) ? 1 : preparing ? value.progress : 0;
@@ -75,11 +89,15 @@ export function CabinetPanel({ part, plan, inside, finish, state, preview, doorO
     }
     if (opening.current) {
       const angle = doorOpen && (installed || value.phase === 'check') ? door?.reference?.openAngle ?? Math.PI / 2 : 0;
-      opening.current.rotation.y += (angle - opening.current.rotation.y) * (1 - Math.exp(-delta * 9));
+      if (value.automatic) {
+        const p = clamp(value.progress / .6), blend = p * p * (3 - 2 * p);
+        opening.current.rotation.y = angle * (value.phase === 'reveal' ? blend : 1);
+      } else opening.current.rotation.y += (angle - opening.current.rotation.y) * (1 - Math.exp(-delta * 9));
     }
   });
   const body = <>
     <GuidePanel source={geometry} size={[box.w * 10, box.h * 10, box.d * 10]} axis={box.frame.n} inside={inside} finish={finish} mdfCuts />
+    {part.pinCenters.map(x => <RearDowel key={x} x={x} part={part} state={state} inside={inside} preview={preview} />)}
     <group ref={hardwareRoot}>
       {part.hardware.map(mount => <group key={mount.id} position={mount.at} quaternion={mount.quaternion}>
         <OvvoPH material={materials.housing} />

@@ -92,3 +92,7 @@ R3 이력: [R3-ASM-01~06 제출](handoffs/assets/codex-assembly/r3-legs/README.m
 ### Befun 캐비넷 모의 조립 완료 — 왼쪽5 / 2026-10-14
 
 [직접 조립·자동 조립·실제 공통 모델·검사·한계](handoffs/assets/codex-assembly/cabinet/README.md). `/assembly-guide/cabinet`에 실제 Befun 생성 결과의 1단 도어 캐비넷8부품·몸통6접합/12커넥터를 연결했다. 양면 라미네이트/자작 엣지/MDF 홈·부품 선택/커넥터 준비/위치 체결/확인·완성 도어 열기를 제공한다. 직접8부품 및390px자동완주,53검사·production build/TypeScript PASS,lint0오류/기존8경고. 후면은위치연습·다리는고정외형·제조승인false,실제주문전체연결은별도다. 리더R7/공통가구/HW/CNC/재질/공유Git·서버보존. 원격의기존캐비넷초안보존후최종본을독립사본에서게시한다.
+
+
+### 캐비넷 후면 다보·전체 영상 교정 — 2026-10-14
+[스프링 다보·카메라 연출·56검사·6캡처·한계](handoffs/assets/codex-assembly/cabinet-film/README.md). 보강 패널/백패널의 실제시연을 하단고정→상단눌림→세움→복귀잠금으로 교정하고 상판을 먼저 체결한다. 전체52.2초를 한 번재생하며 운반추적/접합확대/잠금확인/완성회전·도어열림으로 카메라를 연결했다. 직접8부품 및390px영상연속완주,production build/TypeScript·56검사PASS,lint0오류/기존8경고. 이전인계의후면위치연습만구현상태는당시기록이다. 다보형상·치수·수용홀은설명용이고 CNC/주문데이터·제조승인은변경하지않는다.
