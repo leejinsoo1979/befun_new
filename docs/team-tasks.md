@@ -1567,3 +1567,10 @@
 - 좁은 단독 잠금: ProductDetails.tsx/FurnitureProductDetails.tsx discover 영역, 신규 ProductDiscovery.tsx 및 public/imgs/product-discovery/**, 본인 handoff/provenance append. 다른 storefront/뷰어/관리자/캐비넷 진행 파일 미수정.
 - 메인 categorySection 제거 완료: 제목·분류10버튼 및 전용폭상수/import 제거, Chrome3003 홈에서 Hero 다음 추천상품으로 이어짐 확인, scoped ESLint0. Storefront.tsx 해당영역 잠금 해제.
 - 원본 월수납장1964423,w는 목록자료에서 Tone 206×194×45cm로 확인되며 현재 generic Grid206×183×32와 family까지 다름. 기존 사진/fixture를 바꾸거나 추정값을 동일구성으로 표시하지 않음. 원본 Chrome 신규진입은 Cloudflare 보안 확인 페이지여서 옵션확보 미완료. catalog/configuration 제품수정은 아직 없으며 조사잠금 유지.
+
+
+### BEFUN-CABINET-PRACTICE-READY — 왼쪽5 / 2026-10-14
+- 실제공통Befun생성기/CNC ID/치수/접합계획의1단도어캐비넷8부품,수동선택→준비→체결→확인및자동완주. 새로운가구생성기/저장형식없음. 원격에먼저포함된본인초안을보존하고최종카메라/검증인계추가.
+- 양면Terracotta라미네이트/자작엣지/MDF홈·공유PH/PC/공통경첩·완성도어열림. 2단중간판양면홈교차경고보존,지원되는1단사용. 후면위치연습/고정발/제조승인false를구분.
+- 독립production build/TypeScript PASS,53검사PASS,전체lint0오류/기존8경고(생성.vercel/output제외),Chrome직접8부품및390px자동완주/정지탐색초기화/잘못된선택/도어열림/console0. 본인안내48파일SHA차이0. 증거cabinet/README.md·verification.json.
+- 이번CabinetSimulator/Scene/Panel/CSS·libcabinet/test·본인subroute·GuidePanel/usePanelMaterials/panelMaterials옵션·GuideEnvironment옵션·기존진입Link/CSS·본인증거잠금해제. 리더R7매뉴얼/parent route와다른소유파일·공유3003/.next/.git보존. 리더R7진입화면의캐비넷링크요청은유지.

@@ -70,7 +70,7 @@ function AssemblyWorld(props: Props) {
   useFrame(({ camera, size }, seconds) => {
     onTick(seconds);
     const active = plan.parts[state.current.step];
-    const key = revision * 100 + state.current.step + (state.current.phase === 'complete' ? 20 : 0);
+    const key = revision * 100 + state.current.step + (state.current.phase === 'complete' ? 20 : 0) + (doorOpen ? 40 : 0);
     if (previous.current !== key) { manual.current = false; previous.current = key; }
     if (manual.current || !controls.current) return;
     let radius: number;
@@ -79,6 +79,7 @@ function AssemblyWorld(props: Props) {
       if (assembled) {
         focus.target.set(0, plan.design.height * 5 + 10, plan.design.depth * 5);
         radius = Math.hypot(plan.design.width, plan.design.height, plan.design.depth) * 5 + 50;
+        if (doorOpen) { radius *= 1.22; focus.target.setZ(focus.target.z + 100); }
       } else {
         focus.target.copy(overviewBounds.center);
         radius = overviewBounds.radius + 40;

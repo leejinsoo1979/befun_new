@@ -1,0 +1,18 @@
+{
+  "status": "BEFUN-CABINET-PRACTICE-READY",
+  "route": "/assembly-guide/cabinet",
+  "source": "shared Befun model / CNC panels / OVVO contract / assembly plan",
+  "parts": 8,
+  "bodyJoints": 6,
+  "bodyConnectors": 12,
+  "model": "V-1230P",
+  "manufacturingApproved": false,
+  "wholeCustomOrderConnected": false,
+  "rearFastenerKinematics": "not implemented; placement practice",
+  "legs": "preinstalled static source envelope",
+  "tests": {"passed": 53, "failed": 0},
+  "build": "PASS",
+  "lint": {"errors": 0, "existingWarnings": 8, "generatedVercelOutputExcluded": true},
+  "browser": {"manualPartsCompleted": 8, "automaticPartsCompletedAt390px": 8, "wrongPartBlocked": true, "pauseSeekReset": true, "doorOpen": true, "errors": 0, "warnings": 0, "mobileDocumentWidth": 390},
+  "unconfirmed": ["supplier undercut", "elastic deformation", "physical collision clearance", "certified assembly order", "manufacturing approval"]
+}
