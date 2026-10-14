@@ -1,4 +1,5 @@
 'use client';
+import { createNaturalMaterialsForColor } from '@/lib/three/natural-materials';
 
 import { useMemo, useState, useEffect } from 'react';
 import { useShelfStore } from '@/stores/useShelfStore';
@@ -24,7 +25,7 @@ import { baseHeight } from '@/lib/three/furniture-base';
 import { Suspense } from 'react';
 import { DimensionOverlay } from './DimensionOverlay';
 import {
-  createMaterialsForColor,
+
   createColorMaterials,
   disposeMaterialSet,
   type MaterialSet,
@@ -81,7 +82,7 @@ export function Shelf({ showDimensions = false, exploded = false, presentation =
     const referenceColor = REFERENCE_COLORS[currentColor];
     const materialRequest = referenceColor
       ? Promise.resolve(createColorMaterials(referenceColor.base, referenceColor.edge))
-      : createMaterialsForColor(REFERENCE_CLASSIC_COLORS[currentColor] ? 'C_White' : currentColor);
+      : createNaturalMaterialsForColor(REFERENCE_CLASSIC_COLORS[currentColor] ? 'C_White' : currentColor);
     materialRequest
       .then((mats) => {
         if (referenceColor) applyReferenceAlbedo(mats, referenceColor);

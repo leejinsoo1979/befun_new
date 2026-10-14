@@ -1,4 +1,5 @@
 'use client';
+import { IMPORTED_NATURAL_TEXTURES } from '@/lib/three/natural-textures';
 
 import { useLocale } from '@/lib/commerce/useLocale';
 
@@ -11,6 +12,7 @@ interface ColorOption {
   name: string;
   image: string;
   category: ColorCategory;
+  label?: string;
 }
 
 const CLASSIC_COLORS: ColorOption[] = [
@@ -29,6 +31,7 @@ const NATURAL_COLORS: ColorOption[] = [
   { name: 'N_Beech', image: '/imgs/natural_color/natural-bright.png', category: 'natural' },
   { name: 'N_Oak', image: '/imgs/natural_color/natural-normal.png', category: 'natural' },
   { name: 'N_Walnut', image: '/imgs/natural_color/natural-dark.png', category: 'natural' },
+  ...Object.entries(IMPORTED_NATURAL_TEXTURES).map(([name, texture]) => ({ name, image: texture.thumbnail, label: texture.label, category: 'natural' as const })),
 ];
 
 // Live Type02 swatches verified in material-source-001; legacy saved keys still render.
@@ -110,8 +113,8 @@ export function ColorPicker() {
                 key={c.name}
                 onClick={() => setColor(c.name, c.category)}
                 className={`tylko-color-swatch ${isActive ? 'active' : ''}`}
-                title={tr(c.name)}
-                aria-label={tr(c.name)}
+                title={tr(c.label ?? c.name)}
+                aria-label={tr(c.label ?? c.name)}
               >
                 {REFERENCE_COLORS[c.name] ? (
                   <span aria-hidden="true" className="block h-6 w-6 rounded-full" style={{
@@ -125,7 +128,7 @@ export function ColorPicker() {
                   }} />
                 ) : <Image
                   src={c.image}
-                  alt={tr(c.name)}
+                  alt={tr(c.label ?? c.name)}
                   width={24}
                   height={24}
                   className="rounded-full"

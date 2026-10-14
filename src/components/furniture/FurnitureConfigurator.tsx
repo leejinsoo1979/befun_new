@@ -30,6 +30,24 @@ export function FurnitureConfigurator({initial, title, catalogId}:{initial:Furni
   const [fullscreen,setFullscreen]=useState(false);
   const viewerRef=useRef<HTMLDivElement>(null);
   useEffect(()=>{
+    const onKey=(event:KeyboardEvent)=>{
+      const target=event.target;
+      if(event.code!=='Space')return;
+      if(target instanceof HTMLElement&&target.closest('input[type="range"],[role="slider"]')){
+        event.preventDefault();
+        return;
+      }
+      if(target instanceof HTMLElement&&
+        (target.isContentEditable||target.closest('input,textarea,select,button,a,[role="button"],[role="dialog"]')))return;
+      event.preventDefault();
+      if(event.repeat)return;
+      setFront(true);
+      setReset(value=>value+1);
+    };
+    window.addEventListener('keydown',onKey);
+    return()=>window.removeEventListener('keydown',onKey);
+  },[]);
+  useEffect(()=>{
     const sync=()=>setFullscreen(!!document.fullscreenElement);
     document.addEventListener('fullscreenchange',sync);
     return()=>document.removeEventListener('fullscreenchange',sync);

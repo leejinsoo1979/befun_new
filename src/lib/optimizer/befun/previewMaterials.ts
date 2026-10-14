@@ -1,5 +1,6 @@
+import { createNaturalMaterialsForColor } from '@/lib/three/natural-materials';
 import * as THREE from 'three';
-import { createColorMaterials, createMaterialsForColor, createFaceMaterials, type MaterialSet } from '@/lib/three/materials';
+import { createColorMaterials,  createFaceMaterials, type MaterialSet } from '@/lib/three/materials';
 import { REFERENCE_COLORS, REFERENCE_CLASSIC_COLORS } from '@/lib/three/reference-colors';
 import { applyReferenceAlbedo } from '@/lib/three/reference-materials';
 import type { CncPanelBox } from './toCncPanels';
@@ -9,7 +10,7 @@ export async function previewMaterialSet(color: string): Promise<MaterialSet> {
   const reference = REFERENCE_COLORS[color];
   const classic = REFERENCE_CLASSIC_COLORS[color];
   const materials = reference ? createColorMaterials(reference.base, reference.edge)
-    : await createMaterialsForColor(classic ? 'C_White' : color);
+    : await createNaturalMaterialsForColor(classic ? 'C_White' : color);
   if (reference) applyReferenceAlbedo(materials, reference);
   if (classic) {
     for (const material of [materials.verticalBase, materials.horizontalBase, materials.backPanel]) {

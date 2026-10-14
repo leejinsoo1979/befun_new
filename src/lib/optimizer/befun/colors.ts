@@ -1,6 +1,7 @@
 import { REFERENCE_COLORS, REFERENCE_CLASSIC_COLORS } from '@/lib/three/reference-colors';
 import type { ColorCategory } from '@/types/shelf';
 import { EDGE_MIX_COLORS, SOLID_COLORS, getColorCategory } from '@/lib/three/materials';
+import { IMPORTED_NATURAL_TEXTURES, importedNaturalTexture } from '@/lib/three/natural-textures';
 
 /**
  * 시뮬레이션용 Befun 색상 모습.
@@ -30,6 +31,8 @@ export interface BefunColorLook {
 export function befunColorLook(colorName: string): BefunColorLook {
   const category = getColorCategory(colorName);
   const swatchName = `Befun ${colorName}`;
+  const imported = importedNaturalTexture(colorName);
+  if (imported) return { swatchName, category, surface: imported.surface, edgeBand: imported.surface };
   const reference = REFERENCE_COLORS[colorName];
   if (reference) return { swatchName, category, surface: reference.base, edgeBand: reference.edge };
   const classic = REFERENCE_CLASSIC_COLORS[colorName];
@@ -44,7 +47,7 @@ export function befunColorLook(colorName: string): BefunColorLook {
 
 /** upstream materialSwatches에 덧붙일 Befun 견본(대표 색만, 그림 없음) */
 export function befunMaterialSwatches() {
-  const names = [...new Set([...Object.keys(TEXTURE_LOOKS), ...Object.keys(SOLID_COLORS), ...Object.keys(EDGE_MIX_COLORS), ...Object.keys(REFERENCE_COLORS), ...Object.keys(REFERENCE_CLASSIC_COLORS)])];
+  const names = [...new Set([...Object.keys(TEXTURE_LOOKS), ...Object.keys(IMPORTED_NATURAL_TEXTURES), ...Object.keys(SOLID_COLORS), ...Object.keys(EDGE_MIX_COLORS), ...Object.keys(REFERENCE_COLORS), ...Object.keys(REFERENCE_CLASSIC_COLORS)])];
   return names.map((name) => {
     const look = befunColorLook(name);
     return { id: `befun-${name}`, name: look.swatchName, type: '색상', category: 'befun', color: look.surface, texture: 'color', image: '' };
