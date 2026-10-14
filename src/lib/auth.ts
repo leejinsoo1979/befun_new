@@ -1,4 +1,5 @@
 import { type NextAuthOptions } from 'next-auth';
+import type { AdapterAccount } from 'next-auth/adapters';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import GoogleProvider from 'next-auth/providers/google';
 import KakaoProvider from 'next-auth/providers/kakao';
@@ -7,9 +8,20 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import { prisma } from '@/lib/db';
 import { verifyPassword } from '@/lib/password';
 import { isBootstrapAdmin } from '@/lib/admin-emails';
+import { persistedAccount } from '@/lib/auth-account';
+
+const adapter = PrismaAdapter(prisma) as NonNullable<NextAuthOptions['adapter']>;
+const linkAccount = adapter.linkAccount!;
+adapter.linkAccount = (account: AdapterAccount) => linkAccount(persistedAccount(account));
 
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma) as NextAuthOptions['adapter'],
+  adapter,
+  // Adapter errors can embed Prisma arguments, including OAuth access/refresh tokens.
+  logger: {
+    error(code) { console.error('[next-auth]', code); },
+    warn(code) { console.warn('[next-auth]', code); },
+    debug() {},
+  },
   providers: [
     // 구글·네이버는 확인된 이메일을 주므로 같은 이메일의 기존 계정(이메일 가입 등)에 연결한다
     GoogleProvider({
