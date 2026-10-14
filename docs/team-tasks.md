@@ -1273,3 +1273,9 @@
 - 소유잠금해제: assembly-guide components/lib, docs/assembly-guide.md, 본신규material-disassembly증거. 독립게시사본에서는bf924ae안정본+이번ASM만게시; 다른R4진행중소스미포함.
 
 - R4-ASM 최종후속: 가공면은normal+외부skin좌표로판정,평행한홈바닥도맨목재. 추가검사후42PASS,최신격리build/TypeScript PASS,lint0/7. Tylko선택적추정3D5단계/백패널7재확인. source36파일격리차이0,최종fingerprint갱신,ASM잠금최종해제.
+
+### OVVO 홈·MDF·투명 표시 교정 완료 — 왼쪽5 / 2026-10-14
+- 사용자 캡처 R02/08 재현 후 홈 MDF벽/바닥, A/B 삽입시점, 하우징투명/커넥터불투명, 명시적 보기 유지, 최종 단계 확대 교정. 제조언더컷/BOM확정은 미확인. HW/CNC/공용재질/R5/상품/공유.git 미수정.
+- 47검사PASS, 변경eslint0/0, 격리전체lint0오류/기존경고7, production build/TypeScript/17정적페이지PASS. 안내40파일SHA사본차이0. 실제Chrome desktop/390px·기존P/R/Tylko5/백패널7/다리5·재생/탐색/초기화/전환, 24회투명토글자원36geometry/9texture/10program안정. 최신새로고침error/warn0.
+- 증거: docs/handoffs/assets/codex-assembly/pocket-transparency/README.md 및verification/fingerprint·전후/P/R/단면/모바일캡처. R4실제제품입력계약 요청 유지, 정밀다리/전체주문/제조승인 제외.
+- 이번 소유 잠금 해제: 위 assembly-guide components/lib 및신규panelPocket/viewState/검사, cinematicShot/검사, docs/assembly-guide.md, pocket-transparency증거. 공유3003/.next유지. 독립게시사본에서 이번ASM만 Git반영하며 배포결과 별도기록.
