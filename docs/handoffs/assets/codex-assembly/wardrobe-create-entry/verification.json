@@ -1,0 +1,45 @@
+{
+  "status": "implemented and locally verified; publication pending",
+  "owner": "왼쪽5 / codex-assembly",
+  "trigger": "/furniture-c/wardrobe → 직접 만들기 / 시작하기",
+  "before": "/configurator (shelf/storage editor)",
+  "after": "/furniture-design/wardrobe-edge (existing Edge wardrobe editor)",
+  "change": "DownloadedCatalog wardrobe promo destination only",
+  "desktop": {
+    "clicked_from_list": true,
+    "title": "Edge 옷장",
+    "size_cm": [
+      118,
+      198,
+      60
+    ],
+    "wardrobe_3d_and_interior_tab": "visually verified",
+    "console_errors": 0
+  },
+  "mobile": {
+    "viewport": [
+      390,
+      844
+    ],
+    "clicked_from_list": true,
+    "scrollWidth": 390,
+    "loaded_wardrobe_3d": "visually verified",
+    "override": "cleared",
+    "console_errors": 0
+  },
+  "validation": {
+    "scoped_lint": "PASS",
+    "stable_full_lint": {
+      "errors": 0,
+      "existing_warnings": 8
+    },
+    "production_build_and_typescript": "PASS, independent latest remote main plus only wardrobe link patch",
+    "diff_check": "PASS"
+  },
+  "scope": {
+    "shared_sofa_WIP": "preserved in shared file; excluded from publishing copy",
+    "other_product_cards_and_editor_state": "unchanged",
+    "shared_git_next_dev": "preserved"
+  },
+  "published_source_sha256": "6a2cbc06b4f291fecb8105d999f1f8a274fa14ac612c7359a9e2e5b1f30fcc4e"
+}

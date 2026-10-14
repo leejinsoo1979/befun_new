@@ -42,7 +42,7 @@ export function DownloadedCatalog({ items, lead = [], promo = true, promoVideo =
   return <section className={styles.downloadedCatalog} aria-label={copy.label}>
     <p className={styles.resultCount}>{copy.count(total)}</p>
     <PriceNotice />
-    <div className={styles.productGrid}>{promo ? <Link href="/configurator" className={styles.plpPromo}><Image src={`/videos/configure-yours-${promoVideo}-poster.webp`} alt="" fill sizes="(max-width:700px) 45vw, 24vw" /><video key={promoVideo} src={`/videos/configure-yours-${promoVideo}.mp4`} poster={`/videos/configure-yours-${promoVideo}-poster.webp`} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1} /><span>{PROMO[lang].eyebrow}</span><strong>{PROMO[lang].title}</strong><em>{PROMO[lang].cta}</em></Link> : null}{lead}{visibleItems.map(item => {
+    <div className={styles.productGrid}>{promo ? <Link href={promoVideo === 'wardrobes' ? '/furniture-design/wardrobe-edge' : '/configurator'} className={styles.plpPromo}><Image src={`/videos/configure-yours-${promoVideo}-poster.webp`} alt="" fill sizes="(max-width:700px) 45vw, 24vw" /><video key={promoVideo} src={`/videos/configure-yours-${promoVideo}.mp4`} poster={`/videos/configure-yours-${promoVideo}-poster.webp`} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1} /><span>{PROMO[lang].eyebrow}</span><strong>{PROMO[lang].title}</strong><em>{PROMO[lang].cta}</em></Link> : null}{lead}{visibleItems.map(item => {
       const name = localizedProductName(item.name, lang);
       return <article key={`${item.categoryKey}-${item.sequence}`} className={styles.productCard}>
         <Link href={downloadedItemHref(item)} className={styles.productVisual}>

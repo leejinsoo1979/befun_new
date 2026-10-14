@@ -1623,3 +1623,5 @@
 - 69검사·OBB SAT rear2×4phase×1001/guide7×1001·이전 관통 negative control·하단핀 홀내 검사 PASS. 변경lint0/전체lint0오류8기존경고·독립 production build/TypeScript PASS. desktop/390px carry·seek/잠금/직접모드 초기화 확인; 전체영상·게시 별도 기록. docs/handoffs/assets/codex-assembly/cabinet-rear-clearance/ 제출.
 
 - 왼쪽5 백패널 경로 최종 로컬검증: 전체영상 실제58/58초8/8완주·샘플음21회/running·console0. 단독7단계는 /assembly-guide?topic=connector 진입 후 백패널 탭에서 실제확인/console0(기본back-panel URL은 리더의 새Tylko매뉴얼로 연결됨). 기존 source/main 경로 보존. 본인8소스/검사 잠금해제, 게시/운영상태 별도 기록.
+
+- 왼쪽5 옷장 직접만들기 진입 수정완료: DownloadedCatalog wardrobe promo만 /configurator→/furniture-design/wardrobe-edge. desktop/390px 목록 실제클릭→Edge 옷장118×198×60·3D/외형/내부구성 확인, overflow0/console0. 변경lint0·안정본격리 production build/TypeScript PASS·전체lint0오류8기존경고·diff check PASS. 소파리더 WIP 조건/상세링크 공유본보존·게시사본제외. 이번 좁은 href 잠금해제, docs/handoffs/assets/codex-assembly/wardrobe-create-entry/ 제출.

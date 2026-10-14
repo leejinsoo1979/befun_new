@@ -38,3 +38,5 @@
 
 
 - 왼쪽5 백패널/보강 패널 관통 수정: 8소유 소스/검사+본인 캡처/인계만 격리. 원격0c6ebf4까지 완료 변경 보존. 69검사·최종 production build/TypeScript PASS, lint0오류8기존경고. Git/push/운영READY는 아직 미실행, 별도 기록.
+
+- 왼쪽5 옷장 직접만들기 진입 수정완료: DownloadedCatalog wardrobe promo만 /configurator→/furniture-design/wardrobe-edge. desktop/390px 목록 실제클릭→Edge 옷장118×198×60·3D/외형/내부구성 확인, overflow0/console0. 변경lint0·안정본격리 production build/TypeScript PASS·전체lint0오류8기존경고·diff check PASS. 소파리더 WIP 조건/상세링크 공유본보존·게시사본제외. 이번 좁은 href 잠금해제, docs/handoffs/assets/codex-assembly/wardrobe-create-entry/ 제출.
