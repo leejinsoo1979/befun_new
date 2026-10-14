@@ -64,3 +64,7 @@ Ohne/OFF도 설계표에 지정된 기본 부분 뒷판을 유지한다. 전체 
 - 옵션 노출: Classic/Natural + Legs일 때만. Standard↔Legs 또는 마감 변경 시 사용자가 선택한 금속 다리 색상은 유지. 깊이24cm/Pixel은 기존 Legs 제약 유지.
 - 저장/공유 필드 legFinish. 구버전 누락은 silver로 복원, 로컬 parser의 알 수 없는 enum은 거부. 3D는 목재 map과 독립된 재질을 사용.
 - 관찰 사례/검증: cases/legs-002-metal-finishes.json. 공급사 실물 금속 표면 측정값은 없으며 roughness/metalness는 Befun 표시 설정.
+
+## 2026-10-14 Desk / Wardrobe 옵션 실제 연결
+
+신규4제품군은 `/furniture-design/[family]`에서 별도생성기/별도옵션을 사용합니다. Desk에는 일반선반 density/style을 노출하지 않습니다. Edge/Tone의 깊이·높이·구획·색상·문·서랍 제약은 sourcecatalog와구조를 함께사용합니다. [전체범위/기본진입/검증](../handoffs/desk-wardrobe-integration.md), [Desk세부규칙](../handoffs/desk-core.md), [Edge세부규칙](../handoffs/wardrobe-core.md), [Tone세부규칙](../handoffs/wardrobe-tone-core.md). 전체조합동치및사업규칙완료는아닙니다.

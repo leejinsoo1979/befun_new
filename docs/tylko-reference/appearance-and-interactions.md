@@ -74,3 +74,7 @@ Shelf가 기준 색상 적용 후 질감 텍스처를 제거하던 분기를 삭
 | Tone 옷장 | 외형/내부 구성, 높이200/237/높이+, 깊이slider, 조명, 내외부색, 내외부서랍 |
 
 [옷장 상세 조사](wardrobe.md)에 순서와 실제 단일 옵션 변경 사례를 기록했다. Edge의 전면 개방 시 문방향 UI 소멸/복귀, Tone의 높이+238→Standard237, 조명 선택 시 뒤쪽4cm 안내, 내부/외부서랍 구조 변경을 확인했다. 같은 카테고리라도 모델별 UI profile과 편집 상태를 구분해야 한다. 아직 전체 조합/모바일 동치는 미검증이다.
+
+## 2026-10-14 책상·옷장 통합 화면
+
+[Edge원목외부서랍 사례](cases/wardrobe-integration-edge-003.json), [Tone내부색·조명·경첩·3D복구 사례](cases/wardrobe-integration-tone-003.json). `configurator-intro`→옷장→Tone→실제편집기 진입확인. Classic390px 화면폭넘침없음. 원본재질/메시를사용하더라도 현재 카메라·광원·미세bevel·내경치수표시는완전일치검증전입니다. 최종release빌드성공, 현재Chrome에서는마지막검사구간신규콘솔오류없음.

@@ -121,3 +121,11 @@ source subtype `z`에 해당합니다. 중심 X/Z를 사용하되 **Y는 y2**입
 - `node --test scripts/furniture-wardrobe/hardware.test.mjs`: 11 tests PASS.
 - 변경 TS/MJS ESLint PASS. `tsc --noEmit`: 기존 `.next/dev/types/validator.ts` Route constraint 오류2개만 남음.
 - WardrobeModel/공통 타입/생성기 직접 수정 없음. sibling이 Edge `source.hinges`/adapter placements를 연결. Tone 연결, 최종 Chrome 개폐·재질 시각검증 및 전체 production build는 리더 통합 단계.
+
+## Edge 외부 서랍 전체너비 상단 손잡이 후속
+
+- 현재 renderer `CG3UhuDu2`의 `_U`는 `subtype === 'e'`에서만 `fullHandleTop`을 생성한다. 원목 여부로 ring으로 바꾸는 분기가 없다. 원목 도어의 `gU/hU` round손잡이와 분리한다. 별도 `XU` veneerDrawer/anode 경로를 Edge `_U`에 혼용하지 않는다.
+- 기존 `resolveEdgeDrawer`의 handle 위치는 source와 이미 일치: front중심X, front윗변Y, front중심Z. `drawers.ts`는 수정하지 않았다. geometry길이는 `front.w` cm로 전달한다. 내부 `d` 서랍은 handle null.
+- `loadWardrobeFullHandle(widthCm)`는 로컬 원본 `horizontal-handle-50.glb`를 읽어 좌우bone을 source동일 ±(widthM−.002)/2로 이동한 후 정적geometry로 bake한다. 전체X비율확대를 하지 않으므로 단부곡면은 유지된다. 원점/normal/UV보존, cm출력. 반환geometry는소비자dispose,언마운트뒤완료도dispose.
+- 원본폭100mm,Y−20..30mm,Z−9.746585..9.259439mm. 손잡이는 front윗변을 기준으로 위30mm/아래20mm 걸친다. source paintedMetal은 drawer색상을사용. fullhandle이빠진기존화면은 이50mm높이상부형상이없었다.
+- `scripts/furniture-wardrobe/full-handle.test.mjs` 5PASS:10/30/60/90cm에서 모든정점을독립bone이동식과 대조하고Y/Z/normal/UV/dispose보존,external/internal분기를검사. 변경 ESLintPASS. 원본GLB출처/SHA256은 public/models/wardrobe/README.md.

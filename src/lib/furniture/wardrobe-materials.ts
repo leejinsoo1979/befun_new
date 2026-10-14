@@ -10,10 +10,11 @@ export async function createWardrobeWoodMaterials(dark:boolean):Promise<Material
     loader.loadAsync(`/textures/wardrobe/${prefix}_cleaf_512_albedo.jpg`),
     loader.loadAsync(`/textures/wardrobe/${prefix}_cleaf_512_bump.jpg`),
   ]);
-  map.colorSpace=THREE.SRGBColorSpace;
   for(const texture of [map,bumpMap]){
     texture.wrapS=texture.wrapT=THREE.RepeatWrapping;
-    texture.anisotropy=8;
+    // Both assets use the renderer's default_jpg preset (including bump).
+    texture.colorSpace=THREE.SRGBColorSpace;
+    texture.anisotropy=1;
     texture.flipY=false;
   }
   const make=()=>{

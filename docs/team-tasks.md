@@ -24,6 +24,8 @@
 
 ## 진행 중
 
+- `codex-storefront` / **로딩 재수정 완료·잠금 해제** / 사용자 로딩 연출 재수정 지시: 기존25조각 skew/반복소거 연출을 원본 로고의 아래부터 판재 쌓임으로 간소화. 잠금 `src/components/ui/ConfiguratorLoading.tsx`, `src/components/ui/configurator-loading.module.css`, 본인 handoff만. ready·SceneReady·3D/상태/로고 자산은 보존.
+
 - `codex-storefront` / **완료·잠금 해제** / 최신 사용자 추가 지시 / 2026-10-14 10:49 KST: 제공 로고의 패널 순차 쌓임 로딩 애니메이션 착수. 추가 잠금 `src/components/ui/ConfiguratorLoading.tsx`, `src/components/ui/configurator-loading.module.css`의 연출만. 기존 로딩 담당 납품/잠금 해제 확인. SceneReady/Scene/동적로딩 마운트·ready 조건·3D/AR 및 다른 담당 소스는 보존. SVG의 원본 형태를 clip 단위 패널로 나눠 같은 로고를 완성하며 reduced-motion에서는 정적인 완성 로고 표시. 앞선 일반 검정·footer 흰색 변경은 구현/브라우저/lint·격리build 확인 완료, 이번 연출과 함께 최종 인계.
 
 - `codex-storefront` / **완료·잠금 해제** / 사용자 제공 SVG 로고 교체 / 2026-10-14 10:44 KST: 일반 로고 검정,푸터 흰색 지시 수신·착수. 좁은 잠금: `public/imgs/icon/befun_logo.svg`,신규 `public/imgs/icon/befun_logo-white.svg`, `StorefrontUI.tsx` BrandLogo props/src만, `StorefrontFrame.tsx` footer BrandLogo variant만, `storefront.module.css` footerLogo 흰 배경/패딩 규칙만, 본인 handoff. 제공 파일의 실제 SVG 표시 영역·원본 PNG mask를 그대로 재사용하며 새 글자/심볼을 그리지 않음. 기존 기본 asset 경로를 교체해 configurator/assembly 헤더에도 같은 검정 로고가 적용되므로 해당 담당 page/scene/handler 소스는 수정하지 않음. 이전 헤더 배치·제목 제거·R3 및 다른 담당 작업 보존.
@@ -1237,3 +1239,28 @@
 ### 제공 SVG 로고·패널 로딩 완료 및 커밋 — codex-storefront / 2026-10-14
 - 일반 검정/footer 흰색 원본 로고 및25패널 순차조립 완료. Chrome 검정·흰색/부분조립/reduced-motion 완성로고/ready 해제 확인. lint0오류7기존경고, 격리webpack/type/17페이지 build PASS. 모든 모바일 애니메이션 직접검증은 미실시.
 - 소스7개는 공유 기준점 c466e45에 이미 포함. 후속 커밋은 본인 handoff·이 완료기록만. 기존 SVG/BrandLogo/footer/loading 잠금 모두 해제. 리더 및 재게시 담당은 인계 사용 가능. 공유 서버/.next·다른 담당 소스·push 미접촉.
+- Cleaf UV 완료/잠금해제: six-face 원본GLB atlas와 물리치수 repeat/offset/rotation/flipY 합성. albedo·bump동일변환, 소유clone disposer 제공. 4테스트/ESLint PASS, tsc 기존.next오류2개. 실제renderer연결과최종화면리더담당. bevel/케이블주변결위상 한계는 wardrobe-core 인계에명시.
+
+## 2026-10-14 Desk / Wardrobe 리더 통합
+
+리더가 책상2종·옷장2종을 실제 UI/3D/로컬 저장·URL복원에 연결했습니다. [통합 인계](handoffs/desk-wardrobe-integration.md), [격리 빌드](handoffs/desk-wardrobe-build.md). Desk/Edge/Tone 작업자의 source 비교를 교차확인했고 legacy/current 경첩 불일치를 수정했습니다. 전체 시각·제조·계정 저장까지 완료라고 보고하지 않습니다.
+
+- 재게시 수신: 공유 Git이 원격8b0f837 기반으로 정리되어 `a8702f0` 정상 descendant가 되었음. 독립 게시사본은 fast-forward 수신해 검증 중. 이전 c466e45 객체는 private team/main에 보존, 원격 history force 변경 없음.
+- 본인 게시 인계 PUBLISH.md는 기존 원격에만 있던 파일이라 .git 연결 후 삭제로 잡힌 상태였다. 본인 문서만 동일 blob으로 복구해 우발적 삭제를 방지. 타담당 src/public/scripts 미수정.
+
+### 로딩 연출 재수정 완료 — codex-storefront
+- 25조각 skew·소거 반복 폐기, 원본5층 아래부터760ms 일회 완성·유지, desktop200px/mobile164px 및 단순 배경. Chrome 단계별 opacity/완성/390px/reduced-motion/ready 해제 확인. 변경lint·격리webpack/type/static PASS.
+- 공유 전체lint는 DeskPanel.tsx:20 preserve-manual-memoization 다른 담당 오류1/경고8. 해당 소유자 확인 요청. 로딩2소스/본인handoff 잠금 해제. 이 후속 수정 재게시 필요.
+
+- 재게시 검증 checkpoint: 커밋a8702f0 단독 default production build는 wardrobe-panel-materials.ts:56 uv.offset tuple-spread 타입오류로 실패. focused wardrobe/hinge/save32검사 및 lint0오류7기존경고 PASS. 최신 작업트리의 해당 helper 후속 수정은 아직미커밋이므로 그대로 기다리고 최종commit 후 build재검증한다. a870 단독을 완료배포로 게시하지 않음.
+
+- codex-storefront 로딩 후속 커밋 `f3b3c2a`: ui 로딩2파일+본인handoff만 포함, 해당파일 HEAD diff0. 리더/게시 담당 재게시 수신 가능. team-tasks의 타담당 미커밋 기록은 별도 유지.
+
+### Edge 외부 서랍 상단 손잡이 — desk_geometry 진행
+- 리더 위임 잠금: `wardrobe-hardware.ts`, `wardrobe/drawers.ts`, hardware tests 및 별도full-handle tests. 원본 horizontal_handle_50.glb 로컬자산+스켈레톤폭변형; root WardrobeModel 미수정.
+
+### Edge 외부 서랍 상단 손잡이 — desk_geometry 완료 / 잠금 해제
+- `loadWardrobeFullHandle(widthCm)` + 실측원본로컬GLB/bone변형 추가. root에front.w+handle.xyz 소비계약전달. 기존drawers.ts배치는현재source와일치하여 변경없음.
+- 원목Edge외부서랍도subtype e이면fullHandleTop, 도어ring과분리. 원본기하10/30/60/90cm전체정점·정적기하해제·placement 5testsPASS, 변경lintPASS. 원본출처/기준점/미확인제조사양 문서기록완료.
+- 소유파일잠금해제, 최종UI연결리더담당.
+- 최종 안정 스냅샷 **2026-10-14 11:25:48 KST** 갱신 후 production build 전체 PASS, TypeScript/17정적페이지 성공. 전체 lint 오류0·기존경고7. 11:26:29 KST 전체 src SHA256 공유본과 차이0 확인. 최신 WardrobeModel/DeskPanel/UV/컨텍스트 상태/Intro·신규GLB 포함. `docs/handoffs/desk-wardrobe-build.md` 완료, 문서 잠금 해제. 공용 `.next`·서버·환경 파일 미수정.

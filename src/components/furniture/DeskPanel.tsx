@@ -6,6 +6,7 @@ import { createFaceMaterials, DEFAULT_TEXTURE_ROTATION, type MaterialSet } from 
 import { createDeskPanelGeometry } from '@/lib/furniture/desk-cable-geometry';
 import type { DeskCableOpening } from '@/lib/furniture/desk';
 import type { PanelData } from '@/types/shelf';
+import {createWardrobePanelMaterials,disposeWardrobePanelMaterials} from '@/lib/furniture/wardrobe-panel-materials';
 
 interface DeskPanelProps {
   panel: PanelData;
@@ -16,7 +17,10 @@ interface DeskPanelProps {
 
 /** Existing hinge pockets and cable through-holes share one physical mesh. */
 export function DeskPanel({ panel, bores, openings, materials }: DeskPanelProps) {
+  const cleafFaces=useMemo(()=>createWardrobePanelMaterials(materials,panel),[materials,panel]);
+  useEffect(()=>()=>disposeWardrobePanelMaterials(cleafFaces),[cleafFaces]);
   const faceMaterials = useMemo(() => {
+    if(cleafFaces)return materials.backPanel;
     if (panel.matType === 'backPanel') return materials.backPanel;
     const vertical = ['verticalBase', 'verticalEdge', 'supportPanel'].includes(panel.matType);
     const support = panel.matType === 'supportPanel';
@@ -25,7 +29,7 @@ export function DeskPanel({ panel, bores, openings, materials }: DeskPanelProps)
       support ? materials.verticalBase : vertical ? materials.verticalEdge : materials.horizontalEdge,
       vertical, DEFAULT_TEXTURE_ROTATION,
     );
-  }, [panel.matType, materials]);
+  }, [panel.matType, materials,cleafFaces]);
   useEffect(() => () => {
     if (!Array.isArray(faceMaterials)) return;
     const shared = new Set(Object.values(materials));
@@ -38,7 +42,7 @@ export function DeskPanel({ panel, bores, openings, materials }: DeskPanelProps)
   }, [faceMaterials, materials]);
   const geometry = useMemo(() => createDeskPanelGeometry(panel, bores, openings), [panel, bores, openings]);
   useEffect(() => () => geometry.dispose(), [geometry]);
-  return <mesh position={[panel.x, panel.y, panel.z]} geometry={geometry} material={faceMaterials}
+  return <mesh position={[panel.x, panel.y, panel.z]} geometry={geometry} material={cleafFaces??faceMaterials}
     castShadow={panel.castShadow ?? true} receiveShadow={panel.receiveShadow ?? true}
     userData={{ cableOpeningCount: openings.length, hingeBoreCount: bores.length }} />;
 }

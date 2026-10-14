@@ -2,6 +2,8 @@
 
 2026-10-14, horizontal_rules. 공유 개발 서버와 `.next`를 변경하지 않고 별도 사본에서 검증했습니다.
 
+**최신 최종 결과: 2026-10-14 11:25:48 KST 안정 스냅샷 production build 및 전체 lint PASS.** 아래 최초/중간 스냅샷의 변경 제외 제한은 최종 재검증으로 해소됐습니다. 11:26:29 KST 전체 source SHA256 재확인에서 공유본과 차이 0개입니다.
+
 ## 결과
 
 - **프로덕션 빌드 성공**: Next.js 16.1.6 `next build --webpack`, 종료 코드 0.
@@ -38,3 +40,16 @@
 위 두 파일을 포함한 후속 src 7개와 회귀 fixture/tests를 갱신했습니다. Tone `source.hinges` 연결, 최신 Edge 기하/경첩, 조명 렌더/재질 및 공통 디자인 수정이 포함됩니다. 동일 격리 사본에서 `next build --webpack` 재실행이 종료 코드0으로 통과했습니다 (`build-final.log`; 갱신 목록 `refresh-final.json`, source SHA256 `source-manifest-final.json`).
 
 이 빌드 시작 직후 리더가 UV/모델/컨텍스트 복구 추가 작업 중임을 알렸으므로 **최종 통합 완료 검증으로 취급하지 않습니다**. 안정 스냅샷 알림 후 추가 변경을 반영하여 다시 검사할 예정입니다.
+
+
+## 최종 안정 스냅샷 검증 — 2026-10-14 11:25:48 KST
+
+리더의 코드 동결 알림 후 최신 파일을 갱신했습니다. `WardrobeModel` full-top 손잡이 로딩/상자와 앞판 재질 분리, `DeskPanel` Cleaf UV, `FurnitureScene` 컨텍스트 상태 처리, Intro 제품군 표기, 모든 담당자 해제 파일과 신규 수평 손잡이 GLB를 포함합니다.
+
+- `npm run build -- --webpack`: **PASS / exit 0**. webpack 컴파일5.3초, TypeScript 전체 검사, 페이지 데이터 수집, 정적 생성17/17, 최종 최적화와 trace 수집 완료.
+- `npm run lint`: **PASS / exit 0**, 오류0·기존경고7. 최초 결과와 같은 경고 파일이며 신규 가구 파일 경고 없음.
+- 새 환경 파일·인증 키·DB URL 없이 실행. 공유 개발 서버와 빌드 산출물은 그대로 유지했습니다.
+- 빌드 완료 후 **11:26:29 KST**, snapshot 대비 공유 `src` SHA256 변경0·추가0 확인. 이 시점 최신 공유 코드와 최종 빌드 코드가 일치합니다.
+- 증거는 같은 격리 사본의 `build-release.log`, `lint-release.log`, `refresh-release.json`, `source-manifest-release.json`, `release-postbuild-source-check.json`입니다.
+
+가구 구조·원본 수치 회귀는 각 생성기 인계 문서와 테스트 결과를 따르며, 이 검증은 프로덕션 빌드 가능 여부를 확인합니다. 브라우저 시각 동치·실제 인증/결제/DB 운영 연동 성공까지 주장하지 않습니다. 본 검증 문서 잠금을 해제합니다.

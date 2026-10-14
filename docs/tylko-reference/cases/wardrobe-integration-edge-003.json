@@ -1,0 +1,69 @@
+{
+  "id": "wardrobe-integration-edge-003",
+  "observedAt": "2026-10-14T02:29:55.086Z",
+  "sourceUrl": "https://tylko.com/de-de/mobel/kleiderschrank/235218,w",
+  "befunUrl": "http://localhost:3003/furniture-design/wardrobe-edge?design=%7B%22version%22%3A1%2C%22kind%22%3A%22wardrobe%22%2C%22family%22%3A%22wardrobe-edge%22%2C%22color%22%3A%22E_LightCleaf%22%2C%22innerColor%22%3A%22T_White%22%2C%22config%22%3A%7B%22model%22%3A%22edge%22%2C%22widthMm%22%3A1180%2C%22heightMm%22%3A1980%2C%22depthMm%22%3A600%2C%22topEdge%22%3Atrue%2C%22sections%22%3A%5B%7B%22id%22%3A%221%22%2C%22seriesId%22%3A%22Open_Rail_Rail_ext_2drawers%22%2C%22doorDirection%22%3A%22left%22%2C%22localHeightMm%22%3Anull%2C%22localDepthMm%22%3Anull%2C%22cableHeightsMm%22%3A%5B499%5D%7D%2C%7B%22id%22%3A%222%22%2C%22seriesId%22%3A%22Full_Rail_Rail_XL%22%2C%22localHeightMm%22%3Anull%2C%22localDepthMm%22%3Anull%7D%5D%2C%22edgeVeneer%22%3Atrue%7D%7D",
+  "inputs": {
+    "version": 1,
+    "kind": "wardrobe",
+    "family": "wardrobe-edge",
+    "color": "E_LightCleaf",
+    "innerColor": "T_White",
+    "config": {
+      "model": "edge",
+      "widthMm": 1180,
+      "heightMm": 1980,
+      "depthMm": 600,
+      "topEdge": true,
+      "sections": [
+        {
+          "id": "1",
+          "seriesId": "Open_Rail_Rail_ext_2drawers",
+          "doorDirection": "left",
+          "localHeightMm": null,
+          "localDepthMm": null,
+          "cableHeightsMm": [
+            499
+          ]
+        },
+        {
+          "id": "2",
+          "seriesId": "Full_Rail_Rail_XL",
+          "localHeightMm": null,
+          "localDepthMm": null
+        }
+      ],
+      "edgeVeneer": true
+    }
+  },
+  "initialState": "Edge default then restored local Cleaf/cable selection",
+  "actions": [
+    "Choose wood finish",
+    "Enable first-section cable height499mm",
+    "Save and reload",
+    "Restore local design via UI",
+    "Load external two-drawer recipe in saved design URL",
+    "Open doors and drawers"
+  ],
+  "observed": {
+    "dimensionsCm": [
+      118,
+      198,
+      60
+    ],
+    "externalDrawerCount": 2,
+    "upperHandleVisible": true,
+    "drawerBoxMaterial": "cashmere; front LightCleaf",
+    "doorHingesVisible": true,
+    "woodGrainMapped": true,
+    "fullReferencePixelMatch": null,
+    "cableHoleVisible": null
+  },
+  "precision": {
+    "sourceGeometry": "see Edge source fixture reports in wardrobe-core.md",
+    "visual": "manual screenshots, unmeasured pixel error"
+  },
+  "screenshots": [
+    "docs/tylko-reference/screenshots/wardrobe-integration-edge-003-befun.png"
+  ]
+}
