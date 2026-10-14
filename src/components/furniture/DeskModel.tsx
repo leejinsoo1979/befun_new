@@ -15,7 +15,7 @@ import { Door } from '@/components/three/Door';
 import { Drawer } from '@/components/three/Drawer';
 import { BlumPlate } from '@/components/three/blum/BlumHardware';
 import { DeskAccessories } from './DeskAccessories';
-import { ShortLeg } from '@/components/three/furniture-hardware/legs';
+import { LevelingFoot } from '@/components/three/LevelingFoot';
 
 export interface DeskModelProps {
   config: DeskInput;
@@ -31,7 +31,7 @@ export interface DeskModelProps {
 
 /** Geometry coordinates remain cm and rear z=0. Canvas/camera/materials belong
  * to the caller. Source display-height offset is applied exactly once here. */
-export function DeskModel({ config, materials, open, selectedSectionId, onSelectSection, sectionIds, footMaterial, onEditLegroom }: DeskModelProps) {
+export function DeskModel({ config, materials, open, selectedSectionId, onSelectSection, sectionIds, onEditLegroom }: DeskModelProps) {
   const geometry = useMemo(() => calculateDeskGeometry(config), [config]);
   const depth = config.depthMm / 10;
   const doors = useMemo(() => geometry.fronts.filter(front => front.type === 'door')
@@ -58,7 +58,7 @@ export function DeskModel({ config, materials, open, selectedSectionId, onSelect
       selectedSectionId: selectedSectionId ?? null, bodyHeight: geometry.bodyHeight,
       footOffset: geometry.footOffset, totalHeight: geometry.totalHeight,
       unsupported: geometry.unsupported, cableOpeningCount: geometry.cableOpenings.length,
-      footGeometry: { sourceMinYmm: -20, sourceMaxYmm: 0, reusedModelHeightMm: 22.5, exactParity: false },
+      footGeometry: { model: 'shared-leveling-foot', diameterMm: 25, supportHeightMm: geometry.footOffset * 10 },
     }}>
       <DeskAccessories width={config.widthMm / 10} depth={depth} height={geometry.bodyHeight} legroomX={geometry.columns.find(column => column.storageIndex === null)?.x ?? 0} />
       {geometry.columns.map(column => {
@@ -78,12 +78,10 @@ export function DeskModel({ config, materials, open, selectedSectionId, onSelect
       ))}
       {geometry.beams.map((beam, index) => <Panel key={`beam-${index}`} w={beam.w} h={beam.h} d={beam.d}
         position={[beam.x, beam.y, beam.z]} matType={beam.matType} materials={materials} castShadow receiveShadow />)}
-      {/* The shared observed ShortLeg is 22.5mm tall; source gallery foot boxes
-          span -20..0mm. Preserve the source top anchor, without inventing an
-          insertion offset or stretching the mesh to conceal this difference. */}
-      {geometry.feet.map((foot, index) => <group key={`foot-${index}`} position={[foot.x, foot.y, foot.z]} scale={0.1}>
-        <ShortLeg material={footMaterial ?? materials.verticalEdge} castShadow />
-      </group>)}
+      {/* Same foot as the bookcase; extend to the existing desk body datum.
+          The parent adds footOffset, so each contact point resolves to y=0. */}
+      {geometry.feet.map((foot, index) => <LevelingFoot key={`foot-${index}`}
+        position={[foot.x, foot.y - geometry.footOffset, foot.z]} height={geometry.footOffset} />)}
       <Suspense fallback={null}>
         {doors.map((placement, index) => {
           const sectionId = sectionForColumn(placement.layerIndex);
