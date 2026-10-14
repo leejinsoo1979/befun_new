@@ -15,9 +15,12 @@ import type { PanelData, StyleType } from '@/types/shelf';
 export function FurnitureLegs({ panels, panelIndex, depth, style, material }: {
   panels: PanelData[]; panelIndex: number; depth: number; style: StyleType; material: Material;
 }) {
-  const woodFinish = useMaterialStore(s => s.currentColor.startsWith('N_') || s.currentColor.startsWith('C_'));
+  const color = useMaterialStore(s => s.currentColor);
+  const woodFinish = color.startsWith('N_') || color.startsWith('C_');
   const finish = useShelfStore(s => s.legFinish);
-  const metalMaterial = useMemo(() => woodFinish ? createMetalLegMaterial(finish) : null, [woodFinish, finish]);
+  // Classic의 'panel' = 패널 재질 그대로. Natural에는 panel 옵션이 없으므로 silver로 표시
+  const metalFinish = finish === 'panel' ? (color.startsWith('C_') ? null : 'silver') : finish;
+  const metalMaterial = useMemo(() => woodFinish && metalFinish ? createMetalLegMaterial(metalFinish) : null, [woodFinish, metalFinish]);
   useEffect(() => () => { metalMaterial?.dispose(); }, [metalMaterial]);
   const legMaterial = metalMaterial ?? material;
   const { scene } = useGLTF('/models/furniture/long-leg.glb');

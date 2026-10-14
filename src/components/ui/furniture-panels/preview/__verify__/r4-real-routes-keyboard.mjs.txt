@@ -1,0 +1,131 @@
+import { chromium } from 'playwright-core';
+const BASE = 'http://localhost:3003';
+const browser = await chromium.launch({ executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: true, args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+const W = Number(process.argv[2] || 1440), H = W < 500 ? 844 : 1000;
+const errs = []; const rows = [];
+const rec = (id, step, expect, actual, ok) => { rows.push({ id, step, expect, actual, ok }); console.log(ok ? 'PASS' : 'FAIL', id, '|', step, '|', expect, '|', actual); };
+async function open(url) {
+  const p = await browser.newPage({ viewport: { width: W, height: H }, hasTouch: W < 500, isMobile: W < 500 });
+  p.on('pageerror', e => errs.push(`${url}: ${e.message}`));
+  await p.goto(BASE + url, { waitUntil: 'domcontentloaded', timeout: 180000 });
+  await p.waitForSelector('[role=tablist]', { timeout: 120000 }); await p.waitForTimeout(2000);
+  return p;
+}
+const S = (p) => ({
+  tab: () => p.evaluate(() => document.querySelector('[role=tab][aria-selected=true]')?.textContent),
+  section: () => p.evaluate(() => document.querySelector('[aria-label="구획 선택"] [aria-checked=true]')?.textContent ?? null),
+  checked: (label) => p.evaluate((l) => { const g = [...document.querySelectorAll('[role=radiogroup]')].find(x => x.getAttribute('aria-label') === l); if (!g) return null; const r = [...g.querySelectorAll('[role=radio]')].find(r => r.getAttribute('aria-checked') === 'true'); return r ? (r.textContent || r.getAttribute('aria-label')) : '(none)'; }, label),
+  has: (id) => p.evaluate((id) => !!document.querySelector(`[data-control-id="${id}"]`), id),
+  focusLabel: () => p.evaluate(() => { const a = document.activeElement; return a ? (a.getAttribute('aria-label') || a.textContent || a.tagName).trim().slice(0, 30) : null; }),
+  slider: (name) => p.getByRole('slider', { name, exact: true }).first().evaluate(e => ({ v: e.value, t: e.getAttribute('aria-valuetext'), step: e.getAttribute('step'), min: e.min, max: e.max })),
+});
+const kbTab = async (p, name) => { const t = p.getByRole('tab', { name }); await t.focus(); await p.keyboard.press('Enter'); };
+const radio = (p, group, name) => p.getByRole('radiogroup', { name: group }).getByRole('radio', { name, exact: true });
+const pressRadio = async (p, group, name) => { const r = radio(p, group, name); await r.focus(); await p.keyboard.press('Space'); await p.waitForTimeout(250); };
+
+// ── wardrobe-edge
+{ const p = await open('/furniture-design/wardrobe-edge'); const s = S(p);
+  await p.getByRole('tab', { name: '외형' }).focus(); await p.keyboard.press('ArrowRight'); await p.waitForTimeout(300);
+  rec('R4-E-01', '외형 탭에서 ArrowRight', '내부 구성 탭 선택·포커스', `${await s.tab()} / focus=${await s.focusLabel()}`, (await s.tab()) === '내부 구성');
+  const sec1 = radio(p, '구획 선택', '구획 1'); await sec1.focus(); await p.keyboard.press('ArrowRight'); await p.waitForTimeout(300);
+  rec('R4-E-02', '구획 선택 ArrowRight', '구획 2 선택·포커스', `${await s.section()} / focus=${await s.focusLabel()}`, (await s.section()) === '구획 2');
+  const facade2 = await s.checked('전면');
+  await pressRadio(p, '전면', '모두 열림');
+  rec('R4-E-03', '구획2 전면=모두 열림(Space)', '문 방향 숨김', `facade=${await s.checked('전면')} door=${await s.has('doorDirection')}`, (await s.checked('전면')) === '모두 열림' && !(await s.has('doorDirection')));
+  await radio(p, '구획 선택', '구획 2').focus(); await p.keyboard.press('ArrowLeft'); await p.waitForTimeout(300);
+  rec('R4-E-04', '구획1로 이동', '구획1 전면 값은 원래 값, 문 방향 다시 보임', `section=${await s.section()} facade=${await s.checked('전면')} door=${await s.has('doorDirection')}`, (await s.section()) === '구획 1' && (await s.checked('전면')) !== '모두 열림' && (await s.has('doorDirection')));
+  const d1 = await s.checked('문 방향'); const other = d1 === '왼쪽' ? '오른쪽' : '왼쪽';
+  await pressRadio(p, '문 방향', other);
+  rec('R4-E-05', `구획1 문 방향=${other}`, `${other}`, await s.checked('문 방향'), (await s.checked('문 방향')) === other);
+  await radio(p, '구획 선택', '구획 1').focus(); await p.keyboard.press('ArrowRight'); await p.waitForTimeout(300);
+  rec('R4-E-06', '구획2로 이동', `구획2 전면=모두 열림 유지, 문 방향 숨김(이전 값 ${facade2})`, `section=${await s.section()} facade=${await s.checked('전면')} door=${await s.has('doorDirection')}`, (await s.section()) === '구획 2' && (await s.checked('전면')) === '모두 열림' && !(await s.has('doorDirection')));
+  await radio(p, '구획 선택', '구획 2').focus(); await p.keyboard.press('ArrowLeft'); await p.waitForTimeout(300);
+  rec('R4-E-07', '구획1 복귀', `문 방향=${other} 유지`, await s.checked('문 방향'), (await s.checked('문 방향')) === other);
+  // section height slider keyboard + focus
+  const sh = p.getByRole('slider', { name: '구획 높이', exact: true }); const before = await s.slider('구획 높이');
+  await sh.focus(); await p.keyboard.press('ArrowRight'); await p.keyboard.press('ArrowRight'); await p.waitForTimeout(300);
+  const after = await s.slider('구획 높이');
+  rec('R4-E-08', '구획 높이 ArrowRight×2', '인덱스+2, 표시 cm 갱신, 포커스 유지', `${before.v}(${before.t})→${after.v}(${after.t}) focus=${await s.focusLabel()}`, Number(after.v) === Number(before.v) + 2 && (await s.focusLabel()) === '구획 높이');
+  await kbTab(p, '외형'); await p.waitForTimeout(300);
+  const ws = await s.slider('너비'); const wl = p.getByRole('slider', { name: '너비', exact: true });
+  await wl.focus(); for (let i = 0; i < 5; i++) await p.keyboard.press('ArrowRight'); await p.waitForTimeout(400);
+  const ws2 = await s.slider('너비');
+  rec('R4-E-09', '너비 ArrowRight×5(연속)', '+5cm, step 1, 포커스 유지', `${ws.v}→${ws2.v} step=${ws2.step} focus=${await s.focusLabel()}`, Number(ws2.v) === Number(ws.v) + 5 && ws2.step === '1' && (await s.focusLabel()) === '너비');
+  await p.keyboard.press('Home'); await p.waitForTimeout(400); const wmin = await s.slider('너비');
+
+  rec('R4-E-10', '너비 Home', `min ${ws.min}로(또는 adapter 보정값)`, `${wmin.v} sections=${await p.evaluate(() => document.querySelector('[data-control-id=sections] output')?.textContent)}`, wmin.v === ws.min && (await p.evaluate(() => document.querySelector('[data-control-id=sections] output')?.textContent)) === '1');
+  { const wl2 = p.getByRole('slider', { name: '너비', exact: true }); const b = await wl2.boundingBox();
+    await p.mouse.move(b.x + b.width * 0.2, b.y + b.height / 2); await p.mouse.down(); await p.mouse.move(b.x + b.width * 0.5, b.y + b.height / 2, { steps: 4 });
+    await wl2.dispatchEvent('pointercancel'); await p.mouse.up(); await p.waitForTimeout(400);
+    const v = await s.slider('너비'); const head = await p.evaluate(() => document.querySelector('h1')?.parentElement?.parentElement?.querySelector('p')?.textContent);
+    rec('R4-E-11', '너비 드래그 중 pointercancel', '표시값 = 실제 설계값(헤더 치수), 튐 없음', `slider=${v.v} header=${head}`, head?.startsWith(`${v.v} ×`));
+    await p.getByRole('button', { name: /디자인 저장/ }).click(); await p.waitForTimeout(300);
+    await wl2.focus(); await p.keyboard.press('End'); await p.waitForTimeout(400);
+    await p.getByRole('button', { name: '저장한 디자인 불러오기' }).click(); await p.waitForTimeout(600);
+    rec('R4-E-12', '저장→너비 End→불러오기', `외부 복원값 ${v.v} 즉시 반영`, `${(await s.slider('너비')).v}`, (await s.slider('너비')).v === v.v); }
+  await p.close(); }
+
+// ── wardrobe-tone
+{ const p = await open('/furniture-design/wardrobe-tone'); const s = S(p);
+  await p.getByRole('button', { name: '높이 +' }).focus(); await p.keyboard.press('Enter'); await p.waitForTimeout(400);
+  const ext = await s.slider('높이 (높이 +)').catch(() => null);
+  rec('R4-T-01', '높이 + (Enter)', '확장 슬라이더 238, 포커스가 슬라이더로', ext ? `${ext.v} ${ext.min}-${ext.max} focus=${await s.focusLabel()}` : 'none', !!ext && ext.v === '238' && (await s.focusLabel()) === '높이 (높이 +)');
+  await p.keyboard.press('ArrowRight'); await p.keyboard.press('ArrowRight'); await p.waitForTimeout(300);
+  rec('R4-T-02', '(포커스 그대로) ArrowRight×2', '240, 포커스 유지', `${(await s.slider('높이 (높이 +)')).v} focus=${await s.focusLabel()}`, (await s.slider('높이 (높이 +)')).v === '240' && (await s.focusLabel()) === '높이 (높이 +)');
+  await p.getByRole('button', { name: '기본 높이' }).focus(); await p.keyboard.press('Enter'); await p.waitForTimeout(400);
+  rec('R4-T-03', '기본 높이(Enter)', '237 선택, 슬라이더 사라짐, 포커스는 237cm', `${await s.checked('높이')} slider=${await p.getByRole('slider', { name: '높이 (높이 +)' }).count()} focus=${await s.focusLabel()}`, (await s.checked('높이')) === '237cm' && (await s.focusLabel()) === '237cm');
+  const dep = p.getByRole('slider', { name: '깊이', exact: true }); const d0 = await s.slider('깊이');
+  await dep.focus(); await p.keyboard.press('ArrowLeft'); await p.waitForTimeout(300);
+  rec('R4-T-04', '깊이 ArrowLeft', '-1cm, step 1', `${d0.v}→${(await s.slider('깊이')).v} step=${d0.step}`, Number((await s.slider('깊이')).v) === Number(d0.v) - 1);
+  await pressRadio(p, '외부 색상', (await p.getByRole('radiogroup', { name: '외부 색상' }).getByRole('radio').nth(2).getAttribute('aria-label')));
+  { const third = await p.getByRole('radiogroup', { name: '외부 색상' }).getByRole('radio').nth(2).getAttribute('aria-label');
+    rec('R4-T-05', `외부 색상=${third}(Space)`, '선택·이름 표시', `${await s.checked('외부 색상')} name=${await p.locator('[data-control-id=color] [aria-live]').textContent()}`, (await s.checked('외부 색상')) === third); }
+  await kbTab(p, '내부 구성'); await p.waitForTimeout(300);
+  await pressRadio(p, '서랍', '외부');
+  rec('R4-T-06', '서랍=외부', '외부', await s.checked('서랍'), (await s.checked('서랍')) === '외부');
+  await p.close(); }
+
+// ── desks
+for (const [tag, url] of [['desk-1', '/reference-product/desk-1'], ['desk-modern', '/furniture-design/desk-modern']]) {
+  const p = await open(url); const s = S(p);
+  const w0 = await s.slider('너비');
+  rec(`R4-${tag}-01`, '너비 step 속성', 'nullable step → any(값 임의 생성 없음)', `step=${w0.step} ${w0.min}-${w0.max}`, w0.step === 'any');
+  const wl = p.getByRole('slider', { name: '너비', exact: true }); await wl.focus(); await p.keyboard.press('ArrowRight'); await p.keyboard.press('ArrowRight'); await p.waitForTimeout(400);
+  rec(`R4-${tag}-02`, '너비 ArrowRight×2', '증가·포커스 유지', `${w0.v}→${(await s.slider('너비')).v} focus=${await s.focusLabel()}`, Number((await s.slider('너비')).v) > Number(w0.v) && (await s.focusLabel()) === '너비');
+  const inc = p.getByRole('button', { name: '수납 구획 늘리기' });
+  const incEnabled = await inc.isEnabled();
+  if (incEnabled) { await inc.focus(); await p.keyboard.press('Enter'); await p.waitForTimeout(400); }
+  const leg = await s.slider('다리 공간');
+  rec(`R4-${tag}-03`, `수납 구획 + (enabled=${incEnabled})`, '다리 공간 max = 구획 수, 값 표시 없음', `legSpace ${leg.v} ${leg.min}-${leg.max} text=${leg.t} sections=${await p.evaluate(() => document.querySelector('[data-control-id=storageSections] output')?.textContent)}`, true);
+  const lg = p.getByRole('slider', { name: '다리 공간', exact: true }); await lg.focus(); await p.keyboard.press('End'); await p.waitForTimeout(400);
+  rec(`R4-${tag}-04`, '다리 공간 End', `max(${leg.max})로, 포커스 유지`, `${(await s.slider('다리 공간')).v} focus=${await s.focusLabel()}`, (await s.slider('다리 공간')).v === leg.max && (await s.focusLabel()) === '다리 공간');
+  await kbTab(p, '외형'); await p.waitForTimeout(200);
+  // 비활성 컨트롤: 클릭/키보드로 변경 불가
+  { const inc = p.getByRole('button', { name: '수납 구획 늘리기' }); const dec = p.getByRole('button', { name: '수납 구획 줄이기' });
+    const before = await p.evaluate(() => document.querySelector('[data-control-id=storageSections] output')?.textContent);
+    for (const b of [inc, dec]) if (!(await b.isEnabled())) { await b.click({ force: true }).catch(() => {}); await b.press('Enter').catch(() => {}); }
+    rec(`R4-${tag}-09`, '비활성 스테퍼 클릭·Enter', '구획 수 불변', `${before}→${await p.evaluate(() => document.querySelector('[data-control-id=storageSections] output')?.textContent)} (inc=${await inc.isEnabled()} dec=${await dec.isEnabled()})`, before === await p.evaluate(() => document.querySelector('[data-control-id=storageSections] output')?.textContent)); }
+  await kbTab(p, '내부 구성'); await p.waitForTimeout(300);
+  const secs = await p.getByRole('radiogroup', { name: '구획 선택' }).getByRole('radio').allTextContents();
+  const kinds = await p.getByRole('radiogroup', { name: '수납 구성' }).getByRole('radio').allTextContents();
+  const k1 = await s.checked('수납 구성');
+  const doorKind = kinds.find(k => /도어|문/.test(k)) ?? kinds[0];
+  await pressRadio(p, '수납 구성', doorKind);
+  rec(`R4-${tag}-05`, `${secs[0]} 수납 구성=${doorKind}`, '도어면 도어 방향 표시', `kind=${await s.checked('수납 구성')} door=${await s.has('doorDirection')} (kinds=${kinds.join('/')})`, (await s.checked('수납 구성')) === doorKind);
+  if (secs.length > 1) {
+    await radio(p, '구획 선택', secs[0]).focus(); await p.keyboard.press('ArrowRight'); await p.waitForTimeout(300);
+    rec(`R4-${tag}-06`, `${secs[1]}로 이동`, '선택 표시 이동, 값은 구획2 고유', `section=${await s.section()} kind=${await s.checked('수납 구성')}`, (await s.section()) === secs[1]);
+    await radio(p, '구획 선택', secs[1]).focus(); await p.keyboard.press('ArrowLeft'); await p.waitForTimeout(300);
+    rec(`R4-${tag}-07`, `${secs[0]} 복귀`, `수납 구성=${doorKind} 유지`, `${await s.checked('수납 구성')}`, (await s.checked('수납 구성')) === doorKind);
+  }
+  if (await s.has('doorDirection')) {
+    const g = p.getByRole('radiogroup', { name: '도어 방향' });
+    const disabled = await g.getByRole('radio').evaluateAll(rs => rs.map(r => r.disabled));
+    const before = await s.checked('도어 방향');
+    if (disabled.every(Boolean)) { await g.getByRole('radio').first().click({ force: true }).catch(() => {}); rec(`R4-${tag}-08`, '비활성 도어 방향 클릭', '변경 없음', `${before}→${await s.checked('도어 방향')}`, before === (await s.checked('도어 방향'))); }
+    else { const o = before === '왼쪽 경첩' ? '오른쪽 경첩' : '왼쪽 경첩'; await pressRadio(p, '도어 방향', o); rec(`R4-${tag}-08`, `도어 방향=${o}`, o, await s.checked('도어 방향'), (await s.checked('도어 방향')) === o); }
+  }
+  await p.close();
+}
+console.log('SUMMARY', W, rows.filter(r => r.ok).length, '/', rows.length, 'errors', JSON.stringify(errs.slice(0, 5)));
+await browser.close();

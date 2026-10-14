@@ -16,6 +16,7 @@ import { ViewToolbar, type ViewToolbarActions } from './display/ViewToolbar';
 import { useDisplayStore } from './display/displayStore';
 import { ARController } from './ar/ARController';
 import { useARStore, SHELF_ROOT_NAME } from './ar/arStore';
+import { MeasureMode } from './measure/MeasureMode';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { useUIStore } from '@/stores/useUIStore';
 
@@ -108,6 +109,9 @@ export default function Scene(actions: ViewToolbarActions) {
           </DisplayModel>
 
           <AssemblyFloor />
+
+          {/* 측정 모드: 그리드 판재 + hover 치수 화살표 (화면 전용) */}
+          <MeasureMode />
 
           {/* 오토 포커스 카메라 */}
           <ViewCamera />

@@ -81,7 +81,7 @@ export const useShelfStore = create<ShelfState>((set, get) => ({
   hasBackPanel: false,
   baseType: 'standard',
   legFinish: 'silver',
-  setLegFinish: value => { if (value === 'silver' || value === 'black') set({ legFinish: value }); },
+  setLegFinish: value => { if (value === 'silver' || value === 'black' || value === 'panel') set({ legFinish: value }); },
   setBaseType: value => set({ baseType: value === 'legs' && supportsLongLegs(get().depth,get().style) ? 'legs' : 'standard' }),
   rowHeights: [28, 28, 28, 28],
   numRows: 4,

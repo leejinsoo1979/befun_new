@@ -1,6 +1,9 @@
 'use client';
 
 import { Suspense, useMemo } from 'react';
+import { Html } from '@react-three/drei';
+import { FiEdit2 } from 'react-icons/fi';
+import styles from './furniture.module.css';
 import type { Material } from 'three';
 import type { MaterialSet } from '@/lib/three/materials';
 import { calculateDeskGeometry, type DeskInput } from '@/lib/furniture/desk';
@@ -20,13 +23,14 @@ export interface DeskModelProps {
   selectedSectionId?: string | null;
   onSelectSection?: (id: string) => void;
   sectionIds: string[];
+  onEditLegroom?: () => void;
   /** Root owns this material; the model never recolours or disposes it. */
   footMaterial?: Material;
 }
 
 /** Geometry coordinates remain cm and rear z=0. Canvas/camera/materials belong
  * to the caller. Source display-height offset is applied exactly once here. */
-export function DeskModel({ config, materials, open, selectedSectionId, onSelectSection, sectionIds, footMaterial }: DeskModelProps) {
+export function DeskModel({ config, materials, open, selectedSectionId, onSelectSection, sectionIds, footMaterial, onEditLegroom }: DeskModelProps) {
   const geometry = useMemo(() => calculateDeskGeometry(config), [config]);
   const depth = config.depthMm / 10;
   const doors = useMemo(() => geometry.fronts.filter(front => front.type === 'door')
@@ -55,6 +59,14 @@ export function DeskModel({ config, materials, open, selectedSectionId, onSelect
       unsupported: geometry.unsupported, cableOpeningCount: geometry.cableOpenings.length,
       footGeometry: { sourceMinYmm: -20, sourceMaxYmm: 0, reusedModelHeightMm: 22.5, exactParity: false },
     }}>
+      {geometry.columns.map(column => {
+        const sectionId = column.storageIndex === null ? null : sectionIds[column.storageIndex];
+        const label = column.storageIndex === null ? '다리 공간 편집' : `수납 ${column.storageIndex + 1} 편집`;
+        return <Html key={`edit-${column.index}`} position={[column.x, -5, depth + 2]} center zIndexRange={[20, 10]}>
+          <button type="button" className={styles.deskEditButton} aria-label={label} title={label} data-desk-edit-label={label}
+            onClick={() => { if (sectionId) onSelectSection?.(sectionId); else onEditLegroom?.(); }}><FiEdit2 /></button>
+        </Html>;
+      })}
       {geometry.panels.map((panel, index) => (
         <group key={`panel-${index}`}>
           <DeskPanel panel={panel} materials={materials} bores={panelHardware[index].holes}

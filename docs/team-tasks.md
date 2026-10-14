@@ -24,6 +24,8 @@
 
 ## 진행 중
 
+- `codex-storefront` / **로딩 재수정 완료·잠금 해제** / 사용자 로딩 연출 재수정 지시: 기존25조각 skew/반복소거 연출을 원본 로고의 아래부터 판재 쌓임으로 간소화. 잠금 `src/components/ui/ConfiguratorLoading.tsx`, `src/components/ui/configurator-loading.module.css`, 본인 handoff만. ready·SceneReady·3D/상태/로고 자산은 보존.
+
 - `codex-storefront` / **완료·잠금 해제** / 최신 사용자 추가 지시 / 2026-10-14 10:49 KST: 제공 로고의 패널 순차 쌓임 로딩 애니메이션 착수. 추가 잠금 `src/components/ui/ConfiguratorLoading.tsx`, `src/components/ui/configurator-loading.module.css`의 연출만. 기존 로딩 담당 납품/잠금 해제 확인. SceneReady/Scene/동적로딩 마운트·ready 조건·3D/AR 및 다른 담당 소스는 보존. SVG의 원본 형태를 clip 단위 패널로 나눠 같은 로고를 완성하며 reduced-motion에서는 정적인 완성 로고 표시. 앞선 일반 검정·footer 흰색 변경은 구현/브라우저/lint·격리build 확인 완료, 이번 연출과 함께 최종 인계.
 
 - `codex-storefront` / **완료·잠금 해제** / 사용자 제공 SVG 로고 교체 / 2026-10-14 10:44 KST: 일반 로고 검정,푸터 흰색 지시 수신·착수. 좁은 잠금: `public/imgs/icon/befun_logo.svg`,신규 `public/imgs/icon/befun_logo-white.svg`, `StorefrontUI.tsx` BrandLogo props/src만, `StorefrontFrame.tsx` footer BrandLogo variant만, `storefront.module.css` footerLogo 흰 배경/패딩 규칙만, 본인 handoff. 제공 파일의 실제 SVG 표시 영역·원본 PNG mask를 그대로 재사용하며 새 글자/심볼을 그리지 않음. 기존 기본 asset 경로를 교체해 configurator/assembly 헤더에도 같은 검정 로고가 적용되므로 해당 담당 page/scene/handler 소스는 수정하지 않음. 이전 헤더 배치·제목 제거·R3 및 다른 담당 작업 보존.
@@ -92,6 +94,10 @@
 | R1-UI 제품별 우측 옵션 패널 (Edge/Tone 옷장부터) | Claude-1 / claude-optimizer 세션 (Claude Code CLI) | 신규 `src/components/ui/furniture-panels/**`, `docs/handoffs/claude-1-ui.md` — 기존 page/stores/StyleSelector/DimensionPanel/MobileConfiguratorPanel/PriceDisplay/공통 타입 수정 없음 | furniture-parity 02 | 2026-10-13 | 1–4단계 완료(옷장 + 제품군 8 profile, R1.3 타입 전환, UI-REVIEW-002/003, 접합 방식 OVVO/Tylko 클립 미리보기, 49 tests — 미리보기이며 통합 아님). 리더 view 계산·intent 적용·page 연결 대기 — handoff UI-02~04, 08~10 |
 
 ## 조율 요청
+
+- `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 12:30: **측정 모드(그리드 판재 + 판재 hover 시 가로·세로·깊이 화살표 치수, formbar Measure 참고) → 완료·잠금 해제.** 보기 메뉴 '측정' 토글. 켜면 모든 판재가 cm 모눈 재질(1cm 가는 선/10cm 굵은 선, 판 로컬 좌표 기준)로 바뀌고, 마우스를 올린 판재는 연녹색 강조와 함께 X·Y·Z 화살표+cm 라벨(4cm 미만 변은 화살표 생략)과 '가로×세로×깊이' 요약 칩 표시. 끄면 원래 재질 복원. 분해 중 비활성. 화면 전용(설계·가공 데이터 불변). Chrome3003 1440: 세로판 1.8×28.2×32, 가로판·상판 90×1.8×32 확인, 끈 뒤 원래 색 복원, 오류0. eslint/tsc(내 파일)0, 격리 build PASS. 캡처 `docs/handoffs/claude-1-ui-assets/measure/`. 잠금: 신규 `src/components/three/measure/**`; 좁게 `Panel.tsx`의 mesh `userData`(판재 치수 태그) 1줄, `Scene.tsx`의 `<MeasureMode />` 마운트 1줄, `display/ViewToolbar.tsx`의 '측정' 토글 버튼 1개. graphics 성능 작업(useBoredBox)·DisplayModel·store는 수정하지 않음.
+
+- `claude-optimizer`(Claude UI) **R4-UI-READY 게시·잠금 해제**: 네 실제 경로(desk-1·desk-modern·wardrobe-edge·wardrobe-tone) 1440/390 키보드·구획 전환 34/34씩 pass. 수정 HeightMode 포커스 유실·radiogroup 구성·라벨 keep-all(furniture-panels만). vitest 100, eslint 0, 격리 build PASS(fingerprint aed6afa5003439e6). 리더 요청 R4-REQ-1/2(legSpace aria, desk width step). 상세 claude-1-ui.md R4 절. 원 착수: (사용자 전달 지시: 실제 책상/옷장 패널 수정). 잠금: `src/components/ui/furniture-panels/**`, 본인 UI 테스트, `docs/handoffs/claude-1-ui.md`, 캡처 `docs/handoffs/claude-1-ui-assets/r4/**`. 공통 타입·상태 adapter(desk-panel/wardrobe-panel)·FurnitureConfigurator·모델은 리더 소유로 읽기 전용, 값 오류는 controlId·입력·기대·실제로 요청.
 
 - `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14: **가구 우측 핫스팟 반투명 + 숨쉬는 글로우 → 완료·잠금 해제.** 평소: 흰색 55% 반투명+blur, 2.4초 주기로 투명도 0.6↔1과 초록 글로우가 숨쉬듯 반복. hover/focus: 멈추고 또렷하게. 열린 행: 불투명 초록+고정 글로우. prefers-reduced-motion이면 애니메이션 없음(코드만, 브라우저 미검증). Chrome 3003: 애니메이션 running(무한, 2.4s), 클릭 시 팝업 열림, 오류0. 캡처 `docs/handoffs/claude-1-ui-assets/hotspot-glow/`. 좁은 잠금: `src/components/three/RowHotspots.tsx`의 버튼 스타일만, 신규 `RowHotspots.module.css`. 위치 계산·hover/focus 처리(911행 작업)·팝업 열기 동작 보존.
 
@@ -1237,3 +1243,115 @@
 ### 제공 SVG 로고·패널 로딩 완료 및 커밋 — codex-storefront / 2026-10-14
 - 일반 검정/footer 흰색 원본 로고 및25패널 순차조립 완료. Chrome 검정·흰색/부분조립/reduced-motion 완성로고/ready 해제 확인. lint0오류7기존경고, 격리webpack/type/17페이지 build PASS. 모든 모바일 애니메이션 직접검증은 미실시.
 - 소스7개는 공유 기준점 c466e45에 이미 포함. 후속 커밋은 본인 handoff·이 완료기록만. 기존 SVG/BrandLogo/footer/loading 잠금 모두 해제. 리더 및 재게시 담당은 인계 사용 가능. 공유 서버/.next·다른 담당 소스·push 미접촉.
+- Cleaf UV 완료/잠금해제: six-face 원본GLB atlas와 물리치수 repeat/offset/rotation/flipY 합성. albedo·bump동일변환, 소유clone disposer 제공. 4테스트/ESLint PASS, tsc 기존.next오류2개. 실제renderer연결과최종화면리더담당. bevel/케이블주변결위상 한계는 wardrobe-core 인계에명시.
+
+## 2026-10-14 Desk / Wardrobe 리더 통합
+
+리더가 책상2종·옷장2종을 실제 UI/3D/로컬 저장·URL복원에 연결했습니다. [통합 인계](handoffs/desk-wardrobe-integration.md), [격리 빌드](handoffs/desk-wardrobe-build.md). Desk/Edge/Tone 작업자의 source 비교를 교차확인했고 legacy/current 경첩 불일치를 수정했습니다. 전체 시각·제조·계정 저장까지 완료라고 보고하지 않습니다.
+
+- 재게시 수신: 공유 Git이 원격8b0f837 기반으로 정리되어 `a8702f0` 정상 descendant가 되었음. 독립 게시사본은 fast-forward 수신해 검증 중. 이전 c466e45 객체는 private team/main에 보존, 원격 history force 변경 없음.
+- 본인 게시 인계 PUBLISH.md는 기존 원격에만 있던 파일이라 .git 연결 후 삭제로 잡힌 상태였다. 본인 문서만 동일 blob으로 복구해 우발적 삭제를 방지. 타담당 src/public/scripts 미수정.
+
+### 로딩 연출 재수정 완료 — codex-storefront
+- 25조각 skew·소거 반복 폐기, 원본5층 아래부터760ms 일회 완성·유지, desktop200px/mobile164px 및 단순 배경. Chrome 단계별 opacity/완성/390px/reduced-motion/ready 해제 확인. 변경lint·격리webpack/type/static PASS.
+- 공유 전체lint는 DeskPanel.tsx:20 preserve-manual-memoization 다른 담당 오류1/경고8. 해당 소유자 확인 요청. 로딩2소스/본인handoff 잠금 해제. 이 후속 수정 재게시 필요.
+
+- 재게시 검증 checkpoint: 커밋a8702f0 단독 default production build는 wardrobe-panel-materials.ts:56 uv.offset tuple-spread 타입오류로 실패. focused wardrobe/hinge/save32검사 및 lint0오류7기존경고 PASS. 최신 작업트리의 해당 helper 후속 수정은 아직미커밋이므로 그대로 기다리고 최종commit 후 build재검증한다. a870 단독을 완료배포로 게시하지 않음.
+
+- codex-storefront 로딩 후속 커밋 `f3b3c2a`: ui 로딩2파일+본인handoff만 포함, 해당파일 HEAD diff0. 리더/게시 담당 재게시 수신 가능. team-tasks의 타담당 미커밋 기록은 별도 유지.
+
+### Edge 외부 서랍 상단 손잡이 — desk_geometry 진행
+- 리더 위임 잠금: `wardrobe-hardware.ts`, `wardrobe/drawers.ts`, hardware tests 및 별도full-handle tests. 원본 horizontal_handle_50.glb 로컬자산+스켈레톤폭변형; root WardrobeModel 미수정.
+
+### Edge 외부 서랍 상단 손잡이 — desk_geometry 완료 / 잠금 해제
+- `loadWardrobeFullHandle(widthCm)` + 실측원본로컬GLB/bone변형 추가. root에front.w+handle.xyz 소비계약전달. 기존drawers.ts배치는현재source와일치하여 변경없음.
+- 원목Edge외부서랍도subtype e이면fullHandleTop, 도어ring과분리. 원본기하10/30/60/90cm전체정점·정적기하해제·placement 5testsPASS, 변경lintPASS. 원본출처/기준점/미확인제조사양 문서기록완료.
+- 소유파일잠금해제, 최종UI연결리더담당.
+- 최종 안정 스냅샷 **2026-10-14 11:25:48 KST** 갱신 후 production build 전체 PASS, TypeScript/17정적페이지 성공. 전체 lint 오류0·기존경고7. 11:26:29 KST 전체 src SHA256 공유본과 차이0 확인. 최신 WardrobeModel/DeskPanel/UV/컨텍스트 상태/Intro·신규GLB 포함. `docs/handoffs/desk-wardrobe-build.md` 완료, 문서 잠금 해제. 공용 `.next`·서버·환경 파일 미수정.
+
+### 책상 카탈로그 진입 누락 수정 — 리더 진행 / 2026-10-14
+- 재현: `/furniture-c/desk` → `/reference-product/desk-1`이 3D 없이 기존 정적 레퍼런스 페이지만 표시. 새 Intro 경로만 연결했던 리더 통합 누락.
+- 소유/수정: `ReferenceCatalogPages.tsx`, `referenceCatalog.ts`, 신규 `src/lib/furniture/catalog-design.ts`, `scripts/furniture-integration/catalog.test.mjs`, `docs/handoffs/desk-catalog-entry.md`. 필요 시 catch-all 페이지의 해당 진입 분기만 리더 수정.
+- 원본 상품의 확인된 초기 구성과 새 편집 디자인을 구분하고, 상품 목록→편집→옵션 변경→저장 복원 실제 경로로 재검증. 기존 판매/결제 규칙 변경 없음.
+- `claude-graphics` (사용자 직접 지시 "왜 버벅거리냐 → 고쳐라", 2026-10-14 11:40) → 리더: 성능 원인 = Blum 구멍 CSG. ① `lib/three/blum/geometry.ts` createBoredBox 결과 삼각형을 면별로 재정렬(index)해 그룹 226→6/판 — bookcase-brown 프레임당 draw 2975→1215. 구멍 형상·면 재질 순서 동일, boring.test 6/6. ② 같은 파일에 `createBoredBoxCached`/`hasCachedBoredBox`(치수·구멍 키 LRU 64, 복제본 반환) 추가. ③ 신규 `lib/three/blum/useBoredBox.ts`: 치수가 바뀌는 동안 구멍 없는 상자 즉시 표시, 220ms 멈추면 CSG 교체(캐시 히트는 즉시). ④ `Panel.tsx`·`Door.tsx`는 createBoredBox useMemo를 이 훅 호출로만 교체(나머지 미수정). 드래그 중 CSG 프로파일 0(이전 CPU의 약 55%). 남은 드래그 비용: decor RoundedBoxGeometry 재생성(decor 담당), 힙 증가. 측정 당시 배터리 16%로 시스템 30fps 제한 걸림 → 절대 FPS 비교는 전원 연결 후 재측정 필요.
+
+### 팀 완료본 재푸시 / codex-assembly / 2026-10-14
+- 사용자 재푸시 요청과 배포 지연 지적에 따라 이미완료·검증된 안정 wave를 즉시게시. a8702f0/f3b3c2a 그대로 보존하고, 최종11:25 안정본·UV타입교정·원본 손잡이/GLB·재질/Intro·인계를 bf924ae8f378ecd126059a078903859b81300f3e에 통합. same GitHub origin/main 재push 성공.
+- 기본production build/전체TypeScript/static PASS, lint0오류7기존경고, 최종26검사 PASS. 미완료 새Blum useBoredBox/geometry/Door/Panel4수정은 포함/수정/되돌림하지 않음. 운영계정/DB env0개 문제 별도.
+- 공유 main은 f3b3c2a 기반 작업중이므로 후속commit 게시시 origin/main bf924ae와 정상merge/rebase 필요. forcepush금지. 원본/소스/공유.git 미수정, 독립게시사본clean.
+- 추가 리더 소유: `FurnitureConfigurator.tsx` 선택적 상품명 prop만, 신규 사례 `cases/desk-catalog-entry-001.json`. 책상 3개 원본 페이지를 VPN Chrome으로 직접 확인(200/240/160cm, 60/50/50cm 깊이, 2/4/2수납열).
+- 책상 진입 수정 완료: 3개 상품을 서버 route에서 공통 편집기로 연결, 각 원본 초기 크기/수납/색상 관찰 반영. Chrome에서 목록→책상→편집→저장→새로고침 확인. 회귀14 PASS, 변경 ESLint PASS, 격리 production build PASS. 인계 `docs/handoffs/desk-catalog-entry.md`, 사례 `desk-catalog-entry-001.json`. 본 범위 잠금 해제. 다른 카테고리/제조/시각동치 완료 주장 없음.
+- `claude-graphics` (사용자 직접 지시 "백패널 토글 끈 게 디폴트", 2026-10-14) → storefront/SAVE: `configuration.ts` loadProductConfiguration `hasBackPanel: true→false`, `catalog.ts` productPrice 계산도 `false`로 맞춤(카드 가격=상품 기본 구성). 스토어 기본값은 원래 false. 저장된 디자인·공유 링크는 저장값 그대로 복원(미변경). 데스크 프리셋 catalog-design.ts는 별도 제품군이라 미변경. 3003 상품/컨피규레이터 모두 OFF active 확인.
+
+## R4 실제 상품 경로·책상/옷장 통합 후속 — 리더 배정 / 2026-10-14
+
+최신 실행 기준: [R4 지시서](development/furniture-parity/dispatch-r4.md). 이전 CORE-01 미게시/새 제품 연결 대기 문구는 Desk Classic·Modern / Wardrobe Edge·Tone에 대해서는 현재 상태가 아니다. 구현 계약은 `src/lib/furniture/design.ts`, `desk-panel.ts`, `wardrobe-panel.ts`, `FurnitureConfigurator.tsx`이며 기존 책상 3종의 카탈로그 연결도 완료했다.
+
+| 담당 | 이번 일 | 단독 수정 범위 | 배정 상태 |
+|---|---|---|---|
+| 왼쪽1 Claude 하드웨어·그래픽 (claude-graphics) | 진행 중 CSG 성능 수정 마감·검증, 책상 합판 엣지/하드웨어 외형 차이 측정 | 기존 본인 geometry.ts/useBoredBox.ts, 허용된 Panel/Door 훅 호출부, materials.ts 및 본인 하드웨어 파일; FurnitureScene/DeskPanel/DeskModel 제외 | 문서 게시, 수신 대기 |
+| 왼쪽2 Claude 옵션 UI (claude-optimizer / claude-1-ui) | 실제 Desk/Edge/Tone 옵션 패널과 모바일/키보드 흐름 수정 | ui/furniture-panels/** 및 본인 UI 검사·handoff; 공통 lib/furniture 및 FurnitureConfigurator 제외 | 문서 게시, 수신 대기 |
+| 왼쪽3 Codex 쇼핑몰 연결 (codex-storefront) | 옷장 카탈로그 3종 원본 초기값 확인→실제 편집 연결, 기존 책상 회귀 | lib/furniture/catalog-design.ts, storefront/referenceCatalog.ts, ReferenceCatalogPages.tsx, scripts/furniture-integration/catalog.test.mjs; 본인 신규 사례/인계 | 직접 전달 시도 거절(active writer), 문서 수신 대기 |
+| 왼쪽4 Codex 독립 검증 (codex-assistant-validation) | 실제 목록→책상 편집→저장/복원 독립 검사, 옷장 연결 결과 재검증 | scripts/furniture-validation/r4-* 및 본인 증거/인계만. 제품 소스 읽기 전용 | 직접 전달 시도 거절(active writer), 문서 수신 대기 |
+| 왼쪽5 맨 오른쪽 Codex 조립 안내·배포 (codex-assembly) | 사용자 직접 요청한 양면 라미네이트·자작 엣지·분해 동작 마감, 기존 안내 회귀, 실제 가구 입력 계약 제안; 기존 배포 상태 별도 보고 | components/assembly-guide/**, lib/assembly-guide/**, docs/assembly-guide.md, 본인 material-disassembly 증거; 공통 모델/재질/CNC 읽기 전용 | 기존 사용자 요청 착수 확인, R4 추가 지시 문서 게시·수신 미확인 |
+| 리더 codex-analysis | 초기값 근거/생성 규칙·공통 상태·모델·최종 통합 및 불일치 수정 | lib/furniture 공통(위임 catalog-design 제외), components/furniture/**, catch-all/furniture-design route | 리더 담당 |
+
+각 담당은 R4 수신/현재 작업/파일 목록을 본인 handoff에 먼저 기록하고 착수한다. 추가 조립·배포 담당을 왼쪽5로 포함한다. 현재 작업자 5명(Claude2+Codex3)과 리더까지 총6명이며, 기존 사용자 직접 요청을 우선 보존한다. 문서 게시·전달 성공·수신·구현 완료·최종 승인 상태를 구분한다. 공유서버3003/.next를 재시작·삭제하지 않고 전체 빌드는 격리 사본에서 수행한다. 기존 기록은 보존하고 자기 상태만 append한다.
+
+- 재푸시 CI 대기 실제근거: mmm-studio-editor Preview be95874/dpl_FGHmr1h9fx1G8JnpuinqPL3zS6HW가33분 이상 BUILDING, 동일Hobby팀 build slot 점유. Git bf924ae 배포 QUEUED. prebuilt 로컬Vercel build 성공(ignored 공개NEXTAUTH_URL명시), 업로드완료 후에도 QUEUED. 사용자에게 별도MMM Preview 취소여부 요청, 답변대기. 다른프로젝트빌드는 아직변경/취소하지 않음.
+
+### R4 전달 상태 — 리더 확인
+- Codex storefront(`befun 메인 tylko로 클론코딩`)와 기존 QA 역할 작업(`Create repository AGENTS guide`)에 R4 메시지 전달을 각각 시도했으나 도구가 `already has an active writer`로 거절했다. **전달 성공/착수로 처리하지 않는다.** 현재 CLI 세션을 중단하거나 다른 작업자로 교체하지 않았다.
+- Claude2창도 자동 수신 확인 없음. IDE 연결에서 `Loading Antigravity`만 반환되어 대상 입력창을 확인하지 못했으며 임의 입력하지 않았다.
+- 네 역할 모두 문서 배정 완료 / 작업자 수신 대기. 각 기존 창에 dispatch-r4.md 마지막 절의 역할별 문장을 전달하면 된다. 수신 후 담당자가 본인 handoff에 기록해야 실제 착수 상태로 바뀐다.
+
+### 조립 시뮬레이터 양면 라미네이트·자작 엣지·분해 — codex-assembly / 2026-10-14 수신·착수
+- 사용자 최신 요청: OVVO 화면의 잘린 면은 자작나무 적층 엣지, 넓은 앞뒤 면은 같은 라미네이트. 공식 해제 순서를 보여 주는 분해 시뮬레이션 추가.
+- 잠금: `src/components/assembly-guide/**`, `src/lib/assembly-guide/**`, `docs/assembly-guide.md`, 본인 신규 `docs/handoffs/assets/codex-assembly/material-disassembly/**`. 공용 materials.ts/HW/store/타 담당 소스 읽기 전용.
+- 기존 R2.1/R3 동작·원본 자료 유지. 공유3003/.next 유지, 빌드는 독립 게시 사본에서 검증. 별도 MMM 빌드 취소 승인은 아직 답변 대기.
+
+### R4-ENTRY 수신·착수 — codex-storefront
+- 사용자 직접 지시 및 dispatch-r4 왼쪽3 수신. 단독 잠금: catalog-design.ts, referenceCatalog.ts, ReferenceCatalogPages.tsx, scripts/furniture-integration/catalog.test.mjs, 신규 wardrobe-catalog 사례/캡처, 본인 handoff. 원본3상품을 VPN Chrome에서 확인하고 초기값 연결·로컬/URL복원·책상 회귀. 공통design/생성기/모델/route는 리더 요청만. 원본 저장/장바구니·DB/가격/배포 변경 없음.
+
+### R4 독립 QA 수신 / codex-assistant-validation / 2026-10-14T12:10:40.994763
+- 사용자 직접 전달 및 dispatch-r4.md 수신. 실제 책상 카탈로그9진입→Classic/Modern 복원→Edge/Tone 직접편집→ENTRY READY 후 옷장 목록검사. 제품/fixture 읽기전용.
+- 잠금: 신규 scripts/furniture-validation/r4-*, docs/handoffs/assets/codex-qa/r4/**, 본인 validation 인계 append. 계정/DB와 로컬 구분, 사용자 저장 덮어쓰기 금지.
+
+### R4 왼쪽5 누락 정정 — 리더 / 2026-10-14
+- 맨 오른쪽 codex-assembly를 R4 표와 dispatch-r4.md에 추가했다. 기존 사용자 직접 요청의 양면 라미네이트·자작 엣지·분해 시뮬레이션 착수 기록을 확인했으며 해당 잠금을 유지한다. 배포 대기 때문에 구현을 중단하거나 새 역할로 대체하지 않는다.
+- 완료 기준: 면 배정/분해 근거/기존 안내 회귀/데스크톱·390px/자원 해제 검사. 실제 Desk·Wardrobe 조립 연결은 공통 FurnitureDesign 소비에 필요한 계약을 제안하고 리더가 제품 쪽 연결을 담당한다. 제조 미확인 치수는 미확인으로 유지한다.
+- 현재 인원은 화면 작업자5명+리더=6명. R4 추가 지시는 문서 게시 상태이며 자동 전달/수신 완료로 보고하지 않는다. storefront·QA는 위 후속 수신 기록에 따라 실제 착수로 정정한다.
+
+- 추가 잠금: `src/app/assembly-guide/page.tsx`의 분해 직접 진입 query와 안내 metadata만.
+
+### R4-ASM 수신 확인 — codex-assembly / 왼쪽5 / 2026-10-14
+- 기존 세션 `01a13548-3202-7aa2-8a54-0ff6840d3f75`, 앱 작업명 Log in. 새 작업자 없음. 사용자 전달 R4 왼쪽5와 dispatch-r4.md 수신, 현재 직접 요청 재질/분해 작업 계속 진행.
+- 단독 잠금 유지: components/assembly-guide/**, lib/assembly-guide/**, docs/assembly-guide.md, handoffs/assets/codex-assembly/material-disassembly/**. 신규 정확한 경로: lib/assembly-guide/{panelMaterials.ts,disassembly.ts,disassembly.test.mjs}, components/assembly-guide/{GuidePanel.tsx,usePanelMaterials.ts}; 증거 README.md/ready.json/source-fingerprint.json 및 front/rear/section/mobile/반복 캡처·verification.json.
+- R4 수신 전 추가했던 route query/metadata 수정은 본인 변경만 회수하고, `initialJointAction` 컴포넌트 prop을 리더에게 전달한다. route/제품 진입/공유 상태/.git 직접 수정 없음.
+- 공통 FurnitureDesign·Desk/ Wardrobe 생성 결과 읽기 후 필요한 part/joint/선택 상태 계약 제안은 본인 README에 기록한다. 공통 생성기/저장 형식 추가 없음.
+- `claude-graphics` **R4-HW-READY** 2026-10-14 12:19: CSG 마감(면별 재정렬·캐시·220ms 지연, geometry.r4 5/5·boring 6/6, 빠른 변경 시 마지막 치수만 CSG·전부 dispose). 책상 엣지 줄무늬 원인 = `geometry.beams` 빔(77.3×3×2)을 Panel(horizontalBase)로 그려 엣지 텍스처가 3cm 면에 늘어남 — 재질 hex·판 face mapping은 원본과 일치. 리더 요청 R4-REQ-01(desk-cable-geometry restoreFaceGroups→regroupByFace), R4-REQ-02(DeskModel 빔을 단일 base 재질 mesh로). 상세·패치 [claude-2-hardware.md](handoffs/claude-2-hardware.md) R4-HW 절.
+
+### R4 책상 UI 원본 일관성 교정 — 리더 착수 / 2026-10-14
+- 사용자: 책상 UI가 기존 가구와 일관성이 없고 Tylko와 다름. Chrome 원본9281707,j에서 확인: 기본 패널은 탭 없는 Width/Height/Depth/Storage columns/Legroom area/Back panels/Colour 목록, 수납 편집은 연필 버튼 팝업. Classic도 Back panels Off/On 제공하며 Off에서 열린 칸 후판이 제거됨.
+- 리더 단독 잠금: lib/furniture/desk-panel.ts, components/furniture/FurnitureConfigurator.tsx, DeskModel.tsx, furniture.module.css, 신규 DeskSectionEditor.tsx, scripts/furniture-integration/desk-ui.test.mjs, docs/tylko-reference/desk-ui-review.md 및 cases/desk-ui-001.json. 공유 ui/furniture-panels/**는 Claude UI 소유를 보존하여 수정하지 않음.
+- Claude UI 후속 요청: 기본 책상 single 목록, 수납 편집 별도 popup으로 리더가 연결한다. 현재 탭 존재를 완료 기준으로 고정하지 말 것. 공용 조작부는 선반 LegacyControls와 라벨 크기/행 간격/값 pill/스와치 엣지/선택 테두리의 시각 차이를 정리하고 본인 범위에서 통일. 원본 다리 공간 slider의 아이콘 thumb는 값없는 invisible thumb가 아닌 눈에 보이는 손잡이로 수정 필요. 형상 아이콘/스와치 원본 대조 결과는 리더에 전달. 원본 모바일 모양은 별도 확인 전 완료 주장하지 않음.
+- QA: 기본 책상에서 외형/내부 탭 대신 연필 편집 진입을 사용. 기존저장형식/section ID는 보존한다. 리더 교정 후 실제경로 재검증 요청. 문서 게시와 담당 수신은 구분한다.
+
+### R4-QA 중간 발견 / codex-assistant-validation
+- EDGE-LAYOUT-01 FAIL: 119×228×45cm의 Half_Rail_Rail_L_1drawers가 options에서 누락되어 내부배치 미선택. 리더 adapter/규칙 검토 요청. 본인 인계에 전체재현·캡처·검사 기록. 책상9진입 초기값/Classic·Modern URL/로컬 복원 PASS, 옷장카탈로그3종 아직null/ENTRY-READY대기.
+- 리더 잠금 추가: FurnitureScene.tsx의 onEditDeskLegroom 전달 prop만. DeskModel의 연필 버튼은 공통 기하 column.x/깊이를 사용하고 실제 stable section ID로 선택한다. 구획 편집 popup은 별도 DeskSectionEditor에서 담당하여 Claude UI 잠금과 충돌하지 않는다.
+- `claude-graphics` (사용자 직접 지시 "기프트카드도 바뀐 로고로", 2026-10-14 12:30) → storefront: 원본 `gift.avif`는 보존, 예전 초록 로고 영역만 위아래 보간으로 지우고 새 `befun_logo-white.svg`를 같은 중심에 합성한 `public/imgs/storefront/befun/gift-befun-logo.webp` 추가. `Storefront.tsx` 홈 기프트 섹션과 `ProductDetails.tsx` 기프트 배너(기존 Tylko 원격 D.webp)를 이 이미지로 교체, fallback은 기존 gift.avif 유지. lint 0, 3003 홈 확인.
+
+### R4-QA-READY 보고 제출 / codex-assistant-validation / 2026-10-14
+- 독립 contracts17pass/1fail, 책상 실제9진입·네제품군 로컬/URL 복원·390px/키보드 교차 확인. Edge119×228×45에서 current layout 옵션 누락 FAIL(리더), desk3 빔 합판 줄무늬 차이 OPEN(리더 HW통합). 소스/fixture 변경 없음.
+- 옷장 연결 후3종×3진입 및3종 저장복원 선행 PASS. R4-ENTRY-READY 아직 미게시여서 READY 이후 재검증은 blocked. 전체 동치 승인 아님. 서버/DB·원본 숨은값·제조값 unknown 유지.
+- 상세 입력·순서·오너·캡처·실행 명령: docs/handoffs/codex-assistant-validation.md R4-QA 절. 증거 docs/handoffs/assets/codex-qa/r4. 본인 QA 산출물 잠금 해제; ENTRY READY 또는 실패 수정 뒤 같은 사례 재검증 필요.
+
+### R4 책상 UI 교정 인계 — 리더 / 2026-10-14
+- 구현: Desk 기본목록 single, 실제열 좌표 연필 버튼, 수납8종 그림 popup·다리공간 케이블 popup, Classic 후판 선택, visible legroom thumb·22px 합판스와치·라벨/행 간격.
+- `docs/tylko-reference/desk-ui-review.md`, cases/desk-ui-001.json, reference/Befun desktop/mobile 캡처5장. 원본Classic/Modern 직접 확인; popup정확앵커/원본mobile/전체시각동치는 미완료.
+- 검사: integration25 PASS, 변경eslint PASS, 격리 production build/TypeScript/static PASS. 이번 수정6개 소스와 빌드 사본 MATCH. HMR의 contextlost1회는 복구버튼으로 확인, 무오류 주장 안 함.
+- 리더 이번 소스 잠금 해제. 공통 모델/adapter 책임은 리더 유지. Claude UI R4-UI-READY는 이번 single/popup 변경 이전 검사이므로 후속 UI-B 대조 필요. 새로운 기준은 desk-ui-review이며 탭 복원 금지. 공통 UI 소스와 계약변경은 사전 문서 조율.
+- UI-B 제안 범위(아직 수신 미확인): 공통컨트롤 시각 토큰·Modern 스와치 및 source썸네일/순서 비교. 레거시선반·Edge/Tone 회귀 포함. 기존 R4작업 완료와 이번 후속 검증 완료는 구분.
+- QA 후속: 책상 카탈로그3경로에서 single목록+연필 popup으로 검사 갱신. 후판OFF/수납종류 변경/팝업닫기·초점/URL복원/390px 검증. 제품소스 읽기전용 유지.
+- `claude-graphics` (사용자 직접 지시 "메인 랜딩을 tylko_section_1440x720.mp4로", 2026-10-14 12:40) → storefront: 영상을 `public/videos/befun-hero-1440x720.mp4`로 복사, `Storefront.tsx` Hero의 Cloudflare Stream iframe/SDK(Script)를 로컬 `<video autoPlay muted loop playsInline>`로 교체. 재생/정지·음소거 버튼, reduced-motion 시 포스터 유지·수동 재생, 오류 시 포스터 폴백 유지. CSS `.videoCover video` object-fit cover 1줄 추가. lint 0, 3003에서 1440×720 재생 확인.

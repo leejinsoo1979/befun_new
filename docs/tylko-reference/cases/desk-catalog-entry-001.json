@@ -1,0 +1,94 @@
+{
+  "caseId": "desk-catalog-entry-001",
+  "observedAt": "2026-10-14T02:47:10.784167+00:00",
+  "method": "Existing VPN Chrome; public source page options and closed 3D front layouts. No production dimensions inferred from pixels.",
+  "sourcePresets": [
+    {
+      "catalogId": "desk-1",
+      "sourceUrl": "https://tylko.com/en-uk/furniture/desk/9281707,j",
+      "inputs": {
+        "widthMm": 2000,
+        "heightMm": 730,
+        "depthMm": 600,
+        "storageColumns": 2,
+        "legroomPosition": 1,
+        "backPanels": true,
+        "color": "C_Clay Brown",
+        "channelsBottomToTopKinds": [
+          "drawer",
+          "door-drawer"
+        ],
+        "doorDirections": null,
+        "cableOpenings": null
+      },
+      "hiddenSeed": null,
+      "priorEdits": null,
+      "screenshots": []
+    },
+    {
+      "catalogId": "desk-2",
+      "sourceUrl": "https://tylko.com/en-uk/furniture/desk/3716771,j",
+      "inputs": {
+        "widthMm": 2400,
+        "heightMm": 730,
+        "depthMm": 500,
+        "storageColumns": 4,
+        "legroomPosition": 0,
+        "backPanels": true,
+        "color": "Sand+Midnight Blue",
+        "channelsBottomToTopKinds": [
+          "some-door",
+          "some-door",
+          "drawer",
+          "drawer"
+        ],
+        "doorDirections": null,
+        "cableOpenings": null
+      },
+      "hiddenSeed": null,
+      "priorEdits": null,
+      "screenshots": []
+    },
+    {
+      "catalogId": "desk-3",
+      "sourceUrl": "https://tylko.com/en-uk/furniture/desk/3760531,j",
+      "inputs": {
+        "widthMm": 1600,
+        "heightMm": 730,
+        "depthMm": 500,
+        "storageColumns": 2,
+        "legroomPosition": 1,
+        "backPanels": true,
+        "color": "C_Black",
+        "channelsBottomToTopKinds": [
+          "opening",
+          "door-drawer"
+        ],
+        "doorDirections": null,
+        "cableOpenings": null
+      },
+      "hiddenSeed": null,
+      "priorEdits": null,
+      "screenshots": [
+        "screenshots/desk-catalog-003-reference.png",
+        "screenshots/desk-catalog-003-befun.png"
+      ]
+    }
+  ],
+  "actions": [
+    "Open furniture-c/desk and choose 3D 디자인 편집",
+    "desk-1: width 200→201.5cm by ArrowRight; depth 60→50cm; open all doors/drawers",
+    "desk-2: category card→240×73×50cm, 4 storage columns, left legroom; depth→60cm; save and reload retains 240×73×60, four columns, legroom 0, Sand+Midnight Blue",
+    "desk-3: direct route opens 160×73×50cm, two storage columns and centered legroom"
+  ],
+  "unverified": [
+    "Source hinge directions and cable-hole initial state; implementation uses existing right/off defaults",
+    "Exact scene camera, lighting and plywood-edge texture equivalence",
+    "Wardrobe catalog entry path is outside this desk fix"
+  ],
+  "measurement": {
+    "unit": "mm for inputs, cm displayed",
+    "physicalToleranceMm": null,
+    "pixelTolerance": null
+  }
+}

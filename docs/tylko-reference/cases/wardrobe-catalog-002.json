@@ -1,0 +1,145 @@
+{
+  "caseId": "wardrobe-catalog-002",
+  "observedAt": "2026-10-14T03:25:53.975496+00:00",
+  "method": "Existing VPN Chrome product UI and DOM-selected controls. No source save/cart actions. Tone thumbnail IDs mapped through the already downloaded original public engine/DNA, not labels or photograph names.",
+  "status": "supported",
+  "priorCaseComparison": {
+    "samePreset": false,
+    "existingEdgePreset": 235218,
+    "existingTonePreset": 92243
+  },
+  "measurement": {
+    "uiUnit": "cm",
+    "configUnit": "mm",
+    "manufacturingDimensionsVerified": false
+  },
+  "seedChannelIds": {
+    "observed": false,
+    "befunIds": "Stable ordered catalog slots 1..N; these are not asserted as original private preset channel keys."
+  },
+  "sourcePresetApi": {
+    "knownPatternFromExistingCases": "/api/v1/watty_configurator/{id}/",
+    "browser92332": "ERR_BLOCKED_BY_CLIENT",
+    "directHttp92332": 403,
+    "responseUsed": false
+  },
+  "screenshots": [],
+  "browserChecks": {
+    "status": "pending"
+  },
+  "catalogId": "wardrobe-2",
+  "sourceUrl": "https://tylko.com/en-uk/furniture/wardrobe/92332,w",
+  "sourcePresetId": 92332,
+  "sourceFamily": "Tone",
+  "observedControls": {
+    "thumbnailCount": 12,
+    "selectedThumbnailIndicesZeroBased": [
+      6,
+      4,
+      9,
+      2,
+      3
+    ],
+    "columnWidthPattern": "11111",
+    "widthPatternEvidence": "middle option active / SVG offset left:-864px / equal5 columns",
+    "drawerStyle": "internal",
+    "lighting": "None",
+    "colourSwatches": [
+      "T03-cashmere",
+      "T03-antique-pink"
+    ],
+    "doorDirections": [
+      "paired left/right fixed; control hidden",
+      "paired left/right fixed; control hidden",
+      "paired left/right fixed; control hidden",
+      "paired left/right fixed; control hidden",
+      "paired left/right fixed; control hidden"
+    ],
+    "facades": [
+      "closed doors with top extension doors",
+      "closed doors with top extension doors",
+      "closed doors with top extension doors",
+      "closed doors with top extension doors",
+      "closed doors with top extension doors"
+    ],
+    "handles": "Tone integrated door grip; external drawers push-to-open when selected. No separate handle style control."
+  },
+  "layoutIdEvidence": {
+    "originalPublicBundleUrl": "https://tylko.com/r_static/dist_vue/wardrobes-es6-adcb9eecc6cc1173956e.js",
+    "alreadyDownloadedBundleSha256": "1f633a6e826742499d803d82c3c4a9c9006db5cc39bc6310e472627dc2cfd34c",
+    "alreadyDownloadedDnaSha256": "ae842cffd772f0b65de7b4d36dfeba4741964b37cbf9c613997fea6d083f2a7b",
+    "method": "Original Engine module1888.getThumbnails(channel), same observed width/height/depth/drawer mode. Complete ordered series compared with all visible thumbnails/count. DOM active indices select the series below. No original runtime store accessed.",
+    "seriesOrder": [
+      3744,
+      3740,
+      3742,
+      3743,
+      3738,
+      3739,
+      3741,
+      3745,
+      3749,
+      3746,
+      3747,
+      3748
+    ],
+    "selectedSeries": [
+      3741,
+      3738,
+      3746,
+      3742,
+      3743
+    ]
+  },
+  "unverified": [
+    "Source preset raw channel keys not downloaded",
+    "Exact original handle fabrication dimensions not measured"
+  ],
+  "initialDesign": {
+    "version": 1,
+    "kind": "wardrobe",
+    "family": "wardrobe-tone",
+    "color": "T_Cashmere",
+    "innerColor": "T_Pink",
+    "config": {
+      "model": "tone",
+      "widthMm": 4150,
+      "heightMm": 2760,
+      "depthMm": 630,
+      "sections": [
+        {
+          "id": "1",
+          "seriesId": 3741,
+          "facade": "closed"
+        },
+        {
+          "id": "2",
+          "seriesId": 3738,
+          "facade": "closed"
+        },
+        {
+          "id": "3",
+          "seriesId": 3746,
+          "facade": "closed"
+        },
+        {
+          "id": "4",
+          "seriesId": 3742,
+          "facade": "closed"
+        },
+        {
+          "id": "5",
+          "seriesId": 3743,
+          "facade": "closed"
+        }
+      ],
+      "toneWidthPattern": "11111",
+      "drawerStyle": "internal",
+      "lighting": false
+    }
+  },
+  "geometryLimitations": [
+    "tone-drawer-runner-travel-unmeasured",
+    "wardrobe-bar-cross-section-assets"
+  ]
+}

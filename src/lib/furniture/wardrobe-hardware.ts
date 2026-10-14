@@ -220,3 +220,53 @@ export function createWardrobeRingHandle(): THREE.BufferGeometry {
 export function createWardrobeRingHole(): THREE.BufferGeometry {
   return finish(new THREE.CircleGeometry(22.01436646, 32), 'wardrobe-ring-hole');
 }
+
+/** The extendable source handle uses rigid end bones, never uniform X scaling.
+ * Input centimetres; source bone coordinates are metres. Returned geometry is cm.
+ */
+export function wardrobeFullHandleGeometryFromGltf(gltf: import('three/examples/jsm/loaders/GLTFLoader.js').GLTF, widthCm: number): THREE.BufferGeometry {
+  if (!Number.isFinite(widthCm) || widthCm <= .2) throw new RangeError('Handle width must exceed the 2 mm end allowance');
+  const meshes: THREE.SkinnedMesh[] = [];
+  gltf.scene.traverse(object => { if (object instanceof THREE.SkinnedMesh) meshes.push(object); });
+  try {
+    if (meshes.length !== 1) throw new Error('Unexpected full handle source structure');
+    const mesh = meshes[0];
+    const left = mesh.skeleton.bones.find(bone => bone.name === 'left');
+    const right = mesh.skeleton.bones.find(bone => bone.name === 'right');
+    if (!left || !right) throw new Error('Missing rigid handle end bones');
+    left.position.x = -(widthCm / 100 - .002) / 2;
+    right.position.x = (widthCm / 100 - .002) / 2;
+    gltf.scene.updateMatrixWorld(true);
+    mesh.skeleton.update();
+    const geometry = mesh.geometry.clone(), positions = geometry.getAttribute('position');
+    const vertex = new THREE.Vector3();
+    for (let index = 0; index < positions.count; index++) {
+      vertex.fromBufferAttribute(positions, index);
+      mesh.applyBoneTransform(index, vertex).applyMatrix4(mesh.matrixWorld).multiplyScalar(100);
+      positions.setXYZ(index, vertex.x, vertex.y, vertex.z);
+    }
+    geometry.deleteAttribute('skinIndex');
+    geometry.deleteAttribute('skinWeight');
+    // End bones only translate: original authored vertex normals and UVs remain valid.
+    geometry.computeBoundingBox(); geometry.computeBoundingSphere();
+    geometry.name = 'fullHandleTop';
+    return geometry;
+  } finally {
+    const geometries = new Set<THREE.BufferGeometry>(), materials = new Set<THREE.Material>();
+    gltf.scene.traverse(object => {
+      if (!(object instanceof THREE.Mesh)) return;
+      geometries.add(object.geometry);
+      (Array.isArray(object.material) ? object.material : [object.material]).forEach(material => materials.add(material));
+      if (object instanceof THREE.SkinnedMesh) object.skeleton.dispose();
+    });
+    geometries.forEach(geometry => geometry.dispose());
+    materials.forEach(material => material.dispose());
+  }
+}
+
+/** Caller owns/disposes every returned geometry, including late async completion. */
+export async function loadWardrobeFullHandle(widthCm: number): Promise<THREE.BufferGeometry> {
+  const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js');
+  const gltf = await new GLTFLoader().loadAsync('/models/wardrobe/horizontal-handle-50.glb');
+  return wardrobeFullHandleGeometryFromGltf(gltf, widthCm);
+}

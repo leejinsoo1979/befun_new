@@ -44,16 +44,10 @@ export function deskPanelView(design: DeskDesign, selectedSectionId: string | nu
     { kind: 'slider', id: 'legSpace', label: '다리 공간', target: globalTarget, ...active, value: config.legroomPosition,
       min: 0, max: config.storageColumns, step: 1, unit: '', displayValue: null,
       markers: Array.from({ length: config.storageColumns + 1 }, (_, position) => position) },
-    current.family === 'desk-classic'
-      ? { kind: 'notice', id: 'backPanel', label: '뒷판', target: globalTarget, ...active,
-        text: '서랍·도어·다리 공간 뒤에는 기본으로 뒷판이 들어갑니다.' }
-      : { kind: 'choice', variant: 'pill', id: 'backPanel', label: '뒷판', target: globalTarget, ...active,
-        value: config.hasBackPanel || !openStorage ? 'on' : 'off',
-        options: [{ id: 'off', label: '없음', enabled: openStorage }, { id: 'on', label: '있음' }],
-        help: '서랍·도어·다리 공간 뒤에는 기본으로 뒷판이 들어갑니다.' },
-    { kind: 'choice', variant: 'pill', id: 'cableManagement', label: '다리 공간 케이블', target: globalTarget, ...active,
-      value: config.cableManagement ?? 'off',
-      options: [{ id: 'off', label: '없음' }, { id: 'left', label: '왼쪽' }, { id: 'right', label: '오른쪽' }] },
+    { kind: 'choice', variant: 'pill', id: 'backPanel', label: '뒷판', target: globalTarget, ...active,
+      value: config.hasBackPanel || !openStorage ? 'on' : 'off',
+      options: [{ id: 'off', label: '없음', enabled: openStorage }, { id: 'on', label: '있음' }],
+      help: '서랍·도어·다리 공간 뒤에는 기본으로 뒷판이 들어갑니다.' },
     { kind: 'swatch', id: 'color', label: '색상', target: globalTarget, ...active, value: current.color, options: deskSwatches(current) },
   ];
   const target = { scope: 'section', sectionId: selected ?? '' } as const;
@@ -74,10 +68,15 @@ export function deskPanelView(design: DeskDesign, selectedSectionId: string | nu
       options: [{ id: 'off', label: '없음' }, { id: 'on', label: '있음' }] },
   ];
   return {
-    panelProfileId: current.family, layout: 'tabs', selectedSectionId: selected,
+    panelProfileId: current.family, layout: 'single', selectedSectionId: selected,
     sections: sectionIds.map((id, i) => ({ id, label: `수납 ${i + 1}` })),
     tabs: [{ id: 'appearance', label: '외형', controls: appearance },
-      { id: 'interior', label: '내부 구성', usesSections: true, controls: interior }],
+      { id: 'interior', label: '수납 구성', usesSections: true, controls: interior },
+      { id: 'legroom', label: '다리 공간', controls: [
+        { kind: 'choice', variant: 'pill', id: 'cableManagement', label: '케이블 구멍', target: globalTarget, ...active,
+          value: config.cableManagement ?? 'off',
+          options: [{ id: 'off', label: '없음' }, { id: 'left', label: '왼쪽' }, { id: 'right', label: '오른쪽' }] },
+      ] }],
   };
 }
 

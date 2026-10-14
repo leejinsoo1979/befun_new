@@ -10,6 +10,55 @@
 - 적용 계약 버전: R1.2 (문서 계약; 공통 타입 구현 전)
 - 수정/잠금 파일: 신규 `src/components/three/furniture-hardware/**`, 이 문서, 기존 본인 `src/lib/three/materials.ts`. 읽기 전용 확인: LevelingFeet.tsx, reference-feet.ts, hardware.ts, reference-hardware.ts, Shelf.tsx, Scene/Effects/카메라
 
+## R4-HW — CSG 성능 마감 + 책상 외형 원인 측정 (2026-10-14 12:19)
+
+수정 허용 범위: `lib/three/blum/geometry.ts`, `useBoredBox.ts`, Panel/Door 훅 연결부, materials.ts, 본인 hardware·문서. 루트 씬·카메라·광원·배치/생성기 미수정.
+
+### 1. CSG 성능 개선 마감
+| 사례 | 입력 | 기대 | 실제 | 판정 | 증거 |
+|---|---|---|---|---|---|
+| R4-CSG-01 재정렬 정확도 | Blum 문(57.6×27.4×1.6, 구멍 6) / 옆판(1.8×28×32, 마운트 구멍) | 삼각형 집합·면 재질 번호 불변, 그룹 ≤6 | 문 그룹 363→6(삼각형 2,050 동일), 옆판 92→6(672 동일), 모든 삼각형이 원래 면 번호 그룹에 속함 | pass | `lib/three/blum/geometry.r4.test.mjs` |
+| R4-CSG-02 구멍 깊이 회귀 | 같은 판 | 컵 바닥 z=0.5, 옆판 고정공 x=0.25 | 동일 | pass | 같은 검사 + 기존 `boring.test.mjs` 6/6 |
+| R4-CSG-03 캐시 | 같은 치수·구멍 2회 | 복제본 반환, 복제본 dispose가 캐시 무손상 | 통과, 구멍 없으면 BoxGeometry | pass | 같은 검사 |
+| R4-CSG-04 빠른 변경 마지막 상태 | jsdom+React 19, 폭 12회 15ms 간격 변경, 지연 120ms | 드래그 중 상자, 멈춘 뒤 **마지막 폭**의 구멍, 이전 작업 덮어쓰기 없음 | 12회 변경 → geometry 13개, CSG 1회(마지막), 최종 bbox = 마지막 폭+offset | pass | 같은 검사 |
+| R4-CSG-05 생성/해제 | 위 + unmount | 훅 소유 geometry 전부 dispose | 13/13 dispose, 캐시 원본은 LRU(64) 소유 | pass | 같은 검사 |
+| R4-CSG-06 실제 화면 | 3003 `/furniture/bookcase-brown` (Grid 120×183×32, Natural 월넛, 문 2), headless Chrome 1440×900 DPR1, **AC 전원** | 드래그 후 구멍 복귀·그룹 ≤6 | 드래그 종료 0.8s 후 구멍 판 4개(삼각형 1341/1345), 최대 그룹 6. idle 60fps·draw 1,391/frame(이전 2,975), 드래그 p50 33ms(이전 150~216ms, 배터리 측정분 제외) | pass | perf 측정 로그(이 절) |
+| R4-CSG-07 문 개폐·사용자 타공 | Door 회전 로직 미변경, desk-cable-geometry는 createBoredBox 출력 위에 추가 CSG | 개폐·케이블 구멍 유지 | Door.tsx는 geometry 생성 줄만 교체. desk cable-render 5/5, cable 1120/1120, structure 3513/3513 통과 | pass(개폐는 코드 대조, 브라우저 개폐 반복은 미실행) | 테스트 출력 |
+
+- `scripts/furniture-desk/panel.test.mjs`는 옷장 `edge-catalog.json` import attribute 오류로 시작 전 실패 — 이번 변경과 무관(옷장 담당).
+- 남은 드래그 비용: decor RoundedBoxGeometry 재생성(소품 담당), 판·재질 재생성에 따른 힙 증가.
+- 리더 요청 **R4-REQ-01**: `lib/furniture/desk-cable-geometry.ts`의 `restoreFaceGroups`도 연속 구간 그룹이라 케이블 구멍 판이 수백 그룹이 됨 → `import { regroupByFace } from '../three/blum/geometry'` 후 `restoreFaceGroups(g)`를 `regroupByFace(g)`로 교체(형상 불변, 같은 면 판정).
+
+### 2. 책상 합판 엣지 "거친 줄무늬" 원인
+- 측정: `/reference-product/desk-3`(Classic Black 160×73×50) vs 원본 `screenshots/desk-catalog-003-reference.png`.
+- **material(색·대비) 아님**: 엣지 픽셀(따뜻한 색만) 평균 우리 #c7b39c / 원본 #c7b9a1, 밝기 표준편차 28.6 / 32.8. 원본 hex(`REFERENCE_CLASSIC_COLORS`, edge 텍스처) 유지 — materials.ts 수정 없음.
+- **판재 face mapping 아님**: desk-3 판 23개 전부 두께축이 createFaceMaterials 가정(가로 y, 세로 x, 뒷판 z)과 일치.
+- **원인 = 보강 빔 재질 매핑**: 픽셀 피킹으로 legroom 상판 아래 줄을 `geometry.beams` 빔(77.3×3×2 cm, `matType: 'horizontalBase'`)으로 확인. DeskModel이 이를 `Panel`로 그려 3cm 앞면에 합판 엣지 텍스처가 1.67배 늘어 붙음 → 상판 엣지 아래 두 번째 점선 줄무늬. 원본 캡처에는 이 줄이 없음.
+- 증거: [desk-3 전](claude-2-hardware-assets/r4-desk/before-desk-3-zoom.png) / [빔만 base 재질로 바꾼 시뮬레이션](claude-2-hardware-assets/r4-desk/sim-after-desk-3-zoom.png), desk-1 동일(`before-desk-1-zoom.png`, `sim-after-desk-1-zoom.png`). 시뮬레이션은 브라우저 런타임에서 빔 재질만 교체 — 소스 미변경.
+- 리더 요청 **R4-REQ-02 (DeskModel.tsx)**: 빔을 엣지 텍스처 없는 단일 base 재질로.
+  ```tsx
+  {geometry.beams.map((beam, index) => <mesh key={`beam-${index}`} position={[beam.x, beam.y, beam.z]} material={materials.horizontalBase} castShadow receiveShadow>
+    <boxGeometry args={[beam.w, beam.h, beam.d]} /></mesh>)}
+  ```
+  빔의 원본 재질 값은 source fixture에 없음(형상만) → 원본 캡처 근거의 표시 선택이며 제조 재질 확정 아님.
+
+### 3. 다리·경첩·서랍 레일 차이 (같은 시점·크기 캡처: before-desk-1/3.png)
+| 부품 ID | 우리 | 원본 캡처 | 판정 |
+|---|---|---|---|
+| `short_leg` (ShortLeg, DeskModel feet) | 판 아래 검은 발 보임, 22.5mm 모델을 source −20..0mm 위치에 그대로 | 같은 시점에서 발 보이지 않음 | 차이 기록. 높이·노출은 사진 비례로 확정 안 함(기존 exactParity:false) |
+| Blum 경첩 컵·플레이트 (BlumPlate) | 닫힌 정면 시점에서 안 보임 | 안 보임 | 이 시점 비교 불가 → 문 열림 시점 원본 캡처 필요 |
+| Movento 서랍 레일 | 닫힌 시점 안 보임 | 안 보임 | 같음 |
+
+### 4. 함께 처리한 사용자 직접 지시 (기록)
+- Classic 다리 색상에 "패널 색상"(`legFinish: 'panel'`) 추가: furniture-base 타입, store setter, leg-material 시그니처, FurnitureLegs(Classic이면 패널 재질, Natural이면 silver로 표시), FeetSelector(Classic에서만 버튼), savedDesign 검증·sharing 타입. lint 0 / tsc 내 범위 0. 브라우저 확인은 미실행.
+- 백패널 기본 OFF(configuration.ts, catalog.ts), 상품 상단 제목·하트 제거, 내부 페이지 헤더 여백.
+
+### 검증 / 지문
+- lint: blum/**, Panel.tsx, Door.tsx 오류 0. 테스트: geometry.r4 5/5, boring 6/6, desk cable-render 5, cable 1120, structure 3513.
+- 수정 파일: `src/lib/three/blum/geometry.ts`, `src/lib/three/blum/useBoredBox.ts`(신규), `src/lib/three/blum/geometry.r4.test.mjs`(신규), `src/components/three/Panel.tsx`·`Door.tsx`(훅 연결 줄만).
+
+**R4-HW-READY** — 12:19. 남은 항목: R4-REQ-01/02 리더 반영, 소품 재생성 비용, 문 열림 시점 원본 캡처.
+
 ## R3-HW — 원본 장다리·체결부 공용 표시 계약 (assignments/r3/01-hardware.md)
 
 - 수신·착수: 2026-10-14 08:06. 실제 세션 `claude-graphics` (Claude Code CLI, 왼쪽1). dispatch-r3.md · AGENTS.md · CLAUDE.md · team-tasks 잠금 확인.

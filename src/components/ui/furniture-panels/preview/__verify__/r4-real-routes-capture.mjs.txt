@@ -1,0 +1,27 @@
+import { chromium } from 'playwright-core';
+const OUT = '/Users/leejinsoo/Downloads/befun_new-main/docs/handoffs/claude-1-ui-assets/r4';
+const ROUTES = { 'desk-1': '/reference-product/desk-1', 'desk-modern': '/furniture-design/desk-modern', 'wardrobe-edge': '/furniture-design/wardrobe-edge', 'wardrobe-tone': '/furniture-design/wardrobe-tone' };
+const browser = await chromium.launch({ executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: true, args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+const errs = [];
+for (const [w, h] of [[1440, 1000], [390, 844]]) for (const [name, url] of Object.entries(ROUTES)) {
+  const p = await browser.newPage({ viewport: { width: w, height: h }, hasTouch: w < 500, isMobile: w < 500 });
+  p.on('pageerror', e => errs.push(`${name}@${w}: ${e.message}`));
+  await p.goto('http://localhost:3003' + url, { waitUntil: 'domcontentloaded', timeout: 180000 });
+  await p.waitForSelector('[role=tablist]', { timeout: 120000 }).catch(() => {}); await p.waitForTimeout(2500);
+  const info = await p.evaluate(() => {
+    const aside = document.querySelector('aside') ?? document.body;
+    const over = [...aside.querySelectorAll('*')].filter(e => { const r = e.getBoundingClientRect(); const a = aside.getBoundingClientRect(); return r.width && (r.right > a.right + 1 || r.left < a.left - 1); }).map(e => (e.getAttribute('data-control-id') || e.className || e.tagName).toString().slice(0, 40)).slice(0, 6);
+    return { docOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth, asideOver: over,
+      tabs: [...document.querySelectorAll('[role=tab]')].map(t => t.textContent), controls: [...document.querySelectorAll('[data-control-id]')].map(e => e.getAttribute('data-control-id')) };
+  });
+  console.log(name, w, JSON.stringify(info));
+  await p.locator('aside').first().screenshot({ path: `${OUT}/final-${name}-${w}-appearance.png` }).catch(e => console.log('shot fail', e.message.slice(0, 80)));
+  const interior = p.getByRole('tab', { name: '내부 구성' });
+  if (await interior.count()) { await interior.click(); await p.waitForTimeout(600);
+    console.log(name, w, 'interior', JSON.stringify(await p.evaluate(() => ({ sections: [...document.querySelectorAll('[role=radiogroup][aria-label="구획 선택"] [role=radio]')].map(r => r.textContent + (r.getAttribute('aria-checked') === 'true' ? '*' : '')), controls: [...document.querySelectorAll('[data-control-id]')].map(e => e.getAttribute('data-control-id')), docOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth }))));
+    await p.locator('aside').first().screenshot({ path: `${OUT}/final-${name}-${w}-interior.png` }).catch(() => {});
+  }
+  await p.close();
+}
+console.log('errors', JSON.stringify(errs.slice(0, 8)));
+await browser.close();

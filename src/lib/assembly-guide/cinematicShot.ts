@@ -32,7 +32,7 @@ export function cinematicJointShot(model: ConnectorModel, step: number, progress
   const below = step === 2 || step === 3;
   const cutaway = model === 'V-1230R' && step === 6;
   const azimuth = (cutaway ? .24 : .62) + angle;
-  const direction: Point3 = [Math.cos(azimuth), below ? -.32 : cutaway ? .28 : .42, Math.sin(azimuth) * (rear ? -1 : 1)];
+  const direction: Point3 = [Math.cos(azimuth) * (rear ? -1 : 1), below ? -.32 : cutaway ? .28 : .42, Math.sin(azimuth) * (rear ? -1 : 1)];
   const distance = fitDistance(radius, aspect) / Math.hypot(...direction);
   return { target, position: target.map((value, index) => value + direction[index] * distance) as Point3, up: [0, 1, 0] as Point3 };
 }

@@ -1,7 +1,9 @@
 import type { PanelData, StyleType } from '@/types/shelf';
 
 export type FurnitureBaseType = 'standard' | 'legs';
-export type FurnitureLegFinish = 'silver' | 'black';
+/** 'panel' = 다리를 선반 패널 재질과 같은 색으로 (Classic 전용). Natural에서는 silver로 표시 */
+export type FurnitureLegFinish = 'silver' | 'black' | 'panel';
+export const LEG_FINISHES: readonly FurnitureLegFinish[] = ['silver', 'black', 'panel'];
 
 /** Existing body coordinates include both horizontal boards. The raised option adds 100mm. */
 export function baseHeight(base: FurnitureBaseType = 'standard'): number {

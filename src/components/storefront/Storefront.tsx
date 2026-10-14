@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script';
 import { useRef, useState, useSyncExternalStore, type CSSProperties } from 'react';
 import { FiArrowRight, FiCheck, FiPause, FiPlay, FiVolume2, FiVolumeX } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
@@ -29,18 +28,8 @@ const categoryButtonWidths = [
   [201.296875, 299.4609375, 367.0234375, 391.8046875],
 ];
 
-interface StreamPlayer {
-  play: () => Promise<void>;
-  pause: () => void;
-  muted: boolean;
-  addEventListener: (event: string, listener: () => void) => void;
-}
-
-declare global {
-  interface Window { Stream?: (iframe: HTMLIFrameElement) => StreamPlayer; }
-}
-
-const streamUrl = 'https://customer-hzh805fq7yanildq.cloudflarestream.com/9e48d23430c3373a30b3d1fac6afeab7/iframe';
+/** 메인 랜딩 영상 (로컬, 1440×720) */
+const heroVideo = '/videos/befun-hero-1440x720.mp4';
 const remoteHero = asset('befun/hero.avif');
 const journals = [
   { name: '성수 팝업 갤러리', image: 'befun/life-1.avif', title: '가구와 예술이 만나는 순간', text: '색과 형태가 공간의 분위기를 바꾸는 순간. 가구를 통해 나만의 작은 갤러리를 만들어 보세요.' },
@@ -56,34 +45,23 @@ function subscribeMotion(callback: () => void) {
 }
 
 function Hero() {
-  const iframe = useRef<HTMLIFrameElement>(null);
-  const controller = useRef<StreamPlayer | null>(null);
+  const video = useRef<HTMLVideoElement>(null);
   const reducedMotion = useSyncExternalStore(subscribeMotion, () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, () => true);
   const [ready, setReady] = useState(false);
   const [paused, setPaused] = useState(false);
   const [muted, setMuted] = useState(true);
-  // Tylko 영상(Cloudflare Stream) 사용 중지: Befun 영상이 준비될 때까지 포스터 이미지만 보여 준다.
-  const [failed, setFailed] = useState(true);
+  const [failed, setFailed] = useState(false);
   const [poster, setPoster] = useState(remoteHero);
   const [manuallyStarted, setManuallyStarted] = useState(false);
   const shouldPlay = !reducedMotion || manuallyStarted;
 
-  const connectPlayer = () => {
-    if (!iframe.current || !window.Stream) return;
-    controller.current = window.Stream(iframe.current);
-    controller.current.addEventListener('canplay', () => setReady(true));
-    controller.current.addEventListener('error', () => setFailed(true));
-  };
-
   return (
     <section className={styles.hero} aria-label="새로운 컬러 컬렉션">
       <Image src={poster} alt="따뜻한 공간에 어우러진 새로운 가구 컬러" fill priority unoptimized sizes="100vw" className={styles.cover} onError={() => setPoster(asset('befun/hero.avif'))} />
-      {shouldPlay && !failed ? <>
-        <Script src="https://embed.cloudflarestream.com/embed/sdk.latest.js" strategy="afterInteractive" onReady={connectPlayer} onError={() => setFailed(true)} />
-        <div className={styles.videoCover}>
-          <iframe ref={iframe} title="새로운 가구 컬러 컬렉션 영상" src={`${streamUrl}?autoplay=true&muted=true&loop=true&controls=false`} allow="autoplay; encrypted-media" tabIndex={-1} onLoad={connectPlayer} />
-        </div>
-      </> : null}
+      {shouldPlay && !failed ? <div className={styles.videoCover}>
+        <video ref={video} src={heroVideo} autoPlay muted={muted} loop playsInline preload="auto" aria-hidden="true" tabIndex={-1}
+          onCanPlay={() => setReady(true)} onError={() => setFailed(true)} />
+      </div> : null}
       <div className={styles.heroShade} />
       <div className={styles.heroContent}>
         <p className={styles.eyebrow}>새로운 계절, 새로운 컬러</p>
@@ -93,13 +71,10 @@ function Hero() {
       {!failed ? <div className={styles.videoControls}>
         <button aria-label={!shouldPlay || paused ? '영상 재생' : '영상 일시 정지'} disabled={shouldPlay && !ready} onClick={() => {
           if (!shouldPlay) { setManuallyStarted(true); return; }
-          if (paused) { void controller.current?.play(); } else { controller.current?.pause(); }
+          if (paused) { void video.current?.play(); } else { video.current?.pause(); }
           setPaused(!paused);
         }}>{!shouldPlay || paused ? <FiPlay /> : <FiPause />}</button>
-        <button aria-label={muted ? '영상 소리 켜기' : '영상 소리 끄기'} disabled={!ready} onClick={() => {
-          if (controller.current) controller.current.muted = !muted;
-          setMuted(!muted);
-        }}>{muted ? <FiVolumeX /> : <FiVolume2 />}</button>
+        <button aria-label={muted ? '영상 소리 켜기' : '영상 소리 끄기'} disabled={!ready} onClick={() => setMuted(!muted)}>{muted ? <FiVolumeX /> : <FiVolume2 />}</button>
       </div> : null}
     </section>
   );
@@ -153,7 +128,7 @@ export function Storefront() {
         <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>실제 사람들, 저마다의 공간</p><h2>모든 디자인의 중심에는 당신이 있어요.</h2></div><Link className={styles.outlineButton} href="/inspirations">더 알아보기 <FiArrowRight /></Link></div>
         <Carousel label="공간 이야기">{stories.map(item => <Link key={item.name} className={styles.storyCard} href={`/creators?influencer=${encodeURIComponent(item.name)}`}><Image src={asset(item.image)} alt={`${item.name}의 공간`} fill sizes="(max-width: 700px) 85vw, 33vw" /><div><span className={styles.eyebrow}>공간 이야기</span><h3>{item.name}</h3><p>{item.title}</p></div></Link>)}</Carousel>
       </section>
-      <section className={styles.giftSection}><ReferenceImage source={asset('befun/gift.avif')} fallback="befun/gift.avif" alt="컬러와 취향을 선물하는 즐거움" sizes="100vw" /><div><p className={styles.eyebrow}>취향을 담는 즐거움</p><h2>좋아하는 공간을,<br />좋아하는 사람과.</h2><p>함께 상상하고, 직접 디자인해 보세요.</p><Link href="/e-gift-card/1" className={styles.whiteButton}>기프트카드 보기</Link></div></section>
+      <section className={styles.giftSection}><ReferenceImage source={asset('befun/gift-befun-logo.webp')} fallback="befun/gift.avif" alt="컬러와 취향을 선물하는 즐거움" sizes="100vw" /><div><p className={styles.eyebrow}>취향을 담는 즐거움</p><h2>좋아하는 공간을,<br />좋아하는 사람과.</h2><p>함께 상상하고, 직접 디자인해 보세요.</p><Link href="/e-gift-card/1" className={styles.whiteButton}>기프트카드 보기</Link></div></section>
       <section id="materials" className={styles.sustainability}>
         <div className={styles.sustainabilityImage}><ReferenceImage source={asset('befun/material.avif')} fallback="befun/material.avif" alt="가구 소재와 제작 과정" sizes="(max-width: 700px) 100vw, 45vw" /></div>
         <div><p className={styles.eyebrow}>공간에 필요한 만큼</p><h2>필요한 가구를.<br />당신에게 맞게.</h2><p>작은 공간에도, 넓은 벽면에도. 정해진 사이즈를 넘어 나의 일상에 맞는 수납을 디자인하세요.</p><Link href="/material-samples" className={styles.outlineButton}>소재와 컬러 살펴보기 <FiArrowRight /></Link><div className={styles.values}>{[

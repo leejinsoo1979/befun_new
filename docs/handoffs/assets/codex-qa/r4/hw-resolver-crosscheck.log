@@ -1,0 +1,22 @@
+✔ inset datum: 3mm reveal, TB4, cup21.5, INSERTA45/9.5, plate54.5/32 (1.247042ms)
+✔ mirroring changes side/normal, never diameter, depth, spacing or Y datums (0.406583ms)
+✔ blind cup has exact 13mm floor and retains 3mm front skin, fixing holes also cut (168.443125ms)
+✔ side bores enter correct face and stop 11.5mm into 18mm panel (47.230916ms)
+✔ missing side / unsupported thickness never invent manufacturing holes (0.15175ms)
+✔ overlapping mounts are reported for downstream manufacturing (0.341625ms)
+  door: groups 363 → 6, triangles 2050
+  side panel: groups 92 → 6, triangles 672
+✔ door: 재정렬은 형상·면 번호를 바꾸지 않고 그룹만 ≤6 (113.226208ms)
+✔ side panel: 재정렬은 형상·면 번호를 바꾸지 않고 그룹만 ≤6 (24.24725ms)
+✔ 구멍 깊이 회귀: 문 컵 바닥·옆판 고정공 깊이 유지 (70.626166ms)
+✔ 캐시: 복제본 반환, 복제본 dispose가 캐시를 해치지 않음, 같은 형상 (17.296709ms)
+  rapid: 12 changes → 13 geometries, 1 CSG, all disposed
+✔ 지연 교체: 빠른 연속 변경 후 마지막 치수의 구멍, 이전 작업 덮어쓰기 없음, unmount 시 해제 (576.303792ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2279.163792

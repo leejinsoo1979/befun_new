@@ -158,3 +158,7 @@ Pattern/Mosaic가 반환한 실제 칸 경계에서 하드웨어를 생성하도
 ### 2026-10-14 장다리 실제 연결
 - [장다리 배치·단위·제약 및 검증 한계](hardware-leg-placement-001.md), [실물 장착 영상/4장](cases/hardware-leg-mount-002.json), [비펀 연결 사례](cases/legs-001.json).
 - Standard/Legs 실제 화면·높이·로컬 저장 복원 연결. 전체 제품군 동치/Plinth/정밀 타공/다리 조립 안내는 미완료.
+
+## 2026-10-14 Desk / Wardrobe 실제 통합
+
+책상 Classic/Modern, 옷장 Edge/Tone을 별도 생성기와 편집 화면에 연결했습니다. [통합 범위·검증·남은 차이](../handoffs/desk-wardrobe-integration.md). 위의 초기 “생성기 미구현” 기록은 당시 상태이며, 최신 구현 범위는 이 문서를 기준으로 합니다. **전체 시각·제조·쇼핑몰 동치 완료는 아닙니다.**

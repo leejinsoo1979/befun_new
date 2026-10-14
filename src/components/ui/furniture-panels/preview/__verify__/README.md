@@ -13,8 +13,8 @@ V=$B/src/components/ui/furniture-panels/preview/__verify__
 cp $V/vitest.ui.config.ts.txt vitest.ui.config.ts      # 안의 B 경로를 저장소 경로로 바꾼다
 cp $V/setup.ts.txt uitest/setup.ts
 cp $V/next-image.tsx.txt uitest/next-image.tsx
-for f in panels family review connector legacy-r3; do cp $V/$f.test.tsx.txt uitest/$f.test.tsx; done
+for f in panels family review connector legacy-r3 r4; do cp $V/$f.test.tsx.txt uitest/$f.test.tsx; done
 npx vitest run -c vitest.ui.config.ts
 ```
 
-2026-10-14 기준 결과: R3 기준 5개 파일 96 tests pass. `legacy-r3.test.tsx`(R2.1 실제 연결 검사를 운영 표현으로 옮긴 것 + R3 사례)는 실제 `useShelfStore`·`useHardwareStore`·`useMaterialStore`를 사용한다.
+2026-10-14 기준 결과: R4 기준 6개 파일 100 tests pass(r4는 리더 실제 desk-panel/wardrobe-panel adapter 사용). `legacy-r3.test.tsx`(R2.1 실제 연결 검사를 운영 표현으로 옮긴 것 + R3 사례)는 실제 `useShelfStore`·`useHardwareStore`·`useMaterialStore`를 사용한다.

@@ -34,7 +34,7 @@ export function loadProductConfiguration(product: CatalogProduct, color = produc
   useUIStore.setState({ hoveredRow: null, selectedRow: null, isFloatingBoxHovered: false, showDimensions: false });
   useShelfStore.setState({
     width: product.width, height: productHeight(product), depth: product.depth,
-    baseType: 'standard', legFinish: 'silver', thickness: 2, style: 'grid', density: 50, hasBackPanel: true,
+    baseType: 'standard', legFinish: 'silver', thickness: 2, style: 'grid', density: 50, hasBackPanel: false,
     rowHeights: [...product.rows], numRows: product.rows.length,
   });
   useMaterialStore.getState().setColor(color, color === product.color ? product.colorCategory : 'solid');

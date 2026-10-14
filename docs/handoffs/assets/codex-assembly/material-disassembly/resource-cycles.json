@@ -1,0 +1,92 @@
+{
+  "cycles": [
+    {
+      "cycle": 1,
+      "metrics": [
+        {
+          "engine": "three.js r182",
+          "renderGeometries": "5",
+          "renderPrograms": "1",
+          "renderTextures": "1",
+          "rendererState": "ready"
+        }
+      ],
+      "recoveryShown": false
+    },
+    {
+      "cycle": 2,
+      "metrics": [
+        {
+          "engine": "three.js r182",
+          "renderGeometries": "29",
+          "renderPrograms": "8",
+          "renderTextures": "7",
+          "rendererState": "ready"
+        }
+      ],
+      "recoveryShown": false
+    },
+    {
+      "cycle": 3,
+      "metrics": [
+        {
+          "engine": "three.js r182",
+          "renderGeometries": "5",
+          "renderPrograms": "1",
+          "renderTextures": "1",
+          "rendererState": "ready"
+        }
+      ],
+      "recoveryShown": false
+    },
+    {
+      "cycle": 4,
+      "metrics": [
+        {
+          "engine": "three.js r182",
+          "renderGeometries": "5",
+          "renderPrograms": "1",
+          "renderTextures": "1",
+          "rendererState": "ready"
+        }
+      ],
+      "recoveryShown": false
+    },
+    {
+      "cycle": 5,
+      "metrics": [
+        {
+          "engine": "three.js r182",
+          "renderGeometries": "29",
+          "renderPrograms": "8",
+          "renderTextures": "7",
+          "rendererState": "ready"
+        }
+      ],
+      "recoveryShown": false
+    },
+    {
+      "cycle": 6,
+      "metrics": [
+        {
+          "engine": "three.js r182",
+          "renderGeometries": "5",
+          "renderPrograms": "1",
+          "renderTextures": "1",
+          "rendererState": "ready"
+        }
+      ],
+      "recoveryShown": false
+    }
+  ],
+  "settledResources": [
+    {
+      "engine": "three.js r182",
+      "renderFps": "58.1",
+      "renderGeometries": "29",
+      "renderPrograms": "8",
+      "renderTextures": "7",
+      "rendererState": "ready"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+- link "본문으로 바로가기":
+  - /url: "#main"
+- region "프로모션 알림":
+  - link "공간에 딱 맞는 수납. 나만의 디자인, 20% 할인.":
+    - /url: /furniture-c
+    - text: 공간에 딱 맞는 수납.
+    - strong: 나만의 디자인, 20% 할인.
+  - button "알림 닫기":
+- banner:
+  - link "Befun 홈":
+    - /url: /
+    - img "Befun"
+  - button "메뉴 열기":
+  - link "제품 검색":
+    - /url: /search
+  - link "즐겨찾기 보기":
+    - /url: /wishlist
+  - link "장바구니 0개":
+    - /url: /cart
+- main:
+  - link "가구 선택":
+    - /url: /configurator-intro
+  - heading "Classic 데스크" [level=1]
+  - paragraph: 90 × 73 × 50 cm
+  - generic "가구 보기":
+    - button "문·서랍 열기"
+    - button "치수"
+    - button "정면"
+    - button "시점 초기화":
+    - button "전체 화면":
+  - paragraph: 드래그하여 회전 · 스크롤하여 확대 · 수납 구획을 눌러 편집
+  - complementary "가구 옵션":
+    - tablist "옵션 구분":
+      - tab "외형" [selected]
+      - tab "내부 구성"
+    - tabpanel "외형":
+      - generic: 너비
+      - generic "너비":
+        - slider "너비" [active]: "90"
+        - generic: 90cm
+      - generic: 높이
+      - generic "높이":
+        - paragraph: 모든 책상은 높이 73cm입니다.
+      - generic: 깊이
+      - generic "깊이":
+        - radiogroup "깊이":
+          - radio "40cm"
+          - radio "50cm" [checked]
+          - radio "60cm"
+      - generic: 수납 구획
+      - generic "수납 구획":
+        - group "수납 구획":
+          - button "수납 구획 줄이기" [disabled]: −
+          - status: "1"
+          - button "수납 구획 늘리기" [disabled]: +
+      - generic: 다리 공간
+      - generic "다리 공간":
+        - slider "다리 공간": "1"
+      - generic: 뒷판
+      - generic "뒷판":
+        - paragraph: 서랍·도어·다리 공간 뒤에는 기본으로 뒷판이 들어갑니다.
+      - generic: 다리 공간 케이블
+      - generic "다리 공간 케이블":
+        - radiogroup "다리 공간 케이블":
+          - radio "없음" [checked]
+          - radio "왼쪽"
+          - radio "오른쪽"
+      - generic: 색상
+      - generic "색상":
+        - radiogroup "색상":
+          - radio "화이트"
+          - radio "블랙" [checked]
+          - radio "그레이"
+          - radio "핑크"
+          - radio "옐로"
+          - radio "블루"
+          - radio "모스 그린"
+          - radio "캐시미어"
+          - radio "클레이 브라운"
+        - paragraph: 블랙
+    - button "디자인 저장":
+      - text: 디자인 저장
+    - button "링크 공유":
+      - text: 링크 공유
+    - button "저장한 디자인 불러오기"
+    - status
+  - heading "내 공간에 맞춘 데스크" [level=2]
+  - paragraph: 크기와 수납 구성을 바꾸어 나만의 공간을 만들어 보세요. 저장과 공유에는 현재 선택한 크기, 구성, 색상이 함께 담깁니다.
+- contentinfo:
+  - heading "가구에 공간을 맞추는 대신, 당신에게 맞는 가구를 만드세요." [level=2]:
+    - text: 가구에 공간을 맞추는 대신,
+    - text: 당신에게 맞는 가구를 만드세요.
+  - generic "Befun":
+    - text: Befun
+  - generic "고객 지원":
+    - text: 고객 지원
+  - generic "문의하기":
+    - text: 문의하기
+  - generic "함께해요":
+    - text: 함께해요
+  - link "Befun 홈":
+    - /url: /
+    - img "Befun"
+  - link "대한민국 · 한국어 · KRW":
+    - /url: /region-settings
+  - generic: © 2026 Befun
+  - generic: Visa · Mastercard · 간편결제
+- link "? 도움이 필요하세요?":
+  - /url: /contact
+  - generic: "?"
+  - text: 도움이 필요하세요?
+- alert

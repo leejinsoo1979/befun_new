@@ -1,0 +1,160 @@
+- link "본문으로 바로가기":
+  - /url: "#main"
+- region "프로모션 알림":
+  - link "공간에 딱 맞는 수납. 나만의 디자인, 20% 할인. 지금 만나보세요":
+    - /url: /furniture-c
+    - text: 공간에 딱 맞는 수납.
+    - strong: 나만의 디자인, 20% 할인.
+    - text: 지금 만나보세요
+  - button "알림 닫기":
+- banner:
+  - link "Befun 홈":
+    - /url: /
+    - img "Befun"
+  - navigation "주 메뉴":
+    - button "쇼핑":
+      - text: 쇼핑
+    - link "커뮤니티":
+      - /url: /inspirations
+    - link "Befun Pro":
+      - /url: /tylko-pro
+    - link "쇼룸":
+      - /url: /showrooms
+  - link "제품 검색":
+    - /url: /search
+  - link "로그인":
+    - /url: /login
+  - link "즐겨찾기 보기":
+    - /url: /wishlist
+  - link "장바구니 0개":
+    - /url: /cart
+- main:
+  - link "가구 선택":
+    - /url: /configurator-intro
+  - heading "클레이 브라운 합판 책상" [level=1]
+  - paragraph: 201.5 × 73 × 50 cm
+  - generic "가구 보기":
+    - button "문·서랍 열기"
+    - button "치수"
+    - button "정면"
+    - button "시점 초기화":
+    - button "전체 화면":
+  - paragraph: 드래그하여 회전 · 스크롤하여 확대 · 수납 구획을 눌러 편집
+  - complementary "가구 옵션":
+    - tablist "옵션 구분":
+      - tab "외형"
+      - tab "내부 구성" [selected]
+    - tabpanel "내부 구성":
+      - radiogroup "구획 선택":
+        - radio "수납 1"
+        - radio "수납 2"
+        - radio "수납 3" [checked]
+      - generic: 수납 구성
+      - generic "수납 구성":
+        - radiogroup "수납 구성":
+          - radio "오픈 수납"
+          - radio "도어"
+          - radio "서랍 3단" [checked]
+          - radio "도어 · 오픈 · 서랍"
+          - radio "서랍 2단 · 오픈"
+          - radio "오픈 · 서랍"
+          - radio "도어 · 서랍"
+          - radio "도어 · 오픈"
+    - button "디자인 저장" [active]:
+      - text: 디자인 저장
+    - button "링크 공유":
+      - text: 링크 공유
+    - button "저장한 디자인 불러오기"
+    - status: 이 브라우저에 디자인을 저장했습니다. 현재 주소로도 같은 디자인을 열 수 있습니다.
+  - heading "내 공간에 맞춘 데스크" [level=2]
+  - paragraph: 크기와 수납 구성을 바꾸어 나만의 공간을 만들어 보세요. 저장과 공유에는 현재 선택한 크기, 구성, 색상이 함께 담깁니다.
+- contentinfo:
+  - heading "가구에 공간을 맞추는 대신, 당신에게 맞는 가구를 만드세요." [level=2]:
+    - text: 가구에 공간을 맞추는 대신,
+    - text: 당신에게 맞는 가구를 만드세요.
+  - generic "Befun"
+  - navigation "Befun":
+    - link "브랜드 이야기":
+      - /url: /about-tylko
+    - link "쇼룸":
+      - /url: /showrooms
+    - link "기프트카드":
+      - /url: /e-gift-card/1
+    - link "디자인 저널":
+      - /url: /journal
+    - link "프레스":
+      - /url: /press
+    - link "채용":
+      - /url: https://tylko.recruitee.com/
+    - link "투자자 정보":
+      - /url: /investor-relations-login
+    - link "디지털 서비스":
+      - /url: /digital-services-act
+    - link "Befun Pro":
+      - /url: /tylko-pro
+  - generic "고객 지원"
+  - navigation "고객 지원":
+    - link "자주 묻는 질문":
+      - /url: /faq
+    - link "이용약관":
+      - /url: /terms
+    - link "기프트카드 약관":
+      - /url: /terms-gift-card
+    - link "개인정보 처리":
+      - /url: /privacy_policy
+    - link "쿠키 설정":
+      - /url: /cookie-settings
+    - link "배송 안내":
+      - /url: /shipping
+    - link "주문 취소":
+      - /url: /contact?topic=cancellation
+    - link "주문 상태":
+      - /url: /contact?topic=order_status
+  - generic "문의하기"
+  - navigation "문의하기":
+    - link "고객 문의":
+      - /url: /contact
+    - link "주문 조회":
+      - /url: /mypage
+    - link "도움말":
+      - /url: /faq
+    - link "문제 신고":
+      - /url: /contact?topic=issue
+    - link "WhatsApp":
+      - /url: /contact?topic=whatsapp
+    - link "LiveChat":
+      - /url: /contact?topic=chat
+    - link "Tylko 신고 채널":
+      - /url: https://tylko.whistlelink.com/
+  - generic "함께해요"
+  - navigation "함께해요":
+    - link "커뮤니티":
+      - /url: /inspirations
+    - link "크리에이터":
+      - /url: /creators
+    - link "즐겨찾기":
+      - /url: /wishlist
+    - link "저장한 디자인":
+      - /url: /saved-designs
+    - link "로그인":
+      - /url: /login
+    - link "Instagram":
+      - /url: https://www.instagram.com/tylko/
+    - link "Facebook":
+      - /url: https://www.facebook.com/tylko/
+    - link "Pinterest":
+      - /url: https://www.pinterest.com/tylko/
+    - link "TikTok":
+      - /url: https://www.tiktok.com/@tylko.com
+  - link "Befun 홈":
+    - /url: /
+    - img "Befun"
+  - link "대한민국 · 한국어 · KRW":
+    - /url: /region-settings
+  - generic: © 2026 Befun
+  - generic: Visa · Mastercard · 간편결제
+- link "? 도움이 필요하세요?":
+  - /url: /contact
+  - generic: "?"
+  - text: 도움이 필요하세요?
+- alert

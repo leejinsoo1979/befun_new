@@ -64,3 +64,13 @@
 - 원목텍스처 source URL base는 `https://media.tylko.com/cloudinary/image/upload/v1/renderer`, 아래경로: `texture/light_cleaf_512_albedo.jpg`, `light_cleaf_512_bump.jpg`, `dark_cleaf_512_albedo.jpg`, `dark_cleaf_512_bump.jpg`. repo기존 generic natural텍스처와 동일하다고 가정하지 않았다. root가4개원본로컬자산확보.
 - UV:source renderer SCALAR=.001(m),plane repeat=(2*u/.9,2*v/.9),offset u>v이면(0,(1-v/.9)/2),아니면((1-u/.9)/2,0). veneer slab mapRatio=(width,depth,thickness),회전90°;front=(width,height,thickness),회전0°. 모두미터입력. 제조치수와무관한시각매핑규칙.
 - `edge.test.mjs`에추가144우드/144케이블고정fixture, `edge-options.test.mjs` 우드선택·케이블복원·Tone횡옷봉glyph3검증 통과. `hinges.test.mjs` 현재Edge648검증은desk_geometry소유. 기존integration12개+Tone155개도통과. ESLint통과. TypeScript는기존.nextRoute2개만오류.
+
+### Cleaf 판재별 UV 변환 및 GLB atlas 대조 (2026-10-14)
+
+- 구현: `src/lib/furniture/wardrobe-panel-materials.ts`. 리더가 DeskPanel 및 문·서랍에 연결한다. `createWardrobePanelMaterials(materials, panel)`은 Cleaf일 때 six-face BoxGeometry 순서(+X, −X, +Y, −Y, +Z, −Z) 재질 배열, 그 외 null을 반환한다. panel 치수는 cm. 문/서랍 앞뒤판은 `backPanel`, 측판은 `verticalBase`, 바닥은 `horizontalBase`로 전달한다. `supportPanel`은 정면 방향 판으로 취급한다.
+- 소유권: 반환된 재질/맵은 `disposeWardrobePanelMaterials`로 정리한다. 원본 공유 MaterialSet과 이미지 source는 유지한다. 반환면 중복 및 재호출에도 clone dispose는 1회뿐이다. 일반 재질 cleanup과 중복 처리를 하지 않는다.
+- 현재 공개 `CG3UhuDu2.js`의 TU/EU/hU/WU/KU, lme/Nj/Zj, G.unwrapUVTexture를 확인했다. 가로판 ratio=(폭, 깊이, 두께), 세로판=(깊이, 높이, 두께), 정면판=(폭, 높이, 두께), 단위 m. 가로판 회전90°, 나머지0°. plane 반복은 2×(u,v)/0.9m, edge는 3.5×(v,w)/0.05m. offset은 반복 배수를 적용하기 전 짧은 축을 중앙 정렬한다. texture center=(0,0), flipY=false.
+- 원본 `/geometry/horizontal_sample.glb`, `vertical_sample.glb`, `front_sample.glb`의 평면 POSITION/NORMAL/TEXCOORD_0를 읽었다. 원본 atlas는 plane 약0.492×0.492, edge 약0.247×0.247 크기이므로, 일반 BoxGeometry의 0..1 UV에 repeat만 설정하는 것은 잘못된 크기다. 6면별 atlas 변환을 텍스처 matrix에 먼저 합성했다. albedo/bump의 변환은 동일하다. 원본 `default_jpg`에 따라 두 맵 모두 sRGB, flipY=false, anisotropy=1로 일치시켰다.
+- 측정 fixture: `scripts/furniture-wardrobe/cleaf-uv-source.json`. 공개 GLB 평면4꼭짓점만 포함한다. 인증·추적 데이터 없음. 제작자는 원본 미세 edge UV skew에 대응하도록 4점 affine fit을 적용했으며, 테스트에서 원본 UV 오차<0.000025를 확인했다.
+- 정확성 한계: 원본 둥근 가장자리와 스키닝 UV는 현 Box/CSG의 직각 모서리에 재현되지 않는다. 원본 내부 평면 꼭짓점을 박스면 전체로 매핑한다. 케이블 구멍이 있는 원본 후판은 여러 직사각형 면으로 나누어 각 ratio를 계산하지만, 현재 Befun CSG는 한 장 후판 ratio이므로 구멍 주변 결 위상까지 동일하다고 주장하지 않는다. 조명/카메라 포함 최종 화면 비교는 리더 확인 필요.
+- 검증: `node --test scripts/furniture-wardrobe/cleaf-materials.test.mjs` 4 PASS (세 패널형·6면 원본UV 대조, 폭 변경, 공유 이미지 불변, bump 일치, 자원정리, 비Cleaf 회귀). 두 변경 TS파일 ESLint PASS. tsc는 기존 `.next/dev/types/validator.ts` Route 타입 오류2개만 남는다. 전체 build는 리더 격리빌드에서 수행.

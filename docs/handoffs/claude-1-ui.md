@@ -395,6 +395,67 @@
   - 다른 제품군·옷장 연결에 필요한 props는 리더의 view 계산 함수가 `FurniturePanelView`를 넘기면 바로 연결된다. 기존 preview 컴포넌트 계약 그대로다.
 - **해제 잠금:** R3-UI 잠금 전체를 해제했다(team-tasks 기록). 리더 확인 후 재검증이 필요하면 다시 잠근다.
 
+## R4-UI: 실제 책상/옷장 패널 조작 검증·수정 (사용자 전달 지시, 2026-10-14)
+
+- **수신:** 2026-10-14 11:50 KST, claude-optimizer 세션. 잠금: `furniture-panels/**`, 본인 UI 테스트, 이 handoff, `claude-1-ui-assets/r4/**`.
+- **연결 구조 확인:** 네 경로 모두 `FurnitureConfigurator`가 리더 adapter(`deskPanelView`/`applyDeskIntent`, `wardrobePanelView`/`applyWardrobeIntent`)의 view를 내 공용 `FurniturePanel`에 넘긴다. adapter·모델·Configurator는 수정하지 않았다.
+- **판정 (각각 별도):**
+  - 실제 경로 UI 동작: 아래 표대로 pass.
+  - preview 검사: 별도로 유지했고, 실제 연결 판정과 섞지 않는다.
+  - 옷장·책상 생성 규칙의 Tylko 동치: 확인하지 않음(리더 소유).
+
+### 수정 (furniture-panels 내부만)
+| 결함 | 재현 | 수정 |
+|---|---|---|
+| R4-FIX-1 높이 모드 전환 시 키보드 포커스 유실 | `/furniture-design/wardrobe-tone`에서 '높이 +' 버튼을 Enter → 버튼이 사라지면서 포커스가 body로 빠짐. '기본 높이'도 같은 증상 | `controls.tsx` HeightMode: 전환이 view에 실제로 반영되면 다음 조작 지점으로 포커스를 옮긴다. 확장 시 슬라이더, 기본 높이 시 선택된 프리셋. adapter가 전환을 거절하면 버튼이 남아 있으므로 포커스도 그대로다 |
+| R4-FIX-2 radiogroup 안에 radio가 아닌 버튼 | '높이 +' 버튼이 프리셋 radiogroup 안에 있었음 | 프리셋만 `radiogroup`으로 묶고, 모드 전환 버튼은 같은 pill 줄의 그룹 밖에 둠(`.presetGroup`). 모양은 그대로 |
+| R4-FIX-3 390px에서 한글 라벨이 단어 중간에서 줄바꿈 | '구획 내경 너/비', '다리 공간 케/이블' | `.label`에 `word-break: keep-all` 추가(어절 단위로 줄바꿈). 한 어절이 칸보다 길 때만 글자 단위로 넘김 |
+
+### 실제 경로 재현표
+1440과 390 각각 34/34 pass, 페이지 오류 0. 로그 `claude-1-ui-assets/r4/r4-keyboard-run.log`, 스크립트 `preview/__verify__/r4-real-routes-keyboard.mjs.txt`. 조작은 모두 키보드 포커스와 키 입력(Arrow, Home/End, Space, Enter)으로 했다.
+
+| ID | 경로 | 조작 | 기대 | 실제(1440) |
+|---|---|---|---|---|
+| R4-E-01 | wardrobe-edge | 외형 탭에서 ArrowRight | 내부 구성 탭 선택, 포커스 이동 | 내부 구성 / focus 내부 구성 |
+| R4-E-02 | 〃 | 구획 선택에서 ArrowRight | 구획 2 선택, 포커스 이동 | 구획 2 |
+| R4-E-03 | 〃 | 구획 2 전면=모두 열림(Space) | 문 방향 숨김 | 숨김 확인 |
+| R4-E-04 | 〃 | 구획 1로 이동 | 구획 1 원래 전면(하단 열림), 문 방향 다시 보임 | 하단 열림, 보임 |
+| R4-E-05·07 | 〃 | 구획 1 문 방향=오른쪽 → 구획 2 → 구획 1 | 구획별 값 유지 | 오른쪽 유지 |
+| R4-E-06 | 〃 | 구획 2로 이동 | 모두 열림 유지, 문 방향 숨김 | 확인 |
+| R4-E-08 | 〃 | 구획 높이 ArrowRight×2 | 인덱스 +2, 표시 cm 갱신, 포커스 유지 | 2(198cm)→4(229cm) |
+| R4-E-09 | 〃 | 너비 ArrowRight×5(연속) | +5cm, step 1, 포커스 유지 | 118→123 |
+| R4-E-10 | 〃 | 너비 Home | 최소 40cm, adapter가 구획 수 보정 | 40cm, 구획 1 |
+| R4-E-11 | 〃 | 너비 드래그 중 pointercancel | 표시값 = 실제 설계값(헤더 치수), 값 튐 없음 | 320 = 헤더 `320 × 198 × 60` |
+| R4-E-12 | 〃 | 저장 → 너비 End → 불러오기 | 외부 복원값이 즉시 반영 | 320 |
+| R4-T-01~03 | wardrobe-tone | '높이 +' Enter → ArrowRight×2 → '기본 높이' Enter | 238 + 슬라이더 포커스 → 240 → 237 선택 + 프리셋 포커스 | 일치(수정 후) |
+| R4-T-04 | 〃 | 깊이 ArrowLeft | −1cm(step 1) | 53→52 |
+| R4-T-05 | 〃 | 외부 색상 3번째(Space) | 선택되고 이름 표시 | 그래파이트 |
+| R4-T-06 | 〃 | 내부 구성 서랍=외부 | 외부 | 외부 |
+| R4-desk-1-01 | reference-product/desk-1 | 너비 슬라이더 속성 | nullable step → `step="any"`, 임의 step 없음, min/max는 공급값 | any, 90–240 |
+| R4-desk-1-02 | 〃 | 너비 ArrowRight×2 | 증가, 포커스 유지 | 200→203 (step any에서는 브라우저 기본 증분) |
+| R4-desk-1-03·04 | 〃 | 수납 구획 + → 다리 공간 End | 다리 공간 max = 구획 수, 값 pill 없음(displayValue null), 포커스 유지 | 0–3, End → 3 |
+| R4-desk-1-05~07 | 〃 | 수납 1 구성=도어 → 수납 2 → 수납 1 | 도어 방향 표시, 구획별 값 유지 | 수납 2 '도어 · 서랍', 수납 1 '도어' 유지 |
+| R4-desk-1-08 | 〃 | 도어 방향 변경 | 반영 | 왼쪽 경첩 |
+| R4-desk-1-09 / modern-09 | 〃 / desk-modern | 비활성 스테퍼 click(force)·Enter | 구획 수 불변 | desk-modern 1→1(+/− 모두 비활성) |
+| R4-desk-modern-01~08 | furniture-design/desk-modern | desk-1과 같은 흐름(수납 구획 1개) | 같음 | pass |
+
+- **390px:** 같은 34개 사례 모두 pass. 네 경로의 외형·내부 구성 탭 모두 문서 가로 넘침 없음, 패널 밖으로 나가는 요소 0. 캡처 `claude-1-ui-assets/r4/final-*-{1440,390}-{appearance,interior}.png`, `final-wardrobe-edge-390-interior-viewport.png`(실제 뷰포트에서 겹침 없음 확인).
+- **긴 이름과 스와치:** 'Sand+Midnight Blue'(샌드 · 미드나잇 블루) 등 긴 색 이름은 스와치 아래 이름 줄에서 줄바꿈되고, 넘침 없음. 데스크 수납 구성의 긴 옵션 8개는 pill이 여러 줄로 감김. 레이아웃 캐러셀은 ‹ › 버튼과 가로 스크롤 유지.
+- **vitest:** 100/100(기존 96 + R4 4). `r4.test.tsx`는 리더의 실제 adapter와 FurnitureConfigurator와 같은 배선을 사용한다. 검사 항목: HeightMode 포커스 이동, radiogroup 구성, desk 너비 `step=any`·min/max, 다리 공간 pill 숨김·step 1.
+- **eslint:** furniture-panels 0.
+- **tsc:** 오류 2건이지만 모두 공유 dev 서버가 생성한 `.next/dev/types/validator.ts`(Route 타입)에 있고, 이전 리더 기록과 같다. 내 파일은 0.
+- **격리 build:** 저장소 사본(공용 .next 미사용)에서 `next build --webpack` **통과(exit 0)**. 시작 2026-10-14 12:20:12, src fingerprint `aed6afa5003439e6`.
+
+### 리더 요청 / 참고 (adapter 소유, 수정하지 않음)
+- **R4-REQ-1 (desk legSpace aria):** `legSpace`는 `displayValue: null`, `unit: ''`라서 화면에는 값이 없고, 스크린리더는 숫자만 읽는다(예: '1'). 위치를 설명하는 `displayValue`(예: '수납 1 오른쪽')를 주면 aria-valuetext로 쓴다. UI에서 단위나 문구를 새로 만들지 않았다.
+- **R4-REQ-2 (desk width step):** `step: null`이므로 키보드 화살표 증분이 브라우저 기본값(실측 1.5cm)이다. 원본 step이 확인되면 view에 넣어 주면 된다. UI에서 하드코딩하지 않았다.
+- 조사 중 의심했던 Edge 너비 40cm에서 구획 4개가 남는 현상은 내 검사 순서 오류였다. 실제 adapter에서는 320cm(4구획)→40cm(1구획)로 정상이다.
+
+### R4-UI-READY
+- **경로:** `/reference-product/desk-1`, `/furniture-design/desk-modern`, `/furniture-design/wardrobe-edge`, `/furniture-design/wardrobe-tone`. desktop과 390px, 키보드 조작, 구획 전환 재현표 위와 같음.
+- **변경 파일:** `furniture-panels/controls.tsx`(HeightMode), `furniture-panels/panels.module.css`(`.label` keep-all, `.presetGroup`).
+- **해제 잠금:** R4-UI 잠금 전체 해제(team-tasks 기록).
+
 ## 다음 단계
 
 1. ~~제품군별 profile 확장~~ — 2단계에서 완료(preview fixture 기준).

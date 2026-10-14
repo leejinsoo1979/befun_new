@@ -86,7 +86,7 @@ export function ProductDetails({ product }: { product?: CatalogProduct }) {
       ['소재와 컬러를 가까이에서', '2', '/material-samples', '소재와 컬러 보기'],
     ].map(([name, path, href, label]) => <Link key={href} href={href}><ReferenceImage source={`https://media.tylko.com/cloudinary/pdp/section-lobby/${path}/XLD.webp`} fallback="creator-3.avif" alt={name} sizes="(max-width:767px) 90vw, 60vw" /><div><h3>{name}</h3><span>{label} <FiArrowRight /></span></div></Link>)}</div></section>
 
-    <section className={styles.giftBanner}><ReferenceImage source="https://media.tylko.com/cloudinary/pdp/gift-card/banner/D.webp" fallback="befun/gift.avif" alt="취향을 선물하는 기프트카드" sizes="100vw" /><div><h2>취향을 선물하는 즐거움.</h2><p>좋아하는 공간을 직접 고르는 선물.</p><Link href="/e-gift-card/1" className={shared.outlineButton}>기프트카드 안내</Link></div></section>
+    <section className={styles.giftBanner}><ReferenceImage source="/imgs/storefront/befun/gift-befun-logo.webp" fallback="befun/gift.avif" alt="취향을 선물하는 기프트카드" sizes="100vw" /><div><h2>취향을 선물하는 즐거움.</h2><p>좋아하는 공간을 직접 고르는 선물.</p><Link href="/e-gift-card/1" className={shared.outlineButton}>기프트카드 안내</Link></div></section>
 
     <section className={`${styles.section} ${styles.recommendations}`}><p className={styles.eyebrow}>함께 둘러보기</p><h2>이런 디자인은 어떠세요?</h2><Carousel label="추천 디자인">{products.filter(item => item.id !== product?.id).map(item => <ProductCard key={item.id} product={item} saved={saved.includes(item.id)} toggleSaved={() => toggleSaved(item.id)} open={() => router.push(productHref(item))} />)}</Carousel></section>
 

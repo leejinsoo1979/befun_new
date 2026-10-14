@@ -1,0 +1,93 @@
+{
+  "caseId": "desk-ui-001",
+  "observedAt": "2026-10-14T03:33:54.948695+00:00",
+  "sourceUrls": [
+    "https://tylko.com/en-uk/furniture/desk/9281707,j",
+    "https://tylko.com/en-uk/furniture/desk/3716771,j"
+  ],
+  "initialStateReference": "desk-catalog-entry-001.json sourcePresets desk-1 and desk-2; no saved account mutation",
+  "inputs": [
+    {
+      "catalogId": "desk-1",
+      "widthMm": 2000,
+      "heightMm": 730,
+      "depthMm": 600,
+      "storageColumns": 2,
+      "legroomPosition": 1,
+      "color": "C_Clay Brown",
+      "channels": [
+        "drawer",
+        "door-drawer"
+      ],
+      "backPanel": true,
+      "sourceDoorDirections": null,
+      "sourceCableState": null
+    },
+    {
+      "catalogId": "desk-2",
+      "widthMm": 2400,
+      "heightMm": 730,
+      "depthMm": 500,
+      "storageColumns": 4,
+      "legroomPosition": 0,
+      "color": "Sand+Midnight Blue",
+      "channels": [
+        "some-door",
+        "some-door",
+        "drawer",
+        "drawer"
+      ],
+      "backPanel": true,
+      "sourceDoorDirections": null,
+      "sourceCableState": null
+    }
+  ],
+  "actions": [
+    "Reference Classic: left pencil selection, inspect 8 layout options and cable opening OFF/ON popup",
+    "Reference Classic: Back panels Off then On; open storage rear panel changes, mandatory legroom/closed storage backs remain",
+    "Reference Modern: inspect initial primary controls and 12 colour choices",
+    "Befun Classic: pencil opens 8 layouts; choose door-drawer; door direction options appear; Escape closes",
+    "Befun Classic: legroom pencil, choose right cable opening, Escape returns focus to legroom pencil",
+    "Befun Classic: reload initial preset; viewport390x844, open storage popup; reset viewport",
+    "Befun Modern: direct catalog product route, verify single list and five edit buttons"
+  ],
+  "observations": {
+    "mainControlOrder": [
+      "width",
+      "fixedHeight",
+      "depth",
+      "storageColumns",
+      "legroom",
+      "backPanels",
+      "colour"
+    ],
+    "mainTabs": false,
+    "referenceStoragePopupLayoutCount": 8,
+    "classicBackPanelsToggle": true,
+    "sourceClassicSwatchCount": 9,
+    "sourceModernSwatchCount": 12,
+    "befunMobilePopupFits": true,
+    "escapeFocusReturns": true
+  },
+  "measurement": {
+    "unit": "mm inputs; cm labels; CSS px viewport",
+    "exactSourcePixelMeasurements": null,
+    "physicalToleranceMm": null,
+    "internalCoordinates": null
+  },
+  "screenshots": [
+    "screenshots/desk-ui-001-reference.png",
+    "screenshots/desk-ui-001-befun.png",
+    "screenshots/desk-ui-001-befun-mobile.png",
+    "screenshots/desk-ui-002-reference.png",
+    "screenshots/desk-ui-002-befun.png"
+  ],
+  "unverified": [
+    "Exact reference popup anchoring and thumbnail order/artwork",
+    "Reference mobile responsive interaction parity",
+    "Pixel-perfect shell typography, camera and full viewer layout",
+    "Source no-open-storage back toggle policy",
+    "Source legroom slider raw percent mapping; implementation retains existing discrete positions",
+    "Production deployment of these changes"
+  ]
+}

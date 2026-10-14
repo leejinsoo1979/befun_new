@@ -1,0 +1,51 @@
+import { describe, it, expect } from 'vitest';
+import { useState } from 'react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
+import { FurniturePanel } from '@/components/ui/furniture-panels';
+import { applyWardrobeIntent, wardrobePanelView } from '@/lib/furniture/wardrobe-panel';
+import { applyDeskIntent, deskPanelView } from '@/lib/furniture/desk-panel';
+import { createFurnitureDesign, type FurnitureDesign } from '@/lib/furniture/design';
+
+/** FurnitureConfigurator와 같은 배선(실제 리더 adapter)으로 패널만 렌더 */
+function Real({ family }: { family: 'wardrobe-tone' | 'wardrobe-edge' | 'desk-modern' | 'desk-classic' }) {
+  const [design, setDesign] = useState<FurnitureDesign>(() => createFurnitureDesign(family));
+  const [selected, setSelected] = useState<string | null>(null);
+  const [tab, setTab] = useState('appearance');
+  const view = design.kind === 'desk' ? deskPanelView(design, selected) : wardrobePanelView(design, selected);
+  return <FurniturePanel view={view} activeTabId={tab} onTabChange={setTab} onSelectSection={setSelected}
+    onIntent={i => setDesign(c => c.kind === 'desk' ? applyDeskIntent(c, i) : applyWardrobeIntent(c, i))} />;
+}
+
+describe('R4 HeightMode(Tone 실제 adapter)', () => {
+  it('높이 + → 슬라이더로 포커스, 기본 높이 → 선택 프리셋으로 포커스', () => {
+    render(<Real family="wardrobe-tone" />);
+    const ext = screen.getByRole('button', { name: '높이 +' });
+    ext.focus(); act(() => { fireEvent.click(ext); });
+    const slider = screen.getByRole('slider', { name: '높이 (높이 +)' });
+    expect(slider).toHaveValue('238'); expect(document.activeElement).toBe(slider);
+    const std = screen.getByRole('button', { name: '기본 높이' });
+    std.focus(); act(() => { fireEvent.click(std); });
+    const p237 = screen.getByRole('radio', { name: '237cm' });
+    expect(p237).toHaveAttribute('aria-checked', 'true'); expect(document.activeElement).toBe(p237);
+  });
+  it('radiogroup에는 프리셋 radio만 있고 높이 +는 그룹 밖 버튼', () => {
+    render(<Real family="wardrobe-tone" />);
+    const g = screen.getByRole('radiogroup', { name: '높이' });
+    expect([...g.querySelectorAll('button')].map(b => b.getAttribute('role'))).toEqual(['radio', 'radio']);
+    expect(g.contains(screen.getByRole('button', { name: '높이 +' }))).toBe(false);
+  });
+});
+
+describe('R4 nullable step 보존(Desk 실제 adapter)', () => {
+  it('너비 step=null → input step="any", min/max는 공급값', () => {
+    render(<Real family="desk-modern" />);
+    const w = screen.getByRole('slider', { name: '너비' });
+    expect(w).toHaveAttribute('step', 'any'); expect(w).toHaveAttribute('min', '90'); expect(w).toHaveAttribute('max', '240');
+  });
+  it('다리 공간: displayValue null → 값 pill 없음, step 1 유지', () => {
+    const { container } = render(<Real family="desk-modern" />);
+    const row = container.querySelector('[data-control-id=legSpace]')!;
+    expect(row.querySelector('input')).toHaveAttribute('step', '1');
+    expect(row.textContent).not.toMatch(/\d/);
+  });
+});

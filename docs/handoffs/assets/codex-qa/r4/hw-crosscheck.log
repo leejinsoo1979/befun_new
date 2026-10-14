@@ -1,0 +1,48 @@
+(node:71331) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/three/blum/boring.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ inset datum: 3mm reveal, TB4, cup21.5, INSERTA45/9.5, plate54.5/32 (1.220625ms)
+✔ mirroring changes side/normal, never diameter, depth, spacing or Y datums (0.217709ms)
+✔ blind cup has exact 13mm floor and retains 3mm front skin, fixing holes also cut (78.190125ms)
+✔ side bores enter correct face and stop 11.5mm into 18mm panel (11.552708ms)
+✔ missing side / unsupported thickness never invent manufacturing holes (0.183667ms)
+✔ overlapping mounts are reported for downstream manufacturing (0.6085ms)
+(node:71332) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/three/blum/boring.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  door: groups 363 → 6, triangles 2050
+  side panel: groups 92 → 6, triangles 672
+✔ door: 재정렬은 형상·면 번호를 바꾸지 않고 그룹만 ≤6 (78.044542ms)
+✔ side panel: 재정렬은 형상·면 번호를 바꾸지 않고 그룹만 ≤6 (12.624834ms)
+✔ 구멍 깊이 회귀: 문 컵 바닥·옆판 고정공 깊이 유지 (45.215459ms)
+✔ 캐시: 복제본 반환, 복제본 dispose가 캐시를 해치지 않음, 같은 형상 (8.219959ms)
+✖ 지연 교체: 빠른 연속 변경 후 마지막 치수의 구멍, 이전 작업 덮어쓰기 없음, unmount 시 해제 (51.700084ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 10
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 741.982583
+
+✖ failing tests:
+
+test at src/lib/three/blum/geometry.r4.test.mjs:80:1
+✖ 지연 교체: 빠른 연속 변경 후 마지막 치수의 구멍, 이전 작업 덮어쓰기 없음, unmount 시 해제 (51.700084ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/leejinsoo/Downloads/befun_new-main/src/lib/three/blum/geometry' imported from /Users/leejinsoo/Downloads/befun_new-main/src/lib/three/blum/useBoredBox.ts
+      at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+      at moduleResolve (node:internal/modules/esm/resolve:865:10)
+      at defaultResolve (node:internal/modules/esm/resolve:992:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)
+      at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)
+      at ModuleLoader.resolveSync (node:internal/modules/esm/loader:759:56)
+      at #resolve (node:internal/modules/esm/loader:683:17)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:35)
+      at ModuleJob.syncLink (node:internal/modules/esm/module_job:163:33)
+      at ModuleJob.link (node:internal/modules/esm/module_job:253:17) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/three/blum/geometry'
+  }

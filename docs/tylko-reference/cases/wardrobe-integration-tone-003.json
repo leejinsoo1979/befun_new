@@ -1,0 +1,58 @@
+{
+  "id": "wardrobe-integration-tone-003",
+  "observedAt": "2026-10-14T02:22:45.720Z",
+  "sourceUrl": "https://tylko.com/de-de/mobel/kleiderschrank/92243,w",
+  "befunUrl": "http://localhost:3003/furniture-design/wardrobe-tone?design=%7B%22version%22%3A1%2C%22kind%22%3A%22wardrobe%22%2C%22family%22%3A%22wardrobe-tone%22%2C%22color%22%3A%22T_White%22%2C%22innerColor%22%3A%22T_Misty%22%2C%22config%22%3A%7B%22model%22%3A%22tone%22%2C%22widthMm%22%3A1000%2C%22heightMm%22%3A2000%2C%22depthMm%22%3A530%2C%22drawerStyle%22%3A%22internal%22%2C%22lighting%22%3Atrue%2C%22sections%22%3A%5B%7B%22id%22%3A%221%22%2C%22seriesId%22%3A3739%2C%22doorDirection%22%3A%22left%22%7D%5D%2C%22toneWidthPattern%22%3A%221%22%7D%7D",
+  "inputs": {
+    "version": 1,
+    "kind": "wardrobe",
+    "family": "wardrobe-tone",
+    "color": "T_White",
+    "innerColor": "T_Misty",
+    "config": {
+      "model": "tone",
+      "widthMm": 1000,
+      "heightMm": 2000,
+      "depthMm": 530,
+      "drawerStyle": "internal",
+      "lighting": true,
+      "sections": [
+        {
+          "id": "1",
+          "seriesId": 3739,
+          "doorDirection": "left"
+        }
+      ],
+      "toneWidthPattern": "1"
+    }
+  },
+  "initialState": "default wardrobe-tone route",
+  "actions": [
+    "Opened from configurator-intro > wardrobe > Tone",
+    "Open doors/drawers",
+    "Set inner colour Misty Blue",
+    "Enable lighting",
+    "Simulate WebGL context loss",
+    "Click 3D reopen; verify lost=false and options preserved",
+    "Save design URL"
+  ],
+  "observed": {
+    "widthCm": 100,
+    "heightCm": 200,
+    "depthCm": 53,
+    "innerColour": "T_Misty",
+    "doorsOpen": true,
+    "hingesVisible": true,
+    "lightingEnabled": true,
+    "contextRecovery": "pass",
+    "exactPixelParity": null,
+    "drawerTravelReferenceMm": null
+  },
+  "precision": {
+    "geometry": "see tone-verification.json numeric source comparison",
+    "visual": "manual screenshot; pixel metric unmeasured"
+  },
+  "screenshots": [
+    "docs/tylko-reference/screenshots/wardrobe-integration-tone-003-befun.png"
+  ]
+}

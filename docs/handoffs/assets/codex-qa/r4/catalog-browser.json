@@ -1,0 +1,130 @@
+{
+  "entries": [
+    {
+      "id": "desk-1",
+      "entry": "photo",
+      "url": "http://127.0.0.1:3003/reference-product/desk-1"
+    },
+    {
+      "id": "desk-1",
+      "entry": "title",
+      "url": "http://127.0.0.1:3003/reference-product/desk-1",
+      "heading": "paragraph: 200 × 73 × 60 cm"
+    },
+    {
+      "id": "desk-1",
+      "entry": "edit",
+      "url": "http://127.0.0.1:3003/reference-product/desk-1",
+      "heading": "paragraph: 200 × 73 × 60 cm"
+    },
+    {
+      "id": "desk-2",
+      "entry": "photo",
+      "url": "http://127.0.0.1:3003/reference-product/desk-2",
+      "heading": "paragraph: 240 × 73 × 50 cm"
+    },
+    {
+      "id": "desk-2",
+      "entry": "title",
+      "url": "http://127.0.0.1:3003/reference-product/desk-2",
+      "heading": "paragraph: 240 × 73 × 50 cm"
+    },
+    {
+      "id": "desk-2",
+      "entry": "edit",
+      "url": "http://127.0.0.1:3003/reference-product/desk-2",
+      "heading": "paragraph: 240 × 73 × 50 cm"
+    },
+    {
+      "id": "desk-3",
+      "entry": "photo",
+      "url": "http://127.0.0.1:3003/reference-product/desk-3",
+      "heading": "paragraph: 160 × 73 × 50 cm"
+    },
+    {
+      "id": "desk-3",
+      "entry": "title",
+      "url": "http://127.0.0.1:3003/reference-product/desk-3",
+      "heading": "paragraph: 160 × 73 × 50 cm"
+    },
+    {
+      "id": "desk-3",
+      "entry": "edit",
+      "url": "http://127.0.0.1:3003/reference-product/desk-3",
+      "heading": "paragraph: 160 × 73 × 50 cm"
+    }
+  ],
+  "channels": [
+    {
+      "id": "desk-1",
+      "section": 1,
+      "checked": [
+        "        - radio \"수납 1\" [checked] [active]",
+        "          - radio \"서랍 2단 · 오픈\" [checked]",
+        "          - radio \"없음\" [checked]"
+      ]
+    },
+    {
+      "id": "desk-1",
+      "section": 2,
+      "checked": [
+        "        - radio \"수납 2\" [checked] [active]",
+        "          - radio \"도어 · 서랍\" [checked]",
+        "          - radio \"오른쪽 경첩\" [checked]:",
+        "          - radio \"없음\" [checked]"
+      ]
+    },
+    {
+      "id": "desk-2",
+      "section": 1,
+      "checked": [
+        "        - radio \"수납 1\" [checked] [active]",
+        "          - radio \"도어 · 오픈\" [checked]",
+        "          - radio \"오른쪽 경첩\" [checked]:",
+        "          - radio \"없음\" [checked]"
+      ]
+    },
+    {
+      "id": "desk-2",
+      "section": 2,
+      "checked": [
+        "        - radio \"수납 2\" [checked] [active]",
+        "          - radio \"도어 · 오픈\" [checked]",
+        "          - radio \"오른쪽 경첩\" [checked]:",
+        "          - radio \"없음\" [checked]"
+      ]
+    },
+    {
+      "id": "desk-2",
+      "section": 3,
+      "checked": [
+        "        - radio \"수납 3\" [checked] [active]",
+        "          - radio \"서랍 2단 · 오픈\" [checked]",
+        "          - radio \"없음\" [checked]"
+      ]
+    },
+    {
+      "id": "desk-2",
+      "section": 4,
+      "checked": [
+        "        - radio \"수납 4\" [checked] [active]",
+        "          - radio \"서랍 2단 · 오픈\" [checked]",
+        "          - radio \"없음\" [checked]"
+      ]
+    },
+    {
+      "id": "desk-3",
+      "section": 1,
+      "checked": [
+        "      - button \"오픈 수납\" [pressed]:"
+      ]
+    },
+    {
+      "id": "desk-3",
+      "section": 2,
+      "checked": [
+        "      - button \"도어 · 서랍\" [pressed]:"
+      ]
+    }
+  ]
+}

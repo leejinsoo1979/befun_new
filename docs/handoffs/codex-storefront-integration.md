@@ -417,3 +417,13 @@ terminal-instructions 최신 왼쪽3 지시 및 leader-review 2차 점검을 수
 - 이번2소스·본인 handoff·완료 기록만 커밋 대상. 잠금 해제, 리더/게시 담당에게 수정 결과 전달. 이전25패널 인계는 이번 기록으로 대체.
 - `src/components/ui/ConfiguratorLoading.tsx` SHA-256: `447bbef3dde87e8d6e6595acea148bddbfc329677180e148fb0a3339055f5da3`
 - `src/components/ui/configurator-loading.module.css` SHA-256: `3a6ce6c860837ca9da70801f854d455e77d8e6dbe57f33f36fcbecefefb4a304`
+
+## R4-ENTRY 수신·착수 — 2026-10-14
+
+- 사용자 직접 전달 및 dispatch-r4 왼쪽3 수신. 위임4소스/테스트와 신규 wardrobe-catalog 사례·캡처 단독 잠금. wardrobe-1/2/3 원본 URL 검증 후 실제 FurnitureDesign 진입 연결. 공통 모델/DTO/route는 수정하지 않고 누락 source 필드 보고. 기존 책상3종 보존·회귀 검사.
+
+### R4 원본 초기값 1차 조사 및 리더 요청
+- 3종은 기존235218 Edge/92243 Tone 사례와 다른 preset. wardrobe-1 Edge1190×2600×450,2구획 Open_Shelves_Slabs / Full_Shelves_Slabs_bottom_drawer(right),Plum. wardrobe-2 Tone4150×2760×630,5동일너비,3741/3738/3746/3742/3743, Cashmere/Pink,internal/조명off. wardrobe-3 Tone600×2750×630,1구획3743,left,Graphite/Graphite,external/조명off.
+- DOM selected series/index 확인. Tone는 DOM에seriesId가 없어 동일관찰 legacy bundle의원본 getThumbnails 순서와대조. 공개preset API는browser ERR_BLOCKED_BY_CLIENT / 별도HTTP403,rawseed/channel keys는미확인. 앱 ID는Befun stable ordered slots이며원본숨은key로표시하지않음.
+- 상태DTO/parse복원으로표현불가초기필드는현재없음. 다만Tone generator의기존물리한계 `tone-drawer-runner-travel-unmeasured`, `wardrobe-bar-cross-section-assets` 남음. 실제runnertravel·옷봉단면은리더소유,이카탈로그지원은옵션편집/저장복원지원이며모든물리동치가아님.
+- 원본이미지URL보존. 사진실패시storage.avif 다른가족fallback을피하기위해위임된ReferenceCatalogPages 안의wardrobe이미지만오류placeholder로처리예정. 공용StorefrontUI는미수정.

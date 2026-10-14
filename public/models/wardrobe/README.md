@@ -15,3 +15,11 @@ SHA256:
 Each GLB has one unskinned mesh, no node translation/rotation/scale, and metre units. `wardrobe-hinge-assets.ts` clones the geometry and scales it 100× into the app's cm coordinates, preserving its local origin and normals. The supplied renderer sets chrome material externally. Wing attaches to the moving door; anchor attaches to the stationary side board.
 
 The public render files alone do not establish the hinge manufacturer, model number, cup boring depth or manufacturing tolerances. They are not treated as Blum 71B3790/174H7100E parts.
+
+## Edge external drawer full-width handle
+
+- Local: `horizontal-handle-50.glb`
+- Public source: https://media.tylko.com/cloudinary/image/upload/v1/renderer/geometry/horizontal_handle_50.glb
+- SHA256: `36be6659b219bf73b28ecb4022460485f3a04088cf5355124c649dce13689696`
+- Source metres. Three bones (`root`, `right`, `left`) and one SkinnedMesh. Native width100 mm. Renderer moves side bones to ±(targetWidthM−.002)/2, preserving rigid end shapes and Y/Z profile. Geometry is baked into cm by `wardrobeFullHandleGeometryFromGltf`.
+- This is a visible reference model, not a fabrication drawing or a verified manufacturer part number.

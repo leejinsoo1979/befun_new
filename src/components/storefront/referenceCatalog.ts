@@ -1,5 +1,6 @@
 // Public category cards observed on Tylko, 2026-10-13. These are reference
-// products, never Befun SKUs or purchasable configurations.
+// products, never Befun SKUs or purchasable configurations. Observed desk/wardrobe
+// starts are editable through catalog-design.ts; editing does not add a SKU.
 type Sample = [name: string, href: string, image: string];
 const render = (date: string, file: string) => `${date}/unreal_render_tasks/${file}.webp`;
 const categories: Record<string, Sample[]> = {
@@ -34,9 +35,9 @@ const categories: Record<string, Sample[]> = {
     ['블루 도어 레코드 수납장', 'furniture/vinyl-storage/4956297,j', render('2024/02', 'unreal_7106')],
   ],
   wardrobe: [
-    ['딥 플럼 내부 서랍 옷장', 'furniture/wardrobe/1936508,w', render('2026/09', 'unreal_10112606')],
-    ['베이지·핑크 내부 서랍 옷장', 'furniture/wardrobe/92332,w', render('2026/02', 'unreal_5947061')],
-    ['그래파이트 서랍 옷장', 'furniture/wardrobe/92275,w', render('2025/09', 'unreal_2431862')],
+    ['Edge 딥 플럼 오픈·내부 서랍 옷장', 'furniture/wardrobe/1936508,w', render('2026/09', 'unreal_10112606')],
+    ['Tone 베이지·핑크 내부 서랍 옷장', 'furniture/wardrobe/92332,w', render('2026/02', 'unreal_5947061')],
+    ['Tone 그래파이트 외부 서랍 옷장', 'furniture/wardrobe/92275,w', render('2025/09', 'unreal_2431862')],
   ],
   wallunits: [
     ['딥 플럼 서랍 월 유닛', 'furniture/wallunit/1932352,w', render('2026/09', 'unreal_10108421')],

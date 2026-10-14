@@ -67,3 +67,7 @@
 - 최신 소스35검사·lint0오류/기존7경고·격리 webpack build/전체TypeScript 통과. built fingerprint와 제출 코드 일치. Chrome desktop/390px·6회 원본/모델 전환·수동카메라 복귀·초기 새로고침·재생/topic/seek/일시정지·공식 영상 모달 확인, error/warn0.
 - 정밀3D 다리 이동 시연 미구현, 핀/나사/키홀·이동/타공 null 유지. 원본 영상의 실제 이동 안내와 정적 GLB 관찰을 별도 판정. 공용 LongLeg HW-01 수정/독립 HW-05 확인은 생산자 요청 상태, 전체 출고/제조 안내 완료 주장 없음.
 - 이번 ASM 잠금 해제: components/lib/app assembly-guide 전체, docs/assembly-guide.md, cinematic/r3-legs 증거, 신규public/assembly-guide/legs. 공유 서버/.next 및 타 담당 파일 보존.
+
+## R4-ASM 수신·첫 인계 — 2026-10-14 12:19 KST
+
+왼쪽5, 기존 세션 Log in. [재질·공식 분해·최소 실제 디자인 입력 계약 요청](handoffs/assets/codex-assembly/material-disassembly/README.md). 사용자 직접 요청 수정 진행 중. R4 단독 범위 유지, 제품/route/공통 계약은 리더 소유. 이전 R2.1의 해제 sampler가 검사 전용이었다는 기록은 당시 상태이며, 이번 R4에서 별도 R 공식15mm slide→lift UI를 연결한다. READY와 최종 검사 결과는 완료 후 추가한다.

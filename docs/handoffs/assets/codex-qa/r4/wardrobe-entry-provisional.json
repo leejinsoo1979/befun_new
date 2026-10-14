@@ -1,0 +1,65 @@
+[
+  {
+    "id": "wardrobe-1",
+    "entry": "photo",
+    "url": "http://127.0.0.1:3003/reference-product/wardrobe-1",
+    "size": "paragraph: 119 × 260 × 45 cm",
+    "provisionalBeforeReady": true
+  },
+  {
+    "id": "wardrobe-1",
+    "entry": "title",
+    "url": "http://127.0.0.1:3003/reference-product/wardrobe-1",
+    "size": "paragraph: 119 × 260 × 45 cm",
+    "provisionalBeforeReady": true
+  },
+  {
+    "id": "wardrobe-1",
+    "entry": "edit",
+    "url": "http://127.0.0.1:3003/reference-product/wardrobe-1",
+    "size": "paragraph: 119 × 260 × 45 cm",
+    "provisionalBeforeReady": true
+  },
+  {
+    "id": "wardrobe-2",
+    "entry": "photo",
+    "url": "http://127.0.0.1:3003/reference-product/wardrobe-2",
+    "size": "paragraph: 415 × 276 × 63 cm",
+    "provisionalBeforeReady": true
+  },
+  {
+    "id": "wardrobe-2",
+    "entry": "title",
+    "url": "http://127.0.0.1:3003/reference-product/wardrobe-2",
+    "size": "paragraph: 415 × 276 × 63 cm",
+    "provisionalBeforeReady": true
+  },
+  {
+    "id": "wardrobe-2",
+    "entry": "edit",
+    "url": "http://127.0.0.1:3003/reference-product/wardrobe-2",
+    "size": "paragraph: 415 × 276 × 63 cm",
+    "provisionalBeforeReady": true
+  },
+  {
+    "id": "wardrobe-3",
+    "entry": "photo",
+    "url": "http://127.0.0.1:3003/reference-product/wardrobe-3",
+    "size": "paragraph: 60 × 275 × 63 cm",
+    "provisionalBeforeReady": true
+  },
+  {
+    "id": "wardrobe-3",
+    "entry": "title",
+    "url": "http://127.0.0.1:3003/reference-product/wardrobe-3",
+    "size": "paragraph: 60 × 275 × 63 cm",
+    "provisionalBeforeReady": true
+  },
+  {
+    "id": "wardrobe-3",
+    "entry": "edit",
+    "url": "http://127.0.0.1:3003/reference-product/wardrobe-3",
+    "size": "paragraph: 60 × 275 × 63 cm",
+    "provisionalBeforeReady": true
+  }
+]

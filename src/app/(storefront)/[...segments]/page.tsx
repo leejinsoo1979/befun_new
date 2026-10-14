@@ -9,6 +9,8 @@ import { SharedDesignPage, SavedDesignsPage } from '@/components/storefront/Save
 import { referenceCatalog } from '@/components/storefront/referenceCatalog';
 import { SourceProductPage } from '@/components/storefront/ReferenceCatalogPages';
 import { ConfiguratorIntro } from '@/components/storefront/ConfiguratorIntro';
+import { FurnitureConfigurator } from '@/components/furniture/FurnitureConfigurator';
+import { catalogFurnitureDesign } from '@/lib/furniture/catalog-design';
 import { catalogCategories, infoTitles, journalArticles } from '@/components/storefront/navigation';
 
 type Props = {params: Promise<{segments: string[]}>; searchParams: Promise<Record<string, string | string[] | undefined>>};
@@ -43,7 +45,11 @@ export default async function StorePage({params,searchParams}: Props) {
   else if (path === 'saved-designs') content=<SavedDesignsPage />;
   else if (path === 'configurator-intro') content=<ConfiguratorIntro />;
   else if (path.startsWith('furniture/')) content=<ProductPage product={products.find(product=>product.id===path.slice(10))!} />;
-  else if (path.startsWith('reference-product/')) content=<SourceProductPage id={path.slice(18)} />;
+  else if (path.startsWith('reference-product/')) {
+    const id = path.slice(18);
+    const initial = catalogFurnitureDesign(id);
+    content = initial ? <FurnitureConfigurator key={id} initial={initial} title={title} /> : <SourceProductPage id={id} />;
+  }
   else if (path.startsWith('sofa/')) content=<ReferenceProductPage id={path.slice(5)} />;
   else if (['search','wishlist'].includes(path)) content=<SearchPage initialQuery={query.q} wishlist={path==='wishlist'} />;
   else if (['inspirations','creators','gallery','review-list'].includes(path)) {content=<CommunityPage key={query.influencer} mode={path} influencer={query.influencer} />;overlay=path==='inspirations';}

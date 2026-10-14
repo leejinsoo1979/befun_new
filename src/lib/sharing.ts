@@ -8,7 +8,7 @@ import { parseSavedDesign, type SavedDesign } from '@/components/storefront/save
 
 export interface DesignConfig {
   baseType?: 'standard' | 'legs';
-  legFinish?: 'silver' | 'black';
+  legFinish?: 'silver' | 'black' | 'panel';
   style: string;
   density: number;
   width: number;

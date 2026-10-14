@@ -1,0 +1,148 @@
+{
+  "origin": "http://127.0.0.1:52527",
+  "classic": {
+    "url": "http://127.0.0.1:52527/furniture-design/desk-classic?design=%7B%22version%22%3A1%2C%22kind%22%3A%22desk%22%2C%22family%22%3A%22desk-classic%22%2C%22color%22%3A%22C_Black%22%2C%22innerColor%22%3A%22S_White%22%2C%22sectionIds%22%3A%5B%22storage-1%22%2C%22storage-2%22%2C%22storage-3%22%5D%2C%22config%22%3A%7B%22family%22%3A%22type01%22%2C%22widthMm%22%3A2015%2C%22depthMm%22%3A500%2C%22storageColumns%22%3A3%2C%22legroomPosition%22%3A2%2C%22hasBackPanel%22%3Atrue%2C%22channels%22%3A%5B%7B%22kind%22%3A%22drawer%22%2C%22doorDirection%22%3A%22right%22%7D%2C%7B%22kind%22%3A%22door%22%2C%22doorDirection%22%3A%22left%22%7D%2C%7B%22kind%22%3A%22drawers%22%2C%22doorDirection%22%3A%22right%22%7D%5D%7D%7D",
+    "design": {
+      "version": 1,
+      "kind": "desk",
+      "family": "desk-classic",
+      "color": "C_Black",
+      "innerColor": "S_White",
+      "sectionIds": [
+        "storage-1",
+        "storage-2",
+        "storage-3"
+      ],
+      "config": {
+        "family": "type01",
+        "widthMm": 2015,
+        "depthMm": 500,
+        "storageColumns": 3,
+        "legroomPosition": 2,
+        "hasBackPanel": true,
+        "channels": [
+          {
+            "kind": "drawer",
+            "doorDirection": "right"
+          },
+          {
+            "kind": "door",
+            "doorDirection": "left"
+          },
+          {
+            "kind": "drawers",
+            "doorDirection": "right"
+          }
+        ]
+      }
+    },
+    "localEqual": true
+  },
+  "modern": {
+    "url": "http://127.0.0.1:52527/furniture-design/desk-modern?design=%7B%22version%22%3A1%2C%22kind%22%3A%22desk%22%2C%22family%22%3A%22desk-modern%22%2C%22color%22%3A%22S_Olive%20Green%22%2C%22innerColor%22%3A%22S_White%22%2C%22sectionIds%22%3A%5B%22storage-1%22%2C%22storage-2%22%2C%22storage-3%22%5D%2C%22config%22%3A%7B%22family%22%3A%22type02%22%2C%22widthMm%22%3A2385%2C%22depthMm%22%3A600%2C%22storageColumns%22%3A3%2C%22legroomPosition%22%3A3%2C%22hasBackPanel%22%3Atrue%2C%22channels%22%3A%5B%7B%22kind%22%3A%22some-door%22%2C%22doorDirection%22%3A%22right%22%7D%2C%7B%22kind%22%3A%22drawers%22%2C%22doorDirection%22%3A%22right%22%7D%2C%7B%22kind%22%3A%22door%22%2C%22doorDirection%22%3A%22left%22%7D%5D%7D%7D",
+    "design": {
+      "version": 1,
+      "kind": "desk",
+      "family": "desk-modern",
+      "color": "S_Olive Green",
+      "innerColor": "S_White",
+      "sectionIds": [
+        "storage-1",
+        "storage-2",
+        "storage-3"
+      ],
+      "config": {
+        "family": "type02",
+        "widthMm": 2385,
+        "depthMm": 600,
+        "storageColumns": 3,
+        "legroomPosition": 3,
+        "hasBackPanel": true,
+        "channels": [
+          {
+            "kind": "some-door",
+            "doorDirection": "right"
+          },
+          {
+            "kind": "drawers",
+            "doorDirection": "right"
+          },
+          {
+            "kind": "door",
+            "doorDirection": "left"
+          }
+        ]
+      }
+    },
+    "localEqual": true
+  },
+  "edge": {
+    "url": "http://127.0.0.1:52527/furniture-design/wardrobe-edge?design=%7B%22version%22%3A1%2C%22kind%22%3A%22wardrobe%22%2C%22family%22%3A%22wardrobe-edge%22%2C%22color%22%3A%22W_Sand%22%2C%22innerColor%22%3A%22T_White%22%2C%22config%22%3A%7B%22model%22%3A%22edge%22%2C%22widthMm%22%3A1190%2C%22heightMm%22%3A2280%2C%22depthMm%22%3A450%2C%22topEdge%22%3Atrue%2C%22sections%22%3A%5B%7B%22id%22%3A%221%22%2C%22seriesId%22%3A%22Half_Rail_Rail_L_1drawers%22%2C%22doorDirection%22%3A%22left%22%2C%22localHeightMm%22%3Anull%2C%22localDepthMm%22%3Anull%7D%2C%7B%22id%22%3A%222%22%2C%22seriesId%22%3A%22Full_Rail_Rail_2x%22%2C%22localHeightMm%22%3Anull%2C%22localDepthMm%22%3Anull%2C%22doorDirection%22%3A%22right%22%7D%5D%2C%22edgeVeneer%22%3Afalse%7D%7D",
+    "design": {
+      "version": 1,
+      "kind": "wardrobe",
+      "family": "wardrobe-edge",
+      "color": "W_Sand",
+      "innerColor": "T_White",
+      "config": {
+        "model": "edge",
+        "widthMm": 1190,
+        "heightMm": 2280,
+        "depthMm": 450,
+        "topEdge": true,
+        "sections": [
+          {
+            "id": "1",
+            "seriesId": "Half_Rail_Rail_L_1drawers",
+            "doorDirection": "left",
+            "localHeightMm": null,
+            "localDepthMm": null
+          },
+          {
+            "id": "2",
+            "seriesId": "Full_Rail_Rail_2x",
+            "localHeightMm": null,
+            "localDepthMm": null,
+            "doorDirection": "right"
+          }
+        ],
+        "edgeVeneer": false
+      }
+    },
+    "localEqual": true
+  },
+  "tone": {
+    "url": "http://127.0.0.1:52527/furniture-design/wardrobe-tone?design=%7B%22version%22%3A1%2C%22kind%22%3A%22wardrobe%22%2C%22family%22%3A%22wardrobe-tone%22%2C%22color%22%3A%22T_Cashmere%22%2C%22innerColor%22%3A%22T_Sage%22%2C%22config%22%3A%7B%22model%22%3A%22tone%22%2C%22widthMm%22%3A1010%2C%22heightMm%22%3A2370%2C%22depthMm%22%3A540%2C%22drawerStyle%22%3A%22external%22%2C%22lighting%22%3Afalse%2C%22sections%22%3A%5B%7B%22id%22%3A%221%22%2C%22seriesId%22%3A3740%2C%22doorDirection%22%3A%22left%22%7D%5D%2C%22toneWidthPattern%22%3A%221%22%7D%7D",
+    "design": {
+      "version": 1,
+      "kind": "wardrobe",
+      "family": "wardrobe-tone",
+      "color": "T_Cashmere",
+      "innerColor": "T_Sage",
+      "config": {
+        "model": "tone",
+        "widthMm": 1010,
+        "heightMm": 2370,
+        "depthMm": 540,
+        "drawerStyle": "external",
+        "lighting": false,
+        "sections": [
+          {
+            "id": "1",
+            "seriesId": 3740,
+            "doorDirection": "left"
+          }
+        ],
+        "toneWidthPattern": "1"
+      }
+    },
+    "localEqual": true
+  },
+  "toneHeightFocus": {
+    "checked": "true",
+    "tag": "BUTTON",
+    "text": "237cm"
+  },
+  "shareLinkMatches": true,
+  "selectionAfterReload": "first section; selected section and active tab are not serialized"
+}

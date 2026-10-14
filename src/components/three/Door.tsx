@@ -4,7 +4,10 @@ import { useRef, useEffect, useMemo } from 'react';
 import * as THREE from 'three';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { createBoredBox } from '@/lib/three/blum/geometry';
+import { useBoredBoxGeometry } from '@/lib/three/blum/useBoredBox';
+import type { Bore } from '@/lib/three/blum/boring';
+
+const NO_HOLES: readonly Bore[] = [];
 import type { BlumDoorPlan } from '@/lib/three/blum/boring';
 import { BlumCup } from './blum/BlumHardware';
 import type { MaterialSet } from '@/lib/three/materials';
@@ -34,12 +37,7 @@ export function Door({ placement, materials, isOpen, thickness, blum, revealBore
 
   const panelThickness = reference?.thickness ?? thickness;
   const frontOffsetY = reference?.frontOffsetY ?? 0;
-  const geometry = useMemo(() => {
-    const geo = createBoredBox(placement.width, placement.height, panelThickness, blum?.holes ?? []);
-    geo.translate(placement.pivotOffsetX, frontOffsetY, 0);
-    return geo;
-  }, [placement.width, placement.height, placement.pivotOffsetX, panelThickness, frontOffsetY, blum]);
-  useEffect(() => () => geometry.dispose(), [geometry]);
+  const geometry = useBoredBoxGeometry(placement.width, placement.height, panelThickness, blum?.holes ?? NO_HOLES, [placement.pivotOffsetX, frontOffsetY, 0]);
 
   useFrame((_, delta) => {
     if (!groupRef.current) return;

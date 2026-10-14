@@ -3,17 +3,32 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
-import { Panel } from '@/components/three/Panel';
 import {DeskPanel} from './DeskPanel';
 import type {DeskCableOpening} from '@/lib/furniture/desk';
 import type {Bore} from '@/lib/three/blum/boring';
 const NO_BORES:readonly Bore[]=[];
+const NO_OPENINGS:readonly DeskCableOpening[]=[];
 import type { MaterialSet } from '@/lib/three/materials';
 import { generateWardrobe, type WardrobeInput, type WardrobeFront, type WardrobeDrawer, type WardrobeBar } from '@/lib/furniture/wardrobe';
 import {loadWardrobeHingeGeometry} from '@/lib/furniture/wardrobe-hinge-assets';
 import {resolveWardrobeHingePlacements,type WardrobeHingePlacement,type WardrobeHingeDoor} from '@/lib/furniture/wardrobe-hinges';
 import { createType01Handle } from '@/lib/three/type01-handle';
-import { createWardrobeGripHandle, createWardrobeShortHandle, createWardrobeFrontBar, createWardrobeCrossBar, createWardrobeLightProfile, createWardrobeLightDiffuser, createWardrobeRingHandle, createWardrobeRingHole } from '@/lib/furniture/wardrobe-hardware';
+import { createWardrobeGripHandle, createWardrobeShortHandle, createWardrobeFrontBar, createWardrobeCrossBar, createWardrobeLightProfile, createWardrobeLightDiffuser, createWardrobeRingHandle, createWardrobeRingHole, loadWardrobeFullHandle } from '@/lib/furniture/wardrobe-hardware';
+
+function FullDrawerHandle({width,handle,material}:{width:number;handle:NonNullable<WardrobeFront['handle']>;material:THREE.Material}){
+  const [loaded,setLoaded]=useState<{width:number;geometry:THREE.BufferGeometry}|null>(null);
+  const invalidate=useThree(state=>state.invalidate);
+  useEffect(()=>{
+    let disposed=false;
+    let owned:THREE.BufferGeometry|undefined;
+    loadWardrobeFullHandle(width).then(geometry=>{
+      if(disposed){geometry.dispose();return;}
+      owned=geometry;setLoaded({width,geometry});invalidate();
+    }).catch(error=>console.error('Drawer handle asset could not be loaded',error));
+    return()=>{disposed=true;owned?.dispose();};
+  },[width,invalidate]);
+  return loaded?.width===width?<mesh geometry={loaded.geometry} material={material} position={[handle.x,handle.y,handle.z]} castShadow receiveShadow dispose={null}/>:null;
+}
 
 function Handle({handle,material}:{handle:NonNullable<WardrobeFront['handle']>;material:THREE.Material}){
   const geometry=useMemo(()=>{
@@ -37,17 +52,18 @@ function Front({front,materials,open,onSelect,hinges,hingeGeometry}:{front:Wardr
   return <group ref={hinge} position={[front.pivotX,0,front.z]} onClick={event=>{event.stopPropagation();onSelect(front.sectionId);}} userData={{sectionId:front.sectionId,doorId:front.id}}>
     <group position={[-front.pivotX,0,-front.z]}>
       {hingeGeometry&&hinges.map((hinge,i)=><HingeMesh key={i} geometry={hingeGeometry} placement={hinge}/>)}
-      <Panel {...front} position={[front.x,front.y,front.z]} materials={materials}/>
+      <DeskPanel panel={front} bores={NO_BORES} openings={NO_OPENINGS} materials={materials}/>
       {front.handle&&<Handle handle={front.handle} material={materials.backPanel}/>}
     </group>
   </group>;
 }
-function SlidingDrawer({drawer,materials,open,onSelect}:{drawer:WardrobeDrawer;materials:MaterialSet;open:boolean;onSelect:(id:string)=>void}){
+function SlidingDrawer({drawer,materials,bodyMaterials,open,onSelect}:{drawer:WardrobeDrawer;materials:MaterialSet;bodyMaterials:MaterialSet;open:boolean;onSelect:(id:string)=>void}){
   const moving=useRef<THREE.Group>(null);
   useFrame((_,delta)=>{if(moving.current)moving.current.position.z=THREE.MathUtils.damp(moving.current.position.z,open?drawer.travelCm:0,8,delta);});
   return <group ref={moving} onClick={event=>{event.stopPropagation();onSelect(drawer.sectionId);}} userData={{sectionId:drawer.sectionId,drawerId:drawer.id}}>
-    {[...drawer.parts,drawer.front].map((part,i)=><Panel key={i} {...part} position={[part.x,part.y,part.z]} materials={materials}/>)}
-    {drawer.front.handle&&<Handle handle={drawer.front.handle} material={materials.backPanel}/>}
+    {drawer.parts.map((part,i)=><DeskPanel key={i} panel={part} bores={NO_BORES} openings={NO_OPENINGS} materials={bodyMaterials}/>)}
+    <DeskPanel panel={drawer.front} bores={NO_BORES} openings={NO_OPENINGS} materials={materials}/>
+    {drawer.front.handle&&(drawer.front.handle.asset==='fullHandleTop'?<FullDrawerHandle width={drawer.front.w} handle={drawer.front.handle} material={bodyMaterials.backPanel}/>:<Handle handle={drawer.front.handle} material={bodyMaterials.backPanel}/>)}
   </group>;
 }
 function Rail({bar,material}:{bar:WardrobeBar;material:THREE.Material}){
@@ -91,7 +107,7 @@ export function WardrobeModel({config,materials,innerMaterials,open,selectedSect
   return <group name="befun-wardrobe" userData={{model:config.model,unsupported:result.unsupported,panelCount:result.panels.length,doorCount:result.fronts.length,drawerCount:result.drawers?.length??0}}>
     {result.panels.map((panel,index)=><DeskPanel key={`panel-${index}`} panel={panel} bores={NO_BORES} openings={panelOpenings[index]} materials={config.model==='tone'&&index<frameStart?innerMaterials:materials}/>)}
     {result.fronts.map(front=><Front key={front.id} front={front} materials={materials} open={open} onSelect={onSelectSection} hinges={hinges.filter(h=>h.asset==='hingeWing'&&h.doorIndex===Number(front.id.replace('door-','')))} hingeGeometry={hingeAssets?.wing??null}/>)}
-    {result.drawers?.map(drawer=><SlidingDrawer key={drawer.id} drawer={drawer} materials={drawer.front.external?materials:innerMaterials} open={open} onSelect={onSelectSection}/>)}
+    {result.drawers?.map(drawer=><SlidingDrawer key={drawer.id} drawer={drawer} materials={drawer.front.external?materials:innerMaterials} bodyMaterials={innerMaterials} open={open} onSelect={onSelectSection}/>)}
     {hingeAssets&&hinges.filter(h=>h.asset==='hingeAnchor').map((hinge,i)=><HingeMesh key={`anchor-${i}`} geometry={hingeAssets.anchor} placement={hinge}/>)}
     {source?.lighting?.map((part,index)=><CabinetLight key={`light-${index}`} part={part}/>)}
     {result.bars.map(bar=><Rail key={bar.id} bar={bar} material={innerMaterials.backPanel}/>)}

@@ -1,0 +1,13 @@
+✔ type01 left: cable bores remove volume and pass rays through actual top/back panels (162.007208ms)
+✔ type01 right: cable bores remove volume and pass rays through actual top/back panels (77.273ms)
+✔ type02 left: cable bores remove volume and pass rays through actual top/back panels (115.269917ms)
+✔ type02 right: cable bores remove volume and pass rays through actual top/back panels (81.425958ms)
+✔ cable CSG retains existing blind hinge pockets and front skin (114.342458ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 917.61575

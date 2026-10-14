@@ -6,6 +6,7 @@ import { FiShare } from 'react-icons/fi';
 import { TbAugmentedReality2 } from 'react-icons/tb';
 import { useDisplayStore, type ViewDirection } from './displayStore';
 import { useUIStore } from '@/stores/useUIStore';
+import { useMeasureStore } from '../measure/measureStore';
 import styles from './display.module.css';
 import { AssemblyTransport } from './AssemblyTransport';
 
@@ -38,6 +39,8 @@ export function ViewToolbar({ onShare, onAR, actionsDisabled = false }: ViewTool
   const { showDecor, toggleDecor, boringSummary, showBores, toggleBores, phase, view, projection, appearance, setAppearance, exploded, freeOrbit, selectView, setProjection, toggleExploded } = useDisplayStore();
   const dimensions = useUIStore((s) => s.showDimensions);
   const setDimensions = useUIStore((s) => s.setShowDimensions);
+  const measuring = useMeasureStore((s) => s.enabled);
+  const toggleMeasure = useMeasureStore((s) => s.toggle);
   const moving = phase === 'assembling' || phase === 'disassembling';
   return <><div className={styles.toolbar} onKeyDown={(event) => { if (event.key === 'Escape') { setExpanded(false); event.currentTarget.querySelector<HTMLButtonElement>('button[aria-controls]')?.focus(); } }}>
     <button className={styles.menu} aria-expanded={expanded} aria-controls="viewer-display-options" title={expanded ? '보기 도구 접기' : '보기 도구 펼치기'} onClick={() => setExpanded(!expanded)}>
@@ -67,6 +70,9 @@ export function ViewToolbar({ onShare, onAR, actionsDisabled = false }: ViewTool
         </button>
         <button title="치수 표시" aria-pressed={dimensions} disabled={exploded} onClick={() => setDimensions(!dimensions)}>
           <svg viewBox="0 0 28 28" width="24" height="24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 9h22v10H3Zm4 0v6m4-6v4m4-4v6m4-6v4"/></svg><span>치수</span>
+        </button>
+        <button title="판재에 마우스를 올려 가로·세로·깊이 측정" aria-label="측정" aria-pressed={measuring} disabled={exploded} onClick={toggleMeasure}>
+          <svg viewBox="0 0 28 28" width="24" height="24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 4h20v20H4Z"/><path d="M9 4v20M14 4v20M19 4v20M4 9h20M4 14h20M4 19h20" strokeWidth=".7"/><path d="m8 22 12-12" stroke={ACCENT} strokeWidth="1.6"/></svg><span>측정</span>
         </button>
       </div>
       {(onShare || onAR) && <div className={styles.actions} role="group" aria-label="공유 및 AR">

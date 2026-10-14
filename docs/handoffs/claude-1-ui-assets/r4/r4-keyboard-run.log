@@ -1,0 +1,70 @@
+PASS R4-E-01 | 외형 탭에서 ArrowRight | 내부 구성 탭 선택·포커스 | 내부 구성 / focus=내부 구성
+PASS R4-E-02 | 구획 선택 ArrowRight | 구획 2 선택·포커스 | 구획 2 / focus=구획 2
+PASS R4-E-03 | 구획2 전면=모두 열림(Space) | 문 방향 숨김 | facade=모두 열림 door=false
+PASS R4-E-04 | 구획1로 이동 | 구획1 전면 값은 원래 값, 문 방향 다시 보임 | section=구획 1 facade=하단 열림 door=true
+PASS R4-E-05 | 구획1 문 방향=오른쪽 | 오른쪽 | 오른쪽
+PASS R4-E-06 | 구획2로 이동 | 구획2 전면=모두 열림 유지, 문 방향 숨김(이전 값 모두 닫힘) | section=구획 2 facade=모두 열림 door=false
+PASS R4-E-07 | 구획1 복귀 | 문 방향=오른쪽 유지 | 오른쪽
+PASS R4-E-08 | 구획 높이 ArrowRight×2 | 인덱스+2, 표시 cm 갱신, 포커스 유지 | 2(198cm)→4(229cm) focus=구획 높이
+PASS R4-E-09 | 너비 ArrowRight×5(연속) | +5cm, step 1, 포커스 유지 | 118→123 step=1 focus=너비
+PASS R4-E-10 | 너비 Home | min 40로(또는 adapter 보정값) | 40 sections=1
+PASS R4-E-11 | 너비 드래그 중 pointercancel | 표시값 = 실제 설계값(헤더 치수), 튐 없음 | slider=320 header=320 × 229 × 60 cm
+PASS R4-E-12 | 저장→너비 End→불러오기 | 외부 복원값 320 즉시 반영 | 320
+PASS R4-T-01 | 높이 + (Enter) | 확장 슬라이더 238, 포커스가 슬라이더로 | 238 238-360 focus=높이 (높이 +)
+PASS R4-T-02 | (포커스 그대로) ArrowRight×2 | 240, 포커스 유지 | 240 focus=높이 (높이 +)
+PASS R4-T-03 | 기본 높이(Enter) | 237 선택, 슬라이더 사라짐, 포커스는 237cm | 237cm slider=0 focus=237cm
+PASS R4-T-04 | 깊이 ArrowLeft | -1cm, step 1 | 53→52 step=1
+PASS R4-T-05 | 외부 색상=그래파이트(Space) | 선택·이름 표시 | 그래파이트 name=그래파이트
+PASS R4-T-06 | 서랍=외부 | 외부 | 외부
+PASS R4-desk-1-01 | 너비 step 속성 | nullable step → any(값 임의 생성 없음) | step=any 90-240
+PASS R4-desk-1-02 | 너비 ArrowRight×2 | 증가·포커스 유지 | 200→203 focus=너비
+PASS R4-desk-1-03 | 수납 구획 + (enabled=true) | 다리 공간 max = 구획 수, 값 표시 없음 | legSpace 1 0-3 text=1 sections=3
+PASS R4-desk-1-04 | 다리 공간 End | max(3)로, 포커스 유지 | 3 focus=다리 공간
+PASS R4-desk-1-09 | 비활성 스테퍼 클릭·Enter | 구획 수 불변 | 3→3 (inc=true dec=true)
+PASS R4-desk-1-05 | 수납 1 수납 구성=도어 | 도어면 도어 방향 표시 | kind=도어 door=true (kinds=오픈 수납/도어/서랍 3단/도어 · 오픈 · 서랍/서랍 2단 · 오픈/오픈 · 서랍/도어 · 서랍/도어 · 오픈)
+PASS R4-desk-1-06 | 수납 2로 이동 | 선택 표시 이동, 값은 구획2 고유 | section=수납 2 kind=도어 · 서랍
+PASS R4-desk-1-07 | 수납 1 복귀 | 수납 구성=도어 유지 | 도어
+PASS R4-desk-1-08 | 도어 방향=왼쪽 경첩 | 왼쪽 경첩 | 왼쪽 경첩
+PASS R4-desk-modern-01 | 너비 step 속성 | nullable step → any(값 임의 생성 없음) | step=any 90-240
+PASS R4-desk-modern-02 | 너비 ArrowRight×2 | 증가·포커스 유지 | 120→123 focus=너비
+PASS R4-desk-modern-03 | 수납 구획 + (enabled=false) | 다리 공간 max = 구획 수, 값 표시 없음 | legSpace 1 0-1 text=1 sections=1
+PASS R4-desk-modern-04 | 다리 공간 End | max(1)로, 포커스 유지 | 1 focus=다리 공간
+PASS R4-desk-modern-09 | 비활성 스테퍼 클릭·Enter | 구획 수 불변 | 1→1 (inc=false dec=false)
+PASS R4-desk-modern-05 | 수납 1 수납 구성=도어 | 도어면 도어 방향 표시 | kind=도어 door=true (kinds=오픈 수납/도어/서랍 3단/도어 · 오픈 · 서랍/서랍 2단 · 오픈/오픈 · 서랍/도어 · 서랍/도어 · 오픈)
+PASS R4-desk-modern-08 | 도어 방향=왼쪽 경첩 | 왼쪽 경첩 | 왼쪽 경첩
+SUMMARY 1440 34 / 34 errors []
+PASS R4-E-01 | 외형 탭에서 ArrowRight | 내부 구성 탭 선택·포커스 | 내부 구성 / focus=내부 구성
+PASS R4-E-02 | 구획 선택 ArrowRight | 구획 2 선택·포커스 | 구획 2 / focus=구획 2
+PASS R4-E-03 | 구획2 전면=모두 열림(Space) | 문 방향 숨김 | facade=모두 열림 door=false
+PASS R4-E-04 | 구획1로 이동 | 구획1 전면 값은 원래 값, 문 방향 다시 보임 | section=구획 1 facade=하단 열림 door=true
+PASS R4-E-05 | 구획1 문 방향=오른쪽 | 오른쪽 | 오른쪽
+PASS R4-E-06 | 구획2로 이동 | 구획2 전면=모두 열림 유지, 문 방향 숨김(이전 값 모두 닫힘) | section=구획 2 facade=모두 열림 door=false
+PASS R4-E-07 | 구획1 복귀 | 문 방향=오른쪽 유지 | 오른쪽
+PASS R4-E-08 | 구획 높이 ArrowRight×2 | 인덱스+2, 표시 cm 갱신, 포커스 유지 | 2(198cm)→4(229cm) focus=구획 높이
+PASS R4-E-09 | 너비 ArrowRight×5(연속) | +5cm, step 1, 포커스 유지 | 118→123 step=1 focus=너비
+PASS R4-E-10 | 너비 Home | min 40로(또는 adapter 보정값) | 40 sections=1
+PASS R4-E-11 | 너비 드래그 중 pointercancel | 표시값 = 실제 설계값(헤더 치수), 튐 없음 | slider=320 header=320 × 229 × 60 cm
+PASS R4-E-12 | 저장→너비 End→불러오기 | 외부 복원값 320 즉시 반영 | 320
+PASS R4-T-01 | 높이 + (Enter) | 확장 슬라이더 238, 포커스가 슬라이더로 | 238 238-360 focus=높이 (높이 +)
+PASS R4-T-02 | (포커스 그대로) ArrowRight×2 | 240, 포커스 유지 | 240 focus=높이 (높이 +)
+PASS R4-T-03 | 기본 높이(Enter) | 237 선택, 슬라이더 사라짐, 포커스는 237cm | 237cm slider=0 focus=237cm
+PASS R4-T-04 | 깊이 ArrowLeft | -1cm, step 1 | 53→52 step=1
+PASS R4-T-05 | 외부 색상=그래파이트(Space) | 선택·이름 표시 | 그래파이트 name=그래파이트
+PASS R4-T-06 | 서랍=외부 | 외부 | 외부
+PASS R4-desk-1-01 | 너비 step 속성 | nullable step → any(값 임의 생성 없음) | step=any 90-240
+PASS R4-desk-1-02 | 너비 ArrowRight×2 | 증가·포커스 유지 | 200→203 focus=너비
+PASS R4-desk-1-03 | 수납 구획 + (enabled=true) | 다리 공간 max = 구획 수, 값 표시 없음 | legSpace 1 0-3 text=1 sections=3
+PASS R4-desk-1-04 | 다리 공간 End | max(3)로, 포커스 유지 | 3 focus=다리 공간
+PASS R4-desk-1-09 | 비활성 스테퍼 클릭·Enter | 구획 수 불변 | 3→3 (inc=true dec=true)
+PASS R4-desk-1-05 | 수납 1 수납 구성=도어 | 도어면 도어 방향 표시 | kind=도어 door=true (kinds=오픈 수납/도어/서랍 3단/도어 · 오픈 · 서랍/서랍 2단 · 오픈/오픈 · 서랍/도어 · 서랍/도어 · 오픈)
+PASS R4-desk-1-06 | 수납 2로 이동 | 선택 표시 이동, 값은 구획2 고유 | section=수납 2 kind=도어 · 서랍
+PASS R4-desk-1-07 | 수납 1 복귀 | 수납 구성=도어 유지 | 도어
+PASS R4-desk-1-08 | 도어 방향=왼쪽 경첩 | 왼쪽 경첩 | 왼쪽 경첩
+PASS R4-desk-modern-01 | 너비 step 속성 | nullable step → any(값 임의 생성 없음) | step=any 90-240
+PASS R4-desk-modern-02 | 너비 ArrowRight×2 | 증가·포커스 유지 | 120→123 focus=너비
+PASS R4-desk-modern-03 | 수납 구획 + (enabled=false) | 다리 공간 max = 구획 수, 값 표시 없음 | legSpace 1 0-1 text=1 sections=1
+PASS R4-desk-modern-04 | 다리 공간 End | max(1)로, 포커스 유지 | 1 focus=다리 공간
+PASS R4-desk-modern-09 | 비활성 스테퍼 클릭·Enter | 구획 수 불변 | 1→1 (inc=false dec=false)
+PASS R4-desk-modern-05 | 수납 1 수납 구성=도어 | 도어면 도어 방향 표시 | kind=도어 door=true (kinds=오픈 수납/도어/서랍 3단/도어 · 오픈 · 서랍/서랍 2단 · 오픈/오픈 · 서랍/도어 · 서랍/도어 · 오픈)
+PASS R4-desk-modern-08 | 도어 방향=왼쪽 경첩 | 왼쪽 경첩 | 왼쪽 경첩
+SUMMARY 390 34 / 34 errors []

@@ -1,0 +1,124 @@
+{
+  "timestamp": "2026-10-14T03:30:59.765Z",
+  "provisionalBeforeReady": true,
+  "cases": [
+    {
+      "id": "wardrobe-1",
+      "url": "http://127.0.0.1:52527/furniture-design/wardrobe-edge?design=%7B%22version%22%3A1%2C%22kind%22%3A%22wardrobe%22%2C%22family%22%3A%22wardrobe-edge%22%2C%22color%22%3A%22W_Plum%22%2C%22innerColor%22%3A%22W_Plum%22%2C%22config%22%3A%7B%22model%22%3A%22edge%22%2C%22widthMm%22%3A1200%2C%22heightMm%22%3A2600%2C%22depthMm%22%3A450%2C%22topEdge%22%3Atrue%2C%22sections%22%3A%5B%7B%22id%22%3A%221%22%2C%22seriesId%22%3A%22Open_Shelves_Slabs%22%2C%22facade%22%3A%22open%22%2C%22localHeightMm%22%3Anull%2C%22localDepthMm%22%3Anull%7D%2C%7B%22id%22%3A%222%22%2C%22seriesId%22%3A%22Full_Shelves_Slabs_bottom_drawer%22%2C%22facade%22%3A%22closed%22%2C%22doorDirection%22%3A%22right%22%2C%22localHeightMm%22%3Anull%2C%22localDepthMm%22%3Anull%7D%5D%7D%7D",
+      "design": {
+        "version": 1,
+        "kind": "wardrobe",
+        "family": "wardrobe-edge",
+        "color": "W_Plum",
+        "innerColor": "W_Plum",
+        "config": {
+          "model": "edge",
+          "widthMm": 1200,
+          "heightMm": 2600,
+          "depthMm": 450,
+          "topEdge": true,
+          "sections": [
+            {
+              "id": "1",
+              "seriesId": "Open_Shelves_Slabs",
+              "facade": "open",
+              "localHeightMm": null,
+              "localDepthMm": null
+            },
+            {
+              "id": "2",
+              "seriesId": "Full_Shelves_Slabs_bottom_drawer",
+              "facade": "closed",
+              "doorDirection": "right",
+              "localHeightMm": null,
+              "localDepthMm": null
+            }
+          ]
+        }
+      },
+      "localEqual": true
+    },
+    {
+      "id": "wardrobe-2",
+      "url": "http://127.0.0.1:52527/furniture-design/wardrobe-tone?design=%7B%22version%22%3A1%2C%22kind%22%3A%22wardrobe%22%2C%22family%22%3A%22wardrobe-tone%22%2C%22color%22%3A%22T_Cashmere%22%2C%22innerColor%22%3A%22T_Pink%22%2C%22config%22%3A%7B%22model%22%3A%22tone%22%2C%22widthMm%22%3A4160%2C%22heightMm%22%3A2760%2C%22depthMm%22%3A630%2C%22toneWidthPattern%22%3A%2211111%22%2C%22drawerStyle%22%3A%22internal%22%2C%22lighting%22%3Afalse%2C%22sections%22%3A%5B%7B%22id%22%3A%221%22%2C%22seriesId%22%3A3741%2C%22facade%22%3A%22closed%22%2C%22doorDirection%22%3A%22left%22%7D%2C%7B%22id%22%3A%222%22%2C%22seriesId%22%3A3738%2C%22facade%22%3A%22closed%22%2C%22doorDirection%22%3A%22left%22%7D%2C%7B%22id%22%3A%223%22%2C%22seriesId%22%3A3746%2C%22facade%22%3A%22closed%22%2C%22doorDirection%22%3A%22left%22%7D%2C%7B%22id%22%3A%224%22%2C%22seriesId%22%3A3742%2C%22facade%22%3A%22closed%22%2C%22doorDirection%22%3A%22left%22%7D%2C%7B%22id%22%3A%225%22%2C%22seriesId%22%3A3743%2C%22facade%22%3A%22closed%22%2C%22doorDirection%22%3A%22left%22%7D%5D%7D%7D",
+      "design": {
+        "version": 1,
+        "kind": "wardrobe",
+        "family": "wardrobe-tone",
+        "color": "T_Cashmere",
+        "innerColor": "T_Pink",
+        "config": {
+          "model": "tone",
+          "widthMm": 4160,
+          "heightMm": 2760,
+          "depthMm": 630,
+          "toneWidthPattern": "11111",
+          "drawerStyle": "internal",
+          "lighting": false,
+          "sections": [
+            {
+              "id": "1",
+              "seriesId": 3741,
+              "facade": "closed",
+              "doorDirection": "left"
+            },
+            {
+              "id": "2",
+              "seriesId": 3738,
+              "facade": "closed",
+              "doorDirection": "left"
+            },
+            {
+              "id": "3",
+              "seriesId": 3746,
+              "facade": "closed",
+              "doorDirection": "left"
+            },
+            {
+              "id": "4",
+              "seriesId": 3742,
+              "facade": "closed",
+              "doorDirection": "left"
+            },
+            {
+              "id": "5",
+              "seriesId": 3743,
+              "facade": "closed",
+              "doorDirection": "left"
+            }
+          ]
+        }
+      },
+      "localEqual": true
+    },
+    {
+      "id": "wardrobe-3",
+      "url": "http://127.0.0.1:52527/furniture-design/wardrobe-tone?design=%7B%22version%22%3A1%2C%22kind%22%3A%22wardrobe%22%2C%22family%22%3A%22wardrobe-tone%22%2C%22color%22%3A%22T_Graphite%22%2C%22innerColor%22%3A%22T_Graphite%22%2C%22config%22%3A%7B%22model%22%3A%22tone%22%2C%22widthMm%22%3A610%2C%22heightMm%22%3A2750%2C%22depthMm%22%3A630%2C%22toneWidthPattern%22%3A%221%22%2C%22drawerStyle%22%3A%22external%22%2C%22lighting%22%3Afalse%2C%22sections%22%3A%5B%7B%22id%22%3A%221%22%2C%22seriesId%22%3A3743%2C%22facade%22%3A%22closed%22%2C%22doorDirection%22%3A%22left%22%7D%5D%7D%7D",
+      "design": {
+        "version": 1,
+        "kind": "wardrobe",
+        "family": "wardrobe-tone",
+        "color": "T_Graphite",
+        "innerColor": "T_Graphite",
+        "config": {
+          "model": "tone",
+          "widthMm": 610,
+          "heightMm": 2750,
+          "depthMm": 630,
+          "toneWidthPattern": "1",
+          "drawerStyle": "external",
+          "lighting": false,
+          "sections": [
+            {
+              "id": "1",
+              "seriesId": 3743,
+              "facade": "closed",
+              "doorDirection": "left"
+            }
+          ]
+        }
+      },
+      "localEqual": true
+    }
+  ]
+}

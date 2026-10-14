@@ -1,12 +1,28 @@
 'use client';
 
 import { Environment, Lightformer } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
+import { useFrame, useThree } from '@react-three/fiber';
+import { useEffect, useRef } from 'react';
+import type { WebGLRenderer } from 'three';
+
+function reportRenderer(gl: WebGLRenderer) {
+  gl.domElement.dataset.rendererState = gl.getContext().isContextLost() ? 'context-lost' : 'ready';
+  gl.domElement.dataset.renderGeometries = String(gl.info.memory.geometries);
+  gl.domElement.dataset.renderTextures = String(gl.info.memory.textures);
+  gl.domElement.dataset.renderPrograms = String(gl.info.programs?.length ?? 0);
+}
 
 /** Befun studio lightformers; one soft shadow light across all guide topics. */
 export function GuideEnvironment() {
+  const gl = useThree(state => state.gl);
   const sample = useRef({ seconds: 0, frames: 0 });
+  useEffect(() => {
+    if (process.env.NODE_ENV !== 'development') return;
+    const report = () => reportRenderer(gl);
+    report();
+    const interval = window.setInterval(report, 1000);
+    return () => window.clearInterval(interval);
+  }, [gl]);
   useFrame(({ gl }, delta) => {
     if (process.env.NODE_ENV !== 'development') return;
     sample.current.seconds += delta; sample.current.frames++;

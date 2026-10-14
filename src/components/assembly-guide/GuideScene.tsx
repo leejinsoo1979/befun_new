@@ -1,15 +1,17 @@
 'use client';
 
-import { Suspense, memo, useEffect, useMemo, useRef, type ComponentRef } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Suspense, memo, useCallback, useEffect, useMemo, useRef, useState, type ComponentRef } from 'react';
+import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
 import { Html, Line, OrbitControls } from '@react-three/drei';
-import { BufferGeometry, DoubleSide, Group, MeshStandardMaterial, Path, Plane, Shape, ShapeGeometry, Vector3 } from 'three';
+import { BoxGeometry, BufferGeometry, DoubleSide, Group, MeshStandardMaterial, Path, Plane, PlaneGeometry, Shape, ShapeGeometry, TextureLoader, Vector3 } from 'three';
 import { OvvoPH, OvvoRH, OvvoPC, OvvoRC, guideMounts } from '@/components/three/furniture-hardware/ovvo';
 import { ovvoGuideModel } from '@/lib/assembly-guide/ovvoMounts';
 import { inspectionShot, type JointInspection } from '@/lib/assembly-guide/inspectionShot';
 import { jointExample, jointPose, type ConnectorModel, type GuideTopic } from '@/lib/assembly-guide/sequence';
 import { cinematicJointShot } from '@/lib/assembly-guide/cinematicShot';
-import { createColorMaterials, disposeMaterialSet } from '@/lib/three/materials';
+import { birchEdgeTexture, mapPanelEdgeUvs } from '@/lib/assembly-guide/panelMaterials';
+import { releasePose, releaseShot, type JointAction } from '@/lib/assembly-guide/disassembly';
+import { usePanelMaterials } from './usePanelMaterials';
 import { createCameraRig, updateCameraRig } from './cameraRig';
 import { GuideEnvironment } from './GuideEnvironment';
 import { JointSectionCaps } from './JointSectionCaps';
@@ -35,6 +37,7 @@ export interface GuidePlayback {
   continuous: boolean;
   reference: boolean;
   legAction: LegAction;
+  jointAction: JointAction;
 }
 
 export type SceneProps = {
@@ -43,6 +46,7 @@ export type SceneProps = {
   model: ConnectorModel;
   topic: GuideTopic;
   step: number;
+  jointAction: JointAction;
   inside: boolean;
   clipColourVersion: ClipColourVersion;
   onUpdate: (progress: number, playing: boolean) => void;
@@ -73,7 +77,14 @@ function pocketSurface(width: number, depth: number) {
 function Board({ upright, inside }: { upright?: boolean; inside: boolean }) {
   const width = upright ? jointExample.thickness : jointExample.width;
   const height = upright ? jointExample.height : jointExample.thickness;
-  const surface = useMemo(() => pocketSurface(width, jointExample.depth), [width]);
+  const surface = useMemo(() => {
+    const geometry = pocketSurface(width, jointExample.depth);
+    if (upright) {
+      const p = geometry.getAttribute('position'), uv = geometry.getAttribute('uv');
+      for (let i = 0; i < p.count; i++) uv.setXY(i, p.getX(i) / jointExample.thickness + .5, p.getY(i) / 300 + .5);
+    }
+    return geometry;
+  }, [width, upright]);
   const outlines = useMemo(() => jointExample.centers.map(center => {
     const radius = jointExample.slotWidth / 2;
     const straight = (jointExample.slotLength - jointExample.slotWidth) / 2;
@@ -87,26 +98,27 @@ function Board({ upright, inside }: { upright?: boolean; inside: boolean }) {
   useEffect(() => () => { surface.dispose(); outlines.forEach(outline => outline.dispose()); }, [surface, outlines]);
   const direction = upright ? 1 : -1;
   const remaining = height - jointExample.slotDepth;
-  const paint = useMemo(() => createColorMaterials('#e4e7eb', '#cdd2d9'), []);
-  useEffect(() => () => disposeMaterialSet(paint), [paint]);
-  const material = { color: paint.horizontalBase.color, map: paint.horizontalBase.map, roughnessMap: paint.horizontalBase.roughnessMap, roughness: .46, transparent: inside, opacity: inside ? .08 : 1, depthWrite: !inside };
+  const material = usePanelMaterials(upright ? 0 : 1, inside);
+  const bodyCenter = direction * (jointExample.slotDepth + remaining / 2);
+  const geometry = useMemo(() => mapPanelEdgeUvs(new BoxGeometry(width, remaining, jointExample.depth), upright ? 0 : 1, jointExample.thickness, upright ? -width / 2 : -height, [0, bodyCenter, 0]), [upright, width, height, remaining, bodyCenter]);
+  const edgePlanes = useMemo(() => {
+    const x = new PlaneGeometry(jointExample.depth, jointExample.slotDepth);
+    const z = new PlaneGeometry(width, jointExample.slotDepth);
+    for (const plane of upright ? [z] : [x, z]) {
+      const p = plane.getAttribute('position'), uv = plane.getAttribute('uv');
+      for (let i = 0; i < p.count; i++) uv.setXY(i, upright ? p.getX(i) / width + .5 : (p.getY(i) + direction * jointExample.slotDepth / 2 + height) / height, (upright ? p.getY(i) : p.getX(i)) / 300 + .5);
+    }
+    return { x, z };
+  }, [upright, width, height, direction]);
+  useEffect(() => () => { geometry.dispose(); edgePlanes.x.dispose(); edgePlanes.z.dispose(); }, [geometry, edgePlanes]);
   return <group>
-    <mesh geometry={surface} rotation={[Math.PI / 2, 0, 0]} receiveShadow={!inside} dispose={null}>
-      <meshStandardMaterial {...material} side={DoubleSide} key={inside ? 'inside' : 'solid'} />
-    </mesh>
-    <mesh position={[0, direction * (jointExample.slotDepth + remaining / 2), 0]} castShadow={!inside} receiveShadow={!inside}>
-      <boxGeometry args={[width, remaining, jointExample.depth]} />
-      <meshStandardMaterial {...material} key={inside ? 'inside' : 'solid'} />
-    </mesh>
+    <mesh geometry={surface} material={upright ? material.birch : material.laminate} rotation={[Math.PI / 2, 0, 0]} receiveShadow={!inside} dispose={null} />
+    <mesh geometry={geometry} material={material.faces} position={[0, bodyCenter, 0]} castShadow={!inside} receiveShadow={!inside} dispose={null} />
     {/* Outer board edges are known. The pocket-depth interval is an explicit cutaway;
         its interior profile is unmeasured, so there are no pretend wood sidewalls. */}
     {[-1, 1].map(side => <group key={side}>
-      <mesh position={[side * width / 2, direction * jointExample.slotDepth / 2, 0]} rotation={[0, Math.PI / 2, 0]}>
-        <planeGeometry args={[jointExample.depth, jointExample.slotDepth]} /><meshStandardMaterial {...material} side={DoubleSide} />
-      </mesh>
-      <mesh position={[0, direction * jointExample.slotDepth / 2, side * jointExample.depth / 2]}>
-        <planeGeometry args={[width, jointExample.slotDepth]} /><meshStandardMaterial {...material} side={DoubleSide} />
-      </mesh>
+      <mesh geometry={edgePlanes.x} material={upright ? material.laminate : material.birch} position={[side * width / 2, direction * jointExample.slotDepth / 2, 0]} rotation={[0, Math.PI / 2, 0]} dispose={null} />
+      <mesh geometry={edgePlanes.z} material={material.birch} position={[0, direction * jointExample.slotDepth / 2, side * jointExample.depth / 2]} dispose={null} />
     </group>)}
     {outlines.map((outline, index) => <lineLoop key={index} geometry={outline} position={[0, direction * .03, 0]} dispose={null}>
       <lineBasicMaterial color="#9ca5b0" transparent opacity={inside ? .3 : .7} />
@@ -121,7 +133,7 @@ function DirectionArrow({ direction }: { direction: 'down' | 'up' | 'slide' }) {
   </group>;
 }
 
-function JointScene({ onTick, onManual, model, step, inside, onUpdate }: SceneProps) {
+function JointScene({ onTick, onManual, model, step, jointAction, inside, onUpdate }: SceneProps) {
   const gl = useThree(state => state.gl);
   const sectionPlanes = useRef([new Plane(new Vector3(-1, 0, 0), 0)]);
   useEffect(() => () => { gl.clippingPlanes = []; gl.shadowMap.enabled = true; }, [gl]);
@@ -145,7 +157,8 @@ function JointScene({ onTick, onManual, model, step, inside, onUpdate }: ScenePr
 
   useFrame(({ camera, size, gl }, delta) => {
     const state = onTick(delta);
-    const reveal = state.continuous && state.model === 'V-1230R' && state.step === 6 && state.inspection === 'auto' && !state.overview && !state.manual;
+    const releasing = state.jointAction === 'disassemble';
+    const reveal = state.continuous && state.model === 'V-1230R' && (releasing ? state.step === 1 : state.step === 6) && state.inspection === 'auto' && !state.overview && !state.manual;
     const amount = Math.min(1, Math.max(0, state.progress / .2));
     sectionPlanes.current[0].constant = reveal ? 6 * (1 - amount * amount * (3 - 2 * amount)) : 0;
     const cut = state.inspection === 'section' && !state.manual || reveal;
@@ -159,21 +172,22 @@ function JointScene({ onTick, onManual, model, step, inside, onUpdate }: ScenePr
       published.current = { progress: state.progress, playing: state.playing };
       onUpdate(state.progress, state.playing);
     }
-    const pose = jointPose(state.model, state.step, state.progress);
+    const pose = releasing ? releasePose(state.step, state.progress) : jointPose(state.model, state.step, state.progress);
     panel.current?.position.set(0, pose.panelGap, pose.panelSlide);
     if (baseHardware.current) { baseHardware.current.position.y = pose.baseHousingOffset; baseHardware.current.visible = pose.baseHousingsVisible; }
     if (endHardware.current) { endHardware.current.position.y = pose.endHousingOffset; endHardware.current.visible = pose.endHousingsVisible; }
     if (connectors.current) { connectors.current.position.y = pose.connectorOffset; connectors.current.visible = pose.connectorsVisible; }
     if (arrow.current) {
       arrow.current.visible = state.step >= 1 && state.progress < 1 && !pose.complete;
-      const y = state.step === 1 ? pose.baseHousingOffset + 20 : state.step === 2 ? pose.panelGap + pose.endHousingOffset - 18 : state.step === 3 ? pose.panelGap + pose.connectorOffset - 28 : pose.panelGap + 18;
+      const y = releasing ? pose.panelGap + 18 : state.step === 1 ? pose.baseHousingOffset + 20 : state.step === 2 ? pose.panelGap + pose.endHousingOffset - 18 : state.step === 3 ? pose.panelGap + pose.connectorOffset - 28 : pose.panelGap + 18;
       arrow.current.position.set(cut ? -16 : 16, y, jointExample.centers[0] + (state.step > 1 ? pose.panelSlide : 0));
     }
+    if (arrow.current) arrow.current.rotation.x = releasing && state.step === 1 ? Math.PI : 0;
     if (!state.manual && controls.current) {
       const aspect = size.width / Math.max(1, size.height);
       const inspection = state.inspection ?? 'auto';
       const target: [number, number, number] = [0, state.step === 2 || state.step === 3 ? pose.panelGap + 3 : -5, jointExample.centers[0] + (state.step === 2 || state.step === 3 ? pose.panelSlide : 0)];
-      const shot = inspection === 'auto' ? cinematicJointShot(state.model, state.step, state.progress, aspect, state.overview, state.rear) : inspectionShot(inspection, target, aspect);
+      const shot = inspection === 'auto' ? releasing ? releaseShot(state.step, state.progress, aspect, state.overview, state.rear) : cinematicJointShot(state.model, state.step, state.progress, aspect, state.overview, state.rear) : inspectionShot(inspection, target, aspect);
       updateCameraRig(camera, controls.current, cameraRig, shot, state.revision, delta, inspection !== 'auto');
     }
   }, -1);
@@ -181,33 +195,64 @@ function JointScene({ onTick, onManual, model, step, inside, onUpdate }: ScenePr
   return <>
     <mesh position={[0, -18.15, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow={!inside}><planeGeometry args={[5000, 5000]} /><shadowMaterial transparent opacity={.16} /></mesh>
     <Board inside={inside} />
+    {jointAction === 'disassemble' && step === 1 && <Html position={[-20, 18, jointExample.centers[0]]} center className={styles.partLabel}>해제 방향 · 15mm</Html>}
     <group ref={baseHardware}>
       {mounts.map((mount, index) => <group key={index} {...mount.baseHousing} dispose={null}>{model === 'V-1230P' ? <OvvoPH material={materials.housing} /> : <OvvoRH material={materials.housing} />}</group>)}
-      {step === 1 && <Html position={[14, 8, jointExample.centers[0]]} center className={styles.partLabel}>{model === 'V-1230R' ? 'V-1230RH' : 'V-1230PH'} · A의 홈</Html>}
+      {jointAction === 'assemble' && step === 1 && <Html position={[14, 8, jointExample.centers[0]]} center className={styles.partLabel}>{model === 'V-1230R' ? 'V-1230RH' : 'V-1230PH'} · A의 홈</Html>}
     </group>
     <group ref={panel}>
       <Board upright inside={inside} />
       <group ref={endHardware}>
         {mounts.map((mount, index) => <group key={index} {...mount.endHousing} dispose={null}><OvvoPH material={materials.housing} /></group>)}
-        {step === 2 && <Html position={[17, -5, jointExample.centers[0]]} center className={styles.partLabel}>V-1230PH · B의 아래 끝</Html>}
+        {jointAction === 'assemble' && step === 2 && <Html position={[17, -5, jointExample.centers[0]]} center className={styles.partLabel}>V-1230PH · B의 아래 끝</Html>}
       </group>
       <group ref={connectors}>
         {mounts.map((mount, index) => <group key={index} {...mount.connector} dispose={null}>{model === 'V-1230P' ? <OvvoPC material={materials.connector} /> : <OvvoRC material={materials.connector} />}</group>)}
-        {step === 3 && <Html position={[18, -7, jointExample.centers[0]]} center className={styles.partLabel}>{model === 'V-1230R' ? 'V-1230RC' : 'V-1230PC'} · 연결부가 아래로</Html>}
+        {jointAction === 'assemble' && step === 3 && <Html position={[18, -7, jointExample.centers[0]]} center className={styles.partLabel}>{model === 'V-1230R' ? 'V-1230RC' : 'V-1230PC'} · 연결부가 아래로</Html>}
       </group>
-      {step === 0 && <Html position={[13, 95, 70]} center className={styles.partLabel}><span>B</span> 세로판 · 아래 끝에 홈</Html>}
+      {jointAction === 'assemble' && step === 0 && <Html position={[13, 95, 70]} center className={styles.partLabel}><span>B</span> 세로판 · 아래 끝에 홈</Html>}
     </group>
-    {step === 0 && <Html position={[47, 1, 67]} center className={styles.partLabel}><span>A</span> 받침판 · 홈이 위로</Html>}
-    <group ref={arrow}><DirectionArrow direction={step === 2 || step === 3 ? 'up' : model === 'V-1230R' && step === 6 ? 'slide' : 'down'} /></group>
+    {jointAction === 'assemble' && step === 0 && <Html position={[47, 1, 67]} center className={styles.partLabel}><span>A</span> 받침판 · 홈이 위로</Html>}
+    <group ref={arrow}><DirectionArrow direction={jointAction === 'disassemble' ? step === 1 ? 'slide' : 'up' : step === 2 || step === 3 ? 'up' : model === 'V-1230R' && step === 6 ? 'slide' : 'down'} /></group>
     <JointSectionCaps sources={capSources} active={capActive} planes={sectionPlanes} model={model} />
     <OrbitControls ref={controls} makeDefault enableDamping minDistance={35} maxDistance={1800} maxPolarAngle={Math.PI * .8} onStart={onManual} />
   </>;
 }
 
-export const GuideScene = memo(function GuideScene(props: SceneProps) {
-  return <Canvas shadows dpr={[1, 1.5]} camera={{ position: [280, 240, 320], fov: 40, near: 1, far: 8000 }} gl={{ antialias: true, stencil: true }} onCreated={({ gl }) => { gl.localClippingEnabled = true; }}>
+function RendererLifecycle({ onLost }: { onLost: () => void }) {
+  const gl = useThree(state => state.gl);
+  useEffect(() => {
+    const lost = (event: Event) => { event.preventDefault(); onLost(); };
+    gl.domElement.addEventListener('webglcontextlost', lost);
+    return () => gl.domElement.removeEventListener('webglcontextlost', lost);
+  }, [gl, onLost]);
+  return null;
+}
+
+function PreparedGuideScene(props: SceneProps) {
+  // Resolve the image before creating Canvas. A cold loader must not suspend
+  // an already mounted R3F root during StrictMode's setup/cleanup cycle.
+  useLoader(TextureLoader, birchEdgeTexture);
+  const { onTick, onUpdate } = props;
+  const [generation, setGeneration] = useState(0);
+  const [lost, setLost] = useState(false);
+  const onLost = useCallback(() => {
+    const state = onTick(0);
+    state.playing = false;
+    onUpdate(state.progress, false);
+    setLost(true);
+  }, [onTick, onUpdate]);
+  return <>
+  <Canvas key={generation} shadows dpr={[1, 1.5]} camera={{ position: [280, 240, 320], fov: 40, near: 1, far: 8000 }} gl={{ antialias: true, stencil: true }} onCreated={({ gl }) => { gl.localClippingEnabled = true; }}>
+    <RendererLifecycle onLost={onLost} />
     <color attach="background" args={['#edf0f3']} />
     <GuideEnvironment />
     {props.topic === 'tylko-clip' ? <TylkoClipScene {...props} /> : props.topic === 'back-panel' ? <BackPanelScene {...props} /> : props.topic === 'legs' ? <Suspense fallback={null}><LegScene {...props} /></Suspense> : <JointScene {...props} />}
-  </Canvas>;
+  </Canvas>
+  {lost && <div className={styles.renderRecovery} role="status"><p>3D 표시가 중단되었습니다. 현재 단계에서 다시 불러올 수 있습니다.</p><button type="button" onClick={() => { setGeneration(value => value + 1); setLost(false); }}>3D 다시 불러오기</button></div>}
+  </>;
+}
+
+export const GuideScene = memo(function GuideScene(props: SceneProps) {
+  return <Suspense fallback={<div className={styles.loading} role="status">조립 장면을 준비하고 있습니다…</div>}><PreparedGuideScene {...props} /></Suspense>;
 });

@@ -210,6 +210,22 @@ function Swatches({ control, emit }: { control: SwatchControl; emit: Emit }) {
 
 function HeightMode({ control, emit }: { control: HeightModeControl; emit: Emit }) {
   const group = useRef<HTMLDivElement>(null);
+  const root = useRef<HTMLDivElement>(null);
+  // 모드 전환 버튼은 전환 후 사라지므로, 전환이 실제로 반영되면 다음 조작 지점으로 포커스를 옮긴다(키보드 포커스 유실 방지).
+  const pendingFocus = useRef<HeightModeControl['mode'] | null>(null);
+  useEffect(() => {
+    if (pendingFocus.current !== control.mode) return;
+    pendingFocus.current = null;
+    const target = control.mode === 'extended'
+      ? root.current?.querySelector<HTMLElement>('input[type="range"]')
+      : root.current?.querySelector<HTMLElement>('[role="radio"][tabindex="0"]');
+    target?.focus();
+  }, [control.mode]);
+  const switchMode = (to: 'extended' | 'standard') => {
+    if (!control.enabled) return;
+    pendingFocus.current = to === 'extended' ? 'extended' : 'presets';
+    emit({ type: 'heightMode', controlId: control.id, target: control.target, to });
+  };
   const items = control.presets;
   const isEnabled = () => control.enabled;
   const selected = entryIndex(items.map((p) => p.id), control.selectedPresetId, isEnabled);
@@ -221,10 +237,9 @@ function HeightMode({ control, emit }: { control: HeightModeControl; emit: Emit 
     const r = control.range;
     return (
       <Row control={control}>
-        <div className={styles.heightMode}>
+        <div ref={root} className={styles.heightMode}>
           <div className={styles.pills}>
-            <button type="button" className={styles.pill} disabled={!control.enabled}
-              onClick={() => emit({ type: 'heightMode', controlId: control.id, target: control.target, to: 'standard' })}>{control.standardLabel}</button>
+            <button type="button" className={styles.pill} disabled={!control.enabled} onClick={() => switchMode('standard')}>{control.standardLabel}</button>
           </div>
           <SliderInput value={r.value} min={r.min} max={r.max} step={r.step} unit={r.unit} label={`${control.label} (${control.extendLabel})`}
             disabled={!control.enabled} onCommit={(value) => emit({ type: 'set', controlId: control.id, target: control.target, value })} />
@@ -234,13 +249,17 @@ function HeightMode({ control, emit }: { control: HeightModeControl; emit: Emit 
   }
   return (
     <Row control={control}>
-      <div ref={group} role="radiogroup" aria-label={control.label} className={styles.pills}>
-        {items.map((p, i) => (
-          <button key={p.id} type="button" role="radio" aria-checked={p.id === control.selectedPresetId} tabIndex={i === selected ? 0 : -1}
-            disabled={!control.enabled} className={styles.pill} onClick={() => select(i)} onKeyDown={(e) => keys(e, i)}>{p.label}</button>
-        ))}
-        <button type="button" className={styles.pill} disabled={!control.enabled}
-          onClick={() => emit({ type: 'heightMode', controlId: control.id, target: control.target, to: 'extended' })}>{control.extendLabel}</button>
+      <div ref={root} className={styles.heightMode}>
+        <div className={styles.pills}>
+          {/* 프리셋만 radiogroup. '높이 +'는 모드 전환 버튼이라 그룹 밖(같은 줄)에 둔다 */}
+          <div ref={group} role="radiogroup" aria-label={control.label} className={styles.presetGroup}>
+            {items.map((p, i) => (
+              <button key={p.id} type="button" role="radio" aria-checked={p.id === control.selectedPresetId} tabIndex={i === selected ? 0 : -1}
+                disabled={!control.enabled} className={styles.pill} onClick={() => select(i)} onKeyDown={(e) => keys(e, i)}>{p.label}</button>
+            ))}
+          </div>
+          <button type="button" className={styles.pill} disabled={!control.enabled} onClick={() => switchMode('extended')}>{control.extendLabel}</button>
+        </div>
       </div>
     </Row>
   );

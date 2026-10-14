@@ -44,4 +44,5 @@ test('camera seeking is deterministic and a reverse-side view changes only the s
   const reverse = cinematicJointShot('V-1230R', 6, .4, 1.5, false, true);
   assert.deepEqual(reverse.target, shot.target);
   assert.notDeepEqual(reverse.position, shot.position);
+  assert.ok((reverse.position[0] - reverse.target[0]) * (shot.position[0] - shot.target[0]) < 0, 'rear view must show the opposite laminate face');
 });

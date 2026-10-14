@@ -44,7 +44,7 @@ export function productPrice(product: CatalogProduct) {
   const { panels } = calculateGridPanels({
     width: product.width, height: productHeight(product), depth: product.depth,
     thickness: 2, density: 50, rowHeights: product.rows,
-    numRows: product.rows.length, hasBackPanel: true, hardwareLayers: product.doors,
+    numRows: product.rows.length, hasBackPanel: false, hardwareLayers: product.doors,
     hardwareRowStyles: Object.fromEntries(product.doors.map(row => [row, 12])),
     family: product.colorCategory === 'classic' || product.colorCategory === 'natural' ? 'type01' : 'type02',
   });

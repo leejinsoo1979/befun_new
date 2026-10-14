@@ -20,7 +20,7 @@ export function parseSavedDesign(serialized: string): SavedDesign | null {
     if (![24, 32, 40].includes(config.depth) || !Number.isFinite(config.density) || config.density < 0 || config.density > 100) return null;
     if (!['classic', 'natural', 'solid', 'edgeMix'].includes(config.colorCategory) || typeof config.color !== 'string' || !/^[A-Za-z0-9 _+.-]{1,80}$/.test(config.color)) return null;
     if (config.baseType !== undefined && !['standard','legs'].includes(config.baseType)) return null;
-    if (config.legFinish !== undefined && !['silver', 'black'].includes(config.legFinish)) return null;
+    if (config.legFinish !== undefined && !['silver', 'black', 'panel'].includes(config.legFinish)) return null;
     if (typeof config.hasBackPanel !== 'boolean') return null;
     if (!Array.isArray(config.rowHeights) || config.rowHeights.length < 1 || config.rowHeights.length > 10 || !config.rowHeights.every((height: unknown) => typeof height === 'number' && [18, 28, 32, 38].includes(height))) return null;
     if (config.numRows !== config.rowHeights.length) return null;

@@ -74,6 +74,8 @@
   align-items: center;
   gap: 4px;
   min-width: 0;
+  /* 한글 라벨은 어절 단위로 줄바꿈('구획 내경 너/비' 방지). 한 어절이 칸보다 길 때만 글자 단위 */
+  word-break: keep-all;
   overflow-wrap: anywhere;
 }
 .control { min-width: 0; }
@@ -334,6 +336,7 @@
   cursor: pointer;
 }
 
+.presetGroup { display: inline-flex; flex-wrap: wrap; gap: 2px; }
 .heightMode { display: flex; align-items: center; gap: 8px; min-width: 0; flex-wrap: wrap; }
 .heightMode .slider { flex: 1; min-width: 120px; }
 .plus {

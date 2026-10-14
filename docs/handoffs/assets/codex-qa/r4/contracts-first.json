@@ -1,0 +1,795 @@
+{
+  "at": "2026-10-14T03:20:00.427Z",
+  "fixture": "desk-catalog-entry-001",
+  "fixtureHash": "7389b4b49e5701adb6b95f50b3cc2483d166e204e557a9358be40329189dd108",
+  "rows": [
+    {
+      "id": "catalog-desk-1",
+      "status": "pass",
+      "input": {
+        "widthMm": 2000,
+        "heightMm": 730,
+        "depthMm": 600,
+        "storageColumns": 2,
+        "legroomPosition": 1,
+        "backPanels": true,
+        "color": "C_Clay Brown",
+        "channelsBottomToTopKinds": [
+          "drawer",
+          "door-drawer"
+        ],
+        "doorDirections": null,
+        "cableOpenings": null
+      },
+      "actual": {
+        "version": 1,
+        "kind": "desk",
+        "family": "desk-classic",
+        "color": "C_Clay Brown",
+        "innerColor": "S_White",
+        "sectionIds": [
+          "storage-1",
+          "storage-2"
+        ],
+        "config": {
+          "family": "type01",
+          "widthMm": 2000,
+          "depthMm": 600,
+          "storageColumns": 2,
+          "legroomPosition": 1,
+          "hasBackPanel": true,
+          "channels": [
+            {
+              "kind": "drawer",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "door-drawer",
+              "doorDirection": "right"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "catalog-desk-2",
+      "status": "pass",
+      "input": {
+        "widthMm": 2400,
+        "heightMm": 730,
+        "depthMm": 500,
+        "storageColumns": 4,
+        "legroomPosition": 0,
+        "backPanels": true,
+        "color": "Sand+Midnight Blue",
+        "channelsBottomToTopKinds": [
+          "some-door",
+          "some-door",
+          "drawer",
+          "drawer"
+        ],
+        "doorDirections": null,
+        "cableOpenings": null
+      },
+      "actual": {
+        "version": 1,
+        "kind": "desk",
+        "family": "desk-modern",
+        "color": "Sand+Midnight Blue",
+        "innerColor": "S_White",
+        "sectionIds": [
+          "storage-1",
+          "storage-2",
+          "storage-3",
+          "storage-4"
+        ],
+        "config": {
+          "family": "type02",
+          "widthMm": 2400,
+          "depthMm": 500,
+          "storageColumns": 4,
+          "legroomPosition": 0,
+          "hasBackPanel": true,
+          "channels": [
+            {
+              "kind": "some-door",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "some-door",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "drawer",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "drawer",
+              "doorDirection": "right"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "catalog-desk-3",
+      "status": "pass",
+      "input": {
+        "widthMm": 1600,
+        "heightMm": 730,
+        "depthMm": 500,
+        "storageColumns": 2,
+        "legroomPosition": 1,
+        "backPanels": true,
+        "color": "C_Black",
+        "channelsBottomToTopKinds": [
+          "opening",
+          "door-drawer"
+        ],
+        "doorDirections": null,
+        "cableOpenings": null
+      },
+      "actual": {
+        "version": 1,
+        "kind": "desk",
+        "family": "desk-classic",
+        "color": "C_Black",
+        "innerColor": "S_White",
+        "sectionIds": [
+          "storage-1",
+          "storage-2"
+        ],
+        "config": {
+          "family": "type01",
+          "widthMm": 1600,
+          "depthMm": 500,
+          "storageColumns": 2,
+          "legroomPosition": 1,
+          "hasBackPanel": true,
+          "channels": [
+            {
+              "kind": "opening",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "door-drawer",
+              "doorDirection": "right"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "desk-classic-sequence",
+      "status": "pass",
+      "input": "desk-classic",
+      "actual": {
+        "steps": [
+          {
+            "type": "set",
+            "controlId": "width",
+            "value": 200,
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "depth",
+            "value": "60",
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "storageSections",
+            "value": 3,
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "legSpace",
+            "value": 2,
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "storageKind",
+            "value": "door-drawer",
+            "target": {
+              "scope": "section",
+              "sectionId": "storage-2"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "color",
+            "value": "C_Black",
+            "target": {
+              "scope": "global"
+            }
+          }
+        ],
+        "design": {
+          "version": 1,
+          "kind": "desk",
+          "family": "desk-classic",
+          "color": "C_Black",
+          "innerColor": "S_White",
+          "sectionIds": [
+            "storage-1",
+            "storage-2",
+            "storage-3"
+          ],
+          "config": {
+            "family": "type01",
+            "widthMm": 2000,
+            "depthMm": 600,
+            "storageColumns": 3,
+            "legroomPosition": 2,
+            "hasBackPanel": true,
+            "channels": [
+              {
+                "kind": "door",
+                "doorDirection": "right"
+              },
+              {
+                "kind": "door-drawer",
+                "doorDirection": "right"
+              },
+              {
+                "kind": "mix",
+                "doorDirection": "right"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "desk-classic-bounds",
+      "status": "pass",
+      "input": "desk-classic",
+      "actual": {
+        "version": 1,
+        "kind": "desk",
+        "family": "desk-classic",
+        "color": "C_Yellow",
+        "innerColor": "S_White",
+        "sectionIds": [
+          "storage-1",
+          "storage-2"
+        ],
+        "config": {
+          "family": "type01",
+          "widthMm": 2400,
+          "depthMm": 500,
+          "storageColumns": 2,
+          "legroomPosition": 1,
+          "hasBackPanel": true,
+          "channels": [
+            {
+              "kind": "door",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "mix",
+              "doorDirection": "right"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "desk-classic-stable-ids",
+      "status": "pass",
+      "input": "desk-classic",
+      "actual": {
+        "version": 1,
+        "kind": "desk",
+        "family": "desk-classic",
+        "color": "C_Clay Brown",
+        "innerColor": "S_White",
+        "sectionIds": [
+          "storage-1",
+          "storage-2"
+        ],
+        "config": {
+          "family": "type01",
+          "widthMm": 2400,
+          "depthMm": 600,
+          "storageColumns": 2,
+          "legroomPosition": 1,
+          "hasBackPanel": true,
+          "channels": [
+            {
+              "kind": "door",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "mix",
+              "doorDirection": "right"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "desk-modern-sequence",
+      "status": "pass",
+      "input": "desk-modern",
+      "actual": {
+        "steps": [
+          {
+            "type": "set",
+            "controlId": "width",
+            "value": 200,
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "depth",
+            "value": "60",
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "storageSections",
+            "value": 3,
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "legSpace",
+            "value": 2,
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "storageKind",
+            "value": "door-drawer",
+            "target": {
+              "scope": "section",
+              "sectionId": "storage-2"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "color",
+            "value": "S_Olive Green",
+            "target": {
+              "scope": "global"
+            }
+          }
+        ],
+        "design": {
+          "version": 1,
+          "kind": "desk",
+          "family": "desk-modern",
+          "color": "S_Olive Green",
+          "innerColor": "S_White",
+          "sectionIds": [
+            "storage-1",
+            "storage-2",
+            "storage-3"
+          ],
+          "config": {
+            "family": "type02",
+            "widthMm": 2000,
+            "depthMm": 600,
+            "storageColumns": 3,
+            "legroomPosition": 2,
+            "hasBackPanel": true,
+            "channels": [
+              {
+                "kind": "mix",
+                "doorDirection": "right"
+              },
+              {
+                "kind": "door-drawer",
+                "doorDirection": "right"
+              },
+              {
+                "kind": "mix",
+                "doorDirection": "right"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "desk-modern-bounds",
+      "status": "pass",
+      "input": "desk-modern",
+      "actual": {
+        "version": 1,
+        "kind": "desk",
+        "family": "desk-modern",
+        "color": "S_Gray",
+        "innerColor": "S_White",
+        "sectionIds": [
+          "storage-1",
+          "storage-2"
+        ],
+        "config": {
+          "family": "type02",
+          "widthMm": 2400,
+          "depthMm": 500,
+          "storageColumns": 2,
+          "legroomPosition": 1,
+          "hasBackPanel": true,
+          "channels": [
+            {
+              "kind": "mix",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "mix",
+              "doorDirection": "right"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "desk-modern-stable-ids",
+      "status": "pass",
+      "input": "desk-modern",
+      "actual": {
+        "version": 1,
+        "kind": "desk",
+        "family": "desk-modern",
+        "color": "Sand+Midnight Blue",
+        "innerColor": "S_White",
+        "sectionIds": [
+          "storage-1",
+          "storage-2"
+        ],
+        "config": {
+          "family": "type02",
+          "widthMm": 2400,
+          "depthMm": 500,
+          "storageColumns": 2,
+          "legroomPosition": 0,
+          "hasBackPanel": true,
+          "channels": [
+            {
+              "kind": "door",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "mix",
+              "doorDirection": "right"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "wardrobe-edge-roundtrip",
+      "status": "pass",
+      "input": "wardrobe-edge",
+      "actual": {
+        "sequence": [
+          {
+            "type": "set",
+            "controlId": "width",
+            "target": {
+              "scope": "global"
+            },
+            "value": 600
+          },
+          {
+            "type": "set",
+            "controlId": "height",
+            "target": {
+              "scope": "global"
+            },
+            "value": 75
+          },
+          {
+            "type": "set",
+            "controlId": "depth",
+            "target": {
+              "scope": "global"
+            },
+            "value": "270"
+          },
+          {
+            "type": "set",
+            "controlId": "topEdge",
+            "target": {
+              "scope": "global"
+            },
+            "value": "off"
+          },
+          {
+            "type": "set",
+            "controlId": "finish",
+            "target": {
+              "scope": "global"
+            },
+            "value": "plywood"
+          },
+          {
+            "type": "set",
+            "controlId": "facade",
+            "target": {
+              "scope": "section",
+              "sectionId": "1"
+            },
+            "value": "open"
+          },
+          {
+            "type": "set",
+            "controlId": "sectionHeight",
+            "target": {
+              "scope": "section",
+              "sectionId": "1"
+            },
+            "value": 75
+          },
+          {
+            "type": "set",
+            "controlId": "sectionDepth",
+            "target": {
+              "scope": "section",
+              "sectionId": "1"
+            },
+            "value": "270"
+          },
+          {
+            "type": "set",
+            "controlId": "cable-99",
+            "target": {
+              "scope": "section",
+              "sectionId": "1"
+            },
+            "value": "on"
+          },
+          {
+            "type": "set",
+            "controlId": "cable-499",
+            "target": {
+              "scope": "section",
+              "sectionId": "1"
+            },
+            "value": "on"
+          }
+        ],
+        "design": {
+          "version": 1,
+          "kind": "wardrobe",
+          "family": "wardrobe-edge",
+          "color": "C_White",
+          "innerColor": "T_White",
+          "config": {
+            "model": "edge",
+            "widthMm": 6000,
+            "heightMm": 3000,
+            "depthMm": 270,
+            "topEdge": false,
+            "sections": [
+              {
+                "id": "1",
+                "seriesId": "Open_Rail_Rail_L_1drawers",
+                "doorDirection": "left",
+                "localHeightMm": 3000,
+                "localDepthMm": 270,
+                "facade": "open",
+                "cableHeightsMm": [
+                  99,
+                  499
+                ]
+              },
+              {
+                "id": "2",
+                "seriesId": "Full_Rail_Rail_XL",
+                "localHeightMm": null,
+                "localDepthMm": null
+              },
+              {
+                "id": "3",
+                "seriesId": "Full_Rail_Rail_XL",
+                "localHeightMm": null,
+                "localDepthMm": null
+              },
+              {
+                "id": "4",
+                "seriesId": "Full_Rail_Rail_XL",
+                "localHeightMm": null,
+                "localDepthMm": null
+              },
+              {
+                "id": "5",
+                "seriesId": "Full_Rail_Rail_XL",
+                "localHeightMm": null,
+                "localDepthMm": null
+              },
+              {
+                "id": "6",
+                "seriesId": "Full_Rail_Rail_XL",
+                "localHeightMm": null,
+                "localDepthMm": null
+              }
+            ],
+            "edgeVeneer": false
+          }
+        },
+        "selected": "1"
+      }
+    },
+    {
+      "id": "wardrobe-tone-roundtrip",
+      "status": "pass",
+      "input": "wardrobe-tone",
+      "actual": {
+        "sequence": [
+          {
+            "type": "set",
+            "controlId": "width",
+            "target": {
+              "scope": "global"
+            },
+            "value": 600
+          },
+          {
+            "type": "set",
+            "controlId": "depth",
+            "target": {
+              "scope": "global"
+            },
+            "value": 80
+          },
+          {
+            "type": "set",
+            "controlId": "lighting",
+            "target": {
+              "scope": "global"
+            },
+            "value": "on"
+          },
+          {
+            "type": "set",
+            "controlId": "color",
+            "target": {
+              "scope": "global"
+            },
+            "value": "T_Cashmere"
+          },
+          {
+            "type": "set",
+            "controlId": "innerColor",
+            "target": {
+              "scope": "global"
+            },
+            "value": "T_Pink"
+          },
+          {
+            "type": "set",
+            "controlId": "drawerStyle",
+            "target": {
+              "scope": "section",
+              "sectionId": "1"
+            },
+            "value": "external"
+          }
+        ],
+        "design": {
+          "version": 1,
+          "kind": "wardrobe",
+          "family": "wardrobe-tone",
+          "color": "T_Cashmere",
+          "innerColor": "T_Pink",
+          "config": {
+            "model": "tone",
+            "widthMm": 6000,
+            "heightMm": 2000,
+            "depthMm": 800,
+            "drawerStyle": "external",
+            "lighting": true,
+            "sections": [
+              {
+                "id": "1",
+                "seriesId": 3739,
+                "doorDirection": "left"
+              },
+              {
+                "id": "2",
+                "seriesId": 3738,
+                "doorDirection": "left"
+              },
+              {
+                "id": "3",
+                "seriesId": 3738,
+                "doorDirection": "left"
+              },
+              {
+                "id": "4",
+                "seriesId": 3741,
+                "doorDirection": "left"
+              },
+              {
+                "id": "5",
+                "seriesId": 3741,
+                "doorDirection": "left"
+              },
+              {
+                "id": "6",
+                "seriesId": 3741,
+                "doorDirection": "left"
+              }
+            ],
+            "toneWidthPattern": "111111"
+          }
+        },
+        "selected": "1"
+      }
+    },
+    {
+      "id": "edge-current-layout-option",
+      "status": "fail",
+      "input": {
+        "family": "wardrobe-edge",
+        "widthMm": 1190,
+        "heightMm": 2280,
+        "depthMm": 450
+      },
+      "error": "selected layout Half_Rail_Rail_L_1drawers missing from options: Half_Rail_Rail_XL,Half_Rail_Rail,Half_Rail_Rail_top_drawer,Half_Shelves_Slabs,Half_Shelves_Slabs_mid_drawer,Half_Shelves_Slabs_top_drawer,Half_Shelves_Slabs_2top_drawers,Half_Shelves_Slabs_4drawers"
+    },
+    {
+      "id": "entry-wardrobe-1",
+      "status": "blocked",
+      "actual": null,
+      "reason": "catalogFurnitureDesign returns null; owner codex-storefront"
+    },
+    {
+      "id": "entry-wardrobe-2",
+      "status": "blocked",
+      "actual": null,
+      "reason": "catalogFurnitureDesign returns null; owner codex-storefront"
+    },
+    {
+      "id": "entry-wardrobe-3",
+      "status": "blocked",
+      "actual": null,
+      "reason": "catalogFurnitureDesign returns null; owner codex-storefront"
+    }
+  ],
+  "fingerprints": {
+    "src/lib/furniture/catalog-design.ts": "28c590611f8c508e7fd4fa9c8551cfa6e516a0c353f1afb681426d85662bafb5",
+    "src/lib/furniture/design.ts": "2ee498370648a1bb1c539c46ca6d44bc8443ed4187352ed5209bcd959302aef5",
+    "src/lib/furniture/desk/index.ts": "05a73b55e57bc3b7bb7743bc173f6b2e60b921f9b75ecce2248237240c43670e",
+    "src/lib/furniture/wardrobe-colors.ts": "dd7c151786e9bfaf14e3937c5effa6e746ac71ec673543134bc7803986070791",
+    "src/lib/furniture/wardrobe/initial.ts": "2b9096b4b962bd40ac7b2551d3da9932f92ab814c72b3af739181979a4b925e6",
+    "src/lib/furniture/wardrobe/edge-catalog.json": "3d268b9edfbdd4cdf2c14237467013f29d93af031ea604eb8aefe1a4813f2282",
+    "src/lib/furniture/wardrobe/tone-rules.json": "01f352164b940532820c984d48e1918644b70683ee37979e457b185a256985d5",
+    "src/lib/furniture/wardrobe/index.ts": "36f068123b10a8b0236e3c599d5fbdbe6cc65875299b556cd0051bc88ed7aadc",
+    "src/lib/furniture/wardrobe/edge.ts": "d8402ea88507371e2f2e54d7b3371607f8b46227baa7c9d78472f6799c13bd5c",
+    "src/lib/furniture/wardrobe-hinges.ts": "0ff327e30b7b5d0c18b7d09f4d13338863f4ae00358b3f86c856aa59e9b5d265",
+    "src/lib/furniture/wardrobe/edge-cable.ts": "1f7bcfb5880da670c8a5125732c2cdcdb5417ecb113fedffcf07f4e3464aca85",
+    "src/lib/furniture/wardrobe/edge-flat-top.ts": "3a6a12086a7d0374b0404062e7b432b584e33cb3ea1cacc30088fcd06c60915b",
+    "src/lib/furniture/wardrobe/adapter.ts": "38e19beeeedfdde742f684c847a709b14363e5f3f5d013eb8114850fabcad2de",
+    "src/lib/furniture/wardrobe/drawers.ts": "d03d7d50fce0e99a574e6740beaa8e8476f16287bf05fc14ae7902125bf8b700",
+    "src/lib/furniture/wardrobe/tone-drawers.ts": "2700fe474f59f460e3f28064572ced85427cf0a110c1356f84ad51de19da5b61",
+    "src/lib/furniture/wardrobe/fronts.ts": "f7382f01e6d78410982a3747b8fecee4be5962ad3de8eaed25e743ce1a00c647",
+    "src/lib/furniture/wardrobe/tone.ts": "99e1c619b0dc3cb99a1d513ffd6c693d58dc047d453fbbb1d91b75e8b2a1de51",
+    "src/lib/three/reference-colors.ts": "7785f190f50c9171ee00db6607011a8e68b413e631afde95192815baea3bb814",
+    "src/lib/furniture/desk-panel.ts": "15b32f5a485c770ae3e3fe8686bd0fb8d68c80f102ae4b05f702acbeae327c3f",
+    "src/lib/furniture/wardrobe-panel.ts": "bb98d9c1eda1d013892ff77dde834cecb5d65a61aa25740d0b4f460ae76d8cd0"
+  }
+}

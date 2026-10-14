@@ -1,0 +1,2276 @@
+{
+  "at": "2026-10-14T03:30:26.271Z",
+  "fixture": "desk-catalog-entry-001",
+  "fixtureHash": "7389b4b49e5701adb6b95f50b3cc2483d166e204e557a9358be40329189dd108",
+  "rows": [
+    {
+      "id": "catalog-desk-1",
+      "status": "pass",
+      "input": {
+        "widthMm": 2000,
+        "heightMm": 730,
+        "depthMm": 600,
+        "storageColumns": 2,
+        "legroomPosition": 1,
+        "backPanels": true,
+        "color": "C_Clay Brown",
+        "channelsBottomToTopKinds": [
+          "drawer",
+          "door-drawer"
+        ],
+        "doorDirections": null,
+        "cableOpenings": null
+      },
+      "actual": {
+        "version": 1,
+        "kind": "desk",
+        "family": "desk-classic",
+        "color": "C_Clay Brown",
+        "innerColor": "S_White",
+        "sectionIds": [
+          "storage-1",
+          "storage-2"
+        ],
+        "config": {
+          "family": "type01",
+          "widthMm": 2000,
+          "depthMm": 600,
+          "storageColumns": 2,
+          "legroomPosition": 1,
+          "hasBackPanel": true,
+          "channels": [
+            {
+              "kind": "drawer",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "door-drawer",
+              "doorDirection": "right"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "catalog-desk-2",
+      "status": "pass",
+      "input": {
+        "widthMm": 2400,
+        "heightMm": 730,
+        "depthMm": 500,
+        "storageColumns": 4,
+        "legroomPosition": 0,
+        "backPanels": true,
+        "color": "Sand+Midnight Blue",
+        "channelsBottomToTopKinds": [
+          "some-door",
+          "some-door",
+          "drawer",
+          "drawer"
+        ],
+        "doorDirections": null,
+        "cableOpenings": null
+      },
+      "actual": {
+        "version": 1,
+        "kind": "desk",
+        "family": "desk-modern",
+        "color": "Sand+Midnight Blue",
+        "innerColor": "S_White",
+        "sectionIds": [
+          "storage-1",
+          "storage-2",
+          "storage-3",
+          "storage-4"
+        ],
+        "config": {
+          "family": "type02",
+          "widthMm": 2400,
+          "depthMm": 500,
+          "storageColumns": 4,
+          "legroomPosition": 0,
+          "hasBackPanel": true,
+          "channels": [
+            {
+              "kind": "some-door",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "some-door",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "drawer",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "drawer",
+              "doorDirection": "right"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "catalog-desk-3",
+      "status": "pass",
+      "input": {
+        "widthMm": 1600,
+        "heightMm": 730,
+        "depthMm": 500,
+        "storageColumns": 2,
+        "legroomPosition": 1,
+        "backPanels": true,
+        "color": "C_Black",
+        "channelsBottomToTopKinds": [
+          "opening",
+          "door-drawer"
+        ],
+        "doorDirections": null,
+        "cableOpenings": null
+      },
+      "actual": {
+        "version": 1,
+        "kind": "desk",
+        "family": "desk-classic",
+        "color": "C_Black",
+        "innerColor": "S_White",
+        "sectionIds": [
+          "storage-1",
+          "storage-2"
+        ],
+        "config": {
+          "family": "type01",
+          "widthMm": 1600,
+          "depthMm": 500,
+          "storageColumns": 2,
+          "legroomPosition": 1,
+          "hasBackPanel": true,
+          "channels": [
+            {
+              "kind": "opening",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "door-drawer",
+              "doorDirection": "right"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "desk-classic-sequence",
+      "status": "pass",
+      "input": "desk-classic",
+      "actual": {
+        "steps": [
+          {
+            "type": "set",
+            "controlId": "width",
+            "value": 200,
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "depth",
+            "value": "60",
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "storageSections",
+            "value": 3,
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "legSpace",
+            "value": 2,
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "storageKind",
+            "value": "door-drawer",
+            "target": {
+              "scope": "section",
+              "sectionId": "storage-2"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "color",
+            "value": "C_Black",
+            "target": {
+              "scope": "global"
+            }
+          }
+        ],
+        "design": {
+          "version": 1,
+          "kind": "desk",
+          "family": "desk-classic",
+          "color": "C_Black",
+          "innerColor": "S_White",
+          "sectionIds": [
+            "storage-1",
+            "storage-2",
+            "storage-3"
+          ],
+          "config": {
+            "family": "type01",
+            "widthMm": 2000,
+            "depthMm": 600,
+            "storageColumns": 3,
+            "legroomPosition": 2,
+            "hasBackPanel": true,
+            "channels": [
+              {
+                "kind": "door",
+                "doorDirection": "right"
+              },
+              {
+                "kind": "door-drawer",
+                "doorDirection": "right"
+              },
+              {
+                "kind": "mix",
+                "doorDirection": "right"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "desk-classic-bounds",
+      "status": "pass",
+      "input": "desk-classic",
+      "actual": {
+        "version": 1,
+        "kind": "desk",
+        "family": "desk-classic",
+        "color": "C_Yellow",
+        "innerColor": "S_White",
+        "sectionIds": [
+          "storage-1",
+          "storage-2"
+        ],
+        "config": {
+          "family": "type01",
+          "widthMm": 2400,
+          "depthMm": 500,
+          "storageColumns": 2,
+          "legroomPosition": 1,
+          "hasBackPanel": true,
+          "channels": [
+            {
+              "kind": "door",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "mix",
+              "doorDirection": "right"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "desk-classic-stable-ids",
+      "status": "pass",
+      "input": "desk-classic",
+      "actual": {
+        "version": 1,
+        "kind": "desk",
+        "family": "desk-classic",
+        "color": "C_Clay Brown",
+        "innerColor": "S_White",
+        "sectionIds": [
+          "storage-1",
+          "storage-2"
+        ],
+        "config": {
+          "family": "type01",
+          "widthMm": 2400,
+          "depthMm": 600,
+          "storageColumns": 2,
+          "legroomPosition": 1,
+          "hasBackPanel": true,
+          "channels": [
+            {
+              "kind": "door",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "mix",
+              "doorDirection": "right"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "desk-modern-sequence",
+      "status": "pass",
+      "input": "desk-modern",
+      "actual": {
+        "steps": [
+          {
+            "type": "set",
+            "controlId": "width",
+            "value": 200,
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "depth",
+            "value": "60",
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "storageSections",
+            "value": 3,
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "legSpace",
+            "value": 2,
+            "target": {
+              "scope": "global"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "storageKind",
+            "value": "door-drawer",
+            "target": {
+              "scope": "section",
+              "sectionId": "storage-2"
+            }
+          },
+          {
+            "type": "set",
+            "controlId": "color",
+            "value": "S_Olive Green",
+            "target": {
+              "scope": "global"
+            }
+          }
+        ],
+        "design": {
+          "version": 1,
+          "kind": "desk",
+          "family": "desk-modern",
+          "color": "S_Olive Green",
+          "innerColor": "S_White",
+          "sectionIds": [
+            "storage-1",
+            "storage-2",
+            "storage-3"
+          ],
+          "config": {
+            "family": "type02",
+            "widthMm": 2000,
+            "depthMm": 600,
+            "storageColumns": 3,
+            "legroomPosition": 2,
+            "hasBackPanel": true,
+            "channels": [
+              {
+                "kind": "mix",
+                "doorDirection": "right"
+              },
+              {
+                "kind": "door-drawer",
+                "doorDirection": "right"
+              },
+              {
+                "kind": "mix",
+                "doorDirection": "right"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "desk-modern-bounds",
+      "status": "pass",
+      "input": "desk-modern",
+      "actual": {
+        "version": 1,
+        "kind": "desk",
+        "family": "desk-modern",
+        "color": "S_Gray",
+        "innerColor": "S_White",
+        "sectionIds": [
+          "storage-1",
+          "storage-2"
+        ],
+        "config": {
+          "family": "type02",
+          "widthMm": 2400,
+          "depthMm": 500,
+          "storageColumns": 2,
+          "legroomPosition": 1,
+          "hasBackPanel": true,
+          "channels": [
+            {
+              "kind": "mix",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "mix",
+              "doorDirection": "right"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "desk-modern-stable-ids",
+      "status": "pass",
+      "input": "desk-modern",
+      "actual": {
+        "version": 1,
+        "kind": "desk",
+        "family": "desk-modern",
+        "color": "Sand+Midnight Blue",
+        "innerColor": "S_White",
+        "sectionIds": [
+          "storage-1",
+          "storage-2"
+        ],
+        "config": {
+          "family": "type02",
+          "widthMm": 2400,
+          "depthMm": 500,
+          "storageColumns": 2,
+          "legroomPosition": 0,
+          "hasBackPanel": true,
+          "channels": [
+            {
+              "kind": "door",
+              "doorDirection": "right"
+            },
+            {
+              "kind": "mix",
+              "doorDirection": "right"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "wardrobe-edge-roundtrip",
+      "status": "pass",
+      "input": "wardrobe-edge",
+      "actual": {
+        "sequence": [
+          {
+            "type": "set",
+            "controlId": "width",
+            "target": {
+              "scope": "global"
+            },
+            "value": 600
+          },
+          {
+            "type": "set",
+            "controlId": "height",
+            "target": {
+              "scope": "global"
+            },
+            "value": 75
+          },
+          {
+            "type": "set",
+            "controlId": "depth",
+            "target": {
+              "scope": "global"
+            },
+            "value": "270"
+          },
+          {
+            "type": "set",
+            "controlId": "topEdge",
+            "target": {
+              "scope": "global"
+            },
+            "value": "off"
+          },
+          {
+            "type": "set",
+            "controlId": "finish",
+            "target": {
+              "scope": "global"
+            },
+            "value": "plywood"
+          },
+          {
+            "type": "set",
+            "controlId": "facade",
+            "target": {
+              "scope": "section",
+              "sectionId": "1"
+            },
+            "value": "open"
+          },
+          {
+            "type": "set",
+            "controlId": "sectionHeight",
+            "target": {
+              "scope": "section",
+              "sectionId": "1"
+            },
+            "value": 75
+          },
+          {
+            "type": "set",
+            "controlId": "sectionDepth",
+            "target": {
+              "scope": "section",
+              "sectionId": "1"
+            },
+            "value": "270"
+          },
+          {
+            "type": "set",
+            "controlId": "cable-99",
+            "target": {
+              "scope": "section",
+              "sectionId": "1"
+            },
+            "value": "on"
+          },
+          {
+            "type": "set",
+            "controlId": "cable-499",
+            "target": {
+              "scope": "section",
+              "sectionId": "1"
+            },
+            "value": "on"
+          }
+        ],
+        "design": {
+          "version": 1,
+          "kind": "wardrobe",
+          "family": "wardrobe-edge",
+          "color": "C_White",
+          "innerColor": "T_White",
+          "config": {
+            "model": "edge",
+            "widthMm": 6000,
+            "heightMm": 3000,
+            "depthMm": 270,
+            "topEdge": false,
+            "sections": [
+              {
+                "id": "1",
+                "seriesId": "Open_Rail_Rail_L_1drawers",
+                "doorDirection": "left",
+                "localHeightMm": 3000,
+                "localDepthMm": 270,
+                "facade": "open",
+                "cableHeightsMm": [
+                  99,
+                  499
+                ]
+              },
+              {
+                "id": "2",
+                "seriesId": "Full_Rail_Rail_XL",
+                "localHeightMm": null,
+                "localDepthMm": null
+              },
+              {
+                "id": "3",
+                "seriesId": "Full_Rail_Rail_XL",
+                "localHeightMm": null,
+                "localDepthMm": null
+              },
+              {
+                "id": "4",
+                "seriesId": "Full_Rail_Rail_XL",
+                "localHeightMm": null,
+                "localDepthMm": null
+              },
+              {
+                "id": "5",
+                "seriesId": "Full_Rail_Rail_XL",
+                "localHeightMm": null,
+                "localDepthMm": null
+              },
+              {
+                "id": "6",
+                "seriesId": "Full_Rail_Rail_XL",
+                "localHeightMm": null,
+                "localDepthMm": null
+              }
+            ],
+            "edgeVeneer": false
+          }
+        },
+        "selected": "1"
+      }
+    },
+    {
+      "id": "wardrobe-tone-roundtrip",
+      "status": "pass",
+      "input": "wardrobe-tone",
+      "actual": {
+        "sequence": [
+          {
+            "type": "set",
+            "controlId": "width",
+            "target": {
+              "scope": "global"
+            },
+            "value": 600
+          },
+          {
+            "type": "set",
+            "controlId": "depth",
+            "target": {
+              "scope": "global"
+            },
+            "value": 80
+          },
+          {
+            "type": "set",
+            "controlId": "lighting",
+            "target": {
+              "scope": "global"
+            },
+            "value": "on"
+          },
+          {
+            "type": "set",
+            "controlId": "color",
+            "target": {
+              "scope": "global"
+            },
+            "value": "T_Cashmere"
+          },
+          {
+            "type": "set",
+            "controlId": "innerColor",
+            "target": {
+              "scope": "global"
+            },
+            "value": "T_Pink"
+          },
+          {
+            "type": "set",
+            "controlId": "drawerStyle",
+            "target": {
+              "scope": "section",
+              "sectionId": "1"
+            },
+            "value": "external"
+          }
+        ],
+        "design": {
+          "version": 1,
+          "kind": "wardrobe",
+          "family": "wardrobe-tone",
+          "color": "T_Cashmere",
+          "innerColor": "T_Pink",
+          "config": {
+            "model": "tone",
+            "widthMm": 6000,
+            "heightMm": 2000,
+            "depthMm": 800,
+            "drawerStyle": "external",
+            "lighting": true,
+            "sections": [
+              {
+                "id": "1",
+                "seriesId": 3739,
+                "doorDirection": "left"
+              },
+              {
+                "id": "2",
+                "seriesId": 3738,
+                "doorDirection": "left"
+              },
+              {
+                "id": "3",
+                "seriesId": 3738,
+                "doorDirection": "left"
+              },
+              {
+                "id": "4",
+                "seriesId": 3741,
+                "doorDirection": "left"
+              },
+              {
+                "id": "5",
+                "seriesId": 3741,
+                "doorDirection": "left"
+              },
+              {
+                "id": "6",
+                "seriesId": 3741,
+                "doorDirection": "left"
+              }
+            ],
+            "toneWidthPattern": "111111"
+          }
+        },
+        "selected": "1"
+      }
+    },
+    {
+      "id": "edge-current-layout-option",
+      "status": "fail",
+      "input": {
+        "family": "wardrobe-edge",
+        "widthMm": 1190,
+        "heightMm": 2280,
+        "depthMm": 450
+      },
+      "error": "selected layout Half_Rail_Rail_L_1drawers missing from options: Half_Rail_Rail_XL,Half_Rail_Rail,Half_Rail_Rail_top_drawer,Half_Shelves_Slabs,Half_Shelves_Slabs_mid_drawer,Half_Shelves_Slabs_top_drawer,Half_Shelves_Slabs_2top_drawers,Half_Shelves_Slabs_4drawers"
+    },
+    {
+      "id": "entry-wardrobe-1",
+      "status": "pass",
+      "actual": {
+        "version": 1,
+        "kind": "wardrobe",
+        "family": "wardrobe-edge",
+        "color": "W_Plum",
+        "innerColor": "W_Plum",
+        "config": {
+          "model": "edge",
+          "widthMm": 1190,
+          "heightMm": 2600,
+          "depthMm": 450,
+          "topEdge": true,
+          "sections": [
+            {
+              "id": "1",
+              "seriesId": "Open_Shelves_Slabs",
+              "facade": "open"
+            },
+            {
+              "id": "2",
+              "seriesId": "Full_Shelves_Slabs_bottom_drawer",
+              "facade": "closed",
+              "doorDirection": "right"
+            }
+          ]
+        }
+      },
+      "reason": "Mapping exists; browser verification separate"
+    },
+    {
+      "id": "entry-wardrobe-2",
+      "status": "pass",
+      "actual": {
+        "version": 1,
+        "kind": "wardrobe",
+        "family": "wardrobe-tone",
+        "color": "T_Cashmere",
+        "innerColor": "T_Pink",
+        "config": {
+          "model": "tone",
+          "widthMm": 4150,
+          "heightMm": 2760,
+          "depthMm": 630,
+          "toneWidthPattern": "11111",
+          "drawerStyle": "internal",
+          "lighting": false,
+          "sections": [
+            {
+              "id": "1",
+              "seriesId": 3741,
+              "facade": "closed"
+            },
+            {
+              "id": "2",
+              "seriesId": 3738,
+              "facade": "closed"
+            },
+            {
+              "id": "3",
+              "seriesId": 3746,
+              "facade": "closed"
+            },
+            {
+              "id": "4",
+              "seriesId": 3742,
+              "facade": "closed"
+            },
+            {
+              "id": "5",
+              "seriesId": 3743,
+              "facade": "closed"
+            }
+          ]
+        }
+      },
+      "reason": "Mapping exists; browser verification separate"
+    },
+    {
+      "id": "entry-wardrobe-3",
+      "status": "pass",
+      "actual": {
+        "version": 1,
+        "kind": "wardrobe",
+        "family": "wardrobe-tone",
+        "color": "T_Graphite",
+        "innerColor": "T_Graphite",
+        "config": {
+          "model": "tone",
+          "widthMm": 600,
+          "heightMm": 2750,
+          "depthMm": 630,
+          "toneWidthPattern": "1",
+          "drawerStyle": "external",
+          "lighting": false,
+          "sections": [
+            {
+              "id": "1",
+              "seriesId": 3743,
+              "facade": "closed",
+              "doorDirection": "left"
+            }
+          ]
+        }
+      },
+      "reason": "Mapping exists; browser verification separate"
+    },
+    {
+      "id": "wardrobe-1-fixture",
+      "status": "pass",
+      "input": {
+        "version": 1,
+        "kind": "wardrobe",
+        "family": "wardrobe-edge",
+        "color": "W_Plum",
+        "innerColor": "W_Plum",
+        "config": {
+          "model": "edge",
+          "widthMm": 1190,
+          "heightMm": 2600,
+          "depthMm": 450,
+          "sections": [
+            {
+              "id": "1",
+              "seriesId": "Open_Shelves_Slabs",
+              "facade": "open"
+            },
+            {
+              "id": "2",
+              "seriesId": "Full_Shelves_Slabs_bottom_drawer",
+              "facade": "closed",
+              "doorDirection": "right"
+            }
+          ],
+          "topEdge": true
+        }
+      },
+      "actual": {
+        "design": {
+          "version": 1,
+          "kind": "wardrobe",
+          "family": "wardrobe-edge",
+          "color": "W_Plum",
+          "innerColor": "W_Plum",
+          "config": {
+            "model": "edge",
+            "widthMm": 1190,
+            "heightMm": 2600,
+            "depthMm": 450,
+            "topEdge": true,
+            "sections": [
+              {
+                "id": "1",
+                "seriesId": "Open_Shelves_Slabs",
+                "facade": "open"
+              },
+              {
+                "id": "2",
+                "seriesId": "Full_Shelves_Slabs_bottom_drawer",
+                "facade": "closed",
+                "doorDirection": "right"
+              }
+            ]
+          }
+        },
+        "layout": {
+          "id": "layout",
+          "label": "내부 배치",
+          "target": {
+            "scope": "section",
+            "sectionId": "1"
+          },
+          "visible": true,
+          "enabled": true,
+          "kind": "layout",
+          "value": "Open_Shelves_Slabs",
+          "options": [
+            {
+              "id": "Open_Shelves_Slabs",
+              "label": "수납 구성 1",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.015,
+                  0.16884615384615384,
+                  0.28423076923076923,
+                  0.3996153846153846,
+                  0.515,
+                  0.6303846153846154,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "Open_Shelves_Slabs_bottom_drawer",
+              "label": "수납 구성 2",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.015,
+                  0.16884615384615384,
+                  0.28423076923076923,
+                  0.3996153846153846,
+                  0.515,
+                  0.6303846153846154,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": [
+                  {
+                    "from": 0.011538461538461539,
+                    "to": 0.15692307692307692,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "Open_Shelves_Slabs_mid_drawer",
+              "label": "수납 구성 3",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.015,
+                  0.16884615384615384,
+                  0.28423076923076923,
+                  0.3996153846153846,
+                  0.515,
+                  0.6303846153846154,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": [
+                  {
+                    "from": 0.16538461538461538,
+                    "to": 0.2723076923076923,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "Open_Shelves_Slabs_top_drawer",
+              "label": "수납 구성 4",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.015,
+                  0.16884615384615384,
+                  0.28423076923076923,
+                  0.3996153846153846,
+                  0.515,
+                  0.6303846153846154,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": [
+                  {
+                    "from": 0.28076923076923077,
+                    "to": 0.38769230769230767,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "Open_Shelves_Slabs_2bottom_drawers",
+              "label": "수납 구성 5",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.015,
+                  0.28423076923076923,
+                  0.3996153846153846,
+                  0.515,
+                  0.6303846153846154,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": [
+                  {
+                    "from": 0.011538461538461539,
+                    "to": 0.15692307692307692,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.17615384615384616,
+                    "to": 0.2723076923076923,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "Open_Shelves_Slabs_3bottom_drawers",
+              "label": "수납 구성 6",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.015,
+                  0.28423076923076923,
+                  0.3996153846153846,
+                  0.515,
+                  0.6303846153846154,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": [
+                  {
+                    "from": 0.011538461538461539,
+                    "to": 0.11846153846153847,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.1376923076923077,
+                    "to": 0.19538461538461538,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.21461538461538462,
+                    "to": 0.2723076923076923,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "Open_Shelves_Slabs_2top_drawers",
+              "label": "수납 구성 7",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.015,
+                  0.16884615384615384,
+                  0.3996153846153846,
+                  0.515,
+                  0.6303846153846154,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": [
+                  {
+                    "from": 0.16538461538461538,
+                    "to": 0.2723076923076923,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.2915384615384615,
+                    "to": 0.38769230769230767,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "Open_Shelves_Slabs_3drawers",
+              "label": "수납 구성 8",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.015,
+                  0.3996153846153846,
+                  0.515,
+                  0.6303846153846154,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": [
+                  {
+                    "from": 0.011538461538461539,
+                    "to": 0.15692307692307692,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.17615384615384616,
+                    "to": 0.2723076923076923,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.2915384615384615,
+                    "to": 0.38769230769230767,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "Open_Shelves_Slabs_4drawers",
+              "label": "수납 구성 9",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.015,
+                  0.3996153846153846,
+                  0.515,
+                  0.6303846153846154,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": [
+                  {
+                    "from": 0.011538461538461539,
+                    "to": 0.11846153846153847,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.1376923076923077,
+                    "to": 0.23384615384615384,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.2530769230769231,
+                    "to": 0.31076923076923074,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.33,
+                    "to": 0.38769230769230767,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "Open_Shelves_Slabs_lowest_doors",
+              "label": "수납 구성 10",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.015,
+                  0.16884615384615384,
+                  0.28423076923076923,
+                  0.3996153846153846,
+                  0.515,
+                  0.6303846153846154,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "Open_Shelves_Slabs_low_doors",
+              "label": "수납 구성 11",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.015,
+                  0.16884615384615384,
+                  0.28423076923076923,
+                  0.3996153846153846,
+                  0.515,
+                  0.6303846153846154,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "Open_Shelves_Slabs_drawer_and_doors",
+              "label": "수납 구성 12",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.015,
+                  0.16884615384615384,
+                  0.28423076923076923,
+                  0.3996153846153846,
+                  0.515,
+                  0.6303846153846154,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": [
+                  {
+                    "from": 0.2915384615384615,
+                    "to": 0.38769230769230767,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "Open_Rail_Rail_XL",
+              "label": "수납 구성 13",
+              "glyph": {
+                "rails": [
+                  0.7423076923076923
+                ],
+                "shelves": [
+                  0.015,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "Open_Rail_Rail_2x",
+              "label": "수납 구성 14",
+              "glyph": {
+                "rails": [
+                  0.7423076923076923
+                ],
+                "shelves": [
+                  0.015,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "Open_Rail_Rail_L",
+              "label": "수납 구성 15",
+              "glyph": {
+                "rails": [
+                  0.7423076923076923
+                ],
+                "shelves": [
+                  0.015,
+                  0.16884615384615384,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "Open_Rail_Rail_L_1drawers",
+              "label": "수납 구성 16",
+              "glyph": {
+                "rails": [
+                  0.7423076923076923
+                ],
+                "shelves": [
+                  0.015,
+                  0.16884615384615384,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": [
+                  {
+                    "from": 0.011538461538461539,
+                    "to": 0.15692307692307692,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "Open_Rail_Rail",
+              "label": "수납 구성 17",
+              "glyph": {
+                "rails": [
+                  0.7423076923076923
+                ],
+                "shelves": [
+                  0.015,
+                  0.16884615384615384,
+                  0.28423076923076923,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "Open_Rail_Rail_bottom_drawer",
+              "label": "수납 구성 18",
+              "glyph": {
+                "rails": [
+                  0.7423076923076923
+                ],
+                "shelves": [
+                  0.015,
+                  0.16884615384615384,
+                  0.28423076923076923,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": [
+                  {
+                    "from": 0.011538461538461539,
+                    "to": 0.15692307692307692,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "Open_Rail_Rail_top_drawer",
+              "label": "수납 구성 19",
+              "glyph": {
+                "rails": [
+                  0.7423076923076923
+                ],
+                "shelves": [
+                  0.015,
+                  0.16884615384615384,
+                  0.28423076923076923,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": [
+                  {
+                    "from": 0.16538461538461538,
+                    "to": 0.2723076923076923,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "Open_Rail_Rail_2drawers",
+              "label": "수납 구성 20",
+              "glyph": {
+                "rails": [
+                  0.7423076923076923
+                ],
+                "shelves": [
+                  0.015,
+                  0.28423076923076923,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": [
+                  {
+                    "from": 0.011538461538461539,
+                    "to": 0.15692307692307692,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.17615384615384616,
+                    "to": 0.2723076923076923,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "Open_Rail_Rail_3drawers",
+              "label": "수납 구성 21",
+              "glyph": {
+                "rails": [
+                  0.7423076923076923
+                ],
+                "shelves": [
+                  0.015,
+                  0.28423076923076923,
+                  0.7457692307692307,
+                  0.8611538461538462,
+                  0.9842307692307692
+                ],
+                "drawers": [
+                  {
+                    "from": 0.011538461538461539,
+                    "to": 0.11846153846153847,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.1376923076923077,
+                    "to": 0.19538461538461538,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.21461538461538462,
+                    "to": 0.2723076923076923,
+                    "count": 1
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "wardrobe-2-fixture",
+      "status": "pass",
+      "input": {
+        "version": 1,
+        "kind": "wardrobe",
+        "family": "wardrobe-tone",
+        "color": "T_Cashmere",
+        "innerColor": "T_Pink",
+        "config": {
+          "model": "tone",
+          "widthMm": 4150,
+          "heightMm": 2760,
+          "depthMm": 630,
+          "sections": [
+            {
+              "id": "1",
+              "seriesId": 3741,
+              "facade": "closed"
+            },
+            {
+              "id": "2",
+              "seriesId": 3738,
+              "facade": "closed"
+            },
+            {
+              "id": "3",
+              "seriesId": 3746,
+              "facade": "closed"
+            },
+            {
+              "id": "4",
+              "seriesId": 3742,
+              "facade": "closed"
+            },
+            {
+              "id": "5",
+              "seriesId": 3743,
+              "facade": "closed"
+            }
+          ],
+          "toneWidthPattern": "11111",
+          "drawerStyle": "internal",
+          "lighting": false
+        }
+      },
+      "actual": {
+        "design": {
+          "version": 1,
+          "kind": "wardrobe",
+          "family": "wardrobe-tone",
+          "color": "T_Cashmere",
+          "innerColor": "T_Pink",
+          "config": {
+            "model": "tone",
+            "widthMm": 4150,
+            "heightMm": 2760,
+            "depthMm": 630,
+            "toneWidthPattern": "11111",
+            "drawerStyle": "internal",
+            "lighting": false,
+            "sections": [
+              {
+                "id": "1",
+                "seriesId": 3741,
+                "facade": "closed"
+              },
+              {
+                "id": "2",
+                "seriesId": 3738,
+                "facade": "closed"
+              },
+              {
+                "id": "3",
+                "seriesId": 3746,
+                "facade": "closed"
+              },
+              {
+                "id": "4",
+                "seriesId": 3742,
+                "facade": "closed"
+              },
+              {
+                "id": "5",
+                "seriesId": 3743,
+                "facade": "closed"
+              }
+            ]
+          }
+        },
+        "layout": {
+          "id": "layout",
+          "label": "내부 배치",
+          "target": {
+            "scope": "section",
+            "sectionId": "1"
+          },
+          "visible": true,
+          "enabled": true,
+          "kind": "layout",
+          "value": "3741",
+          "options": [
+            {
+              "id": "3738",
+              "label": "수납 구성 1",
+              "glyph": {
+                "rails": [
+                  0.6764492753623188
+                ],
+                "shelves": [
+                  0.7114130434782608,
+                  0.9876811594202899,
+                  0.013768115942028985,
+                  0.15869565217391304,
+                  0.3036231884057971,
+                  0.8463768115942029
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "3739",
+              "label": "수납 구성 2",
+              "glyph": {
+                "rails": [
+                  0.6764492753623188
+                ],
+                "shelves": [
+                  0.3036231884057971,
+                  0.7114130434782608,
+                  0.9876811594202899,
+                  0.013768115942028985,
+                  0.8463768115942029
+                ],
+                "drawers": [
+                  {
+                    "from": 0.16557971014492753,
+                    "to": 0.21992753623188405,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.2351449275362319,
+                    "to": 0.2894927536231884,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "3740",
+              "label": "수납 구성 3",
+              "glyph": {
+                "rails": [
+                  0.6764492753623188,
+                  0.34347826086956523
+                ],
+                "shelves": [
+                  0.7114130434782608,
+                  0.9876811594202899,
+                  0.013768115942028985,
+                  0.8463768115942029
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "3741",
+              "label": "수납 구성 4",
+              "glyph": {
+                "rails": [
+                  0.6764492753623188
+                ],
+                "shelves": [
+                  0.3036231884057971,
+                  0.7114130434782608,
+                  0.9876811594202899,
+                  0.013768115942028985,
+                  0.8463768115942029
+                ],
+                "drawers": [
+                  {
+                    "from": 0.020652173913043477,
+                    "to": 0.075,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.09214975845410628,
+                    "to": 0.14649758454106282,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.1636473429951691,
+                    "to": 0.21799516908212563,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.2351449275362319,
+                    "to": 0.2894927536231884,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "3742",
+              "label": "수납 구성 5",
+              "glyph": {
+                "rails": [
+                  0.6764492753623188
+                ],
+                "shelves": [
+                  0.7114130434782608,
+                  0.9876811594202899,
+                  0.013768115942028985,
+                  0.15869565217391304,
+                  0.8463768115942029
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "3743",
+              "label": "수납 구성 6",
+              "glyph": {
+                "rails": [
+                  0.6764492753623188
+                ],
+                "shelves": [
+                  0.15869565217391304,
+                  0.7114130434782608,
+                  0.9876811594202899,
+                  0.013768115942028985,
+                  0.8463768115942029
+                ],
+                "drawers": [
+                  {
+                    "from": 0.020652173913043477,
+                    "to": 0.075,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.09021739130434783,
+                    "to": 0.14456521739130435,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "3744",
+              "label": "수납 구성 7",
+              "glyph": {
+                "rails": [
+                  0.6764492753623188
+                ],
+                "shelves": [
+                  0.7114130434782608,
+                  0.9876811594202899,
+                  0.013768115942028985,
+                  0.8463768115942029
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "3745",
+              "label": "수납 구성 8",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.7114130434782608,
+                  0.9876811594202899,
+                  0.013768115942028985,
+                  0.15869565217391304,
+                  0.3036231884057971,
+                  0.44855072463768114,
+                  0.5804347826086956,
+                  0.8463768115942029
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "3746",
+              "label": "수납 구성 9",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.3036231884057971,
+                  0.7114130434782608,
+                  0.9876811594202899,
+                  0.013768115942028985,
+                  0.5804347826086956,
+                  0.44855072463768114,
+                  0.8463768115942029
+                ],
+                "drawers": [
+                  {
+                    "from": 0.16557971014492753,
+                    "to": 0.21992753623188405,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.2351449275362319,
+                    "to": 0.2894927536231884,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "3747",
+              "label": "수납 구성 10",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.44855072463768114,
+                  0.7114130434782608,
+                  0.9876811594202899,
+                  0.013768115942028985,
+                  0.5804347826086956,
+                  0.8463768115942029
+                ],
+                "drawers": [
+                  {
+                    "from": 0.16557971014492753,
+                    "to": 0.21992753623188405,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.23707729468599034,
+                    "to": 0.29142512077294686,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.3085748792270532,
+                    "to": 0.36292270531400966,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.38007246376811593,
+                    "to": 0.4344202898550725,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "3748",
+              "label": "수납 구성 11",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.44855072463768114,
+                  0.7114130434782608,
+                  0.9876811594202899,
+                  0.013768115942028985,
+                  0.5804347826086956,
+                  0.8463768115942029
+                ],
+                "drawers": [
+                  {
+                    "from": 0.020652173913043477,
+                    "to": 0.075,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.09253623188405798,
+                    "to": 0.14688405797101448,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.16442028985507245,
+                    "to": 0.21876811594202897,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.23630434782608697,
+                    "to": 0.2906521739130435,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.30818840579710144,
+                    "to": 0.362536231884058,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.38007246376811593,
+                    "to": 0.4344202898550725,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "3749",
+              "label": "수납 구성 12",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.7114130434782608,
+                  0.9876811594202899,
+                  0.013768115942028985,
+                  0.15869565217391304,
+                  0.26956521739130435,
+                  0.3804347826086957,
+                  0.49130434782608695,
+                  0.6021739130434782,
+                  0.8463768115942029
+                ],
+                "drawers": []
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "wardrobe-3-fixture",
+      "status": "pass",
+      "input": {
+        "version": 1,
+        "kind": "wardrobe",
+        "family": "wardrobe-tone",
+        "color": "T_Graphite",
+        "innerColor": "T_Graphite",
+        "config": {
+          "model": "tone",
+          "widthMm": 600,
+          "heightMm": 2750,
+          "depthMm": 630,
+          "sections": [
+            {
+              "id": "1",
+              "seriesId": 3743,
+              "facade": "closed",
+              "doorDirection": "left"
+            }
+          ],
+          "toneWidthPattern": "1",
+          "drawerStyle": "external",
+          "lighting": false
+        }
+      },
+      "actual": {
+        "design": {
+          "version": 1,
+          "kind": "wardrobe",
+          "family": "wardrobe-tone",
+          "color": "T_Graphite",
+          "innerColor": "T_Graphite",
+          "config": {
+            "model": "tone",
+            "widthMm": 600,
+            "heightMm": 2750,
+            "depthMm": 630,
+            "toneWidthPattern": "1",
+            "drawerStyle": "external",
+            "lighting": false,
+            "sections": [
+              {
+                "id": "1",
+                "seriesId": 3743,
+                "facade": "closed",
+                "doorDirection": "left"
+              }
+            ]
+          }
+        },
+        "layout": {
+          "id": "layout",
+          "label": "내부 배치",
+          "target": {
+            "scope": "section",
+            "sectionId": "1"
+          },
+          "visible": true,
+          "enabled": true,
+          "kind": "layout",
+          "value": "3743",
+          "options": [
+            {
+              "id": "3738",
+              "label": "수납 구성 1",
+              "glyph": {
+                "rails": [
+                  0.6789090909090909
+                ],
+                "shelves": [
+                  0.714,
+                  0.9876363636363636,
+                  0.013818181818181818,
+                  0.15927272727272726,
+                  0.30472727272727274,
+                  0.8494545454545455
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "3739",
+              "label": "수납 구성 2",
+              "glyph": {
+                "rails": [
+                  0.6789090909090909
+                ],
+                "shelves": [
+                  0.22218181818181817,
+                  0.30472727272727274,
+                  0.714,
+                  0.9876363636363636,
+                  0.013818181818181818,
+                  0.8494545454545455
+                ],
+                "drawers": [
+                  {
+                    "from": 0.028727272727272726,
+                    "to": 0.1290909090909091,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.15309090909090908,
+                    "to": 0.212,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.2290909090909091,
+                    "to": 0.28363636363636363,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "3740",
+              "label": "수납 구성 3",
+              "glyph": {
+                "rails": [
+                  0.6789090909090909,
+                  0.3447272727272727
+                ],
+                "shelves": [
+                  0.714,
+                  0.9876363636363636,
+                  0.013818181818181818,
+                  0.8494545454545455
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "3741",
+              "label": "수납 구성 4",
+              "glyph": {
+                "rails": [
+                  0.6789090909090909
+                ],
+                "shelves": [
+                  0.22218181818181817,
+                  0.30472727272727274,
+                  0.714,
+                  0.9876363636363636,
+                  0.013818181818181818,
+                  0.8494545454545455
+                ],
+                "drawers": [
+                  {
+                    "from": 0.028727272727272726,
+                    "to": 0.1290909090909091,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.15309090909090908,
+                    "to": 0.212,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.2290909090909091,
+                    "to": 0.28363636363636363,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "3742",
+              "label": "수납 구성 5",
+              "glyph": {
+                "rails": [
+                  0.6789090909090909
+                ],
+                "shelves": [
+                  0.714,
+                  0.9876363636363636,
+                  0.013818181818181818,
+                  0.15927272727272726,
+                  0.8494545454545455
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "3743",
+              "label": "수납 구성 6",
+              "glyph": {
+                "rails": [
+                  0.6789090909090909
+                ],
+                "shelves": [
+                  0.22218181818181817,
+                  0.714,
+                  0.9876363636363636,
+                  0.013818181818181818,
+                  0.8494545454545455
+                ],
+                "drawers": [
+                  {
+                    "from": 0.028727272727272726,
+                    "to": 0.1290909090909091,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.15309090909090908,
+                    "to": 0.212,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "3744",
+              "label": "수납 구성 7",
+              "glyph": {
+                "rails": [
+                  0.6789090909090909
+                ],
+                "shelves": [
+                  0.714,
+                  0.9876363636363636,
+                  0.013818181818181818,
+                  0.8494545454545455
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "3745",
+              "label": "수납 구성 8",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.714,
+                  0.9876363636363636,
+                  0.013818181818181818,
+                  0.15927272727272726,
+                  0.30472727272727274,
+                  0.4501818181818182,
+                  0.5825454545454546,
+                  0.8494545454545455
+                ],
+                "drawers": []
+              }
+            },
+            {
+              "id": "3746",
+              "label": "수납 구성 9",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.22218181818181817,
+                  0.30472727272727274,
+                  0.714,
+                  0.9876363636363636,
+                  0.013818181818181818,
+                  0.4501818181818182,
+                  0.5825454545454546,
+                  0.8494545454545455
+                ],
+                "drawers": [
+                  {
+                    "from": 0.028727272727272726,
+                    "to": 0.1290909090909091,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.15309090909090908,
+                    "to": 0.212,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.2290909090909091,
+                    "to": 0.28363636363636363,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "3747",
+              "label": "수납 구성 10",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.22218181818181817,
+                  0.30472727272727274,
+                  0.714,
+                  0.9876363636363636,
+                  0.013818181818181818,
+                  0.4501818181818182,
+                  0.5825454545454546,
+                  0.8494545454545455
+                ],
+                "drawers": [
+                  {
+                    "from": 0.028727272727272726,
+                    "to": 0.1290909090909091,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.15309090909090908,
+                    "to": 0.212,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.2290909090909091,
+                    "to": 0.28363636363636363,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "3748",
+              "label": "수납 구성 11",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.22218181818181817,
+                  0.4501818181818182,
+                  0.714,
+                  0.9876363636363636,
+                  0.013818181818181818,
+                  0.5825454545454546,
+                  0.8494545454545455
+                ],
+                "drawers": [
+                  {
+                    "from": 0.028727272727272726,
+                    "to": 0.1290909090909091,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.15309090909090908,
+                    "to": 0.212,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.2290909090909091,
+                    "to": 0.28363636363636363,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.30527272727272725,
+                    "to": 0.3598181818181818,
+                    "count": 1
+                  },
+                  {
+                    "from": 0.38145454545454544,
+                    "to": 0.436,
+                    "count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "3749",
+              "label": "수납 구성 12",
+              "glyph": {
+                "rails": [],
+                "shelves": [
+                  0.714,
+                  0.9876363636363636,
+                  0.013818181818181818,
+                  0.15927272727272726,
+                  0.27054545454545453,
+                  0.38181818181818183,
+                  0.4930909090909091,
+                  0.6043636363636363,
+                  0.8494545454545455
+                ],
+                "drawers": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "fingerprints": {
+    "src/lib/furniture/catalog-design.ts": "3d90740b198c4192c865a282421f4b2da9c600eaddbe1dc634efba6157c41aeb",
+    "src/lib/furniture/design.ts": "2ee498370648a1bb1c539c46ca6d44bc8443ed4187352ed5209bcd959302aef5",
+    "src/lib/furniture/desk/index.ts": "05a73b55e57bc3b7bb7743bc173f6b2e60b921f9b75ecce2248237240c43670e",
+    "src/lib/furniture/wardrobe-colors.ts": "dd7c151786e9bfaf14e3937c5effa6e746ac71ec673543134bc7803986070791",
+    "src/lib/furniture/wardrobe/initial.ts": "2b9096b4b962bd40ac7b2551d3da9932f92ab814c72b3af739181979a4b925e6",
+    "src/lib/furniture/wardrobe/edge-catalog.json": "3d268b9edfbdd4cdf2c14237467013f29d93af031ea604eb8aefe1a4813f2282",
+    "src/lib/furniture/wardrobe/tone-rules.json": "01f352164b940532820c984d48e1918644b70683ee37979e457b185a256985d5",
+    "src/lib/furniture/wardrobe/index.ts": "36f068123b10a8b0236e3c599d5fbdbe6cc65875299b556cd0051bc88ed7aadc",
+    "src/lib/furniture/wardrobe/edge.ts": "d8402ea88507371e2f2e54d7b3371607f8b46227baa7c9d78472f6799c13bd5c",
+    "src/lib/furniture/wardrobe-hinges.ts": "0ff327e30b7b5d0c18b7d09f4d13338863f4ae00358b3f86c856aa59e9b5d265",
+    "src/lib/furniture/wardrobe/edge-cable.ts": "1f7bcfb5880da670c8a5125732c2cdcdb5417ecb113fedffcf07f4e3464aca85",
+    "src/lib/furniture/wardrobe/edge-flat-top.ts": "3a6a12086a7d0374b0404062e7b432b584e33cb3ea1cacc30088fcd06c60915b",
+    "src/lib/furniture/wardrobe/adapter.ts": "38e19beeeedfdde742f684c847a709b14363e5f3f5d013eb8114850fabcad2de",
+    "src/lib/furniture/wardrobe/drawers.ts": "d03d7d50fce0e99a574e6740beaa8e8476f16287bf05fc14ae7902125bf8b700",
+    "src/lib/furniture/wardrobe/tone-drawers.ts": "2700fe474f59f460e3f28064572ced85427cf0a110c1356f84ad51de19da5b61",
+    "src/lib/furniture/wardrobe/fronts.ts": "f7382f01e6d78410982a3747b8fecee4be5962ad3de8eaed25e743ce1a00c647",
+    "src/lib/furniture/wardrobe/tone.ts": "99e1c619b0dc3cb99a1d513ffd6c693d58dc047d453fbbb1d91b75e8b2a1de51",
+    "src/lib/three/reference-colors.ts": "7785f190f50c9171ee00db6607011a8e68b413e631afde95192815baea3bb814",
+    "src/lib/furniture/desk-panel.ts": "71c82ac2c282e947df22a7e857c7784854597e38888443d98952c7110a554ce6",
+    "src/lib/furniture/wardrobe-panel.ts": "bb98d9c1eda1d013892ff77dde834cecb5d65a61aa25740d0b4f460ae76d8cd0"
+  }
+}

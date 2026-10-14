@@ -1,0 +1,103 @@
+- link "본문으로 바로가기":
+  - /url: "#main"
+- region "프로모션 알림":
+  - link "공간에 딱 맞는 수납. 나만의 디자인, 20% 할인.":
+    - /url: /furniture-c
+    - text: 공간에 딱 맞는 수납.
+    - strong: 나만의 디자인, 20% 할인.
+  - button "알림 닫기":
+- banner:
+  - link "Befun 홈":
+    - /url: /
+    - img "Befun"
+  - button "메뉴 열기":
+  - link "제품 검색":
+    - /url: /search
+  - link "즐겨찾기 보기":
+    - /url: /wishlist
+  - link "장바구니 0개":
+    - /url: /cart
+- main:
+  - link "가구 선택":
+    - /url: /configurator-intro
+  - heading "Tone 옷장" [level=1]
+  - paragraph: 101 × 237 × 54 cm
+  - generic "가구 보기":
+    - button "문·서랍 열기"
+    - button "치수"
+    - button "정면"
+    - button "시점 초기화":
+    - button "전체 화면":
+  - paragraph: 드래그하여 회전 · 스크롤하여 확대 · 수납 구획을 눌러 편집
+  - complementary "가구 옵션":
+    - tablist "옵션 구분":
+      - tab "외형" [selected]
+      - tab "내부 구성"
+    - tabpanel "외형":
+      - generic: 너비
+      - generic "너비":
+        - slider "너비": "101"
+        - generic: 101cm
+      - generic: 높이
+      - generic "높이":
+        - radiogroup "높이":
+          - radio "200cm"
+          - radio "237cm" [checked]
+        - button "높이 +"
+      - generic: 깊이
+      - generic "깊이":
+        - slider "깊이": "54"
+        - generic: 54cm
+      - generic: 조명
+      - generic "조명":
+        - radiogroup "조명":
+          - radio "없음" [checked]
+          - radio "내부"
+      - generic: 외부 색상
+      - generic "외부 색상":
+        - radiogroup "외부 색상":
+          - radio "화이트"
+          - radio "캐시미어" [checked]
+          - radio "그래파이트"
+        - paragraph: 캐시미어
+      - generic: 내부 색상
+      - generic "내부 색상":
+        - radiogroup "내부 색상":
+          - radio "앤티크 핑크"
+          - radio "스톤 그레이"
+          - radio "세이지 그린" [checked]
+          - radio "미스티 블루"
+          - radio "캐시미어"
+        - paragraph: 세이지 그린
+    - button "디자인 저장":
+      - text: 디자인 저장
+    - button "링크 공유":
+      - text: 링크 공유
+    - button "저장한 디자인 불러오기" [active]
+    - status: 저장한 디자인을 불러왔습니다.
+  - heading "내 공간에 맞춘 옷장" [level=2]
+  - paragraph: 크기와 수납 구성을 바꾸어 나만의 공간을 만들어 보세요. 저장과 공유에는 현재 선택한 크기, 구성, 색상이 함께 담깁니다.
+- contentinfo:
+  - heading "가구에 공간을 맞추는 대신, 당신에게 맞는 가구를 만드세요." [level=2]:
+    - text: 가구에 공간을 맞추는 대신,
+    - text: 당신에게 맞는 가구를 만드세요.
+  - generic "Befun":
+    - text: Befun
+  - generic "고객 지원":
+    - text: 고객 지원
+  - generic "문의하기":
+    - text: 문의하기
+  - generic "함께해요":
+    - text: 함께해요
+  - link "Befun 홈":
+    - /url: /
+    - img "Befun"
+  - link "대한민국 · 한국어 · KRW":
+    - /url: /region-settings
+  - generic: © 2026 Befun
+  - generic: Visa · Mastercard · 간편결제
+- link "? 도움이 필요하세요?":
+  - /url: /contact
+  - generic: "?"
+  - text: 도움이 필요하세요?
+- alert

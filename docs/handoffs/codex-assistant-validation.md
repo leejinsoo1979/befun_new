@@ -244,3 +244,60 @@
 - 검사: 새 r3-legs.mjs ESLint통과. 격리 `/private/tmp/befun-r3-qa-t9lq9cxb` webpack build/전체TypeScript exit0. 최초GoogleFonts DNS차단 후승인된 네트워크 재실행통과. 기록 `r3-build*.log`, `r3-build-snapshot.json`. 종료시 동시변경hardware/index.ts는 해당빌드승인밖(`r3-live-drift.json`). 공유.next/서버 보존. 전체lint는 이번 실행하지 않음.
 - 수정 파일: 신규 `scripts/furniture-validation/r3*`, 본handoff, `docs/handoffs/assets/codex-qa/r3/**`만. 제품소스/타담당 인계/원본실패기준 수정 없음. `r3-original-preservation.json`, `r3-evidence-fingerprints.json`에증거해시.
 - R3-QA-INDEPENDENT-READY: 독립결과 제출. UI-LIVE-READY/SAVE-BASE-READY/CNC-PRESERVE-READY 뒤 후속수행 필요. 이번신규QA파일·캡처 잠금해제, 후속재검증시재등록. 미완료항목을완료로처리하지 않음.
+
+### R4 독립 QA 수신 / codex-assistant-validation / 2026-10-14T12:10:40.994763
+- 사용자 직접 전달 및 dispatch-r4.md 수신. 실제 책상 카탈로그9진입→Classic/Modern 복원→Edge/Tone 직접편집→ENTRY READY 후 옷장 목록검사. 제품/fixture 읽기전용.
+- 잠금: 신규 scripts/furniture-validation/r4-*, docs/handoffs/assets/codex-qa/r4/**, 본인 validation 인계 append. 계정/DB와 로컬 구분, 사용자 저장 덮어쓰기 금지.
+
+### R4-QA 중간 FAIL — EDGE-LAYOUT-01
+- URL `/furniture-design/wardrobe-edge` (원서버3003, 저장격리 proxy52527). 기본118×198×60/W_Olive/구획1 Half_Rail_Rail_L_1drawers에서 너비ArrowRight119→높이ArrowRight228→깊이45→샌드→내부 구성.
+- 기대: 현재 생성 상태에 대응하는 내부 배치 선택 표시가 존재하거나, 깊이 변경 시 지원되는 배치로 명시적으로 정규화. 실제: 현재series Half_Rail_Rail_L_1drawers가 options8개에 없어 모든radio 미선택. 모델 상태와 옵션이 불일치.
+- 독립 재현 `node scripts/furniture-validation/r4-contracts.mjs`의 edge-current-layout-option FAIL. 기대값/원본 fixture 수정 없음. 캡처/DOM: assets/codex-qa/r4/edge-initial-interior.{png,txt}, 코드fingerprint/전체옵션 contracts.json.
+- 오너: 리더 wardrobe-panel.ts / wardrobe 규칙. UI는 전달받은value와options의ID를 비교하므로 adapter/normalization 검토 우선. 제품 소스 미수정.
+
+## R4-QA 독립 검증 보고 — 2026-10-14 / R4-QA-READY
+
+**보고 제출이며 전체 동치 승인이 아닙니다.** 제품 소스·원본 fixture를 변경하지 않았습니다. 실제 Chrome, 원서버 `http://127.0.0.1:3003`, 저장 실험은 새 origin `http://127.0.0.1:52527`의 QA 전용 proxy로 수행했습니다. 기존 사용자 origin의 저장 디자인을 덮어쓰지 않았습니다. proxy는 GET forwarding이며 HMR websocket을 대행하지 않습니다. 계정·DB 저장 성공과 아래 로컬 저장 성공은 별개입니다.
+
+### 판정표
+
+| 사례 | 초기값·조작·기대 근거 | 실제 / 판정 | 증거 |
+|---|---|---|---|
+| DESK-ENTRY-01/02/03 | `/furniture-c/desk`에서 desk-1/2/3 각각 사진→상품명→3D 편집 링크. `desk-catalog-entry-001`과 대조 | **PASS** 9진입. desk1 Classic 200×73×60cm/2수납/다리1/Clay Brown/drawer,door-drawer; desk2 Modern 240×73×50/4수납/다리0/Sand+Midnight Blue/some-door,some-door,drawer,drawer; desk3 Classic 160×73×50/2수납/다리1/Black/opening,door-drawer. 내부 구획 선택값도 확인 | `catalog-browser.json`, `desk-{1,2,3}-{photo,title,edit}.txt`, edit.png |
+| DESK-SAVE-CLASSIC | desk1→너비Right→깊이50→수납+→다리Right→Black→구획2도어/왼쪽→구획3서랍→저장→reload→새 무쿼리 경로에서 불러오기 | **PASS** 2015mm/500mm/3수납/다리2, storage-1/2/3와 drawer,door,drawers 유지. URL 디자인과 로컬 복원 JSON 동일 | `save-roundtrips.json`, `classic-{saved,reload}.txt`, `classic-local-restored.png` |
+| DESK-SAVE-MODERN | desk2→너비Left→깊이60→수납−→다리End→Olive Green→구획2서랍→구획3도어/왼쪽→저장·reload·새 경로 로컬 복원 | **PASS** 2385mm/600mm/3수납/다리3, some-door,drawers,door 및 stable ID 유지 | `save-roundtrips.json`, `modern-{saved,reload}.txt` |
+| DESK-BOUNDS/ID | 두 모델 Home90cm→End240cm; 제거된 선택 ID와 생존 storage-1 비교 | **PASS** 경계 UI 및 함수 clamp, 생존 구획 값/ID 보존. 없는 ID 변경과 depth61 입력은 함수에서 무시 | `classic/modern-{min,max}.txt`, contracts.json |
+| SELECT-RESTORE | 구획3 선택 후 저장·reload | **관찰 / unknown 요구사항** 설계 값은 유지하지만 외형 탭·첫 구획으로 선택 초기화. URL은 선택 탭/구획 UI 상태를 저장하지 않음. 선택까지 복원이 필수인지는 리더 확인 필요 | `save-roundtrips.json` |
+| EDGE-DIRECT | `/furniture-design/wardrobe-edge` 118×198×60/W_Olive→119×228×45/Sand→구획2 배치 Full_Rail_Rail_2x/닫힘→저장·reload·무쿼리 로컬 복원 | **PASS 복원 / FAIL 배치표시** width1190,height2280,depth450와 두 section ID/series 유지. 구획1의 현재 배치가 옵션에 없는 EDGE-LAYOUT-01은 OPEN | `edge-reload.txt`, `edge-initial-interior.{png,txt}`, save-roundtrips.json |
+| TONE-DIRECT | `/furniture-design/wardrobe-tone`100×200×53→101×237×54/Cashmere+Sage→배치3(series3740)/외부서랍→저장·reload·로컬복원·링크공유 | **PASS** JSON 동일, 공유 URL 일치. 클립보드는 기존 빈 상태로 복귀 | `tone-reload.txt`, `tone-local-restored.txt`, `tone-open.png`, save-roundtrips.json |
+| UI-READY-CROSS | 위 네 경로 desktop/390px. Edge tab/구획 방향키·모두열림 Space, Tone 높이+ Enter→238→Right2→240→기본높이237 | **PASS 검사한 조작 범위** 390px 가로 overflow 없음, 값·포커스 이동 확인. UI 담당 전체34개를 그대로 모두 재실행했다는 의미는 아님 | `*-390.png`, `edge-keyboard.txt`, `tone-height-mode.txt` |
+| DESK-HOTSPOT-CROSS | 검증 중 리더가 desk 탭을 hotspot으로 변경. desk3 초기 구획1/2, desk1 Enter 도어,390px 구획2·Escape | **PASS 후속 조작** 올바른 구획 팝업, Escape 닫힘·해당 hotspot 포커스 복귀. 앞의 탭 버전 저장 결과와 최신 hotspot 버전을 혼합한 전체 승인 금지 | `desk-hotspot-keyboard.txt`, `desk-hotspot-390.png` |
+| WARDROBE-ENTRY-PRE | 연결 코드 도착 후 `/furniture-c/wardrobe` 3상품×사진/상품명/편집 | **PASS 선행9진입** Edge119×260×45/Plum/2구획; Tone415×276×63/Cashmere+Pink/5구획; Tone60×275×63/Graphite/1구획. 신규 wardrobe-catalog-001/002/003 initialDesign과 함수 비교 일치 | `wardrobe-entry-provisional.json`, `wardrobe-{1,2,3}-{photo,title,edit}.txt/png`, contracts.json |
+| WARDROBE-SAVE-PRE | 각 실제 상품에서 너비Right(120/416/61cm)→저장·reload→로컬 불러오기 | **PASS 선행 검사** 각 section ID/series/색상/높이/깊이 유지, 3개 모두 로컬 URL 일치 | `wardrobe-catalog-roundtrips.json`, `wardrobe-{1,2,3}-restored.txt` |
+| WARDROBE-ENTRY-AFTER-READY | R4-ENTRY-READY 이후 같은3목록 경로 | **blocked** 보고 작성 시 해당 신호 미게시. 위 선행 검사를 READY 이후 승인으로 대체하지 않음 | storefront handoff 수신·초기값 조사까지만 게시 |
+| HW-READY-CROSS | 담당 원본 geometry.r4/boring 및 cable-render 동일 입력 독립 실행 | **PASS** 올바른 resolver로11/11, cable5/5. 최초 bare node 실행은 확장자 해석 MODULE_NOT_FOUND여서 실행환경 실패로 보존, 제품 실패로 집계하지 않음 | `hw-resolver-crosscheck.log`, `cable-crosscheck.log`, `hw-crosscheck.log` |
+| GRAPHICS-DESK | desk3 C_Black160×73×50, 정면/입체, 원본 desk-catalog-003-reference와 비교 | **FAIL 시각차이 / 리더 통합 대기** 다리 공간 상부 빔에 넓은 합판 줄무늬가 보임. HW의 R4-REQ-02와 같은 차이. 사진 각도가 달라 픽셀 동치 검사는 아님 | `desk-3-front.png`, `desk-3-perspective.png`; DeskModel beams Panel(horizontalBase), 오너 리더 |
+| CONSOLE/HARDRELOAD | 실제 상품 탐색, 원서버 desk3 캐시 무시 reload, 후속 원서버 새 탭 desk2 | **historical FAIL / 최신 재현 unknown** 초기 SSR/client Row label id·aria-labelledby mismatch 오류5건. 최신 새 탭 desk2 error/warn0. 이전 오류를 삭제하거나 WebGL 오류로 바꾸지 않음 | browser-logs.json, direct-hardreload-logs.json, fresh-desk2-logs.json/png |
+| WEBGL | 위 실제 탐색·옵션·회전 중 캡처한 콘솔 | **PASS 관찰 범위** WebGL 오류 관찰 없음. 장시간 부하·모든 기기·FPS 성능 승인은 unknown | 위 콘솔 로그 |
+| SERVER-SAVE | 계정/DB 왕복·다른 기기 복구 | **unknown / 미실행** 이 화면 저장 안내는 브라우저 로컬. 로컬 PASS로 DB 성공을 주장하지 않음 | 저장 후 status 캡처 |
+
+### 실패 상세 및 미확인 근거
+
+- **EDGE-LAYOUT-01 / owner 리더:** 앞의 중간 FAIL 절 재현 그대로. 기본 Edge 118×198×60cm/W_Olive에서 width119→height228→depth45, 샌드→내부. `Half_Rail_Rail_L_1drawers`가 현재 options8개에 없음. 기대는 현재 상태와 선택 UI 일치이며 새 독립 assertion도 그대로 FAIL. 원본 fixture/실패 기준 수정 없음.
+- **GRAPHICS-DESK / owner 리더:** `/reference-product/desk-3`, 원본 초기 Black/1600×730×500/2수납/다리1/opening,door-drawer. 정면→시점 초기화(입체)로 비교. 원본은 어두운 지지 빔, 현재는 빔3cm 면에 늘어난 합판 줄무늬. HW는 빔 단일 재질 및 cable regroup 요청을 제출했으며 모델/케이블 통합 전체를 HW 단품 통과로 승인할 수 없음.
+- **SSR-ID / owner 리더+UI:** 원서버 `/furniture-c/desk`의 desk2 초기 상품 링크 탐색(위 DESK-ENTRY-02 입력), 옵션 Row의 label id/aria-labelledby 서버/클라이언트 불일치 콘솔. 기대 동일 ID·hydration error0. 초기 오류 로그와 최신 새 탭 error0를 모두 보존. HMR/route 전환 영향은 미확인이라 현재 지속 실패로 단정하지 않음.
+- 책상 fixture의 hiddenSeed/이전 편집/케이블 개구/원본 도어 방향 미확인 값은 계속 unknown. desk1/2 원본 스크린샷 빈 항목을 통과로 채우지 않음. 옷장 공개 preset API403, 숨은 key, Tone runner travel/옷봉 단면 제조값도 unknown. Befun ordinal ID 보존은 원본 private ID 획득과 다름.
+
+### 재현 명령·fingerprint·후속
+
+```sh
+node scripts/furniture-validation/r4-contracts.mjs
+node --no-warnings --import ./src/components/three/furniture-hardware/test-ts-resolve.mjs --test src/lib/three/blum/geometry.r4.test.mjs src/lib/three/blum/boring.test.mjs
+node --test scripts/furniture-desk/cable-render.test.mjs
+python3 scripts/furniture-validation/r4-proxy.py
+```
+
+- 독립 contracts 최종 **17pass/1fail**; exit1은 EDGE-LAYOUT-01을 숨기지 않은 의도된 실패 판정. `contracts-first.json`은 연결 전 blocked 이력, `contracts.json`은 현재 함수 검사와 실제 로드 소스 SHA256. `final-source-fingerprints.json`은 종료 시점 파일 해시이며 앞선 모든 브라우저 단계가 동일 revision이었다는 보장은 아님.
+- proxy 시작 시 출력되는 임의 port를 URL에 사용. 브라우저 재현은 위 입력 순서 및 캡처/DOM 참조. `save-roundtrips.json`, `wardrobe-catalog-roundtrips.json`에 전체 디자인과 URL 보존. 브라우저 구획 stable ID는 저장 URL의 데이터로 확인하고 숨은 store를 주입하지 않음.
+- 이번 QA는 소스 변경·커밋·배포·공유 서버 재시작 없음. 전체 build는 리더의 안정본 격리 단계이며 이번 단품/브라우저 통과로 대체하지 않음.
+- 남은 필수 후속: ENTRY READY 게시 뒤3목록 재검사, 리더 EDGE-LAYOUT-01 수정 후 원본 동일 사례, 빔/cable 통합 후 동일desk3 캡처. 전체 승인 보류. 본 보고는 **R4-QA-READY(제출)**이고 대기 항목은 blocked 유지.

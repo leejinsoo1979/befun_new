@@ -1,11 +1,13 @@
 'use client';
 
-import { useMemo, useEffect } from 'react';
-import { createBoredBox } from '@/lib/three/blum/geometry';
+import { useMemo } from 'react';
+import { useBoredBoxGeometry } from '@/lib/three/blum/useBoredBox';
 import type { Bore } from '@/lib/three/blum/boring';
 import type { MaterialSet } from '@/lib/three/materials';
 import { createFaceMaterials, DEFAULT_TEXTURE_ROTATION } from '@/lib/three/materials';
 import type { MaterialType } from '@/types/shelf';
+
+const NO_HOLES: readonly Bore[] = [];
 
 interface PanelProps {
   holes?: readonly Bore[];
@@ -49,8 +51,7 @@ export function Panel({
     return createFaceMaterials(baseMat, edgeMat, isVertical, DEFAULT_TEXTURE_ROTATION);
   }, [matType, materials, isVertical]);
 
-  const geometry = useMemo(() => createBoredBox(w,h,d,holes ?? []), [w,h,d,holes]);
-  useEffect(() => () => geometry.dispose(), [geometry]);
+  const geometry = useBoredBoxGeometry(w,h,d,holes ?? NO_HOLES);
 
   return (
     <mesh
@@ -59,6 +60,7 @@ export function Panel({
       receiveShadow={receiveShadow}
       material={faceMaterials}
       geometry={geometry}
+      userData={{ befunPanel: { w, h, d } }} // 측정 모드가 판재와 치수(cm)를 식별하는 태그
     >
 
     </mesh>
