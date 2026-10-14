@@ -1,0 +1,11 @@
+{
+  "src/lib/assembly-guide/panelMaterials.ts": "39373327f993e531b4076c27269e212ac781f136974dfa7b0c2c255b8ec3821b",
+  "src/lib/assembly-guide/cabinetSound.ts": "81ed5b08b40f1036e8ac261f1635ee9912c369ef01720e9e2805abdfde5451c8",
+  "src/lib/assembly-guide/cabinetSound.test.mjs": "33c3d9d182c1bbdb9341097b2c55cbd380756e4bb9e5c74c519cef9b642286f2",
+  "src/components/assembly-guide/CabinetSimulator.tsx": "eb257517b1d363a7f4c35b1c0ed4ad790bc08d451315ded1745c11872c7a29b2",
+  "public/assembly-guide/audio/spring-lock.wav": "37dd0d487d507cec8a4f362d5eee768e057522585f55f977979709a976405b52",
+  "public/assembly-guide/audio/wood-seat.wav": "e248e722a85e2cba18bae2fec3c13c7b46a327ac808204361aedee9668510f69",
+  "public/assembly-guide/audio/SOURCES.md": "d75552fd92d77e86ae7bbdf3b83242453a30471a95bbe9002ba5be6ae80bc58a",
+  "public/assembly-guide/audio/hinge-lock.wav": "6dbcd984bb8c0bf4ca68da312a5bdbfbf9576c2c7524b753509f8754424bcaa4",
+  "public/assembly-guide/audio/connector-seat.wav": "53fe47d8e419384ee95c937d9396090ec9a38d3988da492aa2b1129095bf1f93"
+}

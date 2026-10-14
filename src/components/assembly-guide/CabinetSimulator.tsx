@@ -168,7 +168,7 @@ export function CabinetSimulator() {
         const next = !muted; setMuted(next); audio.current?.setMuted(next); if (!next) void audio.current?.unlock();
       }}>{muted ? <FiVolumeX /> : <FiVolume2 />}<span>{muted ? '효과음 꺼짐' : '효과음 켜짐'}</span></button>}
       {finalAvailable && mode !== 'watch' && <button type="button" className={styles.doorButton} aria-pressed={doorOpen} onClick={() => setDoorOpen(value => !value)}>{doorOpen ? '도어 닫기' : '도어 열어보기'}</button>}
-      <details className={styles.scope}><summary>모델·조립 범위</summary><p>실제 Befun 생성기의 1단 도어 구성입니다. OVVO V-1230P 몸통 접합은 영구형이며, 단계 초기화는 화면 연습 기능입니다. 보강 패널과 백패널은 아래 고정 다보·위 스프링 다보로 체결합니다. 도어는 미리 장착된 Blum CLIP 경첩을 플레이트에 걸고 눌러 잠급니다. <a href="https://www.blum.com/us/en/products/hingesystems/clip-top-blumotion/assembly/" target="_blank" rel="noreferrer">공식 장착 안내</a>. 다보와 경첩은 설명용 모델이며 정밀 제조 치수는 확정하지 않았습니다.</p></details>
+      <details className={styles.scope}><summary>모델·조립 범위</summary><p>실제 Befun 생성기의 1단 도어 구성입니다. OVVO V-1230P 몸통 접합은 영구형이며, 단계 초기화는 화면 연습 기능입니다. 보강 패널과 백패널은 아래 고정 다보·위 스프링 다보로 체결합니다. 도어는 미리 장착된 Blum CLIP 경첩을 플레이트에 걸고 눌러 잠급니다. <a href="https://www.blum.com/us/en/products/hingesystems/clip-top-blumotion/assembly/" target="_blank" rel="noreferrer">공식 장착 안내</a>. 다보와 경첩은 설명용 모델이며 정밀 제조 치수는 확정하지 않았습니다.</p><p>효과음: Kenney · SmallConfusion. <a href="/assembly-guide/audio/SOURCES.md" target="_blank" rel="noreferrer">음원 출처·편집</a></p></details>
     </footer>
   </main>;
 }

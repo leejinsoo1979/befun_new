@@ -2,25 +2,14 @@ import { cabinetPhaseDuration, initialCabinetState, isCabinetRear, type CabinetP
 import { doorAssemblyPhases, isCabinetDoor } from './cabinetDoor';
 
 export type CabinetSoundKind = 'wood' | 'connector' | 'spring' | 'hinge';
-export interface CabinetSoundEvent { id: string; kind: CabinetSoundKind; at: number }
-/** Short dry contact foley; original deterministic synthesis, no downloaded recording. */
-export function cabinetSoundSamples(kind: CabinetSoundKind, sampleRate: number) {
-  const profile = { wood: [.24, 140, .11, .16], connector: [.13, 790, .028, .21], spring: [.12, 1450, .023, .15], hinge: [.17, 2300, .032, .2] }[kind];
-  const [duration, tone, decay, gain] = profile;
-  const data = new Float32Array(Math.ceil(duration * sampleRate));
-  let seed = 8531, low = 0;
-  for (let i = 0; i < data.length; i++) {
-    const t = i / sampleRate;
-    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
-    const noise = seed / 2147483648 - 1;
-    low += (noise - low) * (kind === 'wood' ? .07 : .6);
-    const transient = (noise - low * .6) * Math.exp(-t / (kind === 'wood' ? .013 : .008));
-    const body = (Math.sin(t * tone * Math.PI * 2) + .37 * Math.sin(t * tone * 2.73 * Math.PI * 2)) * Math.exp(-t / decay);
-    const attack = Math.min(1, t / .0007), tail = Math.min(1, (duration - t) / .006);
-    data[i] = gain * attack * tail * (.6 * body + .7 * transient);
-  }
-  return data;
-}
+export interface CabinetSoundEvent { id: string; kind: CabinetSoundKind; at: number; level: number }
+/** Edited contact samples; credits and modifications are in the adjacent public SOURCES.md. */
+export const cabinetSoundAssets: Record<CabinetSoundKind, string> = {
+  wood: '/assembly-guide/audio/wood-seat.wav',
+  connector: '/assembly-guide/audio/connector-seat.wav',
+  spring: '/assembly-guide/audio/spring-lock.wav',
+  hinge: '/assembly-guide/audio/hinge-lock.wav',
+};
 function partPhases(plan: CabinetPlan, step: number): CabinetPhase[] {
   const part = plan.parts[step];
   return ['choose', ...(part.hardware.length ? ['hardware' as const] : []), 'placing', ...(isCabinetRear(part) ? ['spring-press', 'spring-seat', 'spring-lock'] as const : []), ...(isCabinetDoor(part) ? doorAssemblyPhases : []), 'check'];
@@ -30,12 +19,13 @@ export function cabinetSoundEvents(plan: CabinetPlan, automatic = true): Cabinet
   let elapsed = 0;
   for (let step = 0; step < plan.parts.length; step++) for (const phase of partPhases(plan, step)) {
     const part = plan.parts[step], duration = cabinetPhaseDuration({ ...initialCabinetState(), step, phase, automatic }, plan);
-    const add = (kind: CabinetSoundKind, p: number) => events.push({ id: `${part.id}-${phase}-${p}`, kind, at: elapsed + duration * p });
-    if (phase === 'hardware') { add('connector', .55); if (part.hardware.some(m => m.role === 'end')) add('connector', .94); }
-    if (phase === 'placing' && !isCabinetDoor(part)) { add('wood', .98); if (!isCabinetRear(part) && !part.feet) add('connector', .995); }
-    if (phase === 'spring-lock') add('spring', .7);
-    if (phase === 'hinge-top' || phase === 'hinge-bottom') add('hinge', .72);
-    if (phase === 'hinge-test') { add('wood', .4); add('wood', .99); }
+    const add = (kind: CabinetSoundKind, p: number, level = 1) => events.push({ id: `${part.id}-${phase}-${p}`, kind, at: elapsed + duration * p, level });
+    if (phase === 'hardware') { add('connector', .55, .5); if (part.hardware.some(m => m.role === 'end')) add('connector', .94, .55); }
+    // The seating sample already includes its contact body; do not stack a second impact.
+    if (phase === 'placing' && !isCabinetDoor(part)) add(isCabinetRear(part) || part.feet ? 'wood' : 'connector', .98, .85);
+    if (phase === 'spring-lock') add('spring', .7, .8);
+    if (phase === 'hinge-top' || phase === 'hinge-bottom') add('hinge', .72, .9);
+    if (phase === 'hinge-test') { add('wood', .4, .55); add('wood', .99, .55); }
     elapsed += duration;
   }
   return events;
@@ -60,31 +50,47 @@ export function cabinetSoundsBetween(plan: CabinetPlan, before: CabinetState, af
 
 export interface CabinetAudioReport { state: string; count: number; last: string }
 export function createCabinetAudio(report: (value: CabinetAudioReport) => void) {
-  let context: AudioContext | undefined, muted = false, count = 0, last = '', closed = false;
-  const buffers = new Map<CabinetSoundKind, AudioBuffer>(), nodes = new Set<AudioBufferSourceNode>();
-  const status = () => report({ state: closed ? 'closed' : muted ? 'muted' : context?.state ?? 'idle', count, last });
-  const stop = () => { for (const node of nodes) { try { node.stop(); } catch { /* Already ended. */ } node.disconnect(); } nodes.clear(); };
+  let context: AudioContext | undefined, muted = false, count = 0, last = '', closed = false, ready = false, unavailable = false;
+  let prepared: Promise<void> | undefined;
+  const buffers = new Map<CabinetSoundKind, AudioBuffer>(), nodes = new Map<AudioBufferSourceNode, GainNode>();
+  const encoded = typeof window === 'undefined' ? Promise.resolve(null) : Promise.all(Object.entries(cabinetSoundAssets).map(async ([kind, url]) => {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Contact sample unavailable');
+    return [kind as CabinetSoundKind, await response.arrayBuffer()] as const;
+  })).catch(() => null);
+  const status = () => {
+    if (!closed) report({ state: muted ? 'muted' : unavailable ? 'unavailable' : context && !ready ? 'loading' : context?.state ?? 'idle', count, last });
+  };
+  const stop = () => { for (const [node, gain] of nodes) { try { node.stop(); } catch { /* Already ended. */ } node.disconnect(); gain.disconnect(); } nodes.clear(); };
   return {
     async unlock() {
       if (closed || muted || typeof window === 'undefined') return;
       try {
         context ??= new AudioContext({ latencyHint: 'interactive' });
         await context.resume(); status();
-      } catch { report({ state: 'unavailable', count, last }); }
+        const current = context;
+        prepared ??= (async () => {
+          const assets = await encoded;
+          if (!assets) { unavailable = true; return; }
+          const decoded = await Promise.all(assets.map(async ([kind, bytes]) => [kind, await current.decodeAudioData(bytes)] as const));
+          if (closed) return;
+          decoded.forEach(([kind, buffer]) => buffers.set(kind, buffer)); ready = true;
+        })();
+        await prepared; status();
+      } catch { unavailable = true; status(); }
     },
     setMuted(value: boolean) { muted = value; if (muted) stop(); status(); },
     stop,
     play(events: CabinetSoundEvent[]) {
-      if (muted || closed || context?.state !== 'running') return;
+      if (!events.length || muted || closed || !ready || context?.state !== 'running') return;
       // Do not burst stale impacts after a background tab or a very long frame.
       for (const [index, event] of events.slice(-3).entries()) {
-        let buffer = buffers.get(event.kind);
-        if (!buffer) {
-          const samples = cabinetSoundSamples(event.kind, context.sampleRate);
-          buffer = context.createBuffer(1, samples.length, context.sampleRate); buffer.copyToChannel(samples, 0); buffers.set(event.kind, buffer);
-        }
-        const node = context.createBufferSource(); node.buffer = buffer; node.connect(context.destination); nodes.add(node);
-        node.onended = () => { node.disconnect(); nodes.delete(node); };
+        const buffer = buffers.get(event.kind);
+        if (!buffer) continue;
+        const node = context.createBufferSource(), gain = context.createGain();
+        gain.gain.value = event.level;
+        node.buffer = buffer; node.connect(gain); gain.connect(context.destination); nodes.set(node, gain);
+        node.onended = () => { node.disconnect(); gain.disconnect(); nodes.delete(node); };
         node.start(context.currentTime + index * .022); count++; last = event.kind;
       }
       status();

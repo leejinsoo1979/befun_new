@@ -1,0 +1,94 @@
+{
+  "status": "implementation verified; publication pending",
+  "tests": {
+    "passed": 64,
+    "failed": 0
+  },
+  "lint": {
+    "errors": 0,
+    "existingWarnings": 8
+  },
+  "build": "independent production/TypeScript PASS",
+  "material": {
+    "roughness": 0.86,
+    "specularIntensity": 0.18,
+    "envMapIntensity": 0.28,
+    "metalness": 0,
+    "clearcoat": 0,
+    "broadFaces": "same material on both skins; birch outer edges and MDF cuts retained"
+  },
+  "audio": {
+    "source": "edited contact recordings/samples, no oscillators",
+    "perFilmEvents": 21,
+    "previousEvents": 25,
+    "removed": "four double-triggered body thud/click pairs and 790/1450/2300Hz synthetic carriers",
+    "preparedBeforeFirstImpact": true,
+    "browserOutputCount": 21,
+    "state": "running",
+    "seekCountUnchanged": true,
+    "samples": {
+      "spring-lock.wav": {
+        "seconds": 0.04747916666666667,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peak": 0.199981689453125,
+        "rms": 0.014765796925025417,
+        "lastSample": 0
+      },
+      "wood-seat.wav": {
+        "seconds": 0.22,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peak": 0.279998779296875,
+        "rms": 0.03558868462525741,
+        "lastSample": 0
+      },
+      "hinge-lock.wav": {
+        "seconds": 0.12,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peak": 0.259979248046875,
+        "rms": 0.04263067189131268,
+        "lastSample": 0
+      },
+      "connector-seat.wav": {
+        "seconds": 0.16,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peak": 0.279998779296875,
+        "rms": 0.03305423434618731,
+        "lastSample": 0
+      }
+    },
+    "sources": [
+      {
+        "creator": "Kenney",
+        "url": "https://kenney.nl/assets/impact-sounds",
+        "license": "CC0"
+      },
+      {
+        "creator": "SmallConfusion",
+        "title": "Mechanical Plastic Click 09",
+        "url": "https://freesound.org/people/SmallConfusion/sounds/751087/",
+        "license": "CC BY 4.0",
+        "recordingDescription": "half a clothespin hitting a phone, 50ms"
+      }
+    ],
+    "mutedReplayCountUnchanged": true
+  },
+  "browser": {
+    "filmComplete": "8/8;58/58 seconds",
+    "fpsObserved": 120,
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "mobileWidth": 390,
+    "mobileScrollWidth": 390,
+    "viewportRestored": true
+  },
+  "limits": [
+    "generic contact foley, not an OVVO/Blum measured recording",
+    "no physical acoustic or manufacturing certification",
+    "audio-input listening unavailable to agent; verified PCM, output routing and browser behavior",
+    "shared .git/.next/3003 and common materials/lighting untouched"
+  ]
+}

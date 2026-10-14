@@ -1610,3 +1610,8 @@
 ### 캐비넷 그림자·효과음·도어 장착 교정 — 왼쪽5 / 2026-10-14
 - 사용자 직접 지시 수신·소유13소스/검사 및 cabinet-polish 증거만 수정. 기본 PCF grain→VSM 고정블러/4096/DPR2; 실제 체결음4종/음소거; 열린 도어 앞걸림→위·아래 뒤눌림→개폐 확인. 공유 Blum 모델 소비/정밀 래치 CAD 및 기구 치수 미확인/제조승인false 유지.
 - 63검사·변경lint0·전체lint0오류/기존8경고·최종격리production build/TypeScript PASS, 실제8부품 수동/전체영상 완주·25회48kHz AudioDestination 출력·desktop/390px·pause/seek/mute/reset/topic회귀·24투명토글자원안정·console0. SHA15소스일치, 신규증거 docs/handoffs/assets/codex-assembly/cabinet-polish/README.md. 소유잠금해제, Git/운영READY는별도기록. 공통가구/HW/CNC/R15재질조명/공유 .git/.next/3003/타진행소스 미혼입.
+
+
+### 캐비넷 무광 판재·샘플 체결음 완료 — 왼쪽5 / 2026-10-14
+- 사용자 지적 수신/4소스+5음원/출처 소유잠금. 본인 양면 laminate 무광(.86 roughness/.18 specular/.28 env/coat0), 높은 합성톤 제거·Kenney CC0/SmallConfusion CC BY4.0 샘플·EQ/짧은fade/피크매칭·준비/잠금 레벨 구분. 몸통 중복4쌍 제거→전체21회. 출처 링크 제공; 실물 OVVO/Blum 녹음 아님.
+- 64검사·범위lint0·전체lint0오류8기존경고·최종격리build/TypeScript PASS. 실제58/58초8부품/21회 출력·탐색/mute count 유지·390px overflow0·console0·120fps 관찰. 늦은load/unmount 음원 및gain node 정리 검사 포함. cabinet-matte-foley/README.md·검증/전후·모바일·음원검토파일 제출. 공유 materials.ts/R15/HW/CNC/생성기/.git/.next/3003/타실행 보존, 소유잠금해제. Git/운영READY는별도기록.
