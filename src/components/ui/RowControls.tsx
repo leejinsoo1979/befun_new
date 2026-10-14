@@ -1,6 +1,7 @@
 'use client';
 
-import Image from 'next/image';
+import { useLocale } from '@/lib/commerce/useLocale';
+import styles from './row-controls.module.css';
 import { useMemo } from 'react';
 import { calculateGridPanels } from '@/lib/three/styles/grid';
 import { calculateSlantPanels } from '@/lib/three/styles/slant';
@@ -22,6 +23,7 @@ const MIN_DOOR_HEIGHT = 28;
 const MIN_DRAWER_DEPTH = 32;
 
 export function RowControls() {
+  const { t } = useLocale();
   const category = useMaterialStore(s => s.colorCategory);
   const family = category === 'classic' || category === 'natural' ? 'type01' as const : 'type02' as const;
   const hasBackPanel = useShelfStore(s => s.hasBackPanel);
@@ -63,60 +65,40 @@ export function RowControls() {
   const canAddDrawer = depth >= MIN_DRAWER_DEPTH && rowTop <= 157.8;
 
   return (
-    <div className="w-[233px] rounded-xl bg-white p-4 shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
-      {/* 미니어처 이미지 — 모바일에서는 선반을 덜 가리도록 숨김 */}
-      <div className="mb-4 hidden h-[120px] items-center justify-center rounded-lg lg:flex">
-        <Image
-          src="/imgs/popup/book.png"
-          alt="Row Preview"
-          width={180}
-          height={100}
-          className="object-contain"
-        />
-      </div>
-
-      {/* Row height */}
-      <p className="mb-2 text-xs font-medium uppercase tracking-wider text-[#666]">
-        Row height
-      </p>
-      <div className="mb-3 flex gap-2">
-        {ROW_HEIGHTS.map((h) => (
-          <button
-            key={h}
-            onClick={() => setRowHeight(i, h)}
-            className={`inline-flex h-8 w-[60px] shrink-0 items-center justify-center rounded-2xl text-xs font-medium transition-all ${
-              rh === h
-                ? 'border-[1.5px] border-[#2fc614] bg-white font-bold text-[#339922]'
-                : 'border-[1.5px] border-transparent bg-[#f5f5f5] text-[#333] hover:bg-[#e8e8e8]'
-            }`}
-          >
-            {h}cm
-          </button>
-        ))}
-      </div>
-
-      {(['doors','drawers'] as const).map(kind => {
+    <div className={styles.card}>
+      <header className={styles.header}>
+        <span className={styles.rowNumber}>{String(i + 1).padStart(2, '0')}</span>
+        <h3>{t('칸 설정')}</h3>
+      </header>
+      <section className={styles.section}>
+        <p className={styles.label}>{t('칸 높이')}</p>
+        <div className={styles.segment} role="group" aria-label={t('칸 높이')}>
+          {ROW_HEIGHTS.map(h => <button type="button" key={h} aria-pressed={rh === h}
+            onClick={() => setRowHeight(i, h)}>
+            {h}<span className={styles.unit}>cm</span>
+          </button>)}
+        </div>
+      </section>
+      {(['doors', 'drawers'] as const).map(kind => {
         const enabled = kind === 'doors' ? canAddDoor : canAddDrawer;
-        return <div key={kind}>
-          <p className="mb-2 mt-3 text-xs font-medium uppercase tracking-wider text-[#666]">{kind}</p>
-          <div className="mb-1 flex gap-2">
-            {(['none','some','max'] as HardwareMode[]).map(mode => {
+        const label = t(kind === 'doors' ? '도어' : '서랍');
+        return <section className={styles.section} key={kind}>
+          <p className={styles.label}>{label}</p>
+          <div className={styles.segment} role="group" aria-label={label}>
+            {(['none', 'some', 'max'] as HardwareMode[]).map(mode => {
               const disabled = mode !== 'none' && (!enabled || (mode === 'some' && compartmentCount <= 1));
-              return <button key={mode} disabled={disabled}
-                onClick={() => setMode(i,kind,mode)}
-                className={`inline-flex h-8 w-[60px] shrink-0 items-center justify-center rounded-2xl text-xs font-medium transition-all ${
-                  modes[kind] === mode ? 'border-[1.5px] border-[#2fc614] bg-white font-bold text-[#339922]'
-                    : disabled ? 'cursor-not-allowed border-[1.5px] border-transparent bg-[#f5f5f5] text-[#ccc]'
-                      : 'border-[1.5px] border-transparent bg-[#f5f5f5] text-[#333] hover:bg-[#e8e8e8]'
-                }`}>{mode[0].toUpperCase()+mode.slice(1)}</button>;
+              return <button type="button" key={mode} disabled={disabled} aria-pressed={modes[kind] === mode}
+                onClick={() => setMode(i, kind, mode)}>
+                {t(mode === 'none' ? '없음' : mode === 'some' ? '일부' : '전체')}
+              </button>;
             })}
           </div>
-          {!enabled && <p className="text-[11px] italic text-[#888]">{
+          {!enabled && <p className={styles.hint}>{t(
             kind === 'doors' ? '칸 높이 28cm부터 도어 장착 가능'
               : depth < MIN_DRAWER_DEPTH ? '깊이 32cm부터 서랍 장착 가능'
                 : '서랍은 행 상단 높이 157.8cm 이하에서 장착 가능'
-          }</p>}
-        </div>;
+          )}</p>}
+        </section>;
       })}
     </div>
   );

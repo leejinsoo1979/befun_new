@@ -5,6 +5,7 @@ import { FiX } from 'react-icons/fi';
 import { useUIStore } from '@/stores/useUIStore';
 import { closeRowPopup } from '@/components/three/RowHotspots';
 import { RowControls } from './RowControls';
+import styles from './row-controls.module.css';
 
 // lg(1024px) 미만은 모바일 레이아웃 — 행 옆 팝업 대신 뷰어 하단에 고정
 const MOBILE_QUERY = '(max-width: 1023px)';
@@ -75,7 +76,7 @@ export function FloatingBox() {
       type="button"
       aria-label="칸 설정 닫기"
       onClick={closeRowPopup}
-      className="absolute -top-3 -right-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white text-[#333] shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
+      className={styles.close}
     >
       <FiX size={16} />
     </button>
