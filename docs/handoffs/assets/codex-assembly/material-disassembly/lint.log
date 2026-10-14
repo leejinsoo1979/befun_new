@@ -21,4 +21,3 @@
   2:15  warning  'MaterialType' is defined but never used  @typescript-eslint/no-unused-vars
 
 ✖ 7 problems (0 errors, 7 warnings)
-

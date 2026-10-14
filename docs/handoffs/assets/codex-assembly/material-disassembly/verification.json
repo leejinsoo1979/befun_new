@@ -1,7 +1,7 @@
 {
   "date": "2026-10-14T12:42:31.989259+09:00",
   "tests": {
-    "passed": 41,
+    "passed": 42,
     "failed": 0,
     "command": "node --test src/lib/assembly-guide/*.test.mjs"
   },
@@ -46,7 +46,8 @@
       "backPanel": 7,
       "legReference": 5,
       "topicModelCycles": 6,
-      "insideMaterialToggles": 12
+      "insideMaterialToggles": 12,
+      "tylkoIllustrative": 5
     },
     "contextLoss": {
       "reproduced": "cold texture load / development StrictMode root suspension",
@@ -71,5 +72,6 @@
     "unmeasured CNC/undercut/elasticity not finalized",
     "80mm release lift clearance is illustrative",
     "birch species/ply count/laminate thickness are not manufacturing facts"
-  ]
+  ],
+  "materialCutFaces": "parallel bore floors excluded from laminate; only two outer skin planes carry laminate"
 }

@@ -17,3 +17,5 @@
 ## R4 조립 안내 게시 준비 — codex-assembly / 2026-10-14
 
 팀완료본 bf924ae Git 배포 dpl_AgVd4CkNEWyZ6SiA96RcMwoVcc5g가READY,alias befun-new.vercel.app를확인했다. 별도MMM빌드취소는실행하지않았다. R4시연재질·공식R분해·cold texture교정·자원해제·증거만이어서게시한다. 공동R4진행중변경/공용재질/HW/CNC/route/.git는포함하지않는다. latest build/TypeScript PASS, lint0/7,41testsPASS,소스차이0. 이번commit·deployment 실제결과는후속수신기록에기재한다.
+
+R4 첫게시 3576d1c3a087d3b04523740c9531694daccd172a: GitHub main push확인, dpl_7XDsKMce3TiVsuHrQgUNRSJEmQWT READY/production alias연결확인. 후속가공면보정3파일만최종42검사/build/lint재검사후추가게시하며진행중공동R4소스는여전히미포함.

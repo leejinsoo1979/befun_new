@@ -3,6 +3,11 @@ import { DoubleSide, MeshStandardMaterial, RepeatWrapping, SRGBColorSpace, type 
 export type PanelAxis = 0 | 1 | 2;
 export const birchEdgeTexture = '/imgs/textures/wood002/verticalEdge_diff.jpg';
 
+/** A parallel bore floor is still bare wood; laminate exists only on the two outer skins. */
+export function isLaminateSkin(normal: number, coordinates: readonly number[], thickness: number) {
+  return Math.abs(normal) > .999 && coordinates.every(value => Math.abs(Math.abs(value) - thickness / 2) < .001);
+}
+
 export function createGuidePanelMaterials(source: Texture, axis: PanelAxis, inside: boolean, opacity = .08) {
   const texture = source.clone();
   texture.colorSpace = SRGBColorSpace;

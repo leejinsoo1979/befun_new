@@ -1,89 +1,90 @@
-(node:18582) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/backPanel.ts is not specified and it doesn't parse as CommonJS.
+(node:70723) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/backPanel.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ fixed pins install before spring compression; panel straightens before spring return (0.625291ms)
-✔ pivot and pin motion are continuous, and inserted lower pins stay fixed while panel turns (0.268708ms)
-✔ macro cameras follow the actual top pin while the panel rotates on desktop and mobile (0.663042ms)
-✔ the example approaches from outside the cabinet and clears the top before lower pin insertion (0.103958ms)
-(node:18583) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/cinematicShot.ts is not specified and it doesn't parse as CommonJS.
+✔ fixed pins install before spring compression; panel straightens before spring return (0.968833ms)
+✔ pivot and pin motion are continuous, and inserted lower pins stay fixed while panel turns (0.849916ms)
+✔ macro cameras follow the actual top pin while the panel rotates on desktop and mobile (4.224875ms)
+✔ the example approaches from outside the cabinet and clears the top before lower pin insertion (0.274708ms)
+(node:70724) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/cinematicShot.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ directed macro shots keep the actual moving hardware in frame throughout P/R assembly (139.825459ms)
-✔ camera seeking is deterministic and a reverse-side view changes only the shot (0.436708ms)
-(node:18584) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/disassembly.ts is not specified and it doesn't parse as CommonJS.
+✔ directed macro shots keep the actual moving hardware in frame throughout P/R assembly (169.031041ms)
+✔ camera seeking is deterministic and a reverse-side view changes only the shot (0.390875ms)
+(node:70725) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/disassembly.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ release keeps panels seated until the full official 15 mm slide, then lifts (0.546792ms)
-✔ chapter transitions, backward seeks and replay preserve absolute poses (2.052791ms)
-✔ laminate covers both opposing broad faces for horizontal, upright and back panels (0.449459ms)
-✔ plywood layers span thickness once and remain continuous through the split board (0.687583ms)
-✔ follow mode cannot confirm lifting before the release step is confirmed (0.119042ms)
-✔ repeated opaque/inside/axis changes release owned materials and textures, preserving the loader source (2.89875ms)
-(node:18585) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/legs.ts is not specified and it doesn't parse as CommonJS.
+✔ release keeps panels seated until the full official 15 mm slide, then lifts (0.560416ms)
+✔ chapter transitions, backward seeks and replay preserve absolute poses (0.426625ms)
+✔ laminate covers both opposing broad faces for horizontal, upright and back panels (0.1005ms)
+✔ plywood layers span thickness once and remain continuous through the split board (0.579833ms)
+✔ follow mode cannot confirm lifting before the release step is confirmed (0.099375ms)
+✔ repeated opaque/inside/axis changes release owned materials and textures, preserving the loader source (3.073792ms)
+✔ the two laminate skins exclude parallel bore floors and inner cut surfaces (0.15775ms)
+(node:70726) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/legs.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ leg sequence keeps fixed screw/pin roles and unknown values from HW without creating geometry (1.254375ms)
-✔ pin pressing and entry alignment precede removal; no completion before source end (0.212ms)
-✔ assembly lock and ordered confirmations are required, including after seeking directly to final (0.112875ms)
-✔ backward seeking restores original source frames rather than reversing OVVO assembly (0.086917ms)
-✔ desktop and 390px camera fit actual GLB vertices with the provider unit/TRS intact (3.590833ms)
-(node:18586) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/sequence.ts is not specified and it doesn't parse as CommonJS.
+✔ leg sequence keeps fixed screw/pin roles and unknown values from HW without creating geometry (0.91975ms)
+✔ pin pressing and entry alignment precede removal; no completion before source end (0.156833ms)
+✔ assembly lock and ordered confirmations are required, including after seeking directly to final (0.074ms)
+✔ backward seeking restores original source frames rather than reversing OVVO assembly (0.079125ms)
+✔ desktop and 390px camera fit actual GLB vertices with the provider unit/TRS intact (13.185584ms)
+(node:70727) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/sequence.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ ASM-01: all P/R chapters sample absolutely at 0/0.5/1 and withstand backward seeking (1.713583ms)
-✔ ASM-02/03: both planner joints consume provider anchors once, including the upper PH flip (0.338625ms)
-✔ ASM-04: actual mounted PH/RH bodies and PC/RC fit the observed capsule at both joints (36.823583ms)
-✔ ASM-03/04: reversed asymmetric RC fails lip/window engagement instead of silently passing (0.203583ms)
-✔ ASM-07: fixed inspection cameras fit corrected hardware bounds without object scaling (60.059917ms)
-(node:18587) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/ovvoMotion.ts is not specified and it doesn't parse as CommonJS.
+✔ ASM-01: all P/R chapters sample absolutely at 0/0.5/1 and withstand backward seeking (2.1375ms)
+✔ ASM-02/03: both planner joints consume provider anchors once, including the upper PH flip (0.326333ms)
+✔ ASM-04: actual mounted PH/RH bodies and PC/RC fit the observed capsule at both joints (40.527417ms)
+✔ ASM-03/04: reversed asymmetric RC fails lip/window engagement instead of silently passing (0.201583ms)
+✔ ASM-07: fixed inspection cameras fit corrected hardware bounds without object scaling (76.823833ms)
+(node:70728) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/ovvoMotion.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ official P and R part pairings keep face receiver and central connector separate (0.565459ms)
-✔ assembly displacement comes from the input contract; 15 mm release never substitutes for unknown movement (0.119208ms)
-✔ P presses without a slide and refuses the R release operation (0.213208ms)
-✔ R inserts before assembly sliding and completes release sliding before lifting (0.07375ms)
-(node:18588) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/playback.ts is not specified and it doesn't parse as CommonJS.
+✔ official P and R part pairings keep face receiver and central connector separate (1.038541ms)
+✔ assembly displacement comes from the input contract; 15 mm release never substitutes for unknown movement (0.168125ms)
+✔ P presses without a slide and refuses the R release operation (0.270708ms)
+✔ R inserts before assembly sliding and completes release sliding before lifting (0.104084ms)
+(node:70729) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/playback.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ elapsed-time playback is equal at 60fps and at long browser frame intervals (0.537834ms)
-✔ one long interval crosses chapters and stops precisely at the final frame (0.391791ms)
-✔ follow-assembly stops at one chapter; speed controls elapsed seconds (0.070125ms)
-✔ global seeking reaches the same chapter boundaries as continuous playback (0.115084ms)
-(node:18589) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/pocketAudit.ts is not specified and it doesn't parse as CommonJS.
+✔ elapsed-time playback is equal at 60fps and at long browser frame intervals (0.613541ms)
+✔ one long interval crosses chapters and stops precisely at the final frame (0.489583ms)
+✔ follow-assembly stops at one chapter; speed controls elapsed seconds (0.07675ms)
+✔ global seeking reaches the same chapter boundaries as continuous playback (0.143958ms)
+(node:70730) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/pocketAudit.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ independently reproduces OVVO-AUDIT-003 endcap corner outside the official slot footprint (0.4015ms)
-✔ outer footprint fit cannot certify the unknown undercut profile or manufacturing (4.289209ms)
-✔ exposed lips are excluded; nonfinite transforms and invalid pockets fail explicitly (0.304083ms)
-(node:18590) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/sequence.ts is not specified and it doesn't parse as CommonJS.
+✔ independently reproduces OVVO-AUDIT-003 endcap corner outside the official slot footprint (0.549125ms)
+✔ outer footprint fit cannot certify the unknown undercut profile or manufacturing (0.493375ms)
+✔ exposed lips are excluded; nonfinite transforms and invalid pockets fail explicitly (0.361875ms)
+(node:70731) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/sequence.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ example machining and connector locations consume the shared CNC planner (0.971958ms)
-✔ releasable assembly inserts before sliding; permanent assembly never slides (0.408583ms)
-✔ every chapter preserves pose at its boundary and hardware installs before panel insertion (0.247125ms)
-✔ seeking is deterministic, clamps invalid values, and keeps the complete part framed on mobile (1.026667ms)
-(node:18591) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/tylkoClip.ts is not specified and it doesn't parse as CommonJS.
+✔ example machining and connector locations consume the shared CNC planner (1.073875ms)
+✔ releasable assembly inserts before sliding; permanent assembly never slides (0.325042ms)
+✔ every chapter preserves pose at its boundary and hardware installs before panel insertion (0.190667ms)
+✔ seeking is deterministic, clamps invalid values, and keeps the complete part framed on mobile (1.301375ms)
+(node:70732) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/tylkoClip.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ uses the hardware owner dimensions and colour pairs without assigning lock roles (0.997667ms)
-✔ pins enter on the normal before any relative long-axis slide (0.314625ms)
-✔ all chapters are continuous, seeking deterministic, and motion transforms by the joint frame (0.177083ms)
-✔ camera follows the joint and keeps both panels framed on mobile (1.597542ms)
-ℹ tests 41
+✔ uses the hardware owner dimensions and colour pairs without assigning lock roles (0.982584ms)
+✔ pins enter on the normal before any relative long-axis slide (0.299334ms)
+✔ all chapters are continuous, seeking deterministic, and motion transforms by the joint frame (0.18275ms)
+✔ camera follows the joint and keeps both panels framed on mobile (2.221667ms)
+ℹ tests 42
 ℹ suites 0
-ℹ pass 41
+ℹ pass 42
 ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 295.377083
+ℹ duration_ms 448.9985

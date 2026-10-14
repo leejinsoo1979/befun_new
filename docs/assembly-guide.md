@@ -76,4 +76,4 @@ R3 이력: [R3-ASM-01~06 제출](handoffs/assets/codex-assembly/r3-legs/README.m
 
 ### R4-ASM-READY — 2026-10-14
 
-[6사례·최종캡처·41검사·자원해제·입력계약](handoffs/assets/codex-assembly/material-disassembly/README.md) 제출. 최신격리 production build/전체TypeScript/17정적페이지PASS,lint오류0/기존경고7,변경eslint0/0. 실제Chrome desktop/390px·6주제전환·12재질토글·따라분해4단계완료·cold texture문제교정확인. source36파일격리SHA차이0. 이번소유잠금해제. 리더의제품버튼/공통parts/joints연결과정밀다리모션은미완료이며,이번예시안내수정완료와구분한다.
+[6사례·최종캡처·42검사·자원해제·입력계약](handoffs/assets/codex-assembly/material-disassembly/README.md) 제출. 최신격리 production build/전체TypeScript/17정적페이지PASS,lint오류0/기존경고7,변경eslint0/0. 실제Chrome desktop/390px·6주제전환·12재질토글·따라분해4단계완료·cold texture문제교정확인. source36파일격리SHA차이0. 이번소유잠금해제. 리더의제품버튼/공통parts/joints연결과정밀다리모션은미완료이며,이번예시안내수정완료와구분한다.

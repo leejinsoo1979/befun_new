@@ -1271,3 +1271,5 @@
 - 실제Chrome1728×880/390×844, 원본Tylko5/백패널7/다리5 및P7/R8회귀·재생/일시정지/탐색/초기화/주제전환. 6전환loop/12재질toggle후ready, warmed29geometry/7texture/8program. cold texture전Canvas대비 및같은단계context복구확인.
 - 본인인계: docs/handoffs/assets/codex-assembly/material-disassembly/README.md · ready.json. FurnitureDesign parts/joints/선택상태 최소입력계약리더요청기록. 실제주문가구연결·정밀다리기구·제조승인제외.
 - 소유잠금해제: assembly-guide components/lib, docs/assembly-guide.md, 본신규material-disassembly증거. 독립게시사본에서는bf924ae안정본+이번ASM만게시; 다른R4진행중소스미포함.
+
+- R4-ASM 최종후속: 가공면은normal+외부skin좌표로판정,평행한홈바닥도맨목재. 추가검사후42PASS,최신격리build/TypeScript PASS,lint0/7. Tylko선택적추정3D5단계/백패널7재확인. source36파일격리차이0,최종fingerprint갱신,ASM잠금최종해제.

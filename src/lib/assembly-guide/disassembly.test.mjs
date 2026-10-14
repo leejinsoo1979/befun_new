@@ -7,7 +7,7 @@ registerHooks({ resolve(specifier, context, next) {
   return next(specifier, context);
 } });
 const { releasePose, releaseSteps, canConfirmRelease } = await import('./disassembly.ts');
-const { mapPanelEdgeUvs, panelFaceMaterials, createGuidePanelMaterials, disposeGuidePanelMaterials } = await import('./panelMaterials.ts');
+const { mapPanelEdgeUvs, panelFaceMaterials, createGuidePanelMaterials, disposeGuidePanelMaterials, isLaminateSkin } = await import('./panelMaterials.ts');
 
 test('release keeps panels seated until the full official 15 mm slide, then lifts', () => {
   for (const p of [0, .25, .5, .75, 1]) {
@@ -81,4 +81,12 @@ test('repeated opaque/inside/axis changes release owned materials and textures, 
   assert.equal(sourceDisposed, 0);
   assert.deepEqual(source.repeat.toArray(), [2, 3]);
   source.dispose();
+});
+
+test('the two laminate skins exclude parallel bore floors and inner cut surfaces', () => {
+  assert.equal(isLaminateSkin(1, [9, 9, 9], 18), true);
+  assert.equal(isLaminateSkin(-1, [-9, -9, -9], 18), true);
+  assert.equal(isLaminateSkin(1, [5, 5, 5], 18), false);
+  assert.equal(isLaminateSkin(1, [9, 9, 5], 18), false);
+  assert.equal(isLaminateSkin(0, [9, 9, 9], 18), false);
 });
