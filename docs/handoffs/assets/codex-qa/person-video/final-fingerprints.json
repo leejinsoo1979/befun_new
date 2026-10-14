@@ -1,0 +1,6 @@
+{
+  "src/components/three/StudioPerson.tsx": "46e78ad499e9483d38207c1e5e8e17fc7ea6c3550c943ea9c9c1a504473343e2",
+  "src/components/three/StudioPersonMotion.tsx": "e8ca0e7de116c8bf5e5b32a387a48c0475b0e2a68f8cd4b0652929cb2dc01587",
+  "public/three/reference-studio/person/ivory-linen-motion-packed.mp4": "b452e93eacb51e7f5a7d2ca33bac8ff0faed922878adf62d797daf5fe1dfd6c6",
+  "scripts/studio-person-video/prepare.py": "2211c9b8bbe04297a484d561b48209bed948012e3160c5364c956da77c6cb069"
+}
