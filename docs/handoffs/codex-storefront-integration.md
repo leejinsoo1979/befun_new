@@ -408,3 +408,12 @@ terminal-instructions 최신 왼쪽3 지시 및 leader-review 2차 점검을 수
 - `src/components/storefront/storefront.module.css`: `d39a79b03b580652bdff8af6989d07f7db3594efb2c2ba0f24e63b8f76500826`
 - `src/components/ui/ConfiguratorLoading.tsx`: `2dfbf189f45a85fd5794087e9aa47a650538ac58dd324fd3a8b5907bbe879691`
 - `src/components/ui/configurator-loading.module.css`: `d4750bf8d8c1361a8ce3acb13f67dd43d9e5d75dc79e92038a61b4afe629dd04`
+
+## 로딩 연출 재수정 — 사용자 피드백 반영 / 2026-10-14
+
+- 이전25조각 skew/3.4초 반복 소거/그림자/빛줄/장식 문구 폐기. 원본 검정 로고의5가로 층을 아래부터110ms 간격으로8px 내려놓아760ms 안에 완성. 완성 로고 유지, 준비 완료 시180ms 해제. CSS 일회 애니메이션으로 Web Animations/ref/effect/동기화 제거. desktop200px/mobile164px, 평평한 배경과 작은 `불러오는 중`만 표시. 로고 자산·SceneReady·준비 조건·3D 변경 없음.
+- 실제 동일 컴포넌트를 쓰는 격리 production preview: Chrome 아래 층 opacity .99/.89, 중간 .07, 위0 및110ms 지연 관찰; 완료 로고 유지·반복횟수1 확인.390px/motion 감소 정적 완성 로고 및 ready의 aria-hidden=true/opacity0/pointer-events none 확인. 임시 viewport/motion 복원 및 본인 탭·3037 preview 서버 종료. 검증 route는 프로젝트/커밋 제외.
+- 변경 TSX ESLint PASS. 이전 공유508파일 snapshot에 이번2파일만 교체한 격리 webpack build/전체 TypeScript/정적 생성 PASS. 현 공유 작업트리 전체 lint는 별도 담당 `DeskPanel.tsx:20` preserve-manual-memoization 오류1/경고8로 실패하여 해당 담당 확인 필요. 이 오류를 임의 수정하지 않음. 이후 타담당 변경의 전체 build 보장은 아님.
+- 이번2소스·본인 handoff·완료 기록만 커밋 대상. 잠금 해제, 리더/게시 담당에게 수정 결과 전달. 이전25패널 인계는 이번 기록으로 대체.
+- `src/components/ui/ConfiguratorLoading.tsx` SHA-256: `447bbef3dde87e8d6e6595acea148bddbfc329677180e148fb0a3339055f5da3`
+- `src/components/ui/configurator-loading.module.css` SHA-256: `3a6ce6c860837ca9da70801f854d455e77d8e6dbe57f33f36fcbecefefb4a304`

@@ -6,38 +6,39 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 24px;
   overflow: hidden;
-  background: radial-gradient(ellipse at 50% 42%, #fafafa 0%, #efeeec 52%, #e6e4e0 100%);
-  color: #171717;
+  background: #f5f5f5;
   opacity: 1;
-  transition: opacity .55s ease, visibility .55s;
-  isolation: isolate;
+  transition: opacity 180ms ease, visibility 180ms;
   pointer-events: auto;
 }
 
 .ready { opacity: 0; visibility: hidden; pointer-events: none; }
-.ready * { animation-play-state: paused !important; }
-.ready .panel { opacity: 1; transform: none; }
-.composition { position: relative; width: min(360px, 76%); margin-top: -16px; }
-.mark { display: block; width: 100%; height: auto; overflow: visible; }
-.panel { opacity: 0; transform-box: fill-box; transform-origin: center; }
-.shadow { opacity: .09; filter: blur(3px); }
-.copy { position: relative; text-align: center; padding: 0 20px; }
-.copy p { margin: 0 0 18px; font-size: 18px; font-weight: 500; letter-spacing: -.035em; }
-.caption { display: block; margin-top: 15px; color: #858585; font-size: 11px; letter-spacing: .02em; }
-.track { width: 112px; height: 2px; margin: auto; border-radius: 2px; background: #17171715; overflow: hidden; }
-.track span { display: block; width: 45%; height: 100%; background: linear-gradient(90deg, transparent, #171717, transparent); animation: travel 1.8s ease-in-out infinite; }
+.mark { position: relative; width: min(200px, 54%); aspect-ratio: 282 / 66; }
+.outline, .panel, .artwork { position: absolute; inset: 0; }
+.outline, .artwork {
+  background: url('/imgs/icon/befun_logo.svg') center / 100% 100% no-repeat;
+}
+.outline { opacity: .08; }
+.panel {
+  animation: place 320ms cubic-bezier(.22, 1, .36, 1) var(--delay) both;
+}
+.artwork { clip-path: var(--clip); }
+.caption { color: #777; font-size: 12px; font-weight: 400; letter-spacing: -.02em; }
+.ready .panel { animation: none; opacity: 1; transform: none; }
 
-@keyframes travel { 0% { transform: translateX(-110%); } 100% { transform: translateX(330%); } }
+@keyframes place {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 @media (max-width: 600px) {
-  .composition { width: min(280px, 80%); }
-  .copy p { font-size: 16px; }
-  .caption { font-size: 10px; }
+  .mark { width: min(164px, 54%); }
+  .loader { gap: 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .loader, .loader * { animation: none !important; transition: none !important; }
-  .panel { opacity: 1; transform: none; }
-  .track span { width: 100%; opacity: .6; }
+  .loader { transition: none; }
+  .panel { animation: none; opacity: 1; transform: none; }
 }
