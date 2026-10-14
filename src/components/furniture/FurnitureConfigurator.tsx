@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic';
 import { ConfiguratorLoading } from '@/components/ui/ConfiguratorLoading';
 import { useEffect, useRef, useState } from 'react';
 import { FiMaximize, FiSave, FiShare2 } from 'react-icons/fi';
+import { DeskPrice } from './DeskPrice';
 import { FurnitureViewToolbar } from './FurnitureViewToolbar';
 import { DeskSectionEditor } from './DeskSectionEditor';
 import type { FurnitureEditIntent } from '@/types/furniture';
@@ -103,6 +104,7 @@ export function FurnitureConfigurator({initial, title, catalogId}:{initial:Furni
         <p className={styles.viewerHint}>{tr("드래그하여 회전 · 스크롤하여 확대 · 수납 구획을 눌러 편집")}</p>
       </div>
       <aside className={`${styles.options} ${design.kind==='desk'?styles.deskOptions:''}`} aria-label={tr("가구 옵션")}>
+        {design.kind==='desk'&&<DeskPrice config={design.config}/> }
         {view&&<FurniturePanel view={view} activeTabId={tab} onTabChange={changeTab} onSelectSection={setSelected} onIntent={apply}/>}
         <div className={styles.saveActions}><button onClick={()=>persist()}><FiSave/> {tr("디자인 저장")}</button><button onClick={()=>persist(true)}><FiShare2/> {tr("링크 공유")}</button><button onClick={restore}>{tr("저장한 디자인 불러오기")}</button></div>
         <p role="status" className={styles.status}>{tr(status)}</p>

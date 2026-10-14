@@ -14,6 +14,7 @@ import { DeskPanel } from './DeskPanel';
 import { Door } from '@/components/three/Door';
 import { Drawer } from '@/components/three/Drawer';
 import { BlumPlate } from '@/components/three/blum/BlumHardware';
+import { DeskAccessories } from './DeskAccessories';
 import { ShortLeg } from '@/components/three/furniture-hardware/legs';
 
 export interface DeskModelProps {
@@ -59,6 +60,7 @@ export function DeskModel({ config, materials, open, selectedSectionId, onSelect
       unsupported: geometry.unsupported, cableOpeningCount: geometry.cableOpenings.length,
       footGeometry: { sourceMinYmm: -20, sourceMaxYmm: 0, reusedModelHeightMm: 22.5, exactParity: false },
     }}>
+      <DeskAccessories width={config.widthMm / 10} depth={depth} height={geometry.bodyHeight} legroomX={geometry.columns.find(column => column.storageIndex === null)?.x ?? 0} />
       {geometry.columns.map(column => {
         const sectionId = column.storageIndex === null ? null : sectionIds[column.storageIndex];
         const label = column.storageIndex === null ? '다리 공간 편집' : `수납 ${column.storageIndex + 1} 편집`;
