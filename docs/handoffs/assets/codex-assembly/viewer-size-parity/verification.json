@@ -1,5 +1,5 @@
 {
-  "status": "implementation and normal viewer size verification complete; publication pending",
+  "status": "initial wardrobe/desk deployment READY; published bookcase baseline mismatch identified and final 3-rule fix verified in isolated build",
   "baseline": "bookcase product /furniture/bookcase-brown",
   "scope": "one shared FurnitureConfigurator CSS, consumed by wardrobe Edge/Tone and desk Classic/Modern",
   "desktop": {
@@ -24,7 +24,8 @@
   "fullscreen": {
     "baseline_full_window_entry_exit_sizes": "observed desktop1920x1080 and mobile390x844",
     "layout_reservation": "CSS pseudo grid cell preserves normal viewer footprint while fixed fullscreen is active",
-    "native_stability": "not certified; repeated live dev viewport/fullscreen stress lost WebGL context; recovered using existing UI/reload, no renderer edits"
+    "native_stability": "not certified; repeated live dev viewport/fullscreen stress lost WebGL context; recovered using existing UI/reload, no renderer edits",
+    "local_recovery": "after closing our extra comparison tabs and reload, normal wardrobe model and original controls rendered again; source renderer unchanged"
   },
   "checks": {
     "final_isolated_build_and_typescript": "PASS",
@@ -41,5 +42,29 @@
     "camera/Space/front-view WIP",
     "models, manufacturing, save/state, screenshots/intro changes, sofa WIP"
   ],
-  "publication": null
+  "publication": {
+    "commit": "2fe18fa1ba1e7e700aed0afdc60b94e997be4fb3",
+    "deployment_id": "dpl_DsLam9MooHQVNMuwhCk6GpS2dcu1",
+    "source": "Git production CI",
+    "state": "READY, incomplete operating parity",
+    "remote_main_verified": true,
+    "completed_remote_commits_preserved": [
+      "8282e05",
+      "670dc20"
+    ],
+    "final_integrated_build": "PASS",
+    "final_integrated_lint": "0 errors / 8 existing warnings"
+  },
+  "baseline_completion": {
+    "source": "shared verified R13 bookcase dimension rules only",
+    "file": "src/components/storefront/storefront.module.css",
+    "rules": [
+      "productConfigurator padding-top48→0",
+      "productScene inset52→0",
+      "productViewer height716→764"
+    ],
+    "build_typescript": "PASS after latest7b44a59",
+    "lint": "0 errors / 8 existing warnings",
+    "other_remote_completed_changes": "preserved"
+  }
 }

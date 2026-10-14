@@ -1,0 +1,110 @@
+{
+  "wardrobe": {
+    "canvas": {
+      "height": 764,
+      "margin": "0px",
+      "padding": "0px",
+      "position": "static",
+      "width": 1234,
+      "x": 0,
+      "y": 68
+    },
+    "fullscreen": false,
+    "panel": {
+      "height": 582.5,
+      "margin": "16px 0px",
+      "padding": "16px",
+      "position": "static",
+      "width": 420,
+      "x": 1234,
+      "y": 84
+    },
+    "scrollWidth": 1728,
+    "url": "/reference-product/wardrobe-2",
+    "viewer": {
+      "height": 764,
+      "margin": "0px",
+      "padding": "0px",
+      "position": "relative",
+      "width": 1234,
+      "x": 0,
+      "y": 68
+    },
+    "viewport": [
+      1728,
+      880
+    ]
+  },
+  "desk": {
+    "canvas": {
+      "height": 764,
+      "margin": "0px",
+      "padding": "0px",
+      "position": "static",
+      "width": 1234,
+      "x": 0,
+      "y": 68
+    },
+    "fullscreen": false,
+    "panel": {
+      "height": 631.09375,
+      "margin": "16px 0px",
+      "padding": "16px",
+      "position": "static",
+      "width": 420,
+      "x": 1234,
+      "y": 84
+    },
+    "scrollWidth": 1728,
+    "url": "/reference-product/desk-1",
+    "viewer": {
+      "height": 764,
+      "margin": "0px",
+      "padding": "0px",
+      "position": "relative",
+      "width": 1234,
+      "x": 0,
+      "y": 68
+    },
+    "viewport": [
+      1728,
+      880
+    ]
+  },
+  "book": {
+    "canvas": {
+      "height": 664,
+      "margin": "0px",
+      "padding": "0px",
+      "position": "static",
+      "width": 1234,
+      "x": 0,
+      "y": 168
+    },
+    "fullscreen": false,
+    "panel": {
+      "height": 753.1953125,
+      "margin": "16px 0px",
+      "padding": "16px",
+      "position": "static",
+      "width": 420,
+      "x": 1234,
+      "y": 132
+    },
+    "scrollWidth": 1728,
+    "url": "/furniture/bookcase-brown",
+    "viewer": {
+      "height": 716,
+      "margin": "0px",
+      "padding": "0px",
+      "position": "relative",
+      "width": 1234,
+      "x": 0,
+      "y": 116
+    },
+    "viewport": [
+      1728,
+      880
+    ]
+  }
+}

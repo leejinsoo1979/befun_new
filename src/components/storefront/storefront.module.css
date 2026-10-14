@@ -510,8 +510,8 @@
 @media (max-width:1632px) { .values h3 { font-size: 24px; } }
 @media (max-width:700px) { .recentSection .sectionHeading h2 { font-size: 28px; line-height: 1.4; } .values h3 { font-size: 24px; } }
 
-.productConfigurator { display: grid; grid-template-columns: minmax(0,1fr) 420px; gap: 0; padding: 48px 74px 0 0; background: #E4E6E6; }
-.productScene { position: absolute; inset: 52px 0 0; }
+.productConfigurator { display: grid; grid-template-columns: minmax(0,1fr) 420px; gap: 0; padding: 0 74px 0 0; background: #E4E6E6; }
+.productScene { position: absolute; inset: 0; }
 .productScene canvas { touch-action: pan-y !important; }
 .viewerPhoto { object-fit: contain; }
 .viewerThumbnails { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); max-width: calc(100% - 48px); display: flex; gap: 8px; overflow-x: auto; padding: 4px; z-index: 2; }
@@ -577,7 +577,7 @@
   .filterColorGrid { grid-template-columns: repeat(4,1fr); }
   .filterBar { align-items: flex-start; gap: 20px; }
 }
-.productViewer { position: relative; min-width: 0; height: 716px; }
+.productViewer { position: relative; min-width: 0; height: 764px; }
 .viewerHeading { position: absolute; top: 0; left: var(--gutter); right: 24px; z-index: 2; display: flex; align-items: center; gap: 16px; }
 .viewerHeading h1 { font-size: 16px; line-height: 24px; font-weight: 700; max-width: 340px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .viewerHeading button { width: 32px; height: 32px; display: grid; place-items: center; }
