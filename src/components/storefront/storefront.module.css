@@ -648,6 +648,12 @@
 .introModelCopy { margin-top: 32px; max-width: 700px; }
 .introModelCopy h2 { font-size: 16px; line-height: 24px; letter-spacing: normal; margin: 24px 0 12px; }
 .introModelCopy p { font-size: 16px; line-height: 24px; }
+.introCard { display: flex; flex-direction: column; border-radius: 16px; background: #f4f4f4; padding: 16px 16px 14px; min-width: 0; }
+.introCard > button { min-width: 0; }
+.introSwatches { display: flex; justify-content: center; gap: 8px; margin-top: 10px; }
+.introSwatches > button { width: 18px; height: 18px; border-radius: 50%; border: 1px solid #0000001f; box-shadow: 0 0 0 2px #f4f4f4; }
+.introSwatches > button[aria-pressed='true'] { box-shadow: 0 0 0 2px #f4f4f4, 0 0 0 3px #1d1e1f; border-color: #0000001f; }
+.introSwatches > button:hover { transform: scale(1.12); }
 .introModelImage { position: relative; min-height: 480px; background: #f4f4f4; border-radius: 16px; overflow: hidden; }
 .introModelImage img { object-fit: contain; }
 .introNavigation { display: flex; gap: 16px; margin-top: 48px; }

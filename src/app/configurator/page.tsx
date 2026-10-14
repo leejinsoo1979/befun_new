@@ -239,7 +239,6 @@ export default function ConfiguratorPage() {
         <div className="hidden shrink-0 flex-col overflow-y-auto bg-white px-4 pt-4 pb-6 shadow-[inset_0_1px_0_#eee] sm:px-6 lg:flex lg:w-[460px] lg:px-8 lg:pt-5 lg:pb-8 lg:shadow-[inset_1px_0_0_#eee]">
           {/* Price header */}
           <div className="mb-1">
-            <h2 className="text-[14px] font-normal text-[#333]">{t('다용도 수납장 기본형')}</h2>
             <PriceDisplay />
           </div>
 

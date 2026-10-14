@@ -4,7 +4,6 @@ import { useLocale } from '@/lib/commerce/useLocale';
 
 import dynamic from 'next/dynamic';
 import { ConfiguratorLoading } from '@/components/ui/ConfiguratorLoading';
-import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { FiMaximize, FiSave, FiShare2 } from 'react-icons/fi';
 import { FurnitureViewToolbar } from './FurnitureViewToolbar';
@@ -13,7 +12,7 @@ import type { FurnitureEditIntent } from '@/types/furniture';
 import { FurniturePanel } from '@/components/ui/furniture-panels/FurniturePanel';
 import { applyWardrobeIntent, wardrobePanelView } from '@/lib/furniture/wardrobe-panel';
 import { applyDeskIntent, deskPanelView } from '@/lib/furniture/desk-panel';
-import { FAMILY_NAMES, furnitureDesignHref, parseFurnitureDesign, type FurnitureDesign } from '@/lib/furniture/design';
+import { furnitureDesignHref, parseFurnitureDesign, type FurnitureDesign } from '@/lib/furniture/design';
 import styles from './furniture.module.css';
 import { FurnitureProductDetails } from '@/components/storefront/FurnitureProductDetails';
 
@@ -77,7 +76,7 @@ export function FurnitureConfigurator({initial, title, catalogId}:{initial:Furni
     }catch{setStatus('저장된 디자인을 불러올 수 없습니다.');}
   };
   return <section id="configuration" className={styles.page}>
-    <div className={styles.heading}><div><Link href="/configurator-intro">{tr("가구 선택")}</Link><h1>{tr(title ?? FAMILY_NAMES[design.family])}</h1></div><p>{design.config.widthMm/10} × {design.kind==='desk'?73:Math.max(design.config.heightMm,...design.config.sections.map(s=>s.localHeightMm??0))/10} × {(design.kind==='desk'?design.config.depthMm:Math.max(design.config.depthMm,...design.config.sections.map(s=>s.localDepthMm??0)))/10} cm</p></div>
+    {/* 뷰어 위 제목·치수 줄 없음(사용자 지시) — 치수는 뷰어 치수 표시로 확인 */}
     <div className={styles.layout}>
       <div ref={viewerRef} className={styles.viewer} data-fullscreen={fullscreen||undefined}>
         <Scene design={design} open={open} dimensions={dimensions} front={front} reset={reset} zoom={zoom} interior={tab==='interior'} selectedSectionId={design.kind==='wardrobe'&&tab!=='interior'?null:selected} onSelectSection={select} onEditDeskLegroom={()=>setDeskEditor('legroom')}/>
