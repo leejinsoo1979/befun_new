@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ShopLayout } from '@/components/common/ShopLayout';
 import { useCartStore } from '@/stores/useCartStore';
-import { formatPrice } from '@/lib/pricing';
+import { useMoney } from '@/lib/commerce/useMoney';
+import { PriceNotice } from '@/components/commerce/PriceNotice';
 
 interface ShippingForm {
   name: string;
@@ -15,6 +17,7 @@ interface ShippingForm {
 }
 
 export default function OrderPage() {
+  const { formatPrice, t, market } = useMoney();
   const router = useRouter();
   const { items, getTotalPrice, clearCart } = useCartStore();
   const total = getTotalPrice();
@@ -36,6 +39,7 @@ export default function OrderPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (market !== 'KR') { setError(t('해외 주문은 견적 문의를 이용해 주세요.')); return; }
     if (!form.name || !form.phone || !form.address) {
       setError('배송지 정보를 모두 입력해주세요');
       return;
@@ -59,6 +63,7 @@ export default function OrderPage() {
             quantity: item.quantity,
             price: item.price,
           })),
+          market, currency:'KRW',
           shipping: form,
           shippingFee,
         }),
@@ -81,6 +86,8 @@ export default function OrderPage() {
       setIsSubmitting(false);
     }
   };
+
+  if (market !== 'KR') return <ShopLayout><div className="mx-auto max-w-3xl p-10"><h1>{t('견적 문의')}</h1><PriceNotice /><Link href="/contact?topic=shipping">{t('문의하기')}</Link></div></ShopLayout>;
 
   if (items.length === 0) {
     return (

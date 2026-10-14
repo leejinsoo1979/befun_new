@@ -1,0 +1,32 @@
+{
+  "observedAt": "2026-10-14T13:04:00.837917+09:00",
+  "repository": "https://github.com/leejinsoo1979/befun_new.git",
+  "branch": "main",
+  "commits": [
+    {
+      "sha": "3576d1c3a087d3b04523740c9531694daccd172a",
+      "git": "pushed",
+      "deploymentId": "dpl_7XDsKMce3TiVsuHrQgUNRSJEmQWT",
+      "state": "READY",
+      "productionAlias": "befun-new.vercel.app",
+      "liveUi": "verified release tab and playback progress21"
+    },
+    {
+      "sha": "f46b1d5841e01b9995c9ba4f4aecbb3b3159c670",
+      "git": "pushed",
+      "deploymentId": "dpl_5Ztg4nB6nwtbk94JpEsWnPZAZKhe",
+      "state": "QUEUED",
+      "latestProductionReadyVerified": false
+    }
+  ],
+  "sourceSha256": "15825f85bc33a520dd4c81161f0ddc83071a2d412b756b7edaf256a777d3d167",
+  "checks": {
+    "build": "pass",
+    "tests": 42,
+    "lintErrors": 0,
+    "lintWarnings": 7
+  },
+  "otherProjectBuildCanceled": false,
+  "sharedGitModified": false,
+  "r4PendingOtherWorkersIncluded": false
+}

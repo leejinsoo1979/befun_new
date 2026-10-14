@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import Image from 'next/image';
 import { REFERENCE_COLORS, REFERENCE_CLASSIC_COLORS } from '@/lib/three/reference-colors';
 import { useMaterialStore } from '@/stores/useMaterialStore';
@@ -62,6 +64,7 @@ const CATEGORY_DEFAULTS: Record<ColorCategory, string> = {
 };
 
 export function ColorPicker() {
+  const { t: tr } = useLocale();
   const currentColor = useMaterialStore((s) => s.currentColor);
   const colorCategory = useMaterialStore((s) => s.colorCategory);
   const setColor = useMaterialStore((s) => s.setColor);
@@ -77,7 +80,7 @@ export function ColorPicker() {
     <div>
       {/* Material tab toggle */}
       <div className="cfg-row">
-        <span className="cfg-label">Finish</span>
+        <span className="cfg-label">{tr("Finish")}</span>
         <div className="flex items-center">
           <div className="tylko-pill-group">
             {FINISH_TABS.map((tab) => (
@@ -86,7 +89,7 @@ export function ColorPicker() {
                 onClick={() => handleTabChange(tab.category)}
                 className={`tylko-pill-btn ${colorCategory === tab.category ? 'active' : ''}`}
               >
-                {tab.label}
+                {tr(tab.label)}
               </button>
             ))}
           </div>
@@ -97,7 +100,7 @@ export function ColorPicker() {
       {/* Color grid for selected tab */}
       <div className="flex items-start gap-3 py-[var(--section-py)]">
         <span className="w-[var(--label-w)] shrink-0 pt-1 text-[13px] font-medium text-[#333] sm:text-[14px]">
-          Colour
+          {tr("Colour")}
         </span>
         <div className="flex flex-1 flex-wrap gap-[5px]">
           {colors.map((c) => {
@@ -107,8 +110,8 @@ export function ColorPicker() {
                 key={c.name}
                 onClick={() => setColor(c.name, c.category)}
                 className={`tylko-color-swatch ${isActive ? 'active' : ''}`}
-                title={c.name}
-                aria-label={c.name}
+                title={tr(c.name)}
+                aria-label={tr(c.name)}
               >
                 {REFERENCE_COLORS[c.name] ? (
                   <span aria-hidden="true" className="block h-6 w-6 rounded-full" style={{
@@ -122,7 +125,7 @@ export function ColorPicker() {
                   }} />
                 ) : <Image
                   src={c.image}
-                  alt={c.name}
+                  alt={tr(c.name)}
                   width={24}
                   height={24}
                   className="rounded-full"

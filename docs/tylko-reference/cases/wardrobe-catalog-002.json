@@ -23,9 +23,83 @@
     "directHttp92332": 403,
     "responseUsed": false
   },
-  "screenshots": [],
+  "screenshots": [
+    "screenshots/wardrobe-catalog-002-reference.jpg",
+    "screenshots/wardrobe-catalog-002-befun.jpg",
+    "screenshots/wardrobe-catalog-002-restored.jpg"
+  ],
   "browserChecks": {
-    "status": "pending"
+    "status": "pass",
+    "observedAt": "2026-10-14T03:46:13.027181+00:00",
+    "actualServerFlow": [
+      "http://localhost:3003/furniture-c/wardrobe",
+      "http://localhost:3003/reference-product/wardrobe-2"
+    ],
+    "entryAction": "Catalog photograph link",
+    "actual3DEditorRendered": true,
+    "initialUiCm": [
+      415.0,
+      276.0,
+      63.0
+    ],
+    "storageTestOrigin": "http://127.0.0.1:59682",
+    "testOriginMethod": "GET proxy forwards to actual shared3003 route; storage is separate origin, original localhost designs not overwritten. No mocked editor or save implementation.",
+    "changedControl": "Width keyboard ArrowRight (+1cm)",
+    "savedWidthCm": 416.0,
+    "unsavedWidthBeforeLocalRestoreCm": 417.0,
+    "localRestoreWidthCm": 416.0,
+    "shareClipboardEqualsSavedAddress": true,
+    "hardReloadRestoresValueAndSectionIds": true,
+    "restoredDesign": {
+      "version": 1,
+      "kind": "wardrobe",
+      "family": "wardrobe-tone",
+      "color": "T_Cashmere",
+      "innerColor": "T_Pink",
+      "config": {
+        "model": "tone",
+        "widthMm": 4160,
+        "heightMm": 2760,
+        "depthMm": 630,
+        "sections": [
+          {
+            "id": "1",
+            "seriesId": 3741,
+            "facade": "closed",
+            "doorDirection": "left"
+          },
+          {
+            "id": "2",
+            "seriesId": 3738,
+            "facade": "closed",
+            "doorDirection": "left"
+          },
+          {
+            "id": "3",
+            "seriesId": 3746,
+            "facade": "closed",
+            "doorDirection": "left"
+          },
+          {
+            "id": "4",
+            "seriesId": 3742,
+            "facade": "closed",
+            "doorDirection": "left"
+          },
+          {
+            "id": "5",
+            "seriesId": 3743,
+            "facade": "closed",
+            "doorDirection": "left"
+          }
+        ],
+        "toneWidthPattern": "11111",
+        "drawerStyle": "internal",
+        "lighting": false
+      }
+    },
+    "accountDbCartTested": false,
+    "originalImageLoadedAndPreserved": true
   },
   "catalogId": "wardrobe-2",
   "sourceUrl": "https://tylko.com/en-uk/furniture/wardrobe/92332,w",
@@ -141,5 +215,7 @@
   "geometryLimitations": [
     "tone-drawer-runner-travel-unmeasured",
     "wardrobe-bar-cross-section-assets"
-  ]
+  ],
+  "catalogImageSource": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/02/unreal_render_tasks/unreal_5947061.webp",
+  "familyEvidence": "Product body explicitly contains TYLKO TONE. Family not inferred from card title."
 }

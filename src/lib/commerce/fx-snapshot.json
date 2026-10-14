@@ -1,0 +1,11 @@
+{
+  "source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+  "date": "2026-10-13",
+  "base": "EUR",
+  "rates": {
+    "EUR": 1,
+    "USD": 1.1188,
+    "JPY": 176.91,
+    "KRW": 1500.81
+  }
+}

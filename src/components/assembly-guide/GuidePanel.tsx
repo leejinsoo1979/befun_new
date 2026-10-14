@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo } from 'react';
 import { BoxGeometry, type BufferGeometry } from 'three';
-import { mapPanelEdgeUvs, type PanelAxis } from '@/lib/assembly-guide/panelMaterials';
+import { isLaminateSkin, mapPanelEdgeUvs, type PanelAxis } from '@/lib/assembly-guide/panelMaterials';
 import { usePanelMaterials } from './usePanelMaterials';
 
 /** Dimensions are scene millimetres. Hardware geometry and board dimensions stay unchanged. */
@@ -16,13 +16,18 @@ export function GuidePanel({ size, axis, inside, position = [0, 0, 0], source }:
     // its normal; bore walls remain bare plywood, both broad faces laminate.
     if (source) {
       const normal = value.getAttribute('normal');
+      const position = value.getAttribute('position');
       const count = value.index?.count ?? normal.count;
       value.clearGroups();
       let start = 0, previous = -1;
       for (let i = 0; i < count; i += 3) {
         const vertex = value.index ? value.index.getX(i) : i;
         const n = [normal.getX(vertex), normal.getY(vertex), normal.getZ(vertex)];
-        const material = Math.abs(n[axis]) > .999 ? 0 : 1;
+        const coordinates = [0, 1, 2].map(corner => {
+          const v = value.index ? value.index.getX(i + corner) : i + corner;
+          return [position.getX(v), position.getY(v), position.getZ(v)][axis];
+        });
+        const material = isLaminateSkin(n[axis], coordinates, [w, h, d][axis]) ? 0 : 1;
         if (previous !== material) {
           if (i > 0) value.addGroup(start, i - start, previous);
           start = i; previous = material;

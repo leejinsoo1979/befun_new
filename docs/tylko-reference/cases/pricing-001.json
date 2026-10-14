@@ -1,0 +1,41 @@
+{
+  "id": "pricing-001",
+  "observedAt": "2026-10-14T12:56:02.226242+09:00",
+  "url": "https://tylko.com/de-de/mobel/regalsystem/3690551,j",
+  "locale": "de-de",
+  "currency": "EUR",
+  "inputs": {
+    "style": "Pattern",
+    "widthCm": 120,
+    "displayHeightCm": 193,
+    "depthCm": 32,
+    "densityPercent": 90,
+    "finish": "Multiplexplatte",
+    "color": "White",
+    "individualEdits": null,
+    "hiddenInitialState": null
+  },
+  "actions": [
+    {
+      "backPanels": "off",
+      "regular": 2422,
+      "club": 1502
+    },
+    {
+      "backPanels": "on",
+      "regular": 2560,
+      "club": 1587
+    },
+    {
+      "backPanels": "off",
+      "regular": 2422,
+      "club": 1502
+    }
+  ],
+  "precision": "Displayed integer EUR, internal price precision unknown",
+  "screenshots": [
+    "../screenshots/pricing-001-back-off.png",
+    "../screenshots/pricing-001-back-on.png"
+  ],
+  "notes": "ON screenshot regular-price area partly obscured by sticky header; both prices read from accessibility text. Full initial design not captured; no per-panel rate inferred."
+}

@@ -1,6 +1,8 @@
-# Codex 조립 안내 — R3 최종 인계 및 R2.1 기록
+# Codex 조립 안내 — R4 재질·분해 인계 및 R2.1/R3 기록
 
-최신: [R3-ASM-01~06 제출](handoffs/assets/codex-assembly/r3-legs/README.md), [LEG-GUIDE-READY](handoffs/assets/codex-assembly/r3-legs/ready.json), [기존 연출 마무리](handoffs/assets/codex-assembly/cinematic/README.md). 원본 다리 안내·공식 영상 재생과 공유 정적 GLB 연결은 납품했으며, 정밀3D 다리 이동 시연은 미구현이다. 아래 R2.1 기록은 당시 결과로 보존한다.
+최신: [R4-ASM-READY·검증·실제 디자인 계약 요청](handoffs/assets/codex-assembly/material-disassembly/README.md), [READY](handoffs/assets/codex-assembly/material-disassembly/ready.json). 양면 라미네이트·자작 엣지 및 R15mm슬라이드→들기분해를연결했다. 전체주문가구/정밀다리기구/제조승인은제외한다.
+
+R3 이력: [R3-ASM-01~06 제출](handoffs/assets/codex-assembly/r3-legs/README.md), [LEG-GUIDE-READY](handoffs/assets/codex-assembly/r3-legs/ready.json), [기존 연출 마무리](handoffs/assets/codex-assembly/cinematic/README.md). 원본 다리 안내·공식 영상 재생과 공유 정적 GLB 연결은 납품했으며, 정밀3D 다리 이동 시연은 미구현이다. 아래 R2.1 기록은 당시 결과로 보존한다.
 
 ## R2.1 결과와 실제 실행
 
@@ -71,3 +73,7 @@
 ## R4-ASM 수신·첫 인계 — 2026-10-14 12:19 KST
 
 왼쪽5, 기존 세션 Log in. [재질·공식 분해·최소 실제 디자인 입력 계약 요청](handoffs/assets/codex-assembly/material-disassembly/README.md). 사용자 직접 요청 수정 진행 중. R4 단독 범위 유지, 제품/route/공통 계약은 리더 소유. 이전 R2.1의 해제 sampler가 검사 전용이었다는 기록은 당시 상태이며, 이번 R4에서 별도 R 공식15mm slide→lift UI를 연결한다. READY와 최종 검사 결과는 완료 후 추가한다.
+
+### R4-ASM-READY — 2026-10-14
+
+[6사례·최종캡처·42검사·자원해제·입력계약](handoffs/assets/codex-assembly/material-disassembly/README.md) 제출. 최신격리 production build/전체TypeScript/17정적페이지PASS,lint오류0/기존경고7,변경eslint0/0. 실제Chrome desktop/390px·6주제전환·12재질토글·따라분해4단계완료·cold texture문제교정확인. source36파일격리SHA차이0. 이번소유잠금해제. 리더의제품버튼/공통parts/joints연결과정밀다리모션은미완료이며,이번예시안내수정완료와구분한다.

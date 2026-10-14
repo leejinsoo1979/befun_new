@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import dynamic from 'next/dynamic';
 import { ConfiguratorLoading } from '@/components/ui/ConfiguratorLoading';
 import Link from 'next/link';
@@ -15,6 +17,7 @@ import styles from './furniture.module.css';
 
 const Scene=dynamic(()=>import('./FurnitureScene'),{ssr:false,loading:()=> <ConfiguratorLoading />});
 export function FurnitureConfigurator({initial, title}:{initial:FurnitureDesign;title?:string}){
+  const { t: tr } = useLocale();
   const [design,setDesign]=useState(initial);
   const [selected,setSelected]=useState<string|null>(initial.kind==='desk'?initial.sectionIds[0]:initial.config.sections[0]?.id??null);
   const [tab,setTab]=useState('appearance');
@@ -51,26 +54,26 @@ export function FurnitureConfigurator({initial, title}:{initial:FurnitureDesign;
     }catch{setStatus('저장된 디자인을 불러올 수 없습니다.');}
   };
   return <section className={styles.page}>
-    <div className={styles.heading}><div><Link href="/configurator-intro">가구 선택</Link><h1>{title ?? FAMILY_NAMES[design.family]}</h1></div><p>{design.config.widthMm/10} × {design.kind==='desk'?73:Math.max(design.config.heightMm,...design.config.sections.map(s=>s.localHeightMm??0))/10} × {(design.kind==='desk'?design.config.depthMm:Math.max(design.config.depthMm,...design.config.sections.map(s=>s.localDepthMm??0)))/10} cm</p></div>
+    <div className={styles.heading}><div><Link href="/configurator-intro">{tr("가구 선택")}</Link><h1>{tr(title ?? FAMILY_NAMES[design.family])}</h1></div><p>{design.config.widthMm/10} × {design.kind==='desk'?73:Math.max(design.config.heightMm,...design.config.sections.map(s=>s.localHeightMm??0))/10} × {(design.kind==='desk'?design.config.depthMm:Math.max(design.config.depthMm,...design.config.sections.map(s=>s.localDepthMm??0)))/10} cm</p></div>
     <div className={styles.layout}>
       <div className={styles.viewer}>
         <Scene design={design} open={open} dimensions={dimensions} front={front} reset={reset} selectedSectionId={selected} onSelectSection={select} onEditDeskLegroom={()=>setDeskEditor('legroom')}/>
-        <div className={styles.toolbar} aria-label="가구 보기">
-          <button onClick={()=>setOpen(!open)} aria-pressed={open}>{open?'문·서랍 닫기':'문·서랍 열기'}</button>
-          <button onClick={()=>setDimensions(!dimensions)} aria-pressed={dimensions}>치수</button>
-          <button onClick={()=>setFront(!front)} aria-pressed={front}>{front?'입체':'정면'}</button>
-          <button onClick={()=>setReset(reset+1)} aria-label="시점 초기화"><FiRotateCcw/></button>
-          <button onClick={event=>{const viewer=event.currentTarget.closest(`.${styles.viewer}`);if(document.fullscreenElement)void document.exitFullscreen();else if(viewer instanceof HTMLElement)void viewer.requestFullscreen();}} aria-label="전체 화면"><FiMaximize/></button>
+        <div className={styles.toolbar} aria-label={tr("가구 보기")}>
+          <button onClick={()=>setOpen(!open)} aria-pressed={open}>{tr(open?'문·서랍 닫기':'문·서랍 열기')}</button>
+          <button onClick={()=>setDimensions(!dimensions)} aria-pressed={dimensions}>{tr("치수")}</button>
+          <button onClick={()=>setFront(!front)} aria-pressed={front}>{tr(front?'입체':'정면')}</button>
+          <button onClick={()=>setReset(reset+1)} aria-label={tr("시점 초기화")}><FiRotateCcw/></button>
+          <button onClick={event=>{const viewer=event.currentTarget.closest(`.${styles.viewer}`);if(document.fullscreenElement)void document.exitFullscreen();else if(viewer instanceof HTMLElement)void viewer.requestFullscreen();}} aria-label={tr("전체 화면")}><FiMaximize/></button>
         </div>
-        <p className={styles.viewerHint}>드래그하여 회전 · 스크롤하여 확대 · 수납 구획을 눌러 편집</p>
+        <p className={styles.viewerHint}>{tr("드래그하여 회전 · 스크롤하여 확대 · 수납 구획을 눌러 편집")}</p>
       </div>
-      <aside className={`${styles.options} ${design.kind==='desk'?styles.deskOptions:''}`} aria-label="가구 옵션">
+      <aside className={`${styles.options} ${design.kind==='desk'?styles.deskOptions:''}`} aria-label={tr("가구 옵션")}>
         {view&&<FurniturePanel view={view} activeTabId={tab} onTabChange={setTab} onSelectSection={setSelected} onIntent={apply}/>}
-        <div className={styles.saveActions}><button onClick={()=>persist()}><FiSave/> 디자인 저장</button><button onClick={()=>persist(true)}><FiShare2/> 링크 공유</button><button onClick={restore}>저장한 디자인 불러오기</button></div>
-        <p role="status" className={styles.status}>{status}</p>
+        <div className={styles.saveActions}><button onClick={()=>persist()}><FiSave/> {tr("디자인 저장")}</button><button onClick={()=>persist(true)}><FiShare2/> {tr("링크 공유")}</button><button onClick={restore}>{tr("저장한 디자인 불러오기")}</button></div>
+        <p role="status" className={styles.status}>{tr(status)}</p>
       </aside>
     </div>
     {design.kind==='desk'&&deskEditor&&<DeskSectionEditor key={`${deskEditor}:${selected}`} view={view} region={deskEditor} onIntent={apply} onClose={()=>setDeskEditor(null)}/>}
-    <div className={styles.details}><h2>내 공간에 맞춘 {design.kind==='desk'?'데스크':'옷장'}</h2><p>크기와 수납 구성을 바꾸어 나만의 공간을 만들어 보세요. 저장과 공유에는 현재 선택한 크기, 구성, 색상이 함께 담깁니다.</p></div>
+    <div className={styles.details}><h2>{tr(design.kind==='desk'?'내 공간에 맞춘 데스크':'내 공간에 맞춘 옷장')}</h2><p>{tr("크기와 수납 구성을 바꾸어 나만의 공간을 만들어 보세요. 저장과 공유에는 현재 선택한 크기, 구성, 색상이 함께 담깁니다.")}</p></div>
   </section>;
 }

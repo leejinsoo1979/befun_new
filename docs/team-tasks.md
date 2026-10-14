@@ -95,7 +95,9 @@
 
 ## 조율 요청
 
-- `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 12:30: **측정 모드(그리드 판재 + 판재 hover 시 가로·세로·깊이 화살표 치수, formbar Measure 참고) → 완료·잠금 해제.** 보기 메뉴 '측정' 토글. 켜면 모든 판재가 cm 모눈 재질(1cm 가는 선/10cm 굵은 선, 판 로컬 좌표 기준)로 바뀌고, 마우스를 올린 판재는 연녹색 강조와 함께 X·Y·Z 화살표+cm 라벨(4cm 미만 변은 화살표 생략)과 '가로×세로×깊이' 요약 칩 표시. 끄면 원래 재질 복원. 분해 중 비활성. 화면 전용(설계·가공 데이터 불변). Chrome3003 1440: 세로판 1.8×28.2×32, 가로판·상판 90×1.8×32 확인, 끈 뒤 원래 색 복원, 오류0. eslint/tsc(내 파일)0, 격리 build PASS. 캡처 `docs/handoffs/claude-1-ui-assets/measure/`. 잠금: 신규 `src/components/three/measure/**`; 좁게 `Panel.tsx`의 mesh `userData`(판재 치수 태그) 1줄, `Scene.tsx`의 `<MeasureMode />` 마운트 1줄, `display/ViewToolbar.tsx`의 '측정' 토글 버튼 1개. graphics 성능 작업(useBoredBox)·DisplayModel·store는 수정하지 않음.
+- `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 13:10: **책상 카탈로그 썸네일을 Tylko 책상 이미지로 교체 → 완료·잠금 해제.** /furniture-c/desk 3개 카드와 /reference-product/desk-1~3 상세가 로컬 desk-1~3.webp(900×900) 표시 확인, catalog.test 9/9. 원본 카탈로그 렌더(unreal_10087621 등 800×800)는 VPN Chrome에서 로드 확인됐으나 확장 다운로드 저장 실패 — 사용자가 받으면 같은 경로로 교체. 원인: media.tylko.com이 VPN 없는 접속에 403 → 카드가 storage.avif(주황 수납장)로 대체됨. 좁은 수정: `storefront/referenceCatalog.ts`의 desk 3개 이미지 값과 로컬 경로 허용 1줄, 신규 `public/imgs/storefront/desk-1~3.webp`(Tylko 상품 페이지 VPN 캡처 `desk-ui-001/002-reference`·`desk-catalog-003-reference`에서 가구 영역만 잘라낸 것). 다른 카테고리·리더 catalog-design 연결은 수정하지 않음.
+
+- `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 12:30: **측정 모드(그리드 판재 + 판재 hover 시 가로·세로·깊이 화살표 치수, formbar Measure 참고) → 완료·잠금 해제.** [2차 사용자 피드백 반영: 도어·서랍·손잡이 등 소품 제외 가구 전체를 월드 cm 그리드로, 치수는 커서 지점 실시간 스캔(면 위 두 방향 광선 → 칸 안쪽 너비·높이, 바깥 방향 → 다음 면 또는 몸통 끝 '최대'), 바깥면(도어·서랍 전면·상판·측판 바깥)은 그 부재의 가로·세로·두께. Panel.tsx userData 줄은 되돌림(불필요). 실측: 칸 29.8×28.2×32(최대), 선반 칸 안쪽 42.3, 도어 41.7×27.5×1.6, 상판 90×1.8×32. 알려진 점: 행 hover 시 기존 RowColliders가 도어를 살짝 여는 동작은 그대로.] 1차 기록: 보기 메뉴 '측정' 토글. 켜면 모든 판재가 cm 모눈 재질(1cm 가는 선/10cm 굵은 선, 판 로컬 좌표 기준)로 바뀌고, 마우스를 올린 판재는 연녹색 강조와 함께 X·Y·Z 화살표+cm 라벨(4cm 미만 변은 화살표 생략)과 '가로×세로×깊이' 요약 칩 표시. 끄면 원래 재질 복원. 분해 중 비활성. 화면 전용(설계·가공 데이터 불변). Chrome3003 1440: 세로판 1.8×28.2×32, 가로판·상판 90×1.8×32 확인, 끈 뒤 원래 색 복원, 오류0. eslint/tsc(내 파일)0, 격리 build PASS. 캡처 `docs/handoffs/claude-1-ui-assets/measure/`. 잠금: 신규 `src/components/three/measure/**`; 좁게 `Panel.tsx`의 mesh `userData`(판재 치수 태그) 1줄, `Scene.tsx`의 `<MeasureMode />` 마운트 1줄, `display/ViewToolbar.tsx`의 '측정' 토글 버튼 1개. graphics 성능 작업(useBoredBox)·DisplayModel·store는 수정하지 않음.
 
 - `claude-optimizer`(Claude UI) **R4-UI-READY 게시·잠금 해제**: 네 실제 경로(desk-1·desk-modern·wardrobe-edge·wardrobe-tone) 1440/390 키보드·구획 전환 34/34씩 pass. 수정 HeightMode 포커스 유실·radiogroup 구성·라벨 keep-all(furniture-panels만). vitest 100, eslint 0, 격리 build PASS(fingerprint aed6afa5003439e6). 리더 요청 R4-REQ-1/2(legSpace aria, desk width step). 상세 claude-1-ui.md R4 절. 원 착수: (사용자 전달 지시: 실제 책상/옷장 패널 수정). 잠금: `src/components/ui/furniture-panels/**`, 본인 UI 테스트, `docs/handoffs/claude-1-ui.md`, 캡처 `docs/handoffs/claude-1-ui-assets/r4/**`. 공통 타입·상태 adapter(desk-panel/wardrobe-panel)·FurnitureConfigurator·모델은 리더 소유로 읽기 전용, 값 오류는 controlId·입력·기대·실제로 요청.
 
@@ -1356,3 +1358,50 @@
 - QA 후속: 책상 카탈로그3경로에서 single목록+연필 popup으로 검사 갱신. 후판OFF/수납종류 변경/팝업닫기·초점/URL복원/390px 검증. 제품소스 읽기전용 유지.
 - `claude-graphics` (사용자 직접 지시 "메인 랜딩을 tylko_section_1440x720.mp4로", 2026-10-14 12:40) → storefront: 영상을 `public/videos/befun-hero-1440x720.mp4`로 복사, `Storefront.tsx` Hero의 Cloudflare Stream iframe/SDK(Script)를 로컬 `<video autoPlay muted loop playsInline>`로 교체. 재생/정지·음소거 버튼, reduced-motion 시 포스터 유지·수동 재생, 오류 시 포스터 폴백 유지. CSS `.videoCover video` object-fit cover 1줄 추가. lint 0, 3003에서 1440×720 재생 확인.
 - `claude-graphics` (사용자 지적 "기존 사진이 잠깐 나왔다 사라짐", 2026-10-14 12:45) → storefront: Hero 포스터를 기존 `hero.avif`에서 영상 첫 프레임 `public/videos/befun-hero-poster.webp`로 교체(Image·video poster 모두). 느린 네트워크(400KB/s) 1.5초 시점에도 첫 프레임 표시 확인. 미사용 remoteHero 상수 제거.
+
+### 줌아웃 차단 수정 — 리더 착수 / 2026-10-14
+- 원인: StorefrontUI.scrollPastCanvas가 canvas의 일반 wheel을 capture에서 stopPropagation하여 OrbitControls 도달 전 차단. ConfiguratorShell/ProductConfigurator에 모두 적용됨.
+- 단독 잠금: StorefrontUI.tsx의 해당 함수/타입만, ConfiguratorShell.tsx·ProductConfigurator.tsx의 해당 import/handler만. 타 담당 변경 보존. 카메라 범위는 근거 없는 확대 없이 유지.
+- 검증: 실제 Chrome 휠 양방향·옵션 영역 페이지 스크롤·lint/격리 build.
+
+### R4-ASM-READY — 왼쪽5 / codex-assembly / 2026-10-14
+- 기존세션 Log in 유지. 양면 라미네이트·자작적층엣지·R공식15mm slide→lift 분해4단계 완료; P영구형분해비활성. 앞/뒤/단면·분리후로컬UV 유지. 공용재질/HW/CNC/route/공유.git 미수정.
+- 최종41검사PASS(owned36material/18texture해제·loader원본보존포함),변경eslint0/0,전체lint0오류7기존경고,격리production build+전체TypeScript+17정적페이지PASS. source36파일SHA격리차이0.
+- 실제Chrome1728×880/390×844, 원본Tylko5/백패널7/다리5 및P7/R8회귀·재생/일시정지/탐색/초기화/주제전환. 6전환loop/12재질toggle후ready, warmed29geometry/7texture/8program. cold texture전Canvas대비 및같은단계context복구확인.
+- 본인인계: docs/handoffs/assets/codex-assembly/material-disassembly/README.md · ready.json. FurnitureDesign parts/joints/선택상태 최소입력계약리더요청기록. 실제주문가구연결·정밀다리기구·제조승인제외.
+- 소유잠금해제: assembly-guide components/lib, docs/assembly-guide.md, 본신규material-disassembly증거. 독립게시사본에서는bf924ae안정본+이번ASM만게시; 다른R4진행중소스미포함.
+- `claude-graphics` (사용자 직접 지시 "Tylko처럼 중간에도 영상, tylko_hero_2112x1080.mp4 삽입", 2026-10-14 12:55) → storefront: Tylko 홈 두 번째 영상 위치(최근 본 상품 다음 전체폭)와 같은 `brandScene` 섹션의 brand.avif를 `public/videos/befun-scene-2112x1080.mp4` 자동재생(muted loop playsInline)으로 교체, 첫 프레임 포스터 `befun-scene-poster.webp`. reduced-motion·오류 시 포스터만. 문구·버튼 유지. lint 0, 3003 재생 확인.
+
+### 줌아웃 차단 수정 완료 — 리더 / 2026-10-14
+- ConfiguratorShell/ProductConfigurator의 onWheelCapture 차단과 StorefrontUI.scrollPastCanvas 제거. 기존 OrbitControls 거리/줌 제한 유지. Desk/Wardrobe의 FurnitureScene에는 이 차단 함수가 없어 수정하지 않음.
+- 실제 기존 Chrome /configurator에서 wheel down3회 축소/up3회 복귀 확인. canvas wheel 중 scrollY=0, 옵션 영역 wheel 후 scrollY=881 및 복귀. 저장·크기·재질 값 변경 없음. 사례 cases/zoom-001.json 및 캡처3장.
+- 변경3파일 ESLint0. 격리 befun-zoom-6s8ak5yo production build/TypeScript PASS, 빌드 사본과 수정3파일 일치. 공유3003/.next 재시작 없음. 상품 기존탭은 HMR loading 표시로 별도 실제 조작 미확인, 물리터치 미검증. 잠금 해제.
+
+### 가격 산정 조사 — 리더 / 2026-10-14
+- 사용자 가격 생성 로직 조사 요청. 이번 조사 문서 pricing-analysis.md·pricing-001.json 담당 리더. 운영 가격/할인/결제 코드 변경 없음.
+- 독일3690551,j 뒷판 OFF→ON→OFF 가격 재현 확인. 단일 사례이며 일반 단가 공식 미확정. 후속 조사 계획 pricing-analysis.md. 첫 관찰 기록 완료, 문서 잠금 해제.
+
+- R4-ASM 최종후속: 가공면은normal+외부skin좌표로판정,평행한홈바닥도맨목재. 추가검사후42PASS,최신격리build/TypeScript PASS,lint0/7. Tylko선택적추정3D5단계/백패널7재확인. source36파일격리차이0,최종fingerprint갱신,ASM잠금최종해제.
+- `claude-graphics` (사용자 직접 지시 "tylko.com에서 불러오지 말고 우리 서버에서", 2026-10-14 13:10) → storefront: 원인 = `media.tylko.com` 이미지 403 후 로컬 fallback 재요청으로 지연·스와치 깨짐. ① `StorefrontUI.ReferenceImage`가 외부 URL을 요청하지 않고 바로 `asset(fallback)` 사용(`isExternalImage` export). ② `CollectionChooser` 스와치: t02는 저장된 `/imgs/tylko-gallery/swatches/t02`, 옷장 t13은 WARDROBE_COLORS hex, 소파 울은 근사 hex(원본 미확보). ③ `ProductDetails` 갤러리는 외부 URL 제외, 없으면 상품 대표 이미지. ④ `ReferenceCatalogPages` 옷장 참조 이미지 외부 URL → `wardrobe.avif`. 확인: /, 상품, furniture-c, wardrobe, inspirations, tylko-pro, e-gift-card, desk-1 모두 tylko 요청 0·깨진 이미지 0. 한계: 컬렉션 카드는 색 선택 시 원본 색별 사진 대신 카테고리 대표 사진 고정, productGalleries.ts·referenceCatalog.ts의 원격 URL 데이터 자체는 남아 있음(요청 안 함).
+
+- R4게시수신: GitHubmain f46b1d5동일확인. 3576d1c/dpl_7XDs... 운영READY/실제UI재생확인;최종f46b1d5/dpl_5Ztg4nB6nwtbk94JpEsWnPZAZKhe QUEUED 별도기록. 공유.git/3003미접촉,자체31789정리.
+
+### R5 지역·언어·통화·가격 — 리더 / 2026-10-14 착수
+- 사용자 승인: KR(ko/KRW), US(en/USD), JP(ja/JPY), EU(en/EUR) 전환. 가구 구성 유지. Tylko 계산 동일성은 근거 확보/독립 설정 검증 후 인정.
+- 리더 잠금: 신규 lib/commerce/**, stores/useMarketStore.ts, components/commerce/**, 가격표시·장바구니·주문 지역 연결, 신규 scripts/commerce/**. 기존 가격 계산 공식 미확정 부분을 Tylko 공식으로 표기하지 않는다.
+- pricing_audit 보조: 신규 docs/tylko-reference/pricing-source-audit.md만 작성, 기존 공개 캡처/코드 읽기전용 분석.
+- locale_ui 보조: StorefrontFrame.tsx, SupportPages.tsx RegionPage만, common/Providers.tsx, ui/furniture-panels/{FurniturePanel.tsx,controls.tsx,legacy/LegacyControls.tsx}, ui/{FeetSelector,ColorPicker}.tsx, components/furniture/{FurnitureConfigurator,DeskSectionEditor}.tsx의 번역만. 신규 lib/commerce/ui-dictionary.ts, components/commerce/MarketSelector.tsx. 다른 영역 변경 보존.
+- 공통 계약: useMarketStore에서 market ('KR'|'US'|'JP'|'EU'), europeanCountry ('DE'|'FR'|'NL'|'ES'|'IT'|'IE'|'AT'|'BE'|'FI'|'PT'), setMarket(market), setEuropeanCountry(country). useLocale() => {market,language:'ko'|'en'|'ja',locale,currency,t:(source:string)=>string}. 운영 가격계산 API와 숫자 KRW 의미는 무단 변경하지 않음.
+
+### R5 동시 i18n 구현 발견·통합 계약 정정 — 리더
+- 다른 작업자가 src/lib/i18n/{I18nProvider,regions,messages,server}.ts(x), app/layout.tsx 및 storefront 번역을 추가한 것을 확인. 기존 코드를 보존하며 해당 I18nProvider.region/setRegion을 지역 상태의 단일 원천으로 사용한다. 리더의 별도 market 저장은 제거하고 유럽 배송국가만 독립 보관한다. locale_ui의 중복 Providers/헤더 selector 연결은 회수한다.
+- 기존 i18n 담당께: 가격은 리더가 연결하므로 국가 전환에도 KRW 고정이라는 설명은 이후 교정 대상. setRegion의 router.refresh는 진행중 가구 입력의 리셋을 일으킬 수 있어 검증 예정; 제품별 mount/reset 계약 주의. 리더 core와 상태 중복 생성 금지.
+- pricing_audit 추가 단독 잠금: 신규 lib/commerce/reference-pricing.ts 및 scripts/commerce/reference-pricing.test.mjs. 공개 소스의 산정 단계 재구현, 단가 미확보시 unavailable. 운영 legacy가격과 구분.
+
+### R5 locale_ui scoped delivery — 2026-10-14
+- Panel/configurator React copy translation + core ko/en/ja dictionary + RegionPage MarketSettings/EU country implemented. Existing external I18nProvider remains canonical by leader direction; MarketSettings consumes leader useLocale adapter.
+- Scoped ESLint0 errors; SupportPages four concurrent unused-import warnings retained by instruction. No full build/shared server restart. Handoff: docs/handoffs/r5-locale-ui.md.
+- Providers original preserved; my StorefrontFrame changes withdrawn to preserve external header worker. Footer currency/country integration and header EU selection observations handed to leader. Scoped source locks released; follow-up narrow footer integration awaits coordination.
+- R5 locale_ui 최종 보완: 승인된 footer MarketLabel 연결(배송 국가/언어/통화), MarketSettings EU 저장 rehydrate 반영. 동시 변경 SupportPages unused imports 정리 확인. 최종 담당12 TS/TSX ESLint 오류0/경고0. src/lib/i18n 및 기존 RegionSelector는 수정하지 않음. 잠금 해제.
+- `claude-graphics` → 리더(R5) 조율 (사용자 직접 지시 "한국·미국·일본·유럽 선택에 따라 UI 언어 전환", 2026-10-14 13:15): 같은 시각 R5와 겹쳐 진행됨. 최종 정리 = **국가 상태·선택 UI·통화는 리더 소유**(useMarketStore/useLocale/MarketSelector/MarketLabel/RegionPage), 내 쪽은 ① `lib/i18n/{regions,server,I18nProvider,messages}.ts(x)` — 쿠키 `befun_region` + Accept-Language 첫 방문 감지, 루트 layout `<html lang>` 서버 반영(리더 useLocale가 이 위에 얹혀 있음, 유지) ② 홈·헤더·메뉴·푸터 문구 `t()` 적용(Storefront/StorefrontFrame/CollectionChooser/ProcessCards/JoinSection)과 보조 사전 messages.ts(en/ja). 내 RegionSelector는 삭제(헤더 선택기 없음 = 리더 결정 유지). 중간에 제가 regions/server를 지웠다 복구하는 과정에서 13:12 전후 빌드가 잠시 깨졌음 — 현재 tsc/lint 0, 브라우저 KR/US/JP/EU 4개 모두 lang·홈 문구·푸터 MarketLabel 확인, 콘솔 예외 0. 남은 것: 리더 사전과 messages.ts 사전 통합 여부, 상품/컨피규레이터/카탈로그 문구(다음 단계), 브레드크럼 등 미번역.
+- R5 graphics 조율 수신: I18nProvider 쿠키/Accept-Language 구조 유지, 기존 번역 사전 보존. 리더 MarketSelector를 header navIcons에 연결해 현재 디자인을 떠나지 않고 4지역·유럽국가 변경 가능. ProductConfigurator의 preset effect에 동일 입력 key 가드를 추가해 router.refresh 객체변경으로 사용자 가구가 초기화되는 문제 예방.

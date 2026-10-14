@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_KR } from 'next/font/google';
 import { Providers } from '@/components/common/Providers';
+import { I18nProvider } from '@/lib/i18n/I18nProvider';
+import { currentRegion } from '@/lib/i18n/server';
 import './globals.css';
 
 const notoSansKR = Noto_Sans_KR({
@@ -14,15 +16,16 @@ export const metadata: Metadata = {
   description: '3D 커스터마이저로 나만의 수납 가구를 디자인하세요',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const region = await currentRegion();
   return (
-    <html lang="ko">
+    <html lang={region.htmlLang}>
       <body className={`${notoSansKR.variable} font-sans antialiased`}>
-        <Providers>{children}</Providers>
+        <Providers><I18nProvider initialRegion={region.id}>{children}</I18nProvider></Providers>
       </body>
     </html>
   );

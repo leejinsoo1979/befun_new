@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { MarketLabel, MarketSelector } from '@/components/commerce/MarketSelector';
 import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode, type MouseEvent } from 'react';
 import { useSession } from 'next-auth/react';
 import { FiArrowRight, FiChevronDown, FiHeart, FiMenu, FiSearch, FiShoppingCart, FiUser, FiX } from 'react-icons/fi';
@@ -8,6 +9,7 @@ import { useCartStore } from '@/stores/useCartStore';
 import { useSavedProducts } from './useSavedProducts';
 import { BrandLogo } from './StorefrontUI';
 import { footerGroups, menuGroups } from './navigation';
+import { useI18n } from '@/lib/i18n/I18nProvider';
 import styles from './storefront.module.css';
 
 const subscribeMobileFooter = (update: () => void) => {
@@ -31,11 +33,12 @@ const dismissAnnouncement = () => {
   announcementListeners.forEach(update => update());
 };
 function FooterGroup({ group }: { group: typeof footerGroups[number] }) {
+  const { t } = useI18n();
   const mobile = useSyncExternalStore(subscribeMobileFooter, isMobileFooter, () => false);
   const [expanded, setExpanded] = useState(false);
   return <details className={styles.footerGroup} open={!mobile || expanded}>
-    <summary onClick={event => { event.preventDefault(); if (mobile) setExpanded(!expanded); }}>{group.title}<FiChevronDown /></summary>
-    <nav aria-label={group.title}>{group.links.map(([title, href]) => <Link key={href} href={href} target={href.startsWith('https:') ? '_blank' : undefined} rel={href.startsWith('https:') ? 'noreferrer' : undefined}>{title}</Link>)}</nav>
+    <summary onClick={event => { event.preventDefault(); if (mobile) setExpanded(!expanded); }}>{t(group.title)}<FiChevronDown /></summary>
+    <nav aria-label={t(group.title)}>{group.links.map(([title, href]) => <Link key={href} href={href} target={href.startsWith('https:') ? '_blank' : undefined} rel={href.startsWith('https:') ? 'noreferrer' : undefined}>{t(title)}</Link>)}</nav>
   </details>;
 }
 
@@ -47,6 +50,7 @@ export function StorefrontFrame({ children, overlay = false }: { children: React
   const triggerRef = useRef<HTMLButtonElement>(null);
   const lastScroll = useRef(0);
   const { data: session } = useSession();
+  const { t } = useI18n();
   const { saved } = useSavedProducts();
   const count = useCartStore(state => state.items.reduce((total, item) => total + item.quantity, 0));
   useEffect(() => {
@@ -70,20 +74,20 @@ export function StorefrontFrame({ children, overlay = false }: { children: React
     }
   };
   return <div className={`${styles.storefront} ${overlay ? '' : styles.innerStorefront} ${announcementDismissed ? styles.noAnnouncement : ''}`}>
-    <a href="#main" className={styles.skipLink}>본문으로 바로가기</a>
-    {announcementDismissed ? null : <div className={styles.announcement} role="region" aria-label="프로모션 알림"><Link href="/furniture-c">공간에 딱 맞는 수납. <strong>나만의 디자인, 20% 할인.</strong><span> 지금 만나보세요 <FiArrowRight /></span></Link><button type="button" className={styles.announcementClose} aria-label="알림 닫기" onClick={dismissAnnouncement}><FiX /></button></div>}
+    <a href="#main" className={styles.skipLink}>{t('본문으로 바로가기')}</a>
+    {announcementDismissed ? null : <div className={styles.announcement} role="region" aria-label={t('프로모션 알림')}><Link href="/furniture-c">{t('공간에 딱 맞는 수납.')} <strong>{t('나만의 디자인, 20% 할인.')}</strong><span> {t('지금 만나보세요')} <FiArrowRight /></span></Link><button type="button" className={styles.announcementClose} aria-label={t('알림 닫기')} onClick={dismissAnnouncement}><FiX /></button></div>}
     <header className={`${styles.header} ${hidden && !open ? styles.headerHidden : ''}`}>
-      <Link href="/" aria-label="Befun 홈" className={styles.logo} onClick={goHome}><BrandLogo /></Link>
+      <Link href="/" aria-label={t('Befun 홈')} className={styles.logo} onClick={goHome}><BrandLogo /></Link>
       <div className={styles.navPill}>
-        <nav aria-label="주 메뉴" className={styles.desktopNav}><button ref={triggerRef} aria-expanded={open} aria-controls="storefront-menu" onClick={() => setOpen(!open)}>쇼핑 <FiChevronDown /></button><Link href="/inspirations">커뮤니티</Link><Link href="/tylko-pro">Befun Pro</Link><Link href="/showrooms">쇼룸</Link></nav>
-        <button className={`${styles.iconButton} ${styles.mobileMenu}`} aria-label={open ? '메뉴 닫기' : '메뉴 열기'} aria-expanded={open} aria-controls="storefront-menu" onClick={() => setOpen(!open)}>{open ? <FiX /> : <FiMenu />}</button>
-        <div className={styles.navIcons}><Link className={styles.iconButton} href="/search" aria-label="제품 검색"><FiSearch /></Link><Link className={styles.iconButton} href={session?.user ? '/mypage' : '/login'} aria-label={session?.user ? '마이페이지' : '로그인'}><FiUser /></Link><Link className={styles.iconButton} href="/wishlist" aria-label="즐겨찾기 보기"><FiHeart />{saved.length ? <span className={styles.badge}>{saved.length}</span> : null}</Link><Link className={styles.iconButton} href="/cart" aria-label={`장바구니 ${count}개`}><FiShoppingCart />{count ? <span className={styles.badge}>{count}</span> : null}</Link></div>
+        <nav aria-label={t('주 메뉴')} className={styles.desktopNav}><button ref={triggerRef} aria-expanded={open} aria-controls="storefront-menu" onClick={() => setOpen(!open)}>{t('쇼핑')} <FiChevronDown /></button><Link href="/inspirations">{t('커뮤니티')}</Link><Link href="/tylko-pro">Befun Pro</Link><Link href="/showrooms">{t('쇼룸')}</Link></nav>
+        <button className={`${styles.iconButton} ${styles.mobileMenu}`} aria-label={open ? t('메뉴 닫기') : t('메뉴 열기')} aria-expanded={open} aria-controls="storefront-menu" onClick={() => setOpen(!open)}>{open ? <FiX /> : <FiMenu />}</button>
+        <div className={styles.navIcons}><MarketSelector /><Link className={styles.iconButton} href="/search" aria-label={t('제품 검색')}><FiSearch /></Link><Link className={styles.iconButton} href={session?.user ? '/mypage' : '/login'} aria-label={session?.user ? t('마이페이지') : t('로그인')}><FiUser /></Link><Link className={styles.iconButton} href="/wishlist" aria-label={t('즐겨찾기 보기')}><FiHeart />{saved.length ? <span className={styles.badge}>{saved.length}</span> : null}</Link><Link className={styles.iconButton} href="/cart" aria-label={`${t('장바구니')} ${count}`}><FiShoppingCart />{count ? <span className={styles.badge}>{count}</span> : null}</Link></div>
       </div>
-      {open ? <div ref={menuRef} id="storefront-menu" className={`${styles.megaMenu} ${styles.fullMenu}`}><div className={styles.mobilePrimary}>{[['커뮤니티', '/inspirations'], ['Befun Pro', '/tylko-pro'], ['쇼룸', '/showrooms'], ['로그인', '/login']].map(([title, href]) => <Link key={href} href={href} onClick={() => setOpen(false)}>{title}</Link>)}</div>{menuGroups.map(group => <nav key={group.title} aria-label={group.title}><h3>{group.title}</h3>{group.links.map(([title, href]) => <Link key={href} href={href} onClick={() => setOpen(false)}>{title}</Link>)}</nav>)}</div> : null}
+      {open ? <div ref={menuRef} id="storefront-menu" className={`${styles.megaMenu} ${styles.fullMenu}`}><div className={styles.mobilePrimary}>{[['커뮤니티', '/inspirations'], ['Befun Pro', '/tylko-pro'], ['쇼룸', '/showrooms'], ['로그인', '/login']].map(([title, href]) => <Link key={href} href={href} onClick={() => setOpen(false)}>{t(title)}</Link>)}</div>{menuGroups.map(group => <nav key={group.title} aria-label={t(group.title)}><h3>{t(group.title)}</h3>{group.links.map(([title, href]) => <Link key={href} href={href} onClick={() => setOpen(false)}>{t(title)}</Link>)}</nav>)}</div> : null}
     </header>
-    {open ? <button className={styles.menuBackdrop} aria-label="메뉴 닫기" onClick={() => setOpen(false)} /> : null}
+    {open ? <button className={styles.menuBackdrop} aria-label={t('메뉴 닫기')} onClick={() => setOpen(false)} /> : null}
     <main id="main">{children}</main>
-    <footer className={styles.footer}><h2>가구에 공간을 맞추는 대신,<br />당신에게 맞는 가구를 만드세요.</h2><div className={styles.footerColumns}>{footerGroups.map(group => <FooterGroup key={group.title} group={group} />)}</div><div className={styles.footerBottom}><Link href="/" className={styles.footerLogo} aria-label="Befun 홈" onClick={goHome}><BrandLogo color="white" /></Link><Link href="/region-settings">대한민국 · 한국어 · KRW</Link><span>© {new Date().getFullYear()} Befun</span><span>Visa · Mastercard · 간편결제</span></div></footer>
-    <Link className={styles.helpButton} href="/contact"><span>?</span> 도움이 필요하세요?</Link>
+    <footer className={styles.footer}><h2>{t('가구에 공간을 맞추는 대신,')}<br />{t('당신에게 맞는 가구를 만드세요.')}</h2><div className={styles.footerColumns}>{footerGroups.map(group => <FooterGroup key={group.title} group={group} />)}</div><div className={styles.footerBottom}><Link href="/" className={styles.footerLogo} aria-label={t('Befun 홈')} onClick={goHome}><BrandLogo color="white" /></Link><Link href="/region-settings"><MarketLabel /></Link><span>© {new Date().getFullYear()} Befun</span><span>{t('Visa · Mastercard · 간편결제')}</span></div></footer>
+    <Link className={styles.helpButton} href="/contact"><span>?</span> {t('도움이 필요하세요?')}</Link>
   </div>;
 }

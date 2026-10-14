@@ -1,0 +1,40 @@
+{
+  "id": "zoom-001",
+  "observedAt": "2026-10-14T12:47:06.428940+09:00",
+  "url": "http://localhost:3003/configurator",
+  "input": {
+    "style": "grid",
+    "widthCm": 90,
+    "heightCm": 123,
+    "depthCm": 32,
+    "densityPercent": 50
+  },
+  "cause": "Canvas wheel propagation stopped by scrollPastCanvas in React capture phase before OrbitControls.",
+  "changes": "Remove both capture handlers and unused function; existing camera limits unchanged.",
+  "actions": [
+    "Canvas center wheel down 3 times",
+    "Canvas center wheel up 3 times",
+    "Right options area wheel down then up"
+  ],
+  "observations": {
+    "zoomOut": "visibly smaller",
+    "zoomIn": "returned to initial scale",
+    "canvasWheelDocumentScrollY": 0,
+    "optionsWheelDocumentScrollY": 881,
+    "savedDesignChanged": false
+  },
+  "screenshots": [
+    "../screenshots/zoom-001-initial.png",
+    "../screenshots/zoom-001-out.png",
+    "../screenshots/zoom-001-restored.png"
+  ],
+  "unverified": [
+    "physical touch pinch",
+    "all device types",
+    "product page runtime: existing tab showed loading during HMR; no reload of user state"
+  ],
+  "validation": {
+    "eslint": "pass",
+    "isolatedProductionBuild": "pass"
+  }
+}

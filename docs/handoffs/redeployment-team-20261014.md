@@ -19,3 +19,17 @@
 GitHub main bf924ae 재push 성공. Git 배포 dpl_AgVd4CkNEWyZ6SiA96RcMwoVcc5g는 QUEUED. Vercel 팀 UI에서 mmm-studio-editor의 be95874 Preview dpl_FGHmr1h9fx1G8JnpuinqPL3zS6HW가33분 이상 BUILDING이며 다른 배포가 대기 중임을 확인했다.
 
 prebuilt build는 로컬 Vercel의 빈 VERCEL_URL 때문에 NextAuth prerender Invalid URL이 나왔다. ignored local production build에 공개 NEXTAUTH_URL=https://befun-new.vercel.app를 명시해 vercel build --prod 성공. 코드는 변경하지 않았다. 62.1MB prebuilt 업로드 후 CLI 배포 dpl_DZkQ3H6bdNPheBkfQq33RFcxXJcf도 동일한 계정 슬롯 대기로 QUEUED. 배포완료로 표시하지 않는다. 별도 MMM Preview 취소 여부를 사용자에게 요청했다.
+
+## R4 조립 안내 게시 준비 — codex-assembly / 2026-10-14
+
+팀완료본 bf924ae Git 배포 dpl_AgVd4CkNEWyZ6SiA96RcMwoVcc5g가READY,alias befun-new.vercel.app를확인했다. 별도MMM빌드취소는실행하지않았다. R4시연재질·공식R분해·cold texture교정·자원해제·증거만이어서게시한다. 공동R4진행중변경/공용재질/HW/CNC/route/.git는포함하지않는다. latest build/TypeScript PASS, lint0/7,41testsPASS,소스차이0. 이번commit·deployment 실제결과는후속수신기록에기재한다.
+
+R4 첫게시 3576d1c3a087d3b04523740c9531694daccd172a: GitHub main push확인, dpl_7XDsKMce3TiVsuHrQgUNRSJEmQWT READY/production alias연결확인. 후속가공면보정3파일만최종42검사/build/lint재검사후추가게시하며진행중공동R4소스는여전히미포함.
+
+## R4-ASM 게시 결과 — 2026-10-14
+
+- 첫commit `3576d1c3a087d3b04523740c9531694daccd172a`: push/원격동일확인, Git배포 `dpl_7XDsKMce3TiVsuHrQgUNRSJEmQWT` **READY**, `befun-new.vercel.app` alias연결. 운영URL `/assembly-guide?topic=connector`에서 양면/자작엣지문구·분해4단계·실제재생 progress21 확인.
+- 최종가공면보정commit `f46b1d5841e01b9995c9ba4f4aecbb3b3159c670`: push/원격동일확인,격리 build/TypeScript/17정적페이지PASS,42testsPASS,lint0오류7기존경고. Git배포 `dpl_5Ztg4nB6nwtbk94JpEsWnPZAZKhe` **QUEUED**. 최종commit의운영READY는아직확인되지않음. 업로드한prebuilt배포라고표시하지않음(이번은Git source CI).
+- 포함: ASM재질/분해/가공면·소유자원해제/texture-before-Canvas·context복구/본인증거와인계. 제외:공동R4진행중소스, 공용재질/HW/CNC/제품/route,새다리정밀기구,환경변수/.git.
+- 독립게시사본clean. 공유.git/3003서버/.next 유지. 제31789검증서버와임시탭만정리. 별도MMM프로젝트build취소는실행하지않음.
+- 실제제품공통계약/안내진입버튼은리더요청기록이며대기로독립ASM수정을중단하지않았음. R4-ASM-READY는예제수정완료와검증제출,전체주문/제조승인과구분.

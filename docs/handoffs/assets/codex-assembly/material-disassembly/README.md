@@ -39,3 +39,26 @@
 - 다리의 정밀 기구 운동은 미구현. 원본5단계/영상과 공유 정적GLB 외형 관찰만 보존.
 
 완료표/최종fingerprint/READY/배포 상태는 검증 후 이어 기록한다.
+
+## R4-ASM-READY — 최종 결과
+
+| 사례 | 입력·조작 | 기대 / 실제 | 판정·증거 |
+|---|---|---|---|
+| R4-ASM-01 | OVVO R 8/8, 전체 위치→반대편→단면, 분리 뒤 회전 | 두 넓은 면 같은 라미네이트, 엣지 로컬 결 유지 / 동일 확인 | PASS: before-user-ovvo.png, final-front/rear/section.jpg, final-mobile-release.jpg |
+| R4-ASM-02 | R분해 전체 재생·중간 탐색·따라분해; P로 전환 | 15mm slide 후 lift, HW각판재에 잔류. P분해금지 / 정상 | PASS: release-slide-half.jpg, release-lift-half.jpg, mobile-follow-complete.jpg,42검사 |
+| R4-ASM-03 | P/R재생→일시정지→End탐색→재시작→모델/주제전환. Tylko원본5,백패널7,다리원본5 | 새 주제0%·이전HW/절개 제거, 원본자료·정적모델 구분 / 정상 | PASS: verification.json, back-panel-regression.jpg, leg-reference-regression.jpg |
+| R4-ASM-04 | desktop1728×880/390×844, keyboard End·확인 체크·다음 단계 | 390px overflow없음, 해제확인 전lift단계잠김 / 4단계확인완료 | PASS: final-mobile-release.jpg, mobile-follow-complete.jpg; documentWidth390 |
+| R4-ASM-05 | 6회주제/P/R/다리자료전환+12회내부재질토글; owned resource18회생성/해제 | GPU자원bounded,borrowed원본유지 / warmed29geometry·7texture·8program;36material+18texture해제 | PASS: resource-cycles.json, tests.log. 최초frame5/1/1은정상완료값과구분 |
+| R4-ASM-06 | FurnitureDesign/생성결과 읽고 최소 part/joint/선택 계약 제안 | 공통 생성기·저장형식 재구현 없음 / 리더 요청 기록 | 제안PASS, 실제 제품 연결 미완료: 위 계약 표 |
+
+최종 검사: source fingerprint의36파일을 격리 사본과SHA256 대조,차이0. 최신 production build/전체TypeScript/17정적페이지PASS,전체lint오류0/기존경고7,변경eslint0/0,회귀42PASS. 생성된 .vercel/output을 처음 lint가스캔한실패와 수정 중 일시lint오류는 최종통과와 구분하며최종로그만첨부했다.
+
+Chrome 개발모드 cold texture/Suspense에서 컨텍스트손실을재현했고,texture를Canvas생성전에준비하는수정후 fresh reload와6회전환은ready였다. 손실시일시정지+같은단계재로딩도실제복구확인(context-loss-paused.jpg / final-shared-cold.jpg). 모든브라우저/장치의GPU손실원인을전부제거했다고선언하지않는다.
+
+다리는 원본으로확인된핀누름→슬라이드→분리5단계/영상과정적GLB외형관찰이다. 정밀3D키홀·핀·나사운동은미구현,이동거리/타공치수unknown 유지. OVVO이동은예제접합,전체고객가구조립순서·제조승인은별도다.
+
+이번 ASM소유잠금 해제. 제품쪽 실제 FurnitureDesign 연결·route 버튼은 리더에게 요청했으며, 공통/R4진행중 파일/.git/3003서버는변경하지않았다. 배포는 R4-ASM-READY와별도기록한다.
+
+### 最終 가공면 보정·재검증
+
+GuidePanel은 normal방향뿐 아니라 각triangle의세vertex가외부두skin plane에있는지도판정한다. 넓은면과평행한홈바닥/내부절단면은라미네이트가아닌맨목재로분류한다. 외부±9mm/내부5mm/혼합triangle 회귀를추가해42검사PASS,최신build/TypeScript PASS,lint0/7 재확인. 백패널7단계와선택적Tylko추정3D5단계도실제화면에서재확인(clip-illustrative-regression.jpg). 로그는기술결과본문을보존하고CR/줄끝공백만정규화했다.

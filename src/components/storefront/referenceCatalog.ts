@@ -5,9 +5,9 @@ type Sample = [name: string, href: string, image: string];
 const render = (date: string, file: string) => `${date}/unreal_render_tasks/${file}.webp`;
 const categories: Record<string, Sample[]> = {
   desk: [
-    ['클레이 브라운 합판 책상', 'furniture/desk/9281707,j', render('2026/09', 'unreal_10087621')],
-    ['샌드·블루 책상', 'furniture/desk/3716771,j', render('2024/11', 'unreal_356092_IExeXzo')],
-    ['블랙 책상', 'furniture/desk/3760531,j', render('2024/11', 'unreal_356107_pu4jyjG')],
+    ['클레이 브라운 합판 책상', 'furniture/desk/9281707,j', '/imgs/storefront/desk-1.webp'],
+    ['샌드·블루 책상', 'furniture/desk/3716771,j', '/imgs/storefront/desk-2.webp'],
+    ['블랙 책상', 'furniture/desk/3760531,j', '/imgs/storefront/desk-3.webp'],
   ],
   dressing_table: [
     ['클레이 브라운 합판 화장대', 'furniture/dressing_table/9272016,j', render('2026/09', 'unreal_10078370')],
@@ -79,7 +79,8 @@ const categories: Record<string, Sample[]> = {
 };
 export const referenceCatalog = Object.entries(categories).flatMap(([category, samples]) => samples.map(([name, href, image], index) => ({
   id: `${category}-${index + 1}`, category, name, source: `https://tylko.com/en-uk/${href}`,
-  image: `https://media.tylko.com/media/catalogue/catalogue_entry/${image}`,
+  // '/'로 시작하면 로컬 사본(책상: media.tylko.com이 VPN 없는 접속을 403으로 막아 Tylko 상품 페이지 캡처에서 잘라 보관)
+  image: image.startsWith('/') ? image : `https://media.tylko.com/media/catalogue/catalogue_entry/${image}`,
 })));
 export function categoryReferences(category: string) {
   return referenceCatalog.filter(product => category === 'accessories' ? ['blankets', 'bookends'].includes(product.category) : product.category === category);

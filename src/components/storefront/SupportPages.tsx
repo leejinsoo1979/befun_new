@@ -1,5 +1,8 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+import { MarketSettings } from '@/components/commerce/MarketSelector';
+
 import Link from 'next/link';
 import { useState, useSyncExternalStore } from 'react';
 import { FiArrowRight, FiBox, FiEdit3, FiHelpCircle, FiSearch, FiTruck } from 'react-icons/fi';
@@ -61,5 +64,6 @@ export function CorporatePage({path}:{path:string}) {
   return <section className={styles.pageSection}><Breadcrumbs title={infoTitles[path]} /><h1>{infoTitles[path]}</h1>{investor?<div className={styles.accountForm}><h2>투자자 자료</h2><p className={styles.referenceNotice}>Befun의 투자자 자료와 전용 접근 권한이 등록되지 않았습니다. 일반 쇼핑 계정 로그인과는 별도 서비스입니다.</p><a href="https://tylko.com/en-uk/investor-relations-login" className={styles.outlineButton} target="_blank" rel="noreferrer">Tylko 원본 투자자 화면</a></div>:path==='tylko-sound'?<div className={styles.contentSplit}><div className={styles.editorialImage}><ReferenceImage source="https://media.tylko.com/cloudinary/lp/inspirations/hero/XLD.webp" fallback="creator-9.avif" alt="음악과 공간" sizes="50vw" /></div><div><h2>공간에 흐르는 음악</h2><p>가구와 음악이 만나는 원본 Tylko Sound를 살펴보세요.</p><a href="https://tylko.com/en-uk/tylko-sound" target="_blank" rel="noreferrer" className={styles.outlineButton}>Tylko Sound 듣기</a></div></div>:<><p className={styles.pageLead}>브랜드와 제품의 이야기를 찾아보세요.</p><div className={styles.supportTiles}><Link className={styles.supportTile} href="/about-tylko"><h2>브랜드 소개</h2><span>소개 보기 <FiArrowRight /></span></Link><Link className={styles.supportTile} href="/journal"><h2>디자인 이야기</h2><span>저널 보기 <FiArrowRight /></span></Link><Link className={styles.supportTile} href="/contact"><h2>미디어 문의</h2><span>문의 준비 <FiArrowRight /></span></Link></div><p className={styles.referenceNotice}>Befun의 공식 미디어 키트와 보도 자료는 아직 등록되지 않았습니다.</p></>}</section>;
 }
 export function RegionPage() {
-  return <section className={styles.pageSection}><Breadcrumbs title="지역 설정" /><h1>언어와 지역</h1><div className={styles.form}><label>배송 지역<select defaultValue="kr"><option value="kr">대한민국</option></select></label><label>언어<select defaultValue="ko"><option value="ko">한국어</option></select></label><label>통화<select defaultValue="krw"><option value="krw">KRW · 원</option></select></label><Link href="/" className={styles.darkButton}>저장하고 돌아가기</Link></div></section>;
+  const { t } = useLocale();
+  return <section className={styles.pageSection}><Breadcrumbs title={t('지역 설정')} /><h1>{t('언어와 지역')}</h1><MarketSettings /></section>;
 }

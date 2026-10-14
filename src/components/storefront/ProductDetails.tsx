@@ -7,7 +7,7 @@ import { useShelfStore } from '@/stores/useShelfStore';
 import { baseHeight } from '@/lib/three/furniture-base';
 import { useMaterialStore } from '@/stores/useMaterialStore';
 import { asset, products, productDisplayHeight, type CatalogProduct } from './catalog';
-import { Carousel, ProductCard, ReferenceImage, productHref } from './StorefrontUI';
+import { Carousel, ProductCard, ReferenceImage, isExternalImage, productHref } from './StorefrontUI';
 import { ProductSpecifications, useProductReady } from './ProductConfigurator';
 import { productGalleries } from './productGalleries';
 import { ProductMaterialGallery } from './ProductMaterialGallery';
@@ -50,9 +50,12 @@ export function ProductDetails({ product }: { product?: CatalogProduct }) {
   const rowHeights = useShelfStore(state => state.rowHeights);
   const numRows = useShelfStore(state => state.numRows);
   const thickness = useShelfStore(state => state.thickness);
-  const gallery = product ? productGalleries[product.id] ?? referenceGallery : referenceGallery;
+  // 외부(원격) 사진은 쓰지 않는다 — 우리 서버에 있는 사진만, 없으면 상품 대표 이미지
+  const fallbackImage = product?.image ?? 'unreal_10075703.webp';
+  const localGallery = (product ? productGalleries[product.id] ?? referenceGallery : referenceGallery).filter(source => !isExternalImage(source));
+  const gallery = localGallery.length ? localGallery : [asset(fallbackImage)];
   const height = thickness + rowHeights.slice(0, numRows).reduce((total, row) => total + row + thickness, 0) + baseHeight(baseType);
-  const fallback = product?.image ?? 'unreal_10075703.webp';
+  const fallback = fallbackImage;
   const title = product?.name ?? '나만의 맞춤 수납 가구';
 
 

@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import { useId, useRef, useState } from 'react';
 import styles from './panels.module.css';
 import { ControlView, useRovingKeys } from './controls';
@@ -21,6 +23,7 @@ export interface FurniturePanelProps {
  * 값 계산·범위 보정·노출 조건은 하지 않는다(모두 view가 결정).
  */
 export function FurniturePanel({ view, onIntent, onSelectSection, activeTabId, onTabChange }: FurniturePanelProps) {
+  const { t: tr } = useLocale();
   const [localTab, setLocalTab] = useState(view.tabs[0]?.id);
   const tabId = activeTabId ?? (view.tabs.some((t) => t.id === localTab) ? localTab : view.tabs[0]?.id);
   const tab = view.tabs.find((t) => t.id === tabId) ?? view.tabs[0];
@@ -44,18 +47,18 @@ export function FurniturePanel({ view, onIntent, onSelectSection, activeTabId, o
   const renderTabBody = (t: typeof tab) => (
     <>
       {t.usesSections && view.sections.length > 0 && (
-        <div ref={sectionGroup} role="radiogroup" aria-label="구획 선택" className={styles.sections}>
+        <div ref={sectionGroup} role="radiogroup" aria-label={tr("구획 선택")} className={styles.sections}>
           {view.sections.map((s, i) => (
             <button key={s.id} type="button" role="radio" aria-checked={s.id === view.selectedSectionId}
               tabIndex={i === selectedSection ? 0 : -1} className={styles.section}
-              onClick={() => onSelectSection?.(s.id)} onKeyDown={(e) => sectionKeys(e, i)}>{s.label}</button>
+              onClick={() => onSelectSection?.(s.id)} onKeyDown={(e) => sectionKeys(e, i)}>{tr(s.label)}</button>
           ))}
         </div>
       )}
       {t.sectionSummary && (
         <div className={styles.summary}>
-          <span className={styles.label}>{t.sectionSummary.title}</span>
-          <div><strong>{t.sectionSummary.value}</strong>{t.sectionSummary.caption && <small>{t.sectionSummary.caption}</small>}</div>
+          <span className={styles.label}>{tr(t.sectionSummary.title)}</span>
+          <div><strong>{t.sectionSummary.value}</strong>{t.sectionSummary.caption && <small>{tr(t.sectionSummary.caption)}</small>}</div>
         </div>
       )}
       {/* 제품 profile이 바뀌면 같은 controlId라도 새로 마운트해 이전 제품의 입력 상태를 쓰지 않는다. */}
@@ -79,15 +82,15 @@ export function FurniturePanel({ view, onIntent, onSelectSection, activeTabId, o
     return (
       <div className={styles.panel} data-panel-profile={view.panelProfileId}>
         {previewNote}
-        <nav className={styles.stepNav} aria-label="단계">
+        <nav className={styles.stepNav} aria-label={tr("단계")}>
           {view.tabs.map((t) => (
             <button key={t.id} type="button" aria-current={t.id === tab.id ? 'step' : undefined}
-              onClick={() => { changeTab(t.id); document.getElementById(`${baseId}-step-${t.id}`)?.scrollIntoView({ block: 'start', behavior: 'smooth' }); }}>{t.label}</button>
+              onClick={() => { changeTab(t.id); document.getElementById(`${baseId}-step-${t.id}`)?.scrollIntoView({ block: 'start', behavior: 'smooth' }); }}>{tr(t.label)}</button>
           ))}
         </nav>
         {view.tabs.map((t) => (
           <section key={t.id} id={`${baseId}-step-${t.id}`} className={styles.stepSection} aria-labelledby={`${baseId}-h-${t.id}`}>
-            <h4 id={`${baseId}-h-${t.id}`} className={styles.stepHeading}>{t.heading ?? t.label}</h4>
+            <h4 id={`${baseId}-h-${t.id}`} className={styles.stepHeading}>{tr(t.heading ?? t.label)}</h4>
             {renderTabBody(t)}
           </section>
         ))}
@@ -100,11 +103,11 @@ export function FurniturePanel({ view, onIntent, onSelectSection, activeTabId, o
       {previewNote}
 
       {view.tabs.length > 1 && (
-        <div ref={tabList} role="tablist" aria-label="옵션 구분" className={styles.tabs}>
+        <div ref={tabList} role="tablist" aria-label={tr("옵션 구분")} className={styles.tabs}>
           {view.tabs.map((t, i) => (
             <button key={t.id} type="button" role="tab" id={`${baseId}-tab-${t.id}`} aria-controls={`${baseId}-panel`}
               aria-selected={t.id === tab.id} tabIndex={t.id === tab.id ? 0 : -1} className={styles.tab}
-              onClick={() => changeTab(t.id)} onKeyDown={(e) => tabKeys(e, i)}>{t.label}</button>
+              onClick={() => changeTab(t.id)} onKeyDown={(e) => tabKeys(e, i)}>{tr(t.label)}</button>
           ))}
         </div>
       )}

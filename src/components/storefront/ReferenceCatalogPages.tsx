@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import { categoryReferences, referenceCatalog } from './referenceCatalog';
-import { ReferenceImage } from './StorefrontUI';
+import { ReferenceImage, isExternalImage } from './StorefrontUI';
 import { catalogCategories, catalogHref } from './navigation';
 import { JoinSection } from './JoinSection';
 import { catalogFurnitureDesign } from '@/lib/furniture/catalog-design';
@@ -13,6 +13,8 @@ import styles from './storefront.module.css';
 
 function WardrobeReferenceImage({ source, alt, sizes }: { source: string; alt: string; sizes: string }) {
   const [failed, setFailed] = useState(false);
+  // 외부 원본은 요청하지 않는다 — 우리 서버 옷장 대표 이미지 사용
+  if (isExternalImage(source)) return <Image src="/imgs/storefront/wardrobe.avif" alt={alt} fill sizes={sizes} />;
   return failed ? <span role="img" aria-label={`${alt} 원본 이미지 미표시`} style={{ display: 'grid', placeItems: 'center', height: '100%', padding: 16, textAlign: 'center' }}>원본 이미지를 불러오지 못했습니다.</span>
     : <Image src={source} alt={alt} fill sizes={sizes} unoptimized onError={() => setFailed(true)} />;
 }

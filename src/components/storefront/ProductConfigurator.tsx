@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import { ConfiguratorLoading } from '@/components/ui/ConfiguratorLoading';
 import Link from 'next/link';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { create } from 'zustand';
 import { FiArrowRight, FiMaximize, FiShare2 } from 'react-icons/fi';
@@ -17,11 +17,12 @@ import { useDisplayStore } from '@/components/three/display/displayStore';
 import { LegacyShelfPanel, LEGACY_BEFORE_FEET, LEGACY_AFTER_FEET } from '@/components/ui/furniture-panels';
 import { ColorPicker } from '@/components/ui/ColorPicker';
 import { FloatingBox } from '@/components/ui/FloatingBox';
-import { formatPrice } from '@/lib/pricing';
+import { useMoney } from '@/lib/commerce/useMoney';
+import { PriceNotice } from '@/components/commerce/PriceNotice';
 import type { CatalogProduct } from './catalog';
 import { configurationPrice, currentConfiguration, loadProductConfiguration, restoreSavedConfiguration } from './configuration';
 import { parseSavedDesign, saveLocalDesign, type SavedDesign } from './savedDesign';
-import { Dialog, scrollPastCanvas } from './StorefrontUI';
+import { Dialog } from './StorefrontUI';
 import styles from './storefront.module.css';
 
 const Scene = dynamic(() => import('@/components/three/Scene'), {
@@ -45,6 +46,7 @@ export function useConfigurationPrice() {
 }
 
 export function ProductConfigurator({ product, configuration }: { product: CatalogProduct; configuration?: SavedDesign['config'] }) {
+  const { formatPrice, t } = useMoney();
   const router = useRouter();
   const price = useConfigurationPrice();
   const [saving, setSaving] = useState(false);
@@ -53,8 +55,13 @@ export function ProductConfigurator({ product, configuration }: { product: Catal
   const [copied, setCopied] = useState(false);
   const [localSave, setLocalSave] = useState(false);
   const [localSaveReason, setLocalSaveReason] = useState('');
+  const initialized = useRef<string | null>(null);
   const prepared = usePreparedProduct(state => state.id === product.id);
   useEffect(() => {
+    // Locale router.refresh returns new prop objects; it must not reload the preset.
+    const key = JSON.stringify({ product, configuration });
+    if (initialized.current === key) { usePreparedProduct.setState({ id: product.id }); return; }
+    initialized.current = key;
     if (configuration) restoreSavedConfiguration(configuration);
     else loadProductConfiguration(product);
     const display = useDisplayStore.getState();
@@ -62,8 +69,8 @@ export function ProductConfigurator({ product, configuration }: { product: Catal
     display.setAppearance('realistic');
     display.selectView('front');
     usePreparedProduct.setState({ id: product.id });
-    return () => { usePreparedProduct.setState({ id: null }); };
   }, [product, configuration]);
+  useEffect(() => () => { usePreparedProduct.setState({ id: null }); }, []);
   if (!prepared) return <section className={styles.productConfigurator} aria-label={`${product.name} 3D 커스터마이저`}><div className={styles.productViewer}><h1 className={styles.srOnly}>{product.name}</h1><ConfiguratorLoading /></div></section>;
   const addToCart = () => {
     useCartStore.getState().addItem({ designId: '', designConfig: currentConfiguration(), quantity: 1, price: price.finalPrice });
@@ -126,18 +133,18 @@ export function ProductConfigurator({ product, configuration }: { product: Catal
       setSaving(false);
     }
   };
-  return <section className={styles.productConfigurator} aria-label={`${product.name} 3D 커스터마이저`} onWheelCapture={scrollPastCanvas}>
+  return <section className={styles.productConfigurator} aria-label={`${product.name} 3D 커스터마이저`}>
     <div className={styles.productViewer}>
       <h1 className={styles.srOnly}>{product.name}</h1>
       <div className={styles.productScene}><Scene /><FloatingBox /></div>
-      <button className={styles.fullscreenButton} onClick={() => router.push('/configurator')}><FiMaximize /> 전체 화면</button>
+      <button className={styles.fullscreenButton} onClick={() => router.push('/configurator')}><FiMaximize /> {t('전체 화면')}</button>
     </div>
     <div className={styles.productOptions} onDragStartCapture={(event) => event.preventDefault()}>
-      <div className={styles.configPrice} aria-live="polite"><div><del>{formatPrice(price.originalPrice)}</del><span>−{price.discountRate}%</span></div><strong>{formatPrice(price.finalPrice)}</strong></div>
+      <div className={styles.configPrice} aria-live="polite"><div><del>{formatPrice(price.originalPrice)}</del><span>−{price.discountRate}%</span></div><strong>{formatPrice(price.finalPrice)}</strong><PriceNotice /></div>
       <LegacyShelfPanel controls={LEGACY_BEFORE_FEET} /><FeetSelector /><LegacyShelfPanel controls={LEGACY_AFTER_FEET} /><ColorPicker />
-      <div className={styles.configActions}><button className={styles.darkButton} onClick={addToCart}>장바구니에 담기 <FiArrowRight /></button><button className={styles.outlineButton} disabled={saving} onClick={saveDesign}><FiShare2 /> {saving ? '디자인 저장 중…' : '디자인 저장·공유'}</button></div>
+      <div className={styles.configActions}><button className={styles.darkButton} onClick={addToCart}>{t('장바구니에 담기')} <FiArrowRight /></button><button className={styles.outlineButton} disabled={saving} onClick={saveDesign}><FiShare2 /> {t(saving ? '디자인 저장 중…' : '디자인 저장·공유')}</button></div>
       {error ? <p className={styles.configError} role="alert">{error}</p> : null}
-      <p className={styles.configHelp}>선반의 칸을 선택해 행 높이와 도어·서랍을 변경하세요. <Link href="/contact">도움받기</Link></p>
+      <p className={styles.configHelp}>{t('선반의 칸을 선택해 행 높이와 도어·서랍을 변경하세요.')} <Link href="/contact">{t('도움받기')}</Link></p>
     </div>
     {shareUrl ? <Dialog title={localSave ? "디자인을 이 브라우저에 보관했습니다" : "디자인이 서버에 저장되었습니다"} close={() => setShareUrl('')}>{localSave ? <p className={styles.localSaveNotice}>{localSaveReason} 서버 저장 성공은 확인되지 않았으며 이 브라우저에 보관했습니다. 아래 링크에는 디자인 구성이 담겨 있어 다른 브라우저에서도 열 수 있습니다.</p> : null}<label className={styles.shareField}>디자인 공유 링크<input readOnly value={shareUrl} onFocus={event => event.target.select()} /></label><div className={styles.configActions}><button className={styles.darkButton} onClick={async () => { try { await navigator.clipboard.writeText(shareUrl); setCopied(true); } catch { setError('링크를 선택해서 복사해 주세요.'); } }}>{copied ? '복사되었습니다' : '링크 복사'}</button><Link href={shareUrl} className={styles.outlineButton}>저장한 디자인 열기</Link></div>{error ? <p className={styles.configError} role="alert">{error}</p> : null}</Dialog> : null}
   </section>;
@@ -147,6 +154,7 @@ export function ProductSpecifications({ ready = false }: { ready?: boolean } = {
   const { width, depth, numRows, rowHeights, thickness, style, density, hasBackPanel, baseType } = useShelfStore();
   const { currentColor, colorCategory } = useMaterialStore();
   const { doorsCreatedLayers, drawersCreatedLayers } = useHardwareStore();
+  const initialized = useRef<string | null>(null);
   const prepared = usePreparedProduct(state => state.id !== null);
   const height = thickness + rowHeights.slice(0, numRows).reduce((total, row) => total + row + thickness, 0) + baseHeight(baseType);
   return <section className={`${styles.section} ${styles.productSpecifications}`}><h2>제품 사양</h2><div className={styles.specificationRows}>

@@ -162,3 +162,5 @@ Pattern/Mosaic가 반환한 실제 칸 경계에서 하드웨어를 생성하도
 ## 2026-10-14 Desk / Wardrobe 실제 통합
 
 책상 Classic/Modern, 옷장 Edge/Tone을 별도 생성기와 편집 화면에 연결했습니다. [통합 범위·검증·남은 차이](../handoffs/desk-wardrobe-integration.md). 위의 초기 “생성기 미구현” 기록은 당시 상태이며, 최신 구현 범위는 이 문서를 기준으로 합니다. **전체 시각·제조·쇼핑몰 동치 완료는 아닙니다.**
+
+- [가격 산정 조사](pricing-analysis.md): 2026-10-14 첫 뒷판 전환/복귀 사례. 공식 미확정, 운영 가격 변경 없음.

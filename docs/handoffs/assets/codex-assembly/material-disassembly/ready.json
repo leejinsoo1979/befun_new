@@ -1,0 +1,12 @@
+{
+  "status": "R4-ASM-READY",
+  "meaning": "이번 예시 안내 수정 완료; 실제 주문 가구 전체 조립·제조 승인 제외",
+  "sourceSha256": "15825f85bc33a520dd4c81161f0ddc83071a2d412b756b7edaf256a777d3d167",
+  "localUrl": "http://localhost:3003/assembly-guide?topic=connector",
+  "howToRelease": "OVVO > V-1230R > 분해",
+  "validation": "verification.json",
+  "handoff": "README.md",
+  "legs": "reference five-step guide + static original GLB only",
+  "actualDesignContract": "proposed to leader; not connected",
+  "deploymentStatus": "separate publish handoff"
+}

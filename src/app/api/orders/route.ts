@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/db';
+import { marketCheckoutAvailable } from '@/lib/commerce/quote';
 
 /**
  * POST /api/orders — 주문 생성
@@ -15,6 +16,10 @@ export async function POST(req: NextRequest) {
 
     const body = await req.json();
     const { items, shipping, shippingFee = 0 } = body;
+    const market = body.market ?? req.cookies.get('befun_region')?.value?.toUpperCase() ?? 'KR';
+    if (!marketCheckoutAvailable(market, body.currency ?? 'KRW')) {
+      return NextResponse.json({code:'REGIONAL_QUOTE_REQUIRED',error:'International orders require a confirmed regional quote.'},{status:409});
+    }
 
     if (!items?.length || !shipping) {
       return NextResponse.json({ error: '주문 항목과 배송지가 필요합니다' }, { status: 400 });

@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 /**
  * 기존 선반 전용 렌더러 — view의 컨트롤을 현재 운영 패널(StyleSelector/DensitySlider/DimensionPanel/BackPanelToggle)과
  * 같은 마크업·클래스(cfg-row, tylko-*)로 그린다. 공용 FurniturePanel(다른 제품 preview)은 건드리지 않는다.
@@ -16,8 +18,9 @@ const thumbPos = (pct: number) => `calc(${pct * 100}% - ${pct * THUMB_WIDTH}px +
 const fillPos = (pct: number) => `calc(${pct * 100}% - ${pct * THUMB_WIDTH}px + ${THUMB_WIDTH / 4}px)`;
 
 function Help({ control }: { control: FurnitureControl }) {
+  const { t: tr } = useLocale();
   if (!control.help) return null;
-  return <button type="button" className="tylko-help" title={control.help} aria-label={`${control.label} 도움말: ${control.help}`}>?</button>;
+  return <button type="button" className="tylko-help" title={tr(control.help)} aria-label={`${tr(control.label)}: ${tr(control.help)}`}>?</button>;
 }
 
 /** 드래그 표시 상태(pill ↔ 드래그 텍스트)만 로컬. 값은 항상 view. */
@@ -38,6 +41,7 @@ function useDragging() {
 
 /** DensitySlider/TylkoSlider 형식(hover 시 −/+) 또는 HeightSlider 형식(markers 있으면 점 표시) */
 function Slider({ control, emit }: { control: SliderControl; emit: Emit }) {
+  const { t: tr } = useLocale();
   const [dragging, startDrag] = useDragging();
   const [hovered, setHovered] = useState(false);
   const { value, min, max, label } = control;
@@ -52,7 +56,7 @@ function Slider({ control, emit }: { control: SliderControl; emit: Emit }) {
 
   return (
     <div className="cfg-row" data-control-id={control.id}>
-      <span className="cfg-label">{label}</span>
+      <span className="cfg-label">{tr(label)}</span>
       <div className="tylko-slider-wrap" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
         <div className="tylko-slider-bg" />
         <div className="tylko-slider-track" style={{ width: fillPos(pct) }} />
@@ -66,7 +70,7 @@ function Slider({ control, emit }: { control: SliderControl; emit: Emit }) {
         )}
         <input
           type="range" className="tylko-slider" min={min} max={max} step={step} value={value}
-          aria-label={label} aria-valuetext={text} disabled={!control.enabled}
+          aria-label={tr(label)} aria-valuetext={text} disabled={!control.enabled}
           onChange={(e) => send(rows ? Math.round(Number(e.target.value)) : Number(e.target.value))}
           onPointerDown={startDrag}
         />
@@ -94,10 +98,11 @@ function Slider({ control, emit }: { control: SliderControl; emit: Emit }) {
 
 /** StyleSelector 형식 타일 */
 function StyleTiles({ control, emit }: { control: ChoiceControl; emit: Emit }) {
+  const { t: tr } = useLocale();
   return (
     <div className="cfg-row" data-control-id={control.id}>
-      <span className="cfg-label">{control.label}</span>
-      <div role="group" aria-label={control.label}
+      <span className="cfg-label">{tr(control.label)}</span>
+      <div role="group" aria-label={tr(control.label)}
         className="-mr-4 flex flex-1 snap-x gap-1.5 overflow-x-auto pr-4 [scrollbar-width:none] lg:mr-0 lg:pr-0 [&::-webkit-scrollbar]:hidden">
         {control.options.map((o) => {
           const active = control.value === o.id;
@@ -108,7 +113,7 @@ function StyleTiles({ control, emit }: { control: ChoiceControl; emit: Emit }) {
                 active ? 'border-[var(--green)] bg-white' : 'border-transparent bg-[#f8f8f8] hover:border-[var(--green)]'
               }`}>
               {o.imageUrl && <Image src={(active && o.activeImageUrl) || o.imageUrl} alt="" width={20} height={20} />}
-              <span className={`mt-1 text-[11px] font-medium ${active ? 'text-[var(--green)]' : 'text-[#666]'}`}>{o.label}</span>
+              <span className={`mt-1 text-[11px] font-medium ${active ? 'text-[var(--green)]' : 'text-[#666]'}`}>{tr(o.label)}</span>
             </button>
           );
         })}
@@ -119,18 +124,19 @@ function StyleTiles({ control, emit }: { control: ChoiceControl; emit: Emit }) {
 
 /** Depth/Back panels 형식 pill 그룹 */
 function Pills({ control, emit }: { control: ChoiceControl; emit: Emit }) {
+  const { t: tr } = useLocale();
   return (
     <div className="cfg-row" data-control-id={control.id}>
-      <span className="cfg-label">{control.label}</span>
+      <span className="cfg-label">{tr(control.label)}</span>
       <div className="flex items-center">
-        <div className="tylko-pill-group" role="group" aria-label={control.label}>
+        <div className="tylko-pill-group" role="group" aria-label={tr(control.label)}>
           {control.options.map((o) => {
             const active = control.value === o.id;
             return (
               <button key={o.id} type="button" aria-pressed={active} disabled={!control.enabled || o.enabled === false}
                 className={`tylko-pill-btn ${active ? 'active' : ''}`}
                 onClick={() => { if (!active) emit({ type: 'set', controlId: control.id, target: control.target, value: o.id }); }}>
-                {o.label}
+                {tr(o.label)}
               </button>
             );
           })}

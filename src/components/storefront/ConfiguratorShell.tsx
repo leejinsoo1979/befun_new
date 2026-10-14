@@ -6,13 +6,12 @@ import { useRouter } from 'next/navigation';
 import { saveDesignForOptimizer } from '@/lib/optimizer/befun/session';
 import { StorefrontFrame } from './StorefrontFrame';
 import { ProductDetails } from './ProductDetails';
-import { scrollPastCanvas } from './StorefrontUI';
 import styles from './product-details.module.css';
 
 export function ConfiguratorShell({ children }: { children: ReactNode }) {
   const router = useRouter();
   return <StorefrontFrame>
-    <div id="configuration" className={styles.workspace} onWheelCapture={scrollPastCanvas}>
+    <div id="configuration" className={styles.workspace}>
       {children}
     </div>
     <nav className={styles.detailNavigation} aria-label="디자인 상세">

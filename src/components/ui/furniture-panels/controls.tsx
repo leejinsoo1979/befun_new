@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import Image from 'next/image';
 import { useEffect, useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
 import styles from './panels.module.css';
@@ -40,18 +42,19 @@ function focusItem(group: HTMLElement | null, index: number) {
 }
 
 export function Row({ control, children, full }: { control: FurnitureControl; children: ReactNode; full?: boolean }) {
+  const { t: tr } = useLocale();
   const labelId = useId();
   return (
     <div className={styles.row} data-disabled={!control.enabled} data-control-id={control.id}>
       {!full && (
         <span className={styles.label} id={labelId}>
-          {control.label}
-          {control.help && <button type="button" className={styles.help} title={control.help} aria-label={`${control.label} 도움말: ${control.help}`}>?</button>}
+          {tr(control.label)}
+          {control.help && <button type="button" className={styles.help} title={tr(control.help)} aria-label={`${tr(control.label)}: ${tr(control.help)}`}>?</button>}
         </span>
       )}
       <div className={`${styles.control} ${full ? styles.full : ''}`} aria-labelledby={full ? undefined : labelId}>{children}</div>
-      {control.notice && <p className={styles.notice} role="note">{control.notice}</p>}
-      {!control.enabled && control.disabledReason && <p className={styles.reason}>{control.disabledReason}</p>}
+      {control.notice && <p className={styles.notice} role="note">{tr(control.notice)}</p>}
+      {!control.enabled && control.disabledReason && <p className={styles.reason}>{tr(control.disabledReason)}</p>}
     </div>
   );
 }
@@ -95,6 +98,7 @@ function SliderInput({ value, min, max, step, unit, markers, label, disabled, on
 
 /** 숫자 직접 입력. Enter·포커스 해제 때만 intent를 보낸다(범위 보정은 리더). */
 function NumberField({ value, unit, label, disabled, onCommit }: { value: number; unit: string; label: string; disabled: boolean; onCommit: (v: number) => void }) {
+  const { t: tr } = useLocale();
   const [text, setText] = useState<string | null>(null);
   // 입력 중 외부 값이 바뀌면(보정·다른 조작·되돌리기) 입력 중이던 글자는 버리고 view 값을 보인다.
   const [seen, setSeen] = useState(value);
@@ -107,7 +111,7 @@ function NumberField({ value, unit, label, disabled, onCommit }: { value: number
   };
   return (
     <label className={styles.numberField}>
-      <input type="number" inputMode="decimal" aria-label={`${label} 직접 입력`} disabled={disabled}
+      <input type="number" inputMode="decimal" aria-label={`${label} · ${tr("직접 입력")}`} disabled={disabled}
         value={text ?? String(value)} onChange={(e) => setText(e.target.value)}
         onBlur={commit} onKeyDown={(e) => { if (e.key === 'Enter') commit(); if (e.key === 'Escape') setText(null); }} />
       <span>{unit}</span>
@@ -116,25 +120,27 @@ function NumberField({ value, unit, label, disabled, onCommit }: { value: number
 }
 
 function Slider({ control, emit }: { control: SliderControl; emit: Emit }) {
+  const { t: tr } = useLocale();
   const send = (value: number) => emit({ type: 'set', controlId: control.id, target: control.target, value });
   return (
     <Row control={control}>
       <div className={control.numberInput ? styles.sliderWithInput : undefined}>
-        <SliderInput {...control} label={control.label} disabled={!control.enabled} onCommit={send} />
-        {control.numberInput && <NumberField value={control.value} unit={control.unit} label={control.label} disabled={!control.enabled} onCommit={send} />}
+        <SliderInput {...control} label={tr(control.label)} disabled={!control.enabled} onCommit={send} />
+        {control.numberInput && <NumberField value={control.value} unit={control.unit} label={tr(control.label)} disabled={!control.enabled} onCommit={send} />}
       </div>
     </Row>
   );
 }
 
 function Stepper({ control, emit }: { control: StepperControl; emit: Emit }) {
+  const { t: tr } = useLocale();
   const send = (delta: number) => emit({ type: 'set', controlId: control.id, target: control.target, value: control.value + delta });
   return (
     <Row control={control}>
-      <div className={styles.stepper} role="group" aria-label={control.label}>
-        <button type="button" aria-label={`${control.label} 줄이기`} disabled={!control.enabled || !control.canDecrement} onClick={() => send(-1)}>−</button>
+      <div className={styles.stepper} role="group" aria-label={tr(control.label)}>
+        <button type="button" aria-label={`${tr(control.label)} · ${tr("줄이기")}`} disabled={!control.enabled || !control.canDecrement} onClick={() => send(-1)}>−</button>
         <output aria-live="polite">{control.value}</output>
-        <button type="button" aria-label={`${control.label} 늘리기`} disabled={!control.enabled || !control.canIncrement} onClick={() => send(1)}>+</button>
+        <button type="button" aria-label={`${tr(control.label)} · ${tr("늘리기")}`} disabled={!control.enabled || !control.canIncrement} onClick={() => send(1)}>+</button>
       </div>
     </Row>
   );
@@ -157,6 +163,7 @@ const ICONS: Record<ChoiceIcon, ReactNode> = {
 };
 
 function Choice({ control, emit }: { control: ChoiceControl; emit: Emit }) {
+  const { t: tr } = useLocale();
   const group = useRef<HTMLDivElement>(null);
   const isEnabled = (i: number) => control.enabled && control.options[i].enabled !== false;
   const selected = entryIndex(control.options.map((o) => o.id), control.value, isEnabled);
@@ -167,7 +174,7 @@ function Choice({ control, emit }: { control: ChoiceControl; emit: Emit }) {
   const keys = useRovingKeys(control.options.length, isEnabled, (i) => { select(i); focusItem(group.current, i); });
   return (
     <Row control={control}>
-      <div ref={group} role="radiogroup" aria-label={control.label} aria-disabled={!control.enabled}
+      <div ref={group} role="radiogroup" aria-label={tr(control.label)} aria-disabled={!control.enabled}
         className={control.variant === 'tile' ? styles.tiles : styles.pills}>
         {control.options.map((o, i) => (
           <button key={o.id} type="button" role="radio" aria-checked={o.id === control.value}
@@ -176,7 +183,7 @@ function Choice({ control, emit }: { control: ChoiceControl; emit: Emit }) {
             onClick={() => select(i)} onKeyDown={(e) => keys(e, i)}>
             {o.icon && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden>{ICONS[o.icon]}</svg>}
             {!o.icon && o.imageUrl && <Image src={(o.id === control.value && o.activeImageUrl) || o.imageUrl} alt="" width={28} height={28} unoptimized aria-hidden />}
-            {o.label}
+            {tr(o.label)}
           </button>
         ))}
       </div>
@@ -185,6 +192,7 @@ function Choice({ control, emit }: { control: ChoiceControl; emit: Emit }) {
 }
 
 function Swatches({ control, emit }: { control: SwatchControl; emit: Emit }) {
+  const { t: tr } = useLocale();
   const group = useRef<HTMLDivElement>(null);
   const isEnabled = () => control.enabled;
   const selected = entryIndex(control.options.map((o) => o.id), control.value, isEnabled);
@@ -195,20 +203,21 @@ function Swatches({ control, emit }: { control: SwatchControl; emit: Emit }) {
   const current = control.options.find((o) => o.id === control.value);
   return (
     <Row control={control}>
-      <div ref={group} role="radiogroup" aria-label={control.label} className={styles.swatches}>
+      <div ref={group} role="radiogroup" aria-label={tr(control.label)} className={styles.swatches}>
         {control.options.map((o, i) => (
-          <button key={o.id} type="button" role="radio" aria-checked={o.id === control.value} aria-label={o.label} title={o.label}
+          <button key={o.id} type="button" role="radio" aria-checked={o.id === control.value} aria-label={tr(o.label)} title={tr(o.label)}
             tabIndex={i === selected ? 0 : -1} disabled={!control.enabled} className={styles.swatch}
             style={{ background: o.imageUrl ? `url("${o.imageUrl}") center / cover` : o.color }}
             onClick={() => select(i)} onKeyDown={(e) => keys(e, i)} />
         ))}
       </div>
-      {current && <p className={styles.swatchName} aria-live="polite">{current.label}</p>}
+      {current && <p className={styles.swatchName} aria-live="polite">{tr(current.label)}</p>}
     </Row>
   );
 }
 
 function HeightMode({ control, emit }: { control: HeightModeControl; emit: Emit }) {
+  const { t: tr } = useLocale();
   const group = useRef<HTMLDivElement>(null);
   const root = useRef<HTMLDivElement>(null);
   // 모드 전환 버튼은 전환 후 사라지므로, 전환이 실제로 반영되면 다음 조작 지점으로 포커스를 옮긴다(키보드 포커스 유실 방지).
@@ -239,9 +248,9 @@ function HeightMode({ control, emit }: { control: HeightModeControl; emit: Emit 
       <Row control={control}>
         <div ref={root} className={styles.heightMode}>
           <div className={styles.pills}>
-            <button type="button" className={styles.pill} disabled={!control.enabled} onClick={() => switchMode('standard')}>{control.standardLabel}</button>
+            <button type="button" className={styles.pill} disabled={!control.enabled} onClick={() => switchMode('standard')}>{tr(control.standardLabel)}</button>
           </div>
-          <SliderInput value={r.value} min={r.min} max={r.max} step={r.step} unit={r.unit} label={`${control.label} (${control.extendLabel})`}
+          <SliderInput value={r.value} min={r.min} max={r.max} step={r.step} unit={r.unit} label={`${tr(control.label)} (${tr(control.extendLabel)})`}
             disabled={!control.enabled} onCommit={(value) => emit({ type: 'set', controlId: control.id, target: control.target, value })} />
         </div>
       </Row>
@@ -252,13 +261,13 @@ function HeightMode({ control, emit }: { control: HeightModeControl; emit: Emit 
       <div ref={root} className={styles.heightMode}>
         <div className={styles.pills}>
           {/* 프리셋만 radiogroup. '높이 +'는 모드 전환 버튼이라 그룹 밖(같은 줄)에 둔다 */}
-          <div ref={group} role="radiogroup" aria-label={control.label} className={styles.presetGroup}>
+          <div ref={group} role="radiogroup" aria-label={tr(control.label)} className={styles.presetGroup}>
             {items.map((p, i) => (
               <button key={p.id} type="button" role="radio" aria-checked={p.id === control.selectedPresetId} tabIndex={i === selected ? 0 : -1}
-                disabled={!control.enabled} className={styles.pill} onClick={() => select(i)} onKeyDown={(e) => keys(e, i)}>{p.label}</button>
+                disabled={!control.enabled} className={styles.pill} onClick={() => select(i)} onKeyDown={(e) => keys(e, i)}>{tr(p.label)}</button>
             ))}
           </div>
-          <button type="button" className={styles.pill} disabled={!control.enabled} onClick={() => switchMode('extended')}>{control.extendLabel}</button>
+          <button type="button" className={styles.pill} disabled={!control.enabled} onClick={() => switchMode('extended')}>{tr(control.extendLabel)}</button>
         </div>
       </div>
     </Row>
@@ -266,20 +275,22 @@ function HeightMode({ control, emit }: { control: HeightModeControl; emit: Emit 
 }
 
 function Action({ control, emit }: { control: ActionControl; emit: Emit }) {
+  const { t: tr } = useLocale();
   return (
     <Row control={control}>
       <button type="button" className={styles.action} disabled={!control.enabled}
-        onClick={() => emit({ type: 'action', controlId: control.id, target: control.target })}>+ {control.actionLabel}</button>
+        onClick={() => emit({ type: 'action', controlId: control.id, target: control.target })}>+ {tr(control.actionLabel)}</button>
     </Row>
   );
 }
 
 function Notice({ control }: { control: NoticeControl }) {
+  const { t: tr } = useLocale();
   return (
     <Row control={control}>
       <p style={{ margin: 0, fontSize: 11.5, lineHeight: 1.5, color: '#555' }}>
-        {control.text}
-        {control.link && <a className={styles.link} href={control.link.href}>{control.link.label}</a>}
+        {tr(control.text)}
+        {control.link && <a className={styles.link} href={control.link.href}>{tr(control.link.label)}</a>}
       </p>
     </Row>
   );
@@ -306,6 +317,7 @@ function Glyph({ glyph }: { glyph?: LayoutGlyph }) {
 }
 
 function Layouts({ control, emit }: { control: LayoutControl; emit: Emit }) {
+  const { t: tr } = useLocale();
   const group = useRef<HTMLDivElement>(null);
   const [edges, setEdges] = useState({ start: true, end: false });
   const isEnabled = () => control.enabled;
@@ -326,17 +338,17 @@ function Layouts({ control, emit }: { control: LayoutControl; emit: Emit }) {
   return (
     <Row control={control} full>
       <div className={styles.carousel}>
-        <button type="button" className={styles.scrollBtn} aria-label="이전 배치" disabled={edges.start} onClick={() => scroll(-1)}>‹</button>
-        <div ref={group} role="radiogroup" aria-label={control.label} className={styles.strip} onScroll={update}>
+        <button type="button" className={styles.scrollBtn} aria-label={tr("이전 배치")} disabled={edges.start} onClick={() => scroll(-1)}>‹</button>
+        <div ref={group} role="radiogroup" aria-label={tr(control.label)} className={styles.strip} onScroll={update}>
           {control.options.map((o, i) => (
-            <button key={o.id} type="button" role="radio" aria-checked={o.id === control.value} aria-label={o.label} title={o.label}
+            <button key={o.id} type="button" role="radio" aria-checked={o.id === control.value} aria-label={tr(o.label)} title={tr(o.label)}
               tabIndex={i === selected ? 0 : -1} disabled={!control.enabled} className={styles.layout}
               onClick={() => select(i)} onKeyDown={(e) => keys(e, i)}>
               {o.imageUrl ? <Image src={o.imageUrl} alt="" width={40} height={64} unoptimized /> : <Glyph glyph={o.glyph} />}
             </button>
           ))}
         </div>
-        <button type="button" className={styles.scrollBtn} aria-label="다음 배치" disabled={edges.end} onClick={() => scroll(1)}>›</button>
+        <button type="button" className={styles.scrollBtn} aria-label={tr("다음 배치")} disabled={edges.end} onClick={() => scroll(1)}>›</button>
       </div>
     </Row>
   );

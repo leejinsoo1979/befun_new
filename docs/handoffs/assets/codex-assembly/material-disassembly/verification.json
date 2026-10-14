@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-14T12:42:31.989259+09:00",
+  "tests": {
+    "passed": 42,
+    "failed": 0,
+    "command": "node --test src/lib/assembly-guide/*.test.mjs"
+  },
+  "lint": {
+    "errors": 0,
+    "warnings": 7,
+    "changedScopeErrors": 0,
+    "changedScopeWarnings": 0,
+    "note": "ignored .vercel generated output for repo lint"
+  },
+  "build": {
+    "status": "pass",
+    "command": "npm run build",
+    "typescript": "pass",
+    "staticPages": 17
+  },
+  "browser": {
+    "desktop": [
+      1728,
+      880
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "mobileScrollWidth": 390,
+    "rRelease": {
+      "steps": 4,
+      "watch": "completed",
+      "follow": "all 4 confirmed, done",
+      "phaseOrder": [
+        "15mm release slide",
+        "lift"
+      ],
+      "retainedHardware": "A housing / B housing+connector"
+    },
+    "pRelease": "disabled; select P resets to permanent assembly",
+    "regression": {
+      "ovvoP": 7,
+      "ovvoR": 8,
+      "tylkoReference": 5,
+      "backPanel": 7,
+      "legReference": 5,
+      "topicModelCycles": 6,
+      "insideMaterialToggles": 12,
+      "tylkoIllustrative": 5
+    },
+    "contextLoss": {
+      "reproduced": "cold texture load / development StrictMode root suspension",
+      "fix": "prepare texture before Canvas; loss pauses playback and same-step reload is available",
+      "coldReloadAfterFix": "ready without recovery prompt",
+      "cyclesAfterFix": "6 ready, no recovery prompt"
+    },
+    "resources": "resource-cycles.json; warmed OVVO initial state 29 geometries/7 textures/8 programs; first-frame samples are explicitly separate",
+    "ownershipTest": "18 material-state changes:36 owned material dispose +18 owned texture dispose; loader source untouched"
+  },
+  "scope": {
+    "sharedMaterials": "unchanged",
+    "hardwareAssets": "unchanged",
+    "cnc": "unchanged",
+    "sharedGit": "unchanged",
+    "shared3003Server": "preserved",
+    "r4OtherWorkers": "not included"
+  },
+  "limitations": [
+    "precise leg mechanism simulation unimplemented",
+    "actual FurnitureDesign/part/joint input not connected; leader request submitted",
+    "unmeasured CNC/undercut/elasticity not finalized",
+    "80mm release lift clearance is illustrative",
+    "birch species/ply count/laminate thickness are not manufacturing facts"
+  ],
+  "materialCutFaces": "parallel bore floors excluded from laminate; only two outer skin planes carry laminate"
+}

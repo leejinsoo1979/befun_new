@@ -1,10 +1,13 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import { useShelfStore } from '@/stores/useShelfStore';
 import { useMaterialStore } from '@/stores/useMaterialStore';
 import { supportsLongLegs } from '@/lib/three/furniture-base';
 
 export function FeetSelector() {
+  const { t: tr } = useLocale();
   const base = useShelfStore(s => s.baseType);
   const setBase = useShelfStore(s => s.setBaseType);
   const finish = useShelfStore(s => s.legFinish);
@@ -17,20 +20,20 @@ export function FeetSelector() {
   const shown = finish === 'panel' && !classic ? 'silver' : finish;
   return <>
     <div className="cfg-row">
-      <span className="cfg-label">Feet</span>
-      <div className="tylko-pill-group" role="group" aria-label="가구 다리">
-        <button type="button" className={`tylko-pill-btn ${base === 'standard' ? 'active' : ''}`} aria-pressed={base === 'standard'} onClick={() => setBase('standard')}>Standard</button>
+      <span className="cfg-label">{tr("Feet")}</span>
+      <div className="tylko-pill-group" role="group" aria-label={tr("가구 다리")}>
+        <button type="button" className={`tylko-pill-btn ${base === 'standard' ? 'active' : ''}`} aria-pressed={base === 'standard'} onClick={() => setBase('standard')}>{tr("Standard")}</button>
         <button type="button" className={`tylko-pill-btn ${base === 'legs' ? 'active' : ''}`} aria-pressed={base === 'legs'} disabled={!available}
-          title={!available ? '다리는 깊이32cm 이상, Pixel 이외 스타일에서 선택할 수 있습니다.' : undefined}
-          onClick={() => setBase('legs')}>Legs</button>
+          title={!available ? tr('다리는 깊이32cm 이상, Pixel 이외 스타일에서 선택할 수 있습니다.') : undefined}
+          onClick={() => setBase('legs')}>{tr("Legs")}</button>
       </div>
     </div>
     {(color.startsWith('N_') || color.startsWith('C_')) && base === 'legs' && <div className="cfg-row">
-      <span className="cfg-label">다리 색상</span>
-      <div className="tylko-pill-group" role="group" aria-label="다리 색상">
-        <button type="button" className={`tylko-pill-btn ${shown === 'silver' ? 'active' : ''}`} aria-pressed={shown === 'silver'} onClick={() => setFinish('silver')}>실버 메탈</button>
-        <button type="button" className={`tylko-pill-btn ${shown === 'black' ? 'active' : ''}`} aria-pressed={shown === 'black'} onClick={() => setFinish('black')}>블랙</button>
-        {classic && <button type="button" className={`tylko-pill-btn ${shown === 'panel' ? 'active' : ''}`} aria-pressed={shown === 'panel'} onClick={() => setFinish('panel')}>패널 색상</button>}
+      <span className="cfg-label">{tr("다리 색상")}</span>
+      <div className="tylko-pill-group" role="group" aria-label={tr("다리 색상")}>
+        <button type="button" className={`tylko-pill-btn ${shown === 'silver' ? 'active' : ''}`} aria-pressed={shown === 'silver'} onClick={() => setFinish('silver')}>{tr("실버 메탈")}</button>
+        <button type="button" className={`tylko-pill-btn ${shown === 'black' ? 'active' : ''}`} aria-pressed={shown === 'black'} onClick={() => setFinish('black')}>{tr("블랙")}</button>
+        {classic && <button type="button" className={`tylko-pill-btn ${shown === 'panel' ? 'active' : ''}`} aria-pressed={shown === 'panel'} onClick={() => setFinish('panel')}>{tr("패널 색상")}</button>}
       </div>
     </div>}
   </>;

@@ -13,6 +13,3 @@ export const useMeasureStore = create<MeasureState>((set) => ({
   setEnabled: (enabled) => set({ enabled }),
 }));
 
-/** Panel mesh의 userData 키. 값은 판재 박스 치수(cm, 로컬 X·Y·Z). */
-export const PANEL_DIMENSIONS_KEY = 'befunPanel';
-export interface PanelDimensions { w: number; h: number; d: number }

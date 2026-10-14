@@ -60,7 +60,6 @@ export function Panel({
       receiveShadow={receiveShadow}
       material={faceMaterials}
       geometry={geometry}
-      userData={{ befunPanel: { w, h, d } }} // 측정 모드가 판재와 치수(cm)를 식별하는 태그
     >
 
     </mesh>

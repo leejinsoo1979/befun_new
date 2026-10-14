@@ -1,23 +1,22 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, useRef, useState, type ReactNode, type WheelEvent } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { FiArrowLeft, FiArrowRight, FiHeart, FiX } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
-import { formatPrice } from '@/lib/pricing';
+import { useMoney } from '@/lib/commerce/useMoney';
+import { PriceNotice } from '@/components/commerce/PriceNotice';
 import { asset, palette, productDisplayHeight, productPrice, type CatalogProduct } from './catalog';
 import styles from './storefront.module.css';
 import { loadProductConfiguration } from './configuration';
 
-// Preserve document scrolling over the viewer; Ctrl/pinch gestures can still zoom.
-export function scrollPastCanvas(event: WheelEvent<HTMLElement>) {
-  if (event.target instanceof HTMLCanvasElement && !event.ctrlKey && !event.metaKey) {
-    event.stopPropagation();
-  }
-}
+/** 외부(원격) 이미지 URL 여부. 사이트 이미지는 우리 서버(/public)에서만 불러온다. */
+export const isExternalImage = (src: string) => /^https?:\/\//.test(src);
 
 export function ReferenceImage({ source, fallback, alt, sizes, className }: { source: string; fallback: string; alt: string; sizes: string; className?: string }) {
   const [failed, setFailed] = useState(false);
-  return <Image src={failed ? asset(fallback) : source} alt={alt} fill sizes={sizes} unoptimized={!failed} className={className} onError={() => setFailed(true)} />;
+  // 외부 원본(예: media.tylko.com)은 차단·지연되므로 요청하지 않고 우리 서버의 대체 이미지를 바로 쓴다
+  const local = failed || isExternalImage(source);
+  return <Image src={local ? asset(fallback) : source} alt={alt} fill sizes={sizes} unoptimized={!local} className={className} onError={() => setFailed(true)} />;
 }
 
 
@@ -71,6 +70,7 @@ export function Carousel({ children, label }: { children: ReactNode; label: stri
 }
 
 export function ProductCard({ product, saved, toggleSaved, open }: { product: CatalogProduct; saved: boolean; toggleSaved: () => void; open: () => void }) {
+  const { formatPrice } = useMoney();
   const price = productPrice(product);
   return <article className={styles.productCard}>
     <div className={styles.productVisual}>
@@ -85,7 +85,7 @@ export function ProductCard({ product, saved, toggleSaved, open }: { product: Ca
     <button onClick={open} className={styles.productText}>
       <p>{product.collection}</p><h3>{product.name}</h3>
       <p>{product.width} × {productDisplayHeight(product)} cm</p>
-      <div className={styles.price}>{formatPrice(price.finalPrice)} <del>{formatPrice(price.originalPrice)}</del></div>
+      <div className={styles.price}>{formatPrice(price.finalPrice)} <del>{formatPrice(price.originalPrice)}</del><PriceNotice /></div>
     </button>
   </article>;
 }

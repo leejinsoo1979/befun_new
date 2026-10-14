@@ -4,7 +4,9 @@ import { useMemo } from 'react';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { useMaterialStore } from '@/stores/useMaterialStore';
 import { useHardwareStore } from '@/stores/useHardwareStore';
-import { calculatePrice, formatPrice } from '@/lib/pricing';
+import { calculatePrice } from '@/lib/pricing';
+import { useMoney } from '@/lib/commerce/useMoney';
+import { PriceNotice } from '@/components/commerce/PriceNotice';
 import { calculateGridPanels } from '@/lib/three/styles/grid';
 import { calculateSlantPanels } from '@/lib/three/styles/slant';
 import { calculatePixelPanels } from '@/lib/three/styles/pixel';
@@ -19,6 +21,7 @@ interface PriceDisplayProps {
 }
 
 export function PriceDisplay({ compact = false }: PriceDisplayProps = {}) {
+  const { formatPrice, t } = useMoney();
   const width = useShelfStore((s) => s.width);
   const height = useShelfStore((s) => s.height);
   const depth = useShelfStore((s) => s.depth);
@@ -85,7 +88,7 @@ export function PriceDisplay({ compact = false }: PriceDisplayProps = {}) {
           <span className="text-[#aaa] line-through">{formatPrice(priceResult.originalPrice)}</span>
           <span className="font-semibold text-[var(--green)]">{priceResult.discountRate}%</span>
         </div>
-        <p className="text-[19px] font-bold tabular-nums text-[#111]">{formatPrice(priceResult.finalPrice)}</p>
+        <p className="text-[19px] font-bold tabular-nums text-[#111]">{formatPrice(priceResult.finalPrice)}</p><PriceNotice />
       </div>
     );
   }
@@ -99,16 +102,17 @@ export function PriceDisplay({ compact = false }: PriceDisplayProps = {}) {
         </span>
         <span className="text-[#ccc]">|</span>
         <span className="font-medium text-[var(--green)]">
-          {formatPrice(saveAmount)} 할인
+          {formatPrice(saveAmount)} {t('할인')}
         </span>
       </div>
+      <PriceNotice />
       {/* Line 2: final price + lowest price notice */}
       <div className="mt-0.5 flex items-end gap-2">
         <p className="text-[22px] font-bold leading-tight text-[var(--green)]">
           {formatPrice(priceResult.finalPrice)}
         </p>
         <p className="pb-[2px] text-[11px] text-[#bbb]">
-          최근 30일 최저가
+          {t('계산 가격')}
         </p>
       </div>
     </div>
