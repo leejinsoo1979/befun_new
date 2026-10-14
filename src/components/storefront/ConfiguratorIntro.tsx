@@ -61,12 +61,34 @@ const categoryStudios: Record<string, string> = {
   sofas: '/imgs/product-cards/d0cfd7d62e4c22003ee142c72e7f1be6624cf1eb711d89c50bbb04c41ffa99ba.webp',
 };
 
+// Stable pseudo-random choices keep SSR and hydration identical. Prefer unused
+// swatches so neighboring categories do not all start in clay brown.
+function initialVariants(): Record<string, number> {
+  const chosen: Record<string, number> = {};
+  const usage = new Map<string, number>();
+  for (const [slug] of categories) {
+    const variants = introVariants[slug];
+    if (!variants?.length) continue;
+    const seed = Array.from(slug).reduce((hash, char) => (hash * 31 + char.charCodeAt(0)) >>> 0, 17);
+    const start = seed % variants.length;
+    let best = start;
+    for (let offset = 1; offset < variants.length; offset++) {
+      const candidate = (start + offset) % variants.length;
+      if ((usage.get(variants[candidate].swatch) ?? 0) < (usage.get(variants[best].swatch) ?? 0)) best = candidate;
+    }
+    chosen[slug] = best;
+    const swatch = variants[best].swatch;
+    usage.set(swatch, (usage.get(swatch) ?? 0) + 1);
+  }
+  return chosen;
+}
+
 export function ConfiguratorIntro() {
   const [selected, setSelected] = useState(0);
   const [step, setStep] = useState(0);
   const [model, setModel] = useState(0);
   // 분류별로 고른 컬러 변형(스와치) — 썸네일과 2단계 사진이 함께 바뀐다
-  const [variantBy, setVariantBy] = useState<Record<string, number>>({});
+  const [variantBy, setVariantBy] = useState<Record<string, number>>(initialVariants);
   const variantOf = (slug: string) => introVariants[slug]?.[variantBy[slug] ?? 0];
   const configure = useConfigureProduct();
   const router = useRouter();

@@ -1,5 +1,5 @@
 /* Route wrapper: keep the shared 3D/AR and mobile controls owned by graphics intact. */
-.workspace { position: relative; scroll-margin-top: 148px; margin-top: 32px; background: #e6e6e6; }
+.workspace { position: relative; scroll-margin-top: 148px; margin-top: 0; background: #E4E6E6; }
 .workspace h2 { font-size: 14px; line-height: 20px; font-weight: 400; letter-spacing: normal; }
 .workspace :global(.cfg-label) { width: 85px; white-space: nowrap; }
 .workspace :global(.cfg-row) { gap: 16px; }
@@ -90,7 +90,7 @@
   .workspace > div > div > div:first-child { flex: 1; height: auto; }
   .workspace > div > div > div:first-child > div:has(> button[aria-label='ruler']) { right: 40px !important; top: 84px !important; }
   .workspace div:has(> button[aria-controls='viewer-display-options']) { left: auto; right: 40px; top: 40px; }
-  .workspace > div > div > div:has(> div > h2) { width: 420px; align-self: flex-start; margin: 16px 0; padding: 16px; border-radius: 12px; overflow: visible; box-shadow: none; }
+  .workspace > div > div > div:global(.bg-white):global(.shrink-0) { width: 420px; align-self: flex-start; margin: 16px 0; padding: 16px; border-radius: 12px; overflow: visible; box-shadow: none; }
   .workspace > div > div > div:has(> div > h2) > div:first-child > h2 { position: absolute; left: var(--gutter); top: 20px; width: 340px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 16px; line-height: 24px; font-weight: 600; }
   .workspace > div > div > div:has(> div > h2) > div:last-child > button { height: 48px; padding: 12px 24px; font-size: 16px; line-height: 24px; }
 }

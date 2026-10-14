@@ -44,7 +44,7 @@ export function befunColorLook(colorName: string): BefunColorLook {
 
 /** upstream materialSwatches에 덧붙일 Befun 견본(대표 색만, 그림 없음) */
 export function befunMaterialSwatches() {
-  const names = [...new Set([...Object.keys(TEXTURE_LOOKS), ...Object.keys(SOLID_COLORS), ...Object.keys(EDGE_MIX_COLORS), ...Object.keys(REFERENCE_COLORS)])];
+  const names = [...new Set([...Object.keys(TEXTURE_LOOKS), ...Object.keys(SOLID_COLORS), ...Object.keys(EDGE_MIX_COLORS), ...Object.keys(REFERENCE_COLORS), ...Object.keys(REFERENCE_CLASSIC_COLORS)])];
   return names.map((name) => {
     const look = befunColorLook(name);
     return { id: `befun-${name}`, name: look.swatchName, type: '색상', category: 'befun', color: look.surface, texture: 'color', image: '' };

@@ -333,10 +333,11 @@
 
 .heroContent .eyebrow { font-size: 16px; line-height: 1.4; }
 .innerStorefront { background: white; min-height: 100vh; }
-/* Reduce the white header spacing; keep the navigation at its original 44px. */
-.innerStorefront > main { padding-top: 52px; min-height: 65vh; }
+.innerStorefront:has(:global(#configuration)) { background: #E4E6E6; }
+/* Center the 44px navigation within 12px of space on each side. */
+.innerStorefront > main { padding-top: 68px; min-height: 65vh; }
 @media (min-width: 951px) {
-  .innerStorefront .header { top: calc(var(--announce-h) + 4px); }
+  .innerStorefront .header { top: calc(var(--announce-h) + 12px); }
   .innerStorefront .navPill { min-height: 44px; padding: 0 14px 0 24px; }
   .innerStorefront .desktopNav { font-size: 14px; gap: clamp(16px, 2vw, 36px); }
   .innerStorefront .navIcons { gap: 6px; }
@@ -509,7 +510,7 @@
 @media (max-width:1632px) { .values h3 { font-size: 24px; } }
 @media (max-width:700px) { .recentSection .sectionHeading h2 { font-size: 28px; line-height: 1.4; } .values h3 { font-size: 24px; } }
 
-.productConfigurator { display: grid; grid-template-columns: minmax(0,1fr) 420px; gap: 0; padding: 48px 74px 0 0; background: #e6e6e6; }
+.productConfigurator { display: grid; grid-template-columns: minmax(0,1fr) 420px; gap: 0; padding: 48px 74px 0 0; background: #E4E6E6; }
 .productScene { position: absolute; inset: 52px 0 0; }
 .productScene canvas { touch-action: pan-y !important; }
 .viewerPhoto { object-fit: contain; }
@@ -582,7 +583,7 @@
 .viewerHeading button { width: 32px; height: 32px; display: grid; place-items: center; }
 .viewerLoading { display: grid; place-items: center; height: 100%; font-size: 14px; }
 .fullscreenButton { position: absolute; left: var(--gutter); bottom: 24px; z-index: 2; background: white; border-radius: 24px; padding: 12px 20px; display: flex; align-items: center; gap: 8px; font-size: 14px !important; }
-.productOptions { --label-w: 64px; --section-py: 8px; padding: 16px; margin-bottom: 16px; border-radius: 12px; background: white; align-self: start; min-width: 0; }
+.productOptions { --label-w: 64px; --section-py: 8px; padding: 16px; margin-top: 16px; margin-bottom: 16px; border-radius: 12px; background: white; align-self: start; min-width: 0; }
 .productOptions > :global(.cfg-row) > div { gap: 4px; }
 .productOptions > :global(.cfg-row) > div > button:has(img) { min-width: 49px; width: 49px; height: 60px; padding: 4px; }
 .productOptions :global(.cfg-label) { font-size: 14px; }
@@ -658,8 +659,10 @@
 .introModelCopy { margin-top: 32px; max-width: 700px; }
 .introModelCopy h2 { font-size: 16px; line-height: 24px; letter-spacing: normal; margin: 24px 0 12px; }
 .introModelCopy p { font-size: 16px; line-height: 24px; }
-.introCard { display: flex; flex-direction: column; border-radius: 16px; background: #f4f4f4; padding: 16px 16px 14px; min-width: 0; }
+.introCard { display: flex; flex-direction: column; border-radius: 16px; background: #f4f4f4; padding: 0 0 18px; min-width: 0; overflow: hidden; }
 .introCard > button { min-width: 0; }
+.introCategories .introCard > button > div { width: 100%; height: auto; aspect-ratio: 1; margin-bottom: 14px; }
+.introCategories .introCard img { object-fit: cover; }
 .introSwatches { display: flex; justify-content: center; gap: 8px; margin-top: 10px; }
 .introSwatches > button { width: 18px; height: 18px; border-radius: 50%; border: 1px solid #0000001f; box-shadow: 0 0 0 2px #f4f4f4; }
 .introSwatches > button[aria-pressed='true'] { box-shadow: 0 0 0 2px #f4f4f4, 0 0 0 3px #1d1e1f; border-color: #0000001f; }

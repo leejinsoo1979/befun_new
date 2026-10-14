@@ -8,6 +8,42 @@ import { useBefunCncStore } from '@/lib/optimizer/befun/store';
 import { machinedPanelGeometry, panelToWorldMatrix } from '@/lib/optimizer/befun/panelGeometry';
 import { getExcludedPanelAliases } from '@/lib/optimizer/upstream/editor/shared/viewer3d/context/ExcludedPanelsContext';
 
+import { previewMaterialSet, previewFaces, groupMachinedFaces } from '@/lib/optimizer/befun/previewMaterials';
+import { disposeMaterialSet, type MaterialSet } from '@/lib/three/materials';
+import type { CncPanelBox } from '@/lib/optimizer/befun/toCncPanels';
+
+function FinishedPanel({ box, materials, geometry, matrix, offset, selected, dimmed }: {
+  box: CncPanelBox; materials: MaterialSet; geometry: THREE.BufferGeometry | null;
+  matrix: THREE.Matrix4 | null; offset: THREE.Vector3; selected: boolean; dimmed: boolean;
+}) {
+  const faces = useMemo(() => {
+    const sources = previewFaces(box, materials);
+    const shared = new Set(Object.values(materials));
+    const clones = new Map<THREE.MeshStandardMaterial, THREE.MeshStandardMaterial>();
+    for (const source of sources) if (!clones.has(source)) {
+      const clone = source.clone();
+      if (source.map) clone.map = source.map.clone();
+      clone.side = THREE.DoubleSide;
+      clone.emissive.set(selected ? '#ff6b35' : '#000000');
+      clone.emissiveIntensity = selected ? 0.35 : 0;
+      clone.transparent = dimmed;
+      clone.opacity = dimmed ? 0.35 : 1;
+      clones.set(source, clone);
+    }
+    for (const source of new Set(sources)) if (!shared.has(source)) {
+      if (source.map && !Object.values(materials).some(m => m.map === source.map)) source.map.dispose();
+      source.dispose();
+    }
+    return sources.map(source => clones.get(source)!);
+  }, [box, materials, selected, dimmed]);
+  useEffect(() => () => new Set(faces).forEach(material => { material.map?.dispose(); material.dispose(); }), [faces]);
+  return geometry && matrix ? <mesh geometry={geometry} material={faces} matrixAutoUpdate={false}
+    matrix={new THREE.Matrix4().makeTranslation(offset.x, offset.y, offset.z).multiply(matrix)} />
+    : <mesh material={faces} position={[box.x + offset.x, box.y + offset.y, box.z + offset.z]}>
+      <boxGeometry args={[box.w, box.h, box.d]} />
+    </mesh>;
+}
+
 interface PanelHighlight3DViewerProps {
   highlightedPanelName: string | null;
   highlightedFurnitureId: string | null;
@@ -18,6 +54,20 @@ const PanelHighlight3DViewer: React.FC<PanelHighlight3DViewerProps> = ({ highlig
   const boxes = useBefunCncStore((s) => s.boxes);
   const panels = useBefunCncStore((s) => s.panels);
   const design = useBefunCncStore((s) => s.design);
+
+  const [finishes, setFinishes] = useState<Record<string, MaterialSet>>({});
+  const colorKey = JSON.stringify([...new Set(panels.map(panel => panel.color || design?.color || 'C_White'))].sort());
+  useEffect(() => {
+    let cancelled = false;
+    const owned: MaterialSet[] = [];
+    Promise.all((JSON.parse(colorKey) as string[]).map(async color => {
+      const materials = await previewMaterialSet(color);
+      if (cancelled) disposeMaterialSet(materials); else owned.push(materials);
+      return [color, materials] as const;
+    })).then(entries => { if (!cancelled) setFinishes(Object.fromEntries(entries)); });
+    return () => { cancelled = true; owned.forEach(disposeMaterialSet); };
+  }, [colorKey]);
+  const panelColors = useMemo(() => new Map(panels.map(panel => [panel.id, panel.color || design?.color || 'C_White'])), [panels, design?.color]);
 
   // 커넥터 가공은 접합면 안쪽이라 조립 상태에서는 가려진다. 분해 보기는 판재를 가구 중심에서 바깥으로 벌린다.
   const [explode, setExplode] = useState(false);
@@ -35,9 +85,10 @@ const PanelHighlight3DViewer: React.FC<PanelHighlight3DViewerProps> = ({ highlig
     if (!panel?.manufacturingBoring) return { box, geometry: null as THREE.BufferGeometry | null, matrix: null as THREE.Matrix4 | null };
     const data = panel.manufacturingBoring;
     const hasMachining = data.borings.length > 0 || (data.connectorSlots?.length ?? 0) > 0;
-    return hasMachining
-      ? { box, geometry: machinedPanelGeometry(data), matrix: panelToWorldMatrix(box) }
-      : { box, geometry: null, matrix: null };
+    if (!hasMachining) return { box, geometry: null, matrix: null };
+    const geometry = machinedPanelGeometry(data);
+    groupMachinedFaces(geometry, box);
+    return { box, geometry, matrix: panelToWorldMatrix(box) };
   }), [boxes, panels]);
 
   useEffect(() => () => meshes.forEach((m) => m.geometry?.dispose()), [meshes]);
@@ -59,7 +110,7 @@ const PanelHighlight3DViewer: React.FC<PanelHighlight3DViewerProps> = ({ highlig
         {explode ? '조립 보기' : '분해 보기(가공 확인)'}
       </button>
     )}
-    <Canvas camera={{ position: [size * 0.8, centerY + size * 0.6, size * 2.2], fov: 40, near: 1, far: size * 20 }} style={{ background: '#f5f5f3' }}>
+    <Canvas onCreated={({gl}) => { gl.toneMapping = THREE.NeutralToneMapping; gl.toneMappingExposure = 1; }} camera={{ position: [size * 0.8, centerY + size * 0.6, size * 2.2], fov: 40, near: 1, far: size * 20 }} style={{ background: '#f5f5f3' }}>
       {/* 가공 홈·구멍 안쪽에 그늘이 지도록 주광을 강하게, 환경광은 약하게 */}
       <ambientLight intensity={0.35} />
       <hemisphereLight args={['#ffffff', '#8a857c', 0.6]} />
@@ -69,26 +120,11 @@ const PanelHighlight3DViewer: React.FC<PanelHighlight3DViewerProps> = ({ highlig
         {meshes.map(({ box: b, geometry, matrix }) => {
           if (excludedMeshNames?.has(b.meshName)) return null;
           const isHighlighted = highlighted.has(b.meshName);
-          const material = (
-            <meshStandardMaterial
-              color={isHighlighted ? '#ff6b35' : '#d9d4cc'}
-              transparent={!!highlightedPanelName && !isHighlighted}
-              opacity={highlightedPanelName && !isHighlighted ? 0.35 : 1}
-              side={THREE.DoubleSide}
-            />
-          );
-          const offset = offsetOf(b.x, b.y, b.z);
-          return geometry && matrix ? (
-            <mesh key={b.meshName} geometry={geometry} matrixAutoUpdate={false}
-              matrix={new THREE.Matrix4().makeTranslation(offset.x, offset.y, offset.z).multiply(matrix)}>
-              {material}
-            </mesh>
-          ) : (
-            <mesh key={b.meshName} position={[b.x + offset.x, b.y + offset.y, b.z + offset.z]}>
-              <boxGeometry args={[b.w, b.h, b.d]} />
-              {material}
-            </mesh>
-          );
+          const materials = finishes[panelColors.get(b.panelId) ?? design?.color ?? 'C_White'];
+          if (!materials) return null;
+          return <FinishedPanel key={b.meshName} box={b} geometry={geometry} matrix={matrix}
+            materials={materials} selected={isHighlighted} dimmed={!!highlightedPanelName && !isHighlighted}
+            offset={offsetOf(b.x, b.y, b.z)} />;
         })}
       </group>
       <OrbitControls target={[0, centerY, 0]} makeDefault />

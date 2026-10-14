@@ -24,7 +24,7 @@ export function FurnitureConfigurator({initial, title, catalogId}:{initial:Furni
   const [tab,setTab]=useState('appearance');
   const [open,setOpen]=useState(initial.kind==='wardrobe');
   const [dimensions,setDimensions]=useState(false);
-  const [front,setFront]=useState(false);
+  const [front,setFront]=useState(true);
   const [reset,setReset]=useState(0);
   const [zoom,setZoom]=useState({factor:1,revision:0});
   const [fullscreen,setFullscreen]=useState(false);
@@ -80,7 +80,7 @@ export function FurnitureConfigurator({initial, title, catalogId}:{initial:Furni
     <div className={styles.layout}>
       <div ref={viewerRef} className={styles.viewer} data-fullscreen={fullscreen||undefined}>
         <Scene design={design} open={open} dimensions={dimensions} front={front} reset={reset} zoom={zoom} interior={tab==='interior'} selectedSectionId={design.kind==='wardrobe'&&tab!=='interior'?null:selected} onSelectSection={select} onEditDeskLegroom={()=>setDeskEditor('legroom')}/>
-        <FurnitureViewToolbar open={open} dimensions={dimensions} front={front} onOpen={()=>setOpen(!open)} onDimensions={()=>setDimensions(!dimensions)} onFront={value=>{setFront(value);setReset(count=>count+1);}} onReset={()=>setReset(count=>count+1)} onZoom={factor=>setZoom(value=>({factor,revision:value.revision+1}))}/>
+        <FurnitureViewToolbar open={open} dimensions={dimensions} front={front} onOpen={()=>setOpen(!open)} onDimensions={()=>setDimensions(!dimensions)} onFront={value=>{setFront(value);setReset(count=>count+1);}} onReset={()=>{setFront(true);setReset(count=>count+1);}} onZoom={factor=>setZoom(value=>({factor,revision:value.revision+1}))}/>
         <button className={styles.fullscreen} onClick={()=>void toggleFullscreen()} aria-pressed={fullscreen}><FiMaximize/>{tr(fullscreen?'전체 화면 종료':'전체 화면')}</button>
         <p className={styles.viewerHint}>{tr("드래그하여 회전 · 스크롤하여 확대 · 수납 구획을 눌러 편집")}</p>
       </div>
