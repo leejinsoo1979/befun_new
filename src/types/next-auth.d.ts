@@ -9,13 +9,13 @@ declare module 'next-auth' {
       name?: string | null;
       image?: string | null;
       /** 로그인 시점의 권한(표시용). 관리자 기능은 서버에서 DB role로 다시 확인한다. */
-      role?: 'USER' | 'ADMIN';
+      role?: 'USER' | 'ADMIN' | 'FACTORY';
     };
   }
 }
 
 declare module 'next-auth/jwt' {
   interface JWT {
-    role?: 'USER' | 'ADMIN';
+    role?: 'USER' | 'ADMIN' | 'FACTORY';
   }
 }
