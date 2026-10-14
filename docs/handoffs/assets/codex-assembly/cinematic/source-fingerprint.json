@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-13T23:10:50.737037+00:00",
+  "files": {
+    "src/components/assembly-guide/AssemblyGuide.tsx": "8d411e1cb229281b2ee20c6d89709d89a75ae1cb1850c99b8898e2fdd7da4dad",
+    "src/components/assembly-guide/BackPanelScene.tsx": "174e5fb2f0cb72f3b821c6acb4aaf7e6a26b1bc1e0521cf05c98f87a1d8acc61",
+    "src/components/assembly-guide/GuideEnvironment.tsx": "93617491065e5ad258167f9e59922dde71577e759696d6a6b93a21b8f59de367",
+    "src/components/assembly-guide/GuideScene.tsx": "bc8a314e8b697dbc8e023a8f8761019f9cd882512b93761f150ef799437a9487",
+    "src/components/assembly-guide/JointSectionCaps.tsx": "07f651e80039c05cf89e7f07c10618a324a97ab94b03b4d50acf9167bc304a60",
+    "src/components/assembly-guide/ReferenceClipGuide.tsx": "8b5d083bfca439c2c771c4b6aa49c0cec89b376005db97413bf08db29d675da3",
+    "src/components/assembly-guide/TylkoClipScene.tsx": "6e0fc805ecf4d04bcc1fbe85b78cab656880f50d372933b778c0bcd953ae2895",
+    "src/components/assembly-guide/cameraRig.ts": "45a9bd17064867489611d5701ce117ad86754a4e21fa088f713f96dc7eeabd22",
+    "src/components/assembly-guide/guide.module.css": "e4f4d5d2c368026b9decc02d96cbc3bb497c403b6926d6851cd66ea370a3a28a",
+    "src/lib/assembly-guide/backPanel.test.mjs": "66bbb9e1894c1fcf859d0fc446d8459305bb548fef7368867e30d5336d5b43fa",
+    "src/lib/assembly-guide/backPanel.ts": "ea457a1aac689a6e4a4c94afc8c036a0922cd01a1d121788f855cc8367ce9a59",
+    "src/lib/assembly-guide/cinematicShot.test.mjs": "5211135e3fb9a05ab4aad46ca9e0fb84f959341ef8309bf892b0e8e677d60172",
+    "src/lib/assembly-guide/cinematicShot.ts": "66f11a9466a851e8a20850c6c089c85904befaafa09f3a1390c8024454dc73e5",
+    "src/lib/assembly-guide/clipReferences.ts": "f0d42ab456fb928a4d5cf21d54426a33e1b90f89c57294517bbaf68a9e6ae59a",
+    "src/lib/assembly-guide/inspectionShot.ts": "2383ae136f4ace2ce2e7327d8fb23d36ef529460da10edc99eb1a51034cf54ec",
+    "src/lib/assembly-guide/ovvoIntegration.test.mjs": "07d57127a625d17e9ce2b7b57b88e80b57e1984535c8c609ba9c5b28c815b02a",
+    "src/lib/assembly-guide/ovvoMotion.test.mjs": "177629c9fa676c1f0978ee9f725d55e11bc57f3e8a959a37508a307681d2aebc",
+    "src/lib/assembly-guide/ovvoMotion.ts": "1498f28be345403cca93386518638ee1003d7f898f045e4eb1c9060961faaa0c",
+    "src/lib/assembly-guide/ovvoMounts.ts": "59bbe298d30025eaae59a62b2b572f3577969b5da3cdef8668c190a312a42c31",
+    "src/lib/assembly-guide/playback.test.mjs": "c973ceeb8fdf40370da910dcaa0368d551140d99181b8dd47e1aed6399cce20f",
+    "src/lib/assembly-guide/playback.ts": "cb20759c00a433a49da157ce178425d4ac284767d5458339fe84a25ea2e9d360",
+    "src/lib/assembly-guide/pocketAudit.test.mjs": "a69839a3129ec302b5235bfd116e801360ec7097e1f06f216ed81e32de6a2c98",
+    "src/lib/assembly-guide/pocketAudit.ts": "7630311d36ff00acde6a81677554786d9f9914bd4f4f777ee21253263476f833",
+    "src/lib/assembly-guide/sequence.test.mjs": "bb7018b440db2484680cf921b4278e8cb618a09e011edfdbeb0cb1aa0102589c",
+    "src/lib/assembly-guide/sequence.ts": "4da5f1ad709238b5df430193355caaa44126a6070bf7e1232b4118a48ec1a2af",
+    "src/lib/assembly-guide/tylkoClip.test.mjs": "d1aa76e72dc14a669386b4f92fe696f3e9c0b3aabd0ad4e24be32b94209680d5",
+    "src/lib/assembly-guide/tylkoClip.ts": "5c03366717ecf18dc893aee195101c84357de64b6a97ad47cc804355c6799b38",
+    "src/app/assembly-guide/page.tsx": "335b6f7e9d02aab198863c1c27b5708eea8db23870be20894e096b619dda50b3"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "hardwareMilestone": "HW-CONTRACT-READY in docs/handoffs/claude-2-hardware.md",
+  "baselineGeometryStatus": "Legacy Housing/Connector; camera inspection controls added, geometry unchanged",
+  "beforeSourceSha256": {
+    "before-GuideScene.tsx.txt": "7bd8e7802dba948d20bbdd61f613a653123cd9f78c15868f52ae19bf8bf6ef2b",
+    "before-sequence.ts.txt": "56d0bc7c3844c394c4034007bbb11f904a6faf88884ce472cd1951db66cd9a2f",
+    "before-AssemblyGuide.tsx.txt": "b2e4e5c6edc89276f75669deebb19b7182006e40205ee715f7b0e173f90adce9"
+  },
+  "slotConflictMm": 1.105170109479996,
+  "releaseLabelSource": "V-1230R installation sheet, section 4. Release: 15mm",
+  "assemblyDistanceSource": "not dimensioned on assembly illustration; hardware pose uses inferred distance",
+  "captureStorage": "Original CUA JPEG bytes saved with .jpg extension; before source preserved as non-executable .txt."
+}

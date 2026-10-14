@@ -1,0 +1,311 @@
+{
+  "task": "R2.1-ASM",
+  "route": "http://localhost:3003/assembly-guide?topic=connector",
+  "sceneUnit": "mm",
+  "objectScale": 1,
+  "fieldOfViewDeg": 40,
+  "jointCentersMm": [
+    -105,
+    105
+  ],
+  "fixedComparison": {
+    "desktopViewport": [
+      1728,
+      937
+    ],
+    "jointIndex": 0,
+    "targetMm": [
+      0,
+      -5,
+      -105
+    ],
+    "sectionPlane": {
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "constant": 0
+    },
+    "cameraSource": "src/lib/assembly-guide/inspectionShot.ts",
+    "note": "Before and after use the same target/FOV/radius35 camera. Board profile representation and hardware change; no object resizing."
+  },
+  "captures": {
+    "after-P-front.jpg": {
+      "sha256": "ef3fefb1a372a8706d13975b92cb39ad3bd8383c618cf64ba969cc31ee735ce7",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "after-P-pressed.jpg": {
+      "sha256": "1b9bb397e2671191d8f9640550670d10c4c1a3b35f6cd2c2c03e90e46926b357",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "after-P-section.jpg": {
+      "sha256": "0ef81c950f1d09eecf59223b02ac510554964717a3df88b56d788083d80c122b",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "after-P-side.jpg": {
+      "sha256": "d6b60ef945dae16a48808596f05bca76d29b1d29841c9b7ada56c4797e837168",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "after-R-front.jpg": {
+      "sha256": "550eba33061b5f93519d650d48fafa6777c78964ca370058588eff68310bc625",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "after-R-inserted.jpg": {
+      "sha256": "22b955d6450a5d91650d077aa9ff9d0ed9d12348f2a45a1689b76a2994a976b5",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "after-R-locked.jpg": {
+      "sha256": "f9e333f037c630dcd120d5782aae2dfdd8cf6555d0d844153a64ec4c34df2bea",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "after-R-section.jpg": {
+      "sha256": "9f9e0bc170f7a30df80f6569983702e78196bbfb66ed9f3bc2299897076009ab",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "after-R-side.jpg": {
+      "sha256": "4ca72083cddf356c9965707c93c17f61d861039220409c3d686d2d61ef8f8274",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "after-R-slide-mid.jpg": {
+      "sha256": "71b99f04c82eb731ff04739ef090f65b18c6a1b98e7a498582f186f34b5e7286",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "before-P-front.jpg": {
+      "sha256": "14f77e7d2a297eb60e3e3b71baf6eca70e08fdd438a3798f8c13fa69f8ce2b1e",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "before-P-pressed.jpg": {
+      "sha256": "88d1e013ba1b7638f45794a476029837265411867936f2a59df64edd3b8e7d83",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "before-P-section.jpg": {
+      "sha256": "08cf2e773dd4a9b884eb8676b82a5e8646f212c7a43800ea8d0afa20998d89e2",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "before-P-side.jpg": {
+      "sha256": "5df0821e3bdca340816b88aad14b792058efd61dd1221cae304033b14ba11a4a",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "before-R-front.jpg": {
+      "sha256": "03fdc5669712bf8ae114773b486296d97e5a772bb8c1163917514405bde22bb3",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "before-R-inserted.jpg": {
+      "sha256": "1dcdea47331868dabed9f855bfafc78c95683dc5f1805b01d869c646e62ecfa3",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "before-R-section.jpg": {
+      "sha256": "b950a710e104c69ba1da0c5728466b0835bb6d8532707aa336eccc8d900086ef",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "before-R-side.jpg": {
+      "sha256": "04fa4b3e952d8af04374fdacb5a971db4b0aaac98c9bd94c0c96c9cf5139d063",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "before-R-slide-mid.jpg": {
+      "sha256": "7d2d223ff572e5d5639aa95c1c8907c9dce895c14827a96e340ade3ef1768966",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "camera-return.jpg": {
+      "sha256": "3aa0dd3f79838e543927d7689a8580ada117425bf54cdcdfa7eb1ce8a033542e",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "manual-camera.jpg": {
+      "sha256": "c37aa3d8a72d6aa544f014e18d39aff749d1ec8b6d27005f84bd107671b5518d",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "mobile-390-Tylko.jpg": {
+      "sha256": "725fca7947a3c53f4f20525d755341a313c43064387d2a1f87957b4adf9b474d",
+      "encoding": "JPEG",
+      "size": [
+        390,
+        889
+      ]
+    },
+    "mobile-390-main.jpg": {
+      "sha256": "6e9f3d1c8fb9c02a4e1e52f5c26dcf84ad208b735ccd3ab23bdc85749cf79abd",
+      "encoding": "JPEG",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "mobile-390-section.jpg": {
+      "sha256": "bfd52272b6de53a4adba6dd046382bea1bbbc72af76c99fb6a1eb67c427f4dff",
+      "encoding": "JPEG",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "regression-Tylko-source.jpg": {
+      "sha256": "a26d134614a51ce41c716d115a44ca4cabe9b1e3182b8fe0519a0ca22f13207e",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "regression-back-panel.jpg": {
+      "sha256": "e79f7671dfe169b81ef18fd78a4ff20bb9f8b12c3baa9df3c4849f1e7b071185",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "switch-P-R-P.jpg": {
+      "sha256": "421d919b30c0d8238cc1863a52f17f288db6a2ee134679cdbacbd3a90fc03309",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    },
+    "desktop-closeup.jpg": {
+      "sha256": "26feec92ee38a4dcbb7dfec55e2e8cab1a226d8d9aaff954dfe26b507a4d7779",
+      "encoding": "JPEG",
+      "size": [
+        1728,
+        937
+      ]
+    }
+  },
+  "sourceHashes": {
+    "src/components/assembly-guide/GuideScene.tsx": "d8713230bd6999dd0ce554548a4a1659f41a76c6c27fc0fdbdf7aa7d1ff3b96a",
+    "src/components/assembly-guide/AssemblyGuide.tsx": "f0dfe31c25acf3cda73d6cd8cda49bf50dfaf3f13af97cf7018aacd55df11c8e",
+    "src/components/assembly-guide/guide.module.css": "9438603baa5a65a6526fd0e10aec8157458b067b42a646ec47c55f8ab9bc2e9c",
+    "src/lib/assembly-guide/sequence.ts": "3bb951588b7f01cdab215a2e570f127fbd20e9ed5c2061cc1fcdae197fa86209",
+    "src/lib/assembly-guide/ovvoMotion.ts": "1498f28be345403cca93386518638ee1003d7f898f045e4eb1c9060961faaa0c",
+    "src/lib/assembly-guide/ovvoMounts.ts": "59bbe298d30025eaae59a62b2b572f3577969b5da3cdef8668c190a312a42c31",
+    "src/lib/assembly-guide/ovvoIntegration.test.mjs": "07d57127a625d17e9ce2b7b57b88e80b57e1984535c8c609ba9c5b28c815b02a",
+    "src/lib/assembly-guide/pocketAudit.ts": "7630311d36ff00acde6a81677554786d9f9914bd4f4f777ee21253263476f833",
+    "src/lib/assembly-guide/inspectionShot.ts": "2383ae136f4ace2ce2e7327d8fb23d36ef529460da10edc99eb1a51034cf54ec"
+  },
+  "dimensions": {
+    "slotOuterMm": [
+      30,
+      9.4
+    ],
+    "depthMm": 12.5,
+    "depthToleranceMm": 0.5,
+    "undercutProfile": null,
+    "rReleaseMm": 15,
+    "rAssemblyMm": {
+      "value": 15,
+      "status": "inferred",
+      "source": "HW guideMounts inserted minus locked; official 15 label is Release"
+    }
+  },
+  "validation": {
+    "tests": {
+      "passed": 24,
+      "failed": 0,
+      "includesPreviousTests": 12
+    },
+    "legacyEndcapRadialExcessMm": 1.105170109479996,
+    "hardwareAnchorConfirmation": "docs/team-tasks.md / HW-03/HW-05 actual integration confirmation, 2026-10-14",
+    "undercutFit": "unknown",
+    "manufacturingApproved": false,
+    "fullMeshCollisionFree": null,
+    "lint": {
+      "errors": 0,
+      "existingWarnings": 7,
+      "changedScopeErrors": 0,
+      "changedScopeWarnings": 0
+    },
+    "build": {
+      "status": "passed",
+      "command": "npm run build -- --webpack",
+      "snapshot": "/private/tmp/befun-assembly-check-jrhak3ly",
+      "includesFullTypeScript": true
+    },
+    "browserConsoleErrors": 0,
+    "temporaryViewportRestored": true
+  }
+}

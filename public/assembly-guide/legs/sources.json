@@ -1,0 +1,49 @@
+{
+  "source": "https://www.youtube.com/watch?v=y_6rMHwOIzo",
+  "title": "Leg Assembly and Disassembly — Tylko",
+  "capturedAt": "2026-10-13T23:23:50.549699+00:00",
+  "method": "CUA existing VPN Chrome: native video timeline UI seek then tab screenshot clip. Unmodified source pixels; no synthetic geometry or user browser chrome.",
+  "clip": {
+    "x": 16,
+    "y": 68,
+    "width": 1205,
+    "height": 600
+  },
+  "frames": [
+    {
+      "path": "align.jpg",
+      "videoTimeSeconds": 0.995969,
+      "sha256": "2b5cab592a8e97c88706536fc25cc01790605f90b1b3092b810a6dda99fedba9"
+    },
+    {
+      "path": "seat.jpg",
+      "videoTimeSeconds": 2.004706,
+      "sha256": "3063773ae80c2292727195c95342cff2c3cb0993ea37f26f6376028b7479fee0"
+    },
+    {
+      "path": "locked.jpg",
+      "videoTimeSeconds": 3.996646,
+      "sha256": "d1abeabe3a5c193ed8b3632285e3fc169b4c185d0e5cfb2ba8dbb1d8c16fd31b"
+    },
+    {
+      "path": "press.jpg",
+      "videoTimeSeconds": 7.686841,
+      "sha256": "1eb717ff568ad209489db9678dec5aa10f0fb0b0bf33989e6f86a5513e81cf3a"
+    },
+    {
+      "path": "slide.jpg",
+      "videoTimeSeconds": 8.784961,
+      "sha256": "fd7b27718aa38d17fe842959677f8271a5f48b1f3815109daea30e50ee8585d4"
+    },
+    {
+      "path": "entry.jpg",
+      "videoTimeSeconds": 9.487248,
+      "sha256": "a4a79c64ceb058d7421f36e7ea501f97f6e1ada8a634cc8d8443ba8b0c427eb9"
+    },
+    {
+      "path": "removed.jpg",
+      "videoTimeSeconds": 10.981202,
+      "sha256": "4fb64045fa0c9bd200178aad605a4224d8638e3f65f87499ee7fb03a103f848d"
+    }
+  ]
+}

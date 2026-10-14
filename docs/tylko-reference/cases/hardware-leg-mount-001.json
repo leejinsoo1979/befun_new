@@ -1,0 +1,82 @@
+{
+  "caseId": "hardware-leg-mount-001",
+  "observedAt": "2026-10-13T14:35:12.229148+00:00",
+  "sourceUrl": null,
+  "sources": [
+    {
+      "kind": "user-provided-manual-image",
+      "page": null,
+      "title": null,
+      "sourceUrl": null,
+      "screenshotPath": "docs/tylko-reference/screenshots/hardware-leg-mount-001-installation-reference.png",
+      "sha256": "8c97cc1d24aebe1992ee6893c03385d54082034c7e411ce7dfad1f3aa2e1334f"
+    },
+    {
+      "kind": "user-provided-manual-image",
+      "page": 24,
+      "title": "Dismantling legs",
+      "sourceUrl": null,
+      "screenshotPath": "docs/tylko-reference/screenshots/hardware-leg-mount-001-dismantling-reference.png",
+      "sha256": "92e79b4901a86c7feebd4bd8a8d600616ae5183f61336b07de1a161a9dc596f8"
+    }
+  ],
+  "inputOptions": null,
+  "initialState": {
+    "productId": null,
+    "productFamilyId": null,
+    "furnitureDimensionsMm": null,
+    "configurationHistory": null
+  },
+  "actionsPerformed": [],
+  "observationMethod": "Read two images supplied by user; no physical disassembly or linked video observed",
+  "observed": {
+    "illustratedLegCount": 8,
+    "illustratedRows": 2,
+    "legsPerIllustratedRow": 4,
+    "parts": [
+      "cylindrical leg",
+      "mounting plate with keyhole-shaped fixing apertures and screw heads",
+      "central silver release pin",
+      "floor contact end; first image discusses optional felt protection"
+    ],
+    "plateOrientation": "Corner and intermediate mounting plates are drawn in different orientations; numeric rotation unknown",
+    "manualPreparation": [
+      "remove doors and drawers",
+      "place unit facing down on cardboard or rug"
+    ],
+    "manualDisassemblySequence": [
+      "locate silver pin in middle of attachment element",
+      "press pin with screwdriver and slide attachment element up as shown in drawing",
+      "release pin and pull leg out"
+    ]
+  },
+  "inferences": [
+    "Attachment is released by pin and sliding motion; should not be animated as undoing all mounting screws. Exact internal locking mechanism is not established."
+  ],
+  "measurements": {
+    "unit": "mm",
+    "precision": null,
+    "legLength": null,
+    "legDiameter": null,
+    "mountingPlateSize": null,
+    "screwHoleCenters": null,
+    "screwDiameter": null,
+    "pinTravel": null,
+    "slideTravel": null,
+    "rotationRad": null
+  },
+  "unverified": [
+    "Exact matching GLB and product family",
+    "Whether mounting element has multiple distinct plates internally",
+    "World-axis direction of illustrated slide",
+    "Installation sequence beyond inferred reverse of removal",
+    "All-category leg count/placement rules",
+    "Actual physical disassembly and linked video",
+    "CNC hole coordinates and hardware specification"
+  ],
+  "relatedReviewIds": [
+    "VISUAL-REVIEW-003",
+    "ASSEMBLY-REVIEW-001"
+  ],
+  "status": "observed-not-dimensionally-validated"
+}

@@ -1,0 +1,42 @@
+{
+  "ready": "LEG-GUIDE-READY",
+  "at": "2026-10-13T23:39:41.676922+00:00",
+  "url": "http://localhost:3003/assembly-guide?topic=legs",
+  "scope": "original-source guide and shared static GLB inspection",
+  "exports": [
+    "legSteps",
+    "legPhase",
+    "canConfirmLeg",
+    "legReferenceFrame",
+    "legGuideContract",
+    "legInspectionShot"
+  ],
+  "consumer": "src/components/assembly-guide/LegScene.tsx",
+  "provider": [
+    "LONG_LEG_ASSET",
+    "longLegSceneScale",
+    "createLongLegInstance"
+  ],
+  "sceneUnit": "mm",
+  "scaleAppliedOnce": 1000,
+  "manufacturingReady": false,
+  "animated3DHardware": false,
+  "remaining": [
+    "exact fixed hardware/keyholes/travel unknown",
+    "3D disassembly motion unimplemented; original video supplies motion",
+    "HW independent anchor/lifecycle review"
+  ],
+  "finalValidationAt": "2026-10-13T23:46:09.442563+00:00",
+  "validation": {
+    "nodeTests": 35,
+    "lint": "0 errors / 7 existing warnings",
+    "isolatedWebpackBuild": "pass including TypeScript",
+    "viewports": [
+      "1728x937",
+      "390x844"
+    ],
+    "sourceModelSwitches": 6,
+    "consoleErrors": 0
+  },
+  "locksReleased": true
+}

@@ -1,0 +1,194 @@
+'use client';
+
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { guideSources, guideSteps, type ConnectorModel, type GuideTopic } from '@/lib/assembly-guide/sequence';
+import { backPanelSource, backPanelSteps } from '@/lib/assembly-guide/backPanel';
+import { tylkoClipSource, tylkoClipSteps, type ClipColourVersion } from '@/lib/assembly-guide/tylkoClip';
+import type { GuidePlayback } from './GuideScene';
+import { ReferenceClipGuide } from './ReferenceClipGuide';
+import type { JointInspection } from '@/lib/assembly-guide/inspectionShot';
+import styles from './guide.module.css';
+
+const GuideScene = dynamic(() => import('./GuideScene').then(module => module.GuideScene), {
+  ssr: false,
+  loading: () => <div className={styles.loading} role="status">조립 장면을 준비하고 있습니다…</div>,
+});
+
+const sequenceFor = (topic: GuideTopic, model: ConnectorModel) => topic === 'tylko-clip' ? tylkoClipSteps : topic === 'back-panel' ? backPanelSteps : guideSteps(model);
+
+export function AssemblyGuide({ initialTopic = 'tylko-clip' }: { initialTopic?: GuideTopic }) {
+  const [topic, setTopic] = useState<GuideTopic>(initialTopic);
+  const [model, setModel] = useState<ConnectorModel>('V-1230R');
+  const [step, setStep] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [playing, setPlaying] = useState(false);
+  const [speed, setSpeed] = useState(1);
+  const [inside, setInside] = useState(initialTopic === 'tylko-clip');
+  const [clipColourVersion, setClipColourVersion] = useState<ClipColourVersion>('black-orange');
+  const [clipPresentation, setClipPresentation] = useState<'reference' | 'model'>('reference');
+  const [inspection, setInspection] = useState<JointInspection>('auto');
+  const [overview, setOverview] = useState(true);
+  const [rear, setRear] = useState(false);
+  const [narration, setNarration] = useState(false);
+  const [narrationMessage, setNarrationMessage] = useState('');
+  const [confirmed, setConfirmed] = useState(false);
+  const [finished, setFinished] = useState(false);
+  const [completedSteps, setCompletedSteps] = useState<ReadonlySet<number>>(new Set());
+  const container = useRef<HTMLDivElement>(null);
+  const stepNavigation = useRef<HTMLElement>(null);
+  const playback = useRef<GuidePlayback>({ model: 'V-1230R', topic: initialTopic, step: 0, progress: 0, playing: false, speed: 1, overview: true, rear: false, manual: false, revision: 0, inspection: 'auto' });
+  const steps = sequenceFor(topic, model);
+  const current = steps[step];
+  const referenceOnly = topic === 'tylko-clip' && clipPresentation === 'reference';
+  const done = referenceOnly || progress === 1;
+  const firstMissing = steps.findIndex((_, index) => index !== step && !completedSteps.has(index));
+
+  const update = useCallback((value: number, active: boolean) => {
+    setProgress(value); setPlaying(active);
+  }, []);
+  const tick = useCallback((delta: number) => {
+    const state = playback.current;
+    if (state.playing) {
+      const sequence = sequenceFor(state.topic, state.model);
+      state.progress = Math.min(1, state.progress + Math.min(delta, .05) * state.speed / sequence[state.step].duration);
+      if (state.progress === 1) state.playing = false;
+    }
+    return state;
+  }, []);
+  const manual = useCallback(() => { playback.current.manual = true; playback.current.inspection = 'auto'; setInspection('auto'); }, []);
+
+  useEffect(() => {
+    const nav = stepNavigation.current;
+    const active = nav?.querySelector<HTMLButtonElement>('button[aria-current="step"]');
+    if (!nav || !active) return;
+    const centerActive = () => {
+      if (nav.scrollWidth <= nav.clientWidth) return;
+      const offset = active.getBoundingClientRect().left - nav.getBoundingClientRect().left;
+      nav.scrollLeft += offset - nav.clientWidth / 2 + active.clientWidth / 2;
+    };
+    centerActive();
+    const observer = new ResizeObserver(centerActive);
+    observer.observe(nav);
+    return () => observer.disconnect();
+  }, [step, topic]);
+
+  useEffect(() => {
+    if (!narration || !playing) return;
+    if (!('speechSynthesis' in window)) return;
+    const utterance = new SpeechSynthesisUtterance(current.instruction);
+    utterance.lang = 'ko-KR'; utterance.rate = .85;
+    const voice = window.speechSynthesis.getVoices().find(value => value.lang.startsWith('ko'));
+    if (voice) utterance.voice = voice;
+    utterance.onerror = event => {
+      if (event.error === 'canceled' || event.error === 'interrupted') return;
+      setNarrationMessage('한국어 음성을 사용할 수 없어 자막으로 안내합니다.');
+      setNarration(false);
+    };
+    window.speechSynthesis.speak(utterance);
+    return () => window.speechSynthesis.cancel();
+  }, [current.instruction, narration, playing]);
+
+  const selectStep = (index: number, nextModel = model, nextTopic = topic) => {
+    const sequence = sequenceFor(nextTopic, nextModel);
+    const next = Math.max(0, Math.min(sequence.length - 1, index));
+    const wide = nextTopic === 'tylko-clip' && (clipPresentation === 'reference' || nextTopic !== topic) || sequence[next].view === 'overview' || sequence[next].view === 'clip-colour';
+    Object.assign(playback.current, { model: nextModel, topic: nextTopic, step: next, progress: 0, playing: false, overview: wide, rear: false, manual: false, revision: playback.current.revision + 1, inspection: 'auto' });
+    setModel(nextModel); setTopic(nextTopic); setStep(next); setProgress(0); setPlaying(false);
+    setOverview(wide); setRear(false); setConfirmed(false); setFinished(false);
+    setInspection('auto');
+    if (nextModel !== model || nextTopic !== topic) setCompletedSteps(new Set());
+    if (nextTopic !== topic) setClipPresentation('reference');
+    setInside(nextTopic === 'tylko-clip' && next < 4 || nextTopic === 'back-panel' && next >= 3 && next <= 5);
+  };
+  const play = (repeat = false) => {
+    if (repeat || done) { playback.current.progress = 0; setProgress(0); setConfirmed(false); setFinished(false); }
+    playback.current.playing = repeat || done || !playing;
+    playback.current.manual = false;
+    setPlaying(playback.current.playing);
+  };
+  const seek = (value: number) => {
+    Object.assign(playback.current, { progress: value, playing: false, manual: false });
+    setProgress(value); setPlaying(false); setConfirmed(false); setFinished(false);
+  };
+  const view = (wide: boolean, back: boolean) => {
+    Object.assign(playback.current, { overview: wide, rear: back, manual: false, revision: playback.current.revision + 1, inspection: 'auto' });
+    setOverview(wide); setRear(back);
+    setInspection('auto');
+  };
+  const inspect = (value: JointInspection) => {
+    Object.assign(playback.current, { inspection: value, overview: false, manual: false, revision: playback.current.revision + 1 });
+    setInspection(value); setOverview(false);
+  };
+  const confirm = (checked: boolean) => {
+    setConfirmed(checked);
+    setCompletedSteps(previous => {
+      const next = new Set(previous);
+      if (checked) next.add(step); else next.delete(step);
+      return next;
+    });
+  };
+  const changeClipPresentation = (value: 'reference' | 'model') => {
+    setClipPresentation(value);
+    selectStep(step);
+    setCompletedSteps(new Set());
+    view(value === 'reference' || step === 0, false);
+  };
+  const toggleNarration = () => {
+    if (!('speechSynthesis' in window)) { setNarrationMessage('이 브라우저에서는 자막으로 안내합니다.'); return; }
+    setNarration(value => !value); setNarrationMessage('');
+  };
+  const fullscreen = async () => {
+    try {
+      if (document.fullscreenElement) await document.exitFullscreen();
+      else await container.current?.requestFullscreen();
+    } catch { setNarrationMessage('이 브라우저에서는 현재 화면 크기로 재생합니다.'); }
+  };
+
+  return <main ref={container} className={styles.guide}>
+    <header className={styles.header}>
+      <Link href="/configurator" className={styles.back}>← 가구로 돌아가기</Link>
+      <span className={styles.brand}>befun <span>조립 스튜디오</span></span>
+      <button type="button" onClick={fullscreen} aria-label="조립 안내 전체 화면">⛶ 전체 화면</button>
+    </header>
+    <div className={styles.body}>
+      <aside className={styles.sidebar} aria-label="조립 순서">
+        <div className={styles.topics} role="group" aria-label="조립 안내 종류"><button type="button" aria-pressed={topic === 'tylko-clip'} onClick={() => selectStep(0, model, 'tylko-clip')}>Tylko 클립</button><button type="button" aria-pressed={topic === 'connector'} onClick={() => selectStep(0, model, 'connector')}>OVVO</button><button type="button" aria-pressed={topic === 'back-panel'} onClick={() => selectStep(0, model, 'back-panel')}>백패널·핀</button></div>
+        <div className={styles.intro}><p className={styles.eyebrow}>{topic === 'tylko-clip' ? '원본 자료로 조립 순서 확인' : '가까이 보고, 그대로 따라 하기'}</p><h1>{topic === 'tylko-clip' ? <>같은 색부터<br />끝선 정렬까지.</> : topic === 'back-panel' ? <>아래 핀부터<br />위쪽 잠금까지.</> : <>커넥터부터<br />패널 결합까지.</>}</h1><p>{topic === 'tylko-clip' ? <>실물 모델 교정 전 자료 보기입니다.<br />3D 피스·클립은 아직 실물과 다릅니다.</> : <>한 단계씩 보고 직접 조립하세요.<br />준비가 되면 다음 단계로 넘어갑니다.</>}</p></div>
+        {topic === 'connector' && <label className={styles.model}>OVVO 예시<select value={model} onChange={event => selectStep(0, event.target.value as ConnectorModel)}><option value="V-1230R">V-1230R · 밀어 결합</option><option value="V-1230P">V-1230P · 눌러 결합</option></select></label>}
+        {topic === 'tylko-clip' && <label className={styles.model}>색상 대응<select value={clipColourVersion} onChange={event => { setClipColourVersion(event.target.value as ClipColourVersion); selectStep(0); setCompletedSteps(new Set()); }}><option value="black-orange">검정·주황 · 구형 색상</option><option value="black-silver">검정·은색</option></select></label>}
+        {topic === 'tylko-clip' && <div className={styles.presentation} role="group" aria-label="Tylko 자료 보기 방식"><button type="button" aria-pressed={referenceOnly} onClick={() => changeClipPresentation('reference')}>원본 자료</button><button type="button" aria-pressed={!referenceOnly} onClick={() => changeClipPresentation('model')}>추정 3D</button></div>}
+        <nav ref={stepNavigation} className={styles.steps} aria-label="단계 선택">{steps.map((item, index) => <button type="button" key={item.title} aria-current={step === index ? 'step' : undefined} onClick={() => selectStep(index)}><span>{String(index + 1).padStart(2, '0')}</span><span>{item.title}</span><span aria-hidden="true">{completedSteps.has(index) ? '✓' : step === index ? '●' : '›'}</span></button>)}</nav>
+        <p className={styles.example}>{topic === 'tylko-clip' ? '기본 화면은 원본 사진·도해입니다. 추정 3D의 피스 머리·목·치수와 클립 내부는 실물 재현이 아닙니다. 실제 부품 조립 안내는 모델 교정 후 제공해야 합니다.' : topic === 'back-panel' ? 'Tylko Original의 하단 고정핀·상단 스프링핀 방식을 보여주는 예시입니다. 출고 핀 규격과 제품별 위치는 별도로 맞춰야 합니다.' : 'OVVO의 큰 조립 순서를 보여주는 초기 시연입니다. 현재 부품 외형·홈 간섭의 도면 검증은 미완료이며, 실제 출고 안내는 별도로 맞춰야 합니다.'} <a href={topic === 'tylko-clip' ? tylkoClipSource : topic === 'back-panel' ? backPanelSource : guideSources[model]} target="_blank" rel="noreferrer">제조사 조립 자료 ↗</a></p>
+      </aside>
+      <section className={`${styles.stage} ${referenceOnly ? styles.referenceStage : ''}`} aria-label={referenceOnly ? '원본 조립 자료' : '3D 조립 장면'}>
+        <div className={styles.canvas}>{referenceOnly ? <ReferenceClipGuide step={step} detail={!overview} colourVersion={clipColourVersion} /> : <GuideScene onTick={tick} onManual={manual} model={model} topic={topic} step={step} inside={inside} clipColourVersion={clipColourVersion} onUpdate={update} />}</div>
+        <div className={styles.sceneHeading}><span className={styles.stepPill}>{String(step + 1).padStart(2, '0')} / {String(steps.length).padStart(2, '0')}</span><h2>{current.title}</h2><p>{topic === 'tylko-clip' ? referenceOnly ? '원본 자료에서 위치와 방향을 확인하세요.' : '실물과 다른 추정 피스·클립 모델입니다.' : playing ? '동작을 가까이 보고 따라 하세요' : done ? '영상이 멈췄습니다. 직접 조립 후 확인하세요.' : '재생을 누르면 이 단계의 동작을 보여드립니다.'}</p></div>
+        <div className={styles.viewTools} role="group" aria-label="결합부 보기">
+          <button type="button" aria-pressed={!overview} onClick={() => view(false, rear)}>{referenceOnly ? '⊙ 원본 영역 확대' : '⊙ 결합부 확대'}</button>
+          <button type="button" aria-pressed={overview} onClick={() => view(true, rear)}>{referenceOnly ? '◇ 전체 도해' : '◇ 전체 위치'}</button>
+          {!referenceOnly && <><button type="button" aria-pressed={inside} onClick={() => setInside(value => !value)}>▱ 내부 보기</button><button type="button" aria-pressed={rear} onClick={() => view(overview, !rear)}>↔ 반대편</button></>}
+          {topic === 'connector' && <div className={styles.inspectionTools}><button type="button" aria-pressed={inspection === 'front'} onClick={() => inspect('front')}>정면</button><button type="button" aria-pressed={inspection === 'side'} onClick={() => inspect('side')}>측면</button><button type="button" aria-pressed={inspection === 'section'} onClick={() => inspect('section')}>단면</button></div>}
+        </div>
+        {!referenceOnly && <span className={styles.dragHint}>{topic === 'tylko-clip' ? '추정 동작 개념 · 실물 형상 미검증' : '드래그로 회전 · 스크롤로 확대'}</span>}
+        <div className={styles.caption} aria-live="polite"><p>{finished ? topic === 'tylko-clip' ? '자료 확인을 마쳤습니다. 실제 부품 조립 검증은 별도로 필요합니다.' : '이 접합부의 안내를 모두 확인했습니다.' : current.instruction}</p></div>
+        <footer className={styles.transport}>
+          {!referenceOnly && <>
+          <div className={styles.timeline}><span>{playing ? '재생 중' : done ? '직접 따라 하기' : '준비'}</span><input type="range" min="0" max="1000" value={Math.round(progress * 1000)} onChange={event => seek(Number(event.target.value) / 1000)} aria-label="현재 단계 재생 위치" /><span>{Math.round(progress * 100)}%</span></div>
+          <div className={styles.actions}>
+            <button type="button" className={styles.play} onClick={() => play()}>{playing ? 'Ⅱ 일시정지' : done ? '↻ 다시 보기' : '▶ 단계 재생'}</button>
+            <button type="button" onClick={() => play(true)} aria-label="현재 단계 처음부터 다시 재생">↻ 반복</button>
+            <label className={styles.speed}>속도<select value={speed} aria-label="조립 재생 속도" onChange={event => { const value = Number(event.target.value); playback.current.speed = value; setSpeed(value); }}><option value={.25}>0.25×</option><option value={.5}>0.5×</option><option value={1}>1×</option></select></label>
+            <button type="button" aria-pressed={narration} onClick={toggleNarration}>{narration ? '♪ 음성 켜짐' : '♪ 음성 안내'}</button>
+            <button type="button" className={styles.previous} disabled={step === 0} onClick={() => selectStep(step - 1)}>← 이전</button>
+          </div>
+          </>}
+          {referenceOnly && <div className={styles.referenceActions}><button type="button" disabled={step === 0} onClick={() => selectStep(step - 1)}>← 이전 자료</button><span>원본 자료 확인 · 실제 조립 완료 여부와 별개</span></div>}
+          <div className={styles.check}><label><input type="checkbox" checked={confirmed} disabled={!done} onChange={event => confirm(event.target.checked)} /><span>{topic === 'tylko-clip' ? referenceOnly ? '이 단계의 원본 자료를 확인했어요' : '이 단계의 추정 동작 개념을 확인했어요' : current.check}</span></label><button type="button" disabled={!confirmed || finished} onClick={() => step < steps.length - 1 ? selectStep(step + 1) : firstMissing !== -1 ? selectStep(firstMissing) : setFinished(true)}>{finished ? topic === 'tylko-clip' ? '자료 확인 완료 ✓' : '확인 완료 ✓' : step === steps.length - 1 ? firstMissing !== -1 ? '앞 단계도 확인하기 →' : topic === 'tylko-clip' ? '자료 확인 완료 ✓' : '결합 확인 완료 ✓' : '확인했어요 · 다음 →'}</button></div>
+          {narrationMessage && <p role="status" className={styles.message}>{narrationMessage}</p>}
+        </footer>
+      </section>
+    </div>
+  </main>;
+}

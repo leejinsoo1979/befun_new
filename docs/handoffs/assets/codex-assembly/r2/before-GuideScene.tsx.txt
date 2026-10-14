@@ -1,0 +1,213 @@
+'use client';
+
+import { memo, useEffect, useMemo, useRef, type ComponentRef } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Environment, Html, Lightformer, OrbitControls } from '@react-three/drei';
+import { ExtrudeGeometry, Group, Path, Plane, Shape, Vector3 } from 'three';
+import { inspectionShot, type JointInspection } from '@/lib/assembly-guide/inspectionShot';
+import { guideShot, jointExample, jointPose, type ConnectorModel, type GuideTopic } from '@/lib/assembly-guide/sequence';
+import { BackPanelScene } from './BackPanelScene';
+import { TylkoClipScene } from './TylkoClipScene';
+import type { ClipColourVersion } from '@/lib/assembly-guide/tylkoClip';
+import styles from './guide.module.css';
+
+export interface GuidePlayback {
+  model: ConnectorModel;
+  topic: GuideTopic;
+  step: number;
+  progress: number;
+  playing: boolean;
+  speed: number;
+  overview: boolean;
+  rear: boolean;
+  manual: boolean;
+  revision: number;
+  inspection: JointInspection;
+}
+
+export type SceneProps = {
+  onTick: (delta: number) => GuidePlayback;
+  onManual: () => void;
+  model: ConnectorModel;
+  topic: GuideTopic;
+  step: number;
+  inside: boolean;
+  clipColourVersion: ClipColourVersion;
+  onUpdate: (progress: number, playing: boolean) => void;
+};
+
+function slotShell(width: number, depth: number) {
+  const shape = new Shape();
+  shape.moveTo(-width / 2, -depth / 2);
+  shape.lineTo(width / 2, -depth / 2);
+  shape.lineTo(width / 2, depth / 2);
+  shape.lineTo(-width / 2, depth / 2);
+  shape.closePath();
+  const radius = jointExample.slotWidth / 2;
+  const travel = (jointExample.slotLength - jointExample.slotWidth) / 2;
+  for (const center of jointExample.centers) {
+    const hole = new Path();
+    hole.moveTo(-radius, center - travel);
+    hole.lineTo(-radius, center + travel);
+    hole.absarc(0, center + travel, radius, Math.PI, 0, true);
+    hole.lineTo(radius, center - travel);
+    hole.absarc(0, center - travel, radius, 0, -Math.PI, true);
+    shape.holes.push(hole);
+  }
+  return new ExtrudeGeometry(shape, { depth: jointExample.slotDepth, bevelEnabled: false, curveSegments: 32 });
+}
+
+function Board({ upright, inside }: { upright?: boolean; inside: boolean }) {
+  const width = upright ? jointExample.thickness : jointExample.width;
+  const shell = useMemo(() => slotShell(width, jointExample.depth), [width]);
+  useEffect(() => () => shell.dispose(), [shell]);
+  const material = { color: upright ? '#d1b68c' : '#e3d3b6', roughness: .65, transparent: inside, opacity: inside ? .16 : 1, depthWrite: !inside };
+  const remaining = upright ? jointExample.height - jointExample.slotDepth : jointExample.thickness - jointExample.slotDepth;
+  return <group>
+    <mesh geometry={shell} position={[0, upright ? jointExample.slotDepth : 0, 0]} rotation={[Math.PI / 2, 0, 0]} castShadow={!inside} receiveShadow={!inside} dispose={null}>
+      <meshStandardMaterial {...material} key={inside ? 'inside' : 'solid'} />
+    </mesh>
+    <mesh position={[0, upright ? jointExample.slotDepth + remaining / 2 : -jointExample.slotDepth - remaining / 2, 0]} castShadow={!inside} receiveShadow={!inside}>
+      <boxGeometry args={[width, remaining, jointExample.depth]} />
+      <meshStandardMaterial {...material} key={inside ? 'inside' : 'solid'} />
+    </mesh>
+  </group>;
+}
+
+// Envelope and visible ribs illustrate the official instruction diagrams;
+// supplier CAD and the internal flex/locking mechanism are not claimed.
+function Housing({ receiver = false }: { receiver?: boolean }) {
+  return <group>
+    {[-1, 1].map(side => <group key={side}>
+      <mesh position={[side * 3.7, -5.7, 0]} castShadow><boxGeometry args={[1.3, 11.4, 27]} /><meshStandardMaterial color="#c1c3bd" roughness={.37} /></mesh>
+      <mesh position={[side * 4.1, -.6, 0]}><boxGeometry args={[1.1, 1.2, 28]} /><meshStandardMaterial color="#b8bab4" roughness={.4} /></mesh>
+      {[0, 1, 2].map(rib => <mesh key={rib} position={[side * 4.15, -3 - rib * 3.2, 0]}><boxGeometry args={[.8, .65, 26]} /><meshStandardMaterial color="#a6a9a1" roughness={.45} /></mesh>)}
+    </group>)}
+    <mesh position={[0, -11.8, 0]}><boxGeometry args={[8.6, 1.1, 27]} /><meshStandardMaterial color="#b8bab4" roughness={.4} /></mesh>
+    {[-1, 1].map(end => <mesh key={end} position={[0, -5.8, end * 13.7]}><boxGeometry args={[8.6, 11.6, 1]} /><meshStandardMaterial color="#b8bab4" roughness={.4} /></mesh>)}
+    {receiver && <mesh position={[0, -2.2, -7.5]}><boxGeometry args={[6.4, 1, 13]} /><meshStandardMaterial color="#7e8479" roughness={.4} /></mesh>}
+  </group>;
+}
+
+function Connector({ model }: { model: ConnectorModel }) {
+  const released = model === 'V-1230R';
+  const spring = useMemo(() => {
+    const shape = new Shape();
+    shape.moveTo(-1.1, .5); shape.lineTo(-3.1, -3); shape.lineTo(-2.7, -7.8);
+    shape.lineTo(-1.5, -11.5); shape.lineTo(1.5, -11.5); shape.lineTo(2.7, -7.8);
+    shape.lineTo(3.1, -3); shape.lineTo(1.1, .5); shape.lineTo(.7, -3.5);
+    shape.lineTo(1.3, -7); shape.lineTo(.65, -9); shape.lineTo(-.65, -9);
+    shape.lineTo(-1.3, -7); shape.lineTo(-.7, -3.5); shape.closePath();
+    return new ExtrudeGeometry(shape, { depth: released ? 12 : 26, bevelEnabled: true, bevelSegments: 2, steps: 1, bevelSize: .18, bevelThickness: .18 });
+  }, [released]);
+  useEffect(() => () => spring.dispose(), [spring]);
+  return <group>
+    <mesh position={[0, 5, 0]} castShadow><boxGeometry args={[3.4, 10, 26]} /><meshStandardMaterial color="#48614b" roughness={.4} /></mesh>
+    {[-1, 1].map(side => <mesh key={side} position={[side * 2, 8, 0]}><boxGeometry args={[1.1, 3, 26]} /><meshStandardMaterial color="#547359" roughness={.4} /></mesh>)}
+    <mesh geometry={spring} position={[0, 0, -13]} castShadow dispose={null}><meshStandardMaterial color="#cf8c46" roughness={.43} /></mesh>
+    <mesh position={[0, .4, 0]}><boxGeometry args={[7, 1, 27]} /><meshStandardMaterial color="#48614b" roughness={.4} /></mesh>
+  </group>;
+}
+
+function DirectionArrow({ direction }: { direction: 'down' | 'up' | 'slide' }) {
+  return <group rotation={direction === 'slide' ? [-Math.PI / 2, 0, 0] : direction === 'up' ? [0, 0, 0] : [Math.PI, 0, 0]}>
+    <mesh position={[0, 9, 0]}><cylinderGeometry args={[.85, .85, 18, 16]} /><meshStandardMaterial color="#339922" emissive="#339922" emissiveIntensity={.15} /></mesh>
+    <mesh position={[0, 21, 0]}><coneGeometry args={[3.1, 6, 24]} /><meshStandardMaterial color="#339922" /></mesh>
+  </group>;
+}
+
+function JointScene({ onTick, onManual, model, step, inside, onUpdate }: SceneProps) {
+  const gl = useThree(state => state.gl);
+  const sectionPlanes = useMemo(() => [new Plane(new Vector3(-1, 0, 0), 0)], []);
+  useEffect(() => () => { gl.clippingPlanes = []; }, [gl]);
+  const panel = useRef<Group>(null);
+  const baseHardware = useRef<Group>(null);
+  const endHardware = useRef<Group>(null);
+  const connectors = useRef<Group>(null);
+  const arrow = useRef<Group>(null);
+  const controls = useRef<ComponentRef<typeof OrbitControls>>(null);
+  const report = useRef(0);
+  const published = useRef({ progress: -1, playing: false });
+  const cameraState = useRef(-1);
+  const vectors = useMemo(() => ({ position: new Vector3(), target: new Vector3() }), []);
+
+  useFrame(({ camera, size, gl }, delta) => {
+    const state = onTick(delta);
+    gl.clippingPlanes = state.inspection === 'section' ? sectionPlanes : [];
+    report.current += delta;
+    if ((report.current > .1 || state.progress === 1) && (published.current.progress !== state.progress || published.current.playing !== state.playing)) {
+      report.current = 0;
+      published.current = { progress: state.progress, playing: state.playing };
+      onUpdate(state.progress, state.playing);
+    }
+    const pose = jointPose(state.model, state.step, state.progress);
+    panel.current?.position.set(0, pose.panelGap, pose.panelSlide);
+    if (baseHardware.current) { baseHardware.current.position.y = pose.baseHousingOffset; baseHardware.current.visible = pose.baseHousingsVisible; }
+    if (endHardware.current) { endHardware.current.position.y = pose.endHousingOffset; endHardware.current.visible = pose.endHousingsVisible; }
+    if (connectors.current) { connectors.current.position.y = pose.connectorOffset; connectors.current.visible = pose.connectorsVisible; }
+    if (arrow.current) {
+      arrow.current.visible = state.step >= 1 && !pose.complete;
+      const y = state.step === 1 ? pose.baseHousingOffset + 32 : state.step === 2 || state.step === 3 ? pose.panelGap - 40 : Math.max(36, pose.panelGap + 18);
+      arrow.current.position.set(16, y, jointExample.centers[0] + (state.step > 1 ? pose.panelSlide : 0));
+    }
+    if (!state.manual && controls.current) {
+      const aspect = size.width / Math.max(1, size.height);
+      const inspection = state.inspection ?? 'auto';
+      const target: [number, number, number] = [0, state.step === 2 || state.step === 3 ? pose.panelGap + 3 : -5, jointExample.centers[0] + (state.step === 2 || state.step === 3 ? pose.panelSlide : 0)];
+      const shot = inspection === 'auto' ? guideShot(state.model, state.step, state.progress, aspect, state.overview, state.rear) : inspectionShot(inspection, target, aspect);
+      camera.up.set(...('up' in shot ? shot.up : [0, 1, 0]));
+      vectors.position.set(...shot.position); vectors.target.set(...shot.target);
+      const initial = cameraState.current === -1;
+      const blend = initial ? 1 : 1 - Math.exp(-4 * Math.min(delta, .05));
+      if (inspection === 'auto') {
+        camera.position.lerp(vectors.position, blend);
+        controls.current.target.lerp(vectors.target, blend);
+        controls.current.update();
+      } else {
+        camera.position.copy(vectors.position);
+        controls.current.target.copy(vectors.target);
+        camera.lookAt(vectors.target);
+      }
+      cameraState.current = state.revision;
+    }
+  });
+
+  return <>
+    <ambientLight intensity={.4} />
+    <directionalLight position={[100, 100, -160]} intensity={1.2} />
+    <directionalLight position={[30, -60, 80]} intensity={.65} />
+    <Environment resolution={128} frames={1}>
+      <Lightformer position={[-160, 250, 150]} intensity={3} scale={[300, 200, 1]} />
+      <Lightformer position={[160, 100, -180]} intensity={2} scale={[200, 200, 1]} />
+    </Environment>
+    <directionalLight position={[-180, 300, 220]} intensity={2.6} castShadow shadow-mapSize={[2048, 2048]} shadow-radius={4} shadow-camera-left={-220} shadow-camera-right={220} shadow-camera-top={280} shadow-camera-bottom={-150} shadow-camera-far={1000} shadow-normalBias={.18} />
+    <mesh position={[0, -18.15, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow><planeGeometry args={[5000, 5000]} /><meshStandardMaterial color="#dfdcd3" roughness={.9} /></mesh>
+    <Board inside={inside} />
+    <group ref={baseHardware}>
+      {jointExample.centers.map(z => <group key={z} position={[0, 0, z]}><Housing receiver={model === 'V-1230R'} /></group>)}
+      {step === 1 && <Html position={[14, 8, jointExample.centers[0]]} center className={styles.partLabel}>{model === 'V-1230R' ? 'V-1230RH' : 'V-1230PH'} · A의 홈</Html>}
+    </group>
+    <group ref={panel}>
+      <Board upright inside={inside} />
+      <group ref={endHardware}>
+        {jointExample.centers.map(z => <group key={z} position={[0, 0, z]} rotation={[Math.PI, 0, 0]}><Housing /></group>)}
+        {step === 2 && <Html position={[17, -5, jointExample.centers[0]]} center className={styles.partLabel}>V-1230PH · B의 아래 끝</Html>}
+      </group>
+      <group ref={connectors}>
+        {jointExample.centers.map(z => <group key={z} position={[0, 0, z]}><Connector model={model} /></group>)}
+        {step === 3 && <Html position={[18, -7, jointExample.centers[0]]} center className={styles.partLabel}>{model === 'V-1230R' ? 'V-1230RC' : 'V-1230PC'} · 연결부가 아래로</Html>}
+      </group>
+      {step === 0 && <Html position={[13, 95, 70]} center className={styles.partLabel}><span>B</span> 세로판 · 아래 끝에 홈</Html>}
+    </group>
+    {step === 0 && <Html position={[47, 1, 67]} center className={styles.partLabel}><span>A</span> 받침판 · 홈이 위로</Html>}
+    <group ref={arrow}><DirectionArrow direction={step === 2 || step === 3 ? 'up' : model === 'V-1230R' && step === 6 ? 'slide' : 'down'} /></group>
+    <OrbitControls ref={controls} makeDefault enableDamping minDistance={35} maxDistance={1800} maxPolarAngle={Math.PI * .8} onStart={onManual} />
+  </>;
+}
+
+export const GuideScene = memo(function GuideScene(props: SceneProps) {
+  return <Canvas shadows dpr={[1, 2]} camera={{ position: [280, 240, 320], fov: 40, near: 1, far: 8000 }} gl={{ antialias: true }} onCreated={({ gl }) => { gl.localClippingEnabled = true; }}>
+    <color attach="background" args={['#e9e6de']} />
+    {props.topic === 'tylko-clip' ? <TylkoClipScene {...props} /> : props.topic === 'back-panel' ? <BackPanelScene {...props} /> : <JointScene {...props} />}
+  </Canvas>;
+});
