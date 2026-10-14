@@ -13,3 +13,7 @@
 완료본 준비 후 공유 작업트리에서 새로 시작된 Blum useBoredBox/geometry/Door/Panel 수정4파일은 미커밋·미완료라 포함하지 않았다. 이 코드를 되돌리거나 수정하지 않았다. 본 통합은 완료된 Desk/Wardrobe·로고 연출 납품 wave를 대상으로 한다.
 
 원격 push 뒤 생산 alias의 commit 및 READY를 확인한다. 운영 env0개로 인한 인증/DB 저장 미완료는 기존 배포 인계 그대로이며 성공으로 보고하지 않는다.
+
+## R4 조립 안내 게시 준비 — codex-assembly / 2026-10-14
+
+팀완료본 bf924ae Git 배포 dpl_AgVd4CkNEWyZ6SiA96RcMwoVcc5g가READY,alias befun-new.vercel.app를확인했다. 별도MMM빌드취소는실행하지않았다. R4시연재질·공식R분해·cold texture교정·자원해제·증거만이어서게시한다. 공동R4진행중변경/공용재질/HW/CNC/route/.git는포함하지않는다. latest build/TypeScript PASS, lint0/7,41testsPASS,소스차이0. 이번commit·deployment 실제결과는후속수신기록에기재한다.

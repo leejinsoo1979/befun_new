@@ -9,6 +9,7 @@ import { clipBodyExtent } from '@/components/three/furniture-hardware/connectors
 import { clipColours, clipExample, tylkoClipPose, tylkoClipShot } from '@/lib/assembly-guide/tylkoClip';
 import type { SceneProps } from './GuideScene';
 import styles from './guide.module.css';
+import { GuidePanel } from './GuidePanel';
 import { createCameraRig, updateCameraRig } from './cameraRig';
 
 const colourNames = { black: '검정', orange: '주황', silver: '은색' };
@@ -36,10 +37,9 @@ function panelEndGeometry() {
 function MovingBoard({ inside }: { inside: boolean }) {
   const end = useMemo(() => panelEndGeometry(), []);
   useEffect(() => () => end.dispose(), [end]);
-  const material = { color: '#dfe2e7', roughness: .68, transparent: inside, opacity: inside ? .07 : 1, depthWrite: !inside };
   return <group>
-    <mesh geometry={end} castShadow={!inside} receiveShadow={!inside} dispose={null}><meshStandardMaterial {...material} key={String(inside)} /></mesh>
-    <mesh position={[0, 0, -(clipExample.depth + clipExample.clip.depthMm) / 2]} castShadow={!inside} receiveShadow={!inside}><boxGeometry args={[clipExample.height, clipExample.thickness, clipExample.depth - clipExample.clip.depthMm]} /><meshStandardMaterial {...material} key={String(inside)} /></mesh>
+    <GuidePanel source={end} size={[clipExample.height, clipExample.thickness, clipExample.clip.depthMm]} axis={1} inside={inside} />
+    <GuidePanel size={[clipExample.height, clipExample.thickness, clipExample.depth - clipExample.clip.depthMm]} axis={1} position={[0, 0, -(clipExample.depth + clipExample.clip.depthMm) / 2]} inside={inside} />
   </group>;
 }
 
@@ -92,7 +92,7 @@ export function TylkoClipScene({ onTick, onManual, onUpdate, step, inside, clipC
 
   return <>
     <group rotation={[0, 0, Math.PI / 2]}>
-      <mesh position={[0, 0, clipExample.thickness / 2]} castShadow={!inside}><boxGeometry args={[clipExample.height, clipExample.width, clipExample.thickness]} /><meshStandardMaterial color="#dfe2e7" roughness={.7} transparent={inside} opacity={inside ? .07 : 1} depthWrite={!inside} key={String(inside)} /></mesh>
+      <GuidePanel size={[clipExample.height, clipExample.width, clipExample.thickness]} axis={2} position={[0, 0, clipExample.thickness / 2]} inside={inside} />
       {clipExample.centers.map((x, i) => <group key={`${x}-${colours[i]}`} position={[x + clipExample.clip.travelMm, 0, 0]} rotation={[Math.PI, 0, 0]} dispose={null}>
         <TylkoClipPin dims={clipExample.pin} material={materials[i].pin} />
       </group>)}

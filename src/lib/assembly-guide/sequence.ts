@@ -95,7 +95,7 @@ export function guideShot(model: ConnectorModel, step: number, progress: number,
   const end = view === 'end' || view === 'connector';
   const target: Point3 = wide ? [0, 65, 0] : [0, end ? pose.panelGap + 3 : view === 'face' ? 3 : pose.panelGap * .22, jointExample.centers[0] + (end ? pose.panelSlide : 0)];
   const direction: Point3 = wide ? [1, .65, 1.25] : end ? [1, -.4, .85] : [1, .65, .9];
-  if (rear) direction[2] *= -1;
+  if (rear) { direction[0] *= -1; direction[2] *= -1; }
   const radius = wide ? 210 : 31;
   const fit = radius / Math.sin(Math.atan(Math.tan(Math.PI / 9) * Math.min(1, Math.max(.2, aspect))));
   const length = Math.hypot(...direction);

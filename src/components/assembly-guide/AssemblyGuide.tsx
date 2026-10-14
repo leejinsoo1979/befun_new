@@ -7,6 +7,7 @@ import { FiArrowLeft, FiArrowRight, FiPlay, FiPause, FiRotateCcw, FiMaximize, Fi
 import { advanceTimeline, locateTimeline } from '@/lib/assembly-guide/playback';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { guideSources, guideSteps, type ConnectorModel, type GuideTopic } from '@/lib/assembly-guide/sequence';
+import { releaseSteps, canConfirmRelease, type JointAction } from '@/lib/assembly-guide/disassembly';
 import { backPanelSource, backPanelSteps } from '@/lib/assembly-guide/backPanel';
 import { tylkoClipSource, tylkoClipSteps, type ClipColourVersion } from '@/lib/assembly-guide/tylkoClip';
 import type { GuidePlayback } from './GuideScene';
@@ -21,12 +22,13 @@ const GuideScene = dynamic(() => import('./GuideScene').then(module => module.Gu
   loading: () => <div className={styles.loading} role="status">조립 장면을 준비하고 있습니다…</div>,
 });
 
-const sequenceFor = (topic: GuideTopic, model: ConnectorModel, legAction: LegAction = 'disassemble') => topic === 'legs' ? legSteps(legAction) : topic === 'tylko-clip' ? tylkoClipSteps : topic === 'back-panel' ? backPanelSteps : guideSteps(model);
+const sequenceFor = (topic: GuideTopic, model: ConnectorModel, legAction: LegAction = 'disassemble', jointAction: JointAction = 'assemble') => topic === 'legs' ? legSteps(legAction) : topic === 'tylko-clip' ? tylkoClipSteps : topic === 'back-panel' ? backPanelSteps : jointAction === 'disassemble' && model === 'V-1230R' ? releaseSteps : guideSteps(model);
 
-export function AssemblyGuide({ initialTopic = 'tylko-clip' }: { initialTopic?: GuideTopic }) {
+export function AssemblyGuide({ initialTopic = 'tylko-clip', initialJointAction = 'assemble' }: { initialTopic?: GuideTopic; initialJointAction?: JointAction }) {
   const [topic, setTopic] = useState<GuideTopic>(initialTopic);
   const [legAction, setLegAction] = useState<LegAction>('disassemble');
   const [legPresentation, setLegPresentation] = useState<'reference' | 'model'>('reference');
+  const [jointAction, setJointAction] = useState<JointAction>(initialJointAction);
   const [model, setModel] = useState<ConnectorModel>('V-1230R');
   const [step, setStep] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -49,14 +51,15 @@ export function AssemblyGuide({ initialTopic = 'tylko-clip' }: { initialTopic?: 
   const [completedSteps, setCompletedSteps] = useState<ReadonlySet<number>>(new Set());
   const container = useRef<HTMLDivElement>(null);
   const stepNavigation = useRef<HTMLElement>(null);
-  const playback = useRef<GuidePlayback>({ model: 'V-1230R', topic: initialTopic, step: 0, progress: 0, playing: false, speed: 1, overview: initialTopic !== 'legs', rear: false, manual: false, revision: 0, inspection: 'auto', continuous: true, reference: initialTopic === 'tylko-clip' || initialTopic === 'legs', legAction: 'disassemble' });
-  const steps = sequenceFor(topic, model, legAction);
+  const playback = useRef<GuidePlayback>({ model: 'V-1230R', topic: initialTopic, step: 0, progress: 0, playing: false, speed: 1, overview: initialTopic !== 'legs', rear: false, manual: false, revision: 0, inspection: 'auto', continuous: true, reference: initialTopic === 'tylko-clip' || initialTopic === 'legs', legAction: 'disassemble', jointAction: initialJointAction });
+  const steps = sequenceFor(topic, model, legAction, jointAction);
   const current = steps[step];
   const referenceOnly = topic === 'tylko-clip' && clipPresentation === 'reference' || topic === 'legs' && legPresentation === 'reference';
-  const done = topic === 'legs' ? canConfirmLeg(legAction, step, progress, completedSteps) : referenceOnly || progress === 1;
+  const releaseFollow = topic === 'connector' && jointAction === 'disassemble';
+  const done = releaseFollow && mode === 'assemble' ? canConfirmRelease(step, progress, completedSteps) : topic === 'legs' ? canConfirmLeg(legAction, step, progress, completedSteps) : referenceOnly || progress === 1;
   const firstMissing = steps.findIndex((_, index) => index !== step && !completedSteps.has(index));
 
-  const autoInside = (value: GuideTopic, chapter: number) => value === 'legs' ? false : value === 'connector' ? chapter >= 3 && chapter <= 6 : value === 'tylko-clip' ? chapter < 4 : chapter >= 3 && chapter <= 5;
+  const autoInside = (value: GuideTopic, chapter: number) => value === 'legs' ? false : value === 'connector' ? jointAction === 'disassemble' ? chapter === 1 || chapter === 2 : chapter >= 3 && chapter <= 6 : value === 'tylko-clip' ? chapter < 4 : chapter >= 3 && chapter <= 5;
   const update = useCallback((value: number, active: boolean) => {
     const state = playback.current;
     setProgress(value); setPlaying(active);
@@ -64,12 +67,12 @@ export function AssemblyGuide({ initialTopic = 'tylko-clip' }: { initialTopic?: 
       displayedStep.current = state.step;
       setStep(state.step); setOverview(state.overview); setRear(false);
       setConfirmed(false); setFinished(false); setInspection('auto'); setFreeCamera(false);
-      setInside(state.topic === 'legs' ? false : state.topic === 'connector' ? state.step >= 3 && state.step <= 6 : state.topic === 'tylko-clip' ? state.step < 4 : state.step >= 3 && state.step <= 5);
+      setInside(state.topic === 'legs' ? false : state.topic === 'connector' ? state.jointAction === 'disassemble' ? state.step === 1 || state.step === 2 : state.step >= 3 && state.step <= 6 : state.topic === 'tylko-clip' ? state.step < 4 : state.step >= 3 && state.step <= 5);
     }
   }, []);
   const tick = useCallback((delta: number) => {
     const state = playback.current;
-    const sequence = sequenceFor(state.topic, state.model, state.legAction);
+    const sequence = sequenceFor(state.topic, state.model, state.legAction, state.jointAction);
     const next = advanceTimeline(state, sequence.map(item => item.duration), delta);
     const changed = next.step !== state.step;
     Object.assign(state, next);
@@ -131,24 +134,25 @@ export function AssemblyGuide({ initialTopic = 'tylko-clip' }: { initialTopic?: 
     return () => window.speechSynthesis.cancel();
   }, [current.instruction, narration, playing]);
 
-  const selectStep = (index: number, nextModel = model, nextTopic = topic, autoPlay = false, nextLegAction = legAction) => {
-    const sequence = sequenceFor(nextTopic, nextModel, nextLegAction);
+  const selectStep = (index: number, nextModel = model, nextTopic = topic, autoPlay = false, nextLegAction = legAction, nextJointAction = jointAction) => {
+    const action = nextModel === 'V-1230P' ? 'assemble' : nextJointAction;
+    const sequence = sequenceFor(nextTopic, nextModel, nextLegAction, action);
     const next = Math.max(0, Math.min(sequence.length - 1, index));
-    if (mode === 'assemble' && nextTopic === 'legs' && nextTopic === topic && nextLegAction === legAction && index > 0 && Array.from({ length: index }, (_, i) => i).some(i => !completedSteps.has(i))) return;
+    if (mode === 'assemble' && (nextTopic === 'legs' || nextTopic === 'connector' && action === 'disassemble') && nextTopic === topic && nextLegAction === legAction && index > 0 && Array.from({ length: index }, (_, i) => i).some(i => !completedSteps.has(i))) return;
     const wide = nextTopic === 'tylko-clip' && (clipPresentation === 'reference' || nextTopic !== topic) || sequence[next].view === 'overview' || sequence[next].view === 'clip-colour';
-    Object.assign(playback.current, { model: nextModel, topic: nextTopic, step: next, progress: 0, playing: autoPlay, overview: wide, rear: false, manual: false, revision: playback.current.revision + 1, inspection: 'auto', continuous: mode === 'watch', reference: nextTopic === 'tylko-clip' && (nextTopic !== topic || clipPresentation === 'reference') || nextTopic === 'legs' && (nextTopic !== topic || legPresentation === 'reference'), legAction: nextLegAction });
+    Object.assign(playback.current, { model: nextModel, topic: nextTopic, step: next, progress: 0, playing: autoPlay, overview: wide, rear: false, manual: false, revision: playback.current.revision + 1, inspection: 'auto', continuous: mode === 'watch', reference: nextTopic === 'tylko-clip' && (nextTopic !== topic || clipPresentation === 'reference') || nextTopic === 'legs' && (nextTopic !== topic || legPresentation === 'reference'), legAction: nextLegAction, jointAction: action });
     displayedStep.current = next;
-    setLegAction(nextLegAction); setModel(nextModel); setTopic(nextTopic); setStep(next); setProgress(0); setPlaying(autoPlay);
+    setJointAction(action); setLegAction(nextLegAction); setModel(nextModel); setTopic(nextTopic); setStep(next); setProgress(0); setPlaying(autoPlay);
     setOverview(wide); setRear(false); setConfirmed(false); setFinished(false);
     setInspection('auto'); setFreeCamera(false);
-    if (nextModel !== model || nextTopic !== topic || nextLegAction !== legAction) setCompletedSteps(new Set());
+    if (nextModel !== model || nextTopic !== topic || nextLegAction !== legAction || action !== jointAction) setCompletedSteps(new Set());
     if (nextTopic !== topic) { setClipPresentation('reference'); setLegPresentation('reference'); }
-    setInside(autoInside(nextTopic, next));
+    setInside(nextTopic === 'connector' && action === 'disassemble' ? next === 1 || next === 2 : autoInside(nextTopic, next));
   };
   const play = (repeat = false) => {
     const ended = mode === 'watch' ? step === steps.length - 1 && progress === 1 : progress === 1;
     if (repeat || ended) {
-      if (topic === 'legs') setCompletedSteps(previous => new Set([...previous].filter(index => index < (mode === 'watch' ? 0 : step))));
+      if (topic === 'legs' || releaseFollow) setCompletedSteps(previous => new Set([...previous].filter(index => index < (mode === 'watch' ? 0 : step))));
       const next = mode === 'watch' ? 0 : step;
       Object.assign(playback.current, { step: next, progress: 0, overview: topic === 'legs' ? steps[next].view === 'overview' : next === 0 || referenceOnly, revision: playback.current.revision + 1, inspection: 'auto' });
       displayedStep.current = next;
@@ -168,7 +172,7 @@ export function AssemblyGuide({ initialTopic = 'tylko-clip' }: { initialTopic?: 
       Object.assign(playback.current, { overview: referenceOnly && topic !== 'legs' || steps[next.step].view === 'overview', inspection: 'auto', revision: playback.current.revision + 1 });
       setOverview(playback.current.overview); setInspection('auto'); setInside(autoInside(topic, next.step));
     }
-    if (topic === 'legs') setCompletedSteps(previous => new Set([...previous].filter(index => index < next.step)));
+    if (topic === 'legs' || releaseFollow) setCompletedSteps(previous => new Set([...previous].filter(index => index < next.step)));
     displayedStep.current = next.step; setFreeCamera(false);
     setStep(next.step); setProgress(next.progress); setPlaying(false); setConfirmed(false); setFinished(false);
   };
@@ -177,7 +181,7 @@ export function AssemblyGuide({ initialTopic = 'tylko-clip' }: { initialTopic?: 
     view(value === 'reference' || step === 4, false);
   };
   const changeMode = (value: 'watch' | 'assemble') => {
-    if (topic === 'legs') { selectStep(0); setCompletedSteps(new Set()); }
+    if (topic === 'legs' || releaseFollow) { selectStep(0); setCompletedSteps(new Set()); }
     setMode(value); playback.current.continuous = value === 'watch'; playback.current.playing = false; setPlaying(false);
   };
   const view = (wide: boolean, back: boolean) => {
@@ -194,7 +198,7 @@ export function AssemblyGuide({ initialTopic = 'tylko-clip' }: { initialTopic?: 
     setConfirmed(checked);
     setCompletedSteps(previous => {
       const next = new Set(previous);
-      if (checked) next.add(step); else if (topic === 'legs') { for (const index of next) if (index >= step) next.delete(index); } else next.delete(step);
+      if (checked) next.add(step); else if (topic === 'legs' || releaseFollow) { for (const index of next) if (index >= step) next.delete(index); } else next.delete(step);
       return next;
     });
   };
@@ -225,7 +229,7 @@ export function AssemblyGuide({ initialTopic = 'tylko-clip' }: { initialTopic?: 
   return <main ref={container} className={styles.guide}>
     <header className={styles.header}>
       <Link href="/" className={styles.brand} aria-label="Befun 홈"><Image src="/imgs/icon/befun_logo.svg" alt="Befun" width={120} height={28} unoptimized priority /></Link>
-      <span className={styles.pageLabel}>조립 안내</span>
+      <span className={styles.pageLabel}>조립·분해 안내</span>
       <div className={styles.topics} role="group" aria-label="조립 안내 종류">
         <button type="button" aria-pressed={topic === 'tylko-clip'} onClick={() => selectStep(0, model, 'tylko-clip')}>Tylko 클립</button>
         <button type="button" aria-pressed={topic === 'connector'} onClick={() => selectStep(0, model, 'connector')}>OVVO</button>
@@ -236,11 +240,11 @@ export function AssemblyGuide({ initialTopic = 'tylko-clip' }: { initialTopic?: 
       <button type="button" className={styles.iconButton} onClick={fullscreen} aria-label="조립 안내 전체 화면" title="전체 화면"><FiMaximize aria-hidden="true" /></button>
     </header>
     <section className={`${styles.stage} ${referenceOnly ? styles.referenceStage : ''} ${mode === 'assemble' ? styles.followStage : ''} ${topic === 'legs' && !referenceOnly ? styles.legModelStage : ''}`} aria-label={referenceOnly ? '원본 조립 자료' : '3D 조립 장면'}>
-      <div className={styles.canvas}>{referenceOnly ? topic === 'legs' ? <ReferenceLegGuide onPauseGuide={() => { playback.current.playing = false; setPlaying(false); }} action={legAction} step={step} progress={progress} detail={!overview} /> : <ReferenceClipGuide key={`${step}-${clipColourVersion}`} step={step} detail={!overview} colourVersion={clipColourVersion} /> : <GuideScene onTick={tick} onManual={manual} model={model} topic={topic} step={step} inside={inside} clipColourVersion={clipColourVersion} onUpdate={update} />}</div>
+      <div className={styles.canvas}>{referenceOnly ? topic === 'legs' ? <ReferenceLegGuide onPauseGuide={() => { playback.current.playing = false; setPlaying(false); }} action={legAction} step={step} progress={progress} detail={!overview} /> : <ReferenceClipGuide key={`${step}-${clipColourVersion}`} step={step} detail={!overview} colourVersion={clipColourVersion} /> : <GuideScene onTick={tick} onManual={manual} model={model} topic={topic} step={step} jointAction={jointAction} inside={inside} clipColourVersion={clipColourVersion} onUpdate={update} />}</div>
       <div className={styles.sceneHeading}>
-        <span className={styles.stepPill}>{topic === 'connector' ? `OVVO ${model}` : topic === 'tylko-clip' ? 'Tylko Original' : topic === 'legs' ? `다리 · ${legAction === 'disassemble' ? '분리' : '조립'}` : '백패널'} <span> / {String(step + 1).padStart(2, '0')} — {String(steps.length).padStart(2, '0')}</span></span>
+        <span className={styles.stepPill}>{topic === 'connector' ? `OVVO ${model} · ${jointAction === 'disassemble' ? '분해' : '조립'}` : topic === 'tylko-clip' ? 'Tylko Original' : topic === 'legs' ? `다리 · ${legAction === 'disassemble' ? '분리' : '조립'}` : '백패널'} <span> / {String(step + 1).padStart(2, '0')} — {String(steps.length).padStart(2, '0')}</span></span>
         <h1>{current.title}</h1>
-        {topic === 'connector' && <label className={styles.model}><span className={styles.srOnly}>OVVO 예시</span><select aria-label="OVVO 예시" value={model} onChange={event => selectStep(0, event.target.value as ConnectorModel)}><option value="V-1230R">V-1230R · 밀어 결합</option><option value="V-1230P">V-1230P · 눌러 결합</option></select><FiChevronDown aria-hidden="true" /></label>}
+        {topic === 'connector' && <div className={styles.clipOptions}><label className={styles.model}><span className={styles.srOnly}>OVVO 예시</span><select aria-label="OVVO 예시" value={model} onChange={event => selectStep(0, event.target.value as ConnectorModel)}><option value="V-1230R">V-1230R · 밀어 결합</option><option value="V-1230P">V-1230P · 눌러 결합</option></select><FiChevronDown aria-hidden="true" /></label><div className={styles.presentation} role="group" aria-label="OVVO 조립 또는 분해"><button type="button" aria-pressed={jointAction === 'assemble'} onClick={() => selectStep(0, model, topic, false, legAction, 'assemble')}>조립</button><button type="button" disabled={model === 'V-1230P'} title={model === 'V-1230P' ? 'V-1230P는 영구 결합형입니다.' : '15mm 슬라이드 후 들어 분리'} aria-pressed={jointAction === 'disassemble'} onClick={() => selectStep(0, model, topic, false, legAction, 'disassemble')}>분해</button></div>{model === 'V-1230P' && <span className={styles.materialNote}>영구 결합형 · 분해 불가</span>}</div>}
         {topic === 'tylko-clip' && <div className={styles.clipOptions}><label className={styles.model}><span className={styles.srOnly}>색상 대응</span><select aria-label="색상 대응" value={clipColourVersion} onChange={event => { setClipColourVersion(event.target.value as ClipColourVersion); selectStep(0); setCompletedSteps(new Set()); }}><option value="black-orange">검정·주황</option><option value="black-silver">검정·은색</option></select><FiChevronDown aria-hidden="true" /></label><div className={styles.presentation} role="group" aria-label="Tylko 자료 보기 방식"><button type="button" aria-pressed={referenceOnly} onClick={() => changeClipPresentation('reference')}>원본 자료</button><button type="button" aria-pressed={!referenceOnly} onClick={() => changeClipPresentation('model')}>추정 3D</button></div></div>}
         {topic === 'legs' && <div className={`${styles.clipOptions} ${styles.legOptions}`}>
           <div className={styles.presentation} role="group" aria-label="다리 조립 또는 분리"><button type="button" aria-pressed={legAction === 'disassemble'} onClick={() => selectStep(0, model, topic, false, 'disassemble')}>분리 안내</button><button type="button" aria-pressed={legAction === 'assemble'} onClick={() => selectStep(0, model, topic, false, 'assemble')}>조립 안내</button></div>
@@ -256,11 +260,11 @@ export function AssemblyGuide({ initialTopic = 'tylko-clip' }: { initialTopic?: 
           {topic === 'connector' && <div className={styles.inspectionTools}><button type="button" aria-pressed={inspection === 'front'} onClick={() => inspect('front')}>정면</button><button type="button" aria-pressed={inspection === 'side'} onClick={() => inspect('side')}>측면</button><button type="button" aria-pressed={inspection === 'section'} onClick={() => inspect('section')}>단면</button></div>}
         </div>}
       </div>
-      <div className={styles.caption} aria-live="polite">{topic === 'legs' && !referenceOnly && <span className={styles.cutaway}>원본 GLB 외형 보기 · 조립·분리 동작은 원본 자료에서 확인하세요.</span>}{mode === 'watch' && topic === 'connector' && model === 'V-1230R' && step === 6 && inspection === 'auto' && !overview && !freeCamera && <span className={styles.cutaway}>체결부를 절개해 내부 동작을 보여드립니다.</span>}<p>{finished ? topic === 'legs' ? '이 다리의 안내를 확인했습니다.' : topic === 'tylko-clip' ? '자료 확인을 마쳤습니다.' : '이 접합부의 안내를 확인했습니다.' : current.instruction}</p></div>
+      <div className={styles.caption} aria-live="polite">{!referenceOnly && topic !== 'legs' && overview && <span className={styles.cutaway}>양면 라미네이트 · 자작나무 적층 엣지</span>}{topic === 'legs' && !referenceOnly && <span className={styles.cutaway}>원본 GLB 외형 보기 · 조립·분리 동작은 원본 자료에서 확인하세요.</span>}{mode === 'watch' && topic === 'connector' && model === 'V-1230R' && (jointAction === 'disassemble' ? step === 1 : step === 6) && inspection === 'auto' && !overview && !freeCamera && <span className={styles.cutaway}>체결부를 절개해 내부 동작을 보여드립니다.</span>}<p>{finished ? topic === 'legs' ? '이 다리의 안내를 확인했습니다.' : topic === 'tylko-clip' ? '자료 확인을 마쳤습니다.' : '이 접합부의 안내를 확인했습니다.' : current.instruction}</p></div>
       <footer className={styles.transport}>
         <div className={styles.chapterRow}>
-          <div className={styles.mode} role="group" aria-label="재생 방식"><button type="button" aria-pressed={mode === 'watch'} onClick={() => changeMode('watch')}>전체 보기</button><button type="button" aria-pressed={mode === 'assemble'} onClick={() => changeMode('assemble')}>따라 조립</button></div>
-          <nav ref={stepNavigation} className={styles.steps} aria-label="단계 선택">{steps.map((item, index) => <button type="button" key={item.title} disabled={topic === 'legs' && mode === 'assemble' && Array.from({ length: index }, (_, i) => i).some(i => !completedSteps.has(i))} title={item.title} aria-label={`${String(index + 1).padStart(2, '0')} ${item.title}`} aria-current={step === index ? 'step' : undefined} onClick={() => selectStep(index, model, topic, mode === 'watch')}><span>{index + 1}</span>{completedSteps.has(index) && <i aria-label="확인됨" />}</button>)}</nav>
+          <div className={styles.mode} role="group" aria-label="재생 방식"><button type="button" aria-pressed={mode === 'watch'} onClick={() => changeMode('watch')}>전체 보기</button><button type="button" aria-pressed={mode === 'assemble'} onClick={() => changeMode('assemble')}>{topic === 'connector' && jointAction === 'disassemble' || topic === 'legs' && legAction === 'disassemble' ? '따라 분해' : '따라 조립'}</button></div>
+          <nav ref={stepNavigation} className={styles.steps} aria-label="단계 선택">{steps.map((item, index) => <button type="button" key={item.title} disabled={(topic === 'legs' || releaseFollow) && mode === 'assemble' && Array.from({ length: index }, (_, i) => i).some(i => !completedSteps.has(i))} title={item.title} aria-label={`${String(index + 1).padStart(2, '0')} ${item.title}`} aria-current={step === index ? 'step' : undefined} onClick={() => selectStep(index, model, topic, mode === 'watch')}><span>{index + 1}</span>{completedSteps.has(index) && <i aria-label="확인됨" />}</button>)}</nav>
           <span className={styles.total}>{mode === 'watch' ? `전체 ${Math.round(totalDuration / speed)}초` : `${step + 1} / ${steps.length}`}</span>
         </div>
         <div className={styles.timeline}><span>{timeLabel((mode === 'watch' ? elapsed : current.duration * progress) / speed)}</span><input type="range" min="0" max="1000" value={Math.round(position * 1000)} onChange={event => seek(Number(event.target.value) / 1000)} aria-label={mode === 'watch' ? '전체 재생 위치' : '현재 단계 재생 위치'} /><span>{timeLabel((mode === 'watch' ? totalDuration : current.duration) / speed)}</span></div>

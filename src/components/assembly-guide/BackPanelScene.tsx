@@ -9,6 +9,7 @@ import { backExample, backPanelPose, backPanelShot } from '@/lib/assembly-guide/
 import type { Bore } from '@/lib/three/blum/boring';
 import type { SceneProps } from './GuideScene';
 import styles from './guide.module.css';
+import { GuidePanel } from './GuidePanel';
 import { createCameraRig, updateCameraRig } from './cameraRig';
 
 function Horizontal({ upper, inside }: { upper?: boolean; inside: boolean }) {
@@ -19,9 +20,7 @@ function Horizontal({ upper, inside }: { upper?: boolean; inside: boolean }) {
     return createBoredBox(21.6, 1.8, 11.6, holes).scale(10, 10, 10);
   }, [upper]);
   useEffect(() => () => geometry.dispose(), [geometry]);
-  return <mesh geometry={geometry} position={[0, upper ? backExample.height + 9 : -9, 52]} castShadow={!inside} receiveShadow={!inside} dispose={null}>
-    <meshStandardMaterial key={inside ? 'inside' : 'solid'} color="#dfe2e7" roughness={.65} transparent={inside} opacity={inside ? .13 : 1} depthWrite={!inside} />
-  </mesh>;
+  return <GuidePanel source={geometry} size={[216, 18, 116]} axis={1} position={[0, upper ? backExample.height + 9 : -9, 52]} inside={inside} />;
 }
 
 function SpringPin({ extension }: { extension: RefObject<Group | null> }) {
@@ -74,11 +73,9 @@ export function BackPanelScene({ onTick, onManual, inside, onUpdate, step }: Sce
   return <>
     <mesh position={[0, -18.15, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow><planeGeometry args={[5000, 5000]} /><shadowMaterial transparent opacity={.16} /></mesh>
     <Horizontal inside={inside} /><Horizontal upper inside={inside} />
-    {[-1, 1].map(side => <mesh key={side} position={[side * 99, 110, 52]} castShadow={!inside} receiveShadow={!inside}>
-      <boxGeometry args={[18, 220, 116]} /><meshStandardMaterial key={inside ? 'inside' : 'solid'} color="#dfe2e7" roughness={.65} transparent={inside} opacity={inside ? .13 : 1} depthWrite={!inside} />
-    </mesh>)}
+    {[-1, 1].map(side => <GuidePanel key={side} size={[18, 220, 116]} axis={0} position={[side * 99, 110, 52]} inside={inside} />)}
     <group ref={panel}>
-      <mesh position={[0, 110, 0]} castShadow={!inside} receiveShadow={!inside}><boxGeometry args={[backExample.width, backExample.height, backExample.thickness]} /><meshStandardMaterial key={inside ? 'inside' : 'solid'} color="#cbd1d8" roughness={.68} transparent={inside} opacity={inside ? .17 : 1} depthWrite={!inside} /></mesh>
+      <GuidePanel size={[backExample.width, backExample.height, backExample.thickness]} axis={2} position={[0, 110, 0]} inside={inside} />
       {backExample.pinCenters.map((x, index) => <group key={x} position={[x, 0, 0]}>
         <mesh position={[0, -backExample.pinLength / 2, 0]}><cylinderGeometry args={[1.5, 1.5, backExample.pinLength, 24]} /><meshStandardMaterial color="#b8c1bd" metalness={.7} roughness={.3} /></mesh>
         <group position={[0, backExample.height, 0]}><SpringPin extension={index === 0 ? leftPin : rightPin} /></group>

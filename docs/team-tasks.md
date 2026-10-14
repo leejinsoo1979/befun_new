@@ -1264,3 +1264,10 @@
 - 원목Edge외부서랍도subtype e이면fullHandleTop, 도어ring과분리. 원본기하10/30/60/90cm전체정점·정적기하해제·placement 5testsPASS, 변경lintPASS. 원본출처/기준점/미확인제조사양 문서기록완료.
 - 소유파일잠금해제, 최종UI연결리더담당.
 - 최종 안정 스냅샷 **2026-10-14 11:25:48 KST** 갱신 후 production build 전체 PASS, TypeScript/17정적페이지 성공. 전체 lint 오류0·기존경고7. 11:26:29 KST 전체 src SHA256 공유본과 차이0 확인. 최신 WardrobeModel/DeskPanel/UV/컨텍스트 상태/Intro·신규GLB 포함. `docs/handoffs/desk-wardrobe-build.md` 완료, 문서 잠금 해제. 공용 `.next`·서버·환경 파일 미수정.
+
+### R4-ASM-READY — 왼쪽5 / codex-assembly / 2026-10-14
+- 기존세션 Log in 유지. 양면 라미네이트·자작적층엣지·R공식15mm slide→lift 분해4단계 완료; P영구형분해비활성. 앞/뒤/단면·분리후로컬UV 유지. 공용재질/HW/CNC/route/공유.git 미수정.
+- 최종41검사PASS(owned36material/18texture해제·loader원본보존포함),변경eslint0/0,전체lint0오류7기존경고,격리production build+전체TypeScript+17정적페이지PASS. source36파일SHA격리차이0.
+- 실제Chrome1728×880/390×844, 원본Tylko5/백패널7/다리5 및P7/R8회귀·재생/일시정지/탐색/초기화/주제전환. 6전환loop/12재질toggle후ready, warmed29geometry/7texture/8program. cold texture전Canvas대비 및같은단계context복구확인.
+- 본인인계: docs/handoffs/assets/codex-assembly/material-disassembly/README.md · ready.json. FurnitureDesign parts/joints/선택상태 최소입력계약리더요청기록. 실제주문가구연결·정밀다리기구·제조승인제외.
+- 소유잠금해제: assembly-guide components/lib, docs/assembly-guide.md, 본신규material-disassembly증거. 독립게시사본에서는bf924ae안정본+이번ASM만게시; 다른R4진행중소스미포함.
