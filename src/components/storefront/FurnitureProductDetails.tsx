@@ -81,11 +81,7 @@ export function FurnitureProductDetails({ design, title, catalogId }: {
     </section>
     <div className={details.contactLine}>{t('도움이 필요하세요?')} <Link href="/contact">{t('디자인 상담')}</Link><span>·</span><Link href="/faq">{t('자주 묻는 질문')}</Link></div>
 
-    <section className={`${details.section} ${details.brandSection}`}><p className={details.eyebrow}>{t(FAMILY_NAMES[design.family])}</p><h2>{t('당신에게 꼭 맞는 가구,')}<br />{t('당신의 취향을 담은 공간.')}</h2><Link href="/about-tylko" className={details.brandMedia}><Image src={photos.images[0]} alt={`${FAMILY_NAMES[design.family]} ${photos.label}`} fill sizes="100vw" /><span className={shared.whiteButton}>{t('브랜드 이야기')} <FiArrowRight /></span></Link></section>
-    <section className={details.section}><p className={details.eyebrow}>{t('당신에게 맞는 선택')}</p><h2>{t('아직 고민 중이라면,')}<br />{t('조금 더 살펴보세요.')}</h2><div className={details.discoverGrid}>{[
-      ['브랜드의 이야기가 궁금하다면', '/about-tylko', photos.images[1]],
-      ['소재와 컬러를 가까이에서', '/material-samples', photos.images.at(-1)!],
-    ].map(([label, href, image]) => <Link key={href} href={href}><Image src={image} alt={t(label)} fill sizes="(max-width:767px) 90vw, 60vw" /><div><h3>{t(label)}</h3><span>{t('더 알아보기')} <FiArrowRight /></span></div></Link>)}</div></section>
+    <section className={details.section}><p className={details.eyebrow}>{t('당신에게 맞는 선택')}</p><h2>{t('아직 고민 중이라면,')}<br />{t('조금 더 살펴보세요.')}</h2><div className={details.contactLine}><Link href="/about-tylko">{t('브랜드 알아보기')} <FiArrowRight /></Link><span>·</span><Link href="/material-samples">{t('소재와 컬러 보기')} <FiArrowRight /></Link></div></section>
     <section className={details.giftBanner}><Image src="/imgs/storefront/befun/gift-befun-logo.webp" alt={t('취향을 선물하는 기프트카드')} fill sizes="100vw" /><div><h2>{t('취향을 선물하는 즐거움.')}</h2><p>{t('좋아하는 공간을 직접 고르는 선물.')}</p><Link href="/e-gift-card/1" className={shared.outlineButton}>{t('기프트카드 안내')}</Link></div></section>
     <section id="related-designs" className={`${details.section} ${details.recommendations}`}><p className={details.eyebrow}>{t('함께 둘러보기')}</p><h2>{t('이런 디자인은 어떠세요?')}</h2><Carousel label={t('추천 디자인')}>{related.map(item => <Link key={item.id} href={`/reference-product/${item.id}`} className={details.showroom}><div><Image src={item.images[0]} alt={t(item.label)} fill sizes="(max-width:767px) 75vw, 24vw" /></div><h3>{t(item.label)}</h3><p>{t(FAMILY_NAMES[item.family])}</p><span>{t('3D 디자인 편집')} <FiArrowRight /></span></Link>)}</Carousel></section>
     <JoinSection />

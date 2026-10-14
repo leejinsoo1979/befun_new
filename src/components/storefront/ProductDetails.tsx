@@ -76,7 +76,6 @@ export function ProductDetails({ product }: { product?: CatalogProduct }) {
     <div id="design-specifications"><ProductSpecifications ready={!product} /></div>
     <div className={styles.contactLine}>도움이 필요하세요? <Link href="/contact">디자인 상담</Link><span>·</span><Link href="/faq">자주 묻는 질문</Link></div>
 
-    <section className={`${styles.section} ${styles.brandSection}`}><p className={styles.eyebrow}>Befun Original</p><h2>당신에게 꼭 맞는 가구,<br />당신의 취향을 담은 공간.</h2><Link href="/about-tylko" className={styles.brandMedia}><ReferenceImage source={gallery[0]} fallback={fallback} alt="공간에서 만나는 맞춤 수납 가구" sizes="100vw" /><span className={shared.whiteButton}>브랜드 이야기 <FiArrowRight /></span></Link></section>
 
     <section className={styles.section}><p className={styles.eyebrow}>수납 가구</p><h2>좋아하는 것은 보여주고,<br />일상의 물건은 담아두세요.</h2><Carousel label="디자인 특징">{highlights.map(([name, image, href], index) => { const HighlightLink = href.startsWith('#') ? 'a' : Link; return <HighlightLink href={href} key={image} className={styles.highlight}><ReferenceImage source={`https://media.tylko.com/cloudinary/pdp/section-highlights-carousel/AP/${image}.webp`} fallback={`step-${index % 4 + 1}.avif`} alt={name} sizes="(max-width:767px) 80vw, 30vw" /><div><p>{['디자인', '크기', '수납', '컬러', '구성', '조립', '공유'][index]}</p><h3>{name}</h3><span>더 보기 <FiArrowRight /></span></div></HighlightLink>; })}</Carousel></section>
 
@@ -84,10 +83,7 @@ export function ProductDetails({ product }: { product?: CatalogProduct }) {
 
     <section className={styles.soundBanner}><ReferenceImage source="https://media.tylko.com/cloudinary/lp/tylko-sound/pdp-banner/LD.webp" fallback="creator-9.avif" alt="선반에 어울리는 컬러 스피커" sizes="100vw" /><div><p className={styles.eyebrow}>선반에서 만나는 음악</p><h2>공간에 어울리는 소리.</h2><Link href="/tylko-sound" className={shared.whiteButton}>Sound 컬렉션 보기</Link></div></section>
 
-    <section className={styles.section}><p className={styles.eyebrow}>당신에게 맞는 선택</p><h2>아직 고민 중이라면,<br />조금 더 살펴보세요.</h2><div className={styles.discoverGrid}>{[
-      ['브랜드의 이야기가 궁금하다면', '1/about-tylko', '/about-tylko', '브랜드 알아보기'],
-      ['소재와 컬러를 가까이에서', '2', '/material-samples', '소재와 컬러 보기'],
-    ].map(([name, path, href, label]) => <Link key={href} href={href}><ReferenceImage source={`https://media.tylko.com/cloudinary/pdp/section-lobby/${path}/XLD.webp`} fallback="creator-3.avif" alt={name} sizes="(max-width:767px) 90vw, 60vw" /><div><h3>{name}</h3><span>{label} <FiArrowRight /></span></div></Link>)}</div></section>
+    <section className={styles.section}><p className={styles.eyebrow}>당신에게 맞는 선택</p><h2>아직 고민 중이라면,<br />조금 더 살펴보세요.</h2><div className={styles.contactLine}><Link href="/about-tylko">브랜드 알아보기 <FiArrowRight /></Link><span>·</span><Link href="/material-samples">소재와 컬러 보기 <FiArrowRight /></Link></div></section>
 
     <section className={styles.giftBanner}><ReferenceImage source="/imgs/storefront/befun/gift-befun-logo.webp" fallback="befun/gift.avif" alt="취향을 선물하는 기프트카드" sizes="100vw" /><div><h2>취향을 선물하는 즐거움.</h2><p>좋아하는 공간을 직접 고르는 선물.</p><Link href="/e-gift-card/1" className={shared.outlineButton}>기프트카드 안내</Link></div></section>
 

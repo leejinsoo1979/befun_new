@@ -44,11 +44,7 @@
 .caption { font-size: 12px; line-height: 18px; color: #777; margin-top: 16px !important; }
 .textLink { display: inline-flex; gap: 8px; align-items: center; margin-top: 24px; font-size: 14px; text-decoration: underline; }
 .contactLine { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; padding: 24px 16px; font-size: 14px; background: white; }
-.contactLine a { text-decoration: underline; }
-.brandSection { padding-bottom: 0; }
-.brandMedia { position: relative; display: block; aspect-ratio: 16 / 9; margin: 64px calc(-1 * var(--gutter)) 0; overflow: hidden; }
-.brandMedia img { object-fit: cover; }
-.brandMedia > span { position: absolute; bottom: 48px; left: var(--gutter); }
+.contactLine a { display: inline-flex; align-items: center; gap: 8px; text-decoration: underline; }
 .highlight { position: relative; width: calc((100% - 32px) / 3); aspect-ratio: 3 / 4; overflow: hidden; border-radius: 24px; background: #dedbd6; }
 .highlight img { object-fit: cover; }
 .highlight > div { position: absolute; inset: 0; padding: 32px; background: linear-gradient(#0005, transparent 60%); color: white; }
@@ -117,8 +113,6 @@
   .galleryTop, .galleryBottom, .galleryRegular { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 8px; }
   .galleryTop > button, .galleryBottom > button, .galleryRegular > button { grid-column: auto; grid-row: auto; aspect-ratio: 4 / 3; }
   .galleryBottom > button:nth-child(n) { grid-column: auto; grid-row: auto; }
-  .brandMedia { margin-top: 32px; aspect-ratio: 4 / 3; }
-  .brandMedia > span { left: 16px; bottom: 16px; }
   .highlight { width: 82%; }
   .highlight > div { padding: 24px; }
   .highlight h3 { font-size: 24px; line-height: 33.6px; }

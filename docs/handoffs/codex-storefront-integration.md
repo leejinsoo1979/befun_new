@@ -455,3 +455,10 @@ terminal-instructions 최신 왼쪽3 지시 및 leader-review 2차 점검을 수
 - 기존26+사진검사3=29PASS,변경ESLint0/0,전체lint0/8경고. 최초R7타입오류 리더수정 후 최신전체소스 격리build/TypeScript/17페이지PASS(최종R7제외없음). 안정 production console0; 공유dev 빠른경로의 useId 속성 경고는 기록을 분리.
 - 상세 증거/한계: [furniture-details 인계](furniture-details/README.md). 수정5소스 빌드 SHA일치. ProductDetails/ProductMaterialGallery 공통 구현 읽기전용 재사용; 카테고리 담당route 변경 보존.
 - 신규 FurnitureProductDetails.tsx/furnitureProductPhotos.ts/전용CSS·photos.test.mjs·public/imgs/furniture-details·본인증거, FurnitureConfigurator 하단연결/prop 및 reference-product branch prop 잠금 해제. 공유3003/.next 미접촉, 본인임시서버/탭 정리.
+
+
+### 상세 브랜드 사진 중복 제거 완료 — 2026-10-14
+- 사용자 /configurator 캡처 지적 처리. 선반/책상/옷장 상세의 갤러리 첫 사진 재사용 brandMedia 대형 배너를 제거하고 /about-tylko 기존 브랜드 hero에 같은 로컬 그레이 원본사진을 연결. 브랜드·소재 탐색도 이미지 재사용 대신 텍스트 링크로 통일.
+- 실제3003: /configurator 갤러리8사진 유지·첫사진DOM1회·About 링크내이미지0, /furniture/bookcase-brown·/reference-product/desk-1·wardrobe-3 동일중복배너0/텍스트브랜드링크 유지. 링크클릭으로 /about-tylko에서 로컬 wallstorage/original-classic/01p-grey/1/D.avif 표시를 시각확인. 3D/store/색선택·갤러리자료/계정·가격/관리자 수정 없음.
+- 변경TSX3파일 ESLint0/0; HEAD+이번4소스만 격리 /private/tmp/befun-brand-story-6avnumwu에서 Prisma client 생성 후 webpack build/TypeScript/20정적페이지PASS, 수정4파일 사본SHA일치. 전체lint는 기존 CabinetScene.tsx:67 useMemo 의존배열 오류1/경고10으로 실패, 잠금 소스 미수정·담당알림 게시. 공유 .next/3003 재시작없음.
+- ProductDetails/FurnitureProductDetails 브랜드·discover 영역, EditorialPages About hero, product-details.module.css brand/contact 좁은 잠금 해제. 이전커밋푸시 요청에 따라 이번4소스+본인인계만 커밋·push; 공유 team-tasks 및 다른 담당 진행중 변경은 포함하지 않음.
