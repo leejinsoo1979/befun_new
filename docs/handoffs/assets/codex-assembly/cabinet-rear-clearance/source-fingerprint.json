@@ -1,0 +1,10 @@
+{
+  "src/lib/assembly-guide/cabinet.ts": "35d7bfc6a084b657c4f62915b00d9601b01c13a2e4e0e3cae308fb9de44e08d0",
+  "src/lib/assembly-guide/cabinetFilm.ts": "c209b5fe1399deafb95170f334160eb2a07fa78d8a90b5563737235a08085b36",
+  "src/lib/assembly-guide/backPanel.ts": "301285e9068f0650d08c55bbb482da95bda7667c9c62bb43628ebf8ba087a16a",
+  "src/components/assembly-guide/CabinetPanel.tsx": "8aff705777210e000f1764c42c08ae1a7e6c4ac5d4aca94aa7f6d7d5a2ceb282",
+  "src/components/assembly-guide/BackPanelScene.tsx": "b28462be11dcfc0164520888270d8fe0b7768bbfd1586f33b5565dc701d66c05",
+  "src/lib/assembly-guide/cabinet.test.mjs": "01883a56c13a18f5a3b02a44b378aefbc22b0e5bb275ad804d7822aeffbaef2d",
+  "src/lib/assembly-guide/backPanel.test.mjs": "d21f4c733f2ff2ab0062f12614d89af08cbf40efc03ee54e2c97295c21f6d5fe",
+  "src/lib/assembly-guide/cabinetRear.test.mjs": "29d9e0bfe3eae8d0e159b3932d7070b346f95ed9a77c913a2f3000ca7802b6ec"
+}

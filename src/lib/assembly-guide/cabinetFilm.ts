@@ -1,6 +1,7 @@
 import { Box3, Euler, Quaternion, Vector3 } from 'three';
 import { advanceCabinet, cabinetPartPose, cabinetPhaseDuration, initialCabinetState, isCabinetRear, type CabinetPart, type CabinetPhase, type CabinetPlan, type CabinetState, type CabinetVector } from './cabinet';
 import { cabinetDoorAngle, cabinetDoorHinge, cabinetHingeTarget, doorAssemblyPhases, isCabinetDoor } from './cabinetDoor';
+import { rearDisplayClearance } from './backPanel';
 
 const smooth = (value: number) => { const p = Math.max(0, Math.min(1, value)); return p * p * (3 - 2 * p); };
 const phases = (part: CabinetPart): CabinetPhase[] => ['choose', ...(part.hardware.length ? ['hardware' as const] : []), 'placing', ...(isCabinetRear(part) ? ['spring-press', 'spring-seat', 'spring-lock'] as const : []), ...(isCabinetDoor(part) ? doorAssemblyPhases : []), 'check'];
@@ -33,7 +34,7 @@ export function cabinetActionCaption(state: CabinetState, part: CabinetPart) {
   if (state.phase === 'spring-press') return '상단 스프링 다보 두 개를 눌러 넣습니다.';
   if (state.phase === 'spring-seat') return '아래 다보를 받침점으로 유지하며 패널 상단을 안으로 세웁니다.';
   if (state.phase === 'spring-lock') return '구멍에 맞춘 스프링 다보가 복귀하며 잠깁니다.';
-  if (state.phase === 'placing' && isCabinetRear(part)) return '패널을 기울여 아래 고정 다보 두 개를 먼저 끼웁니다.';
+  if (state.phase === 'placing' && isCabinetRear(part)) return '가구 뒤쪽에서 패널을 들어 올려 기울인 뒤, 아래 고정 다보 두 개를 먼저 끼웁니다.';
   return { choose: state.automatic ? '이번 부품과 조립 방향을 확인합니다.' : '번호가 표시된 부품을 선택하세요.', hardware: '홈에 하우징을 넣고 연결 커넥터를 끼웁니다.', ready: '표시된 위치를 눌러 부품을 조립하세요.', placing: '부품을 옮겨 두 결합 위치를 맞춥니다.', check: '끝선과 잠금 상태를 확인합니다.', reveal: '캐비넷을 완성했습니다. 전체 모습과 내부를 확인하세요.', complete: '캐비넷을 완성했습니다. 돌려 보거나 도어를 열어 보세요.' }[state.phase];
 }
 
@@ -82,11 +83,11 @@ function partShot(part: CabinetPart, state: CabinetState, aspect: number, plan?:
     const { pivot } = cabinetDoorHinge(plan, part), at = new Vector3(...pivot);
     target.add(at.clone().negate().applyAxisAngle(new Vector3(0, 1, 0), cabinetDoorAngle(part, state)).add(at).applyQuaternion(rotation(part, state)));
   }
-  return shot(target, Math.hypot(part.box.w, part.box.h, part.box.d) * 5 + 25, new Vector3(.55 + .2 * Math.sin(state.progress * Math.PI), .65, 1.25), aspect, 40);
+  return shot(target, Math.hypot(part.box.w, part.box.h, part.box.d) * 5 + 25, new Vector3(.55 + .2 * Math.sin(state.progress * Math.PI), .65, isCabinetRear(part) ? -1.25 : 1.25), aspect, 40);
 }
 function detailShot(part: CabinetPart, state: CabinetState, aspect: number, upper = false, plan?: CabinetPlan) {
   if (plan && isCabinetDoor(part)) return shot(cabinetHingeTarget(plan, part, upper), 72, new Vector3(cabinetDoorHinge(plan, part).sign * .85, .35, 1.6), aspect, 36);
-  if (isCabinetRear(part)) return shot(world(part, state, [part.pinCenters[0], (upper ? 1 : -1) * part.box.h * 5 + (upper ? 2 : -2.5), 0]), 38,
+  if (isCabinetRear(part)) return shot(world(part, state, [part.pinCenters[0], (upper ? 1 : -1) * part.box.h * 5 + (upper ? 2 - rearDisplayClearance : -2.5), 0]), 38,
     new Vector3(.7, upper ? -.25 : .6, -1.2), aspect, 34);
   const mount = part.hardware[0];
   if (!mount) return partShot(part, state, aspect);

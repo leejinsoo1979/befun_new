@@ -5,7 +5,7 @@ import { useFrame } from '@react-three/fiber';
 import { Html, OrbitControls } from '@react-three/drei';
 import { Group } from 'three';
 import { createBoredBox } from '@/lib/three/blum/geometry';
-import { backExample, backPanelPose, backPanelShot } from '@/lib/assembly-guide/backPanel';
+import { backExample, backPanelPose, backPanelShot, rearDisplayClearance } from '@/lib/assembly-guide/backPanel';
 import type { Bore } from '@/lib/three/blum/boring';
 import type { SceneProps } from './GuideScene';
 import styles from './guide.module.css';
@@ -58,10 +58,10 @@ export function BackPanelScene({ onTick, onManual, inside, onUpdate, step }: Sce
     <Horizontal inside={inside} /><Horizontal upper inside={inside} />
     {[-1, 1].map(side => <GuidePanel key={side} size={[18, 220, 116]} axis={0} position={[side * 99, 110, 52]} inside={inside} />)}
     <group ref={panel}>
-      <GuidePanel size={[backExample.width, backExample.height, backExample.thickness]} axis={2} position={[0, 110, 0]} inside={inside} />
+      <GuidePanel size={[backExample.width, backExample.height - rearDisplayClearance, backExample.thickness]} axis={2} position={[0, (backExample.height - rearDisplayClearance) / 2, 0]} inside={inside} />
       {backExample.pinCenters.map((x, index) => <group key={x} position={[x, 0, 0]}>
         <mesh position={[0, -backExample.pinLength / 2, 0]}><cylinderGeometry args={[1.5, 1.5, backExample.pinLength, 24]} /><meshStandardMaterial color="#b8c1bd" metalness={.7} roughness={.3} /></mesh>
-        <group position={[0, backExample.height, 0]}><SpringDowel extension={index === 0 ? leftPin : rightPin} /></group>
+        <group position={[0, backExample.height - rearDisplayClearance, 0]}><SpringDowel extension={index === 0 ? leftPin : rightPin} /></group>
       </group>)}
       {step === 0 && <>
         <Html position={[-68, -7, 15]} center className={styles.partLabel}>아래 · 고정핀</Html>

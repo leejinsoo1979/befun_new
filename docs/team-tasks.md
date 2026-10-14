@@ -1615,3 +1615,11 @@
 ### 캐비넷 무광 판재·샘플 체결음 완료 — 왼쪽5 / 2026-10-14
 - 사용자 지적 수신/4소스+5음원/출처 소유잠금. 본인 양면 laminate 무광(.86 roughness/.18 specular/.28 env/coat0), 높은 합성톤 제거·Kenney CC0/SmallConfusion CC BY4.0 샘플·EQ/짧은fade/피크매칭·준비/잠금 레벨 구분. 몸통 중복4쌍 제거→전체21회. 출처 링크 제공; 실물 OVVO/Blum 녹음 아님.
 - 64검사·범위lint0·전체lint0오류8기존경고·최종격리build/TypeScript PASS. 실제58/58초8부품/21회 출력·탐색/mute count 유지·390px overflow0·console0·120fps 관찰. 늦은load/unmount 음원 및gain node 정리 검사 포함. cabinet-matte-foley/README.md·검증/전후·모바일·음원검토파일 제출. 공유 materials.ts/R15/HW/CNC/생성기/.git/.next/3003/타실행 보존, 소유잠금해제. Git/운영READY는별도기록.
+
+
+### 백패널 관통 경로 수정 — 왼쪽5 / 2026-10-14
+- 앞쪽에서 상판을 통과하던 carry 재현·뒤쪽 floor 배치→들어올림/기울임/낮춤→외부 접근→하단 삽입→상단 눌림/세움/복귀로 교정. 보강 패널과 단독 백패널7 동일 적용. 후면 카메라/absolute seek 유지.
+- finite-thickness 마지막 회전에서 원본 zero-clearance가 간섭하므로 설명용 상단0.6mm만 소유 렌더에 적용. 제조사 공차가 아니며 원본 box/CNC/생성기/타공/HW 보존, 제조승인false 유지.
+- 69검사·OBB SAT rear2×4phase×1001/guide7×1001·이전 관통 negative control·하단핀 홀내 검사 PASS. 변경lint0/전체lint0오류8기존경고·독립 production build/TypeScript PASS. desktop/390px carry·seek/잠금/직접모드 초기화 확인; 전체영상·게시 별도 기록. docs/handoffs/assets/codex-assembly/cabinet-rear-clearance/ 제출.
+
+- 왼쪽5 백패널 경로 최종 로컬검증: 전체영상 실제58/58초8/8완주·샘플음21회/running·console0. 단독7단계는 /assembly-guide?topic=connector 진입 후 백패널 탭에서 실제확인/console0(기본back-panel URL은 리더의 새Tylko매뉴얼로 연결됨). 기존 source/main 경로 보존. 본인8소스/검사 잠금해제, 게시/운영상태 별도 기록.

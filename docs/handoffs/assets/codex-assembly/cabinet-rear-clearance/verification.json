@@ -1,0 +1,60 @@
+{
+  "status": "implementation and browser complete; publication pending",
+  "owner": "codex-assembly / 왼쪽5",
+  "session": "01a13548-3202-7aa2-8a54-0ff6840d3f75",
+  "tests": {
+    "passed": 69,
+    "failed": 0,
+    "rear_obbs": {
+      "phases_per_piece": 4,
+      "samples_per_phase": 1001,
+      "rear_pieces": 2,
+      "standalone_steps": 7,
+      "method": "OBB SAT against installed panels, allowing only numerical boundary contact",
+      "old_top_crossing_negative_control": "reproduced"
+    },
+    "lower_pin_bore_envelope": "pass"
+  },
+  "lint": {
+    "errors": 0,
+    "existing_warnings": 8,
+    "changed_scope_errors": 0
+  },
+  "build": "independent production build and TypeScript PASS on remote 0c6ebf4 plus 8 owned files",
+  "browser": {
+    "desktop": [
+      "old top crossing reproduced",
+      "new support/back external carry viewed",
+      "backward/forward seeking",
+      "practice mode reset"
+    ],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "carry_and_spring_lock": "verified",
+      "override": "cleared"
+    },
+    "full_movie": {
+      "elapsed": "58/58sec",
+      "parts": "8/8",
+      "effects": 21,
+      "soundState": "running",
+      "console_errors": 0,
+      "console_warnings": 0
+    },
+    "legacy_guide": {
+      "entry": "/assembly-guide?topic=connector → 백패널 탭",
+      "steps": 7,
+      "upper_seating_visible": true,
+      "console_errors": 0
+    }
+  },
+  "limits": [
+    "0.6mm rear upper running clearance is owned illustration only, not a measured production tolerance",
+    "source box dimensions, CNC and shared generator unchanged",
+    "fixed pin/receiver diameter, spring force and motion geometry remain illustrative",
+    "collision checks validate the chosen demo path, not arbitrary furniture or a dynamics solver"
+  ],
+  "publication": null
+}

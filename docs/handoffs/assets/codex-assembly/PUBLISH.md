@@ -35,3 +35,6 @@
 - 왼쪽5 캐비넷 운영 게시: `dpl_F9sgMW164c3tavRsMrhSaBfmPYsn` READY, source=Git/production, SHA=`f9dccf9bf5c9aaf59d97e7493aac9233dc0fe4b8`, `befun-new.vercel.app`·`befun.co.kr`·`www.befun.co.kr` alias 확인. 운영 `/assembly-guide/cabinet` 실제8부품 표시·첫부품선택→커넥터준비→체결→확인 후1/8진행 확인. 별도운영인증 CLIENT_FETCH_ERROR2건 관찰(가구조립동작과분리,기존환경설정담당필요); 로컬조립검증console0과혼동하지않음. 관리자/환경변수/DB소스는미수정.
 
 - 왼쪽5 운영 최종 확인: 위 READY의 실제 alias에서 캐비넷 자동조립8/8·완성화면 확인. 본인 임시31789 생산검증서버 정상종료, 공유3003 유지. 사용자 로컬/운영 캐비넷 탭을 남겼다.
+
+
+- 왼쪽5 백패널/보강 패널 관통 수정: 8소유 소스/검사+본인 캡처/인계만 격리. 원격0c6ebf4까지 완료 변경 보존. 69검사·최종 production build/TypeScript PASS, lint0오류8기존경고. Git/push/운영READY는 아직 미실행, 별도 기록.

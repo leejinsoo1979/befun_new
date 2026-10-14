@@ -104,3 +104,9 @@ R3 이력: [R3-ASM-01~06 제출](handoffs/assets/codex-assembly/r3-legs/README.m
 ### 무광 라미네이트·체결음 재교정 — 2026-10-14
 
 [전후 화면·음원 출처·64검사](handoffs/assets/codex-assembly/cabinet-matte-foley/README.md). 사용자 지적에 따라 안내 전용 양면 라미네이트를 무광으로 바꾸고, 높은 사인파 합성 클릭을 짧은 목재/기계 접촉 샘플로 교체했다. 몸통의 중복 효과음을 없애 전체21회로 정리했다. 이전25회 합성음 기록은 당시 상태다. 원본·라이선스·편집 출처를 화면에서 제공하며 실제 OVVO/Blum 실측 녹음으로 표시하지 않는다. 기존 면 배정/자작/MDF·모델별 조립/분해·도어/후면 다보·공통 재질/조명은 보존했다.
+
+
+### 백패널 관통 경로 수정 — 왼쪽5 / 2026-10-14
+- 앞쪽에서 상판을 통과하던 carry 재현·뒤쪽 floor 배치→들어올림/기울임/낮춤→외부 접근→하단 삽입→상단 눌림/세움/복귀로 교정. 보강 패널과 단독 백패널7 동일 적용. 후면 카메라/absolute seek 유지.
+- finite-thickness 마지막 회전에서 원본 zero-clearance가 간섭하므로 설명용 상단0.6mm만 소유 렌더에 적용. 제조사 공차가 아니며 원본 box/CNC/생성기/타공/HW 보존, 제조승인false 유지.
+- 69검사·OBB SAT rear2×4phase×1001/guide7×1001·이전 관통 negative control·하단핀 홀내 검사 PASS. 변경lint0/전체lint0오류8기존경고·독립 production build/TypeScript PASS. desktop/390px carry·seek/잠금/직접모드 초기화 확인; 전체영상·게시 별도 기록. docs/handoffs/assets/codex-assembly/cabinet-rear-clearance/ 제출.

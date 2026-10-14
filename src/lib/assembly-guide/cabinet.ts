@@ -80,6 +80,11 @@ export function createCabinetPlan(design: BefunDesign = cabinetDesign) {
     return order(a) - order(b) || a.number - b.number;
   });
   parts.forEach((part, index) => { part.number = index + 1; part.animation.stage = index; });
+  // Own the rear staging area: a direct arc from the front crosses the installed top.
+  // Both rear pieces start behind the body and rotate/lower there before approaching.
+  for (const rear of parts.filter(isCabinetRear)) {
+    rear.animation.floor = [rear.box.x, rear.animation.floor[1], rear.box.z - rear.box.d / 2 - rear.box.h / 2 - 20];
+  }
   for (const rear of parts.filter(isCabinetRear)) {
     for (const x of rear.pinCenters) {
       rear.displayBorings.push({ id: `display-${rear.id}-${x}-upper`, type: 'custom', face: 'back', x: x + rear.box.w * 5, y: rear.box.h * 10, diameter: 5.4, depth: 14 });
@@ -169,15 +174,27 @@ export function cabinetPartPose(part: CabinetPart, state: CabinetState, preview 
     return { ...samplePart({ ...part.animation, anchor }, state.phase === 'placing' ? state.progress : 1), tilt: 0 };
   }
   if (!installed && isCabinetRear(part) && part.number - 1 === state.step && ['placing', 'spring-press', 'spring-seat', 'spring-lock'].includes(state.phase)) {
-    const p = state.progress, tilt = cabinetDowel.tilt * (state.phase === 'spring-lock' ? 0 : state.phase === 'spring-seat' ? 1 - smooth(p) : 1);
-    const h = part.box.h / 2;
-    const gap = state.phase === 'placing' ? cabinetDowel.extension / 10 * (1 - smooth((p - .7) / .3)) : 0;
-    const position: CabinetVector = [part.box.x, part.box.y + h * (Math.cos(tilt) - 1) + gap * Math.cos(tilt), part.box.z + h * Math.sin(tilt) + gap * Math.sin(tilt)];
-    if (state.phase === 'placing' && p < .7) {
-      const pose = samplePart({ ...part.animation, anchor: position }, p / .7);
-      return { ...pose, tilt: tilt * pose.rotationProgress };
+    const p = state.progress, angle = cabinetDowel.tilt * (state.phase === 'spring-lock' ? 0 : state.phase === 'spring-seat' ? 1 - smooth(p) : 1);
+    const h = part.box.h / 2, d = part.box.d / 2;
+    const gap = state.phase === 'placing' ? cabinetDowel.extension / 10 * (1 - smooth((p - .8) / .2)) : 0;
+    const position: CabinetVector = [part.box.x,
+      part.box.y + h * (Math.cos(angle) - 1) + d * Math.sin(angle) + gap * Math.cos(angle),
+      part.box.z - h * Math.sin(angle) + d * (Math.cos(angle) - 1) - gap * Math.sin(angle)];
+    if (state.phase === 'placing' && p < .8) {
+      const floor = part.animation.floor;
+      const raisedY = Math.max(position[1] + 8, floor[1] + h + d + 6);
+      if (p < .25) {
+        const lift = smooth(p / .125), turn = smooth((p - .125) / .125);
+        return { position: [floor[0], floor[1] + (raisedY - floor[1]) * lift, floor[2]], rotationProgress: turn, tilt: -angle * turn };
+      }
+      if (p < .5) {
+        const t = smooth((p - .25) / .25);
+        return { position: [floor[0], raisedY + (position[1] - raisedY) * t, floor[2]], rotationProgress: 1, tilt: -angle };
+      }
+      const t = smooth((p - .5) / .3);
+      return { position: [position[0], position[1], floor[2] + (position[2] - floor[2]) * t], rotationProgress: 1, tilt: -angle };
     }
-    return { position, rotationProgress: 1, tilt };
+    return { position, rotationProgress: 1, tilt: -angle };
   }
   const progress = installed ? 1 : part.number - 1 === state.step && state.phase === 'placing' ? state.progress : 0;
   return { ...samplePart(part.animation, progress), tilt: 0 };

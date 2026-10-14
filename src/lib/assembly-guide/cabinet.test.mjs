@@ -88,11 +88,11 @@ test('support and back panel share fixed-lower / spring-upper dowels after the t
     assert.equal(part.hardware.length, 0, 'rear dowels must not use OVVO');
     const state = { ...initialCabinetState(), step: part.number - 1, phase: 'spring-press', progress: 1 };
     assert.equal(cabinetPinExtension(part, state), 0);
-    const bottom = pose => new Vector3(0, -part.box.h / 2, 0).applyAxisAngle(new Vector3(1, 0, 0), pose.tilt).add(new Vector3(...pose.position));
+    const bottom = pose => new Vector3(0, -part.box.h / 2, -part.box.d / 2).applyAxisAngle(new Vector3(1, 0, 0), pose.tilt).add(new Vector3(...pose.position));
     const a = bottom(cabinetPartPose(part, { ...state, phase: 'spring-seat', progress: 0 }));
     const b = bottom(cabinetPartPose(part, { ...state, phase: 'spring-seat', progress: .5 }));
     const c = bottom(cabinetPartPose(part, { ...state, phase: 'spring-seat', progress: 1 }));
-    assert.ok(a.distanceTo(b) < 1e-8 && b.distanceTo(c) < 1e-8, 'lower fixed dowels remain the seating pivot');
+    assert.ok(a.distanceTo(b) < 1e-8 && b.distanceTo(c) < 1e-8, 'lower rear corner remains on the base while the pins stay in their bores');
     assert.equal(cabinetPinExtension(part, { ...state, phase: 'spring-lock' }), 5);
     assert.ok(top.displayBorings.some(h => h.id.includes(part.id)));
     assert.ok(!part.panel.manufacturingBoring?.borings.some(h => h.id.startsWith('display-')), 'illustrative holes must stay out of CNC data');

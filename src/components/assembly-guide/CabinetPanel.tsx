@@ -9,6 +9,7 @@ import { OvvoPH, OvvoPC } from '@/components/three/furniture-hardware/ovvo/OvvoP
 import { BlumPlate } from '@/components/three/blum/BlumHardware';
 import { cabinetDoorAngle, cabinetDoorHinge } from '@/lib/assembly-guide/cabinetDoor';
 import { cabinetPinExtension, createCabinetPanelGeometry, type CabinetPart, type CabinetPlan, type CabinetState } from '@/lib/assembly-guide/cabinet';
+import { rearDisplayClearance } from '@/lib/assembly-guide/backPanel';
 import { GuidePanel } from './GuidePanel';
 import { usePanelMaterials } from './usePanelMaterials';
 import { SpringDowel } from './SpringDowel';
@@ -25,7 +26,7 @@ function RearDowel({ x, part, state, inside, preview }: { x: number; part: Cabin
   });
   return <group position={[x, 0, 0]}>
     <mesh position={[0, -part.box.h * 5 - 2.5, 0]}><cylinderGeometry args={[1.5, 1.5, 5, 24]} /><meshStandardMaterial color="#b8c1bd" metalness={.7} roughness={.3} /></mesh>
-    <group ref={springRoot} position={[0, part.box.h * 5, 0]}><SpringDowel extension={extension} inside={inside} housingColor="#89929a" /></group>
+    <group ref={springRoot} position={[0, part.box.h * 5 - rearDisplayClearance, 0]}><SpringDowel extension={extension} inside={inside} housingColor="#89929a" /></group>
   </group>;
 }
 
@@ -103,7 +104,9 @@ export function CabinetPanel({ part, plan, inside, finish, state, preview, doorO
     }
   }, -.3);
   const body = <>
-    <GuidePanel source={geometry} size={[box.w * 10, box.h * 10, box.d * 10]} axis={box.frame.n} inside={inside} finish={finish} mdfCuts />
+    <group position-y={part.pinCenters.length ? -rearDisplayClearance / 2 : 0} scale-y={part.pinCenters.length ? 1 - rearDisplayClearance / (box.h * 10) : 1}>
+      <GuidePanel source={geometry} size={[box.w * 10, box.h * 10, box.d * 10]} axis={box.frame.n} inside={inside} finish={finish} mdfCuts />
+    </group>
     {part.pinCenters.map(x => <RearDowel key={x} x={x} part={part} state={state} inside={inside} preview={preview} />)}
     <group ref={hardwareRoot}>
       {part.hardware.map(mount => <group key={mount.id} position={mount.at} quaternion={mount.quaternion}>
