@@ -1,0 +1,18 @@
+{
+  "sourcePage": "https://tylko.com/en-uk/furniture/desk/9281707,j",
+  "observed": "2026-10-14",
+  "assets": [
+    {
+      "path": "/imgs/product-discovery/brand.avif",
+      "url": "https://media.tylko.com/cloudinary/pdp/section-lobby/1/about-tylko/XLD.avif",
+      "sha256": "7978177369a98fe17775a6276885e5ac659abead54fd73fe6edd5f62ad00ea17",
+      "bytes": 357722
+    },
+    {
+      "path": "/imgs/product-discovery/materials.avif",
+      "url": "https://media.tylko.com/cloudinary/pdp/section-lobby/2/XLD.avif",
+      "sha256": "e7e66211c15460cff6863f6d0f1fe88c9bb3ed198cb44fe778357d7122c7f697",
+      "bytes": 16276
+    }
+  ]
+}

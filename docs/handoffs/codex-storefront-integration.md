@@ -462,3 +462,12 @@ terminal-instructions 최신 왼쪽3 지시 및 leader-review 2차 점검을 수
 - 실제3003: /configurator 갤러리8사진 유지·첫사진DOM1회·About 링크내이미지0, /furniture/bookcase-brown·/reference-product/desk-1·wardrobe-3 동일중복배너0/텍스트브랜드링크 유지. 링크클릭으로 /about-tylko에서 로컬 wallstorage/original-classic/01p-grey/1/D.avif 표시를 시각확인. 3D/store/색선택·갤러리자료/계정·가격/관리자 수정 없음.
 - 변경TSX3파일 ESLint0/0; HEAD+이번4소스만 격리 /private/tmp/befun-brand-story-6avnumwu에서 Prisma client 생성 후 webpack build/TypeScript/20정적페이지PASS, 수정4파일 사본SHA일치. 전체lint는 기존 CabinetScene.tsx:67 useMemo 의존배열 오류1/경고10으로 실패, 잠금 소스 미수정·담당알림 게시. 공유 .next/3003 재시작없음.
 - ProductDetails/FurnitureProductDetails 브랜드·discover 영역, EditorialPages About hero, product-details.module.css brand/contact 좁은 잠금 해제. 이전커밋푸시 요청에 따라 이번4소스+본인인계만 커밋·push; 공유 team-tasks 및 다른 담당 진행중 변경은 포함하지 않음.
+
+
+### 상세 구성 축소 교정 완료 — 2026-10-14
+- 사용자 지적 수신: e19620c에서 요청된 중복 대형 브랜드 사진 이동 외에 하단 discover 사진 카드까지 텍스트로 축소한 것은 범위 오류였다. 이번에는 두 사진 카드의 기존 discoverGrid 배치를 복구했다.
+- 책장·책상·옷장은 ProductDiscovery를 함께 사용한다. 갤러리 사진 재사용 대신 실제 원본 상세 lobby의 브랜드 안내/소재 샘플 사진 2장을 VPN Chrome 화면에서 관찰·로컬 확보했다. `furniture-details/discovery-photos.json`에 출처와 SHA 기록. 갤러리 원본과 바이트 중복 없음.
+- 이전 브랜드 대형 중복 사진은 /about-tylko 기존 hero로 이동한 상태 유지. 3D/갤러리/재질전환/확대/제품 사양/추천/저장·공유 변경 없음.
+- 실제 Chrome: 공유3003 /configurator 복구 사진2 로딩·시각 확인. 격리production31824의 /configurator(갤러리8/사양5), /furniture/bookcase-plum(기존 로컬 fallback1/사양5), /reference-product/desk-1(갤러리8/사양5), /reference-product/wardrobe-2(갤러리8/사양5)에서 사진 카드2/추천 유지. 책상·옷장 사진2 디코딩 확인, 브랜드 카드 클릭 /about-tylko 이동 확인.
+- 390px 실제 Emulation에서 가로overflow0·각 카드358×360, 검사후override해제. scoped ESLint0/0, catalog/photos 회귀13PASS. HEAD f231f1c+이번3TSX+사진2만 포함한 격리 전체lint0오류8기존경고, webpack production build/TypeScript21페이지PASS. 타 담당 미커밋 파일은 격리 검사에서 제외. 공유3003 재시작/.next삭제 없음.
+- 범위 잠금 해제. 이번 수정만 커밋·푸시하며 운영 반영은 자동 배포와 별도로 확인한다.

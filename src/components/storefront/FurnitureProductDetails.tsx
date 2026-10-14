@@ -8,6 +8,7 @@ import { type FurnitureDesign, FAMILY_NAMES } from '@/lib/furniture/design';
 import { WARDROBE_COLORS } from '@/lib/furniture/wardrobe-colors';
 import { useLocale } from '@/lib/commerce/useLocale';
 import { ProductMaterialGallery } from './ProductMaterialGallery';
+import { ProductDiscovery } from './ProductDiscovery';
 import { Carousel } from './StorefrontUI';
 import { JoinSection } from './JoinSection';
 import { furniturePhotoSets, furniturePhotosFor } from './furnitureProductPhotos';
@@ -81,7 +82,7 @@ export function FurnitureProductDetails({ design, title, catalogId }: {
     </section>
     <div className={details.contactLine}>{t('도움이 필요하세요?')} <Link href="/contact">{t('디자인 상담')}</Link><span>·</span><Link href="/faq">{t('자주 묻는 질문')}</Link></div>
 
-    <section className={details.section}><p className={details.eyebrow}>{t('당신에게 맞는 선택')}</p><h2>{t('아직 고민 중이라면,')}<br />{t('조금 더 살펴보세요.')}</h2><div className={details.contactLine}><Link href="/about-tylko">{t('브랜드 알아보기')} <FiArrowRight /></Link><span>·</span><Link href="/material-samples">{t('소재와 컬러 보기')} <FiArrowRight /></Link></div></section>
+    <ProductDiscovery />
     <section className={details.giftBanner}><Image src="/imgs/storefront/befun/gift-befun-logo.webp" alt={t('취향을 선물하는 기프트카드')} fill sizes="100vw" /><div><h2>{t('취향을 선물하는 즐거움.')}</h2><p>{t('좋아하는 공간을 직접 고르는 선물.')}</p><Link href="/e-gift-card/1" className={shared.outlineButton}>{t('기프트카드 안내')}</Link></div></section>
     <section id="related-designs" className={`${details.section} ${details.recommendations}`}><p className={details.eyebrow}>{t('함께 둘러보기')}</p><h2>{t('이런 디자인은 어떠세요?')}</h2><Carousel label={t('추천 디자인')}>{related.map(item => <Link key={item.id} href={`/reference-product/${item.id}`} className={details.showroom}><div><Image src={item.images[0]} alt={t(item.label)} fill sizes="(max-width:767px) 75vw, 24vw" /></div><h3>{t(item.label)}</h3><p>{t(FAMILY_NAMES[item.family])}</p><span>{t('3D 디자인 편집')} <FiArrowRight /></span></Link>)}</Carousel></section>
     <JoinSection />

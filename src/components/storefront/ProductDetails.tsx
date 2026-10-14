@@ -11,6 +11,7 @@ import { Carousel, ProductCard, ReferenceImage, isExternalImage, productHref } f
 import { ProductSpecifications, useProductReady } from './ProductConfigurator';
 import { productGalleries } from './productGalleries';
 import { ProductMaterialGallery } from './ProductMaterialGallery';
+import { ProductDiscovery } from './ProductDiscovery';
 import { defaultGalleryMaterial } from './galleryMaterials';
 import { useSavedProducts } from './useSavedProducts';
 import { JoinSection } from './JoinSection';
@@ -83,7 +84,7 @@ export function ProductDetails({ product }: { product?: CatalogProduct }) {
 
     <section className={styles.soundBanner}><ReferenceImage source="https://media.tylko.com/cloudinary/lp/tylko-sound/pdp-banner/LD.webp" fallback="creator-9.avif" alt="선반에 어울리는 컬러 스피커" sizes="100vw" /><div><p className={styles.eyebrow}>선반에서 만나는 음악</p><h2>공간에 어울리는 소리.</h2><Link href="/tylko-sound" className={shared.whiteButton}>Sound 컬렉션 보기</Link></div></section>
 
-    <section className={styles.section}><p className={styles.eyebrow}>당신에게 맞는 선택</p><h2>아직 고민 중이라면,<br />조금 더 살펴보세요.</h2><div className={styles.contactLine}><Link href="/about-tylko">브랜드 알아보기 <FiArrowRight /></Link><span>·</span><Link href="/material-samples">소재와 컬러 보기 <FiArrowRight /></Link></div></section>
+    <ProductDiscovery />
 
     <section className={styles.giftBanner}><ReferenceImage source="/imgs/storefront/befun/gift-befun-logo.webp" fallback="befun/gift.avif" alt="취향을 선물하는 기프트카드" sizes="100vw" /><div><h2>취향을 선물하는 즐거움.</h2><p>좋아하는 공간을 직접 고르는 선물.</p><Link href="/e-gift-card/1" className={shared.outlineButton}>기프트카드 안내</Link></div></section>
 
