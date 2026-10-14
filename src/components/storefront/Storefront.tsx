@@ -30,7 +30,8 @@ const categoryButtonWidths = [
 
 /** 메인 랜딩 영상 (로컬, 1440×720) */
 const heroVideo = '/videos/befun-hero-1440x720.mp4';
-const remoteHero = asset('befun/hero.avif');
+/** 영상 첫 프레임 — 로딩 중·정지·동작 줄이기에서 다른 사진이 비치지 않도록 */
+const heroPoster = '/videos/befun-hero-poster.webp';
 const journals = [
   { name: '성수 팝업 갤러리', image: 'befun/life-1.avif', title: '가구와 예술이 만나는 순간', text: '색과 형태가 공간의 분위기를 바꾸는 순간. 가구를 통해 나만의 작은 갤러리를 만들어 보세요.' },
   { name: '디자이너 인터뷰', image: 'befun/life-2.avif', title: '간결한 형태, 새로운 시선', text: '빛과 컬러, 소재가 만나는 디자인에서 새로운 공간의 아이디어를 찾아보세요.' },
@@ -51,7 +52,7 @@ function Hero() {
   const [paused, setPaused] = useState(false);
   const [muted, setMuted] = useState(true);
   const [failed, setFailed] = useState(false);
-  const [poster, setPoster] = useState(remoteHero);
+  const [poster, setPoster] = useState(heroPoster);
   const [manuallyStarted, setManuallyStarted] = useState(false);
   const shouldPlay = !reducedMotion || manuallyStarted;
 
@@ -59,7 +60,7 @@ function Hero() {
     <section className={styles.hero} aria-label="새로운 컬러 컬렉션">
       <Image src={poster} alt="따뜻한 공간에 어우러진 새로운 가구 컬러" fill priority unoptimized sizes="100vw" className={styles.cover} onError={() => setPoster(asset('befun/hero.avif'))} />
       {shouldPlay && !failed ? <div className={styles.videoCover}>
-        <video ref={video} src={heroVideo} autoPlay muted={muted} loop playsInline preload="auto" aria-hidden="true" tabIndex={-1}
+        <video ref={video} src={heroVideo} poster={heroPoster} autoPlay muted={muted} loop playsInline preload="auto" aria-hidden="true" tabIndex={-1}
           onCanPlay={() => setReady(true)} onError={() => setFailed(true)} />
       </div> : null}
       <div className={styles.heroShade} />

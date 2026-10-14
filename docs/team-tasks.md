@@ -1355,3 +1355,4 @@
 - UI-B 제안 범위(아직 수신 미확인): 공통컨트롤 시각 토큰·Modern 스와치 및 source썸네일/순서 비교. 레거시선반·Edge/Tone 회귀 포함. 기존 R4작업 완료와 이번 후속 검증 완료는 구분.
 - QA 후속: 책상 카탈로그3경로에서 single목록+연필 popup으로 검사 갱신. 후판OFF/수납종류 변경/팝업닫기·초점/URL복원/390px 검증. 제품소스 읽기전용 유지.
 - `claude-graphics` (사용자 직접 지시 "메인 랜딩을 tylko_section_1440x720.mp4로", 2026-10-14 12:40) → storefront: 영상을 `public/videos/befun-hero-1440x720.mp4`로 복사, `Storefront.tsx` Hero의 Cloudflare Stream iframe/SDK(Script)를 로컬 `<video autoPlay muted loop playsInline>`로 교체. 재생/정지·음소거 버튼, reduced-motion 시 포스터 유지·수동 재생, 오류 시 포스터 폴백 유지. CSS `.videoCover video` object-fit cover 1줄 추가. lint 0, 3003에서 1440×720 재생 확인.
+- `claude-graphics` (사용자 지적 "기존 사진이 잠깐 나왔다 사라짐", 2026-10-14 12:45) → storefront: Hero 포스터를 기존 `hero.avif`에서 영상 첫 프레임 `public/videos/befun-hero-poster.webp`로 교체(Image·video poster 모두). 느린 네트워크(400KB/s) 1.5초 시점에도 첫 프레임 표시 확인. 미사용 remoteHero 상수 제거.
