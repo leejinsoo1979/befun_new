@@ -9,8 +9,8 @@ const PHOTO = '/three/reference-studio/person/ivory-linen-woman.png';
 // Original 1024×1536 RGBA image. Visible alpha > 8: y=3..1525.
 // 175 cm is a display scale reference, not the photographed person's measured height.
 const CM_PER_PIXEL = 175 / (1525 - 3);
-// User-requested heel alignment: lower the photo, keeping contact decals on y=0.
-const HEEL_DROP_CM = 5;
+// Keep the lowest visible toes at floor level; lowering the billboard clips the feet.
+const HEEL_DROP_CM = 0;
 // Visible alpha spans x314..716. Keep even a yawed edge in front of z=0.
 const WALL_CLEARANCE = Math.max(515 - 314, 716 - 515) * CM_PER_PIXEL + 3;
 

@@ -38,6 +38,7 @@ import { calculateMosaicPanels } from '@/lib/three/styles/mosaic';
 import type { ReferenceFront } from '@/lib/three/reference-hardware';
 import { calculateDoorPlacements, calculateDrawerPlacements } from '@/lib/three/hardware';
 import type { PanelData } from '@/types/shelf';
+import { applyReferenceAlbedo } from '@/lib/three/reference-materials';
 
 // 기본 머티리얼 (동기적 폴백)
 const DEFAULT_MATERIALS = createColorMaterials('#101323', '#101323');
@@ -83,6 +84,7 @@ export function Shelf({ showDimensions = false, exploded = false, presentation =
       : createMaterialsForColor(REFERENCE_CLASSIC_COLORS[currentColor] ? 'C_White' : currentColor);
     materialRequest
       .then((mats) => {
+        if (referenceColor) applyReferenceAlbedo(mats, referenceColor);
         const classicColor = REFERENCE_CLASSIC_COLORS[currentColor];
         if (classicColor) {
           for (const material of [mats.verticalBase, mats.horizontalBase, mats.backPanel]) {

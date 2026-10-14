@@ -3,11 +3,12 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import * as THREE from 'three';
 
-const VIDEO = '/three/reference-studio/person/ivory-linen-motion-packed.mp4';
+const VIDEO = '/three/reference-studio/person/ivory-linen-motion-packed.mp4?v=alpha-interior-2';
 
 /** One decoder keeps RGB and its foreground mask exactly frame-synchronized. */
 export function StudioPersonMotion({ fallback, heelDrop }: { fallback: ReactNode; heelDrop: number }) {
   const [material, setMaterial] = useState<THREE.MeshBasicMaterial | null>(null);
+  const [shadow, setShadow] = useState<THREE.MeshDepthMaterial | null>(null);
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     let disposed = false;
@@ -32,7 +33,19 @@ export function StudioPersonMotion({ fallback, heelDrop }: { fallback: ReactNode
         '\ndiffuseColor.a *= texture2D(map, vec2(vMapUv.x * 0.5 + 0.5, vMapUv.y)).r;');
     };
     motionMaterial.customProgramCacheKey = () => 'studio-person-packed-alpha-v1';
-    const ready = () => { if (!disposed) setMaterial(motionMaterial); };
+    // The visible RGB and shadow silhouette share one frame/decoder.
+    // The scene's key light projects this cutout onto real floor/wall geometry.
+    const shadowMaterial = new THREE.MeshDepthMaterial({
+      map: texture, depthPacking: THREE.RGBADepthPacking,
+      alphaTest: 0.5, side: THREE.DoubleSide,
+    });
+    shadowMaterial.onBeforeCompile = shader => {
+      shader.fragmentShader = shader.fragmentShader.replace('#include <map_fragment>', `
+        diffuseColor.a *= texture2D(map, vec2(vMapUv.x * 0.5 + 0.5, vMapUv.y)).r;
+      `);
+    };
+    shadowMaterial.customProgramCacheKey = () => 'studio-person-light-shadow-v2';
+    const ready = () => { if (!disposed) { setMaterial(motionMaterial); setShadow(shadowMaterial); } };
     const failed = () => { if (!disposed) setMaterial(null); };
     const play = () => { void video.play().catch(failed); };
     const visibility = () => { if (document.hidden) video.pause(); else play(); };
@@ -50,11 +63,14 @@ export function StudioPersonMotion({ fallback, heelDrop }: { fallback: ReactNode
       video.load();
       texture.dispose();
       motionMaterial.dispose();
+      shadowMaterial.dispose();
     };
   }, []);
   if (!material) return fallback;
-  return <mesh key="video-person" position={[-3 * 175 / 1522, 175 / 2 - heelDrop, 0]}
-    material={material} renderOrder={2} raycast={() => null} userData={{ excludeFromAO: true }}>
+  return <group>
+    <mesh key="video-person" position={[-3 * 175 / 1522, 175 / 2 - heelDrop, 0]}
+    material={material} customDepthMaterial={shadow ?? undefined} castShadow renderOrder={2} raycast={() => null} userData={{ excludeFromAO: true }}>
     <planeGeometry args={[175 * 448 / 672, 175]}/>
-  </mesh>;
+  </mesh>
+  </group>;
 }

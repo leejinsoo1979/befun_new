@@ -333,8 +333,18 @@
 
 .heroContent .eyebrow { font-size: 16px; line-height: 1.4; }
 .innerStorefront { background: white; min-height: 100vh; }
-/* 헤더(고정) 상하 여백까지 흰 헤더 영역 안에 들어오도록: 24 + 알약64 + 24 */
-.innerStorefront > main { padding-top: 112px; min-height: 65vh; }
+/* Compact desktop header: 8px + 44px navigation + 8px (사용자 지시 "헤더 너무 커"). */
+.innerStorefront > main { padding-top: 60px; min-height: 65vh; }
+@media (min-width: 951px) {
+  .innerStorefront .header { top: calc(var(--announce-h) + 8px); }
+  .innerStorefront .navPill { min-height: 44px; padding: 0 14px 0 24px; }
+  .innerStorefront .desktopNav { font-size: 14px; gap: clamp(16px, 2vw, 36px); }
+  .innerStorefront .navIcons { gap: 6px; }
+  .innerStorefront .iconButton { width: 32px; height: 32px; }
+  .innerStorefront .iconButton svg { width: 18px; height: 18px; }
+  .innerStorefront .brandLogoAnimated { transform: scale(.85); transform-origin: left center; }
+  .innerStorefront .megaMenu { top: 52px; }
+}
 @media (max-width: 950px) { .innerStorefront > main { padding-top: 96px; } }
 .innerStorefront .navPill { background: var(--ink); color: white; }
 .innerStorefront .iconButton:hover { background: #ffffff25; }

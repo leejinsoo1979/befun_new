@@ -38,6 +38,7 @@ function CameraControls() {
   const exploded = useDisplayStore(s=>s.exploded);
   const revision = useDisplayStore(s=>s.revision);
   const stageBounds = useDisplayStore(s=>s.stageBounds);
+  const appearance = useDisplayStore(s=>s.appearance);
   const wasCinematic=useRef(false);
   const goal = useRef({ position: new THREE.Vector3(), target: new THREE.Vector3(), halfHeight: 100, active: false, camera: null as THREE.Camera | null });
   // Some presets carry a nominal height differing from the sum of their rows.
@@ -51,8 +52,12 @@ function CameraControls() {
   useLayoutEffect(() => {
     const bounds = exploded ? stageBounds : null;
     const aspect = size.width / Math.max(1, size.height);
-    const frame = fitView(bounds?.width ?? width, bounds?.height ?? bodyHeight + footHeight + 10, bounds?.depth ?? depth + 30, aspect, view);
-    const target = bounds ? new THREE.Vector3(...bounds.center) : new THREE.Vector3(0, (bodyHeight + footHeight) / 2, depth / 2);
+    // 스튜디오 배경(인물 포함)이 보이는 정면/기본 시점은 왼쪽 인물(가구 왼쪽 56cm, 키 약 175cm)까지 담는다.
+    // 가구는 화면 가운데에 두기 위해 좌우 대칭으로 폭을 넓힌다.
+    const withPerson = !bounds && appearance === 'realistic' && (view === 'front' || view === 'standard');
+    const frameHeight = withPerson ? Math.max(bodyHeight + footHeight + 10, 185) : bodyHeight + footHeight + 10;
+    const frame = fitView(bounds?.width ?? (withPerson ? width + 2 * (56 + 40) : width), bounds?.height ?? frameHeight, bounds?.depth ?? depth + 30, aspect, view);
+    const target = bounds ? new THREE.Vector3(...bounds.center) : new THREE.Vector3(0, withPerson ? (frameHeight - 10) / 2 : (bodyHeight + footHeight) / 2, depth / 2);
     const destination = goal.current;
     const presetKey = `${view}|${revision}|${exploded}`;
     const presetChanged = lastPreset.current !== presetKey;
@@ -74,7 +79,7 @@ function CameraControls() {
       destination.camera = camera;
     }
     destination.active = true;
-  }, [camera, width, bodyHeight, footHeight, depth, view, exploded, revision, stageBounds, size.width, size.height]);
+  }, [camera, width, bodyHeight, footHeight, depth, view, exploded, revision, stageBounds, appearance, size.width, size.height]);
 
   useFrame((_, delta) => {
     const state=useDisplayStore.getState();
