@@ -1,0 +1,40 @@
+{
+  "status": "validated-local-and-publish-build",
+  "baseline": "702cd9dceaeb770b8a0f853ac27cc8e42584221f",
+  "sourceHashes": {
+    "src/components/storefront/ReferenceCatalogPages.tsx": "168f325869f01b4eff94e80ec853efd8451fa6cac25925259eb3ef5bdc50e282",
+    "src/components/storefront/CatalogPages.tsx": "2a72e3f11412829aca98fd50301cd70f26d14ad0870894d2435acff85cbb79ae"
+  },
+  "build": {
+    "path": "/private/tmp/befun-catalog-cta-publish-check-20261015-r2",
+    "status": "PASS",
+    "staticPages": 23
+  },
+  "lint": {
+    "errors": 0,
+    "existingWarnings": 8,
+    "publishCommand": "npm run lint -- --ignore-pattern '.vercel/**'",
+    "firstRawRun": {
+      "status": "FAIL-generated-output-only",
+      "errors": 209,
+      "reason": "existing .vercel/output artifacts"
+    }
+  },
+  "existingCatalogTests": {
+    "pass": 10,
+    "fail": 0
+  },
+  "externalProductLinks": 0,
+  "localRoutes": {
+    "dressing_table-1": "/furniture-design/desk-classic",
+    "shoerack-1": "/configurator",
+    "smooth-khaki": "/sofa-configurator?model=smooth",
+    "all/15": "/configurator"
+  },
+  "publishSofaRoute": "/furniture-c/sofas",
+  "publication": {
+    "commit": null,
+    "deployment": null,
+    "ready": false
+  }
+}
