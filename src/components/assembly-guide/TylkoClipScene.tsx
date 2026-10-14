@@ -11,6 +11,7 @@ import type { SceneProps } from './GuideScene';
 import styles from './guide.module.css';
 import { GuidePanel } from './GuidePanel';
 import { createCameraRig, updateCameraRig } from './cameraRig';
+import { MotionArrow } from './MotionArrow';
 
 const colourNames = { black: '검정', orange: '주황', silver: '은색' };
 
@@ -43,17 +44,11 @@ function MovingBoard({ inside }: { inside: boolean }) {
   </group>;
 }
 
-function SlideArrow() {
-  return <group rotation={[0, 0, Math.PI / 2]}>
-    <Line points={[[0, -10, 0], [0, 13, 0]]} color="#517545" lineWidth={1.3} />
-    <Line points={[[-1.7, 10, 0], [0, 13, 0], [1.7, 10, 0]]} color="#517545" lineWidth={1.3} />
-  </group>;
-}
-
 /** Hardware geometry is imported from R1-VISUAL; this component only places panels and samples motion. */
 export function TylkoClipScene({ onTick, onManual, onUpdate, step, inside, clipColourVersion }: SceneProps) {
   const panel = useRef<Group>(null);
   const arrow = useRef<Group>(null);
+  const arrowProgress = useRef(0);
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null);
   const cameraRig = useMemo(() => createCameraRig(), []);
   const sent = useRef({ elapsed: 0, progress: -1, playing: false });
@@ -71,9 +66,10 @@ export function TylkoClipScene({ onTick, onManual, onUpdate, step, inside, clipC
   useFrame(({ camera, size }, delta) => {
     const state = onTick(delta);
     const pose = tylkoClipPose(state.step, state.progress);
+    arrowProgress.current = state.progress;
     panel.current?.position.set(...pose.panelOffset);
     if (arrow.current) {
-      arrow.current.visible = state.step === 2 || state.step === 3;
+      arrow.current.visible = (state.step === 2 || state.step === 3) && state.progress < 1;
       arrow.current.position.set(clipExample.centers[1] + pose.panelOffset[0] + (state.step === 2 ? -12 : 6), -20, pose.panelOffset[2]);
       arrow.current.rotation.y = state.step === 2 ? Math.PI / 2 : 0;
     }
@@ -108,7 +104,7 @@ export function TylkoClipScene({ onTick, onManual, onUpdate, step, inside, clipC
           <Html position={[clipExample.height / 2 + 8, -18, -12]} center className={styles.partLabel}>끝선 · 직각 확인</Html>
         </>}
       </group>
-      <group ref={arrow} scale={.65}><SlideArrow /></group>
+      <group ref={arrow} scale={.65}><MotionArrow direction="left" progress={arrowProgress} /></group>
     </group>
     <OrbitControls ref={controls} makeDefault enableDamping minDistance={22} maxDistance={1800} onStart={onManual} />
   </>;

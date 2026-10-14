@@ -83,3 +83,7 @@ R3 이력: [R3-ASM-01~06 제출](handoffs/assets/codex-assembly/r3-legs/README.m
 [전후 캡처·P/R 내부·단면·모바일·검사 결과](handoffs/assets/codex-assembly/pocket-transparency/README.md). 홈 입구 뒤를 채우던 라미네이트색 면과 평면 윤곽선을 제거하고 MDF 절삭면의 벽·바닥을 추가했다. A/B 삽입 카메라가 홈 깊이를 보여준다. 위 R2.1의 벽 생략은 당시 상태이며, 이번은 알려진 입구/깊이를 연결한 설명용 기본 홈만 표시한다. 공급사 언더컷은 unknown, 제조 가공 승인은 false로 유지한다. 외부 양면 라미네이트·자작 엣지와 홈 내부 MDF 조합은 사용자 지정 시연이며 검증된 생산 BOM을 뜻하지 않는다.
 
 하우징도 투명하게 하여 검정 커넥터가 보이고, 직접 선택한 투명/불투명은 단계·탐색·재생·조립/분해 전환에 유지한다. 모델/주제 변경은 자동 연출로 초기화한다. 최종 결합 단계의 확대와 투명 단면 캡을 교정했다. 기존 R 공식 해제·P 분해 제한·Tylko5·백패널7·다리 원본5 유지. 47검사PASS, 변경eslint0/0, 격리 전체lint0오류/기존경고7, production build/TypeScript/17정적페이지PASS. 안내40파일 사본 SHA 차이0. Chrome desktop/390px·24회 투명 전환 후 geometry36/texture9/program10 안정. 실제 제품 연결·정밀 다리 기구·제조 승인은 별도다.
+
+### 방향 화살표 시각 교정 — 2026-10-14
+
+[전후·삽입/슬라이드/해제·390px 캡처와 결과](handoffs/assets/codex-assembly/motion-arrows/README.md). 얇은 녹색 선을 짧은 검정 벡터/흰 윤곽으로 교체했다. 기존 세계축을 카메라에 투영하고 진행률로만6px 전진하므로 정지/탐색/방향 반전이 유지된다. 동작줄이기·완료숨김·이름표간격·주제전환DOM정리를 확인했다. 기존기구/HW/치수/재질/공식절차 및리더R7매뉴얼/route 미수정. 기존47검사·최종production build/TypeScript PASS, 변경eslint0/0,격리전체lint0오류/기존경고7. 안내41파일사본SHA차이0.

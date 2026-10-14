@@ -1,0 +1,212 @@
+{
+  "baselineCommit": "2cce836814736341f0c17945126f3346e96904f5",
+  "fileCount": 41,
+  "isolatedSourceDifferences": 0,
+  "files": [
+    {
+      "path": "src/components/assembly-guide/AssemblyGuide.tsx",
+      "sha256": "ab980c37cfa8c21a51062018eae6100a0cb711064d46f92c63cff409195eaa83",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/BackPanelScene.tsx",
+      "sha256": "f57b4b2238c3796b850c9774ed05b9f3c11d557553ef8a1b49663b211fd09434",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/GuideEnvironment.tsx",
+      "sha256": "35d7611bb3fe89d86dc389a8ab9604f3114912131dc0fceec4a21e53c4990833",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/GuidePanel.tsx",
+      "sha256": "9db21b52fa2e94e501d80697933a42e2961fb62ca88c7481cc99f7729a1a4020",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/GuideScene.tsx",
+      "sha256": "ac9bcb61cc139c5bfe9f68cf79d578bf9d5c8e7eddfdebca686020ad4faf3083",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/JointSectionCaps.tsx",
+      "sha256": "d357c3d92371575f2fcdd2b5ab406d21b1bcd180bf67b41e7428336b97e68b84",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/LegScene.tsx",
+      "sha256": "598b8fbc4597b8342f15d759a4fbcd37fd8857400d90cd7ec734f881f414a8a0",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/MotionArrow.tsx",
+      "sha256": "ebc72416f0613b2a89c9565f77991c90957c4f47e828aa0e64b233fd14dcfcb4",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/ReferenceClipGuide.tsx",
+      "sha256": "8b5d083bfca439c2c771c4b6aa49c0cec89b376005db97413bf08db29d675da3",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/ReferenceLegGuide.tsx",
+      "sha256": "761aaa1748282bd4d98f0df741e2bc1541b9cccec93178a83ecac9fc2f184768",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/TylkoClipScene.tsx",
+      "sha256": "f771adf7d100fd128814b931796b4563c81965f06940b33116b763b4d725ec07",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/cameraRig.ts",
+      "sha256": "45a9bd17064867489611d5701ce117ad86754a4e21fa088f713f96dc7eeabd22",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/guide.module.css",
+      "sha256": "b5ede45e7d4f9c9c537968d52f1a5ef7d52779f9d9a41007e62a8f1ef3b5ab9d",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/components/assembly-guide/usePanelMaterials.ts",
+      "sha256": "b8f34a7c004108d58d0bdfea164618e153267ef60a26145105559a6d594810ef",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/backPanel.test.mjs",
+      "sha256": "66bbb9e1894c1fcf859d0fc446d8459305bb548fef7368867e30d5336d5b43fa",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/backPanel.ts",
+      "sha256": "ea457a1aac689a6e4a4c94afc8c036a0922cd01a1d121788f855cc8367ce9a59",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/cinematicShot.test.mjs",
+      "sha256": "da36fe3eedb29d97f600c8859ca13789871e115347a0ca496b82efafefd1a0f1",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/cinematicShot.ts",
+      "sha256": "41b73d206b67f1067a976a7f498e6e1e34bdd0bbdc2aac98ce57c73196d70f10",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/clipReferences.ts",
+      "sha256": "f0d42ab456fb928a4d5cf21d54426a33e1b90f89c57294517bbaf68a9e6ae59a",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/disassembly.test.mjs",
+      "sha256": "47cdb8f85094742a1657b830c51ad3c302d8fe5565cc560466cfa805075c7fe2",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/disassembly.ts",
+      "sha256": "a381193eca4b9c7157651cb4c67b6d12b5a9c3d7bde87fe0ced125efcd05184b",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/inspectionShot.ts",
+      "sha256": "2383ae136f4ace2ce2e7327d8fb23d36ef529460da10edc99eb1a51034cf54ec",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/legs.test.mjs",
+      "sha256": "244e93ade3794c91d427463b3304d523805680c8ed03677dab871e89a66bbc25",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/legs.ts",
+      "sha256": "c1d155abeac04849350fa40bf57153d22cc3cf4041c5ed1702a45ffaddc69d3f",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/ovvoIntegration.test.mjs",
+      "sha256": "07d57127a625d17e9ce2b7b57b88e80b57e1984535c8c609ba9c5b28c815b02a",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/ovvoMotion.test.mjs",
+      "sha256": "177629c9fa676c1f0978ee9f725d55e11bc57f3e8a959a37508a307681d2aebc",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/ovvoMotion.ts",
+      "sha256": "1498f28be345403cca93386518638ee1003d7f898f045e4eb1c9060961faaa0c",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/ovvoMounts.ts",
+      "sha256": "59bbe298d30025eaae59a62b2b572f3577969b5da3cdef8668c190a312a42c31",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/panelMaterials.ts",
+      "sha256": "1a28aa619693c5cc739baf34aeead73871d7b74c1ea02364d3a1b17ebdaba2b7",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/panelPocket.test.mjs",
+      "sha256": "9a73085042f3e31a77a651cf649f0f7c3ba30edd3b9453be1af36fa68fce5361",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/panelPocket.ts",
+      "sha256": "39af5246e5aaf371cb39e215195f54a3f39c821350ad652a283ef89a9fdc3549",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/playback.test.mjs",
+      "sha256": "c973ceeb8fdf40370da910dcaa0368d551140d99181b8dd47e1aed6399cce20f",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/playback.ts",
+      "sha256": "cb20759c00a433a49da157ce178425d4ac284767d5458339fe84a25ea2e9d360",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/pocketAudit.test.mjs",
+      "sha256": "a69839a3129ec302b5235bfd116e801360ec7097e1f06f216ed81e32de6a2c98",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/pocketAudit.ts",
+      "sha256": "7630311d36ff00acde6a81677554786d9f9914bd4f4f777ee21253263476f833",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/sequence.test.mjs",
+      "sha256": "bb7018b440db2484680cf921b4278e8cb618a09e011edfdbeb0cb1aa0102589c",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/sequence.ts",
+      "sha256": "ec22e5fadaa8e807fe01c78c50d4eb03f59dcc4fbc7ec518d770afd2a0e290fe",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/tylkoClip.test.mjs",
+      "sha256": "d1aa76e72dc14a669386b4f92fe696f3e9c0b3aabd0ad4e24be32b94209680d5",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/tylkoClip.ts",
+      "sha256": "5c03366717ecf18dc893aee195101c84357de64b6a97ad47cc804355c6799b38",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/viewState.test.mjs",
+      "sha256": "c5f1eb53d33a75e5f87954e358efb1bc9ab0ad00a482b689999fca84240e200f",
+      "isolatedMatches": true
+    },
+    {
+      "path": "src/lib/assembly-guide/viewState.ts",
+      "sha256": "70c3f9a615d604cf8c0a2f9a34d3ac8fd2a5bd33428c873e1964ec42b00a5542",
+      "isolatedMatches": true
+    }
+  ]
+}

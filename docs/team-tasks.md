@@ -1279,3 +1279,8 @@
 - 47검사PASS, 변경eslint0/0, 격리전체lint0오류/기존경고7, production build/TypeScript/17정적페이지PASS. 안내40파일SHA사본차이0. 실제Chrome desktop/390px·기존P/R/Tylko5/백패널7/다리5·재생/탐색/초기화/전환, 24회투명토글자원36geometry/9texture/10program안정. 최신새로고침error/warn0.
 - 증거: docs/handoffs/assets/codex-assembly/pocket-transparency/README.md 및verification/fingerprint·전후/P/R/단면/모바일캡처. R4실제제품입력계약 요청 유지, 정밀다리/전체주문/제조승인 제외.
 - 이번 소유 잠금 해제: 위 assembly-guide components/lib 및신규panelPocket/viewState/검사, cinematicShot/검사, docs/assembly-guide.md, pocket-transparency증거. 공유3003/.next유지. 독립게시사본에서 이번ASM만 Git반영하며 배포결과 별도기록.
+
+### 방향 화살표 교정 완료 — 왼쪽5 / 2026-10-14
+- 기존녹색선→검정벡터/흰윤곽/화면고정크기. 실제세계축투영·진행률동기화·pause/seek/reduced-motion·완료숨김·모바일이름표간격교정. 기존P/R/Tylko이동축/HW/치수/공식해제 보존. R7매뉴얼/route 및공용상품/UI미수정.
+- Chrome desktop/390px, R조립(-.0147rad)/반대해제(3.1174rad), P제한, Tylko진입/슬라이드, 정지glyph동일, 주제전환잔류DOM0, 콘솔0확인. 기존47검사PASS, 변경eslint0/0, 격리전체lint0오류/기존7경고, 최종production build/TypeScript/17페이지PASS, 안내41파일SHA차이0. 증거 motion-arrows/README.md.
+- 이번MotionArrow/GuideScene화살표부/TylkoClipScene화살표부/guide.module.css화살표스타일·본인증거잠금해제. 공유3003/.next/.git유지. 독립게시사본에이번4소스와본인증거만반영, 운영결과별도기록.

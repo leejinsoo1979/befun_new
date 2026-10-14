@@ -2,7 +2,7 @@
 
 import { Suspense, memo, useCallback, useEffect, useMemo, useRef, useState, type ComponentRef } from 'react';
 import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
-import { Html, Line, OrbitControls } from '@react-three/drei';
+import { Html, OrbitControls } from '@react-three/drei';
 import { BoxGeometry, DoubleSide, Group, MeshStandardMaterial, Plane, PlaneGeometry, Shape, ShapeGeometry, TextureLoader, Vector3 } from 'three';
 import { OvvoPH, OvvoRH, OvvoPC, OvvoRC, guideMounts } from '@/components/three/furniture-hardware/ovvo';
 import { ovvoGuideModel } from '@/lib/assembly-guide/ovvoMounts';
@@ -14,6 +14,7 @@ import { releasePose, releaseShot, type JointAction } from '@/lib/assembly-guide
 import { capsuleMouth, createPocketInterior } from '@/lib/assembly-guide/panelPocket';
 import type { PanelView } from '@/lib/assembly-guide/viewState';
 import { usePanelMaterials } from './usePanelMaterials';
+import { MotionArrow } from './MotionArrow';
 import { createCameraRig, updateCameraRig } from './cameraRig';
 import { GuideEnvironment } from './GuideEnvironment';
 import { JointSectionCaps } from './JointSectionCaps';
@@ -119,13 +120,6 @@ function Board({ upright, inside }: { upright?: boolean; inside: boolean }) {
   </group>;
 }
 
-function DirectionArrow({ direction }: { direction: 'down' | 'up' | 'slide' }) {
-  return <group rotation={direction === 'slide' ? [-Math.PI / 2, 0, 0] : direction === 'up' ? [0, 0, 0] : [Math.PI, 0, 0]}>
-    <Line points={[[0, 0, 0], [0, 14, 0]]} color="#517545" lineWidth={1.3} />
-    <Line points={[[-1.7, 11, 0], [0, 14, 0], [1.7, 11, 0]]} color="#517545" lineWidth={1.3} />
-  </group>;
-}
-
 function JointScene({ onTick, onManual, model, step, jointAction, inside, onUpdate }: SceneProps) {
   const gl = useThree(state => state.gl);
   const sectionPlanes = useRef([new Plane(new Vector3(-1, 0, 0), 0)]);
@@ -137,6 +131,7 @@ function JointScene({ onTick, onManual, model, step, jointAction, inside, onUpda
   const capSources = useMemo(() => [baseHardware, endHardware, connectors], []);
   const capActive = useRef(false);
   const arrow = useRef<Group>(null);
+  const arrowProgress = useRef(0);
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null);
   const report = useRef(0);
   const published = useRef({ progress: -1, playing: false });
@@ -166,6 +161,7 @@ function JointScene({ onTick, onManual, model, step, jointAction, inside, onUpda
       onUpdate(state.progress, state.playing);
     }
     const pose = releasing ? releasePose(state.step, state.progress) : jointPose(state.model, state.step, state.progress);
+    arrowProgress.current = state.progress;
     panel.current?.position.set(0, pose.panelGap, pose.panelSlide);
     if (baseHardware.current) { baseHardware.current.position.y = pose.baseHousingOffset; baseHardware.current.visible = pose.baseHousingsVisible; }
     if (endHardware.current) { endHardware.current.position.y = pose.endHousingOffset; endHardware.current.visible = pose.endHousingsVisible; }
@@ -206,7 +202,7 @@ function JointScene({ onTick, onManual, model, step, jointAction, inside, onUpda
       {jointAction === 'assemble' && step === 0 && <Html position={[13, 95, 70]} center className={styles.partLabel}><span>B</span> 세로판 · 아래 끝에 홈</Html>}
     </group>
     {jointAction === 'assemble' && step === 0 && <Html position={[47, 1, 67]} center className={styles.partLabel}><span>A</span> 받침판 · 홈이 위로</Html>}
-    <group ref={arrow}><DirectionArrow direction={jointAction === 'disassemble' ? step === 1 ? 'slide' : 'up' : step === 2 || step === 3 ? 'up' : model === 'V-1230R' && step === 6 ? 'slide' : 'down'} /></group>
+    <group ref={arrow}><MotionArrow direction={jointAction === 'disassemble' ? step === 1 ? 'slide' : 'up' : step === 2 || step === 3 ? 'up' : model === 'V-1230R' && step === 6 ? 'slide' : 'down'} progress={arrowProgress} /></group>
     <JointSectionCaps sources={capSources} active={capActive} planes={sectionPlanes} model={model} inside={inside} />
     <OrbitControls ref={controls} makeDefault enableDamping minDistance={35} maxDistance={1800} maxPolarAngle={Math.PI * .8} onStart={onManual} />
   </>;
