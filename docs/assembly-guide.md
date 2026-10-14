@@ -87,3 +87,8 @@ R3 이력: [R3-ASM-01~06 제출](handoffs/assets/codex-assembly/r3-legs/README.m
 ### 방향 화살표 시각 교정 — 2026-10-14
 
 [전후·삽입/슬라이드/해제·390px 캡처와 결과](handoffs/assets/codex-assembly/motion-arrows/README.md). 얇은 녹색 선을 짧은 검정 벡터/흰 윤곽으로 교체했다. 기존 세계축을 카메라에 투영하고 진행률로만6px 전진하므로 정지/탐색/방향 반전이 유지된다. 동작줄이기·완료숨김·이름표간격·주제전환DOM정리를 확인했다. 기존기구/HW/치수/재질/공식절차 및리더R7매뉴얼/route 미수정. 기존47검사·최종production build/TypeScript PASS, 변경eslint0/0,격리전체lint0오류/기존경고7. 안내41파일사본SHA차이0.
+
+
+### Befun 캐비넷 모의 조립 완료 — 왼쪽5 / 2026-10-14
+
+[직접 조립·자동 조립·실제 공통 모델·검사·한계](handoffs/assets/codex-assembly/cabinet/README.md). `/assembly-guide/cabinet`에 실제 Befun 생성 결과의 1단 도어 캐비넷8부품·몸통6접합/12커넥터를 연결했다. 양면 라미네이트/자작 엣지/MDF 홈·부품 선택/커넥터 준비/위치 체결/확인·완성 도어 열기를 제공한다. 직접8부품 및390px자동완주,53검사·production build/TypeScript PASS,lint0오류/기존8경고. 후면은위치연습·다리는고정외형·제조승인false,실제주문전체연결은별도다. 리더R7/공통가구/HW/CNC/재질/공유Git·서버보존. 원격의기존캐비넷초안보존후최종본을독립사본에서게시한다.

@@ -23,12 +23,21 @@ export default async function UserDetail({ params }: { params: Promise<{ id: str
     <>
       <div className={styles.crumb}><Link href="/admin/users">회원 관리</Link> / {u.name ?? u.email ?? '회원'}</div>
       <div className={styles.pageHead}>
-        <div><h1 style={{ display: 'flex', gap: 10, alignItems: 'center' }}>{u.name ?? '이름 없음'} {u.role === 'ADMIN' && <Badge tone="ink">관리자</Badge>}</h1><p>{u.email ?? '이메일 미동의'} · {dateTime(u.createdAt)} 가입</p></div>
-        <form action={setUserRole}>
-          <input type="hidden" name="userId" value={u.id} /><input type="hidden" name="role" value={u.role === 'ADMIN' ? 'USER' : 'ADMIN'} />
-          {self ? <span className={styles.muted}>본인 계정은 권한을 바꿀 수 없습니다</span> :
-            <ConfirmSubmit className={`${styles.btn} ${u.role === 'ADMIN' ? styles.danger : ''}`} message={u.role === 'ADMIN' ? '관리자 권한을 해제할까요?' : '이 회원에게 관리자 권한을 줄까요? 주문·회원 정보를 모두 볼 수 있게 됩니다.'}>{u.role === 'ADMIN' ? '관리자 권한 해제' : '관리자로 지정'}</ConfirmSubmit>}
-        </form>
+        <div><h1 style={{ display: 'flex', gap: 10, alignItems: 'center' }}>{u.name ?? '이름 없음'} {u.role === 'ADMIN' && <Badge tone="ink">관리자</Badge>}{u.role === 'FACTORY' && <Badge tone="amber">공장</Badge>}</h1><p>{u.email ?? '이메일 미동의'} · {dateTime(u.createdAt)} 가입</p></div>
+        {self ? <span className={styles.muted}>본인 계정은 권한을 바꿀 수 없습니다</span> : (
+          <div className={styles.actionRow}>
+            {u.role === 'USER' && (
+              <form action={setUserRole}>
+                <input type="hidden" name="userId" value={u.id} /><input type="hidden" name="role" value="FACTORY" />
+                <ConfirmSubmit className={styles.btn} message="이 회원을 공장 담당자로 지정할까요? 작업지시서(제품 사양·배송지)를 볼 수 있게 됩니다.">공장 담당자로 지정</ConfirmSubmit>
+              </form>
+            )}
+            <form action={setUserRole}>
+              <input type="hidden" name="userId" value={u.id} /><input type="hidden" name="role" value={u.role === 'USER' ? 'ADMIN' : 'USER'} />
+              <ConfirmSubmit className={`${styles.btn} ${u.role !== 'USER' ? styles.danger : ''}`} message={u.role === 'ADMIN' ? '관리자 권한을 해제할까요?' : u.role === 'FACTORY' ? '공장 담당 권한을 해제할까요?' : '이 회원에게 관리자 권한을 줄까요? 주문·회원 정보를 모두 볼 수 있게 됩니다.'}>{u.role === 'ADMIN' ? '관리자 권한 해제' : u.role === 'FACTORY' ? '공장 권한 해제' : '관리자로 지정'}</ConfirmSubmit>
+            </form>
+          </div>
+        )}
       </div>
       <div className={styles.grid4} style={{ marginBottom: 14 }}>
         <div className={`${styles.card} ${styles.kpi}`}><span>주문</span><strong>{u.orders.length}건</strong></div>

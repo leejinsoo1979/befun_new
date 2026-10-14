@@ -107,6 +107,9 @@ export default function OrderDetailPage() {
           <p className="mt-2 text-xs text-gray-400">
             주문일: {new Date(order.createdAt).toLocaleDateString('ko-KR')}
           </p>
+          {order.status === 'PENDING' && (
+            <Link href={`/order/${order.id}/pay`} className="mt-4 block rounded-lg bg-gray-900 py-3 text-center text-sm font-semibold text-white">결제하기</Link>
+          )}
         </div>
 
         {/* 상품 목록 */}

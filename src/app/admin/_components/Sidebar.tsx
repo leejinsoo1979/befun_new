@@ -2,13 +2,14 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FiBarChart2, FiBox, FiExternalLink, FiGrid, FiLayers, FiSettings, FiTool, FiUsers } from 'react-icons/fi';
+import { FiBarChart2, FiBox, FiClipboard, FiExternalLink, FiGrid, FiLayers, FiSettings, FiTool, FiUsers } from 'react-icons/fi';
 import styles from '../admin.module.css';
 
 const GROUPS = [
   { title: '운영', links: [
     { href: '/admin', label: '대시보드', icon: FiBarChart2, exact: true },
     { href: '/admin/orders', label: '주문 관리', icon: FiBox, badge: 'orders' as const },
+    { href: '/factory', label: '공장 작업지시서', icon: FiClipboard },
   ] },
   { title: '고객·디자인', links: [
     { href: '/admin/users', label: '회원 관리', icon: FiUsers },

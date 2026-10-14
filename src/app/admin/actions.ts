@@ -91,7 +91,7 @@ export async function setUserRole(formData: FormData) {
   const admin = await requireAdmin();
   const userId = String(formData.get('userId') ?? '');
   const role = String(formData.get('role') ?? '');
-  if (!userId || (role !== 'USER' && role !== 'ADMIN')) throw new Error('잘못된 요청입니다.');
+  if (!userId || (role !== 'USER' && role !== 'ADMIN' && role !== 'FACTORY')) throw new Error('잘못된 요청입니다.');
   if (userId === admin.id && role !== 'ADMIN') throw new Error('본인의 관리자 권한은 해제할 수 없습니다.');
   await prisma.user.update({ where: { id: userId }, data: { role } });
   revalidatePath('/admin/users');

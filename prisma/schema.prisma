@@ -120,6 +120,9 @@ model Order {
   shipDetail  String?
   // 관리자 전용 메모(고객에게 보이지 않음)
   adminMemo   String?
+  // 결제 승인 시 생성되는 공장 제작 지시서(재단 목록·하드웨어 스냅샷). 이후 생성 규칙이 바뀌어도 주문 당시 값 유지
+  productionSheet   Json?
+  productionReadyAt DateTime?
   events      OrderEvent[]
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
@@ -190,6 +193,8 @@ model Shipping {
 enum UserRole {
   USER
   ADMIN
+  // 공장 작업자: 제작 지시서(/factory)만 볼 수 있다
+  FACTORY
 }
 
 enum OrderStatus {

@@ -28,8 +28,9 @@ export function resolveWardrobeDoor(
     for (const edge of source.extremes ?? []) {
       if (edge === 'left') x1 -= 6;
       if (edge === 'right') x2 += 6;
-      // Original renderer extends both top/bottom extremes towards +Y.
-      if (edge === 'top' || edge === 'bottom') y2 += 6;
+      // Bottom shifts the center up but REDUCES height; top extends upward.
+      if (edge === 'top') y2 += 6;
+      if (edge === 'bottom') y1 += 6;
     }
     pivotMm = right ? source.x2 : source.x1;
     angleDeg = (right ? 1 : -1) * (source.subtype === 't' ? 105 : 95);

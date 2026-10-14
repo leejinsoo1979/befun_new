@@ -38,6 +38,7 @@ export default async function OrderDetail({ params }: { params: Promise<{ id: st
           <p>{dateTime(o.createdAt)} 주문 · 마지막 변경 {dateTime(o.updatedAt)}</p>
         </div>
         <div className={styles.actionRow}>
+          {o.status !== 'PENDING' && o.status !== 'CANCELLED' && <Link className={styles.btn} href={`/factory/${o.id}`}>작업지시서</Link>}
           {canCancel && (
             <form action={changeOrderStatus}>
               <input type="hidden" name="orderId" value={o.id} /><input type="hidden" name="to" value="CANCELLED" />

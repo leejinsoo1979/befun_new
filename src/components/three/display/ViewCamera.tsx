@@ -45,13 +45,24 @@ function CameraControls() {
   const bodyHeight = Math.max(height,
     rows.slice(0, numRows).reduce((sum, rowHeight) => sum + rowHeight, 0) + thickness * (numRows + 1));
 
+  // 시점 프리셋이 바뀐 경우(보기 선택·재설정·분해)에만 방향을 프리셋으로 돌린다.
+  // 폭/높이/깊이·화면 크기만 바뀌면 사용자가 돌려 둔 현재 방향을 유지하고 거리·중심만 다시 맞춘다.
+  const lastPreset = useRef('');
   useLayoutEffect(() => {
     const bounds = exploded ? stageBounds : null;
     const aspect = size.width / Math.max(1, size.height);
     const frame = fitView(bounds?.width ?? width, bounds?.height ?? bodyHeight + footHeight + 10, bounds?.depth ?? depth + 30, aspect, view);
     const target = bounds ? new THREE.Vector3(...bounds.center) : new THREE.Vector3(0, (bodyHeight + footHeight) / 2, depth / 2);
     const destination = goal.current;
-    destination.position.copy(target).addScaledVector(frame.direction, frame.distance);
+    const presetKey = `${view}|${revision}|${exploded}`;
+    const presetChanged = lastPreset.current !== presetKey;
+    lastPreset.current = presetKey;
+    const direction = frame.direction.clone();
+    if (!presetChanged && destination.camera === camera && controls.current) {
+      const current = camera.position.clone().sub(controls.current.target);
+      if (current.lengthSq() > 1e-6) direction.copy(current.normalize());
+    }
+    destination.position.copy(target).addScaledVector(direction, frame.distance);
     destination.target.copy(target);
     destination.halfHeight = frame.halfHeight;
     camera.up.copy(frame.up);

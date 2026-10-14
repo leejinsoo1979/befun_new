@@ -55,7 +55,7 @@ export default async function Users({ searchParams }: { searchParams: Promise<SP
                   <td className={styles.num}>{won(u.orders.reduce((a, o) => a + o.totalAmount, 0))}</td>
                   <td className={styles.num}>{u._count.designs}</td>
                   <td>{u.marketingAgreed ? <Badge tone="green">동의</Badge> : <span className={styles.muted}>-</span>}</td>
-                  <td>{u.role === 'ADMIN' ? <Badge tone="ink">관리자</Badge> : <span className={styles.muted}>일반</span>}</td>
+                  <td>{u.role === 'ADMIN' ? <Badge tone="ink">관리자</Badge> : u.role === 'FACTORY' ? <Badge tone="amber">공장</Badge> : <span className={styles.muted}>일반</span>}</td>
                 </tr>
               );
             })}</tbody>

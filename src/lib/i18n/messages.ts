@@ -154,6 +154,7 @@ const en: Dict = {
   '주소': 'Address',
   '서울시 강남구 언주로 97길 7, 5F': '5F, 7 Eonju-ro 97-gil, Gangnam-gu, Seoul, Republic of Korea',
   '이메일': 'Email',
+  '디자인하기': 'Design yours',
   '저장': 'Save',
 };
 
@@ -298,6 +299,7 @@ const ja: Dict = {
   '주소': '住所',
   '서울시 강남구 언주로 97길 7, 5F': '韓国ソウル特別市江南区彦州路97ギル7 5F',
   '이메일': 'メール',
+  '디자인하기': 'デザインする',
   '저장': '保存',
 };
 

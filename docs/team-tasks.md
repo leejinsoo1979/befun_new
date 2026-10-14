@@ -95,6 +95,8 @@
 
 ## 조율 요청
 
+- `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 16:20: **결제(토스페이먼츠) 연결 + 결제 완료 시 공장 제작 지시서 자동 생성.** 잠금: `src/app/api/orders/route.ts`(POST 서버 가격 재계산·디자인 저장), `src/app/api/payment/confirm/route.ts`(소유권·중복·지시서), `src/app/order/page.tsx`(결제 단계 이동만), 신규 `src/app/order/[id]/pay/**`·`src/app/order/success/**`·`src/app/order/fail/**`, 신규 `src/lib/commerce/production.ts`, 신규 `src/app/factory/**`·`src/app/api/factory/**`, `prisma/schema.prisma`의 Order.productionSheet/productionReadyAt·UserRole FACTORY만 + migration, admin 회원 권한 선택. 가격 공식(lib/pricing)·패널 생성기는 읽기 전용으로 재사용.
+
 - `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 15:40: **관리자 페이지 전면 개편(운영용) → 완료·잠금 해제.** 신규 OrderEvent·Order.adminMemo(migration `20261014064411_admin_order_events`). 사이드바·통합검색·로그아웃 셸, 대시보드(기간 전환·전기 대비 KPI·일별 매출 차트·처리할 일 4종·단계별 현황·인기 스타일/색상·최근 주문/회원), 주문 목록(상태 탭·검색·기간·정렬·페이지·일괄 변경·CSV), 주문 상세(진행 단계·사양 칩·도식 썸네일·배송(택배사/송장, 저장 후 발송)·메모·결제·처리 이력·취소 확인), 회원 목록/상세(가입 방법·구매 금액·권한 지정), 디자인 갤러리, 통합 검색, 설정(시스템 상태·관리자·개발 전용 데모 데이터 생성/삭제). 상태 변경 시 결제/배송 레코드 동기화·이력 기록, 발송은 송장 필수, 배송 완료 취소 금지. 3003(재시작 후)에서 데모 10명·33주문으로 전 화면·발송/배송 완료·일괄 변경·CSV(비관리자 403)·모바일 넘침0·오류0 확인, QA 계정 삭제. 격리 build PASS. 데모 데이터는 미리보기용으로 남겨 둠(설정에서 삭제). 잠금: `src/app/admin/**`, 신규 `src/app/api/admin/**`, `src/lib/admin.ts`, `prisma/schema.prisma`의 **Order.adminMemo 필드와 신규 OrderEvent 모델만** + migration, 신규 `scripts/admin-demo-data.mjs`. 주문 생성·결제 API, storefront 저장 경로는 수정하지 않음.
 
 - `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 14:50: **회원가입·소셜 로그인(구글·카카오·네이버)·쇼핑몰 관리자 페이지 → 구현 완료·잠금 해제.** [디자인 개편(사용자 지시): 좌측 라이프스타일 사진(creator-10) + 우측 카드, 네이버·카카오·구글 공식 로고/브랜드색 버튼, 입력칸·가입 약관 박스 정리, 390px 단일 열. 신규 `components/account/AuthShell.tsx`. 1440/390 넘침 0, 오류 0.] User에 role(USER/ADMIN)·passwordHash(scrypt)·termsAgreedAt·marketingAgreed, email optional(카카오) — migration `20261014054634_auth_roles`. auth.ts: 네이버 추가, 구글·네이버 이메일 계정 연결, Credentials는 비밀번호 검증(기존 '비밀번호 없이 아무 이메일 로그인/자동 가입' 제거), ADMIN_EMAILS로 관리자 승격(.env.local). /signup·/api/auth/signup·/login 개편, /admin(대시보드·주문 상태 변경·회원 권한·저장 디자인) — 서버에서 DB role 재확인. 별도 3005 테스트 서버에서 가입→자동 로그인→중복 409→일반회원 /admin 거부→틀린 비번 안내→관리자 4페이지→본인 권한 해제 비활성→네이버/카카오/구글 인증 페이지 이동 확인, 테스트 계정 삭제. 격리 build PASS(.env 없이). **주의: 3003 공유 dev 서버는 스키마 변경 전 Prisma 클라이언트를 메모리에 들고 있어 재시작 전까지 가입 500 — 재시작 필요(사용자 승인 대기).** → 사용자 승인으로 2026-10-14 15:10 3003 dev 서버 재시작(`npx next dev -p 3003`, nohup). 재시작 후 가입 201, /·/configurator 200 확인. 다른 작업자는 HMR 상태가 초기화됐을 수 있음. 잠금: `src/lib/auth.ts`, 신규 `src/lib/password.ts`·`src/lib/admin.ts`, `src/types/next-auth.d.ts`, `prisma/schema.prisma`의 **User 모델(role·passwordHash·약관 동의 필드, email optional)과 UserRole enum만** + 신규 migration, `src/app/login/page.tsx`, 신규 `src/app/signup/**`·`src/app/admin/**`·`src/app/api/auth/signup/**`. 주문·결제·디자인 API/모델과 storefront 저장 경로는 수정하지 않음(관리자 화면은 읽기·상태 변경만). 보안 수정: 기존 Credentials가 비밀번호 없이 아무 이메일로 로그인/계정 생성되던 개발용 동작 제거.
@@ -1536,6 +1538,9 @@
 - 캐비넷 진입링크 연관 잠금: 기존 src/components/assembly-guide/guide.module.css의 신규 .cabinetEntry 스타일만. 이전 화살표 및 기타스타일/리더R7 CSS는 보존.
 
 - 캐비넷 광원 소비 추가잠금: src/components/assembly-guide/GuideEnvironment.tsx의선택적 lightingScale/shadows props만. 기존단품시연 기본광원값은 유지, 전체캐비넷 내부에 들어오는 단품전용shadow광원을 비활성화하고 캐비넷전용광원으로그림자검증.
+- `claude-graphics` (사용자 직접 지시 "gif 로고 상단 검정·푸터 흰색", 2026-10-14 16:35) → `StorefrontUI.BrandLogo`를 애니메이션 GIF(`public/imgs/icon/befun-logo-animated-{black,white}.gif`, 1200×675·145프레임·7.2s)로 교체. 로고 본체(x216–984, y266–410)만 120×23 칸에 맞추고 튀는 글자는 칸 위로 넘침. prefers-reduced-motion에서는 정지 PNG(`befun-logo-static-*.png`). 헤더(검정)·푸터(흰색) 확인.
+- `claude-graphics` → `codex-display` (사용자 직접 지시 "높이 조절하면 저절로 아이소 각도로 돌아감", 2026-10-14 16:30): `display/ViewCamera.tsx` 맞춤 useLayoutEffect가 폭/높이/깊이 변경 때마다 방향까지 view 프리셋으로 되돌리던 것을 수정. 프리셋 키(view|revision|exploded)가 바뀐 경우에만 프리셋 방향, 치수·화면 크기만 바뀌면 현재 카메라→타깃 방향 유지 + fitView 거리·중심만 갱신. 확인: 상품 페이지에서 드래그 회전 후 높이 6→5단계 변경 시 카메라 방향 동일(0.645,0.538,0.543 유지). 스페이스/보기 선택/분해는 기존대로 프리셋 이동. 이 파일 수정 시 유지 부탁.
+- `claude-graphics` (사용자 직접 지시 "메인에 디자인하기 버튼", 2026-10-14) → `Storefront.tsx` 히어로에 "디자인하기 →"(orangeButton, /configurator-intro) 추가, 기존 "새로운 컬러 만나보기"와 `.heroActions`로 나란히. en "Design yours"/ja "デザインする".
 - `claude-graphics` (사용자 제공 영상 Wardrobes/Sofas, 2026-10-14 16:06) → `public/videos/configure-yours-{wardrobes,sofas}.mp4`+포스터 추가, `DownloadedCatalog` `promoVideo` prop: 옷장 페이지=wardrobes, 소파 계열=sofas, 그 외=storage.
 - `claude-graphics` (사용자 제공 영상 Tylko_Configure_Yours_Storage.mp4, 2026-10-14 15:58) → PLP 그리드 첫 칸 "Configure yours" 카드 배경을 `public/videos/configure-yours-storage.mp4`(720×1006, 6s) 자동재생(muted loop playsInline)+첫 프레임 포스터로 교체. `DownloadedCatalog.tsx`·`.plpPromo video` CSS.
 - `claude-graphics` (사용자 지적 configurator-intro 썸네일, 2026-10-14 15:40) → `ConfiguratorIntro.tsx` 1단계 13개 분류 이미지를 원격 Tylko 시도+중복 대체사진에서 R6 다운로드 원본 썸네일(각 CSV 카테고리 1번째, `/imgs/product-cards/`)로 교체, 분류명 t() 적용. 2단계 모델 이미지는 미변경.
@@ -1567,3 +1572,28 @@
 - 좁은 단독 잠금: ProductDetails.tsx/FurnitureProductDetails.tsx discover 영역, 신규 ProductDiscovery.tsx 및 public/imgs/product-discovery/**, 본인 handoff/provenance append. 다른 storefront/뷰어/관리자/캐비넷 진행 파일 미수정.
 - 메인 categorySection 제거 완료: 제목·분류10버튼 및 전용폭상수/import 제거, Chrome3003 홈에서 Hero 다음 추천상품으로 이어짐 확인, scoped ESLint0. Storefront.tsx 해당영역 잠금 해제.
 - 원본 월수납장1964423,w는 목록자료에서 Tone 206×194×45cm로 확인되며 현재 generic Grid206×183×32와 family까지 다름. 기존 사진/fixture를 바꾸거나 추정값을 동일구성으로 표시하지 않음. 원본 Chrome 신규진입은 Cloudflare 보안 확인 페이지여서 옵션확보 미완료. catalog/configuration 제품수정은 아직 없으며 조사잠금 유지.
+
+### R9 옷장 다구획 동시 개방 간섭 — 리더 / 2026-10-14
+- 사용자 지적은 별도 가구 배치가 아니라 폭 증가로 추가된 옷장 구획의 문을 동시에 여는 경우. Tone 2000mm에서 내부 맞힌지 도어 pivotX=0cm 동일, 목표 +105/-105 및 +95/-95로 교차하는 오류 재현.
+- 잠금: src/components/furniture/WardrobeModel.tsx 도어 모션, 신규 src/lib/furniture/wardrobe/door-motion.ts, scripts/furniture-wardrobe/door-motion.test.mjs, docs/handoffs/wardrobe-viewer-review/door-motion.md. 형상/제조 치수/타공/가격/타 담당 UI는 변경하지 않는다.
+- 원본 명목 각도와 간섭 없는 Befun 미리보기 모션을 구분. 닫힌 판재 치수 보존, 인접 문 쌍은 앞면 힌지쪽 모서리를 표시 회전축으로 사용하고 최대 90도로 제한한다. 이는 실제 다관절 경첩 운동을 실측한 규칙이 아니며 제조 검증 완료로 표시하지 않는다. 닫힘/중간/완전 개방, 폭 변경, 위아래 도어, Edge/Tone을 검사한다.
+
+- 상세 구성 복구 완료 / codex-storefront: 하단 사진 카드2 기존배치 복구, 실제 원본 lobby사진 로컬연결·갤러리와중복0. 3003/격리31824 책장·책상·옷장·configurator검사 및390pxoverflow0·13회귀·scoped lint0·격리전체lint0오류8기존경고/build21페이지PASS. 소유3TSX/신규이미지·출처/handoff 잠금해제. 다른dirty영역·공유서버보존.
+- R9 추가 발견/잠금: fronts.ts Tone bottom extreme의 원본 최종 변환은 높이 -6mm/중심 +3mm인데 기존 코드는 높이 +6mm/중심 +3mm로 해석, 상하문 3mm 겹침을 발생시킴. 원본 끝단 보정만 수정하고 신규 tone-front-capture.mjs/tone-front-fixtures.json로 전체 원본 사례를 검증. 기존 288 도어 fixture에는 bottom extreme 사례가 0개였음.
+
+
+### BEFUN-CABINET-PRACTICE-READY — 왼쪽5 / 2026-10-14
+- 실제공통Befun생성기/CNC ID/치수/접합계획의1단도어캐비넷8부품,수동선택→준비→체결→확인및자동완주. 새로운가구생성기/저장형식없음. 원격에먼저포함된본인초안을보존하고최종카메라/검증인계추가.
+- 양면Terracotta라미네이트/자작엣지/MDF홈·공유PH/PC/공통경첩·완성도어열림. 2단중간판양면홈교차경고보존,지원되는1단사용. 후면위치연습/고정발/제조승인false를구분.
+- 독립production build/TypeScript PASS,53검사PASS,전체lint0오류/기존8경고(생성.vercel/output제외),Chrome직접8부품및390px자동완주/정지탐색초기화/잘못된선택/도어열림/console0. 본인안내48파일SHA차이0. 증거cabinet/README.md·verification.json.
+- 이번CabinetSimulator/Scene/Panel/CSS·libcabinet/test·본인subroute·GuidePanel/usePanelMaterials/panelMaterials옵션·GuideEnvironment옵션·기존진입Link/CSS·본인증거잠금해제. 리더R7매뉴얼/parent route와다른소유파일·공유3003/.next/.git보존. 리더R7진입화면의캐비넷링크요청은유지.
+
+- 왼쪽5 캐비넷 Git 반영: `f9dccf9bf5c9aaf59d97e7493aac9233dc0fe4b8` → `https://github.com/leejinsoo1979/befun_new.git` main 정상 push·원격 SHA 일치. 다른 담당자의 `dca8b20`까지 보존해 rebase, force push 없음. 신규기능 초안은 원격에 이미 포함되어 있어 이번 commit은 최종 도어 카메라/검증 인계를 추가한다. Vercel `dpl_F9sgMW164c3tavRsMrhSaBfmPYsn` Git production BUILDING; 업로드 CLI 실행/운영 READY와 구분.
+
+- 왼쪽5 캐비넷 운영 게시: `dpl_F9sgMW164c3tavRsMrhSaBfmPYsn` READY, source=Git/production, SHA=`f9dccf9bf5c9aaf59d97e7493aac9233dc0fe4b8`, `befun-new.vercel.app`·`befun.co.kr`·`www.befun.co.kr` alias 확인. 운영 `/assembly-guide/cabinet` 실제8부품 표시·첫부품선택→커넥터준비→체결→확인 후1/8진행 확인. 별도운영인증 CLIENT_FETCH_ERROR2건 관찰(가구조립동작과분리,기존환경설정담당필요); 로컬조립검증console0과혼동하지않음. 관리자/환경변수/DB소스는미수정.
+
+- 왼쪽5 운영 최종 확인: 위 READY의 실제 alias에서 캐비넷 자동조립8/8·완성화면 확인. 본인 임시31789 생산검증서버 정상종료, 공유3003 유지. 사용자 로컬/운영 캐비넷 탭을 남겼다.
+- R9 → 주문/관리자 담당: 최신 작업 사본 격리 build는 webpack 컴파일 성공 후 src/app/api/orders/route.ts:41 `const lines = []` implicit any[]로 중단. 본인 잠금 영역이 아니어서 수정하지 않음. 전체lint 오류0/기존경고8. R9 자체 변경은 이전 검증된 R8 격리 사본에 세 소스만 이식하여 별도 build 확인 중.
+
+- 추천 카드 초기 구성 추가 잠금 / codex-assistant: 원본6상품의 공개 configurator 응답 확보 완료(Cloudflare 미확인 상태 해소). 신규 src/lib/three/catalog-presets.{ts,json}, 공통 shelf-geometry.ts, Shelf/DimensionOverlay/PriceDisplay의 생성기 호출부, useShelfStore의 catalogPreset 식별자, savedDesign/configuration의 식별자 복원, ProductConfigurator의 가격입력, optimizer model의 공통 생성기 연결을 좁게 수정. 기존 사진과 원본 fixture는 그대로 보존. WardrobeModel/fronts/주문 production.ts 등 타 담당 잠금 미수정.
+- 주문 담당 연계 요청: 상품 preset은 이제 행 책장 외에 원본 열 기반 가구도 포함. 새 catalogPreset ID가 있는 구성은 공통 calculateShelfGeometry를 통해 계산해야 함. production.ts의 별도 스타일 switch에 일반 Grid를 적용하면 안 됨. 제조 승인과 초기 외관 재현은 별개이며 신규 preset의 제조 출력은 검증 전 차단 필요.

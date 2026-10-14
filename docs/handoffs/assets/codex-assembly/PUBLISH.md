@@ -27,3 +27,11 @@
 - Commit `104ac8505a771434d60e62698def5fc18da70f99`, GitHub main push/ls-remote 동일, 독립사본clean. Git deployment `dpl_5zeaJFgcaxPKdBZ5i9uhrPqUQqxC` **READY**, https://befun-5fr9f7trm-lee-jin-soos-projects.vercel.app · production alias https://befun-new.vercel.app . 로컬build·Git push·BUILDING·READY를구분확인. 이번은Git sourceCI이며 prebuilt업로드아님.
 - 운영 Chrome `/assembly-guide?topic=connector`에서 신규 data-motion-arrow=down/visible·64px 벡터 실제표시확인. 변경4소스/본인증거·인계만포함. 공용HW/CNC/재질/상품/상태/리더R7매뉴얼·route/R5/R6진행소스제외. 공유3003/.next/.git미접촉.
 - 최종격리build/TypeScript/17정적페이지PASS·기존47검사PASS·변경eslint0/0·전체lint0오류/기존경고7·41소스SHA일치. 삽입/반대해제/일시정지/완료숨김/주제전환/390px/reduced-motion확인. docs/handoffs/assets/codex-assembly/motion-arrows/README.md. 본인31789서버종료·임시탭정리·잠금해제. 다른프로젝트취소없음.
+
+### 캐비넷 모의 조립 게시 — 2026-10-14
+
+- 왼쪽5 캐비넷 Git 반영: `f9dccf9bf5c9aaf59d97e7493aac9233dc0fe4b8` → `https://github.com/leejinsoo1979/befun_new.git` main 정상 push·원격 SHA 일치. 다른 담당자의 `dca8b20`까지 보존해 rebase, force push 없음. 신규기능 초안은 원격에 이미 포함되어 있어 이번 commit은 최종 도어 카메라/검증 인계를 추가한다. Vercel `dpl_F9sgMW164c3tavRsMrhSaBfmPYsn` Git production BUILDING; 업로드 CLI 실행/운영 READY와 구분.
+
+- 왼쪽5 캐비넷 운영 게시: `dpl_F9sgMW164c3tavRsMrhSaBfmPYsn` READY, source=Git/production, SHA=`f9dccf9bf5c9aaf59d97e7493aac9233dc0fe4b8`, `befun-new.vercel.app`·`befun.co.kr`·`www.befun.co.kr` alias 확인. 운영 `/assembly-guide/cabinet` 실제8부품 표시·첫부품선택→커넥터준비→체결→확인 후1/8진행 확인. 별도운영인증 CLIENT_FETCH_ERROR2건 관찰(가구조립동작과분리,기존환경설정담당필요); 로컬조립검증console0과혼동하지않음. 관리자/환경변수/DB소스는미수정.
+
+- 왼쪽5 운영 최종 확인: 위 READY의 실제 alias에서 캐비넷 자동조립8/8·완성화면 확인. 본인 임시31789 생산검증서버 정상종료, 공유3003 유지. 사용자 로컬/운영 캐비넷 탭을 남겼다.

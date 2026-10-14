@@ -13,3 +13,12 @@ export async function getAdmin() {
   const user = await prisma.user.findUnique({ where: { id }, select: { id: true, email: true, name: true, role: true } });
   return user?.role === 'ADMIN' ? user : null;
 }
+
+/** 공장 화면 접근(관리자 또는 공장 담당자). DB role 기준. 아니면 null */
+export async function getFactoryStaff() {
+  const session = await getServerSession(authOptions);
+  const id = session?.user?.id;
+  if (!id) return null;
+  const user = await prisma.user.findUnique({ where: { id }, select: { id: true, email: true, name: true, role: true } });
+  return user?.role === 'ADMIN' || user?.role === 'FACTORY' ? user : null;
+}

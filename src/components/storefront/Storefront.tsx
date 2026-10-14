@@ -56,7 +56,10 @@ function Hero() {
       <div className={styles.heroContent}>
         <p className={styles.eyebrow}>{t('새로운 계절, 새로운 컬러')}</p>
         <h1>{t('새로운 색으로.')}<br className={styles.mobileBreak} /> {t('오래도록 당신답게.')}</h1>
-        <a href="#collections" className={styles.whiteButton}>{t('새로운 컬러 만나보기')}</a>
+        <div className={styles.heroActions}>
+          <Link href="/configurator-intro" className={styles.orangeButton}>{t('디자인하기')} <FiArrowRight /></Link>
+          <a href="#collections" className={styles.whiteButton}>{t('새로운 컬러 만나보기')}</a>
+        </div>
       </div>
       {!failed ? <div className={styles.videoControls}>
         <button aria-label={!shouldPlay || paused ? t('영상 재생') : t('영상 일시 정지')} disabled={shouldPlay && !ready} onClick={() => {

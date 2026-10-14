@@ -751,3 +751,11 @@
 /* 푸터 기업 정보 */
 .footerCompany { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 18px; font-style: normal; font-size: 12px; line-height: 1.6; color: #b5b5b1; }
 .footerCompany a { color: inherit; text-decoration: underline; }
+/* 메인 히어로 버튼 2개: 디자인하기(주) + 새로운 컬러 */
+.heroActions { display: flex; flex-wrap: wrap; gap: 12px; }
+@media (max-width:700px) { .heroActions > * { min-height: 52px; padding: 10px 22px; } }
+/* 애니메이션 로고: 본체(768×144 @1200)를 120×23 칸에 맞춤, 튀는 글자는 칸 위로 넘침 */
+.brandLogoAnimated { position: relative; display: block; width: 120px; height: 23px; overflow: visible; }
+.brandLogoGif { position: absolute; width: 187.5px !important; max-width: none; height: auto; left: -33.75px; top: -41.5px; pointer-events: none; }
+.brandLogoStatic { display: none; width: 120px; height: auto; }
+@media (prefers-reduced-motion: reduce) { .brandLogoGif { display: none; } .brandLogoStatic { display: block; } }

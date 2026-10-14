@@ -19,7 +19,7 @@ interface ShippingForm {
 export default function OrderPage() {
   const { formatPrice, t, market } = useMoney();
   const router = useRouter();
-  const { items, getTotalPrice, clearCart } = useCartStore();
+  const { items, getTotalPrice } = useCartStore();
   const total = getTotalPrice();
   const shippingFee = total >= 100000 ? 0 : 5000;
 
@@ -59,16 +59,18 @@ export default function OrderPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           items: items.map((item) => ({
-            designId: item.designId,
+            designConfig: item.designConfig,
             quantity: item.quantity,
-            price: item.price,
           })),
           market, currency:'KRW',
           shipping: form,
-          shippingFee,
         }),
       });
 
+      if (res.status === 401) {
+        router.push(`/login?callbackUrl=${encodeURIComponent('/order')}`);
+        return;
+      }
       if (!res.ok) {
         const data = await res.json();
         throw new Error(data.error ?? '주문 생성 실패');
@@ -76,10 +78,8 @@ export default function OrderPage() {
 
       const { orderId } = await res.json();
 
-      // TODO: 토스페이먼츠 위젯 연동
-      // 현재는 주문 생성 후 바로 주문 상세로 이동 (결제 위젯은 Phase 5.5에서 연동)
-      clearCart();
-      router.push(`/order/${orderId}`);
+      // 2. 토스 결제위젯 화면으로. 장바구니는 결제 승인 후(/order/success) 비운다
+      router.push(`/order/${orderId}/pay`);
     } catch (err) {
       setError(err instanceof Error ? err.message : '주문 처리 중 오류');
     } finally {
