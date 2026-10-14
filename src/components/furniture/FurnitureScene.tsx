@@ -78,7 +78,7 @@ function Camera({width,height,depth,front,reset,zoom}:{width:number;height:numbe
     camera.position.copy(controls.current.target).add(offset);
     controls.current.update();invalidate();
   },[zoom.revision,zoom.factor,camera,minimum,maximum,invalidate]);
-  return <OrbitControls ref={controls} makeDefault minDistance={minimum} maxDistance={maximum} minAzimuthAngle={-Math.PI*.48} maxAzimuthAngle={Math.PI*.48} maxPolarAngle={Math.PI/2} enablePan={false} enableDamping/>;
+  return <OrbitControls ref={controls} makeDefault zoomToCursor minDistance={minimum} maxDistance={maximum} minAzimuthAngle={-Math.PI*.48} maxAzimuthAngle={Math.PI*.48} maxPolarAngle={Math.PI/2} enablePan={false} enableDamping/>;
 }
 /** Animate option transitions, then let the GPU rest until the next interaction. */
 function TransitionFrames({design,open}:{design:FurnitureDesign;open:boolean}){

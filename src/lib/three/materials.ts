@@ -57,7 +57,7 @@ export function getColorCategory(colorName: string): ColorCategory {
 // 표면 질감: 1.0(완전 무광)이면 종이처럼 보여서 약간의 광택을 준다
 const SOLID_ROUGHNESS = 0.5; // 무광 래커 도장 — 넓은 면에 은은한 반사 그라데이션이 생기도록
 const WOOD_ROUGHNESS = 0.72; // 원목/무늬목
-const TEXTURE_ANISOTROPY = 8;
+const TEXTURE_ANISOTROPY = 16; // GPU 최대값으로 자동 제한됨 — 비스듬한 시점의 나뭇결 선명도
 
 const textureLoader = new THREE.TextureLoader();
 
