@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useEffect, Suspense } from 'react';
-import { useLoader } from '@react-three/fiber';
+import { StudioPerson } from './StudioPerson';
 import * as THREE from 'three';
 
 // 룸 색상 — 무채색 라이트그레이 벽 + 한 톤 낮은 바닥 (albedo 값, 노란 기 없이 중성 유지)
@@ -52,35 +52,6 @@ export function ContactShadowDecal({ shelfWidth, shelfDepth }: BackgroundProps) 
   );
 }
 
-function Silhouette({ shelfWidth }: { shelfWidth: number }) {
-  const texture = useLoader(THREE.TextureLoader, '/imgs/bg/man.png');
-
-  const { width: personWidth, height: personHeight, xPos } = useMemo(() => {
-    const img = texture.image;
-    const imgAspect = img.width / img.height;
-    const h = 170;
-    const w = h * imgAspect;
-    const x = -(shelfWidth / 2) - w / 2 - 5;
-    return { width: w, height: h, xPos: x };
-  }, [texture, shelfWidth]);
-
-  return (
-    <mesh
-      position={[xPos, personHeight / 2, 0.3]}
-      renderOrder={1}
-    >
-      <planeGeometry args={[personWidth, personHeight]} />
-      <meshBasicMaterial
-        map={texture}
-        transparent
-        opacity={1}
-        color="#d4d4d4"
-        depthWrite={false}
-      />
-    </mesh>
-  );
-}
-
 export function Background({ shelfWidth, shelfDepth }: BackgroundProps) {
   const roomWidth = 4000;
   const floorDepth = 2000;
@@ -104,7 +75,7 @@ export function Background({ shelfWidth, shelfDepth }: BackgroundProps) {
 
       {/* 사람 실루엣 - 로딩 실패 시 생략 */}
       <Suspense fallback={null}>
-        <Silhouette shelfWidth={shelfWidth} />
+        <StudioPerson shelfWidth={shelfWidth} />
       </Suspense>
     </group>
   );
