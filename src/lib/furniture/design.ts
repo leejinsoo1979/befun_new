@@ -1,5 +1,5 @@
 import { availableStorageColumns, DESK_CHANNEL_OPTIONS, type DeskInput } from './desk';
-import { WARDROBE_COLORS, EDGE_PAINT_COLORS, TONE_OUTER_COLORS, toneInnerColors } from './wardrobe-colors';
+import { WARDROBE_COLORS, EDGE_PAINT_COLORS, EDGE_WOOD_COLORS, TONE_OUTER_COLORS, toneInnerColors } from './wardrobe-colors';
 import type { WardrobeInput } from './wardrobe/types';
 import { createWardrobeInput, validateWardrobeInput } from './wardrobe/initial';
 import { normalizeWardrobeInput } from './wardrobe';
@@ -66,7 +66,8 @@ export function parseFurnitureDesign(serialized:string):FurnitureDesign|null {
     }
     if(d.kind==='wardrobe'&&d.family.startsWith('wardrobe-')){
       const c=d.config;
-      if(c.model==='edge'&&!EDGE_PAINT_COLORS.includes(d.color)&&!['C_White','C_Gray'].includes(d.color))return null;
+      if(c.model==='edge'&&!EDGE_PAINT_COLORS.includes(d.color)&&!EDGE_WOOD_COLORS.includes(d.color)&&!['C_White','C_Gray'].includes(d.color))return null;
+      if(c.model==='edge'&&(EDGE_WOOD_COLORS.includes(d.color)||c.edgeVeneer!==undefined))c.edgeVeneer=EDGE_WOOD_COLORS.includes(d.color);
       if(c.model==='tone'&&(!TONE_OUTER_COLORS.includes(d.color)||!toneInnerColors(d.color).includes(d.innerColor)))return null;
       if(c.model!==(d.family==='wardrobe-edge'?'edge':'tone')||![c.widthMm,c.heightMm,c.depthMm].every(Number.isFinite)||!Array.isArray(c.sections)||c.sections.length>20||c.sections.some(s=>!s||typeof s.id!=='string')||validateWardrobeInput(c).length||!hasStableWardrobeState(c))return null;
       return structuredClone(d);

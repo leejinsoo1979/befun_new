@@ -1,6 +1,8 @@
 /** Wardrobe family-specific palette. Verified renderer colours and visible swatches,
  * wardrobe-integration-materials-001. These keys never reuse a similarly named shelf colour. */
 export const WARDROBE_COLORS:Record<string,{label:string;base:string;edge:string}> = {
+  E_LightCleaf:{label:'라이트 우드',base:'#CBC3AC',edge:'#CBC3AC'},
+  E_DarkCleaf:{label:'다크 우드',base:'#72553B',edge:'#72553B'},
   W_White:{label:'화이트',base:'#F5F5F5',edge:'#F5F5F5'},
   W_Gray:{label:'그레이',base:'#B2B2B2',edge:'#B2B2B2'},
   W_Stone:{label:'스톤 그레이',base:'#B2AEA7',edge:'#B2AEA7'},
@@ -23,3 +25,6 @@ export const WARDROBE_COLORS:Record<string,{label:string;base:string;edge:string
 export const EDGE_PAINT_COLORS = ['W_White','W_Gray','W_Stone','W_Black','W_Sand','W_Clay','W_Butter','W_Olive','W_Denim','W_Indigo','W_Plum'];
 export const TONE_OUTER_COLORS = ['T_White','T_Cashmere','T_Graphite'];
 export const toneInnerColors=(outer:string)=>['T_Pink','T_Stone','T_Sage','T_Misty',outer];
+
+/** VENEER_TYPE13 (shelf type 5): material 0/1, Cleaf textures rather than Original ash/oak. */
+export const EDGE_WOOD_COLORS = ['E_LightCleaf','E_DarkCleaf'];

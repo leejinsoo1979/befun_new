@@ -39,7 +39,7 @@ export function toneOracle(input) {
   if (Object.keys(changes).length) engine.changeConfiguration({ channels: changes });
   return { geometry: engine.getGeometry(), render: engine.getRender(), configuration: engine.getConfiguration() };
 }
-export const geometryKeys = ['slabs', 'walls', 'backs', 'frame', 'masking_bars', 'doors', 'drawers', 'bars', 'lighting', 'components'];
+export const geometryKeys = ['slabs', 'walls', 'backs', 'frame', 'masking_bars', 'doors', 'drawers', 'bars', 'lighting', 'components', 'hinges'];
 export function compactToneGeometry(geometry) {
   const keys = ['x1', 'x2', 'y1', 'y2', 'z1', 'z2', 'subtype', 'direction', 'handle', 'extremes'];
   return Object.fromEntries(geometryKeys.map(key => [key, (geometry[key] ?? []).map(part => Object.fromEntries(keys.filter(k => part[k] !== undefined).map(k => [k, part[k]])))]));

@@ -1,31 +1,70 @@
+'use client';
+
+import { useEffect, useId, useRef } from 'react';
 import styles from './configurator-loading.module.css';
+
+const logoWidth = 211.5;
+const logoHeight = 49.5;
+const panels = Array.from({ length: 25 }, (_, index) => ({
+  index,
+  x: (index % 5) * logoWidth / 5,
+  y: (4 - Math.floor(index / 5)) * logoHeight / 5,
+}));
 
 /** Lightweight DOM/SVG fallback: available before the WebGL bundle loads. */
 export function ConfiguratorLoading({ ready = false }: { ready?: boolean }) {
+  const logo = useRef<SVGSVGElement>(null);
+  const id = useId().replace(/:/g, '');
+
+  useEffect(() => {
+    if (ready || !logo.current) return;
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let animations: Animation[] = [];
+    const assemble = () => {
+      animations.forEach(animation => animation.cancel());
+      animations = [];
+      if (motion.matches) return;
+      const startTime = document.timeline.currentTime;
+      logo.current?.querySelectorAll<SVGGElement>('[data-logo-panel]').forEach((panel, index) => {
+        const start = 0.03 + index * 0.021;
+        const finish = start + 0.15;
+        const lifted = 'translateY(25px) skewX(-8deg)';
+        const landed = 'translateY(0px) skewX(0deg)';
+        const animation = panel.animate([
+          { opacity: 0, transform: lifted, offset: 0 },
+          { opacity: 0, transform: lifted, offset: start, easing: 'cubic-bezier(.22,1,.36,1)' },
+          { opacity: 1, transform: landed, offset: finish },
+          { opacity: 1, transform: landed, offset: 0.86 },
+          { opacity: 0, transform: landed, offset: 0.96 },
+          { opacity: 0, transform: lifted, offset: 1 },
+        ], { duration: 3400, iterations: Infinity });
+        if (typeof startTime === 'number') animation.startTime = startTime;
+        animations.push(animation);
+      });
+    };
+    assemble();
+    motion.addEventListener('change', assemble);
+    return () => {
+      motion.removeEventListener('change', assemble);
+      animations.forEach(animation => animation.cancel());
+    };
+  }, [ready]);
+
   return <div className={`${styles.loader} ${ready ? styles.ready : ''}`} role={ready ? undefined : 'status'} aria-live="polite" aria-hidden={ready || undefined}>
     <div className={styles.composition} aria-hidden="true">
-      <div className={styles.halo} />
-      <svg className={styles.shelf} viewBox="0 0 240 240" fill="none">
+      <svg ref={logo} className={styles.mark} viewBox="-8 -14 227.5 105" fill="none">
         <defs>
-          <linearGradient id="befun-loader-top" x1="45" y1="0" x2="195" y2="100" gradientUnits="userSpaceOnUse"><stop stopColor="#a4cc81"/><stop offset="1" stopColor="#659b45"/></linearGradient>
+          <image id={`${id}-artwork`} href="/imgs/icon/befun_logo.svg" width={logoWidth} height={logoHeight} />
+          {panels.map(panel => <clipPath key={panel.index} id={`${id}-panel-${panel.index}`}>
+            <rect x={panel.x} y={panel.y} width={logoWidth / 5 + 0.01} height={logoHeight / 5 + 0.01} />
+          </clipPath>)}
         </defs>
-        <ellipse className={styles.shadow} cx="120" cy="205" rx="78" ry="12" fill="#334a24" opacity=".12"/>
-        <g className={styles.blueprint} stroke="#769366" strokeWidth=".7" strokeDasharray="3 5"><path d="M35 194 120 225 206 181M35 194V70M206 181V55"/></g>
-        {[0,1,2].map(level => <g key={level} className={styles.tier} style={{ '--tier': level } as React.CSSProperties}>
-          <g transform={`translate(0 ${-level * 48})`}>
-            <path d="m48 169 97-26 49 24-98 29Z" fill="url(#befun-loader-top)"/>
-            <path d="m48 169 48 27v7l-48-27Z" fill="#548c36"/>
-            <path d="m96 196 98-29v7l-98 29Z" fill="#346327"/>
-            {level < 2 && <g className={styles.uprights}>
-              <path d="m52 166 5-2v-40l-5 1Z" fill="#365f2a"/><path d="m57 164 39 21v-40l-39-21Z" fill="#73a951"/>
-              <path d="m143 142 5-2v-40l-5 1Z" fill="#365f2a"/><path d="m148 140 40 20v-40l-40-20Z" fill="#80b45e"/>
-              <path d="m101 153 5-2v-40l-5 1Z" fill="#365f2a"/><path d="m106 151 38 20v-40l-38-20Z" fill="#6a9f48"/>
-            </g>}
-          </g>
+        <ellipse className={styles.shadow} cx="105.75" cy="72" rx="90" ry="3" fill="currentColor" />
+        {panels.map(panel => <g key={panel.index} className={styles.panel} data-logo-panel={panel.index} clipPath={`url(#${id}-panel-${panel.index})`}>
+          <use href={`#${id}-artwork`} />
         </g>)}
       </svg>
-      <div className={styles.sweep} />
     </div>
-    <div className={styles.copy}><span className={styles.eyebrow}>MADE FOR YOUR SPACE</span><p>당신의 공간을 만들고 있어요</p><div className={styles.track} aria-hidden="true"><span /></div><span className={styles.caption}>잠시 후, 나만의 가구를 만나보세요</span></div>
+    <div className={styles.copy}><p>당신의 공간을 만들고 있어요</p><div className={styles.track} aria-hidden="true"><span /></div><span className={styles.caption}>잠시 후, 나만의 가구를 만나보세요</span></div>
   </div>;
 }

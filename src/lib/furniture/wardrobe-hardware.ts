@@ -201,3 +201,22 @@ export function createWardrobeLightDiffuser(widthCm: number): THREE.BufferGeomet
   geometry.computeVertexNormals();
   return finish(geometry, 'wardrobe-light-diffuser');
 }
+
+/** Edge veneer round handle: measured five-point revolved profile, open at the back.
+ * The original mesh has 32 radial sectors and four profile bands (256 triangles).
+ */
+export function createWardrobeRingHandle(): THREE.BufferGeometry {
+  const profile = [
+    [22.29907736, -4.45981463], [22.29907736, 1.81538276],
+    [21.91456407, 1.91494438], [21.43667001, 0.90642738],
+    [21.43667001, -0.12639306],
+  ];
+  const geometry = new THREE.LatheGeometry(profile.map(([radius, z]) => new THREE.Vector2(radius, z)), 32);
+  geometry.rotateX(Math.PI / 2);
+  return finish(geometry, 'wardrobe-ring-handle');
+}
+
+/** Source renderer's planar visual hole insert, not a manufacturing bore. */
+export function createWardrobeRingHole(): THREE.BufferGeometry {
+  return finish(new THREE.CircleGeometry(22.01436646, 32), 'wardrobe-ring-hole');
+}

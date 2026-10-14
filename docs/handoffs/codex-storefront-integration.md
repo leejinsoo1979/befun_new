@@ -390,3 +390,21 @@ terminal-instructions 최신 왼쪽3 지시 및 leader-review 2차 점검을 수
 | vinyl_storage | [직접 구성](https://tylko.com/de-de/mobel/schallplattenregal/3763292,j) | jetty / Bookcase / 0 | 1680 × 830 × 400 | observed / 적용 계약 대기 | [category-vinyl_storage-001](../tylko-reference/cases/category-vinyl_storage-001.json) |
 | wardrobe | [Edge](https://tylko.com/de-de/mobel/kleiderschrank/235218,w) | watty / Cabinet / 4 | 1180 × 1980 × 600 | observed / 적용 계약 대기 | [category-wardrobe-edge-001](../tylko-reference/cases/category-wardrobe-edge-001.json) |
 | wardrobe | [Tone](https://tylko.com/de-de/mobel/kleiderschrank/92243,w) | watty / Wardrobe / 3 | 1000 × 2000 × 530 | observed / 적용 계약 대기 | [category-wardrobe-tone-001](../tylko-reference/cases/category-wardrobe-tone-001.json) |
+
+## 제공 SVG 로고·패널 로딩 완료 — 2026-10-14 / codex-storefront
+
+- 사용자 원본 SVG의 표시 영역과 mask를 보존. 기본 `befun_logo.svg`는 검정 필터만 추가하고 `befun_logo-white.svg`는 원본 그대로 사용. BrandLogo 색상 선택과 footer 연결, footer 흰 배경 제거. 기존 configurator/assembly 헤더도 기본 asset으로 같은 로고 사용.
+- ConfiguratorLoading은 실제 로고를 25개 clip 패널로 나눠 아래부터 순차 조립하고 완성 후 반복. useId로 중복 마스크 ID 방지, 모든 패널의 시작 시각 동기화. ready/unmount 시 animation 정리, reduced-motion에서 완성 로고 정적 표시. SceneReady/3D/AR/저장 로직 수정 없음.
+- Chrome localhost:3003 헤더 검정·footer 흰색 원본 로고와 투명 footer 배경 확인. 실제 configurator의 초기 status→ready 전환 관찰. 로딩이 짧아 반복 연출은 별도 격리 사본의 동일 실제 컴포넌트로 확인: 조립 중 부분 로고, 완성 정적 로고, ready=true의 aria-hidden=true / opacity=0 / pointer-events=none 확인. 모든 모바일 viewport에서 애니메이션을 직접 확인한 것은 아님.
+- 최종 lint: 오류0/기존 경고7. `/private/tmp/befun-wordmark-build-w_yk1byi` 격리 snapshot의 webpack build, 전체 TypeScript,17개 정적 페이지 생성 PASS. 이후 타담당 옷장 변경은 이 build 검증 범위에 포함하지 않음. 검증용 route는 격리 사본에만 존재하며 프로젝트/커밋에 포함하지 않음. 임시 browser 네트워크·motion 설정 복원, 검증 탭 및 본인 preview 서버 종료.
+- 소스7파일은 다른 담당자의 공유 기준점 커밋 `c466e45`에 이미 포함됨을 git diff로 확인. 이번 후속 커밋은 검증 결과·인계·잠금 해제 기록이며 소스를 중복 변경하지 않음. 리더/게시 담당: 제공 로고·로딩 잠금 모두 해제, `c466e45` 소스와 이 인계 사용 가능. push/배포는 본 담당이 수행하지 않음.
+
+검증한 최종 소스 SHA-256:
+
+- `public/imgs/icon/befun_logo.svg`: `256986bcdf3e67357a27edb2595e63f1f9514911ddda3c2c127f2f5d89ab3649`
+- `public/imgs/icon/befun_logo-white.svg`: `71316d0761afc333cf3ee674dd10274d1f119472a8159d45d3328fa670e1ecc9`
+- `src/components/storefront/StorefrontUI.tsx`: `08567dbb65d648e22a082622b4a09e0f3acab9d7fcc98902210d74a0ed1538a0`
+- `src/components/storefront/StorefrontFrame.tsx`: `56835eb4bf8966cfe105d651c5853f16abf84e1597d50017ab1d1757dd015ec5`
+- `src/components/storefront/storefront.module.css`: `d39a79b03b580652bdff8af6989d07f7db3594efb2c2ba0f24e63b8f76500826`
+- `src/components/ui/ConfiguratorLoading.tsx`: `2dfbf189f45a85fd5794087e9aa47a650538ac58dd324fd3a8b5907bbe879691`
+- `src/components/ui/configurator-loading.module.css`: `d4750bf8d8c1361a8ce3acb13f67dd43d9e5d75dc79e92038a61b4afe629dd04`

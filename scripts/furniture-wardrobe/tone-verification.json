@@ -13,7 +13,8 @@
     "drawers",
     "bars",
     "lighting",
-    "components"
+    "components",
+    "hinges"
   ],
   "maxCoordinateToleranceMm": 1e-7
 }

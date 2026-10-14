@@ -50,3 +50,17 @@
 초기에는 UI/공개 preset만 확보되어 임의 기하를 만들지 않았다. 이후 리더가 public DNA/현재 Edge Nuxt 엔진/Tone legacy 엔진을 확보하여 실제 general rules와 source oracle 검증을 진행했다. 원본 개인정보가 포함된 전체 DNA는 프로젝트에 저장하지 않고 구조 레시피만 추출했다. 직접 API 호출은 런타임에 없으며 오프라인 카탈로그로 생성한다.
 
 최종 타입 검사: `npx tsc --noEmit --incremental false`에서 본 구현 오류는 없고 기존 `.next/dev/types/validator.ts` Route constraint 오류2개가 남았다. dev cache 파일은 수정하지 않았다. Tone core의 추가155 고정fixture/720 heldout 결과는 `wardrobe-tone-core.md`에 별도 기록되어 있다.
+
+## 후속 확정 — Edge 우드 / 케이블 / 현재 힌지
+
+이 항목은 위의 `round unsupported` 및 힌지 미구현 상태를 갱신한다.
+
+- Edge 우드는 Original Ash/Oak/Walnut와 다른 `VENEER_TYPE13`(shelf_type5), material0 Light Cleaf /1 Dark Cleaf다. UI 키 `E_LightCleaf`, `E_DarkCleaf`; `edgeVeneer`를 색상과 동기화하여 저장·복원한다. source `_colors`의 Cleaf 기본 tint는0xffffff이고 소형 스와치 대체색은 lightCleafish#CBC3AC/darkCleafish#72553B다.
+- source Type5는 문 Z+2mm/round handle, 외부서랍 뒤쪽Z+22mm·전면Z+2mm(타입별 원래 서랍 깊이 보정과 후단 보정 합계). source engine에 type5 discriminator를 적용한 1,296설정(108series×3height×4depth)에서 문/서랍/판 bbox 일치. 별도 type5 DNA 콘텐츠까지 일치하는지는 미검증이다.
+- round문은 좌우 각2mm를 공제한다. ringHandle은 힌지 반대쪽 physical문 가장자리에서55mm; 높이993mm 기준이며 문 전체가 아래면top−55, 위면bottom+55. 원본 asset handle_ring.glb/handle_hole.glb. root가 실제 메시/텍스처 담당.
+- Edge 후판 케이블: `sections[].cableHeightsMm` 선택배열, `result.cableOptions` 유효 높이목록. sourcegeometry.cable_management는 중심점 mm와radius30(직경60mm). 뒤판 분절선65mm이내/서랍 내부와 겹치는 후보를 제외하고 올라간 선반에 따른22mm 보정을 적용한다. 1,296설정(108series×3height×2depth×평상단 유무)에서 옵션목록 및 선택한 모든 홀 중심점이 일치했다.
+- 우측 UI는 실제 source 높이별 on/off 선택. source 표시값은floor(mm/10) cm이므로 실제99mm는9cm로 표시된다. 상부 케이블 기능은 Cabinet원본에서숨겨져 있어 미노출. 후판 실제CSG는root소유.
+- 현재 Nuxt Edge 힌지는 legacy 알고리즘과다름을648source사례검증으로발견했다. desk_geometry가 현재42mm/높이별 수량/전체선반회피 규칙으로 교정했고, core에서 전체판재·서랍/문 및section식별자를 전달한다. 이제648개 exact bbox검증통과; source.hinges와result.hinges(cm asset placements)를 제공한다.
+- 원목텍스처 source URL base는 `https://media.tylko.com/cloudinary/image/upload/v1/renderer`, 아래경로: `texture/light_cleaf_512_albedo.jpg`, `light_cleaf_512_bump.jpg`, `dark_cleaf_512_albedo.jpg`, `dark_cleaf_512_bump.jpg`. repo기존 generic natural텍스처와 동일하다고 가정하지 않았다. root가4개원본로컬자산확보.
+- UV:source renderer SCALAR=.001(m),plane repeat=(2*u/.9,2*v/.9),offset u>v이면(0,(1-v/.9)/2),아니면((1-u/.9)/2,0). veneer slab mapRatio=(width,depth,thickness),회전90°;front=(width,height,thickness),회전0°. 모두미터입력. 제조치수와무관한시각매핑규칙.
+- `edge.test.mjs`에추가144우드/144케이블고정fixture, `edge-options.test.mjs` 우드선택·케이블복원·Tone횡옷봉glyph3검증 통과. `hinges.test.mjs` 현재Edge648검증은desk_geometry소유. 기존integration12개+Tone155개도통과. ESLint통과. TypeScript는기존.nextRoute2개만오류.

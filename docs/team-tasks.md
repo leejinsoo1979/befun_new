@@ -24,6 +24,10 @@
 
 ## 진행 중
 
+- `codex-storefront` / **완료·잠금 해제** / 최신 사용자 추가 지시 / 2026-10-14 10:49 KST: 제공 로고의 패널 순차 쌓임 로딩 애니메이션 착수. 추가 잠금 `src/components/ui/ConfiguratorLoading.tsx`, `src/components/ui/configurator-loading.module.css`의 연출만. 기존 로딩 담당 납품/잠금 해제 확인. SceneReady/Scene/동적로딩 마운트·ready 조건·3D/AR 및 다른 담당 소스는 보존. SVG의 원본 형태를 clip 단위 패널로 나눠 같은 로고를 완성하며 reduced-motion에서는 정적인 완성 로고 표시. 앞선 일반 검정·footer 흰색 변경은 구현/브라우저/lint·격리build 확인 완료, 이번 연출과 함께 최종 인계.
+
+- `codex-storefront` / **완료·잠금 해제** / 사용자 제공 SVG 로고 교체 / 2026-10-14 10:44 KST: 일반 로고 검정,푸터 흰색 지시 수신·착수. 좁은 잠금: `public/imgs/icon/befun_logo.svg`,신규 `public/imgs/icon/befun_logo-white.svg`, `StorefrontUI.tsx` BrandLogo props/src만, `StorefrontFrame.tsx` footer BrandLogo variant만, `storefront.module.css` footerLogo 흰 배경/패딩 규칙만, 본인 handoff. 제공 파일의 실제 SVG 표시 영역·원본 PNG mask를 그대로 재사용하며 새 글자/심볼을 그리지 않음. 기존 기본 asset 경로를 교체해 configurator/assembly 헤더에도 같은 검정 로고가 적용되므로 해당 담당 page/scene/handler 소스는 수정하지 않음. 이전 헤더 배치·제목 제거·R3 및 다른 담당 작업 보존.
+
 - `codex-storefront` → 리더/QA / **R3 최종 SAVE-BASE-READY · SAVE-CONSUMER-PATCH / 2026-10-14 08:29 KST / 잠금 해제**: 허용6소스+검사+handoff 완료. 현재 source와 최종 격리 build6파일 hash 일치,44/44 검사·변경lint0오류·전체lint0오류/기존7경고·최종webpack/type/static generation 통과. Chrome Standard/Mosaic·Legs/Pattern 로컬 저장/목록/복구/새로고침/재저장 및 Classic→Natural/Black 유지 확인. 실제503과mock200,불완전200의 이전링크제거/무효config 복구거부 분리. 읽기 전용 configurator 수동12행 DTO/legacy URL/이전링크 초기화 patch는 `scripts/storefront-save-validation/r3-consumer.patch`에 게시(dry-run·별도preview tsc 통과),**리더 운영 적용 대기**. 실제DB왕복만 환경 미설정blocked. 자세한6사례·함수 exports·source fingerprint·캡처는 `docs/handoffs/codex-storefront-integration.md`의 R3 최종 인계. 아래 R3 착수/1차 READY의 잠금 유지 표시는 과거 기록이며 이번 최종 기록으로 해제.
 
 - `codex-storefront` → 리더/QA / **SAVE-BASE-READY · SAVE-CONSUMER-PATCH 1차 게시 / R3**: 허용된 저장·URL·share 복구 소스 수정, R3+parser44 검사 및 전체lint(오류0/기존경고7), 08:14 KST 소스 snapshot 격리 webpack build/type 통과. `scripts/storefront-save-validation/r3-consumer.patch` 게시: `configurator/page.tsx` 수동 snapshot의 비활성12행 제거/currentConfiguration 재사용, legacy URL mount 복구, 저장 시작 시 이전 공유·AR 링크 해제 및 반환code 검증. 이 소비자 파일은 직접 수정하지 않았으며 UI 마운트 해제 뒤 리더가 적용. ProductConfigurator는 currentConfiguration/restoreSavedConfiguration을 이미 사용하므로 별도 patch 불필요. 최신 “클래식도”에 맞춰 Classic/Natural 다리·Silver/Black 보존,24cm/Pixel만 보정. 실제DB왕복만blocked, 원본/CNC 완전일치와 분리. 담당 Chrome 브라우저 최종 검증·증거 정리 중이며 소스 잠금은 최종 해제 기록 전까지 유지.
@@ -1182,3 +1186,54 @@
 - GLB 정점→생성 표면 편도 거리: grip 최대0.000372 mm, front0.000001 mm, cross0.000051 mm. short 끝 loft 근사 최대0.437 mm, light 축방향 원본 미세굴곡은 폭650 mm에서 최대약0.403 mm 차이 남음. 완전 동일로 표시하지 않음.
 - `docs/handoffs/wardrobe-hardware-observations.md`에 원본 자료·배치 조건·고정부 변형·API·오차·검증 한계 기록. 전체 타입 검사는 기존 `.next` Route generic 오류2개만. 전체빌드·통합 시각 검증 리더 담당.
 - WardrobeHardware.tsx/공용모델 수정 없음. 위 신규 파일 잠금 해제.
+
+### 가구 저장·복원 및 Tone 문 방향 통합 수정 — horizontal_rules 완료 / 잠금 해제
+- 리더 위임 소유: `src/lib/furniture/design.ts`, `wardrobe-panel.ts`, `scripts/furniture-integration/state.test.mjs`; 추가 승인 `desk-panel.ts`의 팔레트 상수 import 이동만. 해당 파일 수정 완료 후 잠금 해제.
+- 저장 상태에서 정규화 시 구획 수·명시 패턴·레이아웃이 바뀌는 값, 지원 없는 개별 너비/Tone 열린 전면을 거부. 생략된 선택 기본값과 정상 기존 저장 상태는 보존. Desk 실제 family 팔레트 검증을 UI 공통 상수로 연결하고 빈 구획 ID 거부.
+- Tone 2단문 강제 좌/우 방향은 실제 프런트 방향을 표시하고 비활성화. 변경 가능한 좁은 단문의 방향은 source 전역 방향처럼 모든 구획에 적용하여 선택한 구획 이외의 값에 의해 덮어써지는 문제 수정.
+- 검증: 가구 통합 12/12, Edge 492 geometry+160 drawer, Tone155 geometry/복원, Tone72 설정/1,170 서랍판 회귀 PASS. 변경 파일 ESLint PASS. 전체 tsc는 기존 `.next/dev/types/validator.ts` Route constraint 오류2개만. 공용 dev/build 산출물 수정 없음; 전체 production build와 Chrome 최종 검증은 리더 담당.
+
+### 옷장 경첩 규칙 — desk_geometry (진행 중)
+- 리더 위임 신규 `src/lib/furniture/wardrobe-hinges.ts`, `scripts/furniture-wardrobe/hinges.test.mjs`, 기존 본인 `docs/handoffs/wardrobe-hardware-observations.md` 경첩 절만 잠금.
+- 공개 source 기준 Edge 면적 수량·Tone 높이 수량·선반/서랍 회피·문/측판 기준점 분리. 실제 제조 사양/타공 추정 없음. WardrobeModel·공유 타입/생성기 미수정.
+
+### wardrobe_geometry 후속 — Edge 원목·케이블 (2026-10-14)
+- 리더 승인 소유: wardrobe core/types/initial/adapter/source-types, 신규 edge-cable.ts, wardrobe-colors.ts, wardrobe-panel.ts, design.ts 및 관련 독립 tests. 기존 horizontal_rules 결과 보존.
+- exact Cleaf 2재질·원본케이블규칙·원목전면깊이차이 구현/검증, layout glyph 횡방향옷봉 표시 수정. root는 재질메시/텍스처확보 소유.
+
+### Desk·Wardrobe 통합 독립 production build — horizontal_rules 진행
+- 리더 위임: 공유 `.next`·개발 서버·소스는 읽기 전용. 비밀 환경 파일을 제외한 `/tmp` 사본과 node_modules symlink로 `next build --webpack` 수행.
+- 문서 단독 잠금: `docs/handoffs/desk-wardrobe-build.md`. 컴파일/타입/정적 생성 결과와 환경 제약을 기록하고 빌드 오류의 원인을 리더에게 보고. 승인 없는 공용 코드 수정 없음.
+- 격리 build 결과: 2026-10-14 10:56:17 KST 스냅샷 전체 webpack/TypeScript/17페이지 정적 생성 PASS. 전체 lint 오류0/기존경고7. fonts DNS 실패는 네트워크 허용 후 동일 소스로 재검증 성공. 실제 비밀키·DB URL 사용 없음. 최신 `wardrobe-hinges.ts`, `wardrobe/edge.ts` 2개 후속 변경은 아직 포함하지 않았으므로 결과범위 구분. 상세 `docs/handoffs/desk-wardrobe-build.md`.
+
+### 배포·로컬 전체 동기화 완료 / codex-assembly / 2026-10-14
+- 10:45:57KST 현재 src/public/scripts 전체 byte parity0개 확인 후 관련 문서/검증/원본자산 포함1164파일 commit. `8b0f837` Sync current storefront and furniture configurators. GitHub main push 확인, Vercel 생산 READY와 실제 alias commit 일치 확인. 게시사본 clean.
+- 독립 npm ci→기본 production build+전체TypeScript PASS, lint0오류/기존7경고. focused85·구조7537·최종가구저장12검사 PASS. Chrome 운영상품/다리/갤러리8장/Desk/Tone개폐/조립다리5단계 확인. 본인 임시 viewport 복원, 공유dev/.next/타담당파일 미수정.
+- 실제 미완료: Vercel production env0개, api/auth/session500/NO_SECRET. 계정/DB 저장은 운영 설정 필요. CAD/제조정확도/3D다리운동 기존 미확인보존. 새 후속옷장/경첩 작업은10:45 이후로 별도.
+- 인계 docs/handoffs/deployment-parity-20261014.md와 해당 source-fingerprint/production-verification/screenshots. 본인 문서 잠금 해제.
+- `claude-graphics` (사용자 직접 지시 "커밋해", 2026-10-14): 프로젝트 폴더에 `git init` 후 공유 작업 트리 전체를 기준점 커밋 `c466e45` (main, 2,086 파일). 모든 담당자의 그 시점 진행 중 변경 포함. `.env*`, node_modules, .next, src/generated/prisma는 .gitignore로 제외. 이후 각 담당은 이 커밋 기준으로 변경 확인 가능.
+
+### 담당자 커밋 완료 후 재푸시 대기 / codex-assembly / 사용자 직접 지시
+- 사용자: "애들이 커밋 다하면 다시 푸시해봐". 원격 main의 `8b0f837` 배포 완료와 별개로 공유 작업폴더의 새 Git 기준점 `c466e45` 및 후속 담당자 커밋 완료를 기다린다. 현재 공유 origin 없음, 게시사본과 독립 history이므로 force push/기준점 덮어쓰기 없이 검증된 최종 tree와 담당별 commit을 보존해 합칠 예정이다.
+- 진행 중 파일 잠금은 그대로. 각 담당자는 commit 완료/HEAD와 release를 기존 인계에 기록해 주면 수신 확인 후 독립 사본에서 integration·build·push·운영 revision 확인한다. 소스와 shared .git은 이 담당자가 수정하지 않는다. 본 기록 append 외 잠금 없음.
+- wardrobe_geometry 후속완료: Edge Cleaf2컬러/우드기하1296oracle,케이블1296oracle,현재힌지648oracle일치; round문판/우드저장복원/후판케이블높이선택/Tone glyph수정. 원본legacy힌지불일치를현재Nuxtsource로교정하도록desk_geometry와crosscheck함.
+- 재검증: edge core회귀/edge-options3개/integration12개/Tone155개PASS,eslintPASS. root 실제재질/CSG/하드웨어렌더소유. Tone rawhinge연결은별도필요. 후속소유파일잠금해제.
+
+### 옷장 경첩·원목 원형 손잡이 — desk_geometry 완료 / 잠금 해제
+- 담당 범위 추가: 신규 `wardrobe-hinge-assets.ts`, `hinge-source-fixtures.json`, `public/models/wardrobe/hinge-*.glb` 및 출처README; 기존 본인 `wardrobe-hardware.ts`의 ring helpers, hardware tests. 모두 완료 후 잠금 해제. 공통 WardrobeModel/생성기 수정 없음.
+- 최신 Edge Nuxt 규칙 교정(legacy 차이 확인), sibling source.hinges/adapter 연결 후 독립648설정 1mm 반올림 대조 PASS. Tone109 legacy 사례는 별도 검증이며 최신Tone통합 미완료. 완료로 오기하지 않음.
+- 실제 공개 hinge wing/anchor 자산 원점/전체13,887정점 보존cm변환 loader; ring32각실측단면·hole평면 helper 추가. 출처/허용오차/소비자dispose 계약은 hardware-observations 인계문서에 기록.
+- hinge tests5,hardware tests11 PASS; 변경 ESLint PASS. tsc 기존 .next Route오류2개만. Chrome최종시각검증·전체빌드 리더담당.
+
+### Tone 원본 경첩 중간 위치 연결 — horizontal_rules 진행
+- 리더 위임 소유: `src/lib/furniture/wardrobe/tone.ts`, `scripts/furniture-wardrobe/tone-*` 테스트·fixture, `docs/handoffs/wardrobe-tone-core.md`. 공통 `wardrobe-hinges.ts`는 읽기만 사용.
+- 표준 선반이 제거·두께 보정되기 전의 장애물과 원본 문 끝 여유를 보존하여 source.hinges 생성. 공개 Type03 원본 engine의 실제 getGeometry 경첩 bbox와 대조. 종료 후 격리 build 사본 갱신 예정.
+- Tone 경첩 연결 완료: raw18mm 표준선반(추가선반 포함)/도어원본offset을 보존하여 source.hinges 생성. 실제 원본 전체bbox+hinges720/720, frozen155, 별도72 조합 PASS. 통합·hinge regression18 PASS, 변경 ESLint PASS. Tone core/test 파일잠금 해제. 격리 build 최종 갱신은 다음 단계로 이어감.
+
+### Cleaf 판재별 UV 보정 — wardrobe_geometry 진행
+- 리더 위임 소유: 신규 `src/lib/furniture/wardrobe-panel-materials.ts`, 기존 `wardrobe-materials.ts`, 전용 tests 및 wardrobe-core 인계문서. DeskPanel/Front/Drawer 연결은 리더 소유.
+- 현재 CG3UhuDu2 공개 renderer의 meter mapRatio, plane/edge repeat·offset·rotation·flipY를 대조. 원본 panel GLB UV 축 검증은 별도로 구분하며 임의 텍스처 비율을 추가하지 않음.
+
+### 제공 SVG 로고·패널 로딩 완료 및 커밋 — codex-storefront / 2026-10-14
+- 일반 검정/footer 흰색 원본 로고 및25패널 순차조립 완료. Chrome 검정·흰색/부분조립/reduced-motion 완성로고/ready 해제 확인. lint0오류7기존경고, 격리webpack/type/17페이지 build PASS. 모든 모바일 애니메이션 직접검증은 미실시.
+- 소스7개는 공유 기준점 c466e45에 이미 포함. 후속 커밋은 본인 handoff·이 완료기록만. 기존 SVG/BrandLogo/footer/loading 잠금 모두 해제. 리더 및 재게시 담당은 인계 사용 가능. 공유 서버/.next·다른 담당 소스·push 미접촉.

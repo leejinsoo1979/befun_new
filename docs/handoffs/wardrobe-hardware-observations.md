@@ -89,3 +89,35 @@ source subtype `z`에 해당합니다. 중심 X/Z를 사용하되 **Y는 y2**입
 - `npx tsc --noEmit --pretty false`: 기존 `.next/dev/types/validator.ts:25`의 Route generic 오류 2개만 남음. 이 작업 파일의 타입 오류 없음.
 - 브라우저 시각 대조·문 open 회전과의 결합·전체 build는 리더 통합 검증 범위입니다. 원본 법선/재질의 픽셀 동일성은 검증하지 않았습니다.
 - 타공/나사/제조 도면·공차는 이 관찰 기하로 확정하지 않습니다.
+
+## 2026-10-14 후속 — 경첩 및 원목 원형 손잡이
+
+### 경첩 규칙과 버전 차이
+
+- `wardrobe-hinges.ts`는 입력 raw mm, 출력 envelope mm 및 렌더 placement cm를 분리한다. 제조 타공·실제 제조사 SKU는 추론하지 않는다.
+- **현재 Edge**는 Nuxt `BmbMCiqU2`의 `ms/bs/hs/xs`에 근거한다. 문 면적 기반 개수에 문 높이 700 mm 이상일 때 1개 추가, 2~6개 제한. 배치 박스 높이는 ceil(41/2)×2 = 42 mm다. 선반은 바닥 포함 전체, 문과 Y 겹침 필터; 아래21/위31 mm 확장, 서랍은 양쪽24 mm 확장한다. 금지구간 합집합 후 끝 경첩은 위/아래로 밀고 중간은 가까운 경계로 밀며, 21 mm 이내 중복은 제거한다. source의 순서·동일거리 처리까지 보존했다.
+- 기존 legacy module1966은 최대5개/41 mm/다른 간격이다. 초기 217사례 legacy 일치만으로 현재 Edge 일치라고 주장할 수 없음을 발견하여 **런타임 Edge를 현재 규칙으로 교체**했다. legacy fixtures는 역사 비교 자료로 보존하되 Edge 회귀에 사용하지 않는다.
+- `edge-hinge-current-source.json`의 현재 Nuxt 648설정은 sibling `wardrobe_geometry`가 독립 엔진으로 추출했고, core 연결 후 모든 경첩 좌표·방향을 1 mm 반올림 정밀도로 대조 PASS. 소수 내부 좌표까지 완전 같다는 주장은 하지 않는다.
+- Tone helper는 legacy module1671의 높이 경계1300/2300 mm,2/3/4개,raw door top/bottom offset,pre-trim standard shelves 기준이다. 109 legacy 사례 PASS. **현재 Tone 전체 생성기와의 연결·최신 원본 대조는 아직 미완료**이며 다른 담당 통합이 필요하다. offsets 없는 입력은 거부한다.
+- `resolveWardrobeHingePlacements`는 wing(문과 회전)/anchor(고정 벽)을 별도 반환한다. 원본 renderer의 좌우 Z회전0/π, 문/벽 원점과 Z기준 유지. 기존 Blum의 2개 고정/50 mm 끝간격이나 모델을 혼용하지 않는다.
+
+### 실제 경첩 렌더 자산
+
+- 공개 원본 `geometry/hinge_wing.glb`, `geometry/hinge_anchor.glb`를 리더 승인 아래 `public/models/wardrobe/hinge-wing.glb`, `hinge-anchor.glb`로 저장했다. 출처·SHA256은 동일 폴더 README에 있다. 런타임 외부 Tylko 호출 없음.
+- 각각 단일 non-skinned Mesh이며 노드 TRS 없음. 원본 metres → cm ×100만 적용하며 원점/normal/UV를 보존한다.
+- `loadWardrobeHingeGeometry(asset)` 비동기 BufferGeometry 반환. 내부 import geometry/material/texture는 해제, 반환 geometry는 소비자가 dispose해야 한다(언마운트 뒤 로드완료도 포함). 별도 모듈 캐시 없음.
+- wing7,735 + anchor6,152 =13,887개 정점 모두 source×100과 일치 검사 PASS. 단순 박스/범용 Blum 근사로 대체하지 않았다. 전체 문 개폐 시 시각·간섭 검증은 리더 단계.
+
+### Edge 원목 원형 손잡이
+
+- 실제 asset IDs는 `ringHandle`→`geometry/handle_ring.glb`, `ringHole`→`geometry/handle_hole.glb`. renderer `hU`/legacy1020에서 확인.
+- `createWardrobeRingHandle()`는 측정한5점 반경/Z 단면을32분할 회전시킨 열린 링. 4개띠256삼각형으로 원본을 재현한다. 외반경22.29907736 mm, 내반경21.43667001 mm, Z −4.45981463..1.91494438 mm. `createWardrobeRingHole()`는 반경22.01436646 mm의32각평면 삽입물이다. 실제 제조 관통구멍이라는 뜻이 아니다.
+- 원본 정점→생성 표면 편도 거리: 링 최대0.00000312 mm, hole 최대0.00000202 mm. 부동소수 오차 수준이나 양방향 Hausdorff/최종 재질 비교는 아니다. 링 중앙이 막히지 않는 raycast 검증 PASS.
+- 원목 front 물리 X는 raw x1+2,x2−2, 두께18 mm. 손잡이 X는 오른쪽힌지일 때 물리x1+55, 왼쪽힌지일 때 물리x2−55. Y는 raw전체가993보다아래면y2−55, 위면y1+55, 걸치면993. Z는 doorcenter+9 mm, hole은추가+1 mm. Chrome과 veneerHole재질은 소비자 담당.
+
+### 검증 및 남은 범위
+
+- `node --test scripts/furniture-wardrobe/hinges.test.mjs`: 5 tests PASS (Tone109legacy + Edge648current 포함).
+- `node --test scripts/furniture-wardrobe/hardware.test.mjs`: 11 tests PASS.
+- 변경 TS/MJS ESLint PASS. `tsc --noEmit`: 기존 `.next/dev/types/validator.ts` Route constraint 오류2개만 남음.
+- WardrobeModel/공통 타입/생성기 직접 수정 없음. sibling이 Edge `source.hinges`/adapter placements를 연결. Tone 연결, 최종 Chrome 개폐·재질 시각검증 및 전체 production build는 리더 통합 단계.

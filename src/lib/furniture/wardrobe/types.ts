@@ -11,6 +11,7 @@ export interface WardrobeSectionInput {
   localHeightMm?: number | null;
   localDepthMm?: number | null;
   widthMm?: number | null;
+  cableHeightsMm?: number[];
 }
 export interface WardrobeInput {
   model: WardrobeModel;
@@ -19,6 +20,7 @@ export interface WardrobeInput {
   depthMm: number;
   sections: WardrobeSectionInput[];
   topEdge?: boolean;
+  edgeVeneer?: boolean;
   toneWidthPattern?: string;
   drawerStyle?: 'internal' | 'external';
   lighting?: boolean;
@@ -58,7 +60,9 @@ export interface WardrobeDrawer {
   id: string; sectionId: string; front: WardrobeFront; parts: PanelData[]; travelCm: number;
 }
 export interface WardrobeResult {
+  hinges?: import('../wardrobe-hinges').WardrobeHingePlacement[];
   drawers?: WardrobeDrawer[];
+  cableOptions?: { sectionId: string; heightsMm: number[] }[];
   sourceGeometryMm?: import('./source-types').WardrobeSourceGeometry;
   panels: PanelData[];
   fronts: WardrobeFront[];

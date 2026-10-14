@@ -7,6 +7,8 @@ export interface WardrobeSourcePart extends WardrobeBoundsMm {
   handle?: number;
   handle_type?: string;
   extremes?: string[];
+  radius?: number;
+  sectionId?: string;
   m_config_id?: number | string;
 }
 export interface WardrobeSourceGeometry {
@@ -19,6 +21,9 @@ export interface WardrobeSourceGeometry {
   backs: WardrobeSourcePart[];
   doors: WardrobeSourcePart[];
   drawers: WardrobeSourcePart[];
+  hinges?: import('../wardrobe-hinges').WardrobeHingeEnvelope[];
+  cable_management?: WardrobeSourcePart[];
+  cable_options?: { sectionId: string; heightsMm: number[] }[];
   drawer_fronts?: WardrobeSourcePart[];
   bars: WardrobeSourcePart[];
   components: WardrobeSourcePart[];

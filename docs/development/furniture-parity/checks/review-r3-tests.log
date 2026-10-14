@@ -1,0 +1,66 @@
+✔ standard and raised base differ by observed 100mm (0.457667ms)
+✔ held-out layouts: each front/back pair supports the same bottom vertical axis (25.010291ms)
+✔ actual store save/parse/restore, old designs, and URL round-trip retain base choice (0.846625ms)
+✔ unsupported style/depth transitions reset raised base (0.14075ms)
+✔ Classic/Natural accept legs and preserve independent silver/black finish across material switches (0.712791ms)
+✔ old designs default to silver and unknown leg finishes cannot enter saved state (0.209833ms)
+✔ silver and black use owned untextured materials, not cabinet wood maps (20.822042ms)
+✔ Classic/Natural layouts recalculate support count and positions with width (46.449375ms)
+✔ wide Gradient centre does not omit an existing vertical bearing axis (0.332791ms)
+ASSET pass — GLB unchanged (sha256 ce1bd336615c…, 17392 B)
+R3-HW-03 pass — one node / one mesh, no children: shaft+plate cannot be separated by node
+R3-HW-03 pass — welded mesh has 1 connected component: moving group = leg_shaft + mounting_plate (rigid)
+R3-HW-03 pass — fixed screws ×3 + central pin are NOT in the GLB (contract inAsset=false)
+R3-HW-03 pass — screw/pin/keyhole/slide dimensions stay null, manufacturingReady=false
+R3-HW-01 pass — node rotation Y135° and uniform scale 0.0010322 preserved
+R3-HW-01 pass — shaft outer radius constant 8.000..8.000 (mesh) = Ø16.52 mm
+R3-HW-01 pass — shaft section centroids stay on the axis (max offset 0.229 mesh units) → straight, not slanted
+R3-HW-01 pass — everything wider than the shaft starts at mesh y ≥ 98.00 (plate/folded edges only)
+R3-HW-01 pass — world bounds (mm) equal observedHardware.long_leg [-39.22,0,-8.26]..[8.26,111.48,39.22]
+R3-HW-01 pass — plate extends toward (−√½, 0, +√½) after node rotation
+R3-HW-02 pass — cm scene: rendered height 11.1478 = original 111.48 mm (scale ×100 once, ground y=0)
+R3-HW-02 pass — cm: no double conversion
+R3-HW-02 pass — mm scene: rendered height 111.4777 = original 111.48 mm (scale ×1000 once, ground y=0)
+R3-HW-02 pass — mm: no double conversion
+R3-HW-04 pass — 200 mount/unmount cycles: shared geometry & material never disposed, no leaked children
+R3-HW-04 pass — source scene material untouched (clone only)
+all R3-HW long-leg checks passed
+✔ src/components/three/furniture-hardware/legs/longLeg.test.mjs (106.572084ms)
+✔ fixed pins install before spring compression; panel straightens before spring return (0.775334ms)
+✔ pivot and pin motion are continuous, and inserted lower pins stay fixed while panel turns (0.451583ms)
+✔ macro cameras follow the actual top pin while the panel rotates on desktop and mobile (1.408209ms)
+✔ the example approaches from outside the cabinet and clears the top before lower pin insertion (0.210084ms)
+✔ directed macro shots keep the actual moving hardware in frame throughout P/R assembly (175.44575ms)
+✔ camera seeking is deterministic and a reverse-side view changes only the shot (0.7005ms)
+✔ ASM-01: all P/R chapters sample absolutely at 0/0.5/1 and withstand backward seeking (2.230833ms)
+✔ ASM-02/03: both planner joints consume provider anchors once, including the upper PH flip (0.483167ms)
+✔ ASM-04: actual mounted PH/RH bodies and PC/RC fit the observed capsule at both joints (39.454084ms)
+✔ ASM-03/04: reversed asymmetric RC fails lip/window engagement instead of silently passing (0.335208ms)
+✔ ASM-07: fixed inspection cameras fit corrected hardware bounds without object scaling (79.775333ms)
+✔ official P and R part pairings keep face receiver and central connector separate (0.80775ms)
+✔ assembly displacement comes from the input contract; 15 mm release never substitutes for unknown movement (0.13275ms)
+✔ P presses without a slide and refuses the R release operation (0.312166ms)
+✔ R inserts before assembly sliding and completes release sliding before lifting (0.151375ms)
+✔ elapsed-time playback is equal at 60fps and at long browser frame intervals (0.493958ms)
+✔ one long interval crosses chapters and stops precisely at the final frame (0.371291ms)
+✔ follow-assembly stops at one chapter; speed controls elapsed seconds (0.068708ms)
+✔ global seeking reaches the same chapter boundaries as continuous playback (0.109ms)
+✔ independently reproduces OVVO-AUDIT-003 endcap corner outside the official slot footprint (0.509167ms)
+✔ outer footprint fit cannot certify the unknown undercut profile or manufacturing (0.08125ms)
+✔ exposed lips are excluded; nonfinite transforms and invalid pockets fail explicitly (0.199208ms)
+✔ example machining and connector locations consume the shared CNC planner (1.164166ms)
+✔ releasable assembly inserts before sliding; permanent assembly never slides (0.473208ms)
+✔ every chapter preserves pose at its boundary and hardware installs before panel insertion (0.287333ms)
+✔ seeking is deterministic, clamps invalid values, and keeps the complete part framed on mobile (1.307958ms)
+✔ uses the hardware owner dimensions and colour pairs without assigning lock roles (1.217958ms)
+✔ pins enter on the normal before any relative long-axis slide (0.373083ms)
+✔ all chapters are continuous, seeking deterministic, and motion transforms by the joint frame (0.23425ms)
+✔ camera follows the joint and keeps both panels framed on mobile (2.545167ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 519.183416

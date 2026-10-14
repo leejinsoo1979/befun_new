@@ -32,3 +32,13 @@
 - [책상](assets/deployment-parity-20261014/preview-desk.jpg)
 - [옷장 개방](assets/deployment-parity-20261014/preview-wardrobe-open.jpg)
 - [소스 fingerprint](assets/deployment-parity-20261014/source-fingerprint.json)
+
+## 운영 배포 후 검증
+
+GitHub main `8b0f837b0653e5eecc3d0139a067d84c18860a55` push 확인. Vercel `dpl_3qvsrxxa62D5o3fUGG7eQFVeYy9b` READY 및 생산 alias `befun-new.vercel.app` 대응 확인. 실제 Vercel build/TypeScript/static generation 성공 로그도 CLI에서 확인했다.
+
+운영 상품 UI가 로컬 기준과 일치한다. 다리 선택63→73cm, 갤러리 원본8장 로드, 책상3D, Tone 옷장 문 개폐, 다리 원본5단계 안내를 Chrome에서 확인했다. 격리 상품390px에서 가로 넘침0·로딩 종료 확인 후 viewport override 복원. [운영 결과](assets/deployment-parity-20261014/production-after.jpg), [갤러리](assets/deployment-parity-20261014/production-gallery.jpg), [책상](assets/deployment-parity-20261014/production-desk.jpg), [옷장](assets/deployment-parity-20261014/production-wardrobe-open.jpg).
+
+남은 실제 서버 설정: `vercel env ls production --project befun-new --scope lee-jin-soos-projects` 결과 환경변수0개. 운영 `/api/auth/session` HTTP500, runtime `NO_SECRET/MissingSecret`. 따라서 운영 계정·DB 저장은 미완료다. NEXTAUTH_SECRET/DATABASE_URL 및 사용하는 OAuth 자격정보의 운영 설정이 필요하다. 비밀값을 코드에 넣거나 없는 DB/OAuth 계정을 만들지 않았다. 세션 오류를 3D 화면 완료와 혼동하지 않는다.
+
+공유 로컬의 다른 담당 후속 옷장/경첩 작업은 10:45 스냅샷 이후 새 변경이며 기존 잠금을 보존한다. 이 배포 검증 추가는 공유 로컬 인계에만 기록, Git 게시사본은 커밋 후 clean이다.

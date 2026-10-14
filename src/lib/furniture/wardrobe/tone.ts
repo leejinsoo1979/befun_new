@@ -1,4 +1,5 @@
 import rulesData from './tone-rules.json';
+import { generateToneHingeEnvelopes } from '../wardrobe-hinges';
 import { adaptWardrobeRenderGeometry } from './adapter';
 import type { WardrobeInput, WardrobeResult } from './types';
 import type { WardrobeSourceGeometry, WardrobeSourcePart } from './source-types';
@@ -78,6 +79,7 @@ export function generateToneSourceGeometry(value: WardrobeInput): WardrobeSource
   const total = input.widthMm - 42, widths = allocateWidths(input.widthMm, ratios);
   const axes = [-total / 2]; widths.forEach(w => axes.push(axes.at(-1)! + w));
   const drawer_fronts: Part[] = [];
+  const hingeShelves: Part[] = [];
   const slabs: Part[] = [], walls: Part[] = [], backs: Part[] = [], doors: Part[] = [], drawers: Part[] = [], bars: Part[] = [], lighting: Part[] = [], components: Part[] = [];
   for (let index = 0; index < widths.length; index++) {
     const x1 = axes[index], x2 = axes[index + 1], width = widths[index];
@@ -103,6 +105,10 @@ export function generateToneSourceGeometry(value: WardrobeInput): WardrobeSource
       for (const offset of cell.rods) rawBars.push({ center: (offset < 0 ? top + offset : y + offset) + 38 });
       y = top;
     }
+    // Hinges use original standard shelves, including shelves later removed at
+    // drawer stacks. Recipe inserts are also source standard shelves; the base
+    // alone is excluded from the Type03 hinge obstacles.
+    hingeShelves.push(...[...standards, ...inserts].map(shelf => ({ ...shelf })));
     const colDrawers: Part[] = [];
     for (const cell of rawDrawers) {
       if (cell.external) {
@@ -205,7 +211,13 @@ export function generateToneSourceGeometry(value: WardrobeInput): WardrobeSource
   for (const x of [-input.widthMm / 2, input.widthMm / 2 - 12]) frame.push(...cut(box(x, x + 12, 0, wallTop + 13, 0, depth, 's'), 'y', wallTop + 13 > 2700 ? [1959] : []));
   const masking_bars = cut(box(top.x1, top.x2, 0, 35, depth - 14, depth), 'x', topCuts);
   for (const part of masking_bars) delete part.subtype;
-  return { model: 'tone', width: input.widthMm, height: input.heightMm, depth, slabs, walls, backs, frame, masking_bars, doors, drawers, drawer_fronts, bars, components, lighting };
+  const hinges = generateToneHingeEnvelopes({
+    doors: doors.map(door => ({ ...door, direction: door.direction as 1 | 2,
+      offset: { top: door.extremes?.includes('top') ? -5 : 2, bottom: door.extremes?.includes('bottom') ? 6 : 2 } })),
+    standardShelves: hingeShelves,
+    drawers,
+  });
+  return { model: 'tone', hinges, width: input.widthMm, height: input.heightMm, depth, slabs, walls, backs, frame, masking_bars, doors, drawers, drawer_fronts, bars, components, lighting };
 }
 export function generateToneWardrobe(value: WardrobeInput): WardrobeResult {
   const normalized = normalizeToneWardrobe(value), source = generateToneSourceGeometry(normalized);

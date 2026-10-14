@@ -3,7 +3,7 @@ import type { WardrobeSourcePart } from './source-types';
 
 /** Resolve source millimetre envelopes into physical wardrobe door panels in cm.
  * Source references: renderer modules 1016 (Tone), 534/535 (Edge).
- * Edge round-handle geometry is intentionally unsupported here.
+ * Edge round handles follow the current Nuxt hU renderer placement.
  */
 export function resolveWardrobeDoor(
   source: WardrobeSourcePart,
@@ -12,7 +12,6 @@ export function resolveWardrobeDoor(
   sectionId: string,
   index: number,
 ): WardrobeFront | null {
-  if (model === 'edge' && source.handle_type === 'round') return null;
   const right = source.direction === 2;
   const centerY = (source.y1 + source.y2) / 2;
   const centerZ = (source.z1 + source.z2) / 2;
@@ -38,6 +37,11 @@ export function resolveWardrobeDoor(
       asset: 'gripHandle', x: (right ? source.x1 + 39 : source.x2 - 39) / 10,
       y: 110.9, z: (centerZ + 10) / 10, height: null,
     };
+  } else if (source.handle_type === 'round') {
+    x1 += 2; x2 -= 2;
+    handle = { asset: 'ringHandle', x: (right ? x1 + 55 : x2 - 55) / 10,
+      y: (source.y2 < 993 ? source.y2 - 55 : source.y1 > 993 ? source.y1 + 55 : 993) / 10,
+      z: source.z2 / 10, height: null };
   } else if (source.handle_type === 'line') {
     if (right) x1 += 30; else x2 -= 10;
     handle = {

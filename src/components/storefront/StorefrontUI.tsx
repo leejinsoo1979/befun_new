@@ -91,8 +91,8 @@ export function ProductCard({ product, saved, toggleSaved, open }: { product: Ca
 }
 
 
-export function BrandLogo() {
-  return <Image src="/imgs/icon/befun_logo.svg" alt="Befun" width={120} height={28} unoptimized priority className={styles.brandLogo} />;
+export function BrandLogo({ color = 'black' }: { color?: 'black' | 'white' }) {
+  return <Image src={color === 'white' ? '/imgs/icon/befun_logo-white.svg' : '/imgs/icon/befun_logo.svg'} alt="Befun" width={120} height={28} unoptimized priority={color === 'black'} className={styles.brandLogo} />;
 }
 export function useConfigureProduct() {
   const router = useRouter();

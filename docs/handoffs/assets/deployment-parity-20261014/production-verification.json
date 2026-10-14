@@ -1,0 +1,21 @@
+{
+  "commit": "8b0f837b0653e5eecc3d0139a067d84c18860a55",
+  "deploymentId": "dpl_3qvsrxxa62D5o3fUGG7eQFVeYy9b",
+  "production": "https://befun-new.vercel.app",
+  "state": "READY",
+  "aliasError": null,
+  "verified": [
+    "product UI matches captured local",
+    "Feet Standard to Legs and height63 to73",
+    "all8 gallery photos loaded",
+    "Modern Desk rendered",
+    "Tone Wardrobe open/close rendered",
+    "5steplegguide original sources"
+  ],
+  "remaining": {
+    "productionEnvironmentVariables": 0,
+    "sessionHTTP": 500,
+    "authError": "NO_SECRET / MissingSecret"
+  },
+  "sourceSnapshot": "2026-10-14T10:45:57.835647+09:00"
+}

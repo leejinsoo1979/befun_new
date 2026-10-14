@@ -36,7 +36,7 @@ export function validateWardrobeInput(input: WardrobeInput): string[] {
   const validDepth = (depth: number) => input.model === 'edge' ? [270, 360, 450, 600].includes(depth) : inRange(depth, 400, 800) && step10(depth);
   if (!validHeight(input.heightMm)) errors.push('heightMm');
   if (!validDepth(input.depthMm)) errors.push('depthMm');
-  for (const name of ['topEdge', 'lighting'] as const) if (input[name] !== undefined && typeof input[name] !== 'boolean') errors.push(name);
+  for (const name of ['topEdge', 'lighting', 'edgeVeneer'] as const) if (input[name] !== undefined && typeof input[name] !== 'boolean') errors.push(name);
   if (input.drawerStyle !== undefined && !['internal', 'external'].includes(input.drawerStyle)) errors.push('drawerStyle');
   if (input.toneWidthPattern !== undefined && (input.model !== 'tone' || typeof input.toneWidthPattern !== 'string' || !/^[12]{1,12}$/.test(input.toneWidthPattern))) errors.push('toneWidthPattern');
   if (!Array.isArray(input.sections) || input.sections.length === 0 || input.sections.length > 32) return [...errors, 'sections'];
@@ -51,6 +51,7 @@ export function validateWardrobeInput(input: WardrobeInput): string[] {
     if (section.doorDirection !== undefined && !['left', 'right'].includes(section.doorDirection)) errors.push(`section:${section.id}:doorDirection`);
     if (section.localHeightMm != null && (input.model !== 'edge' || !validHeight(section.localHeightMm))) errors.push(`section:${section.id}:height`);
     if (section.localDepthMm != null && (input.model !== 'edge' || !validDepth(section.localDepthMm))) errors.push(`section:${section.id}:depth`);
+    if (section.cableHeightsMm !== undefined && (input.model !== 'edge' || !Array.isArray(section.cableHeightsMm) || section.cableHeightsMm.length > 32 || section.cableHeightsMm.some(value => !Number.isInteger(value) || value < 0 || value > 3600))) errors.push(`section:${section.id}:cables`);
     if (section.widthMm != null && !inRange(section.widthMm, 1, 6000)) errors.push(`section:${section.id}:width`);
   }
   return errors;

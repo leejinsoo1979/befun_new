@@ -1,0 +1,14 @@
+
+ RUN  v3.2.7 /private/tmp/befun-review-r3-ui-mu12zekg/uitest
+
+ ✓ review.test.tsx (10 tests) 144ms
+ ✓ family.test.tsx (16 tests) 377ms
+ ✓ connector.test.tsx (6 tests) 410ms
+ ✓ panels.test.tsx (17 tests) 489ms
+ ✓ legacy-r3.test.tsx (47 tests) 593ms
+
+ Test Files  5 passed (5)
+      Tests  96 passed (96)
+   Start at  08:24:56
+   Duration  1.59s (transform 276ms, setup 603ms, collect 841ms, tests 2.01s, environment 1.78s, prepare 261ms)
+

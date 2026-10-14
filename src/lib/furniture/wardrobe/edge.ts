@@ -1,3 +1,5 @@
+import { generateEdgeHingeEnvelopes, type WardrobeHingeDoor } from '../wardrobe-hinges';
+import { resolveEdgeCableOpenings } from './edge-cable';
 import { applyEdgeFlatTop } from './edge-flat-top';
 import catalogData from './edge-catalog.json';
 import { adaptWardrobeRenderGeometry } from './adapter';
@@ -65,7 +67,7 @@ function getRules(seriesId: string, height: number, width: number, depth: number
 type Part = WardrobeSourcePart & { height?: number; base?: number; external?: boolean };
 type Column = {
   section: WardrobeSectionInput; x1: number; x2: number; height: number; depth: number; built: number;
-  seriesId: string; slabs: Part[]; doors: Part[]; drawers: Part[]; bars: Part[]; backs: Part[];
+  cableLevels: number[]; seriesId: string; slabs: Part[]; doors: Part[]; drawers: Part[]; bars: Part[]; backs: Part[];
 };
 const box = (x1: number, x2: number, y1: number, y2: number, z1: number, z2: number, subtype = ''): Part => ({ x1, x2, y1, y2, z1, z2, subtype });
 const insideY = (part: Part, front: Part) => part.y1 >= front.y1 && part.y2 <= front.y2;
@@ -78,13 +80,14 @@ function createColumn(input: WardrobeInput, section: WardrobeSectionInput, x1: n
   const { seriesId, rules } = getRules(String(section.seriesId), height, width, depth);
   const x2 = x1 + width;
   const slabs: Part[] = [box(x1 + 9, x2 - 9, 0, 18, 12, depth, 'b')];
-  const doors: Part[] = [], drawers: Part[] = [], bars: Part[] = [];
+  const doors: Part[] = [], drawers: Part[] = [], bars: Part[] = [], cableLevels: number[] = [];
   const fixedHeight = rules.reduce((sum, cell) => sum + (typeof cell.heightMm === 'number' ? cell.heightMm : 0), 0);
   let y = 9;
   for (const cell of rules) {
     const h = cell.heightMm === 'flex' ? height - 80 - fixedHeight : Number(cell.heightMm);
     const top = y + h;
     slabs.push(box(x1 + 9, x2 - 9, top - 9, top + 9, 12, depth, 's'));
+    if (cell.kind !== 'drawer') cableLevels.push(y + 90);
     if (cell.kind === 'door') {
       let bottom = y;
       for (let i = drawers.length - 1; i >= 0 && !drawers[i].external && drawers[i].y2 === bottom; i--) bottom = drawers[i].y1;
@@ -100,7 +103,7 @@ function createColumn(input: WardrobeInput, section: WardrobeSectionInput, x1: n
     for (const offset of cell.railOffsetsMm ?? []) bars.push(box(x1, x2, top - offset - 20, top - offset + 20, depth / 2 - 10, depth / 2 + 10));
     y = top;
   }
-  return { section, x1, x2, height, depth, built: y - 9, seriesId, slabs, doors, drawers, bars, backs: [] };
+  return { section, x1, x2, height, depth, built: y - 9, cableLevels, seriesId, slabs, doors, drawers, bars, backs: [] };
 }
 function fitColumn(column: Column) {
   const { x1, x2, depth, slabs, drawers, bars } = column;
@@ -214,10 +217,22 @@ export function generateEdgeSourceGeometry(inputValue: WardrobeInput): WardrobeS
     if (wallTop > 2318) walls.push({ ...wall, y2: 1948 }, { ...wall, y1: 1948 }); else walls.push(wall);
   }
   columns.forEach(fitColumn);
+  const cables = columns.map(column => resolveEdgeCableOpenings(column.section, column.x1, column.x2, column.cableLevels, column.backs, column.drawers, column.slabs));
+  if (input.edgeVeneer) for (const column of columns) {
+    for (const door of column.doors) { door.z1 += 2; door.z2 += 2; door.handle_type = 'round'; }
+    for (const drawer of column.drawers) if (drawer.external) { drawer.z1 += 22; drawer.z2 += 2; }
+  }
   for (const part of [...walls, ...columns.flatMap(c => [...c.slabs, ...c.backs, ...c.doors, ...c.drawers, ...c.bars])]) {
     for (const key of ['x1', 'x2', 'y1', 'y2', 'z1', 'z2'] as const) part[key] = Math.round(part[key]);
   }
+  const hinges = columns.flatMap(column => {
+    const identified = (part: Part) => ({ ...part, m_config_id: column.section.id });
+    return generateEdgeHingeEnvelopes({ doors: column.doors.map(identified) as WardrobeHingeDoor[], standardShelves: column.slabs.map(identified), drawers: column.drawers.map(identified) });
+  });
+  for (const hinge of hinges) for (const key of ['x1','x2','y1','y2','z1','z2'] as const) hinge[key] = Math.round(hinge[key]);
   const source: WardrobeSourceGeometry = {
+    hinges,
+    cable_management: cables.flatMap(c => c.holes), cable_options: cables.map((c, index) => ({ sectionId: columns[index].section.id, heightsMm: c.levels })),
     model: 'edge', width: input.widthMm, height: Math.max(...input.sections.map(s => s.localHeightMm ?? input.heightMm)), depth: Math.max(...input.sections.map(s => s.localDepthMm ?? input.depthMm)),
     components: columns.map(c => box(c.x1, c.x2, 0, c.built, 0, c.depth)),
     slabs: [...columns.map(c => c.slabs[0]), ...columns.flatMap(c => c.slabs.slice(1))],

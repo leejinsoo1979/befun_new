@@ -1,0 +1,27 @@
+
+> befun-v2-next@0.1.0 lint
+> eslint
+
+
+/Users/leejinsoo/Downloads/befun_new-main/src/app/mypage/page.tsx
+  178:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/leejinsoo/Downloads/befun_new-main/src/app/order/[id]/page.tsx
+  123:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/leejinsoo/Downloads/befun_new-main/src/app/share/[code]/page.tsx
+  92:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/leejinsoo/Downloads/befun_new-main/src/components/three/RowColliders.tsx
+  80:6  warning  React Hook useCallback has an unnecessary dependency: 'depth'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/leejinsoo/Downloads/befun_new-main/src/lib/three/hardware.ts
+    4:10  warning  'calculateSlantSpacing' is defined but never used            @typescript-eslint/no-unused-vars
+   37:7   warning  'DRAWER_GAP' is assigned a value but never used              @typescript-eslint/no-unused-vars
+  363:10  warning  'getPixelVerticalPanelXPositions' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/leejinsoo/Downloads/befun_new-main/src/lib/three/materials.ts
+  2:15  warning  'MaterialType' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 8 problems (0 errors, 8 warnings)
+

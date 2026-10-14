@@ -1,0 +1,7 @@
+.next/dev/types/validator.ts(25,44): error TS2344: Type 'Route' does not satisfy the constraint '"/"'.
+  Type 'LayoutRoutes' is not assignable to type '"/"'.
+    Type '"/configurator"' is not assignable to type '"/"'.
+.next/dev/types/validator.ts(25,75): error TS2344: Type 'Route' does not satisfy the constraint '"/"'.
+  Type 'LayoutRoutes' is not assignable to type '"/"'.
+    Type '"/configurator"' is not assignable to type '"/"'.
+src/app/assembly-guide/page.tsx(2,31): error TS2307: Cannot find module '@/components/assembly-guide/AssemblyGuide' or its corresponding type declarations.

@@ -58,3 +58,16 @@ test('parametric hardware rejects non-finite or non-positive lengths',()=>{
  for(const create of [h.createWardrobeFrontBar,h.createWardrobeCrossBar,h.createWardrobeLightProfile,h.createWardrobeLightDiffuser])
  for(const value of [NaN,Infinity,-1,0])assert.throws(()=>create(value),RangeError);
 });
+
+test('veneer ring has measured rim profile and an open center',()=>{
+ const ring=h.createWardrobeRingHandle(),hole=h.createWardrobeRingHole();
+ try{
+  close(size(ring).x,4.459815472);close(size(ring).y,4.459815472);
+  close(ring.boundingBox.min.z,-.445981463);close(ring.boundingBox.max.z,.191494438);
+  assert.equal(ring.index.count/3,256);
+  assert.equal(hit(ring,[0,0,2],[0,0,-1]).length,0,'central region is open');
+  assert.ok(hit(ring,[2.18,0,2],[0,0,-1]).length>0,'front rim remains visible');
+  close(size(hole).x,4.402873292);close(size(hole).z,0);
+  assert.ok(hit(hole,[0,0,2],[0,0,-1]).length>0);
+ }finally{ring.dispose();hole.dispose();}
+});

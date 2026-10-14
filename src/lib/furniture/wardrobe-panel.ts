@@ -2,7 +2,7 @@ import type { FurnitureControl, FurnitureEditIntent, FurniturePanelView, Control
 import type { FurnitureDesign } from './design';
 import { generateWardrobe, getWardrobeLayoutOptions, getWardrobeDimensionOptions, normalizeWardrobeInput } from './wardrobe';
 import { getToneWidthOptions } from './wardrobe/tone';
-import { WARDROBE_COLORS, EDGE_PAINT_COLORS, TONE_OUTER_COLORS, toneInnerColors } from './wardrobe-colors';
+import { WARDROBE_COLORS, EDGE_PAINT_COLORS, EDGE_WOOD_COLORS, TONE_OUTER_COLORS, toneInnerColors } from './wardrobe-colors';
 import { REFERENCE_CLASSIC_COLORS } from '../three/reference-colors';
 
 type Design=Extract<FurnitureDesign,{kind:'wardrobe'}>;
@@ -19,7 +19,7 @@ function glyph(design:Design,sectionId:string,seriesId:string|number):LayoutGlyp
   if(!source||!section)return undefined;
   const x=section.x*10,height=(config.sections.find(s=>s.id===sectionId)?.localHeightMm??config.heightMm);
   const inside=(p:{x1:number;x2:number})=>p.x1<=x&&p.x2>=x;
-  return {rails:source.bars.filter(inside).map(p=>(p.y1+p.y2)/2/height),shelves:source.slabs.filter(inside).map(p=>(p.y1+p.y2)/2/height),drawers:source.drawers.filter(inside).map(p=>({from:p.y1/height,to:p.y2/height,count:1}))};
+  return {rails:[...new Set(geometry.bars.filter(p=>p.sectionId===sectionId).map(p=>p.y*10/height))],shelves:source.slabs.filter(inside).map(p=>(p.y1+p.y2)/2/height),drawers:source.drawers.filter(inside).map(p=>({from:p.y1/height,to:p.y2/height,count:1}))};
 }
 export function wardrobePanelView(design:Design,selectedId:string|null):FurniturePanelView {
   const c=design.config,edge=c.model==='edge';
@@ -28,7 +28,7 @@ export function wardrobePanelView(design:Design,selectedId:string|null):Furnitur
   const dims=getWardrobeDimensionOptions(c.model,c.widthMm);
   const counts=dims.columnCounts??[c.sections.length];
   const appearance:FurnitureControl[]=[{...base('width','너비'),kind:'slider',value:c.widthMm/10,min:40,max:600,step:1,unit:'cm'}];
-  if(edge)appearance.push(heightControl(c.heightMm),{...base('depth','깊이'),kind:'choice',variant:'pill',value:String(c.depthMm),options:[270,360,450,600].map(n=>({id:String(n),label:`${n/10}cm`}))},{...base('sections','구획'),kind:'stepper',value:c.sections.length,canDecrement:counts.some(n=>n<c.sections.length),canIncrement:counts.some(n=>n>c.sections.length)},{...base('topEdge','상부 테두리'),kind:'choice',variant:'pill',value:c.topEdge===false?'off':'on',options:[{id:'on',label:'있음'},{id:'off',label:'없음'}]},{...base('finish','마감'),kind:'choice',variant:'pill',value:design.color.startsWith('C_')?'plywood':'paint',options:[{id:'paint',label:'컬러'},{id:'plywood',label:'자작나무'}]},{...base('color','색상'),kind:'swatch',value:design.color,options:swatches(design.color.startsWith('C_')?['C_White','C_Gray']:EDGE_PAINT_COLORS)});
+  if(edge)appearance.push(heightControl(c.heightMm),{...base('depth','깊이'),kind:'choice',variant:'pill',value:String(c.depthMm),options:[270,360,450,600].map(n=>({id:String(n),label:`${n/10}cm`}))},{...base('sections','구획'),kind:'stepper',value:c.sections.length,canDecrement:counts.some(n=>n<c.sections.length),canIncrement:counts.some(n=>n>c.sections.length)},{...base('topEdge','상부 테두리'),kind:'choice',variant:'pill',value:c.topEdge===false?'off':'on',options:[{id:'on',label:'있음'},{id:'off',label:'없음'}]},{...base('finish','마감'),kind:'choice',variant:'pill',value:EDGE_WOOD_COLORS.includes(design.color)?'wood':design.color.startsWith('C_')?'plywood':'paint',options:[{id:'paint',label:'컬러'},{id:'plywood',label:'자작나무'},{id:'wood',label:'우드'}]},{...base('color','색상'),kind:'swatch',value:design.color,options:swatches(EDGE_WOOD_COLORS.includes(design.color)?EDGE_WOOD_COLORS:design.color.startsWith('C_')?['C_White','C_Gray']:EDGE_PAINT_COLORS)});
   else appearance.push({...base('height','높이'),kind:'heightMode',mode:c.heightMm>2370?'extended':'presets',presets:[{id:'2000',label:'200cm'},{id:'2370',label:'237cm'}],selectedPresetId:String(c.heightMm),extendLabel:'높이 +',standardLabel:'기본 높이',range:c.heightMm>2370?{value:c.heightMm/10,min:238,max:360,step:1,unit:'cm'}:null},{...base('depth','깊이'),kind:'slider',value:c.depthMm/10,min:40,max:80,step:1,unit:'cm'},{...base('lighting','조명'),kind:'choice',variant:'pill',value:c.lighting?'on':'off',options:[{id:'off',label:'없음'},{id:'on',label:'내부'}],notice:c.lighting?'전원 연결을 위해 뒤쪽에 4cm 여유가 필요합니다.':undefined},{...base('color','외부 색상'),kind:'swatch',value:design.color,options:swatches(TONE_OUTER_COLORS)},{...base('innerColor','내부 색상'),kind:'swatch',value:design.innerColor,options:swatches(toneInnerColors(design.color))});
   const layouts=getWardrobeLayoutOptions(c.model,c,section.id);
   const interior:FurnitureControl[]=[{...base('layout','내부 배치',target),kind:'layout',value:String(section.seriesId),options:layouts.map((l,i)=>({id:String(l.seriesId),label:`수납 구성 ${i+1}`,glyph:glyph(design,section.id,l.seriesId)}))}];
@@ -37,6 +37,7 @@ export function wardrobePanelView(design:Design,selectedId:string|null):Furnitur
     interior.push({...base('facade','전면',target),kind:'choice',variant:'tile',value:facade,options:[{id:'open',label:'모두 열림',icon:'facade-open'},{id:'middle-open',label:'중간 열림',icon:'facade-middle-open'},{id:'bottom-open',label:'하단 열림',icon:'facade-bottom-open'},{id:'closed',label:'모두 닫힘',icon:'facade-closed'}]},{...base('doorDirection','문 방향',target),visible:facade!=='open',kind:'choice',variant:'tile',value:section.doorDirection??'left',options:[{id:'left',label:'왼쪽',icon:'door-left'},{id:'right',label:'오른쪽',icon:'door-right'}]},heightControl(section.localHeightMm??c.heightMm,'sectionHeight',target),{...base('sectionDepth','구획 깊이',target),kind:'choice',variant:'pill',value:String(section.localDepthMm??c.depthMm),options:[270,360,450,600].map(n=>({id:String(n),label:`${n/10}cm`}))});
   }else interior.push({...base('drawerStyle','서랍',target),kind:'choice',variant:'tile',value:c.drawerStyle??'internal',options:[{id:'internal',label:'내부',icon:'drawer-internal'},{id:'external',label:'외부',icon:'drawer-external'}]});
   const geometry=generateWardrobe(c),actualSection=geometry.sections.find(s=>s.id===section.id);
+  if(edge) for(const level of geometry.cableOptions?.find(o=>o.sectionId===section.id)?.heightsMm??[]) interior.push({...base(`cable-${level}`,`케이블 홀 · ${Math.floor(level/10)}cm`,target),kind:'choice',variant:'pill',value:section.cableHeightsMm?.includes(level)?'on':'off',options:[{id:'off',label:'없음'},{id:'on',label:'있음'}]});
   if(!edge){
     const widths=getToneWidthOptions(c);
     if(widths.length)interior.splice(1,0,{...base('widthPattern','구획 너비',target),kind:'choice',variant:'pill',value:c.toneWidthPattern??normalizeWardrobeInput(c).toneWidthPattern??null,options:widths.map(o=>({id:o.id,label:o.widthsMm.map(w=>`${Math.round((w-18)/10)}`).join(' · ')+' cm'}))});
@@ -63,6 +64,7 @@ export function applyWardrobeIntent(design:Design,intent:FurnitureEditIntent):De
     if(control.kind==='slider'&&(typeof v!=='number'||v<control.min||v>control.max||(control.step===1&&!Number.isInteger(v))))return design;
     if(control.kind==='heightMode'&&(control.mode==='presets'?!control.presets.some(p=>p.id===String(v)):typeof v!=='number'||!control.range||v<control.range.min||v>control.range.max||!Number.isInteger(v)))return design;
     const s=c.sections.find(s=>s.id===selected);
+    if(edge&&s&&intent.controlId.startsWith('cable-')){const level=Number(intent.controlId.slice(6));s.cableHeightsMm=v==='on'?[...new Set([...(s.cableHeightsMm??[]),level])]:(s.cableHeightsMm??[]).filter(y=>y!==level);next.config=normalizeWardrobeInput(c);return next;}
     switch(intent.controlId){
       case 'width':c.widthMm=Number(v)*10;break;
       case 'height':c.heightMm=edge?edgeHeights[Number(v)]:control.kind==='heightMode'&&control.mode==='extended'?Number(v)*10:Number(v);break;
@@ -74,8 +76,8 @@ export function applyWardrobeIntent(design:Design,intent:FurnitureEditIntent):De
       }
       case 'topEdge':c.topEdge=v==='on';break;
       case 'lighting':c.lighting=v==='on';break;
-      case 'finish':next.color=v==='plywood'?'C_White':'W_White';break;
-      case 'color':next.color=String(v);if(!edge&&!toneInnerColors(next.color).includes(next.innerColor))next.innerColor=next.color;break;
+      case 'finish':next.color=v==='wood'?'E_LightCleaf':v==='plywood'?'C_White':'W_White';c.edgeVeneer=v==='wood';break;
+      case 'color':next.color=String(v);if(edge)c.edgeVeneer=EDGE_WOOD_COLORS.includes(next.color);if(!edge&&!toneInnerColors(next.color).includes(next.innerColor))next.innerColor=next.color;break;
       case 'innerColor':next.innerColor=String(v);break;
       case 'layout':if(s)s.seriesId=edge?String(v):Number(v);break;
       case 'facade':if(s)s.facade=v as typeof s.facade;break;

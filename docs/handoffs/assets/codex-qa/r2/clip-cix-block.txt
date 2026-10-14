@@ -1,0 +1,10 @@
+Browser tab: 980713828, Title: "CNC 옵티마이저 - Befun", URL: "http://localhost:3003/optimizer".
+0 AXWebArea Description: CNC 옵티마이저 - Befun, URL: localhost:3003/optimizer
+	1 container localhost:3003 says
+		2 text CIX 파일 생성에 실패했습니다: CIX 내보내기를 중단했습니다. 확정되지 않은 가공이 있는 판재가 25개 있습니다.
+사유:
+- Tylko 클립의 홈·나사·배치 규격이 미확정되어 제조 가공을 생성하지 않았습니다.
+대상 판재: 가로판 1, 가로판 2, 세로판 6, 세로판 7, 가로판 3, 가로판 4, 세로판 8, 세로판 9, 가로판 5, 세로판 1 외 15개
+		3 button OK
+
+The focused UI element is 3 button OK

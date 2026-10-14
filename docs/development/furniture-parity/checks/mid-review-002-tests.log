@@ -1,0 +1,66 @@
+✔ short joints never violate minimum edge distance; infeasible edge maximum is rejected (1.291292ms)
+✔ all catalog spacing output obeys every spacing constraint over 1..1200 mm (15.3825ms)
+✔ paired end/face slots share world centre lines and survive repeat application (1.233ms)
+✔ both mating boards are blocked when thickness is changed without rebuilding geometry (0.150459ms)
+✔ opposing blind slots cannot meet through an 18 mm board (0.411292ms)
+✔ hinge holes colliding with connector slot travel are found, including crossing paths (0.36225ms)
+✔ slot radius and edge plane are validated, not just its endpoints (0.133083ms)
+✔ intentional two-hole connector housing is not reported as a collision (0.070583ms)
+✔ real generator pipeline marks conflicting machining as non-production (3.515042ms)
+✔ all six styles preserve paired connector coordinates at held-out sizes (61.365625ms)
+✔ production MPR gate rejects a detected connector collision (18.6215ms)
+✔ inventory adapter gives pass to matching identity, not loading preview (0.983708ms)
+✔ wrong preset and missing screenshot fail (0.346959ms)
+✔ wardrobe edited null cannot be filled with initial preset (0.605ms)
+✔ derived result file not counted as observed reference (0.126333ms)
+✔ stable IDs match reordered components (0.657958ms)
+✔ extra, missing and numeric error stay separate (0.566583ms)
+✔ null geometry and absent tolerance cannot pass (0.638167ms)
+✔ connections and roles matter independently of coordinates (0.110666ms)
+✔ centimeters are never silently treated as mm (0.053333ms)
+✔ 12 gallery materials retain all 96 observed URLs and swatches (1.168084ms)
+✔ grid/90: same generated boards reach assembly and CNC; feet assigned (3.995666ms)
+✔ grid/232: same generated boards reach assembly and CNC; feet assigned (1.262042ms)
+✔ grid/393: same generated boards reach assembly and CNC; feet assigned (2.469041ms)
+✔ slant/90: same generated boards reach assembly and CNC; feet assigned (2.112375ms)
+✔ slant/232: same generated boards reach assembly and CNC; feet assigned (1.111ms)
+✔ slant/393: same generated boards reach assembly and CNC; feet assigned (2.272208ms)
+✔ pattern/90: same generated boards reach assembly and CNC; feet assigned (1.610459ms)
+✔ pattern/232: same generated boards reach assembly and CNC; feet assigned (3.575833ms)
+✔ pattern/393: same generated boards reach assembly and CNC; feet assigned (1.2055ms)
+✔ mosaic/90: same generated boards reach assembly and CNC; feet assigned (1.143167ms)
+✔ mosaic/232: same generated boards reach assembly and CNC; feet assigned (6.593208ms)
+✔ mosaic/393: same generated boards reach assembly and CNC; feet assigned (1.2365ms)
+✔ pixel/90: same generated boards reach assembly and CNC; feet assigned (0.986917ms)
+✔ pixel/232: same generated boards reach assembly and CNC; feet assigned (0.461042ms)
+✔ pixel/393: same generated boards reach assembly and CNC; feet assigned (0.911959ms)
+✔ gradient/90: same generated boards reach assembly and CNC; feet assigned (0.387458ms)
+✔ gradient/232: same generated boards reach assembly and CNC; feet assigned (0.588041ms)
+✔ gradient/393: same generated boards reach assembly and CNC; feet assigned (0.9185ms)
+✔ local parser / JSON save / actual store restoration preserve hardware and geometry (2.143958ms)
+✔ width and density edit order yields same existing shelf output (0.783334ms)
+(node:57211) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/components/three/furniture-hardware/handleGeometry.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ok full handle 30: h100 x -19.2..9.9 z -9.7..9.2
+ok full handle 30: h380 x -19.2..9.9 z -9.7..9.2
+ok full handle 30: h1900 x -19.2..9.9 z -9.7..9.2
+all handle checks passed
+✔ src/components/three/furniture-hardware/handles.test.mjs (88.95275ms)
+(node:57212) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/components/three/furniture-hardware/legGeometry.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ok short_leg: H22.5 Ø16 anchor=top
+ok plane_leg: H30 Ø15 anchor=top
+all leg checks passed
+✔ src/components/three/furniture-hardware/legs.test.mjs (82.783667ms)
+ℹ tests 43
+ℹ suites 0
+ℹ pass 43
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 523.130292

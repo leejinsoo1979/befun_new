@@ -9,10 +9,12 @@ export async function loadToneCore() {
     if (file.endsWith('.json')) fs.copyFileSync(path.join(root, file), path.join(output, file));
     if (file.endsWith('.ts')) {
       const code = ts.transpileModule(fs.readFileSync(path.join(root, file), 'utf8'), { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText
+        .replaceAll("'../wardrobe-hinges'","'./wardrobe-hinges'")
         .replace(/from '(\.\/[^']+)'/g, (_, name) => `from '${name.endsWith('.json') ? name : name + '.mjs'}'${name.endsWith('.json') ? ' with {type:"json"}' : ''}`);
       fs.writeFileSync(path.join(output, file.replace('.ts', '.mjs')), code);
     }
   }
+  fs.writeFileSync(path.join(output, 'wardrobe-hinges.mjs'), ts.transpileModule(fs.readFileSync(path.join(root, '../wardrobe-hinges.ts'), 'utf8'), {compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ES2022}}).outputText);
   return { core: await import(pathToFileURL(path.join(output, 'tone.mjs')).href), cleanup: () => fs.rmSync(output, { recursive: true, force: true }) };
 }
 export const fingerprintTone = parts => parts.map(part => {

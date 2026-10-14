@@ -1,0 +1,66 @@
+
+> befun-v2-next@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.1.6 (webpack)
+
+  Creating an optimized production build ...
+Failed to compile.
+
+src/app/layout.tsx
+An error occurred in `next/font`.
+
+TypeError: Cannot read properties of null (reading '1')
+    at /Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/@next/font/dist/google/loader.js:122:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Promise.all (index 8)
+    at async nextFontGoogleFontLoader (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/@next/font/dist/google/loader.js:104:33)
+    at async Span.traceAsyncFn (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/trace/trace.js:157:20)
+    at async /Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js:90:87
+    at async Span.traceAsyncFn (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/trace/trace.js:157:20)
+
+src/app/layout.tsx
+An error occurred in `next/font`.
+
+TypeError: Cannot read properties of null (reading '1')
+    at /Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/@next/font/dist/google/loader.js:122:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Promise.all (index 8)
+    at async nextFontGoogleFontLoader (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/@next/font/dist/google/loader.js:104:33)
+    at async Span.traceAsyncFn (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/trace/trace.js:157:20)
+    at async /Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js:90:87
+    at async Span.traceAsyncFn (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/trace/trace.js:157:20)
+    at tryRunOrWebpackError (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/webpack/bundle5.js:29:316134)
+    at __webpack_require_module__ (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/webpack/bundle5.js:29:131536)
+    at __nested_webpack_require_161494__ (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/webpack/bundle5.js:29:130971)
+    at /Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/webpack/bundle5.js:29:131828
+    at symbolIterator (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/neo-async/async.js:1:14444)
+    at done (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/neo-async/async.js:1:14824)
+    at Hook.eval [as callAsync] (eval at create (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/webpack/bundle5.js:14:9224), <anonymous>:15:1)
+    at /Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/webpack/bundle5.js:29:130691
+    at symbolIterator (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/neo-async/async.js:1:14402)
+    at timesSync (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/neo-async/async.js:1:5027)
+-- inner error --
+TypeError: Cannot read properties of null (reading '1')
+    at /Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/@next/font/dist/google/loader.js:122:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Promise.all (index 8)
+    at async nextFontGoogleFontLoader (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/@next/font/dist/google/loader.js:104:33)
+    at async Span.traceAsyncFn (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/trace/trace.js:157:20)
+    at async /Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js:90:87
+    at async Span.traceAsyncFn (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/trace/trace.js:157:20)
+    at Object.<anonymous> (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[2].use[1]!/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[15].oneOf[2].use[2]!/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/font/google/target.css?{"path":"src/app/layout.tsx","import":"Noto_Sans_KR","arguments":[{"subsets":["latin"],"weight":["300","400","500","700"],"variable":"--font-noto-sans-kr"}],"variableName":"notoSansKR"}:1:7)
+    at /Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/webpack/bundle5.js:29:962757
+    at Hook.eval [as call] (eval at create (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/webpack/bundle5.js:14:9002), <anonymous>:7:1)
+    at /Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/webpack/bundle5.js:29:131569
+    at tryRunOrWebpackError (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/webpack/bundle5.js:29:316088)
+    at __webpack_require_module__ (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/webpack/bundle5.js:29:131536)
+    at __nested_webpack_require_161494__ (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/webpack/bundle5.js:29:130971)
+    at /Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/webpack/bundle5.js:29:131828
+    at symbolIterator (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/neo-async/async.js:1:14444)
+    at done (/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/compiled/neo-async/async.js:1:14824)
+
+Generated code for /Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[2].use[1]!/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[15].oneOf[2].use[2]!/Users/leejinsoo/Downloads/befun_new-main/node_modules/next/font/google/target.css?{"path":"src/app/layout.tsx","import":"Noto_Sans_KR","arguments":[{"subsets":["latin"],"weight":["300","400","500","700"],"variable":"--font-noto-sans-kr"}],"variableName":"notoSansKR"}
+
+
+> Build failed because of webpack errors

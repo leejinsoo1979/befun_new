@@ -83,7 +83,7 @@ export function StorefrontFrame({ children, overlay = false }: { children: React
     </header>
     {open ? <button className={styles.menuBackdrop} aria-label="메뉴 닫기" onClick={() => setOpen(false)} /> : null}
     <main id="main">{children}</main>
-    <footer className={styles.footer}><h2>가구에 공간을 맞추는 대신,<br />당신에게 맞는 가구를 만드세요.</h2><div className={styles.footerColumns}>{footerGroups.map(group => <FooterGroup key={group.title} group={group} />)}</div><div className={styles.footerBottom}><Link href="/" className={styles.footerLogo} aria-label="Befun 홈" onClick={goHome}><BrandLogo /></Link><Link href="/region-settings">대한민국 · 한국어 · KRW</Link><span>© {new Date().getFullYear()} Befun</span><span>Visa · Mastercard · 간편결제</span></div></footer>
+    <footer className={styles.footer}><h2>가구에 공간을 맞추는 대신,<br />당신에게 맞는 가구를 만드세요.</h2><div className={styles.footerColumns}>{footerGroups.map(group => <FooterGroup key={group.title} group={group} />)}</div><div className={styles.footerBottom}><Link href="/" className={styles.footerLogo} aria-label="Befun 홈" onClick={goHome}><BrandLogo color="white" /></Link><Link href="/region-settings">대한민국 · 한국어 · KRW</Link><span>© {new Date().getFullYear()} Befun</span><span>Visa · Mastercard · 간편결제</span></div></footer>
     <Link className={styles.helpButton} href="/contact"><span>?</span> 도움이 필요하세요?</Link>
   </div>;
 }

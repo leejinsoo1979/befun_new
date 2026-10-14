@@ -11,10 +11,12 @@ try {
     if (file.endsWith('.json')) fs.copyFileSync(path.join(root, file), path.join(output, file));
     if (file.endsWith('.ts')) {
       const source = ts.transpileModule(fs.readFileSync(path.join(root, file), 'utf8'), { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText
+        .replaceAll("'../wardrobe-hinges'","'./wardrobe-hinges'")
         .replace(/from '(\.\/[^']+)'/g, (_, name) => `from '${name.endsWith('.json') ? name : name + '.mjs'}'${name.endsWith('.json') ? ' with {type:"json"}' : ''}`);
       fs.writeFileSync(path.join(output, file.replace('.ts', '.mjs')), source);
     }
   }
+  fs.writeFileSync(path.join(output, 'wardrobe-hinges.mjs'), ts.transpileModule(fs.readFileSync(path.join(root, '../wardrobe-hinges.ts'), 'utf8'), {compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ES2022}}).outputText);
   const { generateEdgeSourceGeometry, normalizeEdgeWardrobe, getEdgeColumnCounts } = await import(pathToFileURL(path.join(output, 'edge.mjs')).href);
   const { resolveEdgeDrawer } = await import(pathToFileURL(path.join(output, 'drawers.mjs')).href);
   const { generateEdgeWardrobe } = await import(pathToFileURL(path.join(output, 'edge.mjs')).href);
@@ -26,6 +28,16 @@ try {
   for (const [index, fixture] of fixtures.entries()) {
     const result = generateEdgeSourceGeometry(fixture.input);
     for (const key of ['slabs', 'walls', 'backs', 'doors', 'drawers', 'bars']) assert.deepEqual(fingerprint(result[key]), fingerprint(fixture.expected[key]), `Edge source case ${index}, ${key}`);
+  }
+  for(const fixture of JSON.parse(fs.readFileSync('scripts/furniture-wardrobe/edge-veneer-fixtures.json','utf8'))) {
+    const actual=generateEdgeSourceGeometry(fixture.input);
+    for(const key of ['doors','drawers','slabs','walls']) assert.deepEqual(fingerprint(actual[key]),fingerprint(fixture.expected[key]));
+  }
+  for(const fixture of JSON.parse(fs.readFileSync('scripts/furniture-wardrobe/edge-cable-fixtures.json','utf8'))) {
+    const actual=generateEdgeSourceGeometry(fixture.input);
+    const cablePrint=parts=>parts.map(p=>[p.x1,p.y1,p.z1,p.radius]).sort();
+    assert.deepEqual(cablePrint(actual.cable_management),cablePrint(fixture.expected));
+    assert.deepEqual(actual.cable_options.map(c=>c.heightsMm),fixture.options);
   }
   const drawerFixtures = JSON.parse(fs.readFileSync('scripts/furniture-wardrobe/edge-drawer-fixtures.json', 'utf8'));
   for (const fixture of drawerFixtures) {

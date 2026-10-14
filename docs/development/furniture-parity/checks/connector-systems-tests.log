@@ -1,0 +1,29 @@
+✔ two panel connector systems are distinct and survive saved JSON (1.378167ms)
+✔ switching an existing OVVO plan to clip removes OVVO cuts but preserves custom holes (0.197417ms)
+✔ short joints never violate minimum edge distance; infeasible edge maximum is rejected (0.056125ms)
+✔ all catalog spacing output obeys every spacing constraint over 1..1200 mm (17.171208ms)
+✔ paired end/face slots share world centre lines and survive repeat application (0.396417ms)
+✔ both mating boards are blocked when thickness is changed without rebuilding geometry (0.07225ms)
+✔ opposing blind slots cannot meet through an 18 mm board (0.305833ms)
+✔ hinge holes colliding with connector slot travel are found, including crossing paths (0.166667ms)
+✔ slot radius and edge plane are validated, not just its endpoints (0.084125ms)
+✔ intentional two-hole connector housing is not reported as a collision (0.083459ms)
+✔ real generator pipeline marks conflicting machining as non-production (3.903292ms)
+✔ all six styles preserve paired connector coordinates at held-out sizes (53.948625ms)
+✔ production MPR gate rejects a detected connector collision (17.164791ms)
+(node:19749) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/leejinsoo/Downloads/befun_new-main/src/lib/assembly-guide/sequence.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/leejinsoo/Downloads/befun_new-main/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ example machining and connector locations consume the shared CNC planner (1.289916ms)
+✔ releasable assembly inserts before sliding; permanent assembly never slides (0.216208ms)
+✔ every chapter preserves pose at its boundary and hardware installs before panel insertion (0.113375ms)
+✔ seeking is deterministic, clamps invalid values, and keeps the complete part framed on mobile (1.246917ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 543.117959

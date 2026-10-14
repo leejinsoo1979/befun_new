@@ -1,0 +1,13 @@
+{"suspended":false,"strict":false,"stage":"initial-loaded","meshes":1,"groupChildren":1}
+{"suspended":false,"strict":false,"stage":"remounted","meshes":1,"groupChildren":1}
+{"suspended":false,"strict":false,"stage":"unit-updated","meshes":1,"groupChildren":1}
+{"suspended":false,"strict":true,"stage":"initial-loaded","meshes":1,"groupChildren":1}
+{"suspended":false,"strict":true,"stage":"remounted","meshes":0,"groupChildren":0}
+{"suspended":false,"strict":true,"stage":"unit-updated","meshes":0,"groupChildren":0}
+{"suspended":true,"strict":false,"stage":"initial-loaded","meshes":1,"groupChildren":1}
+{"suspended":true,"strict":false,"stage":"remounted","meshes":1,"groupChildren":1}
+{"suspended":true,"strict":false,"stage":"unit-updated","meshes":1,"groupChildren":1}
+{"suspended":true,"strict":true,"stage":"initial-loaded","meshes":0,"groupChildren":0}
+{"suspended":true,"strict":true,"stage":"remounted","meshes":0,"groupChildren":0}
+{"suspended":true,"strict":true,"stage":"unit-updated","meshes":0,"groupChildren":0}
+{"defectReproduced":true,"emptyMeshCases":5,"note":"Adapter lifecycle harness, not browser E2E; useGLTF is controlled, React/R3F/GLB/LongLeg are real."}

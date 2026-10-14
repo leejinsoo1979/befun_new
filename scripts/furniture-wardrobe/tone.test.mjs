@@ -18,5 +18,14 @@ try {
   assert.deepEqual(core.generateToneWardrobe(input).sections.map(s => s.id), ['persistent-one', 'persistent-two']);
   const flipped = core.normalizeToneWardrobe({ ...input, sections: [input.sections[0], { ...input.sections[1], doorDirection: 'right' }] });
   assert.ok(flipped.sections.every(s => s.doorDirection === 'right'));
-  console.log(`PASS Tone ${fixtures.length} independent source cases, JSON restore, stable IDs, width/fallback/direction boundaries`);
+  const hingeInput = { model: 'tone', widthMm: 1000, heightMm: 2000, depthMm: 530,
+    sections: [{ id: 'hinged-section', seriesId: 3739 }] };
+  for (const [heightMm, expectedCount] of [[2000, 6], [2370, 8], [2710, 10], [3600, 12]]) {
+    const result = core.generateToneWardrobe({ ...hingeInput, heightMm });
+    const hinges = result.sourceGeometryMm.hinges;
+    assert.equal(hinges.length, expectedCount, `hinge count at ${heightMm}mm`);
+    assert.ok(hinges.every(hinge => hinge.m_config_id === 'hinged-section'));
+    assert.ok(hinges.every(hinge => [hinge.x1, hinge.x2, hinge.y1, hinge.y2, hinge.z1, hinge.z2].every(Number.isFinite)));
+  }
+  console.log(`PASS Tone ${fixtures.length} independent source cases, JSON restore, stable IDs, width/fallback/direction and source hinge boundaries`);
 } finally { cleanup(); }

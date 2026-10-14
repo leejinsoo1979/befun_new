@@ -1,0 +1,529 @@
+- link "본문으로 바로가기":
+  - /url: "#main"
+- link "공간에 딱 맞는 수납. 나만의 디자인, 20% 할인. 지금 만나보세요":
+  - /url: /furniture-c
+  - text: 공간에 딱 맞는 수납.
+  - strong: 나만의 디자인, 20% 할인.
+  - text: 지금 만나보세요
+- banner:
+  - link "Befun 홈":
+    - /url: /
+    - img "Befun"
+  - navigation "주 메뉴":
+    - button "쇼핑":
+      - text: 쇼핑
+    - link "커뮤니티":
+      - /url: /inspirations
+    - link "Befun Pro":
+      - /url: /tylko-pro
+    - link "쇼룸":
+      - /url: /showrooms
+  - link "제품 검색":
+    - /url: /search
+  - link "로그인":
+    - /url: /login
+  - link "즐겨찾기 보기":
+    - /url: /wishlist
+  - link "장바구니 0개":
+    - /url: /cart
+- main:
+  - region "테라코타 사이드보드 3D 커스터마이저":
+    - heading "테라코타 사이드보드" [level=1]
+    - button "즐겨찾기":
+    - button "보기":
+      - text: 보기
+      - generic: ⌄
+    - button "아래에서 1번째 칸 설정"
+    - button "아래에서 2번째 칸 설정"
+    - button "전체 화면":
+      - text: 전체 화면
+    - deletion: 284,000원
+    - generic: −20%
+    - strong: 227,200원
+    - generic: Style
+    - group "Style":
+      - button "Pattern":
+        - generic: Pattern
+      - button "Grid":
+        - generic: Grid
+      - button "Slant":
+        - generic: Slant
+      - button "Mosaic" [pressed]:
+        - generic: Mosaic
+      - button "Pixel":
+        - generic: Pixel
+      - button "Gradient":
+        - generic: Gradient
+    - generic: Density
+    - slider "Density": "50"
+    - generic: 50%
+    - 'button "Density 도움말: 칸을 나누는 세로판의 촘촘한 정도"': "?"
+    - generic: Width
+    - slider "Width": "110"
+    - generic: 110cm
+    - generic: Height
+    - slider "Height": "2"
+    - generic: 63cm
+    - generic: Depth
+    - group "Depth":
+      - button "24cm" [active] [pressed]
+      - button "32cm"
+      - button "40cm"
+    - 'button "Depth 도움말: 가구의 앞뒤 깊이"': "?"
+    - generic: Feet
+    - group "가구 다리":
+      - button "Standard" [pressed]
+      - button "Legs" [disabled]
+    - generic: Back panels
+    - group "Back panels":
+      - button "OFF"
+      - button "ON" [pressed]
+    - 'button "Back panels 도움말: 모든 칸 뒤에 뒷판을 넣습니다"': "?"
+    - generic: Finish
+    - button "Classic"
+    - button "Natural"
+    - button "Solid"
+    - button "Mix"
+    - button "?"
+    - generic: Colour
+    - button "S_White"
+    - button "S_Midnight Blue"
+    - button "S_Matte Black"
+    - button "S_Black"
+    - button "S_Teracotta"
+    - button "S_Sky Blue"
+    - button "S_Stone Gray"
+    - button "S_Gray"
+    - button "S_Butter Yellow"
+    - button "S_Cotton"
+    - button "S_Olive Green"
+    - button "S_Sage Green"
+    - button "S_Burgundy"
+    - button "S_Reisinger Pink"
+    - button "S_Lilac"
+    - button "S_Dark Brown"
+    - button "장바구니에 담기":
+      - text: 장바구니에 담기
+    - button "디자인 저장·공유":
+      - text: 디자인 저장·공유
+    - paragraph:
+      - text: 선반의 칸을 선택해 행 높이와 도어·서랍을 변경하세요.
+      - link "도움받기":
+        - /url: /contact
+  - heading "테라코타 사이드보드" [level=2]
+  - paragraph: 너비 110cm · 높이 63cm · 깊이 24cm
+  - link "크기를 직접 조절 공간에 맞는 너비와 높이 더 알아보기":
+    - /url: /configurator-intro
+    - heading "크기를 직접 조절" [level=3]
+    - paragraph: 공간에 맞는 너비와 높이
+    - generic: 더 알아보기
+  - link "컬러와 마감 선택 취향에 맞는 색과 소재 더 알아보기":
+    - /url: /material-samples
+    - heading "컬러와 마감 선택" [level=3]
+    - paragraph: 취향에 맞는 색과 소재
+    - generic: 더 알아보기
+  - link "다양한 선반 스타일 여섯 가지 형태로 시작 더 알아보기":
+    - /url: /product-lines
+    - heading "다양한 선반 스타일" [level=3]
+    - paragraph: 여섯 가지 형태로 시작
+    - generic: 더 알아보기
+  - link "나만의 수납 구성 오픈 선반과 도어·서랍 더 알아보기":
+    - /url: /faq
+    - heading "나만의 수납 구성" [level=3]
+    - paragraph: 오픈 선반과 도어·서랍
+    - generic: 더 알아보기
+  - link "디자인 저장과 공유 완성한 구성을 링크로 더 알아보기":
+    - /url: /saved-designs
+    - heading "디자인 저장과 공유" [level=3]
+    - paragraph: 완성한 구성을 링크로
+    - generic: 더 알아보기
+  - region "제품 사진 갤러리":
+    - radiogroup "상세 사진 재질":
+      - generic "화이트":
+        - radio "화이트"
+      - generic "크림 베이지":
+        - radio "크림 베이지"
+      - generic "그레이":
+        - radio "그레이"
+      - generic "스톤 그레이":
+        - radio "스톤 그레이"
+      - generic "올리브 그린":
+        - radio "올리브 그린"
+      - generic "샌드 + 미드나잇 블루":
+        - radio "샌드 + 미드나잇 블루"
+      - generic "테라코타":
+        - radio "테라코타" [checked]
+      - generic "버건디":
+        - radio "버건디"
+      - generic "세이지 그린":
+        - radio "세이지 그린"
+      - generic "스카이 블루":
+        - radio "스카이 블루"
+      - generic "미드나잇 블루":
+        - radio "미드나잇 블루"
+      - generic "라이징거 핑크":
+        - radio "라이징거 핑크"
+      - generic "매트 블랙":
+        - radio "매트 블랙"
+      - generic "블랙":
+        - radio "블랙"
+      - generic "버터 옐로":
+        - radio "버터 옐로"
+      - generic "라일락":
+        - radio "라일락"
+      - generic "다크 브라운":
+        - radio "다크 브라운"
+    - status: 테라코타 상세 사진
+    - button "테라코타 상세 사진 1 크게 보기":
+      - img "테라코타 사이드보드 테라코타 상세 사진 1"
+    - button "테라코타 상세 사진 2 크게 보기":
+      - img "테라코타 사이드보드 테라코타 상세 사진 2"
+    - button "테라코타 상세 사진 3 크게 보기":
+      - img "테라코타 사이드보드 테라코타 상세 사진 3"
+    - button "테라코타 상세 사진 4 크게 보기":
+      - img "테라코타 사이드보드 테라코타 상세 사진 4"
+    - button "테라코타 상세 사진 5 크게 보기":
+      - img "테라코타 사이드보드 테라코타 상세 사진 5"
+    - button "테라코타 상세 사진 6 크게 보기":
+      - img "테라코타 사이드보드 테라코타 상세 사진 6"
+    - button "테라코타 상세 사진 7 크게 보기":
+      - img "테라코타 사이드보드 테라코타 상세 사진 7"
+    - button "테라코타 상세 사진 8 크게 보기":
+      - img "테라코타 사이드보드 테라코타 상세 사진 8"
+    - paragraph: 디자인 예시 · 선택한 Befun 구성은 위의 3D 화면에서 확인하세요.
+    - link "다른 디자인 보기":
+      - /url: /furniture-c
+      - text: 다른 디자인 보기
+  - heading "제품 사양" [level=2]
+  - generic "치수와 구성 +"
+  - generic "소재와 컬러 +"
+  - generic "배송과 주문 +"
+  - generic "조립과 관리 +"
+  - generic "제품 문의 +"
+  - text: 도움이 필요하세요?
+  - link "디자인 상담":
+    - /url: /contact
+  - generic: ·
+  - link "자주 묻는 질문":
+    - /url: /faq
+  - paragraph: Befun Original
+  - heading "당신에게 꼭 맞는 가구, 당신의 취향을 담은 공간." [level=2]:
+    - text: 당신에게 꼭 맞는 가구,
+    - text: 당신의 취향을 담은 공간.
+  - link "공간에서 만나는 맞춤 수납 가구 브랜드 이야기":
+    - /url: /about-tylko
+    - img "공간에서 만나는 맞춤 수납 가구"
+    - text: 브랜드 이야기
+  - paragraph: 수납 가구
+  - heading "좋아하는 것은 보여주고, 일상의 물건은 담아두세요." [level=2]:
+    - text: 좋아하는 것은 보여주고,
+    - text: 일상의 물건은 담아두세요.
+  - region "디자인 특징":
+    - link "선반에 담는 개성 디자인 선반에 담는 개성 더 보기":
+      - /url: /product-lines
+      - img "선반에 담는 개성"
+      - paragraph: 디자인
+      - heading "선반에 담는 개성" [level=3]
+      - text: 더 보기
+    - link "공간에 맞는 크기 크기 공간에 맞는 크기 더 보기":
+      - /url: "#configuration"
+      - img "공간에 맞는 크기"
+      - paragraph: 크기
+      - heading "공간에 맞는 크기" [level=3]
+      - text: 더 보기
+    - link "넉넉한 수납 수납 넉넉한 수납 더 보기":
+      - /url: /furniture-c/storage
+      - img "넉넉한 수납"
+      - paragraph: 수납
+      - heading "넉넉한 수납" [level=3]
+      - text: 더 보기
+    - link "취향에 맞는 컬러 컬러 취향에 맞는 컬러 더 보기":
+      - /url: /material-samples
+      - img "취향에 맞는 컬러"
+      - paragraph: 컬러
+      - heading "취향에 맞는 컬러" [level=3]
+      - text: 더 보기
+    - link "보여주고, 담아두고 구성 보여주고, 담아두고 더 보기":
+      - /url: "#configuration"
+      - img "보여주고, 담아두고"
+      - paragraph: 구성
+      - heading "보여주고, 담아두고" [level=3]
+      - text: 더 보기
+    - link "조립의 디테일 조립 조립의 디테일 더 보기":
+      - /url: /faq
+      - img "조립의 디테일"
+      - paragraph: 조립
+      - heading "조립의 디테일" [level=3]
+      - text: 더 보기
+    - link "나만의 디자인 공유 나만의 디자인 더 보기":
+      - /url: /saved-designs
+      - img "나만의 디자인"
+      - paragraph: 공유
+      - heading "나만의 디자인" [level=3]
+      - text: 더 보기
+  - button "디자인 특징 이전" [disabled]:
+  - button "디자인 특징 다음":
+  - paragraph: 공간 속 디자인
+  - heading "실제 공간에서 발견하는 수납의 가능성." [level=2]:
+    - text: 실제 공간에서 발견하는
+    - text: 수납의 가능성.
+  - complementary:
+    - heading "다양한 취향, 다양한 일상." [level=3]:
+      - text: 다양한 취향,
+      - text: 다양한 일상.
+    - paragraph: Befun과 함께한 고객들의 공간 이야기입니다.
+    - link "리뷰 더 보기":
+      - /url: /review-list
+      - text: 리뷰 더 보기
+  - article:
+    - img "스타일과 디테일을 담은 책장"
+    - paragraph: 지민 · 서울 마포구 · 오크
+    - heading "스타일과 디테일을 담은 책장" [level=3]
+    - paragraph: Tylko 공간 레퍼런스
+  - article:
+    - img "자연스러운 그린이 머무는 공간"
+    - paragraph: 현우 · 경기 성남시 · 올리브 그린
+    - heading "자연스러운 그린이 머무는 공간" [level=3]
+    - paragraph: Tylko 공간 레퍼런스
+  - article:
+    - img "일상의 물건으로 채운 선반"
+    - paragraph: 수아 · 부산 해운대구 · 핑크
+    - heading "일상의 물건으로 채운 선반" [level=3]
+    - paragraph: Tylko 공간 레퍼런스
+  - link "공간 더 보기":
+    - /url: /gallery
+  - img "선반에 어울리는 컬러 스피커"
+  - paragraph: 선반에서 만나는 음악
+  - heading "공간에 어울리는 소리." [level=2]
+  - link "Sound 컬렉션 보기":
+    - /url: /tylko-sound
+  - paragraph: 당신에게 맞는 선택
+  - heading "아직 고민 중이라면, 조금 더 살펴보세요." [level=2]:
+    - text: 아직 고민 중이라면,
+    - text: 조금 더 살펴보세요.
+  - link "브랜드의 이야기가 궁금하다면 브랜드의 이야기가 궁금하다면 브랜드 알아보기":
+    - /url: /about-tylko
+    - img "브랜드의 이야기가 궁금하다면"
+    - heading "브랜드의 이야기가 궁금하다면" [level=3]
+    - text: 브랜드 알아보기
+  - link "소재와 컬러를 가까이에서 소재와 컬러를 가까이에서 소재와 컬러 보기":
+    - /url: /material-samples
+    - img "소재와 컬러를 가까이에서"
+    - heading "소재와 컬러를 가까이에서" [level=3]
+    - text: 소재와 컬러 보기
+  - img "취향을 선물하는 기프트카드"
+  - heading "취향을 선물하는 즐거움." [level=2]
+  - paragraph: 좋아하는 공간을 직접 고르는 선물.
+  - link "기프트카드 안내":
+    - /url: /e-gift-card/1
+  - paragraph: 함께 둘러보기
+  - heading "이런 디자인은 어떠세요?" [level=2]
+  - region "추천 디자인":
+    - article:
+      - button "그린 월 수납장 디자인 보기":
+        - img "그린 월 수납장"
+      - generic: −20%
+      - button "그린 월 수납장 즐겨찾기":
+      - generic: 디자인 예시
+      - generic: "+7"
+      - button "Befun Solid 그린 월 수납장 206 × 183 cm 1,391,200원 1,739,000원":
+        - paragraph: Befun Solid
+        - heading "그린 월 수납장" [level=3]
+        - paragraph: 206 × 183 cm
+        - text: 1,391,200원
+        - deletion: 1,739,000원
+    - article:
+      - button "월넛 도어 책장 디자인 보기":
+        - img "월넛 도어 책장"
+      - generic: −20%
+      - button "월넛 도어 책장 즐겨찾기":
+      - generic: 디자인 예시
+      - generic: "+7"
+      - button "Befun Natural 월넛 도어 책장 120 × 183 cm 796,000원 995,000원":
+        - paragraph: Befun Natural
+        - heading "월넛 도어 책장" [level=3]
+        - paragraph: 120 × 183 cm
+        - text: 796,000원
+        - deletion: 995,000원
+    - article:
+      - button "다크 브라운 수납장 디자인 보기":
+        - img "다크 브라운 수납장"
+      - generic: −20%
+      - button "다크 브라운 수납장 즐겨찾기":
+      - generic: 디자인 예시
+      - generic: "+7"
+      - button "Befun Natural 다크 브라운 수납장 190 × 73 cm 612,800원 766,000원":
+        - paragraph: Befun Natural
+        - heading "다크 브라운 수납장" [level=3]
+        - paragraph: 190 × 73 cm
+        - text: 612,800원
+        - deletion: 766,000원
+    - article:
+      - button "버건디 오픈 책장 디자인 보기":
+        - img "버건디 오픈 책장"
+      - generic: −20%
+      - button "버건디 오픈 책장 즐겨찾기":
+      - generic: 디자인 예시
+      - generic: "+7"
+      - button "Befun Solid 버건디 오픈 책장 150 × 223 cm 1,259,200원 1,574,000원":
+        - paragraph: Befun Solid
+        - heading "버건디 오픈 책장" [level=3]
+        - paragraph: 150 × 223 cm
+        - text: 1,259,200원
+        - deletion: 1,574,000원
+    - article:
+      - button "월넛 TV 스탠드 디자인 보기":
+        - img "월넛 TV 스탠드"
+      - generic: −20%
+      - button "월넛 TV 스탠드 즐겨찾기":
+      - generic: 디자인 예시
+      - generic: "+7"
+      - button "Befun Natural 월넛 TV 스탠드 300 × 53 cm 816,800원 1,021,000원":
+        - paragraph: Befun Natural
+        - heading "월넛 TV 스탠드" [level=3]
+        - paragraph: 300 × 53 cm
+        - text: 816,800원
+        - deletion: 1,021,000원
+  - button "추천 디자인 이전" [disabled]:
+  - button "추천 디자인 다음":
+  - paragraph: 쇼룸
+  - heading "공간과 소재를 직접 만나보세요." [level=2]
+  - heading "Befun 쇼룸 & 파트너 공간" [level=3]
+  - region "쇼룸 레퍼런스":
+    - link "Befun 성수 쇼룸 Showroom Befun 성수 쇼룸 서울 성동구 성수동 원본 방문 안내":
+      - /url: /showrooms
+      - img "Befun 성수 쇼룸"
+      - generic: Showroom
+      - heading "Befun 성수 쇼룸" [level=3]
+      - paragraph: 서울 성동구 성수동
+      - text: 원본 방문 안내
+    - link "Befun 한남 스튜디오 Showroom Befun 한남 스튜디오 서울 용산구 한남동 원본 방문 안내":
+      - /url: /showrooms
+      - img "Befun 한남 스튜디오"
+      - generic: Showroom
+      - heading "Befun 한남 스튜디오" [level=3]
+      - paragraph: 서울 용산구 한남동
+      - text: 원본 방문 안내
+    - link "Befun 판교 @ 파트너 스토어 Showroom Befun 판교 @ 파트너 스토어 경기 성남시 분당구 원본 방문 안내":
+      - /url: /showrooms
+      - img "Befun 판교 @ 파트너 스토어"
+      - generic: Showroom
+      - heading "Befun 판교 @ 파트너 스토어" [level=3]
+      - paragraph: 경기 성남시 분당구
+      - text: 원본 방문 안내
+    - link "Befun 연남 @ 카페 파트너 Showroom Befun 연남 @ 카페 파트너 서울 마포구 연남동 원본 방문 안내":
+      - /url: /showrooms
+      - img "Befun 연남 @ 카페 파트너"
+      - generic: Showroom
+      - heading "Befun 연남 @ 카페 파트너" [level=3]
+      - paragraph: 서울 마포구 연남동
+      - text: 원본 방문 안내
+  - button "쇼룸 레퍼런스 이전" [disabled]:
+  - button "쇼룸 레퍼런스 다음" [disabled]:
+  - paragraph: Tylko 쇼룸 레퍼런스
+  - link "모두 보기":
+    - /url: /showrooms
+  - paragraph: Befun과 함께 시작하세요
+  - heading "당신의 취향이, 다음 디자인이 됩니다." [level=2]
+  - generic: 이메일 주소
+  - textbox "이메일 주소":
+    - /placeholder: 이메일 주소를 입력하세요
+  - button "계정 시작하기"
+  - paragraph: 이메일로 계정을 시작하고 내 디자인과 주문을 확인하세요.
+  - paragraph:
+    - link "계정 이용 안내":
+      - /url: /terms/user-account-and-promo-codes
+    - text: ·
+    - link "개인정보 처리 안내":
+      - /url: /privacy_policy
+- contentinfo:
+  - heading "가구에 공간을 맞추는 대신, 당신에게 맞는 가구를 만드세요." [level=2]:
+    - text: 가구에 공간을 맞추는 대신,
+    - text: 당신에게 맞는 가구를 만드세요.
+  - generic "Befun"
+  - navigation "Befun":
+    - link "브랜드 이야기":
+      - /url: /about-tylko
+    - link "쇼룸":
+      - /url: /showrooms
+    - link "기프트카드":
+      - /url: /e-gift-card/1
+    - link "디자인 저널":
+      - /url: /journal
+    - link "프레스":
+      - /url: /press
+    - link "채용":
+      - /url: https://tylko.recruitee.com/
+    - link "투자자 정보":
+      - /url: /investor-relations-login
+    - link "디지털 서비스":
+      - /url: /digital-services-act
+    - link "Befun Pro":
+      - /url: /tylko-pro
+  - generic "고객 지원"
+  - navigation "고객 지원":
+    - link "자주 묻는 질문":
+      - /url: /faq
+    - link "이용약관":
+      - /url: /terms
+    - link "기프트카드 약관":
+      - /url: /terms-gift-card
+    - link "개인정보 처리":
+      - /url: /privacy_policy
+    - link "쿠키 설정":
+      - /url: /cookie-settings
+    - link "배송 안내":
+      - /url: /shipping
+    - link "주문 취소":
+      - /url: /contact?topic=cancellation
+    - link "주문 상태":
+      - /url: /contact?topic=order_status
+  - generic "문의하기"
+  - navigation "문의하기":
+    - link "고객 문의":
+      - /url: /contact
+    - link "주문 조회":
+      - /url: /mypage
+    - link "도움말":
+      - /url: /faq
+    - link "문제 신고":
+      - /url: /contact?topic=issue
+    - link "WhatsApp":
+      - /url: /contact?topic=whatsapp
+    - link "LiveChat":
+      - /url: /contact?topic=chat
+    - link "Tylko 신고 채널":
+      - /url: https://tylko.whistlelink.com/
+  - generic "함께해요"
+  - navigation "함께해요":
+    - link "커뮤니티":
+      - /url: /inspirations
+    - link "크리에이터":
+      - /url: /creators
+    - link "즐겨찾기":
+      - /url: /wishlist
+    - link "저장한 디자인":
+      - /url: /saved-designs
+    - link "로그인":
+      - /url: /login
+    - link "Instagram":
+      - /url: https://www.instagram.com/tylko/
+    - link "Facebook":
+      - /url: https://www.facebook.com/tylko/
+    - link "Pinterest":
+      - /url: https://www.pinterest.com/tylko/
+    - link "TikTok":
+      - /url: https://www.tiktok.com/@tylko.com
+  - link "Befun 홈":
+    - /url: /
+    - img "Befun"
+  - link "대한민국 · 한국어 · KRW":
+    - /url: /region-settings
+  - generic: © 2026 Befun
+  - generic: Visa · Mastercard · 간편결제
+- link "? 도움이 필요하세요?":
+  - /url: /contact
+  - generic: "?"
+  - text: 도움이 필요하세요?
+- button "Open Next.js Dev Tools":
+- alert

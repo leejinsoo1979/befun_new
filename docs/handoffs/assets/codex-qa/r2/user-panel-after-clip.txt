@@ -1,0 +1,915 @@
+- button "Open Next.js Dev Tools":
+- alert
+- text: 패널 접합 방식
+- combobox "패널 접합 방식":
+  - option "OVVO 방식"
+  - option "Tylko 클립 방식" [selected]
+- status: Tylko 클립의 홈·나사·배치 규격이 미확정되어 제조 가공을 생성하지 않았습니다.
+- text: 접합부 0곳 · 커넥터 0개
+- generic: · 확인 1건
+- generic: Befun
+- heading "CNC Optimizer" [level=1]
+- generic: New Project
+- button "원장에 그리기":
+  - generic: 원장에 그리기
+- button "L방향 우선":
+  - generic: L방향 우선
+- button "계산하기":
+  - generic: 계산하기
+- button "전체 시뮬레이션":
+  - generic: 전체 시뮬레이션
+- button "Export":
+  - generic: Export
+- button "설정":
+- button "나가기":
+  - text: 나가기
+- heading "패널목록 (25)" [level=3]
+- button "▶"
+- combobox "조립 애니메이션 속도":
+  - option "1배속" [selected]
+  - option "2배속"
+  - option "4배속"
+- button "CSV":
+  - text: CSV
+- button "추가":
+  - text: 추가
+- generic: 정렬
+- combobox "패널 목록 정렬":
+  - option "시트별" [selected]
+  - option "부재별"
+- table:
+  - rowgroup:
+    - row "전체 선택/해제 이름 텍스처명 치수 (L×W) 두께 재질 결방향":
+      - columnheader "전체 선택/해제":
+        - checkbox "전체 선택/해제" [checked]
+      - columnheader "이름"
+      - columnheader "텍스처명"
+      - columnheader "치수 (L×W)"
+      - columnheader "두께"
+      - columnheader "재질"
+      - columnheader "결방향"
+  - rowgroup:
+    - row "시트 1 PB · 18T":
+      - rowheader "시트 1 PB · 18T":
+        - generic: 시트 1
+        - generic: PB · 18T
+    - row "패널 제외 가로판 1 Befun S_Midnight Blue 900 × 320 18 PB →":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "가로판 1":
+        - textbox "가로판 1"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "900 × 320":
+        - spinbutton "최대 2430mm": "900"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "→":
+        - button "→"
+    - row "패널 제외 가로판 2 Befun S_Midnight Blue 900 × 320 18 PB →":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "가로판 2":
+        - textbox "가로판 2"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "900 × 320":
+        - spinbutton "최대 2430mm": "900"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "→":
+        - button "→"
+    - row "패널 제외 가로판 3 Befun S_Midnight Blue 900 × 320 18 PB →":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "가로판 3":
+        - textbox "가로판 3"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "900 × 320":
+        - spinbutton "최대 2430mm": "900"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "→":
+        - button "→"
+    - row "패널 제외 가로판 4 Befun S_Midnight Blue 900 × 320 18 PB →":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "가로판 4":
+        - textbox "가로판 4"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "900 × 320":
+        - spinbutton "최대 2430mm": "900"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "→":
+        - button "→"
+    - row "패널 제외 가로판 5 Befun S_Midnight Blue 900 × 320 18 PB →":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "가로판 5":
+        - textbox "가로판 5"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "900 × 320":
+        - spinbutton "최대 2430mm": "900"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "→":
+        - button "→"
+    - row "패널 제외 세로판 1 Befun S_Midnight Blue 282 × 320 18 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "세로판 1":
+        - textbox "세로판 1"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 320":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 세로판 2 Befun S_Midnight Blue 282 × 320 18 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "세로판 2":
+        - textbox "세로판 2"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 320":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 세로판 3 Befun S_Midnight Blue 282 × 320 18 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "세로판 3":
+        - textbox "세로판 3"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 320":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 세로판 4 Befun S_Midnight Blue 282 × 320 18 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "세로판 4":
+        - textbox "세로판 4"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 320":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 세로판 5 Befun S_Midnight Blue 282 × 320 18 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "세로판 5":
+        - textbox "세로판 5"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 320":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 세로판 6 Befun S_Midnight Blue 282 × 320 18 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "세로판 6":
+        - textbox "세로판 6"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 320":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 세로판 7 Befun S_Midnight Blue 282 × 320 18 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "세로판 7":
+        - textbox "세로판 7"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 320":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 세로판 8 Befun S_Midnight Blue 282 × 320 18 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "세로판 8":
+        - textbox "세로판 8"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 320":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 세로판 9 Befun S_Midnight Blue 282 × 320 18 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "세로판 9":
+        - textbox "세로판 9"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 320":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "시트 2 PB · 18T":
+      - rowheader "시트 2 PB · 18T":
+        - generic: 시트 2
+        - generic: PB · 18T
+    - row "패널 제외 세로판 10 Befun S_Midnight Blue 282 × 320 18 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "세로판 10":
+        - textbox "세로판 10"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 320":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 세로판 11 Befun S_Midnight Blue 282 × 320 18 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "세로판 11":
+        - textbox "세로판 11"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 320":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 세로판 12 Befun S_Midnight Blue 282 × 320 18 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "세로판 12":
+        - textbox "세로판 12"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 320":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "320"
+      - cell "18":
+        - spinbutton: "18"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "시트 3 PB · 12T":
+      - rowheader "시트 3 PB · 12T":
+        - generic: 시트 3
+        - generic: PB · 12T
+    - row "패널 제외 보강대 1 Befun S_Midnight Blue 282 × 125 12 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "보강대 1":
+        - textbox "보강대 1"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 125":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "125"
+      - cell "12":
+        - spinbutton: "12"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 보강대 2 Befun S_Midnight Blue 282 × 125 12 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "보강대 2":
+        - textbox "보강대 2"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 125":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "125"
+      - cell "12":
+        - spinbutton: "12"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 보강대 3 Befun S_Midnight Blue 282 × 125 12 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "보강대 3":
+        - textbox "보강대 3"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 125":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "125"
+      - cell "12":
+        - spinbutton: "12"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 보강대 4 Befun S_Midnight Blue 282 × 125 12 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "보강대 4":
+        - textbox "보강대 4"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 125":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "125"
+      - cell "12":
+        - spinbutton: "12"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 보강대 5 Befun S_Midnight Blue 282 × 125 12 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "보강대 5":
+        - textbox "보강대 5"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 125":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "125"
+      - cell "12":
+        - spinbutton: "12"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 보강대 6 Befun S_Midnight Blue 282 × 125 12 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "보강대 6":
+        - textbox "보강대 6"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 125":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "125"
+      - cell "12":
+        - spinbutton: "12"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 보강대 7 Befun S_Midnight Blue 282 × 125 12 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "보강대 7":
+        - textbox "보강대 7"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 125":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "125"
+      - cell "12":
+        - spinbutton: "12"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+    - row "패널 제외 보강대 8 Befun S_Midnight Blue 282 × 125 12 PB ↑":
+      - cell "패널 제외":
+        - checkbox "패널 제외" [checked]
+      - cell "보강대 8":
+        - textbox "보강대 8"
+      - cell "Befun S_Midnight Blue":
+        - generic "Befun S_Midnight Blue"
+      - cell "282 × 125":
+        - spinbutton "최대 2430mm": "282"
+        - text: ×
+        - spinbutton "최대 1210mm": "125"
+      - cell "12":
+        - spinbutton: "12"
+      - cell "PB":
+        - combobox:
+          - option "PB" [selected]
+          - option "MDF"
+          - option "PET"
+          - option "PLY"
+          - option "HPL"
+          - option "LPM"
+      - cell "↑":
+        - button "↑"
+- button "이전 시트" [disabled]:
+- generic: Sheet 1 / 3
+- button "다음 시트":
+- button "축소":
+- generic: 100%
+- button "확대":
+- button "초기화":
+- button "회전":
+- button "치수 표시":
+- button "보링 표시":
+- button "홈":
+  - generic: 홈
+- button "A A":
+  - generic: A
+  - generic: A
+- button "A A":
+  - generic: A
+  - generic: A
+- generic: Sheet 1 - PB (18T)
+- generic: Sheet 2 - PB (18T)
+- generic: Sheet 3 - PB (12T)
+- button "시트 추가":
+  - generic: 시트 추가
+- button "뷰어 위치 변경":
+- heading "전체 통계" [level=3]
+- button:
+- generic: 시트
+- strong: "3"
+- generic: 사용 면적
+- strong: "2.8"
+- generic: 32%
+- generic: 폐기 면적
+- strong: "6.0"
+- generic: 68%
+- generic: 총 패널
+- strong: "25"
+- generic: 절단 횟수
+- strong: "42"
+- generic: 절단 길이
+- strong: 40.49m
+- generic: 톱날 두께
+- strong: 5mm
+- generic: 원자재
+- generic: 1220×2440
+- generic: 최적화
+- generic: 가로절단
+- heading "배치분 제조비 (부가세 별도)" [level=3]
+- generic: 엣지 가공 26.65m
+- strong: 14,000원
+- generic: 엣지 자재 26.65m
+- strong: 14,000원
+- generic: 보링 홀 0개
+- strong: 0원
+- generic: 경첩보링 0개
+- strong: 0원
+- generic: 홈파기 0라인
+- strong: 0원
+- generic: 재단 42컷
+- strong: 84,000원
+- generic: 조립/포장 큰통 0 · 작은거 0
+- strong: 0원
+- generic: 자재 3장
+- strong: 70,000원 + 미산정
+- generic: 산정된 항목 소계
+- strong: 182,000원
+- status:
+  - strong: 견적 미확정
+  - list:
+    - listitem: 단가가 확인되지 않은 원장 재질·두께·규격이 있습니다.
+    - listitem: 제조 좌표가 미확정인 판재가 있습니다.
+- heading "시트 통계" [level=3]
+- button:
+- button [disabled]:
+- heading "시트 1 / 3" [level=3]
+- button:
+- button "컷팅 시뮬레이션":
+- generic: 패널 수
+- strong: "14"
+- generic: 효율
+- strong: 76.6%
+- generic: 사용 면적
+- strong: 2.25㎡
+- generic: 폐기 면적
+- strong: 0.69㎡
+- generic: 절단 횟수
+- strong: "21"
+- generic: 절단 길이
+- strong: 19.07m
+- generic: Sheet 제조비 (주문 올림액 배분 · 부가세 별도)
+- generic: 엣지 가공 23.04m
+- strong: 12,102원
+- generic: 엣지 자재 23.04m
+- strong: 12,102원
+- generic: 보링 홀 0개
+- strong: 0원
+- generic: 경첩보링 0개
+- strong: 0원
+- generic: 홈파기 0라인
+- strong: 0원
+- generic: 자재 1장
+- strong: 35,000원
+- generic: Sheet 가공·자재 소계 (재단·조립 별도)
+- strong: 59,204원
+- button "시트 목록"
+- button "컷팅 리스트"
+- generic: "#"
+- generic: Panel
+- generic: Cut
+- generic: Result
+- generic: "1"
+- generic: 1220×2440
+- generic: x=3
+- generic: "- \\ surplus"
+- generic: "2"
+- generic: 1215×2440
+- generic: x=1218
+- generic: "- \\ surplus"
+- generic: "3"
+- generic: 1210×2440
+- generic: y=3
+- generic: "- \\ surplus"
+- generic: "4"
+- generic: 1210×2435
+- generic: y=2438
+- generic: "- \\ surplus"
+- generic: "5"
+- generic: 1210×2430
+- generic: x=328
+- generic: "- \\ surplus"
+- generic: "6"
+- generic: 885×2430
+- generic: x=653
+- generic: "- \\ surplus"
+- generic: "7"
+- generic: 560×2430
+- generic: x=978
+- generic: "- \\ surplus"
+- generic: "8"
+- generic: 320×2430
+- generic: y=908
+- generic: 320×900 \ -
+- generic: "9"
+- generic: 320×1525
+- generic: y=1813
+- generic: 320×900 \ -
+- generic: "10"
+- generic: 320×620
+- generic: y=2100
+- generic: 320×282 \ -
+- generic: "11"
+- generic: 320×333
+- generic: y=2387
+- generic: 320×282 \ -
+- generic: "12"
+- generic: 320×2430
+- generic: y=908
+- generic: 320×900 \ -
+- generic: "13"
+- generic: 320×1525
+- generic: y=1813
+- generic: 320×900 \ -
+- generic: "14"
+- generic: 320×620
+- generic: y=2100
+- generic: 320×282 \ -
+- generic: "15"
+- generic: 320×333
+- generic: y=2387
+- generic: 320×282 \ -
+- generic: "16"
+- generic: 320×2430
+- generic: y=908
+- generic: 320×900 \ -
+- generic: "17"
+- generic: 320×1525
+- generic: y=1195
+- generic: 320×282 \ -
+- generic: "18"
+- generic: 320×1238
+- generic: y=1482
+- generic: 320×282 \ -
+- generic: "19"
+- generic: 320×951
+- generic: y=1769
+- generic: 320×282 \ -
+- generic: "20"
+- generic: 320×664
+- generic: y=2056
+- generic: 320×282 \ -
+- generic: "21"
+- generic: 320×377
+- generic: y=2343
+- generic: 320×282 \ -
+- generic: "1"
+- generic: 1220×2440
+- generic: x=3
+- generic: "- \\ surplus"
+- generic: "2"
+- generic: 1215×2440
+- generic: x=1218
+- generic: "- \\ surplus"
+- generic: "3"
+- generic: 1210×2440
+- generic: y=3
+- generic: "- \\ surplus"
+- generic: "4"
+- generic: 1210×2435
+- generic: y=2438
+- generic: "- \\ surplus"
+- generic: "5"
+- generic: 1210×2430
+- generic: x=328
+- generic: "- \\ surplus"
+- generic: "6"
+- generic: 320×2430
+- generic: y=290
+- generic: 320×282 \ -
+- generic: "7"
+- generic: 320×2143
+- generic: y=577
+- generic: 320×282 \ -
+- generic: "8"
+- generic: 320×1856
+- generic: y=864
+- generic: 320×282 \ -
+- generic: "1"
+- generic: 1220×2440
+- generic: x=3
+- generic: "- \\ surplus"
+- generic: "2"
+- generic: 1215×2440
+- generic: x=1218
+- generic: "- \\ surplus"
+- generic: "3"
+- generic: 1210×2440
+- generic: y=3
+- generic: "- \\ surplus"
+- generic: "4"
+- generic: 1210×2435
+- generic: y=2438
+- generic: "- \\ surplus"
+- generic: "5"
+- generic: 1210×2430
+- generic: x=133
+- generic: "- \\ surplus"
+- generic: "6"
+- generic: 125×2430
+- generic: y=290
+- generic: 125×282 \ -
+- generic: "7"
+- generic: 125×2143
+- generic: y=577
+- generic: 125×282 \ -
+- generic: "8"
+- generic: 125×1856
+- generic: y=864
+- generic: 125×282 \ -
+- generic: "9"
+- generic: 125×1569
+- generic: y=1151
+- generic: 125×282 \ -
+- generic: "10"
+- generic: 125×1282
+- generic: y=1438
+- generic: 125×282 \ -
+- generic: "11"
+- generic: 125×995
+- generic: y=1725
+- generic: 125×282 \ -
+- generic: "12"
+- generic: 125×708
+- generic: y=2012
+- generic: 125×282 \ -
+- generic: "13"
+- generic: 125×421
+- generic: y=2299
+- generic: 125×282 \ -

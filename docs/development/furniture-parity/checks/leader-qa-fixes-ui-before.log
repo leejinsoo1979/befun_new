@@ -1,0 +1,33 @@
+
+ RUN  v3.2.7 /var/folders/6g/88hr_s5d1bd3qf45tzmk8zrr0000gn/T/befun-left4-ui-JA7TZh
+
+ ✓ independent.test.tsx (3 tests) 88ms
+ ✓ review.test.tsx (10 tests) 125ms
+ ❯ optimizer.test.tsx (2 tests | 1 failed) 98ms
+   ✓ QA-L4-07 actual OptimizerApp keeps selection over remount and restores OVVO snapshot 78ms
+   × QA-L4-08 actual OptimizerApp should preserve a user hole when switching system 19ms
+     → expected false to be true // Object.is equality
+ ✓ family.test.tsx (16 tests) 326ms
+ ✓ panels.test.tsx (17 tests) 405ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  optimizer.test.tsx > QA-L4-08 actual OptimizerApp should preserve a user hole when switching system
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ optimizer.test.tsx:24:135
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 47 passed (48)
+   Start at  05:38:12
+   Duration  1.29s (transform 417ms, setup 649ms, collect 891ms, tests 1.04s, environment 1.80s, prepare 289ms)
+

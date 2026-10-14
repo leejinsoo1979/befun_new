@@ -1,3 +1,4 @@
+import { resolveWardrobeHingePlacements, type WardrobeHingeDoor } from '../wardrobe-hinges';
 import type { PanelData } from '@/types/shelf';
 import { resolveEdgeDrawer } from './drawers';
 import { resolveToneDrawer } from './tone-drawers';
@@ -44,7 +45,8 @@ export function adaptWardrobeRenderGeometry(source: WardrobeSourceGeometry, sect
   if (source.lighting?.length) unsupported.push('wardrobe-lighting-assets');
   if (source.bars.length) unsupported.push('wardrobe-bar-cross-section-assets');
   return {
-    panels, fronts, drawers,
+    hinges: source.hinges ? resolveWardrobeHingePlacements(source.model, source.doors as WardrobeHingeDoor[], source.walls, source.hinges) : [],
+    panels, fronts, drawers, cableOptions: source.cable_options,
     bars: source.bars.map((part, index) => ({
       id: `bar-${index}`, sectionId: sectionId(part),
       ...panel(part, 'backPanel'),

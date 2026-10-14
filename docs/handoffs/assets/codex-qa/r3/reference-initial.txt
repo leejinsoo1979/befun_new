@@ -1,0 +1,486 @@
+- main:
+  - complementary:
+    - paragraph:
+      - link "Tylko Club is here. Join now and enjoy Club prices and other benefits 👉":
+        - /url: /en-de/register-or-login/join-club
+        - strong: Tylko Club is here
+        - text: .
+        - text: Join now and enjoy Club prices and other benefits 👉
+  - link:
+    - /url: /en-de
+  - list:
+    - link "Shop":
+      - /url: /en-de/furniture-c
+    - link "Community":
+      - /url: /en-de/inspirations
+    - link "Tylko Pro":
+      - /url: /en-de/tylko-pro
+    - link "Showrooms":
+      - /url: /en-de/showrooms
+    - link "Tylko Club":
+      - /url: /en-de/tylko-club
+  - list:
+    - button:
+    - link:
+      - /url: /en-de/account
+    - link:
+      - /url: /en-de/wishlist
+    - link:
+      - /url: /en-de/cart/
+  - main:
+    - complementary:
+      - heading "Sideboard in Black with Doors and Drawers" [level=1]
+      - button:
+      - button:
+      - button:
+      - paragraph:
+        - generic: 1109 € Tylko Club
+      - paragraph:
+        - generic: 1788 € Regular
+      - paragraph:
+        - button "Join Tylko Club"
+        - text: to unlock member pricing
+      - paragraph: Style
+      - button "Frame":
+        - paragraph: Frame
+      - button "Grid":
+        - paragraph: Grid
+      - button "Gradient":
+        - paragraph: Gradient
+      - button "Mosaic":
+        - paragraph: Mosaic
+      - button "Pattern":
+        - paragraph: Pattern
+      - button "Pixel":
+        - paragraph: Pixel
+      - paragraph: Width
+      - slider:
+        - generic: 200cm
+      - paragraph: Height
+      - slider:
+        - generic: 63cm
+      - paragraph: Depth
+      - button "24cm"
+      - button "32cm"
+      - button "40cm"
+      - button "50cm"
+      - generic: 40cm
+      - paragraph: Feet
+      - button "Standard"
+      - button "Plinth"
+      - generic: Standard
+      - paragraph: Back panels
+      - button "Off"
+      - button "On"
+      - generic: "Off"
+      - paragraph: Finish
+      - button "Board"
+      - button "Plywood"
+      - button "Veneer"
+      - generic: Plywood
+      - paragraph: Colour new
+      - list:
+        - button
+        - button
+        - button
+        - button
+        - button
+        - button
+        - button
+        - button
+        - button
+      - generic: Can't decide?
+      - generic: Order samples
+      - button "Add to cart":
+        - generic: Add to cart
+      - button "Save configuration":
+        - text: Save configuration
+      - complementary:
+        - paragraph: Ships in 3-4 weeks
+        - paragraph: Custom crafted in the EU
+      - paragraph: View payment information
+      - paragraph: Delivery & Returns
+      - button:
+      - button:
+      - button:
+      - button:
+      - button:
+      - button:
+    - text: ...
+    - list:
+      - button "Rating based on 2382 reviews collected at tylko.com 4.8/5":
+        - paragraph: Rating based on 2382 reviews collected at tylko.com
+        - paragraph: 4.8/5
+      - heading "Delivery included" [level=5]
+      - paragraph: Straight to your home
+      - generic: Read more
+      - heading "Free 100-day returns" [level=5]
+      - paragraph: Time to fall in love
+      - generic: Read more
+      - heading "Optional assembly service" [level=5]
+      - paragraph: Available in Germany
+      - generic: Read more
+      - heading "10 year guarantee" [level=5]
+      - paragraph: Built to last
+      - generic: Read more
+    - radio "White Plywood"
+    - text: White Plywood
+    - radio "Moss Green"
+    - text: Moss Green
+    - radio "Grey Plywood"
+    - text: Grey Plywood
+    - radio "Black Plywood" [checked]
+    - text: Black Plywood
+    - radio "Dusty Pink Plywood"
+    - text: Dusty Pink Plywood
+    - radio "Yellow Plywood"
+    - text: Yellow Plywood
+    - radio "Blue Plywood"
+    - text: Blue Plywood
+    - radio "Cashmere Beige Plywood"
+    - text: Cashmere Beige Plywood
+    - radio "Clay Brown Plywood"
+    - text: Clay Brown Plywood
+    - radio "White Oak"
+    - text: White Oak
+    - radio "Oak"
+    - text: Oak
+    - radio "Walnut Veneer"
+    - text: Walnut Veneer
+    - button "Sideboard in Black with Doors and Drawers 1":
+      - img "Sideboard in Black with Doors and Drawers 1"
+    - button "Sideboard in Black with Doors and Drawers 2":
+      - img "Sideboard in Black with Doors and Drawers 2"
+    - button "Sideboard in Black with Doors and Drawers 3":
+      - img "Sideboard in Black with Doors and Drawers 3"
+    - button "Sideboard in Black with Doors and Drawers 4":
+      - img "Sideboard in Black with Doors and Drawers 4"
+    - button "Sideboard in Black with Doors and Drawers 5":
+      - img "Sideboard in Black with Doors and Drawers 5"
+    - button "Sideboard in Black with Doors and Drawers 6":
+      - img "Sideboard in Black with Doors and Drawers 6"
+    - button "Sideboard in Black with Doors and Drawers 7":
+      - img "Sideboard in Black with Doors and Drawers 7"
+    - button "Sideboard in Black with Doors and Drawers 8":
+      - img "Sideboard in Black with Doors and Drawers 8"
+    - paragraph:
+      - link "See more styles":
+        - /url: /en-de/furniture-c
+    - heading "Your furniture specification" [level=2]
+    - button "Dimensions & details":
+      - heading "Dimensions & details" [level=3]
+    - button "Material":
+      - heading "Material" [level=3]
+    - button "Delivery & Returns":
+      - heading "Delivery & Returns" [level=3]
+    - button "Assembly Information":
+      - heading "Assembly Information" [level=3]
+    - button "Safety":
+      - heading "Safety" [level=3]
+    - paragraph: Need a hand? Chat with us via
+    - paragraph:
+      - button "Live chat":
+        - text: Live chat
+      - generic: or
+      - button "WhatsApp":
+        - text: WhatsApp
+    - complementary
+    - paragraph: Tylko Original
+    - heading "Furniture that fits for people that don't" [level=2]
+    - button [disabled]:
+    - button:
+    - heading "SIDEBOARD" [level=3]
+    - heading "Stash your treasures in style and create a storage masterpiece" [level=2]
+    - img "Express your-shelf"
+    - heading "ORIGINAL CLASSIC" [level=3]
+    - heading "Express your-shelf" [level=2]
+    - button "More"
+    - heading [level=3]
+    - button "More"
+    - img "Make every centimetre yours"
+    - heading "CustomFit® Technology" [level=3]
+    - heading "Make every centimetre yours" [level=2]
+    - button "More"
+    - img "Let your space breathe"
+    - heading "Legs or plinth" [level=3]
+    - heading "Let your space breathe" [level=2]
+    - button "More"
+    - img "Curated colours"
+    - heading [level=3]
+    - heading "Curated colours" [level=2]
+    - img "Display the best, hide the rest"
+    - heading "SIDEBOARD" [level=3]
+    - heading "Display the best, hide the rest" [level=2]
+    - button "More"
+    - img "When it all clicks"
+    - heading "SimpleClick® Assembly" [level=3]
+    - heading "When it all clicks" [level=2]
+    - button "More"
+    - img "Your shelf, your unique number"
+    - heading "Uniquely yours" [level=3]
+    - heading "Your shelf, your unique number" [level=2]
+    - img "Express your-shelf"
+    - heading "ORIGINAL CLASSIC" [level=3]
+    - heading "Express your-shelf" [level=2]
+    - button "More"
+    - heading [level=3]
+    - button "More"
+    - img "Make every centimetre yours"
+    - heading "CustomFit® Technology" [level=3]
+    - heading "Make every centimetre yours" [level=2]
+    - button "More"
+    - img "Let your space breathe"
+    - heading "Legs or plinth" [level=3]
+    - heading "Let your space breathe" [level=2]
+    - button "More"
+    - img "Curated colours"
+    - heading [level=3]
+    - heading "Curated colours" [level=2]
+    - img "Display the best, hide the rest"
+    - heading "SIDEBOARD" [level=3]
+    - heading "Display the best, hide the rest" [level=2]
+    - button "More"
+    - img "When it all clicks"
+    - heading "SimpleClick® Assembly" [level=3]
+    - heading "When it all clicks" [level=2]
+    - button "More"
+    - img "Your shelf, your unique number"
+    - heading "Uniquely yours" [level=3]
+    - heading "Your shelf, your unique number" [level=2]
+    - button:
+    - button:
+    - heading "THE TYLKO EXPERIENCE" [level=3]
+    - heading "We have over 300,000+ satisfied customers across 28 countries" [level=2]
+    - complementary:
+      - paragraph: 4,8
+      - paragraph: 96% of our customers recommended our products. Rating based on 2386 reviews collected at Tylko.com
+      - link "Learn more about reviews":
+        - /url: https://tylko.com/en-uk/privacy_policy/the-basis-and-purpose-of-personal-data-processing
+        - generic: Learn more about reviews
+    - complementary:
+      - list:
+        - button "Assembly"
+        - button "Delivery"
+        - button "Fabric"
+        - button "Style"
+        - button "Quality"
+    - article:
+      - img "Quality and ease of assembly"
+      - generic: Jonas
+      - time: 21 December 2023
+      - generic: "Color: Black"
+      - heading "Quality and ease of assembly" [level=3]
+      - paragraph: You design it to your liking and with the measurements you want. Great options for colors, finishes, and utilities... fantastic delivery process.
+      - paragraph: "Original language: EspañolShow original"
+    - article:
+      - img "Happy with my new beautiful and own designed furniture!"
+      - generic: Ana
+      - time: 20 November 2023
+      - generic: "Color: Black"
+      - heading "Happy with my new beautiful and own designed furniture!" [level=3]
+      - paragraph: Good design, sustainable, slow, pretty, easy to assemblea and unique.
+      - paragraph: "Original language: EspañolShow original"
+    - article:
+      - img "100% satisfied"
+      - generic: Johanna Schilly
+      - time: 27 March 2023
+      - generic: "Color: Black"
+      - heading "100% satisfied" [level=3]
+      - paragraph: Design, delivery, assembly, quality—everything is top-notch! 👍
+      - paragraph: "Original language: Deutsch"
+    - button "Show more"
+    - img "Sideboard in Black with Doors and Drawers"
+    - heading "Hi-fi, shelf-native" [level=2]
+    - heading "Sound that belongs here" [level=1]
+    - link "Discover Tylko Sound":
+      - /url: /en-de/tylko-sound
+    - paragraph: Discover your perfect fit
+    - heading "Still making your mind up? Take a look at this." [level=2]
+    - link "What makes Tylko different? What makes Tylko different? Learn more":
+      - /url: /en-de/about-tylko
+      - img "What makes Tylko different?"
+      - heading "What makes Tylko different?" [level=3]
+      - paragraph:
+        - generic: Learn more
+    - link "Feel our quality firsthand Feel our quality firsthand Get samples":
+      - /url: /en-de/material-samples
+      - img "Feel our quality firsthand"
+      - heading "Feel our quality firsthand" [level=3]
+      - paragraph:
+        - generic: Get samples
+    - link "Explore Sideboards":
+      - /url: /en-de/furniture-c/sideboard
+      - paragraph:
+        - generic: Explore Sideboards
+    - heading "A gift that always fits" [level=1]
+    - generic: Give them the joy of choosing their own Tylko
+    - link "Get your E-Gift Card":
+      - /url: /en-de/e-gift-card/1
+    - paragraph: See also
+    - heading "You Might Also Like" [level=2]
+    - heading "Showrooms" [level=3]
+    - paragraph: Find a showroom near you.
+    - heading "Tylko Showrooms & Tylko Friends" [level=2]
+    - img "Tylko Space Berlin"
+    - generic: Showroom
+    - heading "Tylko Space Berlin" [level=3]
+    - paragraph:
+      - text: Gipsstraße 7
+      - text: 10119 Berlin
+    - paragraph:
+      - link "+493027695161":
+        - /url: "tel:+493027695161}"
+      - link "berlin@tylko.com":
+        - /url: mailto:berlin@tylko.com
+    - link "Get directions":
+      - /url: https://maps.app.goo.gl/nZmGK6ahnW4VVW6k9
+    - img "Tylko Dresden @ RW Showrooms"
+    - generic: Showroom
+    - heading "Tylko Dresden @ RW Showrooms" [level=3]
+    - paragraph:
+      - text: Elisenstraße 23
+      - text: 01307 Dresden
+    - paragraph:
+      - link "+4935148458859":
+        - /url: "tel:+4935148458859}"
+      - link "hello@tylko.com":
+        - /url: mailto:hello@tylko.com
+    - link "Get directions":
+      - /url: https://maps.app.goo.gl/8Mhamv4cfDyRo34G7
+    - img "Tylko Hamburg @ RW Showrooms"
+    - generic: Showroom
+    - heading "Tylko Hamburg @ RW Showrooms" [level=3]
+    - paragraph:
+      - text: Baakenallee 36
+      - text: 20457 Hamburg
+    - paragraph:
+      - link "+494033310936":
+        - /url: "tel:+494033310936}"
+      - link "hello@tylko.com":
+        - /url: mailto:hello@tylko.com
+    - link "Get directions":
+      - /url: https://maps.app.goo.gl/hvAUGc19T9ABG2jV9
+    - img "Tylko Hannover @ RW Showrooms"
+    - generic: Showroom
+    - heading "Tylko Hannover @ RW Showrooms" [level=3]
+    - paragraph:
+      - text: Expo Plaza 11
+      - text: 30539 Hannover
+    - paragraph:
+      - link "+49511 98247739":
+        - /url: "tel:+49511 98247739}"
+      - link "hello@tylko.com":
+        - /url: mailto:hello@tylko.com
+    - link "Get directions":
+      - /url: https://maps.app.goo.gl/Ar5DVbcLjeeXWeyGA
+    - button "View all"
+  - heading "Become part of the Tylko community" [level=2]
+  - heading "Sign up and get a 300€ gift before it’s gone" [level=3]
+  - textbox "Enter your email"
+  - button "Get 300€"
+  - paragraph:
+    - text: I want to receive a newsletter on promotions, sales and other marketing information from Tylko S.A. to the indicated e-mail address. I can withdraw my consent at any time, but this will not affect the legality of the processing that took place before its withdrawal.
+    - text: "*The administrator of your personal data is Tylko S.A. with its registered office at 8/10 Czerska St., 00-732 Warsaw, Poland, KRS 000983931, to contact us, hereinafter \"Tylko\". I have read the"
+    - strong:
+      - link "Terms and Conditions (to the extent of the Newsletter provisions)":
+        - /url: /terms/user-account-and-promo-codes
+    - text: and
+    - strong:
+      - link "Privacy Policy":
+        - /url: /privacy_policy/
+    - text: and accept their provisions.
+  - heading "Furniture that fits you. Not the other way around. Welcome to the future of living." [level=1]
+  - generic: Company
+  - checkbox "Company"
+  - list:
+    - link "About Tylko":
+      - /url: /en-de/about-tylko
+      - generic: About Tylko
+    - link "Showrooms":
+      - /url: /showrooms
+      - generic: Showrooms
+    - link "E-Gift Card":
+      - /url: /en-de/e-gift-card/1
+      - generic: E-Gift Card
+    - link "Journal":
+      - /url: https://journal.tylko.com/
+      - generic: Journal
+    - link "Press & Media":
+      - /url: /en-de/press
+      - generic: Press & Media
+    - link "Jobs":
+      - /url: https://tylko.recruitee.com/
+      - generic: Jobs
+    - link "Investor Relations":
+      - /url: /en-de/investor-relations
+      - generic: Investor Relations
+    - link "Digital Services Act":
+      - /url: /en-de/digital-services-act
+      - generic: Digital Services Act
+    - link "Tylko Pro":
+      - /url: /en-de/tylko-pro
+      - generic: Tylko Pro
+  - generic: Buying Guide
+  - checkbox "Buying Guide"
+  - list:
+    - link "FAQ":
+      - /url: /en-de/faq
+      - generic: FAQ
+    - link "Terms of Service":
+      - /url: /en-de/terms
+      - generic: Terms of Service
+    - link "E-Gift Card Terms of Use":
+      - /url: /en-de/terms-gift-card
+      - generic: E-Gift Card Terms of Use
+    - link "Privacy Policy":
+      - /url: /en-de/privacy_policy
+      - generic: Privacy Policy
+    - button "Edit cookies":
+      - generic: Edit cookies
+    - link "Shipping & Returns":
+      - /url: /en-de/shipping
+      - generic: Shipping & Returns
+    - link "Order cancellation":
+      - /url: /en-de/contact?topic=cancellation
+      - generic: Order cancellation
+    - link "Check Order Status":
+      - /url: /en-de/contact?topic=order_status
+      - generic: Check Order Status
+  - generic: Customer Service
+  - checkbox "Customer Service"
+  - list:
+    - link "Contact Details":
+      - /url: /en-de/contact
+      - generic: Contact Details
+    - button "WhatsApp":
+      - generic: WhatsApp
+    - link "Report violation":
+      - /url: https://tylko.whistlelink.com/
+      - generic: Report violation
+    - generic: Mon - Fr 10:00 - 20:00 CET
+    - generic: Sa 10:00 - 14:00 CET
+    - generic: Closed on Sundays
+    - button "LiveChat":
+      - generic: LiveChat
+  - generic: Follow us
+  - checkbox "Follow us"
+  - list:
+    - link "Facebook":
+      - /url: https://www.facebook.com/tylko
+      - generic: Facebook
+    - link "Instagram":
+      - /url: https://instagram.com/tylko/
+      - generic: Instagram
+    - link "Pinterest":
+      - /url: https://www.pinterest.com/tylko/
+      - generic: Pinterest
+    - link "Tiktok":
+      - /url: https://www.tiktok.com/@tylko.com
+      - generic: Tiktok
+  - paragraph: Shipping to
+  - button "germany Germany | English":
+    - img "germany"
+    - text: Germany
+    - generic: "|"
+    - text: English
+  - paragraph: Payment methods

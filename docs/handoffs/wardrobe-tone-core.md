@@ -54,3 +54,13 @@
 - physical도어는공통resolver와연결. 서랍물리상자/앞판도공통담당의actualgetRender대조결과를별도로인계받아야한다.
 
 Tone core 파일잠금해제. 공통파일·기존다른스타일·브라우저미수정.
+
+## 후속 — Tone 중간 경첩 생성 연결 (2026-10-14)
+
+- `generateToneSourceGeometry()`가 공통 `generateToneHingeEnvelopes()`로 생성한 `source.hinges`를 반환합니다. 경첩 규칙 함수를 다시 복사하지 않고 기존 독립 구현을 사용합니다.
+- 원본 module1670의 처리 순서에서 경첩은 선반 trim/두께 변경/서랍 바닥 선반 삭제보다 앞서 생성됩니다. 따라서 recipe 선반을 18mm 상태로 복제하여 보존합니다. recipe의 추가 선반도 원본에서는 `Ss`이며 장애물에 포함됩니다. 바닥판 `Sb`는 포함하지 않습니다.
+- module1965의 원본 도어 끝 여유: 위쪽은 최상단 −5mm / 중간 2mm, 아래쪽은 최하단 6mm / 중간 2mm. 이를 경첩 helper의 offset 입력에 전달합니다. 갤러리 문 경계를 실제 앞판 여유가 적용된 경계로 중복 보정하지 않습니다.
+- 경첩 bbox는 source 순서상 **문 여유 적용 전 축과 선반 장애물**로 계산되며 제조용 보링 사양으로 확대하지 않습니다. 안정 section ID를 `m_config_id`에 보존합니다.
+- 실제 원본 engine1888 `getGeometry().hinges`까지 기존 전체 비교 목록에 추가하여 **720/720 설정 PASS**. 동결155개 fixture도 경첩 bbox/방향을 포함하도록 갱신했습니다. 별도 72개 높이·깊이·서랍·조명 파일럿 조합도 PASS입니다.
+- 회귀18개 PASS: 통합 저장/복원12개, 경첩 원본·mesh·Edge 비교5개, Tone155개 fixture와 경첩 개수/ID/높이 경계1개. 변경 범위 ESLint PASS.
+- 이전 남은 범위 중 개구부와 서랍 실제 기하는 현재 공통 adapter/물리 서랍 담당이 연결했으며, 관련 검증은 `wardrobe-core.md`를 참고합니다. 설치부품의 실제 제조·강도·보링 검증은 여전히 별도 범위입니다.
