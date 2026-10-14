@@ -27,6 +27,7 @@ import { DimensionOverlay } from './DimensionOverlay';
 import {
 
   createColorMaterials,
+  solidDisplayColor,
   disposeMaterialSet,
   type MaterialSet,
 } from '@/lib/three/materials';
@@ -91,9 +92,9 @@ export function Shelf({ showDimensions = false, exploded = false, presentation =
           for (const material of [mats.verticalBase, mats.horizontalBase, mats.backPanel]) {
             material.map?.dispose();
             material.map = null;
-            material.color.set(classicColor);
-            material.roughness = 0.7;
-            material.envMapIntensity = 0.78;
+            material.color.set(currentColor === 'C_Green' ? solidDisplayColor(classicColor) : classicColor);
+            material.roughness = currentColor === 'C_Green' ? 0.5 : 0.7;
+            material.envMapIntensity = currentColor === 'C_Green' ? 1 : 0.78;
             material.needsUpdate = true;
           }
           mats.verticalEdge.roughness = 0.5;

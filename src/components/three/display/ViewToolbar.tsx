@@ -2,7 +2,7 @@
 
 import { AvatarSelector } from './AvatarSelector';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FiShare } from 'react-icons/fi';
 import { TbAugmentedReality2 } from 'react-icons/tb';
@@ -40,13 +40,25 @@ export function ViewToolbar({ onShare, onAR, actionsDisabled = false }: ViewTool
   const router = useRouter();
   // Keep the product view clear; every tool remains available under the View toggle.
   const [expanded, setExpanded] = useState(false);
+  const toolbarRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!expanded) return;
+    const dismissOutside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !toolbarRef.current?.contains(event.target)) {
+        setExpanded(false);
+      }
+    };
+    // Capture also reaches canvas clicks handled by the 3D controls.
+    document.addEventListener('pointerdown', dismissOutside, true);
+    return () => document.removeEventListener('pointerdown', dismissOutside, true);
+  }, [expanded]);
   const { showDecor, toggleDecor, boringSummary, showBores, toggleBores, phase, view, projection, appearance, setAppearance, exploded, freeOrbit, selectView, setProjection, toggleExploded } = useDisplayStore();
   const dimensions = useUIStore((s) => s.showDimensions);
   const setDimensions = useUIStore((s) => s.setShowDimensions);
   const measuring = useMeasureStore((s) => s.enabled);
   const toggleMeasure = useMeasureStore((s) => s.toggle);
   const moving = phase === 'assembling' || phase === 'disassembling';
-  return <><div className={styles.toolbar} onKeyDown={(event) => { if (event.key === 'Escape') { setExpanded(false); event.currentTarget.querySelector<HTMLButtonElement>('button[aria-controls]')?.focus(); } }}>
+  return <><div ref={toolbarRef} className={styles.toolbar} onKeyDown={(event) => { if (event.key === 'Escape') { setExpanded(false); event.currentTarget.querySelector<HTMLButtonElement>('button[aria-controls]')?.focus(); } }}>
     <button className={styles.menu} aria-expanded={expanded} aria-controls="viewer-display-options" title={expanded ? t('보기 도구 접기') : t('보기 도구 펼치기')} onClick={() => setExpanded(!expanded)}>
       <CubeIcon face="standard" />{t('보기')}<span aria-hidden="true" className={styles.chevron}>{expanded ? '⌃' : '⌄'}</span>
     </button>

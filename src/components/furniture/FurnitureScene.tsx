@@ -6,7 +6,7 @@ import { Html, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 import type { FurnitureDesign } from '@/lib/furniture/design';
-import { createColorMaterials, createMaterialsForColor, type MaterialSet } from '@/lib/three/materials';
+import { createColorMaterials, solidDisplayColor, createMaterialsForColor, type MaterialSet } from '@/lib/three/materials';
 import { REFERENCE_CLASSIC_COLORS, REFERENCE_COLORS } from '@/lib/three/reference-colors';
 import { WARDROBE_COLORS } from '@/lib/furniture/wardrobe-colors';
 import {createWardrobeWoodMaterials,disposeFurnitureMaterials} from '@/lib/furniture/wardrobe-materials';
@@ -48,7 +48,9 @@ function Materials({color,children}:{color:string;children:(materials:MaterialSe
     request.then(materials=>{
       if(ref) applyReferenceAlbedo(materials,ref);
       if(classic) for(const material of [materials.verticalBase,materials.horizontalBase,materials.backPanel]){
-        material.map?.dispose();material.map=null;material.color.set(classic);material.needsUpdate=true;
+        material.map?.dispose();material.map=null;material.color.set(color==='C_Green'?solidDisplayColor(classic):classic);
+        if(color==='C_Green'){material.roughness=.5;material.envMapIntensity=1;}
+        material.needsUpdate=true;
       }
       if(disposed){disposeFurnitureMaterials(materials);return;}
       owned=materials;setLoaded({color,materials});

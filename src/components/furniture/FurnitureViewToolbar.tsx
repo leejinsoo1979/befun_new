@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { FiBox, FiColumns, FiMaximize, FiRotateCcw, FiZoomIn, FiZoomOut } from 'react-icons/fi';
 import { useLocale } from '@/lib/commerce/useLocale';
 import styles from '@/components/three/display/display.module.css';
@@ -20,8 +20,20 @@ type Props = {
 export function FurnitureViewToolbar(props: Props) {
   const { t } = useLocale();
   const [expanded, setExpanded] = useState(false);
+  const toolbarRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!expanded) return;
+    const dismissOutside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !toolbarRef.current?.contains(event.target)) {
+        setExpanded(false);
+      }
+    };
+    // Capture also reaches canvas clicks handled by the 3D controls.
+    document.addEventListener('pointerdown', dismissOutside, true);
+    return () => document.removeEventListener('pointerdown', dismissOutside, true);
+  }, [expanded]);
   const id = useId();
-  return <div className={styles.toolbar} onKeyDown={event => {
+  return <div ref={toolbarRef} className={styles.toolbar} onKeyDown={event => {
     if (event.key === 'Escape') {
       event.preventDefault();event.stopPropagation();
       setExpanded(false);

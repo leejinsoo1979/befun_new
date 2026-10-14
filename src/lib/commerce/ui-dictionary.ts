@@ -3,6 +3,7 @@ export type UILanguage = 'ko' | 'en' | 'ja';
 const phrases: readonly (readonly [string, string, string])[] = [
   ['우드 W4 (다크)', 'Wood W4 (Dark)', 'ウッド W4（ダーク）'],
   ['우드 W2 (브라운)', 'Wood W2 (Brown)', 'ウッド W2（ブラウン）'],
+  ['그린', 'Green', 'グリーン'],
   ["보기", "View", "表示"],
   ["보기 도구 접기", "Collapse view tools", "表示ツールを閉じる"],
   ["보기 도구 펼치기", "Expand view tools", "表示ツールを開く"],

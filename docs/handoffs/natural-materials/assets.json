@@ -1,0 +1,120 @@
+[
+  {
+    "archive": "51539.rar",
+    "key": "N_Wood_W4",
+    "sources": [
+      {
+        "entry": "Map/W_4 Diffuse.png",
+        "bytes": 7262712,
+        "width": 1600,
+        "height": 3200,
+        "sha256": "d40058356021b2b9080282684c202574715cef5e91c66581ef8b80f5e6b49456"
+      },
+      {
+        "entry": "Map/W_4_Normal GL.png",
+        "bytes": 20213558,
+        "width": 1600,
+        "height": 3200,
+        "sha256": "19e12a23b0272c4f2efb78686c184bf3cea946d08ce318a7f728e08c2f1b6fd4"
+      },
+      {
+        "entry": "Map/W_4_Gloss.png",
+        "bytes": 3778899,
+        "width": 1600,
+        "height": 3200,
+        "sha256": "717980df10b47271e8d53b0b56da4de4680dba7a27c8fca1208ec1bf2e95f23d"
+      }
+    ],
+    "assets": [
+      {
+        "url": "/imgs/textures/imported-natural-w4/base.webp",
+        "bytes": 144340,
+        "width": 1024,
+        "height": 2048,
+        "sha256": "165fb69b0348ec0a058241556af5ddc8e87ace212fef9b7875e69f609a42e62c"
+      },
+      {
+        "url": "/imgs/textures/imported-natural-w4/normal.webp",
+        "bytes": 313826,
+        "width": 512,
+        "height": 1024,
+        "sha256": "719b3d7255eb1b5545de3471a39c1433e1c80ea1363a5b6e4f4a384892781660"
+      },
+      {
+        "url": "/imgs/textures/imported-natural-w4/roughness.webp",
+        "bytes": 1690,
+        "width": 512,
+        "height": 1024,
+        "sha256": "ff86da2a123cb27dab5c2ef7fa8321d41f0c387b7cf4f1d04084ee99f9b16c6a"
+      },
+      {
+        "url": "/imgs/natural_color/imported-wood-w4.webp",
+        "bytes": 182,
+        "width": 96,
+        "height": 96,
+        "sha256": "b74cd9f596c33d235640936948d61d17317a85f727ef507059180e7315d6cc61"
+      }
+    ],
+    "sourceMapBytes": 31255169,
+    "webBytes": 460038
+  },
+  {
+    "archive": "51537.rar",
+    "key": "N_Wood_W2",
+    "sources": [
+      {
+        "entry": "Map/W2_Diffuse.jpg",
+        "bytes": 729007,
+        "width": 1416,
+        "height": 2514,
+        "sha256": "1c8351376f4d699796f883d714a0fe0ab5a27b6906ee3b1157bb873b44519842"
+      },
+      {
+        "entry": "Map/W_22_Normal GL.png",
+        "bytes": 13172677,
+        "width": 1416,
+        "height": 2514,
+        "sha256": "50e0157777e49ca819981e2bb3b07074cfda584f6df89fec1149cd88a6a83448"
+      },
+      {
+        "entry": "Map/W_22_Gloss2.png",
+        "bytes": 2232792,
+        "width": 1416,
+        "height": 2514,
+        "sha256": "8058aaf49a04c9372bcb1a03d5cc79974b92261e00aaa83a07382e6f7dc24dc1"
+      }
+    ],
+    "assets": [
+      {
+        "url": "/imgs/textures/imported-natural-w2/base.webp",
+        "bytes": 151282,
+        "width": 1154,
+        "height": 2048,
+        "sha256": "e43b109a3b2d75687c92289bf2547c700f1102ba00282460b0f5270ae66b73d9"
+      },
+      {
+        "url": "/imgs/textures/imported-natural-w2/normal.webp",
+        "bytes": 450970,
+        "width": 577,
+        "height": 1024,
+        "sha256": "752d347553b0ba57345c459f5e1c811f73174e95c1cdaa6e0f1dcf1d100cb7a8"
+      },
+      {
+        "url": "/imgs/textures/imported-natural-w2/roughness.webp",
+        "bytes": 77806,
+        "width": 577,
+        "height": 1024,
+        "sha256": "2af94d00f9ee4d34eb70ca841f64919b0fee5ce6bd27a25ef5575da11da0c037"
+      },
+      {
+        "url": "/imgs/natural_color/imported-wood-w2.webp",
+        "bytes": 786,
+        "width": 96,
+        "height": 96,
+        "sha256": "29e0ce4e6fc2e6635e9e352b3c1c14cee3249b340526964bd6e0fe5fa2c2069a"
+      }
+    ],
+    "sourceMapBytes": 16134476,
+    "webBytes": 680844
+  }
+]

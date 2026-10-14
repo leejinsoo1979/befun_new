@@ -31,6 +31,8 @@ export const REFERENCE_COLORS: Record<string, { referenceId: number; base: strin
 export const REFERENCE_CLASSIC_COLORS: Record<string, string> = {
   C_White:'#F5F5F5', C_Black:'#1F1F1E', C_Gray:'#B2B2B2',
   C_Pink:'#BCA9A2', C_Yellow:'#CCA550',
+  // Befun addition requested by the user; no observed Tylko material ID.
+  C_Green:'#034A22',
   C_Blue:'#2271B2', 'C_Moss Green':'#6B6C56',
   C_Cashmere:'#B5ADA3', 'C_Clay Brown':'#B57E5B',
 };

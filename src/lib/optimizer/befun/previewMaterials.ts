@@ -1,6 +1,6 @@
-import { createNaturalMaterialsForColor } from '@/lib/three/natural-materials';
 import * as THREE from 'three';
-import { createColorMaterials,  createFaceMaterials, type MaterialSet } from '@/lib/three/materials';
+import { createColorMaterials, createFaceMaterials, solidDisplayColor, type MaterialSet } from '@/lib/three/materials';
+import { createNaturalMaterialsForColor } from '@/lib/three/natural-materials';
 import { REFERENCE_COLORS, REFERENCE_CLASSIC_COLORS } from '@/lib/three/reference-colors';
 import { applyReferenceAlbedo } from '@/lib/three/reference-materials';
 import type { CncPanelBox } from './toCncPanels';
@@ -16,9 +16,9 @@ export async function previewMaterialSet(color: string): Promise<MaterialSet> {
     for (const material of [materials.verticalBase, materials.horizontalBase, materials.backPanel]) {
       material.map?.dispose();
       material.map = null;
-      material.color.set(classic);
-      material.roughness = 0.7;
-      material.envMapIntensity = 0.78;
+      material.color.set(color === 'C_Green' ? solidDisplayColor(classic) : classic);
+      material.roughness = color === 'C_Green' ? 0.5 : 0.7;
+      material.envMapIntensity = color === 'C_Green' ? 1 : 0.78;
       material.needsUpdate = true;
     }
     materials.verticalEdge.roughness = materials.horizontalEdge.roughness = 0.5;

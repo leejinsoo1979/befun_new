@@ -17,6 +17,7 @@ interface ColorOption {
 
 const CLASSIC_COLORS: ColorOption[] = [
   { name: 'C_White', image: '/imgs/classic_color/classic-white.svg', category: 'classic' },
+  { name: 'C_Green', image: '/imgs/classic_color/classic-white.svg', category: 'classic' },
   { name: 'C_Moss Green', image: '/imgs/classic_color/classic-white.svg', category: 'classic' },
   { name: 'C_Gray', image: '/imgs/classic_color/classic-gray.svg', category: 'classic' },
   { name: 'C_Black', image: '/imgs/classic_color/classic-black.svg', category: 'classic' },
@@ -35,7 +36,7 @@ const NATURAL_COLORS: ColorOption[] = [
 ];
 
 // Live Type02 swatches verified in material-source-001; legacy saved keys still render.
-const SOLID_COLORS: ColorOption[] = ["S_White", "S_Midnight Blue", "S_Matte Black", "S_Black", "S_Teracotta", "S_Sky Blue", "S_Stone Gray", "S_Gray", "S_Butter Yellow", "S_Cotton", "S_Olive Green", "S_Sage Green", "S_Burgundy", "S_Reisinger Pink", "S_Lilac", "S_Dark Brown"].map(name => ({ name, image: '', category: 'solid' }));
+const SOLID_COLORS: ColorOption[] = ["S_White", "S_Green", "S_Midnight Blue", "S_Matte Black", "S_Black", "S_Teracotta", "S_Sky Blue", "S_Stone Gray", "S_Gray", "S_Butter Yellow", "S_Cotton", "S_Olive Green", "S_Sage Green", "S_Burgundy", "S_Reisinger Pink", "S_Lilac", "S_Dark Brown"].map(name => ({ name, image: name === 'S_Green' ? '/imgs/solid_color/solid-green.svg' : '', category: 'solid' }));
 
 const MIX_COLORS: ColorOption[] = [
   { name: 'Sand+Midnight Blue', image: '/imgs/edgemix_color/edgemix-blue.svg', category: 'edgeMix' },
@@ -108,13 +109,14 @@ export function ColorPicker() {
         <div className="flex flex-1 flex-wrap gap-[5px]">
           {colors.map((c) => {
             const isActive = currentColor === c.name || (c.name === 'S_Teracotta' && currentColor === 'S_Teracotta Orange');
+            const label = tr(c.label ?? c.name);
             return (
               <button
                 key={c.name}
                 onClick={() => setColor(c.name, c.category)}
                 className={`tylko-color-swatch ${isActive ? 'active' : ''}`}
-                title={tr(c.label ?? c.name)}
-                aria-label={tr(c.label ?? c.name)}
+                title={label}
+                aria-label={label}
               >
                 {REFERENCE_COLORS[c.name] ? (
                   <span aria-hidden="true" className="block h-6 w-6 rounded-full" style={{
@@ -128,7 +130,7 @@ export function ColorPicker() {
                   }} />
                 ) : <Image
                   src={c.image}
-                  alt={tr(c.label ?? c.name)}
+                  alt={label}
                   width={24}
                   height={24}
                   className="rounded-full"
