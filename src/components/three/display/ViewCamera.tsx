@@ -127,7 +127,7 @@ function CameraControls() {
     };
   }, []);
 
-  return <OrbitControls ref={controls} makeDefault camera={camera} enableDamping={false}
+  return <OrbitControls ref={controls} makeDefault camera={camera} enableDamping={false} zoomToCursor
     onStart={() => { goal.current.active = false; useDisplayStore.setState({ freeOrbit: true, cinematic: false }); }}
     minDistance={15} maxDistance={4000} minZoom={0.1} maxZoom={10} />;
 }

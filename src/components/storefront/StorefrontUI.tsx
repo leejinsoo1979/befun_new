@@ -101,12 +101,12 @@ export function ProductCard({ product, saved, toggleSaved, open, plp = false }: 
 
 
 /**
- * 애니메이션 로고(1200×675 GIF, 로고 본체 x216–984·y≈266–410). 본체만 120px 폭 칸에 맞추고
+ * 애니메이션 로고(800×300 GIF, 로고 본체 x16–784·y≈136–280, 끝에 글자 물결). 본체만 120px 폭 칸에 맞추고
  * 위로 튀는 글자는 칸 밖으로 보이게 둔다. 동작 줄이기 설정에서는 정지 PNG.
  */
 export function BrandLogo({ color = 'black' }: { color?: 'black' | 'white' }) {
   return <span className={styles.brandLogoAnimated} role="img" aria-label="Befun">
-    <Image src={`/imgs/icon/befun-logo-animated-${color}.gif`} alt="" width={1200} height={675} unoptimized priority={color === 'black'} className={styles.brandLogoGif} />
+    <Image src={`/imgs/icon/befun-logo-animated-${color}.gif?v=4`} alt="" width={800} height={300} unoptimized priority={color === 'black'} className={styles.brandLogoGif} />
     <Image src={`/imgs/icon/befun-logo-static-${color}.png`} alt="" width={1407} height={272} unoptimized className={styles.brandLogoStatic} />
   </span>;
 }
