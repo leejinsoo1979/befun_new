@@ -1,0 +1,64 @@
+{
+  "desktop": [
+    {
+      "url": "/reference-product/wardrobe-2",
+      "opened": {
+        "height": 1080,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "fixed",
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "closed": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 1426,
+        "x": 0,
+        "y": -174.5
+      }
+    },
+    {
+      "url": "/reference-product/desk-1",
+      "opened": {
+        "height": 1080,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "fixed",
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "closed": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 1426,
+        "x": 0,
+        "y": -174.5
+      }
+    }
+  ],
+  "mobile": {
+    "viewport": [
+      390,
+      844
+    ],
+    "opened": {
+      "width": 390,
+      "height": 844,
+      "position": "fixed"
+    },
+    "closed": {
+      "width": 390,
+      "height": 430,
+      "position": "relative"
+    },
+    "nativeFullscreen": false,
+    "note": "Full-window fallback exercised; original page scroll restored via its existing #main anchor."
+  }
+}
