@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef, useState, useSyncExternalStore, type CSSProperties } from 'react';
+import { useRef, useState, useSyncExternalStore } from 'react';
 import { FiArrowRight, FiCheck, FiPause, FiPlay, FiVolume2, FiVolumeX } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
 import { asset, products, productHeight, stories, type CatalogProduct } from './catalog';
@@ -14,20 +14,7 @@ import { CollectionChooser } from './CollectionChooser';
 import { ProcessCards } from './ProcessCards';
 import { JoinSection } from './JoinSection';
 import { ReferenceImage, Carousel, ProductCard, productHref } from './StorefrontUI';
-import { categoryLinks, catalogHref, journalArticles } from './navigation';
-
-const categoryButtonWidths = [
-  [105.5078125, 184.5546875, 213.78125, 224.640625],
-  [149.59375, 237.6640625, 284.421875, 301.8046875],
-  [176.0625, 269.3515625, 326.734375, 347.921875],
-  [205.6953125, 305.0625, 374.2265625, 399.8046875],
-  [170.625, 263.4296875, 318.34375, 339.046875],
-  [154.765625, 243.2421875, 292.3828125, 310.203125],
-  [175.15625, 269.203125, 325.7578125, 347.28125],
-  [215.7734375, 315.890625, 389.7109375, 416.125],
-  [256.953125, 366.3046875, 456.1015625, 489],
-  [201.296875, 299.4609375, 367.0234375, 391.8046875],
-];
+import { journalArticles } from './navigation';
 
 /** 메인 랜딩 영상 (로컬, 1440×720) */
 const heroVideo = '/videos/befun-hero-1440x720.mp4';
@@ -114,11 +101,6 @@ export function Storefront() {
 
   return <StorefrontFrame overlay>
       <Hero />
-      <section className={styles.categorySection}>
-        <p className={styles.eyebrow}>{t('가구의 새로운 가능성')}</p>
-        <h2>{t('공간에 맞게. 오래 함께. 간편하게.')}<br />{t('나만의 가구를 만들어 보세요.')}</h2>
-        <div className={styles.categoryPills}>{categoryLinks.map(([title, slug], index) => <Link key={slug} href={catalogHref(slug)} style={{ "--category-mobile-width": `${categoryButtonWidths[index][0]}px`, "--category-tablet-width": `${categoryButtonWidths[index][1]}px`, "--category-middle-width": `${categoryButtonWidths[index][2]}px`, "--category-desktop-width": `${categoryButtonWidths[index][3]}px` } as CSSProperties}>{t(title)}<FiArrowRight aria-hidden="true" /></Link>)}</div>
-      </section>
       <section className={`${styles.section} ${styles.recentSection}`}>
         <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>{t('당신의 다음 디자인')}</p><h2>{t('이런 가구는 어떠세요?')}</h2></div><Link href="/furniture-c" className={styles.outlineButton}>{t('모두 보기')}</Link></div>
         <Carousel label={t('추천 디자인')}>{products.slice(0, 4).map(renderProduct)}</Carousel>

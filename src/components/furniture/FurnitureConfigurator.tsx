@@ -5,7 +5,7 @@ import { useLocale } from '@/lib/commerce/useLocale';
 import dynamic from 'next/dynamic';
 import { ConfiguratorLoading } from '@/components/ui/ConfiguratorLoading';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FiMaximize, FiSave, FiShare2 } from 'react-icons/fi';
 import { FurnitureViewToolbar } from './FurnitureViewToolbar';
 import { DeskSectionEditor } from './DeskSectionEditor';
@@ -28,6 +28,25 @@ export function FurnitureConfigurator({initial, title, catalogId}:{initial:Furni
   const [front,setFront]=useState(false);
   const [reset,setReset]=useState(0);
   const [zoom,setZoom]=useState({factor:1,revision:0});
+  const [fullscreen,setFullscreen]=useState(false);
+  const viewerRef=useRef<HTMLDivElement>(null);
+  useEffect(()=>{
+    const sync=()=>setFullscreen(!!document.fullscreenElement);
+    document.addEventListener('fullscreenchange',sync);
+    return()=>document.removeEventListener('fullscreenchange',sync);
+  },[]);
+  useEffect(()=>{
+    if(!fullscreen)return;
+    const previous=document.body.style.overflow;document.body.style.overflow='hidden';
+    const escape=(event:KeyboardEvent)=>{if(event.key==='Escape'&&!document.fullscreenElement)setFullscreen(false);};
+    window.addEventListener('keydown',escape);
+    return()=>{document.body.style.overflow=previous;window.removeEventListener('keydown',escape);};
+  },[fullscreen]);
+  const toggleFullscreen=async()=>{
+    if(fullscreen){if(document.fullscreenElement)await document.exitFullscreen();setFullscreen(false);return;}
+    setFullscreen(true);
+    try{await viewerRef.current?.requestFullscreen?.();}catch{/* Keep the same full-window view when native fullscreen is unavailable. */}
+  };
   const [status,setStatus]=useState('');
   const [deskEditor,setDeskEditor]=useState<'storage'|'legroom'|null>(null);
   const view=design.kind==='desk'?deskPanelView(design,selected):wardrobePanelView(design,selected);
@@ -60,10 +79,10 @@ export function FurnitureConfigurator({initial, title, catalogId}:{initial:Furni
   return <section id="configuration" className={styles.page}>
     <div className={styles.heading}><div><Link href="/configurator-intro">{tr("가구 선택")}</Link><h1>{tr(title ?? FAMILY_NAMES[design.family])}</h1></div><p>{design.config.widthMm/10} × {design.kind==='desk'?73:Math.max(design.config.heightMm,...design.config.sections.map(s=>s.localHeightMm??0))/10} × {(design.kind==='desk'?design.config.depthMm:Math.max(design.config.depthMm,...design.config.sections.map(s=>s.localDepthMm??0)))/10} cm</p></div>
     <div className={styles.layout}>
-      <div className={styles.viewer}>
+      <div ref={viewerRef} className={styles.viewer} data-fullscreen={fullscreen||undefined}>
         <Scene design={design} open={open} dimensions={dimensions} front={front} reset={reset} zoom={zoom} interior={tab==='interior'} selectedSectionId={design.kind==='wardrobe'&&tab!=='interior'?null:selected} onSelectSection={select} onEditDeskLegroom={()=>setDeskEditor('legroom')}/>
         <FurnitureViewToolbar open={open} dimensions={dimensions} front={front} onOpen={()=>setOpen(!open)} onDimensions={()=>setDimensions(!dimensions)} onFront={value=>{setFront(value);setReset(count=>count+1);}} onReset={()=>setReset(count=>count+1)} onZoom={factor=>setZoom(value=>({factor,revision:value.revision+1}))}/>
-        <button className={styles.fullscreen} onClick={event=>{const viewer=event.currentTarget.closest(`.${styles.viewer}`);if(document.fullscreenElement)void document.exitFullscreen();else if(viewer instanceof HTMLElement)void viewer.requestFullscreen();}}><FiMaximize/>{tr('전체 화면')}</button>
+        <button className={styles.fullscreen} onClick={()=>void toggleFullscreen()} aria-pressed={fullscreen}><FiMaximize/>{tr(fullscreen?'전체 화면 종료':'전체 화면')}</button>
         <p className={styles.viewerHint}>{tr("드래그하여 회전 · 스크롤하여 확대 · 수납 구획을 눌러 편집")}</p>
       </div>
       <aside className={`${styles.options} ${design.kind==='desk'?styles.deskOptions:''}`} aria-label={tr("가구 옵션")}>

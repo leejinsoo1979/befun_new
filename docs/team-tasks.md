@@ -1536,6 +1536,7 @@
 - 캐비넷 진입링크 연관 잠금: 기존 src/components/assembly-guide/guide.module.css의 신규 .cabinetEntry 스타일만. 이전 화살표 및 기타스타일/리더R7 CSS는 보존.
 
 - 캐비넷 광원 소비 추가잠금: src/components/assembly-guide/GuideEnvironment.tsx의선택적 lightingScale/shadows props만. 기존단품시연 기본광원값은 유지, 전체캐비넷 내부에 들어오는 단품전용shadow광원을 비활성화하고 캐비넷전용광원으로그림자검증.
+- `claude-graphics` (사용자 제공 영상 Wardrobes/Sofas, 2026-10-14 16:06) → `public/videos/configure-yours-{wardrobes,sofas}.mp4`+포스터 추가, `DownloadedCatalog` `promoVideo` prop: 옷장 페이지=wardrobes, 소파 계열=sofas, 그 외=storage.
 - `claude-graphics` (사용자 제공 영상 Tylko_Configure_Yours_Storage.mp4, 2026-10-14 15:58) → PLP 그리드 첫 칸 "Configure yours" 카드 배경을 `public/videos/configure-yours-storage.mp4`(720×1006, 6s) 자동재생(muted loop playsInline)+첫 프레임 포스터로 교체. `DownloadedCatalog.tsx`·`.plpPromo video` CSS.
 - `claude-graphics` (사용자 지적 configurator-intro 썸네일, 2026-10-14 15:40) → `ConfiguratorIntro.tsx` 1단계 13개 분류 이미지를 원격 Tylko 시도+중복 대체사진에서 R6 다운로드 원본 썸네일(각 CSV 카테고리 1번째, `/imgs/product-cards/`)로 교체, 분류명 t() 적용. 2단계 모델 이미지는 미변경.
 - `claude-graphics` (사용자 직접 지시 "푸터에 기업정보", 2026-10-14) → `StorefrontFrame.tsx` 푸터 하단에 `<address>` 기업정보 추가: 상호 (주)유에이블 코퍼레이션 · 대표자 이진수 · 주소 서울시 강남구 언주로 97길 7, 5F · 이메일 contact@befun.co.kr(mailto). en/ja 라벨·주소 표기(messages.ts), 상호는 법인명 원문 유지. CSS `.footerCompany`.
@@ -1554,3 +1555,15 @@
 - codex-storefront → 캐비넷 담당: 상세 브랜드 사진 이동의 HEAD 격리 전체lint에서 CabinetScene.tsx:67 기존 useMemo 의존배열의 `props.phase === 'complete'`가 react-hooks/use-memo 오류로 검출됩니다. 잠금 파일 미수정, 본인4소스 범위lint0. 현재 수정 중인 캐비넷 완료검사에 포함 부탁드립니다.
 
 - 상세 브랜드 사진 이동 완료 / codex-storefront: 대형 중복brandMedia를 선반·책상·옷장 상세에서 제거, 같은 그레이 원본사진은 /about-tylko hero로 이동. 브랜드/소재 안내는 사진없는 링크로 통일. 실제3003 4경로·About 링크 이동 확인, scoped lint0, 격리 HEAD+4변경 build/TypeScript20페이지PASS. 전체lint 기존 CabinetScene useMemo 오류는 담당요청으로 분리. 위좁은4소스·본인handoff 잠금해제; 다른진행중소스/공유3003보존.
+
+### 추천 카드 초기 구성 일치 / codex-assistant / 사용자 직접 요청
+- 원인: catalog6상품 사진은 다른 family/style인데 loadProductConfiguration이 Grid50/standard/뒷판off 강제. 사진 교체로 숨기지 않고 상품별 초기 seed 및 공통 로더를 교정한다.
+- 잠금: catalog.ts의 CatalogProduct·6상품 초기값·가격/높이 helper, configuration.ts의 loadProductConfiguration 및 신규 preset 함수/검사만. 다른 담당의 모델/스타일/뷰어 변경은 보존. 실제 초기값·미지원 제품군을 확인해 기록한다.
+- 추가 사용자 요청: Storefront.tsx 메인 categorySection(큰 분류 버튼 영역)과 전용 상수/import만 잠금·제거.
+
+
+### 상세 구성 복구 — codex-storefront / 2026-10-14 착수
+- 사용자 지적 수신: 앞선 브랜드 배너 이동에서 하단 사진 카드까지 텍스트로 축소한 과도한 변경을 복구. 상세 갤러리·사양·추천 흐름 보존하고 지적된 대형 중복 브랜드 배너만 이동 유지.
+- 좁은 단독 잠금: ProductDetails.tsx/FurnitureProductDetails.tsx discover 영역, 신규 ProductDiscovery.tsx 및 public/imgs/product-discovery/**, 본인 handoff/provenance append. 다른 storefront/뷰어/관리자/캐비넷 진행 파일 미수정.
+- 메인 categorySection 제거 완료: 제목·분류10버튼 및 전용폭상수/import 제거, Chrome3003 홈에서 Hero 다음 추천상품으로 이어짐 확인, scoped ESLint0. Storefront.tsx 해당영역 잠금 해제.
+- 원본 월수납장1964423,w는 목록자료에서 Tone 206×194×45cm로 확인되며 현재 generic Grid206×183×32와 family까지 다름. 기존 사진/fixture를 바꾸거나 추정값을 동일구성으로 표시하지 않음. 원본 Chrome 신규진입은 Cloudflare 보안 확인 페이지여서 옵션확보 미완료. catalog/configuration 제품수정은 아직 없으며 조사잠금 유지.

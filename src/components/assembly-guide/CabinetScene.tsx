@@ -53,10 +53,11 @@ function AssemblyWorld(props: Props) {
   const previous = useRef(-1);
   const cameraRig = useMemo(() => createCameraRig(), []);
   const focus = useMemo(() => ({ target: new Vector3(), q: new Quaternion(), identity: new Quaternion() }), []);
+  const finished = props.phase === 'complete';
   const overviewBounds = useMemo(() => {
     const bounds = new Box3();
     for (const part of plan.parts) {
-      const placed = preview || props.phase === 'complete' || part.number - 1 < props.step;
+      const placed = preview || finished || part.number - 1 < props.step;
       const at = placed ? part.animation.anchor : part.animation.floor;
       const rotation = new Quaternion().setFromEuler(new Euler(...(placed ? [0, 0, 0] as const : part.animation.rotation)));
       for (const x of [-1, 1]) for (const y of [-1, 1]) for (const z of [-1, 1]) {
@@ -64,7 +65,7 @@ function AssemblyWorld(props: Props) {
       }
     }
     return { center: bounds.getCenter(new Vector3()), radius: bounds.getSize(new Vector3()).length() * .5 };
-  }, [plan, preview, props.step, props.phase === 'complete']);
+  }, [plan, preview, props.step, finished]);
   const finish = befunColorLook(plan.design.color).surface;
   useFrame(({ camera, size }, seconds) => {
     onTick(seconds);
@@ -106,7 +107,7 @@ function AssemblyWorld(props: Props) {
   const showTarget = !preview && props.phase === 'ready';
   return <>
     <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow><planeGeometry args={[14000, 14000]} /><shadowMaterial transparent opacity={.14} /></mesh>
-    <directionalLight position={[-1200, 2400, 1600]} intensity={1.8} castShadow shadow-mapSize={[2048, 2048]} shadow-radius={4}
+    <directionalLight position={[-1200, 2400, 1600]} intensity={1.8} castShadow={view !== 'joint' && !inside} shadow-mapSize={[2048, 2048]} shadow-radius={4}
       shadow-camera-left={-2600} shadow-camera-right={2600} shadow-camera-top={2600} shadow-camera-bottom={-2600} shadow-camera-far={9000} shadow-bias={-.0001} shadow-normalBias={1.5} />
     <group position={[0, 10, 0]}>
       {plan.parts.map(part => <Part key={part.id} part={part} plan={plan} state={state} preview={preview} inside={inside} doorOpen={doorOpen} finish={finish} onSelect={onSelect} />)}

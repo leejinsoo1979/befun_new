@@ -100,3 +100,7 @@
 ## 2026-10-14 구현 상태 갱신
 
 Edge/Tone 실제 생성기·우측 편집·경첩·옷봉·조명·문/서랍·저장 URL을 연결했습니다. [최신 통합 검사](../handoffs/desk-wardrobe-integration.md), [Edge 근거](../handoffs/wardrobe-core.md), [Tone 근거](../handoffs/wardrobe-tone-core.md). 초기 미구현 기록을 보존하며, 제조치수 미확인과 물리판 최대1mm 차이는 미해결입니다.
+
+## R8 최종 표시 단계 교정 / 2026-10-14
+
+Tone 중간 getRender 판재와 최종 표시를 혼동한 검증 누락을 수정했다. 최종 폭/높이/외부 전면과 위→아래 차등 인출을 72설정·1,170판재에서 검증했다. 뷰어는 선반의 공통 배경·후처리·fitView와 보기 메뉴 CSS를 사용한다. 상세 근거/화면/남은 차이: [R8 검증](../handoffs/wardrobe-viewer-review/README.md). 사례 `wardrobe-viewer-r8-001`; 전체 시각 동치 미완료.

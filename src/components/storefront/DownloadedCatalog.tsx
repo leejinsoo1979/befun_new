@@ -31,7 +31,7 @@ const COPY: Record<NameLanguage, { notice: string; count: (n: number) => string;
  * 카테고리 상품 목록 (Tylko PLP처럼 하나의 그리드). lead = 앞에 둘 비펀 상품/편집 가능한 디자인 카드,
  * 이어서 R6 다운로드 레퍼런스(CSV 순서). 이미지 연결은 ProductCardImage 계약 그대로.
  */
-export function DownloadedCatalog({ items, lead = [], promo = true }: { items: DownloadedItem[]; lead?: ReactNode[]; promo?: boolean }) {
+export function DownloadedCatalog({ items, lead = [], promo = true, promoVideo = 'storage' }: { items: DownloadedItem[]; lead?: ReactNode[]; promo?: boolean; promoVideo?: 'storage' | 'wardrobes' | 'sofas' }) {
   const { language } = useLocale();
   const lang = (language ?? 'ko') as NameLanguage;
   const copy = COPY[lang];
@@ -42,7 +42,7 @@ export function DownloadedCatalog({ items, lead = [], promo = true }: { items: D
   return <section className={styles.downloadedCatalog} aria-label={copy.label}>
     <p className={styles.resultCount}>{copy.count(total)}</p>
     <PriceNotice />
-    <div className={styles.productGrid}>{promo ? <Link href="/configurator" className={styles.plpPromo}><Image src="/imgs/storefront/storage.avif" alt="" fill sizes="(max-width:700px) 45vw, 24vw" /><span>{PROMO[lang].eyebrow}</span><strong>{PROMO[lang].title}</strong><em>{PROMO[lang].cta}</em></Link> : null}{lead}{visibleItems.map(item => {
+    <div className={styles.productGrid}>{promo ? <Link href="/configurator" className={styles.plpPromo}><Image src={`/videos/configure-yours-${promoVideo}-poster.webp`} alt="" fill sizes="(max-width:700px) 45vw, 24vw" /><video key={promoVideo} src={`/videos/configure-yours-${promoVideo}.mp4`} poster={`/videos/configure-yours-${promoVideo}-poster.webp`} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1} /><span>{PROMO[lang].eyebrow}</span><strong>{PROMO[lang].title}</strong><em>{PROMO[lang].cta}</em></Link> : null}{lead}{visibleItems.map(item => {
       const name = localizedProductName(item.name, lang);
       return <article key={`${item.categoryKey}-${item.sequence}`} className={styles.productCard}>
         <Link href={downloadedItemHref(item)} className={styles.productVisual}>

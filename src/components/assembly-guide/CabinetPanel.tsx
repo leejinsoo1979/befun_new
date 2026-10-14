@@ -42,7 +42,7 @@ export function CabinetPanel({ part, plan, inside, finish, state, preview, doorO
   const geometry = useMemo(() => createCabinetPanelGeometry(part), [part]);
   useEffect(() => () => geometry?.dispose(), [geometry]);
   const materials = useMemo(() => ({
-    housing: new MeshStandardMaterial({ color: '#b9bec6', roughness: .3, side: DoubleSide, transparent: inside, opacity: inside ? .2 : 1, depthWrite: !inside }),
+    housing: new MeshStandardMaterial({ color: '#b9bec6', roughness: .3, side: DoubleSide, transparent: inside, opacity: inside ? .55 : 1, depthWrite: !inside }),
     connector: new MeshStandardMaterial({ color: '#22262c', roughness: .4, side: DoubleSide }),
     feet: new MeshStandardMaterial({ color: '#1a1a1a', roughness: .6, transparent: inside, opacity: inside ? .1 : 1, depthWrite: !inside }),
   }), [inside]);
@@ -86,7 +86,7 @@ export function CabinetPanel({ part, plan, inside, finish, state, preview, doorO
         {mount.role === 'end' && <group name="cabinet-central-connector" quaternion={[1, 0, 0, 0]}><OvvoPC material={materials.connector} /></group>}
       </group>)}
     </group>
-    {part.feet && plan.feet.map((at, index) => <mesh key={index} position={[(at[0] - box.x) * 10, -box.h * 5 - 5, (at[2] - box.z) * 10]} material={materials.feet} castShadow>
+    {part.feet && plan.feet.map((at, index) => <mesh key={index} position={[(at[0] - box.x) * 10, -box.h * 5 - 5, (at[2] - box.z) * 10]} material={materials.feet} castShadow={!inside}>
       {/* Same fixed 25mm/10mm pad envelope as the existing Befun LevelingFeet renderer. */}
       <cylinderGeometry args={[12.5, 13.5, 10, 16]} />
     </mesh>)}

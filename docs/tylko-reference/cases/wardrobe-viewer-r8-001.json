@@ -1,0 +1,64 @@
+{
+  "id": "wardrobe-viewer-r8-001",
+  "observedAt": "2026-10-14T06:40:25.645392+00:00",
+  "sourceUrl": "https://tylko.com/en-uk/furniture/wardrobe/92332,w",
+  "befunUrl": "http://localhost:3003/reference-product/wardrobe-2",
+  "input": {
+    "model": "tone",
+    "widthMm": 950,
+    "heightMm": 2760,
+    "depthMm": 630,
+    "outerColor": "T_Cashmere",
+    "innerColor": "T_Pink",
+    "drawerStyle": "internal",
+    "seriesId": 3741,
+    "lighting": false
+  },
+  "initialState": {
+    "catalog": "wardrobe-2",
+    "initialWidthMm": 4150,
+    "initialSeriesIds": [
+      3741,
+      3738,
+      3746,
+      3742,
+      3743
+    ]
+  },
+  "actions": [
+    "width slider to95cm",
+    "interior tab",
+    "view zoom out/reset",
+    "close and open doors/drawers",
+    "fullscreen and return",
+    "390x844 viewport, restore desktop"
+  ],
+  "referenceObservation": {
+    "widthSliderCm": 96.1,
+    "roundedWidthCm": 96,
+    "heightCm": 276,
+    "depthCm": 63,
+    "selectedSeriesId": null,
+    "exactInputMatch": false
+  },
+  "result": {
+    "innerWidthCm": 89,
+    "drawerPanelFixtureCases": 72,
+    "panelsCompared": 1170,
+    "pixelDifference": null,
+    "manufacturingToleranceMm": null,
+    "mobileOverflowPixels": 0
+  },
+  "units": "input mm; displayed opening cm; fixture cm",
+  "precision": {
+    "fixtureComparisonToleranceCm": 1e-08,
+    "screenMeasurementTolerance": null
+  },
+  "screenshots": [
+    "docs/handoffs/wardrobe-viewer-review/tone-95-production-front.png",
+    "docs/handoffs/wardrobe-viewer-review/tone-95-production-closed.png",
+    "docs/handoffs/wardrobe-viewer-review/tone-95-mobile.png",
+    "docs/handoffs/wardrobe-viewer-review/tylko-tone-96-reference.png"
+  ],
+  "status": "identified drawer display and viewer consistency fixes verified; full Tylko visual parity incomplete"
+}

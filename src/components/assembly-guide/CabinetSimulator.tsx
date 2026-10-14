@@ -39,6 +39,9 @@ export function CabinetSimulator() {
     if (state.phase !== previous.phase || state.step !== previous.step || report.current >= .1 && state.playing) {
       report.current = 0; setUi({ ...state });
       if (state.step !== previous.step) setFurthest(value => Math.max(value, state.step));
+      if (!state.automatic && previous.phase === 'hardware' && state.phase === 'ready') {
+        setView('overview'); setInside(false); setRevision(value => value + 1);
+      }
     }
   }, [plan]);
   const select = useCallback((id: string) => {

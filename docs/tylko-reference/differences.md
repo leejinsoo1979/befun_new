@@ -151,3 +151,14 @@
 - DESK-UI-001 / P1 / 리더: 기본 외형·내부 탭 및 잘못 노출된 케이블 항목 → single 기본목록+연필 개별편집으로 수정. 사례desk-ui-001, 실제Classic/Modern 확인, 신규4+기존회귀21 PASS.
 - DESK-UI-002 / P1 / 리더: Classic 후판 토글 누락 → 열린칸 OFF/ON 제공, 필수후판 보존 검사 PASS.
 - DESK-UI-003 / P2 / 리더·Claude UI 후속: 원본 popup정확위치/썸네일순서·혼합스와치·모바일동치/전체시각 세부차이 → 미완료. desk-ui-review 참조.
+
+## R8 옷장 최종 렌더·뷰어 / 2026-10-14
+
+| 항목 | 담당 | 결과 |
+|---|---|---|
+| Tone 서랍 중간 envelope를 최종판으로 오인 | 리더 | 수정·72설정/1,170판재 재검증 PASS |
+| 서랍 동일 인출 거리 | 리더 | 원본 최종 표시의 순위별 거리로 수정·PASS |
+| 별도 보기 버튼/바닥/카메라, 가구 내부까지 과도한 확대 | 리더 | 공통 CSS/fitView/Background/Effects 통합, 모바일/줌/전체 화면 확인 |
+| 원본 색·광원·구도·hover/선택 전체 동치 | 리더 | 미완료, 픽셀 오차 미측정 |
+
+근거: `wardrobe-viewer-r8-001`, [R8 기록](../handoffs/wardrobe-viewer-review/README.md). 제조 치수·전체 조합 완료로 확대 해석하지 않는다.
