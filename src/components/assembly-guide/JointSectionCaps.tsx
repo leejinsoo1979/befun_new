@@ -11,7 +11,7 @@ type Entry = { source: Mesh; group: Group };
  * never changed/disposed; cap rectangles are masked by its actual solid volume.
  * Guide contract: local slot Y maps to world ±X, the inspection plane normal.
  */
-export function JointSectionCaps({ sources, active, planes, model }: { sources: readonly RefObject<Group | null>[]; active: RefObject<boolean>; planes: RefObject<Plane[]>; model: string }) {
+export function JointSectionCaps({ sources, active, planes, model, inside }: { sources: readonly RefObject<Group | null>[]; active: RefObject<boolean>; planes: RefObject<Plane[]>; model: string; inside: boolean }) {
   const root = useRef<Group>(null);
   const entries = useRef<Entry[]>([]);
   useLayoutEffect(() => {
@@ -42,7 +42,7 @@ export function JointSectionCaps({ sources, active, planes, model }: { sources: 
       });
       const sourceMaterial = Array.isArray(source.material) ? source.material[0] : source.material;
       const colour = 'color' in sourceMaterial && sourceMaterial.color instanceof Color ? sourceMaterial.color : new Color('#aeb5bf');
-      const capMaterial = new MeshBasicMaterial({ color: colour, side: DoubleSide, stencilWrite: true, stencilRef: 0, stencilFunc: NotEqualStencilFunc, stencilFail: ReplaceStencilOp, stencilZFail: ReplaceStencilOp, stencilZPass: ReplaceStencilOp, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 });
+      const capMaterial = new MeshBasicMaterial({ color: colour, transparent: sourceMaterial.transparent, opacity: sourceMaterial.opacity, depthWrite: sourceMaterial.depthWrite, side: DoubleSide, stencilWrite: true, stencilRef: 0, stencilFunc: NotEqualStencilFunc, stencilFail: ReplaceStencilOp, stencilZFail: ReplaceStencilOp, stencilZPass: ReplaceStencilOp, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 });
       const capGeometry = new PlaneGeometry((x1 - x0) * 1.05, (z1 - z0) * 1.05);
       capGeometry.rotateX(Math.PI / 2); capGeometry.translate((x0 + x1) / 2, 0, (z0 + z1) / 2);
       const cap = new Mesh(capGeometry, capMaterial);
@@ -57,7 +57,7 @@ export function JointSectionCaps({ sources, active, planes, model }: { sources: 
     });
     entries.current = next;
     return () => { entries.current = []; cleanups.forEach(cleanup => cleanup()); };
-  }, [sources, planes, model]);
+  }, [sources, planes, model, inside]);
 
   useFrame(() => {
     if (root.current) root.current.visible = active.current;

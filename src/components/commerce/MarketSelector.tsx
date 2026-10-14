@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId } from 'react';
+import { useEffect, useId, useRef } from 'react';
 import { useMarketStore } from '@/stores/useMarketStore';
 import { useLocale } from '@/lib/commerce/useLocale';
 import styles from './market-selector.module.css';
@@ -43,17 +43,50 @@ export function MarketSettings() {
   </div>;
 }
 
-/** Native details keeps switching in the current route, so the in-progress design remains mounted. */
+/** Switch in place without remounting the customer's design. */
 export function MarketSelector() {
-  const { market, t } = useLocale();
-  return <details className={styles.selector} onKeyDown={event => {
-    if (event.key === 'Escape') {
-      event.currentTarget.open = false;
-      event.currentTarget.querySelector('summary')?.focus();
-      event.stopPropagation();
-    }
+  const { market, t, setMarket, europeanCountry, setEuropeanCountry } = useLocale();
+  const details = useRef<HTMLDetailsElement>(null);
+  const countryId = useId();
+  useEffect(() => {
+    void useMarketStore.persist.rehydrate();
+    const dismiss = (event: PointerEvent) => {
+      if (details.current?.open && !details.current.contains(event.target as Node)) details.current.open = false;
+    };
+    document.addEventListener('pointerdown', dismiss);
+    return () => document.removeEventListener('pointerdown', dismiss);
+  }, []);
+  const close = () => {
+    if (!details.current) return;
+    details.current.open = false;
+    details.current.querySelector('summary')?.focus();
+  };
+  return <details ref={details} className={styles.selector} onKeyDown={event => {
+    if (event.key === 'Escape') { close(); event.stopPropagation(); }
+  }} onBlur={event => {
+    if (!event.currentTarget.contains(event.relatedTarget)) event.currentTarget.open = false;
   }}>
-    <summary aria-label={t('언어와 지역')} title={t('언어와 지역')}>{market}<span aria-hidden="true">⌄</span></summary>
-    <div className={styles.panel}><h2>{t('언어와 지역')}</h2><MarketSettings /></div>
+    <summary aria-label={t('언어와 지역')} title={t('언어와 지역')}>
+      {market}<svg className={styles.chevron} width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m3 4.5 3 3 3-3" stroke="currentColor" strokeWidth="1.3" /></svg>
+    </summary>
+    <div className={styles.panel}>
+      <p className={styles.caption}>{t('언어와 지역')}</p>
+      <div className={styles.choices} role="group" aria-label={t('배송 지역')}>
+        {markets.map(option => <button key={option.id} type="button" className={styles.choice} aria-pressed={market === option.id} onClick={() => {
+          setMarket(option.id);
+          if (option.id !== 'EU') close();
+        }}>
+          <span className={styles.choiceText}><span className={styles.countryName}>{t(option.name)}</span><span className={styles.choiceMeta}>{option.language} · {option.currency}</span></span>
+          <svg className={styles.check} width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8 3 3 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        </button>)}
+      </div>
+      {market === 'EU' && <div className={styles.countryField}>
+        <label htmlFor={countryId}>{t('배송 국가')}</label>
+        <select id={countryId} value={europeanCountry} onChange={event => {
+          const option = countries.find(item => item[0] === event.target.value);
+          if (option) { setEuropeanCountry(option[0]); close(); }
+        }}>{countries.map(([value, name]) => <option key={value} value={value}>{t(name)}</option>)}</select>
+      </div>}
+    </div>
   </details>;
 }

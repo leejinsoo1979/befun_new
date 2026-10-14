@@ -1,0 +1,56 @@
+{
+  "id": "markets-001",
+  "observedAt": "2026-10-14T04:32:03.961968+00:00",
+  "sourceUrl": "http://localhost:3003/furniture/sideboard-terra",
+  "purpose": "지역 언어 통화 전환 및 편집 상태 유지",
+  "initialState": {
+    "product": "sideboard-terra",
+    "style": "grid",
+    "widthCm": 110,
+    "heightDisplayCm": 63,
+    "depthCm": 32,
+    "density": 50,
+    "finish": "solid",
+    "colour": "terracotta",
+    "backPanels": false,
+    "baseType": "standard",
+    "completeIndividualEdits": null
+  },
+  "actions": [
+    "너비110→111",
+    "일본→미국→유럽→한국",
+    "유럽 배송국 독일→프랑스",
+    "모바일390×844 지역 선택기 확인",
+    "화면 크기 원복, 한국 선택"
+  ],
+  "observed": {
+    "widthCmAfterMarketSwitches": 111,
+    "pricesFor111cm": {
+      "KRW": 245600,
+      "USD": 183.09,
+      "EUR": 163.64,
+      "JPY": 28950
+    },
+    "foreignPriceBasis": "ECB 스냅샷에 따른 기존 KRW 예상 환산",
+    "tylkoPriceParity": null,
+    "fullTranslations": false,
+    "cartMutation": false,
+    "paymentSubmitted": false
+  },
+  "screenshots": [
+    "../screenshots/markets-001-us.png",
+    "../screenshots/markets-001-eu.png",
+    "../screenshots/markets-001-mobile.png"
+  ],
+  "precision": {
+    "width": "UI 1cm",
+    "price": "currency display precision; not Tylko parity"
+  },
+  "unverified": [
+    "지역 확정단가",
+    "세금/배송/해외결제",
+    "전체 상품 번역",
+    "실제 장바구니 새 항목 보존",
+    "모든 디자인 전환"
+  ]
+}

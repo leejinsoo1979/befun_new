@@ -1,6 +1,18 @@
 /** Display copy only: identifiers, stored designs and money values never pass through this dictionary. */
 export type UILanguage = 'ko' | 'en' | 'ja';
 const phrases: readonly (readonly [string, string, string])[] = [
+  ['장바구니에 담기', 'Add to cart', 'カートに追加'],
+  ['내 쇼핑', 'myshop', 'マイショップ'],
+  ['크기', 'Size', 'サイズ'],
+  ['옵션 패널 접기', 'Collapse options panel', 'オプションパネルを閉じる'],
+  ['옵션 패널 펼치기', 'Expand options panel', 'オプションパネルを開く'],
+  ['선반의 칸을 탭하면 칸 높이·도어·서랍을 바꿀 수 있어요.', 'Tap a compartment to change its height, doors and drawers.', '収納スペースをタップすると、高さ・扉・引き出しを変更できます。'],
+  ['구매하기', 'Buy now', '購入する'],
+  ['CNC 옵티마이저', 'CNC optimizer', 'CNCオプティマイザー'],
+  ['다용도 수납장 기본형', 'Custom storage unit', 'カスタム収納ユニット'],
+  ['Made in KR · 제작 5-6주 소요', 'Made in KR · Production takes 5–6 weeks', '韓国製・製作期間5〜6週間'],
+  ['디자인 저장에 실패했습니다', 'Unable to save the design.', 'デザインを保存できませんでした。'],
+  ['AR을 시작하지 못했어요. 카메라 권한을 확인해주세요.', 'Unable to start AR. Please check camera permissions.', 'ARを開始できませんでした。カメラのアクセス許可をご確認ください。'],
   ['견적 문의','Request a quote','見積もりを依頼'],
   ['계산 가격','Calculated price','計算価格'],
   ['할인','saved','割引'],

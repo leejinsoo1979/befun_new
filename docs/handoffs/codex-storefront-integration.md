@@ -427,3 +427,22 @@ terminal-instructions 최신 왼쪽3 지시 및 leader-review 2차 점검을 수
 - DOM selected series/index 확인. Tone는 DOM에seriesId가 없어 동일관찰 legacy bundle의원본 getThumbnails 순서와대조. 공개preset API는browser ERR_BLOCKED_BY_CLIENT / 별도HTTP403,rawseed/channel keys는미확인. 앱 ID는Befun stable ordered slots이며원본숨은key로표시하지않음.
 - 상태DTO/parse복원으로표현불가초기필드는현재없음. 다만Tone generator의기존물리한계 `tone-drawer-runner-travel-unmeasured`, `wardrobe-bar-cross-section-assets` 남음. 실제runnertravel·옷봉단면은리더소유,이카탈로그지원은옵션편집/저장복원지원이며모든물리동치가아님.
 - 원본이미지URL보존. 사진실패시storage.avif 다른가족fallback을피하기위해위임된ReferenceCatalogPages 안의wardrobe이미지만오류placeholder로처리예정. 공용StorefrontUI는미수정.
+
+### R4-ENTRY-READY — 옷장 카탈로그 연결 완료 / 2026-10-14
+
+세 상품 모두 **supported**: 현재 서버의 `/furniture-c/wardrobe` → `/reference-product/wardrobe-{1,2,3}`에서 실제 해당 가족 편집기를 표시합니다. 기존 책상 factory/공통 design·생성기·모델·route·FurnitureConfigurator는 본 담당이 수정하지 않았습니다. 원본 저장/장바구니도 조작하지 않았습니다.
+
+| 상품 | 원본에서 확인한 초기 상태 | 진입·입력·저장·복원 결과 |
+|---|---|---|
+| wardrobe-1 / 1936508,w | Edge,1190×2600×450mm,2구획; Open_Shelves_Slabs / Full_Shelves_Slabs_bottom_drawer,open/closed,right; Deep Plum 내외부,상단 ridge On | 실제 3D PASS; 폭119→120cm 저장→121cm 임시 변경→로컬 불러오기120→URL 공유·새로고침120. 구획 ID/색/레이아웃 유지 |
+| wardrobe-2 / 92332,w | Tone,4150×2760×630mm,5동일너비;3741/3738/3746/3742/3743,closed,고정 양문;Cashmere/Pink,internal,조명None | 실제 3D PASS;415→416 저장→417 임시 변경→로컬416→공유·새로고침416. ID/색/레이아웃 유지 |
+| wardrobe-3 / 92275,w | Tone,600×2750×630mm,1구획3743,closed,left;Graphite 내외부,external,조명None | 실제 3D PASS;60→61 저장→62 임시 변경→로컬61→공유·새로고침61. ID/색/레이아웃 유지 |
+
+- 근거: [001](../tylko-reference/cases/wardrobe-catalog-001.json), [002](../tylko-reference/cases/wardrobe-catalog-002.json), [003](../tylko-reference/cases/wardrobe-catalog-003.json). 각 원본/실제 Befun/복원 캡처를 연결했습니다. 기존 category-wardrobe 사례의235218/92243과 다른 상품임을 대조했고, 제품군은 실제 TYLKO EDGE/TONE 표시로 판정했습니다. Tone layout은 DOM 선택 index와 같은 공개 원본 Engine thumbnail 순서로 확인했습니다.
+- parser 초기 왕복은 원래 값·필드 생략·Befun stable 구획 ID를 그대로 보존합니다. 편집 시 기존 공통 정규화가 Edge localHeight/localDepth=null, Tone 양문에 기본 direction=left를 추가하는 동작은 별도로 기록했습니다. 양문의 실제 고정 좌우 방향은 생성기가 유지합니다. 원본 private channel key는 API403 때문에 미확인이며 앱의1..N을 원본 key라고 주장하지 않습니다.
+- 로컬 저장 검사는 본인 GET proxy origin에서 **실제3003 route/컴포넌트**로 수행해 사용자의 기존 localhost 저장을 덮어쓰지 않았습니다. mock 저장 검사가 아닙니다. 초기 실제3003 카테고리→상품 클릭·3D 캡처와 로컬/URL 복원 검증을 구분합니다. proxy에서 React useId hydration 속성 경고를 관찰했으며, 후속 native3003 Tone 진입/Graphite61 URL복원에는 수집된 오류가 없었습니다. 전체 사이트 무경고 주장 아님.
+- 이미지 정책 변경을 보존했습니다. 리더 R6 다운로드에서 정확한 `92332,w`/`92275,w`, 카테고리 `옷장 전체` 사진을 연결. 미다운로드 `1936508,w`는 **해당 원본 뷰어 캡처**를 로컬 static import로 사용합니다. Edge raw catalogue CDN 사진의 바이트 동일성은 blocked(원본 이미지 로드0/접근 제한)이며 다른 가족 사진으로 대체하지 않았습니다. 사진 URL은 사례에 출처로 유지합니다. 원본 뷰어의 열린 문 표시와 저장 facade closed는 별개입니다. [최종 카테고리 캡처](../tylko-reference/screenshots/wardrobe-catalog-001-category.jpg)에서 서로 다른 로컬 이미지3개 실제 로딩 확인.
+- 검사: catalog/state/기존desk-ui 회귀 **26/26 PASS**, 위임4파일 ESLint 오류0/경고0, 전체 lint 오류0/경고8(타 영역 기존/QA). 최신 격리 `/private/tmp/befun-r4-storefront-build-khmchxr6` webpack production build/TypeScript/17정적페이지 PASS; 수정3개 컴파일 소스 SHA256 일치. [최종 검증 기록](../tylko-reference/cases/wardrobe-catalog-004.json).
+- 기존 책상3종 실제3003에서 폭201.5/238.5/161.5cm로 한 옵션 변경→링크 공유→새로고침 후 각각 같은 값 및 canvas1 확인. 저장/책상 연결 재구현 없음. 공유 전 새로고침은 초기 preset으로 돌아가는 기존 동작이며 공유/저장 후 복원을 검사했습니다.
+- **리더 요청 유지:** Tone 기존 generator 한계 `tone-drawer-runner-travel-unmeasured`, `wardrobe-bar-cross-section-assets`는 공통 물리·모델 소유 영역입니다. 초기 옵션 중 표현 불가 필드는 확인되지 않았으므로 진입 blocked 상품은0개입니다. 원본 private key/손잡이 제작 치수/runner 이동의 물리 동치까지 완료했다는 뜻은 아닙니다.
+- 구매·계정·장바구니 지원 문구 없음. 로컬은 가족별 마지막1개이며 Tone 두 상품은 동일 family 슬롯을 공유합니다. 가격/DB/결제/배포 변경은 수행하지 않았습니다. 공유3003 재시작·공유.next 삭제 없음. 본인 proxy/검증 탭 정리 후 **위임4소스·신규 사례/캡처·본 handoff 잠금 해제**. 리더/QA는 `R4-ENTRY-READY`와 위 사례를 다음 검증 입력으로 사용할 수 있습니다.

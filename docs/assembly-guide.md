@@ -77,3 +77,9 @@ R3 이력: [R3-ASM-01~06 제출](handoffs/assets/codex-assembly/r3-legs/README.m
 ### R4-ASM-READY — 2026-10-14
 
 [6사례·최종캡처·42검사·자원해제·입력계약](handoffs/assets/codex-assembly/material-disassembly/README.md) 제출. 최신격리 production build/전체TypeScript/17정적페이지PASS,lint오류0/기존경고7,변경eslint0/0. 실제Chrome desktop/390px·6주제전환·12재질토글·따라분해4단계완료·cold texture문제교정확인. source36파일격리SHA차이0. 이번소유잠금해제. 리더의제품버튼/공통parts/joints연결과정밀다리모션은미완료이며,이번예시안내수정완료와구분한다.
+
+### OVVO 홈·MDF·투명 표시 사용자 후속 교정 — 2026-10-14
+
+[전후 캡처·P/R 내부·단면·모바일·검사 결과](handoffs/assets/codex-assembly/pocket-transparency/README.md). 홈 입구 뒤를 채우던 라미네이트색 면과 평면 윤곽선을 제거하고 MDF 절삭면의 벽·바닥을 추가했다. A/B 삽입 카메라가 홈 깊이를 보여준다. 위 R2.1의 벽 생략은 당시 상태이며, 이번은 알려진 입구/깊이를 연결한 설명용 기본 홈만 표시한다. 공급사 언더컷은 unknown, 제조 가공 승인은 false로 유지한다. 외부 양면 라미네이트·자작 엣지와 홈 내부 MDF 조합은 사용자 지정 시연이며 검증된 생산 BOM을 뜻하지 않는다.
+
+하우징도 투명하게 하여 검정 커넥터가 보이고, 직접 선택한 투명/불투명은 단계·탐색·재생·조립/분해 전환에 유지한다. 모델/주제 변경은 자동 연출로 초기화한다. 최종 결합 단계의 확대와 투명 단면 캡을 교정했다. 기존 R 공식 해제·P 분해 제한·Tylko5·백패널7·다리 원본5 유지. 47검사PASS, 변경eslint0/0, 격리 전체lint0오류/기존경고7, production build/TypeScript/17정적페이지PASS. 안내40파일 사본 SHA 차이0. Chrome desktop/390px·24회 투명 전환 후 geometry36/texture9/program10 안정. 실제 제품 연결·정밀 다리 기구·제조 승인은 별도다.

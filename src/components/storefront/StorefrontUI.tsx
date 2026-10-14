@@ -7,6 +7,8 @@ import { useMoney } from '@/lib/commerce/useMoney';
 import { PriceNotice } from '@/components/commerce/PriceNotice';
 import { asset, palette, productDisplayHeight, productPrice, type CatalogProduct } from './catalog';
 import styles from './storefront.module.css';
+import { ProductCardImage } from './ProductCardImage';
+import matches from '@/lib/catalog-images/existing-matches.json';
 import { loadProductConfiguration } from './configuration';
 
 /** 외부(원격) 이미지 URL 여부. 사이트 이미지는 우리 서버(/public)에서만 불러온다. */
@@ -72,11 +74,12 @@ export function Carousel({ children, label }: { children: ReactNode; label: stri
 export function ProductCard({ product, saved, toggleSaved, open }: { product: CatalogProduct; saved: boolean; toggleSaved: () => void; open: () => void }) {
   const { formatPrice } = useMoney();
   const price = productPrice(product);
+  const matched = (matches as Record<string, {originalImage?:string;thumbnail:string;studio:string}>)[product.id];
+  const pair = matched?.originalImage === product.image ? matched : undefined;
   return <article className={styles.productCard}>
     <div className={styles.productVisual}>
       <button className={styles.productImageButton} onClick={open} aria-label={`${product.name} 디자인 보기`}>
-        <Image src={asset(product.image)} alt={product.name} fill sizes="(max-width: 700px) 75vw, (max-width: 1100px) 45vw, 24vw" className={styles.productMainImage} />
-        <Image src={asset(product.alternate)} alt="" fill sizes="(max-width: 700px) 75vw, (max-width: 1100px) 45vw, 24vw" className={styles.productAlternateImage} />
+        <ProductCardImage key={pair?.thumbnail ?? product.image} thumbnail={pair?.thumbnail ?? asset(product.image)} studio={pair?.studio ?? asset(product.alternate)} alt={product.name} sizes="(max-width: 700px) 75vw, (max-width: 1100px) 45vw, 24vw" />
       </button>
       <span className={styles.discount}>−{price.discountRate}%</span>
       <button className={styles.saveButton} aria-label={`${product.name} ${saved ? '즐겨찾기 해제' : '즐겨찾기'}`} aria-pressed={saved} onClick={toggleSaved}><FiHeart fill={saved ? 'currentColor' : 'none'} /></button>

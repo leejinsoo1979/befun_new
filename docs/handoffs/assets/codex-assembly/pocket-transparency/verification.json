@@ -1,0 +1,94 @@
+{
+  "owner": "codex-assembly / 왼쪽5",
+  "session": "01a13548-3202-7aa2-8a54-0ff6840d3f75",
+  "date": "2026-10-14",
+  "status": "OVVO-POCKET-TRANSPARENCY-READY",
+  "geometry": {
+    "mouthMm": [
+      30,
+      9.4
+    ],
+    "exampleDepthMm": 12.5,
+    "depthToleranceFromExistingContractMm": 0.5,
+    "walls": "visible basic recess envelope",
+    "floor": "actual inward surface",
+    "material": "user-requested MDF cut appearance",
+    "undercut": "unknown",
+    "manufacturingApproved": false
+  },
+  "changes": [
+    "MDF walls and floor replace a laminate-filled recess and outline",
+    "transparent housing exposes opaque connector",
+    "explicit panel view survives chapter/seek/replay/action transitions",
+    "P/R final chapter supports selected close inspection",
+    "A/B insertion camera shows inward recess"
+  ],
+  "tests": {
+    "command": "node --no-warnings --test src/lib/assembly-guide/*.test.mjs",
+    "passed": 47,
+    "failed": 0,
+    "coverage": [
+      "existing P/R/Tylko/back-panel/leg pose and playback",
+      "both anchors and inward directions raycast floor and side wall",
+      "owned MDF material and texture disposal",
+      "explicit view persistence",
+      "completed joint close camera"
+    ]
+  },
+  "lint": {
+    "scopedErrors": 0,
+    "scopedWarnings": 0,
+    "isolatedFullErrors": 0,
+    "isolatedFullExistingWarnings": 7
+  },
+  "build": {
+    "directory": "/private/tmp/befun-assembly-publish-20261014",
+    "production": "PASS",
+    "typescript": "PASS",
+    "staticPages": 17,
+    "sharedServerUnchanged": true
+  },
+  "browser": {
+    "url": "http://localhost:3003/assembly-guide?topic=connector",
+    "desktop": [
+      1728,
+      880
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "mobileScrollWidth": 390,
+    "checks": [
+      "A and B cavity wall/floor visible",
+      "R and P connector visible through housing",
+      "R 15mm slide before lift remains",
+      "P disassembly disabled",
+      "Tylko 5 original/model",
+      "back-panel 7",
+      "leg 5 original/static GLB",
+      "seek/play/replay/chapter/topic/assembly-action switches"
+    ],
+    "resourceToggles": 24,
+    "resourceWarmBefore": {
+      "geometry": 36,
+      "texture": 9,
+      "program": 10
+    },
+    "resourceWarmAfter": {
+      "geometry": 36,
+      "texture": 9,
+      "program": 10
+    },
+    "rendererState": "ready",
+    "freshReloadErrorsAndWarnings": 0,
+    "historicalConsole": "prior unrelated StorefrontFrame HMR errors and dependency-array HMR warning retained; clean reload checked separately"
+  },
+  "limitations": [
+    "supplier undercut not reproduced as confirmed machining",
+    "MDF cut/birch outer-edge material combination is a user-requested visualization, not verified production BOM",
+    "static leg model is not precision kinematic simulation",
+    "actual desk/wardrobe part/joint contract still leader integration",
+    "latest production deployment reported separately"
+  ]
+}

@@ -4,7 +4,7 @@ export const categoryLinks = [
 export const catalogCategories: Record<string, string> = Object.fromEntries([
   ...categoryLinks.map(([title, slug]) => [slug, title]),
   ['wallunits', '월 유닛'], ['desk', '책상'], ['dressing_table', '화장대'], ['shoerack', '신발장'], ['vinyl_storage', '레코드 수납장'], ['storage', '수납 가구'],
-  ['two_seater', '2인용 소파'], ['three_seater', '3인용 소파'], ['four_plus_seater', '4인용 이상 소파'], ['chaise_longues', '셰즈 롱'], ['corner_sofas', '코너 소파'], ['armchairs', '암체어'], ['ottomans_and_modules', '오토만 · 모듈'], ['covers', '소파 커버'], ['bookends', '북엔드'], ['accessories', '액세서리'],
+  ['two_seater', '2인용 소파'], ['three_seater', '3인용 소파'], ['four_plus_seater', '4인용 이상 소파'], ['chaise_longues', '셰즈 롱'], ['corner_sofas', '코너 소파'], ['modular_sofas', '모듈형 대형 소파'], ['armchairs', '암체어'], ['ottomans_and_modules', '오토만 · 모듈'], ['covers', '소파 커버'], ['bookends', '북엔드'], ['accessories', '액세서리'],
 ]);
 export const catalogHref = (slug: string) => `/furniture-c${slug ? `/${slug}` : ''}`;
 export const menuGroups = [

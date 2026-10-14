@@ -696,3 +696,10 @@
 }
 @media (min-width:1280px) { .categoryPills { gap: 24px; } .categoryPills a { width: var(--category-middle-width); height: 91.2px; font-size: 36px; line-height: 43.2px; } }
 @media (min-width:1440px) { .categoryPills a { width: var(--category-desktop-width); height: 96px; font-size: 40px; line-height: 48px; } }
+
+/* 다운로드 상품 레퍼런스 목록·상세 (카테고리 확장) */
+.downloadedCatalog { margin-top: 48px; }
+.loadMore { display: flex; justify-content: center; margin-top: 40px; }
+.downloadedDetailInfo { display: grid; align-content: start; gap: 16px; padding: 0 0 0 48px; }
+.downloadedDetailInfo h1 { font-size: 32px; line-height: 1.25; }
+@media (max-width: 1023px) { .downloadedDetailInfo { padding: 24px 0 0; } }

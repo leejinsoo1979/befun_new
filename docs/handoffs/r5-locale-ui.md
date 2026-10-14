@@ -26,3 +26,9 @@ Pending integration observations sent to leader:
 ## Coverage boundaries
 
 Legal/support prose, editorial product copy, unowned account/order/cart screens, original shelf auxiliary row/hardware/toolbar components and 3D annotations are outside this scoped translation pass. Existing i18n worker covers additional storefront copy. Unknown strings fall back to the source; this is core UI coverage, not a claim of complete site localization.
+
+## Follow-up: legacy configurator and mobile controls
+
+Leader assigned `src/app/configurator/page.tsx` and `src/components/ui/MobileConfiguratorPanel.tsx` plus necessary dictionary entries. Added useLocale translation for header/cart/shop/CNC text, storage title, purchase CTA, production lead-time copy, save/AR failure alerts, mobile tab labels, expand/collapse aria labels and compartment-edit guidance. Only display strings changed; handlers, routing, price calculations, design storage, tab keys and AR branches are unchanged.
+
+Validation: scoped ESLint for these two components and dictionary passed with 0 errors / 0 warnings. Full browser validation remains with the leader. Child components (3D toolbar, floating compartment editor, AR/share modals) are not part of this extra pass, so this does not claim complete configurator or site localization. Locks released.

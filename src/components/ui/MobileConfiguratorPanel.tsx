@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useLocale } from '@/lib/commerce/useLocale';
 import { LegacyShelfPanel, LEGACY_MOBILE_TABS } from './furniture-panels';
 import { FeetSelector } from '@/components/ui/FeetSelector';
 import { ColorPicker } from './ColorPicker';
@@ -28,6 +29,7 @@ interface MobileConfiguratorPanelProps {
  * - 가격 + 구매하기는 항상 하단에 고정
  */
 export function MobileConfiguratorPanel({ onPurchase, inOverlay = false }: MobileConfiguratorPanelProps) {
+  const { t: tr } = useLocale();
   const [tab, setTab] = useState<TabKey>('style');
   const [open, setOpen] = useState(true);
 
@@ -49,7 +51,7 @@ export function MobileConfiguratorPanel({ onPurchase, inOverlay = false }: Mobil
       {/* 핸들 */}
       <button
         type="button"
-        aria-label={open ? '옵션 패널 접기' : '옵션 패널 펼치기'}
+        aria-label={tr(open ? '옵션 패널 접기' : '옵션 패널 펼치기')}
         aria-expanded={open}
         onClick={() => setOpen((o) => !o)}
         className="flex w-full cursor-pointer justify-center pt-2.5 pb-1"
@@ -72,7 +74,7 @@ export function MobileConfiguratorPanel({ onPurchase, inOverlay = false }: Mobil
                 active ? 'text-[#111]' : 'text-[#9a9a9a]'
               }`}
             >
-              {t.label}
+              {tr(t.label)}
               {active && (
                 <span className="absolute inset-x-4 bottom-0 h-[2px] rounded-full bg-[var(--green)]" />
               )}
@@ -99,7 +101,7 @@ export function MobileConfiguratorPanel({ onPurchase, inOverlay = false }: Mobil
               <FeetSelector />
               <LegacyShelfPanel controls={LEGACY_MOBILE_TABS.option} />
               <p className="pb-2 text-[12px] leading-relaxed text-[#999]">
-                선반의 칸을 탭하면 칸 높이·도어·서랍을 바꿀 수 있어요.
+                {tr('선반의 칸을 탭하면 칸 높이·도어·서랍을 바꿀 수 있어요.')}
               </p>
             </>
           )}
@@ -116,7 +118,7 @@ export function MobileConfiguratorPanel({ onPurchase, inOverlay = false }: Mobil
           onClick={onPurchase}
           className="h-12 shrink-0 cursor-pointer rounded-full bg-[var(--green)] px-8 text-[15px] font-semibold text-white shadow-sm transition-transform active:scale-[0.97]"
         >
-          구매하기
+          {tr('구매하기')}
         </button>
       </div>
     </div>

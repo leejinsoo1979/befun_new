@@ -1,0 +1,86 @@
+{
+  "caseId": "wardrobe-catalog-004",
+  "status": "R4-ENTRY-READY",
+  "verifiedAt": "2026-10-14T05:04:29.380055+00:00",
+  "entries": {
+    "wardrobe-1": "supported",
+    "wardrobe-2": "supported",
+    "wardrobe-3": "supported"
+  },
+  "tests": {
+    "catalogStateDeskRegression": {
+      "command": "node --test scripts/furniture-integration/catalog.test.mjs scripts/furniture-integration/state.test.mjs scripts/furniture-integration/desk-ui.test.mjs",
+      "passed": 26,
+      "failed": 0
+    },
+    "changedEslint": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "repositoryLint": {
+      "errors": 0,
+      "warnings": 8
+    },
+    "isolatedWebpackBuild": {
+      "status": "pass",
+      "typescript": "pass",
+      "staticPages": 17,
+      "snapshot": "/private/tmp/befun-r4-storefront-build-khmchxr6"
+    }
+  },
+  "nativeDeskBrowserRegression": [
+    {
+      "id": "desk-1",
+      "widthEditCm": 201.5,
+      "urlReloadCm": 201.5,
+      "canvas": 1
+    },
+    {
+      "id": "desk-2",
+      "widthEditCm": 238.5,
+      "urlReloadCm": 238.5,
+      "canvas": 1
+    },
+    {
+      "id": "desk-3",
+      "widthEditCm": 161.5,
+      "urlReloadCm": 161.5,
+      "canvas": 1
+    }
+  ],
+  "browserWardrobeCases": [
+    "wardrobe-catalog-001",
+    "wardrobe-catalog-002",
+    "wardrobe-catalog-003"
+  ],
+  "finalCategoryScreenshot": "screenshots/wardrobe-catalog-001-category.jpg",
+  "finalPreviews": {
+    "local": 3,
+    "loaded": 3,
+    "distinct": 3
+  },
+  "validationLimitations": [
+    "GET proxy storage test uses actual shared route, not mock; proxy encountered React useId hydration attribute warnings. Fresh native 3003 Tone entry and Graphite URL restore checks had no captured errors. No global zero-warning claim.",
+    "Raw source preset private channel keys unavailable; Befun stable IDs retained, not claimed source identity.",
+    "Tone drawer runner travel and wardrobe bar cross-section assets remain common-renderer limits.",
+    "No account/cart/DB/payment/deployment claim. Local storage keeps one design per family; Tone products share that family slot."
+  ],
+  "ownedSourceFingerprints": {
+    "src/lib/furniture/catalog-design.ts": {
+      "sha256": "3d90740b198c4192c865a282421f4b2da9c600eaddbe1dc634efba6157c41aeb",
+      "buildSnapshotMatches": true
+    },
+    "src/components/storefront/referenceCatalog.ts": {
+      "sha256": "19be8a58ba555533bfe725f69c32132214fc25f95b6cd572883c6ff18d5a61e5",
+      "buildSnapshotMatches": true
+    },
+    "src/components/storefront/ReferenceCatalogPages.tsx": {
+      "sha256": "6deadc9a98119fe59cb4a744f8d7f5c535739f24eae4557d00ca7ada9858ee92",
+      "buildSnapshotMatches": true
+    },
+    "scripts/furniture-integration/catalog.test.mjs": {
+      "sha256": "000b3d188c3ab2b65e41acda477dc749ef5a26477a68ba3790f0a67e23826fa8",
+      "buildSnapshotMatches": "test file not compiled"
+    }
+  }
+}

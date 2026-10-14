@@ -10,12 +10,14 @@ import { catalogCategories, catalogHref } from './navigation';
 import { JoinSection } from './JoinSection';
 import { catalogFurnitureDesign } from '@/lib/furniture/catalog-design';
 import styles from './storefront.module.css';
+import { ProductCardImage } from './ProductCardImage';
+import matches from '@/lib/catalog-images/existing-matches.json';
+import { sourceProductKey } from '@/lib/catalog-images/identity';
 
 function WardrobeReferenceImage({ source, alt, sizes }: { source: string; alt: string; sizes: string }) {
   const [failed, setFailed] = useState(false);
-  // 외부 원본은 요청하지 않는다 — 우리 서버 옷장 대표 이미지 사용
-  if (isExternalImage(source)) return <Image src="/imgs/storefront/wardrobe.avif" alt={alt} fill sizes={sizes} />;
-  return failed ? <span role="img" aria-label={`${alt} 원본 이미지 미표시`} style={{ display: 'grid', placeItems: 'center', height: '100%', padding: 16, textAlign: 'center' }}>원본 이미지를 불러오지 못했습니다.</span>
+  // Keep the local-only policy without substituting another wardrobe family.
+  return failed || isExternalImage(source) ? <span role="img" aria-label={`${alt} 원본 이미지 미표시`} style={{ display: 'grid', placeItems: 'center', height: '100%', padding: 16, textAlign: 'center' }}>원본 이미지를 불러오지 못했습니다.</span>
     : <Image src={source} alt={alt} fill sizes={sizes} unoptimized onError={() => setFailed(true)} />;
 }
 
@@ -29,9 +31,11 @@ export function ReferenceCatalogCards({ category }: { category: string }) {
     <p className={styles.resultCount}>{samples.length}개의 {editableCount === samples.length && editableCount ? '편집 가능한 디자인' : '디자인 레퍼런스'}</p>
     <div className={styles.productGrid}>{samples.map(product => {
       const editable = Boolean(catalogFurnitureDesign(product.id));
+      const matched = (matches as Record<string, {productKey:string;thumbnail:string;studio:string}>)[product.id];
+      const pair = matched?.productKey === sourceProductKey(product.source) ? matched : undefined;
       return <article key={product.id} className={styles.productCard}>
         <Link href={`/reference-product/${product.id}`} className={styles.productVisual}>
-          {product.category === 'wardrobe'
+          {pair ? <ProductCardImage key={pair.thumbnail} thumbnail={pair.thumbnail} studio={pair.studio} alt={product.name} sizes="(max-width:700px) 45vw, 24vw" /> : product.category === 'wardrobe'
             ? <WardrobeReferenceImage source={product.image} alt={product.name} sizes="(max-width:700px) 45vw, 24vw" />
             : <ReferenceImage source={product.image} fallback={['blankets', 'bookends'].includes(category) ? 'creator-3.avif' : category.includes('seater') || ['chaise_longues', 'corner_sofas', 'armchairs', 'ottomans_and_modules', 'covers'].includes(category) ? 'sofa.avif' : 'storage.avif'} alt={product.name} sizes="(max-width:700px) 45vw, 24vw" />}
         </Link>

@@ -8,6 +8,10 @@ import { products, referenceProducts } from '@/components/storefront/catalog';
 import { SharedDesignPage, SavedDesignsPage } from '@/components/storefront/SavedDesignPages';
 import { referenceCatalog } from '@/components/storefront/referenceCatalog';
 import { SourceProductPage } from '@/components/storefront/ReferenceCatalogPages';
+import { DownloadedItemPage } from '@/components/storefront/DownloadedCatalog';
+import { downloadedItem, downloadedItems } from '@/lib/catalog-expansion/server';
+import { downloadedCategoryFor } from '@/lib/catalog-expansion/categories';
+import { localizedProductName } from '@/lib/catalog-expansion/names';
 import { ConfiguratorIntro } from '@/components/storefront/ConfiguratorIntro';
 import { FurnitureConfigurator } from '@/components/furniture/FurnitureConfigurator';
 import { catalogFurnitureDesign } from '@/lib/furniture/catalog-design';
@@ -20,6 +24,7 @@ function titleFor(path: string) {
   if (path.startsWith('furniture-c/')) return catalogCategories[path.slice(12)];
   if (path.startsWith('furniture/')) return products.find(product=>product.id===path.slice(10))?.name;
   if (path.startsWith('reference-product/')) return referenceCatalog.find(product=>product.id===path.slice(18))?.name;
+  if (path.startsWith('catalog-item/')) { const [, key, seq] = path.split('/'); const item = downloadedItem(key, Number(seq)); return item ? localizedProductName(item.name, 'ko') : undefined; }
   if (path.startsWith('sofa/')) return referenceProducts.find(product=>product.id===path.slice(5))?.name;
   if (path.startsWith('journal/')) return journalArticles.find(article=>article.slug===path.slice(8))?.title;
   return infoTitles[path] ?? ({gallery:'공간 갤러리','region-settings':'지역 설정',account:'계정',myshop:'내 쇼핑', 'tylko-pro/apply':'프로젝트 문의', 'configurator-intro':'가구 선택', 'design-preview':'공유된 디자인', 'saved-designs':'저장한 디자인', 'investor-relations':'투자자 정보'} as Record<string,string>)[path];
@@ -40,7 +45,7 @@ export default async function StorePage({params,searchParams}: Props) {
   if (!title) notFound();
   let content;
   let overlay=false;
-  if (path === 'furniture-c' || path.startsWith('furniture-c/')) content=<CatalogPage slug={path === 'furniture-c' ? '' : path.slice(12)} query={query} />;
+  if (path === 'furniture-c' || path.startsWith('furniture-c/')) { const slug = path === 'furniture-c' ? '' : path.slice(12); const category = downloadedCategoryFor(slug, query); content=<CatalogPage slug={slug} query={query} downloaded={category ? downloadedItems(category.key) : []} />; }
   else if (path === 'design-preview') content=<SharedDesignPage serialized={query.design ?? ''} />;
   else if (path === 'saved-designs') content=<SavedDesignsPage />;
   else if (path === 'configurator-intro') content=<ConfiguratorIntro />;
@@ -51,6 +56,7 @@ export default async function StorePage({params,searchParams}: Props) {
     content = initial ? <FurnitureConfigurator key={id} initial={initial} title={title} /> : <SourceProductPage id={id} />;
   }
   else if (path.startsWith('sofa/')) content=<ReferenceProductPage id={path.slice(5)} />;
+  else if (path.startsWith('catalog-item/')) { const [, key, seq] = path.split('/'); content=<DownloadedItemPage item={downloadedItem(key, Number(seq))!} />; }
   else if (['search','wishlist'].includes(path)) content=<SearchPage initialQuery={query.q} wishlist={path==='wishlist'} />;
   else if (['inspirations','creators','gallery','review-list'].includes(path)) {content=<CommunityPage key={query.influencer} mode={path} influencer={query.influencer} />;overlay=path==='inspirations';}
   else if (path==='about-tylko') {content=<AboutPage />;overlay=true;}

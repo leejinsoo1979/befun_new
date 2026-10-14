@@ -1,7 +1,24 @@
-import { DoubleSide, MeshStandardMaterial, RepeatWrapping, SRGBColorSpace, type BufferGeometry, type Texture } from 'three';
+import { DataTexture, DoubleSide, MeshStandardMaterial, RepeatWrapping, SRGBColorSpace, type BufferGeometry, type Texture } from 'three';
 
 export type PanelAxis = 0 | 1 | 2;
 export const birchEdgeTexture = '/imgs/textures/wood002/verticalEdge_diff.jpg';
+
+/** Fine fibre grain for the user-requested exposed MDF. This is a display material, not a species assay. */
+export function createMdfCutMaterial(inside: boolean) {
+  const size = 128, pixels = new Uint8Array(size * size * 4);
+  let seed = 3817;
+  for (let i = 0; i < size * size; i++) {
+    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+    const value = 223 + (seed >>> 27);
+    pixels.set([value, value, value, 255], i * 4);
+  }
+  const texture = new DataTexture(pixels, size, size);
+  texture.colorSpace = SRGBColorSpace;
+  texture.wrapS = texture.wrapT = RepeatWrapping;
+  texture.needsUpdate = true;
+  const material = new MeshStandardMaterial({ color: '#b89468', map: texture, roughness: .94, side: DoubleSide, transparent: inside, opacity: inside ? .06 : 1, depthWrite: !inside });
+  return { material, texture };
+}
 
 /** A parallel bore floor is still bare wood; laminate exists only on the two outer skins. */
 export function isLaminateSkin(normal: number, coordinates: readonly number[], thickness: number) {

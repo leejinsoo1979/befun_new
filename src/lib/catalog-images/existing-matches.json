@@ -1,0 +1,286 @@
+{
+  "desk-1": {
+    "productKey": "9281707,j",
+    "thumbnail": "/imgs/product-cards/c7bda8b9570345d25d987717a045dc11d2ba6e2065099c83014c4cfee0b3c92a.webp",
+    "studio": "/imgs/product-cards/3db0c34d1149fe555c3c5968e75870cd9dd678f4bfd383e01230d56df1d79f7b.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "책상"
+    ]
+  },
+  "desk-2": {
+    "productKey": "3716771,j",
+    "thumbnail": "/imgs/product-cards/fd99711550a1a0c120ad04f9c8c3cc84311842e0d1078114afe34fa6d4137bc8.webp",
+    "studio": "/imgs/product-cards/37dc08484b3585adc12ab798da4dc59abb2ee568f8c5c16fb0fb4011552495a4.png",
+    "basis": "source-product-id",
+    "categories": [
+      "책상"
+    ]
+  },
+  "desk-3": {
+    "productKey": "3760531,j",
+    "thumbnail": "/imgs/product-cards/b346cbc10ea5e527bb1da185ecf85af5e53336978262c10500b1b28ae4f1d249.jpg",
+    "studio": "/imgs/product-cards/54bc77f210565aa02c91d7cec3d542a8c59aea81d5774ec69b08f74e154d4b49.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "책상"
+    ]
+  },
+  "dressing_table-1": {
+    "productKey": "9272016,j",
+    "thumbnail": "/imgs/product-cards/1d68970736c39d2befb4636ab3a47dc3aea38b9b53de0c1d667ec124cf41d946.webp",
+    "studio": "/imgs/product-cards/178449f40da0909cb84f3082c26dcc4fd4889ba0ee2525f83b5d5e5764c14a79.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "화장대"
+    ]
+  },
+  "dressing_table-2": {
+    "productKey": "7389388,j",
+    "thumbnail": "/imgs/product-cards/56ccd8518ffeb08433488058329cbe62f1bce294d3e2469e7132a1f20ec9417c.webp",
+    "studio": "/imgs/product-cards/4eb806d634457ba1f660794ca3fa17fa74685866c925bc50f9128438f22a6771.jpg",
+    "basis": "source-product-id",
+    "categories": [
+      "화장대"
+    ]
+  },
+  "shoerack-1": {
+    "productKey": "9272074,j",
+    "thumbnail": "/imgs/product-cards/1364470ccf96ada19ddf86df368630ceb91e445b7f0f2ac09c1b19b7169f7595.webp",
+    "studio": "/imgs/product-cards/600bfcd7ac49e81d6b7c6d9d30d3aa67f0820aaeaa71387aac57182270b832d5.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "신발장"
+    ]
+  },
+  "shoerack-2": {
+    "productKey": "5958954,j",
+    "thumbnail": "/imgs/product-cards/43cdf5e3051fc24a52c8eef8bbf7458cf20988262c5ab499b54ad30e8ecee72c.webp",
+    "studio": "/imgs/product-cards/bf02174a973cf064813e1525cb63d38abb80346992cd5977db92b85b569e39e6.png",
+    "basis": "source-product-id",
+    "categories": [
+      "신발장"
+    ]
+  },
+  "bedside_table-1": {
+    "productKey": "9282694,j",
+    "thumbnail": "/imgs/product-cards/c8cf63fe3b5195737fe986173d0ceb592807dc525a7c7f0285390c7d5164d84f.webp",
+    "studio": "/imgs/product-cards/6010f3f8a4bebc8879349c7d45e145ce158848b768f07b00cb8b381723b7b940.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "협탁"
+    ]
+  },
+  "chest-of-drawers-1": {
+    "productKey": "9270906,j",
+    "thumbnail": "/imgs/product-cards/1b209e4c1ef137f50f4a47aeb9cf929a61b1316b46e6c3534beaba58d6da330b.webp",
+    "studio": "/imgs/product-cards/2a62584c826cdba55502982cdf9d0e5dbd31120dc996a2cf7644c6442bbbf94b.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "서랍장"
+    ]
+  },
+  "vinyl_storage-1": {
+    "productKey": "905398,j",
+    "thumbnail": "/imgs/product-cards/45c098df0e42a70a2fa96dace6f71f7389ea682ea1b523b12508a240aeedbdcc.webp",
+    "studio": "/imgs/product-cards/ece52832bdb55450bee96910a6e6ffcfc8e683f1bb41d3b9db53cba4882293b1.jpg",
+    "basis": "source-product-id",
+    "categories": [
+      "레코드 수납장"
+    ]
+  },
+  "wardrobe-2": {
+    "productKey": "92332,w",
+    "thumbnail": "/imgs/product-cards/7f89c538f4bc49db0e568023bfa5abd2f1c14ca1b0794dc2baae00fa252d8ce6.webp",
+    "studio": "/imgs/product-cards/2edab650009c32c285a86bad8d128ae5200b6cc360c5f8842136af9e727b91c6.png",
+    "basis": "source-product-id",
+    "categories": [
+      "옷장 전체"
+    ]
+  },
+  "wardrobe-3": {
+    "productKey": "92275,w",
+    "thumbnail": "/imgs/product-cards/6764a8aac64ada712cbd1814907c2a87d72f197b4707fea34b3f5da3361a42a1.webp",
+    "studio": "/imgs/product-cards/9f9f33e58e35bb24409b5c2eacaff745a9ea3b05e8fc350288144a6dfd744f2f.png",
+    "basis": "source-product-id",
+    "categories": [
+      "옷장 전체"
+    ]
+  },
+  "wallunits-1": {
+    "productKey": "1932352,w",
+    "thumbnail": "/imgs/product-cards/11625dc657f4f55c4d420f19347bca41cb141c0c26cedb009b6370271fbdd1d9.webp",
+    "studio": "/imgs/product-cards/06504b2393da2ffba8f72b0c453fbab9ee23f29d55943c719899260ba7eb3855.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "벽면 수납장"
+    ]
+  },
+  "wallunits-2": {
+    "productKey": "1651970,w",
+    "thumbnail": "/imgs/product-cards/72ef1afc2da0f5e0226689e947340cb297b349d5829f05ada52362d9f13aa752.webp",
+    "studio": "/imgs/product-cards/591191a905799949c51cd2650411591a78bdf79b68240b24f96d0af74844fd6c.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "벽면 수납장"
+    ]
+  },
+  "wallunits-3": {
+    "productKey": "1964584,w",
+    "thumbnail": "/imgs/product-cards/2321e8126b6c14d626448158a122571d58e93b8d72c99cb04be8e2213dec6fe1.webp",
+    "studio": "/imgs/product-cards/bd7568a4b21a468b9847d65534476db1c13566edc6a70c9dcacd7d5b85548762.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "벽면 수납장"
+    ]
+  },
+  "four_plus_seater-1": {
+    "productKey": "113631,s",
+    "thumbnail": "/imgs/product-cards/0cb297714c33935be1890069c4fb6a0f4457e17ffb63222cfc975a600b1883c9.webp",
+    "studio": "/imgs/product-cards/1ad180782c8fccfadd281c98abc27bbc9364005a9beae28594908d324aaabba6.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "대형 소파"
+    ]
+  },
+  "four_plus_seater-2": {
+    "productKey": "113540,s",
+    "thumbnail": "/imgs/product-cards/9112d5493a72ef301da55f807d13f83d9a1cc2035c2c02051d83df62a30c8892.webp",
+    "studio": "/imgs/product-cards/eee03b3d22c44621af8638596fdc302b295d58a2a0dee889621c509ab0d95997.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "대형 소파"
+    ]
+  },
+  "chaise_longues-1": {
+    "productKey": "273317,s",
+    "thumbnail": "/imgs/product-cards/e387efcce532577433cd15a660e0895ac4f9f65e92cb69351cf6e1b1a0b1a0af.webp",
+    "studio": "/imgs/product-cards/6a21d42f674cbdd06365e2a44d5aa60a940c0dcb27c7a95a80be589574e1f7c3.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "코너 소파"
+    ]
+  },
+  "chaise_longues-2": {
+    "productKey": "273311,s",
+    "thumbnail": "/imgs/product-cards/8eb44e691e614a1a7a6cbb8a7f9ea256070c707b53fa863e1a432ac65fc66125.webp",
+    "studio": "/imgs/product-cards/52ee14a3e95ab5a274a1af156d5d40af5558c8a41b1927df019fbe9a7ece1232.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "코너 소파"
+    ]
+  },
+  "corner_sofas-1": {
+    "productKey": "1670,s",
+    "thumbnail": "/imgs/product-cards/4c78fabc0a980441c02082ad1ce990ef4e7641beb26a5759c6822faf78c94721.webp",
+    "studio": "/imgs/product-cards/a1432c6c43ade41195c24222bb2dfcd818334e19b063c88119b54c945d891fbc.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "모듈형 대형 소파"
+    ]
+  },
+  "corner_sofas-2": {
+    "productKey": "61622,s",
+    "thumbnail": "/imgs/product-cards/f04b60a5c67fe8a463f484885abd92e6bd781e8b988f4676374823f19506cecd.webp",
+    "studio": "/imgs/product-cards/abff0f6932d5a9519c0d15876b07f70224b3deaff2b275f104289c5c81539a98.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "모듈형 대형 소파"
+    ]
+  },
+  "armchairs-1": {
+    "productKey": "403,s",
+    "thumbnail": "/imgs/product-cards/972a26b2840a71af5d1fb3ba648850fe901b9747e06bdbcb2eff8e0e0a42938f.webp",
+    "studio": "/imgs/product-cards/76e11bd1712c36a78d0bc398387465aabc8bd54925ef42ee87846e29da2ce9c0.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "암체어"
+    ]
+  },
+  "armchairs-2": {
+    "productKey": "61143,s",
+    "thumbnail": "/imgs/product-cards/3c946c0d69420a170e116956765e338204d3eb2a53d2cc764879666ab1b38cd6.webp",
+    "studio": "/imgs/product-cards/02dbe3da122b59937439202ae6c6ecab31372830ed3c9dfff30ad4928beae158.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "암체어"
+    ]
+  },
+  "covers-1": {
+    "productKey": "12160,s",
+    "thumbnail": "/imgs/product-cards/ec55374ff909ce885de30b73a22bb72c79bcef661408b776553fe0e0a78f1979.webp",
+    "studio": "/imgs/product-cards/1cfcce200e5c814ce2c93309b9d9446e6a597ada221983715cf4941ad07f5f0d.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "커버와 쿠션"
+    ]
+  },
+  "covers-2": {
+    "productKey": "12311,s",
+    "thumbnail": "/imgs/product-cards/e86c1ac4277d118b1e9f1fb49a910ba0c46c9b313db10a4bac6be7a6500eec01.webp",
+    "studio": "/imgs/product-cards/93b00b6775c81389883957860ef0d8d46742321a1288c18720161ef61a499561.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "커버와 쿠션"
+    ]
+  },
+  "blankets-1": {
+    "productKey": "blanket:10",
+    "thumbnail": "/imgs/product-cards/121e2a33b40b7fe42b98b5b99110afa3d4dfd01234f2b82b5304b62ad816c66e.webp",
+    "studio": "/imgs/product-cards/193885ab4f5642e5f3f4b9e1e35ee6e72a7e53fa60eb4f1d30caf3126826e3be.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "담요"
+    ]
+  },
+  "blankets-2": {
+    "productKey": "blanket:7",
+    "thumbnail": "/imgs/product-cards/8ac1fd5862752ccfe83d3509882c3f7cdc4a2f5533d857d27f76c08a5189788d.webp",
+    "studio": "/imgs/product-cards/d7e76e9479073098bf6e1844ca0b23967b7e6d11f10ef39a65c47fd1eb50cdc9.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "담요"
+    ]
+  },
+  "bookends-1": {
+    "productKey": "bookend:229",
+    "thumbnail": "/imgs/product-cards/ce54182d734d8b250cb48903262820ca3aee14274900db92e8605f2d787496a0.webp",
+    "studio": "/imgs/product-cards/ce54182d734d8b250cb48903262820ca3aee14274900db92e8605f2d787496a0.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "북엔드"
+    ]
+  },
+  "bookends-2": {
+    "productKey": "bookend:236",
+    "thumbnail": "/imgs/product-cards/17009049f97222f6923127a7c225d7413c4aa9f98d0452159d45db1de5f2b9ec.webp",
+    "studio": "/imgs/product-cards/17009049f97222f6923127a7c225d7413c4aa9f98d0452159d45db1de5f2b9ec.webp",
+    "basis": "source-product-id",
+    "categories": [
+      "북엔드"
+    ]
+  },
+  "wall-green": {
+    "productKey": "1964423,w",
+    "thumbnail": "/imgs/product-cards/18f973434076e1fa16facc25e70c9c3f4598f335ec13cf6522ea8a42ffe91764.webp",
+    "studio": "/imgs/product-cards/2c089d1082c81c77285dd2572817bd1b64b4c66ab7faad745f0a294c6672b87c.webp",
+    "basis": "existing-thumbnail-sha256",
+    "originalImage": "unreal_10772325_Joddr1h.webp",
+    "categories": [
+      "선반 시스템",
+      "전체 상품",
+      "수납 가구 전체"
+    ]
+  },
+  "smooth-khaki": {
+    "productKey": "113433,s",
+    "thumbnail": "/imgs/product-cards/480b80390abc0f413d77a8f3290536f318970cb1392278aa559245ee3cceef18.webp",
+    "studio": "/imgs/product-cards/b4bfc843b0ad480e614651912131fb5f0d42ba0a90de6ccc23adf67abc653945.webp",
+    "basis": "existing-thumbnail-sha256",
+    "originalImage": "unreal_3888910.webp",
+    "categories": [
+      "전체 상품",
+      "2인 소파"
+    ]
+  }
+}

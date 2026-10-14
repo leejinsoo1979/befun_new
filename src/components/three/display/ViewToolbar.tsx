@@ -13,7 +13,7 @@ import { AssemblyTransport } from './AssemblyTransport';
 // Befun 브랜드 그린 (globals.css --green). SVG fill 속성은 CSS 변수 호환이 불안정해 hex로 둔다
 const ACCENT = '#339922';
 
-const views: [ViewDirection, string][] = [['front', '정면'], ['back', '후면'], ['left', '좌측'], ['right', '우측'], ['top', '위'], ['bottom', '아래'], ['standard', '입체']];
+const views: [ViewDirection, string][] = [['back', '후면'], ['standard', '입체']];
 
 function CubeIcon({ face, split = false }: { face?: ViewDirection; split?: boolean }) {
   const color = ACCENT;

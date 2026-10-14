@@ -26,7 +26,8 @@
   "screenshots": [
     "screenshots/wardrobe-catalog-001-reference.jpg",
     "screenshots/wardrobe-catalog-001-befun.jpg",
-    "screenshots/wardrobe-catalog-001-restored.jpg"
+    "screenshots/wardrobe-catalog-001-restored.jpg",
+    "screenshots/wardrobe-catalog-001-original.jpg"
   ],
   "browserChecks": {
     "status": "pass",
@@ -82,7 +83,9 @@
       }
     },
     "accountDbCartTested": false,
-    "originalImageLoadedAndPreserved": true
+    "originalImageLoadedAndPreserved": false,
+    "imageNote": "Earlier source URL recorded; final display uses previewDelivery exact-product local asset. Raw catalogue byte preservation is not claimed for Edge.",
+    "finalLocalPreviewLoaded": true
   },
   "catalogId": "wardrobe-1",
   "sourceUrl": "https://tylko.com/en-uk/furniture/wardrobe/1936508,w",
@@ -153,5 +156,22 @@
   },
   "geometryLimitations": [],
   "catalogImageSource": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/09/unreal_render_tasks/unreal_10112606.webp",
-  "familyEvidence": "Product body explicitly contains TYLKO EDGE. Family not inferred from card title."
+  "familyEvidence": "Product body explicitly contains TYLKO EDGE. Family not inferred from card title.",
+  "previewDelivery": {
+    "verifiedAt": "2026-10-14T05:04:29.380055+00:00",
+    "localOnly": true,
+    "otherFamilySubstitution": false,
+    "originalCatalogueUrl": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/09/unreal_render_tasks/unreal_10112606.webp",
+    "method": "Exact original 1936508,w viewer capture; catalogue CDN image unavailable (naturalWidth 0). Viewer doors shown open for inspection, facade configuration remains unchanged. Not claimed as original catalogue photo bytes.",
+    "source": "https://tylko.com/en-uk/furniture/wardrobe/1936508,w",
+    "captureClipCssPx": {
+      "x": 455,
+      "y": 145,
+      "width": 290,
+      "height": 490,
+      "scale": 0.5
+    },
+    "localAsset": "docs/tylko-reference/screenshots/wardrobe-catalog-001-original.jpg",
+    "sha256": "a83abb71949c63f978845eda388f6bb9a767b5532b12f2f70cb6dad6694323e3"
+  }
 }

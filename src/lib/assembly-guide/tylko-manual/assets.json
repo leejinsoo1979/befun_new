@@ -1,0 +1,3016 @@
+{
+  "pdfs": [
+    {
+      "file": "manuals/Tylko_166766_53pages.pdf",
+      "title": "Tylko 166766 조립 매뉴얼",
+      "url": "https://www.manualslib.com/manual/2909006/Tylko-166766.html",
+      "pages": 53,
+      "src": "/assembly/tylko/manuals/Tylko_166766_53pages.pdf"
+    },
+    {
+      "file": "manuals/EN_Disassembly_low_furniture.pdf",
+      "title": "낮은 가구 분해 설명서",
+      "url": "https://tylko.com/EN_Disassembly_low_furniture.pdf",
+      "pages": 29,
+      "src": "/assembly/tylko/manuals/EN_Disassembly_low_furniture.pdf"
+    },
+    {
+      "file": "manuals/EN_Disassembly_tall_furniture.pdf",
+      "title": "높은 가구 분해 설명서",
+      "url": "https://tylko.com/EN_Disassembly_tall_furniture.pdf",
+      "pages": 32,
+      "src": "/assembly/tylko/manuals/EN_Disassembly_tall_furniture.pdf"
+    },
+    {
+      "file": "connector.pdf",
+      "title": "KNAPP Mod-eez 커넥터 참고 도면 (Tylko 동일품 미확인)",
+      "src": "/assembly/tylko/connector.pdf",
+      "pages": 6
+    }
+  ],
+  "guides": [
+    {
+      "id": "13-assembly-video-tutorials",
+      "title": "Assembly Video Tutorials",
+      "source": "https://tylko.elevio.help/en/articles/13-assembly-video-tutorials",
+      "pdf": "/assembly/tylko/guides/13-assembly-video-tutorials.pdf",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Here's a handy list of all of our video tutorials to help you assemble your shelf:"
+        },
+        {
+          "kind": "text",
+          "text": "## Let's get your Tylko together"
+        },
+        {
+          "kind": "text",
+          "text": "### Back Panels Assembly"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=blfcT3pgLCs](https://www.youtube.com/watch?v=blfcT3pgLCs)"
+        },
+        {
+          "kind": "text",
+          "text": "Drawers Assembly and Disassembly"
+        },
+        {
+          "kind": "text",
+          "text": "###"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=nQP5VWmSs3k](https://www.youtube.com/watch?v=nQP5VWmSs3k)"
+        },
+        {
+          "kind": "text",
+          "text": "### Mounting and Removing Drawers"
+        },
+        {
+          "kind": "text",
+          "text": "###"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=hWDpACJiRWY](https://www.youtube.com/watch?v=hWDpACJiRWY)"
+        },
+        {
+          "kind": "text",
+          "text": "###"
+        },
+        {
+          "kind": "text",
+          "text": "### Insert Assembly and Disassembly"
+        },
+        {
+          "kind": "text",
+          "text": "###"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=1eMum5ec0ig](https://www.youtube.com/watch?v=1eMum5ec0ig)"
+        },
+        {
+          "kind": "text",
+          "text": "### Legs Assembly and Disassembly"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=y_6rMHwOIzo](https://www.youtube.com/watch?v=y_6rMHwOIzo)"
+        },
+        {
+          "kind": "text",
+          "text": "### Plinth Assembly and Disassembly"
+        },
+        {
+          "kind": "text",
+          "text": "###"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=lgHYY5T504w](https://www.youtube.com/watch?v=lgHYY5T504w)"
+        },
+        {
+          "kind": "text",
+          "text": "### Extra Wide Shelves: Connecting Two Halves (Tall Units)"
+        },
+        {
+          "kind": "text",
+          "text": "###"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=Zvi9fUoucog](https://www.youtube.com/watch?v=Zvi9fUoucog)"
+        },
+        {
+          "kind": "text",
+          "text": "### Extra Wide Shelves: Connecting Two Halves (Low Units)"
+        },
+        {
+          "kind": "text",
+          "text": "###"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=7fkFU6Tz4DA](https://www.youtube.com/watch?v=7fkFU6Tz4DA)"
+        },
+        {
+          "kind": "text",
+          "text": "### Lifting Your Tylko"
+        },
+        {
+          "kind": "text",
+          "text": "###"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=nO2MPDnBXDk](https://www.youtube.com/watch?v=nO2MPDnBXDk)"
+        },
+        {
+          "kind": "text",
+          "text": "### Removing Stickers"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=lFmHbD2uVLU](https://www.youtube.com/watch?v=lFmHbD2uVLU)"
+        },
+        {
+          "kind": "text",
+          "text": "## Troubleshooting"
+        },
+        {
+          "kind": "text",
+          "text": "Accidentally assembled something incorrectly? Here's how to fix it."
+        },
+        {
+          "kind": "text",
+          "text": "### Correcting a Drawer Rail Element"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=tkMWk3KPwD8](https://www.youtube.com/watch?v=tkMWk3KPwD8)"
+        },
+        {
+          "kind": "text",
+          "text": "### Correcting a Hinge Element"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=71SSgWoilwE](https://www.youtube.com/watch?v=71SSgWoilwE)"
+        },
+        {
+          "kind": "text",
+          "text": "### Element Incorrectly Assembled?"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=DYpU9nWbrvA](https://www.youtube.com/watch?v=DYpU9nWbrvA)"
+        },
+        {
+          "kind": "text",
+          "text": "Door not lining up inside the compartment? You might be missing the bumper. Here's the fix."
+        },
+        {
+          "kind": "text",
+          "text": "### Mounting a Door Bumper"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=MtWHpUer6hA](https://www.youtube.com/watch?v=MtWHpUer6hA)"
+        },
+        {
+          "kind": "text",
+          "text": "## Taking Your Tylko Apart"
+        },
+        {
+          "kind": "text",
+          "text": "Whether moving house or moving things around, you may need to disassemble your shelf at some point. Here's how"
+        },
+        {
+          "kind": "text",
+          "text": "### Disassembling Modules"
+        },
+        {
+          "kind": "text",
+          "text": "###"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=_yjSDPmH4s8](https://www.youtube.com/watch?v=_yjSDPmH4s8)"
+        },
+        {
+          "kind": "text",
+          "text": "### Reassembling Modules"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=DXFkO9fkcBM](https://www.youtube.com/watch?v=DXFkO9fkcBM)"
+        },
+        {
+          "kind": "text",
+          "text": "### Taking Back Panels Apart"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=eGsCR6_Cqi4](https://www.youtube.com/watch?v=eGsCR6_Cqi4)"
+        },
+        {
+          "kind": "text",
+          "text": "### Taking Your Shelf Apart"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=bpHEmZBUMAg](https://www.youtube.com/watch?v=bpHEmZBUMAg)"
+        },
+        {
+          "kind": "text",
+          "text": "### Was this article helpful?"
+        }
+      ]
+    },
+    {
+      "id": "14-securing-your-tylko-to-the-wall",
+      "title": "Securing Your Tylko to the Wall",
+      "source": "https://tylko.elevio.help/en/articles/14-securing-your-tylko-to-the-wall",
+      "pdf": "/assembly/tylko/guides/14-securing-your-tylko-to-the-wall.pdf",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "As a shelf or a wardrobe grows in height, so does its centre of gravity. To keep your Tylko safe, we include brackets so you can secure it to the wall."
+        },
+        {
+          "kind": "text",
+          "text": "We ship every Tylko with the perfect amount of bracket sets, calculated according to its size."
+        },
+        {
+          "kind": "text",
+          "text": "In the assembly manual you'll find a diagram showing the suggested positioning of the wall attachments, but there are no pre-drilled holes in the shelf or the wardrobe. This way, if the suggested placement of the brackets doesn’t suit you (for example, if you have wiring in the wall or a light switch in the way), you can change it."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/079_1659084417922-fjY.jpeg",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "-"
+        },
+        {
+          "kind": "text",
+          "text": "The iron bracket *\n*max. distance between the wall and the piece of furniture- 5cm"
+        },
+        {
+          "kind": "text",
+          "text": "-"
+        },
+        {
+          "kind": "text",
+          "text": "The wood screw (for mounting the bracket to your Tylko)"
+        },
+        {
+          "kind": "text",
+          "text": "-"
+        },
+        {
+          "kind": "text",
+          "text": "The universal wall screw (adaptable to every wall type)"
+        },
+        {
+          "kind": "text",
+          "text": "### Was this article helpful?"
+        }
+      ]
+    },
+    {
+      "id": "32-back-panels-and-supports",
+      "title": "Back panels and supports",
+      "source": "https://tylko.elevio.help/en/articles/32-back-panels-and-supports",
+      "pdf": "/assembly/tylko/guides/32-back-panels-and-supports.pdf",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Our click-in system is designed to make assembly quick and easy and should work perfectly. However, as the connecting elements are mounted by hand, from time to time our customers may notify us about difficulties they're experiencing while assembling their Tylko furniture. Luckily, 99% of these cases can be resolved with just a few minor tweaks, and you can easily fix the problem yourself, too. In this article, you'll learn about installing and removing back panels and support elements, as well as how to solve the most common issues with them."
+        },
+        {
+          "kind": "text",
+          "text": "1. The Elements\n2. How do I install a back panel or support element?\n3. My back panel or support element's drilled holes are incorrect.\n4. How do I remove a back panel or support element?"
+        },
+        {
+          "kind": "text",
+          "text": "Elements"
+        },
+        {
+          "kind": "text",
+          "text": "Back panels (the label will start with a W) and support elements (label starting with S) both have two types of pins:  \nFixed pins on the bottom edge\nSpring pins on the top side"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/001_1695207078275-HcQ.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/002_1695216389792-b4s.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "How to assemble it?"
+        },
+        {
+          "kind": "text",
+          "text": "First, align the bottom side (fixed pins) into the holes, then press the top edge (with spring pins) into place to lock them into position with a click."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/003_BP_nie_wchodzi_na_wysokosc_01-gww.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/004_1695216415225-4Rw.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "If you're having trouble installing back panels or support elements, here are some handy tips: If you're having difficulty installing a back panel, try inserting it at an angle and adjusting it once it is in the opening. Make sure both fixed pins on the bottom edge are aligned in the drilled holes on the adjoining horizontal element. You can also gently knock the the surrounding vertical elements to make more space for the back panel to insert."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/005_BP_nie_wchodzi_na_szerokosc_04-TMQ.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/006_BP_nie_wchodzi_na_szerokosc_03-Wcw.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "If you're having difficulty inserting the back panel heightwise, align the bottom edge pins in the hole, then use the felt-covered protective board and a rubber mallet to gently tap the back panel until it fits into the opening. Push the spring pins in and lock the panel into place with a click. The back panel should be flush with the unit on every side."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/007_BP_nie_wchodzi_na_wysokosc_01-dzw.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/008_BP_nie_wchodzi_na_wysokosc_03-0h4.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/009_BP_nie_wchodzi_na_wysokosc_04-vHo.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Check out this link for a quick video demonstrating this method:"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=blfcT3pgLCs](https://www.youtube.com/watch?v=blfcT3pgLCs)"
+        },
+        {
+          "kind": "text",
+          "text": "My back panel or support element was pre-drilled incorrectly."
+        },
+        {
+          "kind": "text",
+          "text": "You might discover that the pins do not fit into the pre-drilled holes on your unit's horizontal elements."
+        },
+        {
+          "kind": "text",
+          "text": "To confirm this, first slide the back panel or support element left to right and see if the problem persists. If the pins still do not align, you'll need to check that the elements were manufactured correctly."
+        },
+        {
+          "kind": "text",
+          "text": "To do this, measure the spacing on the back panel or support element from the centre of the pins to the edge on both sides. You'll also need to measure the spacing of the unit's horizontal element pre-drilled holes location in the same way."
+        },
+        {
+          "kind": "text",
+          "text": "If the problem is occuring in more than one component, you will need to measure each of them individually."
+        },
+        {
+          "kind": "text",
+          "text": "Back Panel Measurements (4 total)"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/010_BP_zly_rozmiar_ABCD_02-XpE.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/011_support_bledne_nawierty-1Z8.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Horizontal Unit Element Measurements (4 total)"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/012_nawierty_pod_BP_horizontal-zps.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "How Do I Remove a Back Panel or Support Element?"
+        },
+        {
+          "kind": "text",
+          "text": "In order to remove back panels, you will need a rubber mallet and the protective felt-covered board. You'll also need tape, and ideally, a second person. To dismantle the back panels in a low unit, lift the furniture slightly and slide the felt-covered protective board under the first vertical element in the row."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/013_demontaz__BP_-_niskie_meble_01-yVk.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Secure the back panels with tape, keeping it secure, but not taut. This is to make sure that the panels do not fall out and become damaged or cause injury.  Tip: for larger back panels, use two or more pieces of tape as needed."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/014_demontaz__BP_-_niskie_meble_02-898.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Then, gently tap the horizontal element below the back panel you wish to remove with the rubber mallet, using enough force to loosen it."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/015_demontaz__BP_-_niskie_meble_03-ruI.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Once you've partially disconnected the first element, place the felt-covered protective board below the next-closest vertical element and tap the horizontal unit element gently with the rubber mallet."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/016_demontaz__BP_-_niskie_meble_04-M7w.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Once you've partially disconnected the next element, place the felt-covered protective board below the next-closest vertical element and tap the horizontal unit element gently with the rubber mallet."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/017_demontaz__BP_-_niskie_meble_05-fao.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Continue removing alternating horizontal and vertical elements in the row until the back panels are freed from the spring pins. As these back panels are removable, they will fall into the center of your unit's compartments."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/018_demontaz__BP_-_niskie_meble_06-vDE.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "An alternative method that works for well for low/smaller units is to knock the first horizontal element row loose."
+        },
+        {
+          "kind": "text",
+          "text": "Secure the back panels with tape, keeping it secure, but not taut. This is to make sure that the panels do not fall out and become damaged or cause injury.  Tip: for larger back panels, use two or more pieces of tape as needed."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/019_BP_demontaz_na_stojaco_01-7Pg.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Using a rubber mallet and the felt-covered protective board, gently tap the first row of horizontal elements lose, working from the front, while two adults support the unit on both sides."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/020_BP_demontaz_na_stojaco_02-URE.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Once the horizontal row has moved far enough back, the back panels will loosen and can be easily removed."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/021_BP_demontaz_na_stojaco_03-s-M.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/022_BP_demontaz_na_stojaco_04-MdE.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Looking for further guidance and help on how to disassemble your Tylko furniture?\nYou can find out [full disassembly manual](https://tylko.com/faq/articles/self-assembly-disassembly/how-do-i-disassemble-my-tylko) and handy [videos ](https://www.youtube.com/playlist?list=PLOAx97AcdPcbsI80lxKWiCT2SrMDD2ySn)here."
+        },
+        {
+          "kind": "text",
+          "text": "We hope this article helped resolve your issue. Should you need more advice or assistance, our customer service team and standing by to help. Reach out at hello@tylko.com."
+        },
+        {
+          "kind": "text",
+          "text": "### Was this article helpful?"
+        }
+      ]
+    },
+    {
+      "id": "33-extra-wide-shelves-connecting-two-halves",
+      "title": "Extra Wide Shelves: Connecting Two Halves",
+      "source": "https://tylko.elevio.help/en/articles/33-extra-wide-shelves-connecting-two-halves",
+      "pdf": "/assembly/tylko/guides/33-extra-wide-shelves-connecting-two-halves.pdf",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "We are able to produce shelves up to 240 cm long in one piece. Any unit designed to be longer than that – regardless of height – will come in two modules (easily constructed sections of your entire unit) and will be connected with a visible joint, also known as a Lamello connector."
+        },
+        {
+          "kind": "text",
+          "text": "In this article, you'll learn more about assembly and disassembly by module, as well as a short description on how to solve the most common issues you may encounter."
+        },
+        {
+          "kind": "text",
+          "text": "1. What is a visible joint (also known as a Lamello connector) ?\n2. How do I assemble modules?\n3. How do I disassemble modules?"
+        },
+        {
+          "kind": "text",
+          "text": "What is an Visible Joint (aka Lamello)?"
+        },
+        {
+          "kind": "text",
+          "text": "Each module is joined by three fittings: a female connector, a male connector and a dowel. You can see them in the diagram below:"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/023_1695296296100-sII.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "If your fittings are different than the photos above – or missing – please send a photo to hello@tylko.com and describe the issue. We will get back to you with the appropriate solution."
+        },
+        {
+          "kind": "text",
+          "text": "How Do I Assemble Modules?"
+        },
+        {
+          "kind": "text",
+          "text": "Before joining two modules, be sure that the horizontal and vertical elements are flush and aligned to prevent difficulty joining the two pieces. Should your Tylko need to be aligned, see the article about horizontals and verticals."
+        },
+        {
+          "kind": "text",
+          "text": "Checking to confirm that the fittings are in place, gently align the connectors of both modules and join by fitting the two modules together. Using the Allen wrench, tighten the joints together by inserting it into the drill hole in each of the horizontal elements and turning it. (Repeat on every horizontal element.)"
+        },
+        {
+          "kind": "text",
+          "text": "To make it easier to connect the two modules, you can pull the dowels out slightly, lay the two modules close together, then slide them into place. Alternatively, you can ask someone to help you, as joining two modules can be tricky."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/024_lamello_02-oKM.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/025_lamello_03_b-H98.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/026_lamello_03_c-fMA.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "How Do I Disassemble Modules?"
+        },
+        {
+          "kind": "text",
+          "text": "First, detach the furniture from its wall mount. Insert a 4 mm Allen wrench (from the assembly of the furniture) into the drilled hole on the first horizontal element. Turn the wrench to loosen and disconnect the connectors. Repeat this action for each horizontal element."
+        },
+        {
+          "kind": "text",
+          "text": "After unscrewing the connector joints with the Allen wrench, pull one of the two modules towards you so that the two joints disconnect. You may need to ask another person for help, as modules can be heavy and awkward."
+        },
+        {
+          "kind": "text",
+          "text": "You can then proceed with the normal disassembly method."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/027_lamello_04_b-638.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/028_lamello_04_c-cw0.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/029_lamello_04_d-7bU.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=7fkFU6Tz4DA](https://www.youtube.com/watch?v=7fkFU6Tz4DA)"
+        },
+        {
+          "kind": "text",
+          "text": "Note: In the video we demonstrate the method of assembling and disassembling modules while lying down, which works only for selected low furniture. For other types of furniture, we recommend assembling and disassembling modules with the units standing up, and with the assistance of three competent adults."
+        },
+        {
+          "kind": "text",
+          "text": "We hope this article helped resolve your issue. Should you need more advice or assistance, our customer service team and standing by to help. Reach out at hello@tylko.com."
+        },
+        {
+          "kind": "text",
+          "text": "### Was this article helpful?"
+        }
+      ]
+    },
+    {
+      "id": "34-aligning-horizontal-and-vertical-elements",
+      "title": "Aligning Horizontal and Vertical Elements",
+      "source": "https://tylko.elevio.help/en/articles/34-aligning-horizontal-and-vertical-elements",
+      "pdf": "/assembly/tylko/guides/34-aligning-horizontal-and-vertical-elements.pdf",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "With our colour-coded, click-together assembly system, you can save valuable time and energy.  In order to ensure stability during use, all components must be connected to each other in the proper manner, with stability ensured only if there is no loosening at the connections. In this article, you'll learn more about our click-in assembly system."
+        },
+        {
+          "kind": "text",
+          "text": "1. What is a click-in system and how do I use it? \n2. How do I align the elements?"
+        },
+        {
+          "kind": "text",
+          "text": "What is a Click-In System? How Do I Use It?"
+        },
+        {
+          "kind": "text",
+          "text": "Our click-in system consists of black and silver pins and black and silver connectors. This is how you will assemble every vertical and horizontal element. As our furniture is delivered flat packed, we developed this ingenious click-in system to simultaneously guarantee structural stability and make for a quick, easy and intuitive assembly."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/030_1695365911158-xfU.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "When assembling your furniture, be sure to colour-match the pins and connectors: silver pins for silver connectors and black pins for black connectors.  You may notice some of your connectors are in black and orange – don't worry! This is just an older version of our colour coding. You'll want to match the colors in this situation just as you would the newer colours: orange pins align with orange connectors and black pins align with black connectors.  The click-in system consists of two types of connectors: a locking connector and a non-locking connector. The system is designed to lock the pin in place and prevent it from sliding out. Therefore, you may feel a little resistance when assembling the vertical and horizontal elements."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/031_click_in_01_zlacze_kolor_do_koloru-3gw.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/032_click_in_02-Z8s.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/033_click_in_03-ZAE.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/034_click_in_04-VkY.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "How Do I Align the Elements?"
+        },
+        {
+          "kind": "text",
+          "text": "Each shelf is unique, and each element is produced separately. This is why some parts can be trickier to assemble than others. You may need a little more force to join some of the components together, but don't worry – included with your furniture you'll find a felt-covered board that will allow you to use a rubber mallet safely and align the pieces easily."
+        },
+        {
+          "kind": "text",
+          "text": "Every vertical and horizontal element should be even and aligned with one another once you stand your unit. Before you fasten it to the wall, confirm that the elements have been assembled correctly and are perfectly square and aligned."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/035_niezlicowane_elementy_01-1yQ.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/036_click_in_04-9KE.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Gently tap any elements that need to be aligned. Hit the front or back of the shelving unit as necessary, alternating between horizontal and vertical elements."
+        },
+        {
+          "kind": "text",
+          "text": "Tip: Start with the bottom elements and align as you work up the unit. When hammering elements while the unit is standing, it is important to have a competent adult to help stabilise the furniture."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/037_niezlicowane_elementy_01-6v4.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/038_niezlicowane_elementy_02-IKY.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "In order to align the pieces, it may sometimes be necessary to hammer them element by element. This is where the felt-covered board comes in handy. You can knock vertical elements into position by placing the board vertically, and using the narrow edge. Please remember that when adjusting any elements, two competent adults must hold and stabilise the furniture as you work."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/039_1695367123699-iT8.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "All horizontal and vertical elements should be aligned with one another. The elements should form an even, balanced grid."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/040_niezlicowane_elementy_03-ZEE.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Need more guidance or help assembling your furniture? \nYou can find out [full disassembly manual](https://tylko.com/faq/articles/self-assembly-disassembly/how-do-i-disassemble-my-tylko) and handy [videos ](https://www.youtube.com/playlist?list=PLOAx97AcdPcbsI80lxKWiCT2SrMDD2ySn)here."
+        },
+        {
+          "kind": "text",
+          "text": "We hope this article helped resolve your issue. Should you need more advice or assistance, our customer service team and standing by to help. Reach out at hello@tylko.com."
+        },
+        {
+          "kind": "text",
+          "text": "### Was this article helpful?"
+        }
+      ]
+    },
+    {
+      "id": "35-troubleshooting-inserts-that-don-t-fit",
+      "title": "Troubleshooting Inserts That Don't Fit",
+      "source": "https://tylko.elevio.help/en/articles/35-troubleshooting-inserts-that-don-t-fit",
+      "pdf": "/assembly/tylko/guides/35-troubleshooting-inserts-that-don-t-fit.pdf",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "In this article you will find tips on how to solve issues with inserts (elements marked with the letter I)."
+        },
+        {
+          "kind": "text",
+          "text": "If you cannot assemble the insert, it could be due to a production error from incorrect drilling or connector placement on an insert, or on a vertical or horizontal element. We will describe how to measure and check the elements step by step to determine if this is the case."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/041_1695369168604-XR8.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Checking the Position of Connectors"
+        },
+        {
+          "kind": "text",
+          "text": "There are connectors shaped like a figure eight on both the left and right sides of the insert, with distinct top and bottom directions. The direction is important for correct installation, so observe their placement on the left and right sides, viewing from the front."
+        },
+        {
+          "kind": "text",
+          "text": "Need more guidance on assembling or disassembling inserts? See the video manual:"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=1eMum5ec0ig](https://www.youtube.com/watch?v=1eMum5ec0ig)"
+        },
+        {
+          "kind": "text",
+          "text": "Correct Placement:\nRight Side: The opening in which the insert will be placed should have the connectors orientated like so when viewed from the front."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/042_tylklik_right_02-o6k.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Left Side: The opening in which the insert will be placed should have the connectors orientated like so when viewed from the front."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/043_tylklik_right_01-cYA.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Incorrect Placement:"
+        },
+        {
+          "kind": "text",
+          "text": "Right Side: The smaller circle of the connector is facing downwards when viewed from the front."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/044_tylklik_wrong_02-MIQ.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Left Side: The smaller circle of the connector is facing downwards when viewed from the front."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/045_tylklik_wrong_01-p40.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "If a figure eight connector is mounted differently than in the picture above, rotate the element vertically (top to bottom). You'll find the instruction on how to do this [here](https://tylko.com/en-uk/faq/articles/self-assembly-disassembly/how-do-i-disassemble-my-tylko)."
+        },
+        {
+          "kind": "text",
+          "text": "If a figure eight connector is mounted the same way as shown above yet you are still experiencing difficulty, please check the measurements detailed in the next step. If the pins do not fit into the connectors, try flipping the insert upside-down (vertically) before assembly. If this doesn't help, the next step is to measure a few distances on the inner shelf as well as on the horizontals and verticals to confirm whether their placement is correct."
+        },
+        {
+          "kind": "text",
+          "text": "On the inner shelf, measure the spacing from the centre of the pins to the edge of the element (as shown in the diagram)."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/046_BP_zly_rozmiar_ABCD_01-cbU.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "On horizontal and vertical elements, measure the distance from the edge to the middle of the figure eight-shaped connector (as shown in the diagram)."
+        },
+        {
+          "kind": "text",
+          "text": "Left Side Element:\nThe distance from the front edge to the middle of the figure eight connector\nThe distance from the back edge to the middle of the figure eight connector"
+        },
+        {
+          "kind": "text",
+          "text": "Right Side Element:\nThe distance from the front edge to the middle of the figure eight connector\nThe distance from the back edge to the middle of the figure eight connector"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/047_tylkliki_odleglosci_01-3ww.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/048_1695381507358-Yu8.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Please send your measurements, as well as photos of the elements, to us at hello@tylko.com so we can determine the next course of action."
+        },
+        {
+          "kind": "text",
+          "text": "We hope this article helped resolve your issue. Should you need more advice or assistance, our customer service team and standing by to help. Reach out at hello@tylko.com."
+        },
+        {
+          "kind": "text",
+          "text": "### Was this article helpful?"
+        }
+      ]
+    },
+    {
+      "id": "36-drawers-assembly-and-adjustment",
+      "title": "Drawers: Assembly and Adjustment",
+      "source": "https://tylko.elevio.help/en/articles/36-drawers-assembly-and-adjustment",
+      "pdf": "/assembly/tylko/guides/36-drawers-assembly-and-adjustment.pdf",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "When designing our drawers, we paid special attention to the details for ease of assembly. Tylko drawers use fully extendable runners for deep access that are weighted to self-close, all with pre-mounted, click-in assembly elements."
+        },
+        {
+          "kind": "text",
+          "text": "In this article, we introduce how to properly mount a drawer on rails,  the possible reasons for a malfunctioning drawer, and how to align drawers. In the final section, we address common problems that can sometimes occur."
+        },
+        {
+          "kind": "text",
+          "text": "How Do I Assemble a Drawer?"
+        },
+        {
+          "kind": "text",
+          "text": "To assemble the drawer, click together the front and sides of the drawer using the colour-coded connectors. Pay attention to the side element placement: to be properly assembled, the holes should face inward to allow the bottom of the drawer to connect. Next, click in the back of the drawer using the colour-coded connectors. Last, flip the connected elements over and connect the bottom of the drawer by aligning the pins, and clicking into place."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/049_1695639306632-5rk.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/050_1695639282991-XwM.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "To mount the assembled drawer on the slide rails, simply place the drawer in the opening with the rails and push the drawer in slightly. You should hear the characteristic \"click\" sound to indicate the latch has connected. Open the drawer to confirm that it is properly assembled. If you have trouble sliding the drawer into place, try opening it a few times and then closing it with a little more force until the teeth from the latch on the bottom of the drawer connect with the teeth in the rails."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/051_1695639899018-6yI.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/052_1695639917047-BvM.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "To see how to assemble a drawer, see this video:"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=nQP5VWmSs3k](https://www.youtube.com/watch?v=nQP5VWmSs3k)"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=hWDpACJiRWY](https://www.youtube.com/watch?v=hWDpACJiRWY)"
+        },
+        {
+          "kind": "text",
+          "text": "Still having issues? Go the next section of the article."
+        },
+        {
+          "kind": "text",
+          "text": "How Do I Disassemble a Drawer?"
+        },
+        {
+          "kind": "text",
+          "text": "Firstly, remove the drawer from the rails by pulling it off the slide rail catch. Once removed from the unit, remove the back of the drawer by simply pulling it up. You can then remove the bottom of the drawer by tilting the sides of the drawer slightly. Once the bottom is removed, you can then disassemble the sides of the drawer by pulling them up, as well."
+        },
+        {
+          "kind": "text",
+          "text": "To see how to disassemble a drawer, see this video:"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=nQP5VWmSs3k](https://www.youtube.com/watch?v=nQP5VWmSs3k)"
+        },
+        {
+          "kind": "text",
+          "text": "How Do I Adjust a Drawer?"
+        },
+        {
+          "kind": "text",
+          "text": "If a drawer rubs or catches, or is not sitting straight, it may need to be adjusted."
+        },
+        {
+          "kind": "text",
+          "text": "Locate the black levers on the bottom of the drawer, near the grey elements under the drawer. By pressing the levers or pulling them towards the inside of the drawer, the height of the drawer can be changed. To make the front of the drawer lower, push the gray element at the bottom out. To make it higher, push the element in."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/053_1695640212262-GIs.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "A properly assembled drawer should not rub against the top or sides and is perfectly aligned with the shelf compartments. If it continues to drag, please check that the rail and drawer bottom are properly connected (the gray teeth on the slide rail should connect with the yellow teeth on the drawer bottom). If not, remove the drawer by pressing the yellow buttons on the bottom of the drawer at the same time. It will jump out automatically. Then slide the rails out completely, place it on the rails, and then close the drawer using a bit of force."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/054_1695640245689-AGY.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "If that doesn't help, could there be something catching the rails? Is something making a noise when closing the drawer? What exactly do you notice? Please check that all drawer components are correctly assembled. In a correctly assembled drawer, the teeth from the slide rail and the drawer connector should be aligned. Look at the bottom of the drawer to confirm that the components are correctly connected."
+        },
+        {
+          "kind": "text",
+          "text": "If you have further difficulties, please contact us at hello@tylko.com and attach photos of your drawer. We'll need the following pictures:\nA photo of the drawer from the top and bottom, so that we can see the mechanism on the bottom of the drawer\nA photo of the mounted drawer slid into place\nA photo of the drawer from bottom so that we can see how it is placed upon the slide rails"
+        },
+        {
+          "kind": "text",
+          "text": "Once we have this information, we'll work to find the appropriate solution."
+        },
+        {
+          "kind": "text",
+          "text": "If it seems like the drill holes on the front or back of the drawer are not in the same line as the pins on the bottom, we ask you to measure:\n \n- The distance from the edge to the middle of the pin on both sides of the drawer bottom\n- The distance from the edge to the middle of the drilling on both sides of the front or back of the drawer"
+        },
+        {
+          "kind": "text",
+          "text": "We hope this article helped resolve your issue. Should you need more advice or assistance, our customer service team and standing by to help. Reach out at hello@tylko.com."
+        },
+        {
+          "kind": "text",
+          "text": "### Was this article helpful?"
+        }
+      ]
+    },
+    {
+      "id": "37-incorrectly-assembled-elements",
+      "title": "Incorrectly Assembled Elements",
+      "source": "https://tylko.elevio.help/en/articles/37-incorrectly-assembled-elements",
+      "pdf": "/assembly/tylko/guides/37-incorrectly-assembled-elements.pdf",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Occasionally an element can be incorrectly assembled due to error or mislabelling. In the case of mislabelling, our apologies. Unfortunately this can sometimes occur and get missed during the final quality check."
+        },
+        {
+          "kind": "text",
+          "text": "How Do I Remove and Reassemble an Incorrectly Placed Element?"
+        },
+        {
+          "kind": "text",
+          "text": "The method for rotating an element depends on the connectors located on that element (for example if the element is plain, or contains a drawer rail or door hinges). It also depends at what stage of assembly the piece of furniture is in."
+        },
+        {
+          "kind": "text",
+          "text": "Remove and Reassemble: Drawer Rails"
+        },
+        {
+          "kind": "text",
+          "text": "Place the furniture face down on the floor using a protective surface. Lift the unit and place the felt-covered protective board under the right bottom edge of the element you want to remove. Press firmly horizontally on both sides to remove the element. Flip the element so that the slide extends towards the front of the unit and so that the colour-coded pins and connectors align."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/055_vertical_demontaz-QGI.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "To see how to remove and reassemble an element with slide rails, see this video:"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=tkMWk3KPwD8](https://www.youtube.com/watch?v=tkMWk3KPwD8)"
+        },
+        {
+          "kind": "text",
+          "text": "Remove and Reassemble: Hinges"
+        },
+        {
+          "kind": "text",
+          "text": "Place the unit face down on the floor using a protective surface. Lift the unit and place the felt-covered protective board under the right bottom edge of the element you want to remove. Press firmly horizontally on both sides to remove the element. Flip the element so that the hinges face the front of the unit and the colour-coded pins and connectors align."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/056_vertical_demontaz-S_E.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "To see how to remove and reassemble an element with hinges, see this video:"
+        },
+        {
+          "kind": "text",
+          "text": "[Video: https://www.youtube.com/watch?v=71SSgWoilwE](https://www.youtube.com/watch?v=71SSgWoilwE)"
+        },
+        {
+          "kind": "text",
+          "text": "Remove and Reassemble: Back Panels"
+        },
+        {
+          "kind": "text",
+          "text": "To remove the back panels, lift the furniture slightly and slide the felt-covered protective board under the first vertical element in the row."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/057_1695711227590-UwQ.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Secure the back panels with the tape. The tape should be secure but not tight. This will ensure that the components don't fall out and become damaged or cause injury. Tip: For larger back panels, secure the piece with two or three pieces of tape as needed."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/058_1695711237665-kFc.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "To disassemble, using a rubber mallet gently tap the horizontal element below the back panel you wish to remove, using enough force to loosen it."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/059_1695711247510-rXk.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Once you've partially disconnected the first element, place the felt-covered protective board below the next-closest vertical element and tap the horizontal unit element gently with the rubber mallet."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/060_1695711259379-ZqA.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Once you have partially disconnected this element, place the felt-covered protective board under the next vertical element and gently hit the next horizontal element with the rubber mallet. This action must be repeated for every element in the row."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/061_1695711276951-jWI.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Repeat by removing all horizontal and vertical elements in the row until the back panel is freed from the pins. As they are removable, they will fall into the centre of the rack."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/062_1695711283001-wOg.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Now you can easily dismantle the verticals. Lift the furniture slightly and slide the felt-covered protective board under the horizontal element close to the vertical that you want to dismantle. Then press the horizontal element."
+        },
+        {
+          "kind": "text",
+          "text": "Flip the element so that the colour-coded pins and connectors align and click into place to reassemble."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/063_1695711357370-ER4.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Once the element is mounted correctly, mount the removed section of furniture by aligning it and placing it gently over the verticals. Lift the section you wish to reassemble. One person should position the verticals of the section at the same time so that the verticals align properly with the connectors."
+        },
+        {
+          "kind": "text",
+          "text": "Once the verticals and the section to be assembled have been correctly placed, connect the components. Gently tap the lower horizontals of the reassembled section with the rubber mallet."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/064_1695712052435-XqQ.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "An alternative method that works especially well for lower units is to knock out the first horizontal element."
+        },
+        {
+          "kind": "text",
+          "text": "Secure the back panels with the tape that is secure, but not tight. This will ensure that the panels don't fall out and become damaged or cause injury. Tip: For larger back panels, secure the piece with two or three pieces of tape as needed."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/065_1695712074421-JUg.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Using a rubber mallet and the felt-covered protective board, gently hammer the first horizontal elements from the front while two helpers hold the unit steady on both sides."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/066_1695712132915-_ko.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Once the horizontal element has moved and the back panels have loosened, they can be removed."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/067_1695712192466-h4M.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/068_1695712203918-1CE.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Then fully hammer out the horizontal element using the felt-covered protective board and the rubber mallet."
+        },
+        {
+          "kind": "text",
+          "text": "Next, place the unit face down on the floor using a protective surface. Lift the unit and place the felt-covered protective board under the right bottom edge of the element you want to remove. Press firmly horizontally on both sides to remove the element. Flip the element so that the colour-coded pins and connectors align."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/069_vertical_demontaz-3OM.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/070_1695712244072-y4Q.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Once the element is mounted correctly, reassemble the removed section of the unit by aligning it and placing it gently over the verticals. Lift the section you wish to reassemble. One person should position the verticals and the section at the same time so that the verticals align properly with the connectors."
+        },
+        {
+          "kind": "text",
+          "text": "Once the verticals and the section to be reassembled have been correctly placed, connect the components. Gently tap the lower horizontals of the reassembled section with the rubber mallet."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/071_1695712524977-kJY.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "We hope this article helped resolve your issue. Should you need more advice or assistance, our customer service team and standing by to help. Reach out at hello@tylko.com."
+        },
+        {
+          "kind": "text",
+          "text": "### Was this article helpful?"
+        }
+      ]
+    },
+    {
+      "id": "38-doors-assembly-and-adjustment",
+      "title": "Doors: Assembly and Adjustment",
+      "source": "https://tylko.elevio.help/en/articles/38-doors-assembly-and-adjustment",
+      "pdf": "/assembly/tylko/guides/38-doors-assembly-and-adjustment.pdf",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Tylko furniture comes with every connector attached, so you don't have to worry about screwing hinges on. In this article, we'll explain how to assemble doors, how to adjust and regulate them, and how the soft-close system works. In the final section, we'll address some common door issues that can occur and how to resolve them."
+        },
+        {
+          "kind": "text",
+          "text": "How Do I Assemble a Door?"
+        },
+        {
+          "kind": "text",
+          "text": "Every door comes pre-fitted with a hinge that attaches to the corresponding hinge connector located on the vertical element."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/072_drzwi_system_montazowy-Rfc.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "To assemble a door, simply lift it into place, align it with the hinge connectors, and press firmly to click it into place. You will hear a \"click\" sound when the door is properly attached."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/073_230704_TYLKO_assembly_0327-qrk.jpg",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "How Do I Adjust a Door?"
+        },
+        {
+          "kind": "text",
+          "text": "Occasionally once a door is installed, it may need some slight adjustments to straighten it. In order to do so, you'll need to adjust the screws on the hinge connectors."
+        },
+        {
+          "kind": "text",
+          "text": "To adjust a door's height, use the central adjustment screw, while keeping the door attached."
+        },
+        {
+          "kind": "text",
+          "text": "If a door is not parallel after installation, adjust its position using the adjustment screw closest to the unit's edge, while keeping the door attached."
+        },
+        {
+          "kind": "text",
+          "text": "To adjust the depth of the door, adjust using the adjustment screw furthest from the edge, while keeping the door attached."
+        },
+        {
+          "kind": "text",
+          "text": "Blum hinges"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/074_regulacja_zawiasow-J24.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "Tylko/Hafele hinges"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/075_hafele-ti4.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "If the door travels past the unit's edge, be sure the door bumpers are properly mounted."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/076_230704_TYLKO_assembly_0296-kWk.jpg",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "If you're still having difficulties with the adjustment and alignment of your doors, please send us the measurements of the hinge placement on the door as well as on the vertical element, and the corresponding photos of each to hello@tylko.com. Once we have this information, we'll work to find the appropriate solution."
+        },
+        {
+          "kind": "text",
+          "text": "My Door Doesn't Seem to Fit the Opening"
+        },
+        {
+          "kind": "text",
+          "text": "Our apologies for the inconvenience. Sometimes problems can arise when assembling the door front. We kindly ask you to check following points:\n- Check if the hinge connectors are in the right position (positioned as shown in the manual)\n- Check if the hinges on the door have been placed on the furniture face side (if necessary, simulate turning around the element to see if it fits)\n- Check if the hinge connectors are fixed correctly towards the front of the furniture\n- Check if the distance between the hinge connectors is equal to the distance between the hinges\n- If the door is slightly too big or too small, and there are similar sized doors for your unit, try swapping them. You can also gently tap the vertical walls using the felt-covered board, which may move the elements enough to provide room for the door."
+        },
+        {
+          "kind": "text",
+          "text": "If your door issues persist, please send the length and height of the door, as well as the measurements of the spacing of the hinges and hinge connectors from the top and bottom of the door and vertical element as shown, and send them to us at hello@tylko.com. Once we have this information, we'll work to find the appropriate solution."
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/077_bledne_nawierty_drzwi_i_inserty_01-Gd8.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "image",
+          "src": "/assembly/tylko/images/078_bledne_nawierty_drzwi_i_inserty_02-jpc.png",
+          "text": "Assembly diagram"
+        },
+        {
+          "kind": "text",
+          "text": "We hope this article helped resolve your issue. Should you need more advice or assistance, our customer service team and standing by to help. Reach out at hello@tylko.com."
+        },
+        {
+          "kind": "text",
+          "text": "### Was this article helpful?"
+        }
+      ]
+    },
+    {
+      "id": "how-do-i-disassemble-my-tylko",
+      "title": "How do I disassemble my Tylko?",
+      "source": "https://tylko.com/en-uk/faq/articles/self-assembly-disassembly/how-do-i-disassemble-my-tylko",
+      "pdf": "/assembly/tylko/guides/how-do-i-disassemble-my-tylko.pdf",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "["
+        },
+        {
+          "kind": "text",
+          "text": "## How do I disassemble my Tylko?"
+        },
+        {
+          "kind": "text",
+          "text": "](/en-uk/faq/tags/articles)"
+        },
+        {
+          "kind": "text",
+          "text": "Great news – disassembling your Tylko is just as easy as assembling it. Check out our step-by-step guides for tall furniture and for low furniture.[here](https://tylko.com/EN_Disassembly_low_furniture.pdf) & [here](https://tylko.com/EN_Disassembly_tall_furniture.pdf)."
+        },
+        {
+          "kind": "text",
+          "text": "### Other topics"
+        },
+        {
+          "kind": "text",
+          "text": "- [What type of tools will I need to assemble the furniture?](/en-uk/faq/articles/self-assembly-disassembly/tools-needed-to-assemble-furniture)\n- [Can I see an assembly manual?](/en-uk/faq/articles/self-assembly-disassembly/can-i-see-an-assembly-manual)\n- [How to assemble Tylko Smooth?](/en-uk/faq/articles/self-assembly-disassembly/assemble-tylko-smooth-sofa)\n- [Can I assemble my Wardrobe by myself?](/en-uk/faq/articles/self-assembly-disassembly/can-i-assemble-my-wardrobe-by-myself)\n- [How do I assemble my Tylko shelf?](/en-uk/faq/articles/self-assembly-disassembly/how-do-i-assemble-my-tylko-shelf)"
+        },
+        {
+          "kind": "text",
+          "text": "Did you find what you were looking for?"
+        },
+        {
+          "kind": "text",
+          "text": "Thanks for your feedback!"
+        }
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "id": "7fkFU6Tz4DA",
+      "title": "Assembling and Disassembling Modules for Wide and Low Units",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=7fkFU6Tz4DA",
+      "file": "videos/Assembling and Disassembling Modules for Wide and Low Units [7fkFU6Tz4DA].mp4",
+      "bytes": 8020640,
+      "durationSeconds": 52.453878,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/Assembling and Disassembling Modules for Wide and Low Units [7fkFU6Tz4DA].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/Assembling and Disassembling Modules for Wide and Low Units [7fkFU6Tz4DA].webp"
+    },
+    {
+      "id": "tkMWk3KPwD8",
+      "title": "Correcting a Drawer Rail Element",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=tkMWk3KPwD8",
+      "file": "videos/Correcting a Drawer Rail Element [tkMWk3KPwD8].mp4",
+      "bytes": 4825861,
+      "durationSeconds": 20.015601,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/Correcting a Drawer Rail Element [tkMWk3KPwD8].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/Correcting a Drawer Rail Element [tkMWk3KPwD8].webp"
+    },
+    {
+      "id": "71SSgWoilwE",
+      "title": "Correcting a Hinge Element",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=71SSgWoilwE",
+      "file": "videos/Correcting a Hinge Element [71SSgWoilwE].mp4",
+      "bytes": 3814165,
+      "durationSeconds": 21.292698,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/Correcting a Hinge Element [71SSgWoilwE].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/Correcting a Hinge Element [71SSgWoilwE].webp"
+    },
+    {
+      "id": "_yjSDPmH4s8",
+      "title": "Disassembling Modules",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=_yjSDPmH4s8",
+      "file": "videos/Disassembling Modules [_yjSDPmH4s8].mp4",
+      "bytes": 10248258,
+      "durationSeconds": 58.096327,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/Disassembling Modules [_yjSDPmH4s8].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/Disassembling Modules [_yjSDPmH4s8].webp"
+    },
+    {
+      "id": "nQP5VWmSs3k",
+      "title": "Drawer Assembly and Disassembly",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=nQP5VWmSs3k",
+      "file": "videos/Drawer Assembly and Disassembly [nQP5VWmSs3k].mp4",
+      "bytes": 12809026,
+      "durationSeconds": 52.895057,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/Drawer Assembly and Disassembly [nQP5VWmSs3k].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/Drawer Assembly and Disassembly [nQP5VWmSs3k].webp"
+    },
+    {
+      "id": "DYpU9nWbrvA",
+      "title": "Element incorrectly assembled?",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=DYpU9nWbrvA",
+      "file": "videos/Element incorrectly assembled∩╝ƒ [DYpU9nWbrvA].mp4",
+      "bytes": 7791410,
+      "durationSeconds": 32.786576,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/Element incorrectly assembled∩╝ƒ [DYpU9nWbrvA].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/Element incorrectly assembled∩╝ƒ [DYpU9nWbrvA].webp"
+    },
+    {
+      "id": "MtWHpUer6hA",
+      "title": "How to add a missing door bumper",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=MtWHpUer6hA",
+      "file": "videos/How to add a missing door bumper [MtWHpUer6hA].mp4",
+      "bytes": 3199921,
+      "durationSeconds": 17.507846,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/How to add a missing door bumper [MtWHpUer6hA].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/How to add a missing door bumper [MtWHpUer6hA].webp"
+    },
+    {
+      "id": "Zvi9fUoucog",
+      "title": "How to assemble an extended-width Tylko shelf",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=Zvi9fUoucog",
+      "file": "videos/How to assemble an extended-width Tylko shelf [Zvi9fUoucog].mp4",
+      "bytes": 6473119,
+      "durationSeconds": 39.311383,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/How to assemble an extended-width Tylko shelf [Zvi9fUoucog].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/How to assemble an extended-width Tylko shelf [Zvi9fUoucog].webp"
+    },
+    {
+      "id": "bpHEmZBUMAg",
+      "title": "How to disassemble a Tylko shelf",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=bpHEmZBUMAg",
+      "file": "videos/How to disassemble a Tylko shelf [bpHEmZBUMAg].mp4",
+      "bytes": 20211004,
+      "durationSeconds": 116.773152,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/How to disassemble a Tylko shelf [bpHEmZBUMAg].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/How to disassemble a Tylko shelf [bpHEmZBUMAg].webp"
+    },
+    {
+      "id": "eGsCR6_Cqi4",
+      "title": "How to disassemble back panels",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=eGsCR6_Cqi4",
+      "file": "videos/How to disassemble back panels [eGsCR6_Cqi4].mp4",
+      "bytes": 10088908,
+      "durationSeconds": 51.17678,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/How to disassemble back panels [eGsCR6_Cqi4].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/How to disassemble back panels [eGsCR6_Cqi4].webp"
+    },
+    {
+      "id": "1eMum5ec0ig",
+      "title": "Insert Assembly and Disassembly",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=1eMum5ec0ig",
+      "file": "videos/Insert Assembly and Disassembly [1eMum5ec0ig].mp4",
+      "bytes": 2682897,
+      "durationSeconds": 27.817506,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/Insert Assembly and Disassembly [1eMum5ec0ig].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/Insert Assembly and Disassembly [1eMum5ec0ig].webp"
+    },
+    {
+      "id": "y_6rMHwOIzo",
+      "title": "Leg Assembly and Disassembly",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=y_6rMHwOIzo",
+      "file": "videos/Leg Assembly and Disassembly [y_6rMHwOIzo].mp4",
+      "bytes": 2221903,
+      "durationSeconds": 15.13941,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/Leg Assembly and Disassembly [y_6rMHwOIzo].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/Leg Assembly and Disassembly [y_6rMHwOIzo].webp"
+    },
+    {
+      "id": "nO2MPDnBXDk",
+      "title": "Lifting your Tylko",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=nO2MPDnBXDk",
+      "file": "videos/Lifting your Tylko [nO2MPDnBXDk].mp4",
+      "bytes": 4131450,
+      "durationSeconds": 16.068209,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/Lifting your Tylko [nO2MPDnBXDk].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/Lifting your Tylko [nO2MPDnBXDk].webp"
+    },
+    {
+      "id": "hWDpACJiRWY",
+      "title": "Mounting and Removing Drawers",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=hWDpACJiRWY",
+      "file": "videos/Mounting and Removing Drawers [hWDpACJiRWY].mp4",
+      "bytes": 4817540,
+      "durationSeconds": 23.336054,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/Mounting and Removing Drawers [hWDpACJiRWY].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/Mounting and Removing Drawers [hWDpACJiRWY].webp"
+    },
+    {
+      "id": "blfcT3pgLCs",
+      "title": "Mounting the Back Panels",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=blfcT3pgLCs",
+      "file": "videos/Mounting the Back Panels [blfcT3pgLCs].mp4",
+      "bytes": 6545298,
+      "durationSeconds": 30.62712,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/Mounting the Back Panels [blfcT3pgLCs].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/Mounting the Back Panels [blfcT3pgLCs].webp"
+    },
+    {
+      "id": "lgHYY5T504w",
+      "title": "Plinth Assembly and Disassembly",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=lgHYY5T504w",
+      "file": "videos/Plinth Assembly and Disassembly [lgHYY5T504w].mp4",
+      "bytes": 25642749,
+      "durationSeconds": 88.700227,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/Plinth Assembly and Disassembly [lgHYY5T504w].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/Plinth Assembly and Disassembly [lgHYY5T504w].webp"
+    },
+    {
+      "id": "DXFkO9fkcBM",
+      "title": "Reassembling Modules",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=DXFkO9fkcBM",
+      "file": "videos/Reassembling Modules [DXFkO9fkcBM].mp4",
+      "bytes": 11547806,
+      "durationSeconds": 65.619592,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/Reassembling Modules [DXFkO9fkcBM].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/Reassembling Modules [DXFkO9fkcBM].webp"
+    },
+    {
+      "id": "lFmHbD2uVLU",
+      "title": "Stickers removal",
+      "channel": "tylko",
+      "url": "https://www.youtube.com/watch?v=lFmHbD2uVLU",
+      "file": "videos/Stickers removal [lFmHbD2uVLU].mp4",
+      "bytes": 1599738,
+      "durationSeconds": 14.698231,
+      "width": 1920,
+      "height": 1080,
+      "decodedWithoutErrors": true,
+      "src": "/assembly/tylko/videos/Stickers removal [lFmHbD2uVLU].mp4",
+      "poster": "/assembly/tylko/videos/thumbnails/Stickers removal [lFmHbD2uVLU].webp"
+    }
+  ],
+  "images": [
+    {
+      "file": "images/004_1695216415225-4Rw.png",
+      "url": "/assembly/tylko/images/004_1695216415225-4Rw.png",
+      "bytes": 27865,
+      "sha256": "f2df77414fdf9b7fb85de3a6a435cf58f25c0559f5edb6d93340fcbc62c0bf09"
+    },
+    {
+      "file": "images/054_1695640245689-AGY.png",
+      "url": "/assembly/tylko/images/054_1695640245689-AGY.png",
+      "bytes": 1757348,
+      "sha256": "322d16918d552d0a07ab52947ab4958a794b95bb7828fb69c222eed8e7e53fd9"
+    },
+    {
+      "file": "images/076_230704_TYLKO_assembly_0296-kWk.jpg",
+      "url": "/assembly/tylko/images/076_230704_TYLKO_assembly_0296-kWk.jpg",
+      "bytes": 19364049,
+      "sha256": "e223835a1a5fee6d3d7b77145c1f4a703b37de6cae254325871cd7e8902962a3"
+    },
+    {
+      "file": "images/068_1695712203918-1CE.png",
+      "url": "/assembly/tylko/images/068_1695712203918-1CE.png",
+      "bytes": 85095,
+      "sha256": "6e4cc42e6f6ee2726c42f63d41289aa8af4f959a8f022d56c54afcb6606401b1"
+    },
+    {
+      "file": "images/041_1695369168604-XR8.png",
+      "url": "/assembly/tylko/images/041_1695369168604-XR8.png",
+      "bytes": 343760,
+      "sha256": "94808ed8a1f90ccfaed3824ab9030225d3ce269140835c998bb5117efbddaa0f"
+    },
+    {
+      "file": "images/078_bledne_nawierty_drzwi_i_inserty_02-jpc.png",
+      "url": "/assembly/tylko/images/078_bledne_nawierty_drzwi_i_inserty_02-jpc.png",
+      "bytes": 103240,
+      "sha256": "e30c24035827d641867be2a5bfa54c8b9222442b105559168f1fb4372e03d6b7"
+    },
+    {
+      "file": "images/036_click_in_04-9KE.png",
+      "url": "/assembly/tylko/images/036_click_in_04-9KE.png",
+      "bytes": 51502,
+      "sha256": "9a965927aa5b02582485ca694eac55c74f96ae4fd72dde32466bc71661e058b3"
+    },
+    {
+      "file": "images/012_nawierty_pod_BP_horizontal-zps.png",
+      "url": "/assembly/tylko/images/012_nawierty_pod_BP_horizontal-zps.png",
+      "bytes": 24619,
+      "sha256": "385a62ce607b6912960eeb86a18a08e980393624b2cbf8d0608676519b285b97"
+    },
+    {
+      "file": "images/062_1695711283001-wOg.png",
+      "url": "/assembly/tylko/images/062_1695711283001-wOg.png",
+      "bytes": 86681,
+      "sha256": "90e891825db00604014fada0d8c696a9bd0e16aaa7c30583da7ee9d1ce5ecb5b"
+    },
+    {
+      "file": "images/052_1695639917047-BvM.png",
+      "url": "/assembly/tylko/images/052_1695639917047-BvM.png",
+      "bytes": 1972224,
+      "sha256": "1cfc6e2a99d8009f0acd2c7ea9a36d9056da5dd739e4fa9ca0b59a8e0b227afd"
+    },
+    {
+      "file": "images/028_lamello_04_c-cw0.png",
+      "url": "/assembly/tylko/images/028_lamello_04_c-cw0.png",
+      "bytes": 9250,
+      "sha256": "436b462e177222ad244372ddfa041d75c530b4baa55c227c28a9e04dcb0b9aee"
+    },
+    {
+      "file": "images/063_1695711357370-ER4.png",
+      "url": "/assembly/tylko/images/063_1695711357370-ER4.png",
+      "bytes": 100791,
+      "sha256": "e16af59d84d938b2c30c896579be641084b6bd877f26eb7ad508d6856173d715"
+    },
+    {
+      "file": "images/023_1695296296100-sII.png",
+      "url": "/assembly/tylko/images/023_1695296296100-sII.png",
+      "bytes": 251879,
+      "sha256": "4abae9adc0a0f517141c508da1dfed45320d846bfbc609c66662f8ef00a73eae"
+    },
+    {
+      "file": "images/058_1695711237665-kFc.png",
+      "url": "/assembly/tylko/images/058_1695711237665-kFc.png",
+      "bytes": 111474,
+      "sha256": "bb3f4caca917172cec29863809984d83a1672c30b7ebb502f41fadef4f86cc89"
+    },
+    {
+      "file": "images/066_1695712132915-_ko.png",
+      "url": "/assembly/tylko/images/066_1695712132915-_ko.png",
+      "bytes": 106908,
+      "sha256": "aaa27bf0f9c56872f4cc8ab11ae4ac88a88ddea3a307b8754d1b41780fda92d6"
+    },
+    {
+      "file": "images/048_1695381507358-Yu8.png",
+      "url": "/assembly/tylko/images/048_1695381507358-Yu8.png",
+      "bytes": 17309,
+      "sha256": "a90289716d3b8afd8633756f3cde2b23572ad59dfd5d023da0558028b56aa3ed"
+    },
+    {
+      "file": "images/055_vertical_demontaz-QGI.png",
+      "url": "/assembly/tylko/images/055_vertical_demontaz-QGI.png",
+      "bytes": 12781,
+      "sha256": "98999423039d3f4ce7265eb024ff0b32a09327a5e4b40ab77e682417fb40973b"
+    },
+    {
+      "file": "images/072_drzwi_system_montazowy-Rfc.png",
+      "url": "/assembly/tylko/images/072_drzwi_system_montazowy-Rfc.png",
+      "bytes": 59699,
+      "sha256": "ffa369ba94c0e4be0c1444d2b942578d0265d5e2827d749df147f69c3bf32630"
+    },
+    {
+      "file": "images/061_1695711276951-jWI.png",
+      "url": "/assembly/tylko/images/061_1695711276951-jWI.png",
+      "bytes": 88434,
+      "sha256": "f5d1f6028e7b383a462914ff827d87c062ea0cbea326e3ac3de25e4b0d8763d2"
+    },
+    {
+      "file": "images/034_click_in_04-VkY.png",
+      "url": "/assembly/tylko/images/034_click_in_04-VkY.png",
+      "bytes": 51502,
+      "sha256": "9a965927aa5b02582485ca694eac55c74f96ae4fd72dde32466bc71661e058b3"
+    },
+    {
+      "file": "images/050_1695639282991-XwM.png",
+      "url": "/assembly/tylko/images/050_1695639282991-XwM.png",
+      "bytes": 1212950,
+      "sha256": "be11c158fca09032eccc02f4d3d6ceedb67451dccc374f4c1577c44794d1dc27"
+    },
+    {
+      "file": "images/014_demontaz__BP_-_niskie_meble_02-898.png",
+      "url": "/assembly/tylko/images/014_demontaz__BP_-_niskie_meble_02-898.png",
+      "bytes": 28208,
+      "sha256": "d48274cb64fddbff56e5146ba75b6ac2db5b008ed243b9ea037a401cb73b3849"
+    },
+    {
+      "file": "images/030_1695365911158-xfU.png",
+      "url": "/assembly/tylko/images/030_1695365911158-xfU.png",
+      "bytes": 840573,
+      "sha256": "7b44fdfe00b022e3beb396af81dd3ec3cee46405f134a40252017a96c5f3cd3e"
+    },
+    {
+      "file": "images/020_BP_demontaz_na_stojaco_02-URE.png",
+      "url": "/assembly/tylko/images/020_BP_demontaz_na_stojaco_02-URE.png",
+      "bytes": 24677,
+      "sha256": "348d4e35bf8fd03ef9abdbf8e22e598b1a803ae4b1fce3fef39527400b47219c"
+    },
+    {
+      "file": "images/021_BP_demontaz_na_stojaco_03-s-M.png",
+      "url": "/assembly/tylko/images/021_BP_demontaz_na_stojaco_03-s-M.png",
+      "bytes": 19465,
+      "sha256": "2fde5ff619802e7acc1af36fa2c15e367aecc8e0232221c49f0ac73517bc0715"
+    },
+    {
+      "file": "images/057_1695711227590-UwQ.png",
+      "url": "/assembly/tylko/images/057_1695711227590-UwQ.png",
+      "bytes": 108762,
+      "sha256": "6d0c92c32314bc197c5803cd39e8bfbf4b05b44f9587717114ff313316bf3b38"
+    },
+    {
+      "file": "images/027_lamello_04_b-638.png",
+      "url": "/assembly/tylko/images/027_lamello_04_b-638.png",
+      "bytes": 9222,
+      "sha256": "7ace66f3e2b950ffec3206b6eba8d465fe097794ca4663012b56895d4d325b15"
+    },
+    {
+      "file": "images/011_support_bledne_nawierty-1Z8.png",
+      "url": "/assembly/tylko/images/011_support_bledne_nawierty-1Z8.png",
+      "bytes": 5341,
+      "sha256": "4b94c2c7977c660f68db785f9b38df6e7e0a10c31b191232e25af1de06dacab6"
+    },
+    {
+      "file": "images/073_230704_TYLKO_assembly_0327-qrk.jpg",
+      "url": "/assembly/tylko/images/073_230704_TYLKO_assembly_0327-qrk.jpg",
+      "bytes": 20891658,
+      "sha256": "6ab846600b59f18528fe9ed512d69381c953fad17282043d6609d578677abedf"
+    },
+    {
+      "file": "images/029_lamello_04_d-7bU.png",
+      "url": "/assembly/tylko/images/029_lamello_04_d-7bU.png",
+      "bytes": 9270,
+      "sha256": "710f81eab66a33f9866cdd4d2ab7d7b6118d43ab21a8eee565fe1cfee24bc98d"
+    },
+    {
+      "file": "images/049_1695639306632-5rk.png",
+      "url": "/assembly/tylko/images/049_1695639306632-5rk.png",
+      "bytes": 2041348,
+      "sha256": "c237e1963d0bd42d8fea931ecbe4e7e686b8e3420e884479fed58b15c4be24f0"
+    },
+    {
+      "file": "images/047_tylkliki_odleglosci_01-3ww.png",
+      "url": "/assembly/tylko/images/047_tylkliki_odleglosci_01-3ww.png",
+      "bytes": 8039,
+      "sha256": "9b8558e7ef61e588e9e728d9e07707f648e79e20f2b241c231e13aba41e91a6b"
+    },
+    {
+      "file": "images/032_click_in_02-Z8s.png",
+      "url": "/assembly/tylko/images/032_click_in_02-Z8s.png",
+      "bytes": 27884,
+      "sha256": "8fe6c88fcd85a51960f7f62edb65247648ce0fe9cf110f00c41e902ade8ad80a"
+    },
+    {
+      "file": "images/017_demontaz__BP_-_niskie_meble_05-fao.png",
+      "url": "/assembly/tylko/images/017_demontaz__BP_-_niskie_meble_05-fao.png",
+      "bytes": 42130,
+      "sha256": "218b180d4157152dea25ca20539e83bdb05f9ce324074d811da03f5a288b2d1d"
+    },
+    {
+      "file": "images/022_BP_demontaz_na_stojaco_04-MdE.png",
+      "url": "/assembly/tylko/images/022_BP_demontaz_na_stojaco_04-MdE.png",
+      "bytes": 22830,
+      "sha256": "b3db5dd3cf51418b16b9b5eb38d96088a0c3b82e037a856517f7870dd59a1755"
+    },
+    {
+      "file": "images/033_click_in_03-ZAE.png",
+      "url": "/assembly/tylko/images/033_click_in_03-ZAE.png",
+      "bytes": 35518,
+      "sha256": "8bb89b8473d228e087f7f5a6272af713998f9a83950b4df871a215527771f374"
+    },
+    {
+      "file": "images/010_BP_zly_rozmiar_ABCD_02-XpE.png",
+      "url": "/assembly/tylko/images/010_BP_zly_rozmiar_ABCD_02-XpE.png",
+      "bytes": 6875,
+      "sha256": "e716df96437ab40cb5d0d37d9175cc18020202ddf075fff0832fe28583f2730f"
+    },
+    {
+      "file": "images/067_1695712192466-h4M.png",
+      "url": "/assembly/tylko/images/067_1695712192466-h4M.png",
+      "bytes": 75585,
+      "sha256": "a6caa23ef59b02b5dd49be85833fb692d28a797559f709775165a349ce1f4f8f"
+    },
+    {
+      "file": "images/079_1659084417922-fjY.jpeg",
+      "url": "/assembly/tylko/images/079_1659084417922-fjY.jpeg",
+      "bytes": 1037688,
+      "sha256": "862cec47be1e5c11221d36ac07989da715b139bc75202adb2c14dbc7665ce562"
+    },
+    {
+      "file": "images/040_niezlicowane_elementy_03-ZEE.png",
+      "url": "/assembly/tylko/images/040_niezlicowane_elementy_03-ZEE.png",
+      "bytes": 29879,
+      "sha256": "5c5bdb757ebb8beec5727f89441f2d0210e879b4afc687e1f544cfd57c93e91d"
+    },
+    {
+      "file": "images/046_BP_zly_rozmiar_ABCD_01-cbU.png",
+      "url": "/assembly/tylko/images/046_BP_zly_rozmiar_ABCD_01-cbU.png",
+      "bytes": 24072,
+      "sha256": "01e6c76642f80efd167274b82e32f87a71011ed4f880703b8cecfa7644f36c5d"
+    },
+    {
+      "file": "images/026_lamello_03_c-fMA.png",
+      "url": "/assembly/tylko/images/026_lamello_03_c-fMA.png",
+      "bytes": 29931,
+      "sha256": "1e37c62a3cea2d08c9a5186f8f6c3ab17a6398b4824c537d471c53d45c90cb68"
+    },
+    {
+      "file": "images/064_1695712052435-XqQ.png",
+      "url": "/assembly/tylko/images/064_1695712052435-XqQ.png",
+      "bytes": 140157,
+      "sha256": "85badfb78da9d6498e51e1265fee9a80538e5097997fa6f2dd3a488a7a971b79"
+    },
+    {
+      "file": "images/053_1695640212262-GIs.png",
+      "url": "/assembly/tylko/images/053_1695640212262-GIs.png",
+      "bytes": 464838,
+      "sha256": "9d3536ac5cecca791208ab5aa9ed63638b83ed0d7e583786f53ba7ba259c6e4a"
+    },
+    {
+      "file": "images/037_niezlicowane_elementy_01-6v4.png",
+      "url": "/assembly/tylko/images/037_niezlicowane_elementy_01-6v4.png",
+      "bytes": 32490,
+      "sha256": "37ae87041f5e8c6d09a11b78a3346d7e860d7d4ad3352bd2af14680ac65690db"
+    },
+    {
+      "file": "images/077_bledne_nawierty_drzwi_i_inserty_01-Gd8.png",
+      "url": "/assembly/tylko/images/077_bledne_nawierty_drzwi_i_inserty_01-Gd8.png",
+      "bytes": 22430,
+      "sha256": "6675d80732191e89062b3a7a67b49729e7a678ec970272f79a7415b8eb4c9d59"
+    },
+    {
+      "file": "images/015_demontaz__BP_-_niskie_meble_03-ruI.png",
+      "url": "/assembly/tylko/images/015_demontaz__BP_-_niskie_meble_03-ruI.png",
+      "bytes": 41129,
+      "sha256": "038cd82c6257a2d9f7358d84683ead79f5874c95a8f40829554b53589e0066cf"
+    },
+    {
+      "file": "images/071_1695712524977-kJY.png",
+      "url": "/assembly/tylko/images/071_1695712524977-kJY.png",
+      "bytes": 140157,
+      "sha256": "85badfb78da9d6498e51e1265fee9a80538e5097997fa6f2dd3a488a7a971b79"
+    },
+    {
+      "file": "images/002_1695216389792-b4s.png",
+      "url": "/assembly/tylko/images/002_1695216389792-b4s.png",
+      "bytes": 17612,
+      "sha256": "1c202260e4155dfd83aeb02a8b171a655ec81454102e1f996cdc59662905ff76"
+    },
+    {
+      "file": "images/018_demontaz__BP_-_niskie_meble_06-vDE.png",
+      "url": "/assembly/tylko/images/018_demontaz__BP_-_niskie_meble_06-vDE.png",
+      "bytes": 25577,
+      "sha256": "937c2aeba0b3f63b9925dd208d82c30c59623787e59ea02926651d83c36164cf"
+    },
+    {
+      "file": "images/075_hafele-ti4.png",
+      "url": "/assembly/tylko/images/075_hafele-ti4.png",
+      "bytes": 76084,
+      "sha256": "0442e3bff4a54a6f7d3dc8bd63995a78d1ccbe94c70bf8d444e0f3e1a6b307e9"
+    },
+    {
+      "file": "images/044_tylklik_wrong_02-MIQ.png",
+      "url": "/assembly/tylko/images/044_tylklik_wrong_02-MIQ.png",
+      "bytes": 14012,
+      "sha256": "e71f20ca2facfe81975d48c4ae27113e6b70c50cffa43ed6ad222c89863aa1be"
+    },
+    {
+      "file": "images/001_1695207078275-HcQ.png",
+      "url": "/assembly/tylko/images/001_1695207078275-HcQ.png",
+      "bytes": 29593,
+      "sha256": "ce6a75b0a9622b44622607f777df92969afd1e28881348c8fc0ad67109688709"
+    },
+    {
+      "file": "images/009_BP_nie_wchodzi_na_wysokosc_04-vHo.png",
+      "url": "/assembly/tylko/images/009_BP_nie_wchodzi_na_wysokosc_04-vHo.png",
+      "bytes": 19189,
+      "sha256": "e42bb79fe65fbb4615cca39a09e986883bdeede68c61e1f96701548a69b24d1c"
+    },
+    {
+      "file": "images/013_demontaz__BP_-_niskie_meble_01-yVk.png",
+      "url": "/assembly/tylko/images/013_demontaz__BP_-_niskie_meble_01-yVk.png",
+      "bytes": 28590,
+      "sha256": "8e1334a78b0a6e7edd9c6a498fdcab3145a68695f748d0e47ce76238f8988237"
+    },
+    {
+      "file": "images/059_1695711247510-rXk.png",
+      "url": "/assembly/tylko/images/059_1695711247510-rXk.png",
+      "bytes": 127860,
+      "sha256": "ade946094a3d9c4cc31ac8cce33a6d639b050b060f072b2e2eb0d13f60cdfb71"
+    },
+    {
+      "file": "images/003_BP_nie_wchodzi_na_wysokosc_01-gww.png",
+      "url": "/assembly/tylko/images/003_BP_nie_wchodzi_na_wysokosc_01-gww.png",
+      "bytes": 22157,
+      "sha256": "4fcaaebc5528ab226e337aaa9a723d6b5fa00576c60b83711b3acd6567bbc582"
+    },
+    {
+      "file": "images/025_lamello_03_b-H98.png",
+      "url": "/assembly/tylko/images/025_lamello_03_b-H98.png",
+      "bytes": 8682,
+      "sha256": "2e997c73b4b77004d2f561b42d64a5b64cb6f8a9aca8c87b3d0a2095acf12413"
+    },
+    {
+      "file": "images/060_1695711259379-ZqA.png",
+      "url": "/assembly/tylko/images/060_1695711259379-ZqA.png",
+      "bytes": 88518,
+      "sha256": "760f3dd6ca306cfe4a2204da6df1a92048d6101b71e19cd2371327bab6aff5f3"
+    },
+    {
+      "file": "images/042_tylklik_right_02-o6k.png",
+      "url": "/assembly/tylko/images/042_tylklik_right_02-o6k.png",
+      "bytes": 13833,
+      "sha256": "50b9b24f9c5ae05305838a11a92cf23529f3acb3854fb6166330a170e1884306"
+    },
+    {
+      "file": "images/039_1695367123699-iT8.png",
+      "url": "/assembly/tylko/images/039_1695367123699-iT8.png",
+      "bytes": 780171,
+      "sha256": "cc8b3f30519302895e5ffde76418a7ad6d90df24424f15becd5f7b505dfca16c"
+    },
+    {
+      "file": "images/024_lamello_02-oKM.png",
+      "url": "/assembly/tylko/images/024_lamello_02-oKM.png",
+      "bytes": 8820,
+      "sha256": "3e7f6cbf0091e14f450ecf276d58f021f0d572118c8ba36f9fe1e2eaae112c7e"
+    },
+    {
+      "file": "images/007_BP_nie_wchodzi_na_wysokosc_01-dzw.png",
+      "url": "/assembly/tylko/images/007_BP_nie_wchodzi_na_wysokosc_01-dzw.png",
+      "bytes": 22157,
+      "sha256": "4fcaaebc5528ab226e337aaa9a723d6b5fa00576c60b83711b3acd6567bbc582"
+    },
+    {
+      "file": "images/006_BP_nie_wchodzi_na_szerokosc_03-Wcw.png",
+      "url": "/assembly/tylko/images/006_BP_nie_wchodzi_na_szerokosc_03-Wcw.png",
+      "bytes": 25779,
+      "sha256": "c8e238fed8775fcf08e30a0821a3f6ca377f4ad92b273999dcd49cd8c9360db1"
+    },
+    {
+      "file": "images/031_click_in_01_zlacze_kolor_do_koloru-3gw.png",
+      "url": "/assembly/tylko/images/031_click_in_01_zlacze_kolor_do_koloru-3gw.png",
+      "bytes": 22735,
+      "sha256": "26fa05cacdd169e3085baecf2e44b803eccc2050ed4fd07705c56ad9fbf8fec2"
+    },
+    {
+      "file": "images/008_BP_nie_wchodzi_na_wysokosc_03-0h4.png",
+      "url": "/assembly/tylko/images/008_BP_nie_wchodzi_na_wysokosc_03-0h4.png",
+      "bytes": 27556,
+      "sha256": "c9828c08198214b95d3dfe455c4d967db7376715794432be73068abbba16db5b"
+    },
+    {
+      "file": "images/065_1695712074421-JUg.png",
+      "url": "/assembly/tylko/images/065_1695712074421-JUg.png",
+      "bytes": 83957,
+      "sha256": "d4b82c6d250cb6949dad8d1dfe2701e292f24e741ca2291cbaf73f8600ddbaf2"
+    },
+    {
+      "file": "images/074_regulacja_zawiasow-J24.png",
+      "url": "/assembly/tylko/images/074_regulacja_zawiasow-J24.png",
+      "bytes": 241483,
+      "sha256": "55feedcc0b48ee36fff269b1ef3b93a1f45c8489fd02bf7d46792312fd373e40"
+    },
+    {
+      "file": "images/056_vertical_demontaz-S_E.png",
+      "url": "/assembly/tylko/images/056_vertical_demontaz-S_E.png",
+      "bytes": 12781,
+      "sha256": "98999423039d3f4ce7265eb024ff0b32a09327a5e4b40ab77e682417fb40973b"
+    },
+    {
+      "file": "images/035_niezlicowane_elementy_01-1yQ.png",
+      "url": "/assembly/tylko/images/035_niezlicowane_elementy_01-1yQ.png",
+      "bytes": 32490,
+      "sha256": "37ae87041f5e8c6d09a11b78a3346d7e860d7d4ad3352bd2af14680ac65690db"
+    },
+    {
+      "file": "images/043_tylklik_right_01-cYA.png",
+      "url": "/assembly/tylko/images/043_tylklik_right_01-cYA.png",
+      "bytes": 13994,
+      "sha256": "1eb0100efafe5e5f578e85c19c58b07bc2b1a49766eac1b6abc981f6f520c02f"
+    },
+    {
+      "file": "images/045_tylklik_wrong_01-p40.png",
+      "url": "/assembly/tylko/images/045_tylklik_wrong_01-p40.png",
+      "bytes": 14090,
+      "sha256": "e138d68e5473f3cd7f7fd28c72980d403e9efff7305cba3e6332afc0c9d2523e"
+    },
+    {
+      "file": "images/051_1695639899018-6yI.png",
+      "url": "/assembly/tylko/images/051_1695639899018-6yI.png",
+      "bytes": 1757348,
+      "sha256": "322d16918d552d0a07ab52947ab4958a794b95bb7828fb69c222eed8e7e53fd9"
+    },
+    {
+      "file": "images/019_BP_demontaz_na_stojaco_01-7Pg.png",
+      "url": "/assembly/tylko/images/019_BP_demontaz_na_stojaco_01-7Pg.png",
+      "bytes": 24036,
+      "sha256": "92eebaf27b60bc566f1dfbe4072f713efc53094d23531c55084ef98dd72412fb"
+    },
+    {
+      "file": "images/069_vertical_demontaz-3OM.png",
+      "url": "/assembly/tylko/images/069_vertical_demontaz-3OM.png",
+      "bytes": 12781,
+      "sha256": "98999423039d3f4ce7265eb024ff0b32a09327a5e4b40ab77e682417fb40973b"
+    },
+    {
+      "file": "images/070_1695712244072-y4Q.png",
+      "url": "/assembly/tylko/images/070_1695712244072-y4Q.png",
+      "bytes": 100791,
+      "sha256": "e16af59d84d938b2c30c896579be641084b6bd877f26eb7ad508d6856173d715"
+    },
+    {
+      "file": "images/038_niezlicowane_elementy_02-IKY.png",
+      "url": "/assembly/tylko/images/038_niezlicowane_elementy_02-IKY.png",
+      "bytes": 42486,
+      "sha256": "87b7f6729c516d6e4d6a88bf34352dbd9ff62e68883a804697dc2c0a79a6aa8c"
+    },
+    {
+      "file": "images/005_BP_nie_wchodzi_na_szerokosc_04-TMQ.png",
+      "url": "/assembly/tylko/images/005_BP_nie_wchodzi_na_szerokosc_04-TMQ.png",
+      "bytes": 23449,
+      "sha256": "d9c12f00a223b83d4899cd2adce480a14e6db7aad5bc3f31d09e04e70d1c85e6"
+    },
+    {
+      "file": "images/016_demontaz__BP_-_niskie_meble_04-M7w.png",
+      "url": "/assembly/tylko/images/016_demontaz__BP_-_niskie_meble_04-M7w.png",
+      "bytes": 42967,
+      "sha256": "db1d502d1091b87059a2023a27fd687fafbc60c3ec03f5de3a2d370fac14a19e"
+    }
+  ],
+  "files": [
+    {
+      "file": "sources.json",
+      "url": "/assembly/tylko/sources.json",
+      "bytes": 17743,
+      "sha256": "811e95cc08400fbc0c7e89624e94aad1e69b806fdaab9593b38a4178320c6aad"
+    },
+    {
+      "file": "connector.pdf",
+      "url": "/assembly/tylko/connector.pdf",
+      "bytes": 3727625,
+      "sha256": "7633c3fb402e230a90e5539989569120de20e85d7452916257e58a1c22fb1872"
+    },
+    {
+      "file": "README.md",
+      "url": "/assembly/tylko/README.md",
+      "bytes": 7246,
+      "sha256": "30a25d1188730aa72be4d79600ac859924d65de0eadee106f3c1651ed6c19491"
+    },
+    {
+      "file": "image-sources.json",
+      "url": "/assembly/tylko/image-sources.json",
+      "bytes": 25553,
+      "sha256": "c061cc1c6266a40cbd01a7fd26c92e0594b62f40acb2f03f74ea500c3745ce33"
+    },
+    {
+      "file": "images/004_1695216415225-4Rw.png",
+      "url": "/assembly/tylko/images/004_1695216415225-4Rw.png",
+      "bytes": 27865,
+      "sha256": "f2df77414fdf9b7fb85de3a6a435cf58f25c0559f5edb6d93340fcbc62c0bf09"
+    },
+    {
+      "file": "images/054_1695640245689-AGY.png",
+      "url": "/assembly/tylko/images/054_1695640245689-AGY.png",
+      "bytes": 1757348,
+      "sha256": "322d16918d552d0a07ab52947ab4958a794b95bb7828fb69c222eed8e7e53fd9"
+    },
+    {
+      "file": "images/076_230704_TYLKO_assembly_0296-kWk.jpg",
+      "url": "/assembly/tylko/images/076_230704_TYLKO_assembly_0296-kWk.jpg",
+      "bytes": 19364049,
+      "sha256": "e223835a1a5fee6d3d7b77145c1f4a703b37de6cae254325871cd7e8902962a3"
+    },
+    {
+      "file": "images/068_1695712203918-1CE.png",
+      "url": "/assembly/tylko/images/068_1695712203918-1CE.png",
+      "bytes": 85095,
+      "sha256": "6e4cc42e6f6ee2726c42f63d41289aa8af4f959a8f022d56c54afcb6606401b1"
+    },
+    {
+      "file": "images/041_1695369168604-XR8.png",
+      "url": "/assembly/tylko/images/041_1695369168604-XR8.png",
+      "bytes": 343760,
+      "sha256": "94808ed8a1f90ccfaed3824ab9030225d3ce269140835c998bb5117efbddaa0f"
+    },
+    {
+      "file": "images/078_bledne_nawierty_drzwi_i_inserty_02-jpc.png",
+      "url": "/assembly/tylko/images/078_bledne_nawierty_drzwi_i_inserty_02-jpc.png",
+      "bytes": 103240,
+      "sha256": "e30c24035827d641867be2a5bfa54c8b9222442b105559168f1fb4372e03d6b7"
+    },
+    {
+      "file": "images/036_click_in_04-9KE.png",
+      "url": "/assembly/tylko/images/036_click_in_04-9KE.png",
+      "bytes": 51502,
+      "sha256": "9a965927aa5b02582485ca694eac55c74f96ae4fd72dde32466bc71661e058b3"
+    },
+    {
+      "file": "images/012_nawierty_pod_BP_horizontal-zps.png",
+      "url": "/assembly/tylko/images/012_nawierty_pod_BP_horizontal-zps.png",
+      "bytes": 24619,
+      "sha256": "385a62ce607b6912960eeb86a18a08e980393624b2cbf8d0608676519b285b97"
+    },
+    {
+      "file": "images/062_1695711283001-wOg.png",
+      "url": "/assembly/tylko/images/062_1695711283001-wOg.png",
+      "bytes": 86681,
+      "sha256": "90e891825db00604014fada0d8c696a9bd0e16aaa7c30583da7ee9d1ce5ecb5b"
+    },
+    {
+      "file": "images/052_1695639917047-BvM.png",
+      "url": "/assembly/tylko/images/052_1695639917047-BvM.png",
+      "bytes": 1972224,
+      "sha256": "1cfc6e2a99d8009f0acd2c7ea9a36d9056da5dd739e4fa9ca0b59a8e0b227afd"
+    },
+    {
+      "file": "images/028_lamello_04_c-cw0.png",
+      "url": "/assembly/tylko/images/028_lamello_04_c-cw0.png",
+      "bytes": 9250,
+      "sha256": "436b462e177222ad244372ddfa041d75c530b4baa55c227c28a9e04dcb0b9aee"
+    },
+    {
+      "file": "images/063_1695711357370-ER4.png",
+      "url": "/assembly/tylko/images/063_1695711357370-ER4.png",
+      "bytes": 100791,
+      "sha256": "e16af59d84d938b2c30c896579be641084b6bd877f26eb7ad508d6856173d715"
+    },
+    {
+      "file": "images/023_1695296296100-sII.png",
+      "url": "/assembly/tylko/images/023_1695296296100-sII.png",
+      "bytes": 251879,
+      "sha256": "4abae9adc0a0f517141c508da1dfed45320d846bfbc609c66662f8ef00a73eae"
+    },
+    {
+      "file": "images/058_1695711237665-kFc.png",
+      "url": "/assembly/tylko/images/058_1695711237665-kFc.png",
+      "bytes": 111474,
+      "sha256": "bb3f4caca917172cec29863809984d83a1672c30b7ebb502f41fadef4f86cc89"
+    },
+    {
+      "file": "images/066_1695712132915-_ko.png",
+      "url": "/assembly/tylko/images/066_1695712132915-_ko.png",
+      "bytes": 106908,
+      "sha256": "aaa27bf0f9c56872f4cc8ab11ae4ac88a88ddea3a307b8754d1b41780fda92d6"
+    },
+    {
+      "file": "images/048_1695381507358-Yu8.png",
+      "url": "/assembly/tylko/images/048_1695381507358-Yu8.png",
+      "bytes": 17309,
+      "sha256": "a90289716d3b8afd8633756f3cde2b23572ad59dfd5d023da0558028b56aa3ed"
+    },
+    {
+      "file": "images/055_vertical_demontaz-QGI.png",
+      "url": "/assembly/tylko/images/055_vertical_demontaz-QGI.png",
+      "bytes": 12781,
+      "sha256": "98999423039d3f4ce7265eb024ff0b32a09327a5e4b40ab77e682417fb40973b"
+    },
+    {
+      "file": "images/072_drzwi_system_montazowy-Rfc.png",
+      "url": "/assembly/tylko/images/072_drzwi_system_montazowy-Rfc.png",
+      "bytes": 59699,
+      "sha256": "ffa369ba94c0e4be0c1444d2b942578d0265d5e2827d749df147f69c3bf32630"
+    },
+    {
+      "file": "images/061_1695711276951-jWI.png",
+      "url": "/assembly/tylko/images/061_1695711276951-jWI.png",
+      "bytes": 88434,
+      "sha256": "f5d1f6028e7b383a462914ff827d87c062ea0cbea326e3ac3de25e4b0d8763d2"
+    },
+    {
+      "file": "images/034_click_in_04-VkY.png",
+      "url": "/assembly/tylko/images/034_click_in_04-VkY.png",
+      "bytes": 51502,
+      "sha256": "9a965927aa5b02582485ca694eac55c74f96ae4fd72dde32466bc71661e058b3"
+    },
+    {
+      "file": "images/050_1695639282991-XwM.png",
+      "url": "/assembly/tylko/images/050_1695639282991-XwM.png",
+      "bytes": 1212950,
+      "sha256": "be11c158fca09032eccc02f4d3d6ceedb67451dccc374f4c1577c44794d1dc27"
+    },
+    {
+      "file": "images/014_demontaz__BP_-_niskie_meble_02-898.png",
+      "url": "/assembly/tylko/images/014_demontaz__BP_-_niskie_meble_02-898.png",
+      "bytes": 28208,
+      "sha256": "d48274cb64fddbff56e5146ba75b6ac2db5b008ed243b9ea037a401cb73b3849"
+    },
+    {
+      "file": "images/030_1695365911158-xfU.png",
+      "url": "/assembly/tylko/images/030_1695365911158-xfU.png",
+      "bytes": 840573,
+      "sha256": "7b44fdfe00b022e3beb396af81dd3ec3cee46405f134a40252017a96c5f3cd3e"
+    },
+    {
+      "file": "images/020_BP_demontaz_na_stojaco_02-URE.png",
+      "url": "/assembly/tylko/images/020_BP_demontaz_na_stojaco_02-URE.png",
+      "bytes": 24677,
+      "sha256": "348d4e35bf8fd03ef9abdbf8e22e598b1a803ae4b1fce3fef39527400b47219c"
+    },
+    {
+      "file": "images/021_BP_demontaz_na_stojaco_03-s-M.png",
+      "url": "/assembly/tylko/images/021_BP_demontaz_na_stojaco_03-s-M.png",
+      "bytes": 19465,
+      "sha256": "2fde5ff619802e7acc1af36fa2c15e367aecc8e0232221c49f0ac73517bc0715"
+    },
+    {
+      "file": "images/057_1695711227590-UwQ.png",
+      "url": "/assembly/tylko/images/057_1695711227590-UwQ.png",
+      "bytes": 108762,
+      "sha256": "6d0c92c32314bc197c5803cd39e8bfbf4b05b44f9587717114ff313316bf3b38"
+    },
+    {
+      "file": "images/027_lamello_04_b-638.png",
+      "url": "/assembly/tylko/images/027_lamello_04_b-638.png",
+      "bytes": 9222,
+      "sha256": "7ace66f3e2b950ffec3206b6eba8d465fe097794ca4663012b56895d4d325b15"
+    },
+    {
+      "file": "images/011_support_bledne_nawierty-1Z8.png",
+      "url": "/assembly/tylko/images/011_support_bledne_nawierty-1Z8.png",
+      "bytes": 5341,
+      "sha256": "4b94c2c7977c660f68db785f9b38df6e7e0a10c31b191232e25af1de06dacab6"
+    },
+    {
+      "file": "images/073_230704_TYLKO_assembly_0327-qrk.jpg",
+      "url": "/assembly/tylko/images/073_230704_TYLKO_assembly_0327-qrk.jpg",
+      "bytes": 20891658,
+      "sha256": "6ab846600b59f18528fe9ed512d69381c953fad17282043d6609d578677abedf"
+    },
+    {
+      "file": "images/029_lamello_04_d-7bU.png",
+      "url": "/assembly/tylko/images/029_lamello_04_d-7bU.png",
+      "bytes": 9270,
+      "sha256": "710f81eab66a33f9866cdd4d2ab7d7b6118d43ab21a8eee565fe1cfee24bc98d"
+    },
+    {
+      "file": "images/049_1695639306632-5rk.png",
+      "url": "/assembly/tylko/images/049_1695639306632-5rk.png",
+      "bytes": 2041348,
+      "sha256": "c237e1963d0bd42d8fea931ecbe4e7e686b8e3420e884479fed58b15c4be24f0"
+    },
+    {
+      "file": "images/047_tylkliki_odleglosci_01-3ww.png",
+      "url": "/assembly/tylko/images/047_tylkliki_odleglosci_01-3ww.png",
+      "bytes": 8039,
+      "sha256": "9b8558e7ef61e588e9e728d9e07707f648e79e20f2b241c231e13aba41e91a6b"
+    },
+    {
+      "file": "images/032_click_in_02-Z8s.png",
+      "url": "/assembly/tylko/images/032_click_in_02-Z8s.png",
+      "bytes": 27884,
+      "sha256": "8fe6c88fcd85a51960f7f62edb65247648ce0fe9cf110f00c41e902ade8ad80a"
+    },
+    {
+      "file": "images/017_demontaz__BP_-_niskie_meble_05-fao.png",
+      "url": "/assembly/tylko/images/017_demontaz__BP_-_niskie_meble_05-fao.png",
+      "bytes": 42130,
+      "sha256": "218b180d4157152dea25ca20539e83bdb05f9ce324074d811da03f5a288b2d1d"
+    },
+    {
+      "file": "images/022_BP_demontaz_na_stojaco_04-MdE.png",
+      "url": "/assembly/tylko/images/022_BP_demontaz_na_stojaco_04-MdE.png",
+      "bytes": 22830,
+      "sha256": "b3db5dd3cf51418b16b9b5eb38d96088a0c3b82e037a856517f7870dd59a1755"
+    },
+    {
+      "file": "images/033_click_in_03-ZAE.png",
+      "url": "/assembly/tylko/images/033_click_in_03-ZAE.png",
+      "bytes": 35518,
+      "sha256": "8bb89b8473d228e087f7f5a6272af713998f9a83950b4df871a215527771f374"
+    },
+    {
+      "file": "images/010_BP_zly_rozmiar_ABCD_02-XpE.png",
+      "url": "/assembly/tylko/images/010_BP_zly_rozmiar_ABCD_02-XpE.png",
+      "bytes": 6875,
+      "sha256": "e716df96437ab40cb5d0d37d9175cc18020202ddf075fff0832fe28583f2730f"
+    },
+    {
+      "file": "images/067_1695712192466-h4M.png",
+      "url": "/assembly/tylko/images/067_1695712192466-h4M.png",
+      "bytes": 75585,
+      "sha256": "a6caa23ef59b02b5dd49be85833fb692d28a797559f709775165a349ce1f4f8f"
+    },
+    {
+      "file": "images/079_1659084417922-fjY.jpeg",
+      "url": "/assembly/tylko/images/079_1659084417922-fjY.jpeg",
+      "bytes": 1037688,
+      "sha256": "862cec47be1e5c11221d36ac07989da715b139bc75202adb2c14dbc7665ce562"
+    },
+    {
+      "file": "images/040_niezlicowane_elementy_03-ZEE.png",
+      "url": "/assembly/tylko/images/040_niezlicowane_elementy_03-ZEE.png",
+      "bytes": 29879,
+      "sha256": "5c5bdb757ebb8beec5727f89441f2d0210e879b4afc687e1f544cfd57c93e91d"
+    },
+    {
+      "file": "images/046_BP_zly_rozmiar_ABCD_01-cbU.png",
+      "url": "/assembly/tylko/images/046_BP_zly_rozmiar_ABCD_01-cbU.png",
+      "bytes": 24072,
+      "sha256": "01e6c76642f80efd167274b82e32f87a71011ed4f880703b8cecfa7644f36c5d"
+    },
+    {
+      "file": "images/026_lamello_03_c-fMA.png",
+      "url": "/assembly/tylko/images/026_lamello_03_c-fMA.png",
+      "bytes": 29931,
+      "sha256": "1e37c62a3cea2d08c9a5186f8f6c3ab17a6398b4824c537d471c53d45c90cb68"
+    },
+    {
+      "file": "images/064_1695712052435-XqQ.png",
+      "url": "/assembly/tylko/images/064_1695712052435-XqQ.png",
+      "bytes": 140157,
+      "sha256": "85badfb78da9d6498e51e1265fee9a80538e5097997fa6f2dd3a488a7a971b79"
+    },
+    {
+      "file": "images/053_1695640212262-GIs.png",
+      "url": "/assembly/tylko/images/053_1695640212262-GIs.png",
+      "bytes": 464838,
+      "sha256": "9d3536ac5cecca791208ab5aa9ed63638b83ed0d7e583786f53ba7ba259c6e4a"
+    },
+    {
+      "file": "images/037_niezlicowane_elementy_01-6v4.png",
+      "url": "/assembly/tylko/images/037_niezlicowane_elementy_01-6v4.png",
+      "bytes": 32490,
+      "sha256": "37ae87041f5e8c6d09a11b78a3346d7e860d7d4ad3352bd2af14680ac65690db"
+    },
+    {
+      "file": "images/077_bledne_nawierty_drzwi_i_inserty_01-Gd8.png",
+      "url": "/assembly/tylko/images/077_bledne_nawierty_drzwi_i_inserty_01-Gd8.png",
+      "bytes": 22430,
+      "sha256": "6675d80732191e89062b3a7a67b49729e7a678ec970272f79a7415b8eb4c9d59"
+    },
+    {
+      "file": "images/015_demontaz__BP_-_niskie_meble_03-ruI.png",
+      "url": "/assembly/tylko/images/015_demontaz__BP_-_niskie_meble_03-ruI.png",
+      "bytes": 41129,
+      "sha256": "038cd82c6257a2d9f7358d84683ead79f5874c95a8f40829554b53589e0066cf"
+    },
+    {
+      "file": "images/071_1695712524977-kJY.png",
+      "url": "/assembly/tylko/images/071_1695712524977-kJY.png",
+      "bytes": 140157,
+      "sha256": "85badfb78da9d6498e51e1265fee9a80538e5097997fa6f2dd3a488a7a971b79"
+    },
+    {
+      "file": "images/002_1695216389792-b4s.png",
+      "url": "/assembly/tylko/images/002_1695216389792-b4s.png",
+      "bytes": 17612,
+      "sha256": "1c202260e4155dfd83aeb02a8b171a655ec81454102e1f996cdc59662905ff76"
+    },
+    {
+      "file": "images/018_demontaz__BP_-_niskie_meble_06-vDE.png",
+      "url": "/assembly/tylko/images/018_demontaz__BP_-_niskie_meble_06-vDE.png",
+      "bytes": 25577,
+      "sha256": "937c2aeba0b3f63b9925dd208d82c30c59623787e59ea02926651d83c36164cf"
+    },
+    {
+      "file": "images/075_hafele-ti4.png",
+      "url": "/assembly/tylko/images/075_hafele-ti4.png",
+      "bytes": 76084,
+      "sha256": "0442e3bff4a54a6f7d3dc8bd63995a78d1ccbe94c70bf8d444e0f3e1a6b307e9"
+    },
+    {
+      "file": "images/044_tylklik_wrong_02-MIQ.png",
+      "url": "/assembly/tylko/images/044_tylklik_wrong_02-MIQ.png",
+      "bytes": 14012,
+      "sha256": "e71f20ca2facfe81975d48c4ae27113e6b70c50cffa43ed6ad222c89863aa1be"
+    },
+    {
+      "file": "images/001_1695207078275-HcQ.png",
+      "url": "/assembly/tylko/images/001_1695207078275-HcQ.png",
+      "bytes": 29593,
+      "sha256": "ce6a75b0a9622b44622607f777df92969afd1e28881348c8fc0ad67109688709"
+    },
+    {
+      "file": "images/009_BP_nie_wchodzi_na_wysokosc_04-vHo.png",
+      "url": "/assembly/tylko/images/009_BP_nie_wchodzi_na_wysokosc_04-vHo.png",
+      "bytes": 19189,
+      "sha256": "e42bb79fe65fbb4615cca39a09e986883bdeede68c61e1f96701548a69b24d1c"
+    },
+    {
+      "file": "images/013_demontaz__BP_-_niskie_meble_01-yVk.png",
+      "url": "/assembly/tylko/images/013_demontaz__BP_-_niskie_meble_01-yVk.png",
+      "bytes": 28590,
+      "sha256": "8e1334a78b0a6e7edd9c6a498fdcab3145a68695f748d0e47ce76238f8988237"
+    },
+    {
+      "file": "images/059_1695711247510-rXk.png",
+      "url": "/assembly/tylko/images/059_1695711247510-rXk.png",
+      "bytes": 127860,
+      "sha256": "ade946094a3d9c4cc31ac8cce33a6d639b050b060f072b2e2eb0d13f60cdfb71"
+    },
+    {
+      "file": "images/003_BP_nie_wchodzi_na_wysokosc_01-gww.png",
+      "url": "/assembly/tylko/images/003_BP_nie_wchodzi_na_wysokosc_01-gww.png",
+      "bytes": 22157,
+      "sha256": "4fcaaebc5528ab226e337aaa9a723d6b5fa00576c60b83711b3acd6567bbc582"
+    },
+    {
+      "file": "images/025_lamello_03_b-H98.png",
+      "url": "/assembly/tylko/images/025_lamello_03_b-H98.png",
+      "bytes": 8682,
+      "sha256": "2e997c73b4b77004d2f561b42d64a5b64cb6f8a9aca8c87b3d0a2095acf12413"
+    },
+    {
+      "file": "images/060_1695711259379-ZqA.png",
+      "url": "/assembly/tylko/images/060_1695711259379-ZqA.png",
+      "bytes": 88518,
+      "sha256": "760f3dd6ca306cfe4a2204da6df1a92048d6101b71e19cd2371327bab6aff5f3"
+    },
+    {
+      "file": "images/042_tylklik_right_02-o6k.png",
+      "url": "/assembly/tylko/images/042_tylklik_right_02-o6k.png",
+      "bytes": 13833,
+      "sha256": "50b9b24f9c5ae05305838a11a92cf23529f3acb3854fb6166330a170e1884306"
+    },
+    {
+      "file": "images/039_1695367123699-iT8.png",
+      "url": "/assembly/tylko/images/039_1695367123699-iT8.png",
+      "bytes": 780171,
+      "sha256": "cc8b3f30519302895e5ffde76418a7ad6d90df24424f15becd5f7b505dfca16c"
+    },
+    {
+      "file": "images/024_lamello_02-oKM.png",
+      "url": "/assembly/tylko/images/024_lamello_02-oKM.png",
+      "bytes": 8820,
+      "sha256": "3e7f6cbf0091e14f450ecf276d58f021f0d572118c8ba36f9fe1e2eaae112c7e"
+    },
+    {
+      "file": "images/007_BP_nie_wchodzi_na_wysokosc_01-dzw.png",
+      "url": "/assembly/tylko/images/007_BP_nie_wchodzi_na_wysokosc_01-dzw.png",
+      "bytes": 22157,
+      "sha256": "4fcaaebc5528ab226e337aaa9a723d6b5fa00576c60b83711b3acd6567bbc582"
+    },
+    {
+      "file": "images/006_BP_nie_wchodzi_na_szerokosc_03-Wcw.png",
+      "url": "/assembly/tylko/images/006_BP_nie_wchodzi_na_szerokosc_03-Wcw.png",
+      "bytes": 25779,
+      "sha256": "c8e238fed8775fcf08e30a0821a3f6ca377f4ad92b273999dcd49cd8c9360db1"
+    },
+    {
+      "file": "images/031_click_in_01_zlacze_kolor_do_koloru-3gw.png",
+      "url": "/assembly/tylko/images/031_click_in_01_zlacze_kolor_do_koloru-3gw.png",
+      "bytes": 22735,
+      "sha256": "26fa05cacdd169e3085baecf2e44b803eccc2050ed4fd07705c56ad9fbf8fec2"
+    },
+    {
+      "file": "images/008_BP_nie_wchodzi_na_wysokosc_03-0h4.png",
+      "url": "/assembly/tylko/images/008_BP_nie_wchodzi_na_wysokosc_03-0h4.png",
+      "bytes": 27556,
+      "sha256": "c9828c08198214b95d3dfe455c4d967db7376715794432be73068abbba16db5b"
+    },
+    {
+      "file": "images/065_1695712074421-JUg.png",
+      "url": "/assembly/tylko/images/065_1695712074421-JUg.png",
+      "bytes": 83957,
+      "sha256": "d4b82c6d250cb6949dad8d1dfe2701e292f24e741ca2291cbaf73f8600ddbaf2"
+    },
+    {
+      "file": "images/074_regulacja_zawiasow-J24.png",
+      "url": "/assembly/tylko/images/074_regulacja_zawiasow-J24.png",
+      "bytes": 241483,
+      "sha256": "55feedcc0b48ee36fff269b1ef3b93a1f45c8489fd02bf7d46792312fd373e40"
+    },
+    {
+      "file": "images/056_vertical_demontaz-S_E.png",
+      "url": "/assembly/tylko/images/056_vertical_demontaz-S_E.png",
+      "bytes": 12781,
+      "sha256": "98999423039d3f4ce7265eb024ff0b32a09327a5e4b40ab77e682417fb40973b"
+    },
+    {
+      "file": "images/035_niezlicowane_elementy_01-1yQ.png",
+      "url": "/assembly/tylko/images/035_niezlicowane_elementy_01-1yQ.png",
+      "bytes": 32490,
+      "sha256": "37ae87041f5e8c6d09a11b78a3346d7e860d7d4ad3352bd2af14680ac65690db"
+    },
+    {
+      "file": "images/043_tylklik_right_01-cYA.png",
+      "url": "/assembly/tylko/images/043_tylklik_right_01-cYA.png",
+      "bytes": 13994,
+      "sha256": "1eb0100efafe5e5f578e85c19c58b07bc2b1a49766eac1b6abc981f6f520c02f"
+    },
+    {
+      "file": "images/045_tylklik_wrong_01-p40.png",
+      "url": "/assembly/tylko/images/045_tylklik_wrong_01-p40.png",
+      "bytes": 14090,
+      "sha256": "e138d68e5473f3cd7f7fd28c72980d403e9efff7305cba3e6332afc0c9d2523e"
+    },
+    {
+      "file": "images/051_1695639899018-6yI.png",
+      "url": "/assembly/tylko/images/051_1695639899018-6yI.png",
+      "bytes": 1757348,
+      "sha256": "322d16918d552d0a07ab52947ab4958a794b95bb7828fb69c222eed8e7e53fd9"
+    },
+    {
+      "file": "images/019_BP_demontaz_na_stojaco_01-7Pg.png",
+      "url": "/assembly/tylko/images/019_BP_demontaz_na_stojaco_01-7Pg.png",
+      "bytes": 24036,
+      "sha256": "92eebaf27b60bc566f1dfbe4072f713efc53094d23531c55084ef98dd72412fb"
+    },
+    {
+      "file": "images/069_vertical_demontaz-3OM.png",
+      "url": "/assembly/tylko/images/069_vertical_demontaz-3OM.png",
+      "bytes": 12781,
+      "sha256": "98999423039d3f4ce7265eb024ff0b32a09327a5e4b40ab77e682417fb40973b"
+    },
+    {
+      "file": "images/070_1695712244072-y4Q.png",
+      "url": "/assembly/tylko/images/070_1695712244072-y4Q.png",
+      "bytes": 100791,
+      "sha256": "e16af59d84d938b2c30c896579be641084b6bd877f26eb7ad508d6856173d715"
+    },
+    {
+      "file": "images/038_niezlicowane_elementy_02-IKY.png",
+      "url": "/assembly/tylko/images/038_niezlicowane_elementy_02-IKY.png",
+      "bytes": 42486,
+      "sha256": "87b7f6729c516d6e4d6a88bf34352dbd9ff62e68883a804697dc2c0a79a6aa8c"
+    },
+    {
+      "file": "images/005_BP_nie_wchodzi_na_szerokosc_04-TMQ.png",
+      "url": "/assembly/tylko/images/005_BP_nie_wchodzi_na_szerokosc_04-TMQ.png",
+      "bytes": 23449,
+      "sha256": "d9c12f00a223b83d4899cd2adce480a14e6db7aad5bc3f31d09e04e70d1c85e6"
+    },
+    {
+      "file": "images/016_demontaz__BP_-_niskie_meble_04-M7w.png",
+      "url": "/assembly/tylko/images/016_demontaz__BP_-_niskie_meble_04-M7w.png",
+      "bytes": 42967,
+      "sha256": "db1d502d1091b87059a2023a27fd687fafbc60c3ec03f5de3a2d370fac14a19e"
+    },
+    {
+      "file": "videos/Lifting your Tylko [nO2MPDnBXDk].mp4",
+      "url": "/assembly/tylko/videos/Lifting your Tylko [nO2MPDnBXDk].mp4",
+      "bytes": 4131450,
+      "sha256": "8caa049fd153a27ec882d44a5126855169d6877b886b4fabb06715709283ddf6"
+    },
+    {
+      "file": "videos/Stickers removal [lFmHbD2uVLU].mp4",
+      "url": "/assembly/tylko/videos/Stickers removal [lFmHbD2uVLU].mp4",
+      "bytes": 1599738,
+      "sha256": "b09638240d0a655647ce717712f13ddc337153cd8fd81bf2de19dda7a29a1fa1"
+    },
+    {
+      "file": "videos/How to disassemble a Tylko shelf [bpHEmZBUMAg].mp4",
+      "url": "/assembly/tylko/videos/How to disassemble a Tylko shelf [bpHEmZBUMAg].mp4",
+      "bytes": 20211004,
+      "sha256": "d3e867972c8e57a1e70d6c52ad79a6c398c82d5c1001323c853a54744dc697b9"
+    },
+    {
+      "file": "videos/Reassembling Modules [DXFkO9fkcBM].mp4",
+      "url": "/assembly/tylko/videos/Reassembling Modules [DXFkO9fkcBM].mp4",
+      "bytes": 11547806,
+      "sha256": "b66ea24712758450acd5540b79427ad8a460e2d4383591baf220d003c38f43c7"
+    },
+    {
+      "file": "videos/How to disassemble back panels [eGsCR6_Cqi4].mp4",
+      "url": "/assembly/tylko/videos/How to disassemble back panels [eGsCR6_Cqi4].mp4",
+      "bytes": 10088908,
+      "sha256": "6fcbc34ff7e0adcd8ebf7470083280ebba0a16ce491ba2f013c5d3cf332b4c0f"
+    },
+    {
+      "file": "videos/Correcting a Drawer Rail Element [tkMWk3KPwD8].mp4",
+      "url": "/assembly/tylko/videos/Correcting a Drawer Rail Element [tkMWk3KPwD8].mp4",
+      "bytes": 4825861,
+      "sha256": "05c0ff16ad938c6806d242ef479539ae9f1eeaa955d2689844a67834ee60195e"
+    },
+    {
+      "file": "videos/Element incorrectly assembled∩╝ƒ [DYpU9nWbrvA].mp4",
+      "url": "/assembly/tylko/videos/Element incorrectly assembled∩╝ƒ [DYpU9nWbrvA].mp4",
+      "bytes": 7791410,
+      "sha256": "6aa2842a08ffa21d7757c75a45d33e581a8e518b1e747a2e0c99c3d40d71771b"
+    },
+    {
+      "file": "videos/Disassembling Modules [_yjSDPmH4s8].mp4",
+      "url": "/assembly/tylko/videos/Disassembling Modules [_yjSDPmH4s8].mp4",
+      "bytes": 10248258,
+      "sha256": "5d76c3997db33c4cdc1345bc78afda9aeb6ea849fb5d92d6ac31ba3938edffba"
+    },
+    {
+      "file": "videos/Insert Assembly and Disassembly [1eMum5ec0ig].mp4",
+      "url": "/assembly/tylko/videos/Insert Assembly and Disassembly [1eMum5ec0ig].mp4",
+      "bytes": 2682897,
+      "sha256": "543ff2920213f7edc52f290839a33e8c3acc0ae769497777b188aa3d065cb67a"
+    },
+    {
+      "file": "videos/video_urls.txt",
+      "url": "/assembly/tylko/videos/video_urls.txt",
+      "bytes": 792,
+      "sha256": "41c8333f660d35d9e9301cc5a3c16bfe35a0ad2abfd90e73bbd069b5c7e65153"
+    },
+    {
+      "file": "videos/How to add a missing door bumper [MtWHpUer6hA].mp4",
+      "url": "/assembly/tylko/videos/How to add a missing door bumper [MtWHpUer6hA].mp4",
+      "bytes": 3199921,
+      "sha256": "e7fe0b278772ac64d17062105d27393931806c6c53b2e016098a8e47829addb9"
+    },
+    {
+      "file": "videos/Assembling and Disassembling Modules for Wide and Low Units [7fkFU6Tz4DA].mp4",
+      "url": "/assembly/tylko/videos/Assembling and Disassembling Modules for Wide and Low Units [7fkFU6Tz4DA].mp4",
+      "bytes": 8020640,
+      "sha256": "88e0f6738e83212d0f5b997518c65b039e270423ea44850c72ac4f330dc2671e"
+    },
+    {
+      "file": "videos/Mounting and Removing Drawers [hWDpACJiRWY].mp4",
+      "url": "/assembly/tylko/videos/Mounting and Removing Drawers [hWDpACJiRWY].mp4",
+      "bytes": 4817540,
+      "sha256": "e4b3000834e3c074a69873faca03b93050a167636c728afb91df49818c259a72"
+    },
+    {
+      "file": "videos/Mounting the Back Panels [blfcT3pgLCs].mp4",
+      "url": "/assembly/tylko/videos/Mounting the Back Panels [blfcT3pgLCs].mp4",
+      "bytes": 6545298,
+      "sha256": "288a381a29af5dd4394a54a51f0c23e83b75b6903ed982308f01e2c87a98382a"
+    },
+    {
+      "file": "videos/Plinth Assembly and Disassembly [lgHYY5T504w].mp4",
+      "url": "/assembly/tylko/videos/Plinth Assembly and Disassembly [lgHYY5T504w].mp4",
+      "bytes": 25642749,
+      "sha256": "69b454e088ee8a827a80aba3b277af4aa6544c9484f137bfc030d95fd943d2a3"
+    },
+    {
+      "file": "videos/Drawer Assembly and Disassembly [nQP5VWmSs3k].mp4",
+      "url": "/assembly/tylko/videos/Drawer Assembly and Disassembly [nQP5VWmSs3k].mp4",
+      "bytes": 12809026,
+      "sha256": "a5d66a6f294c11cf9303dcb7ae54ee0a3d296cb5dc1c06778a36c48906f2b603"
+    },
+    {
+      "file": "videos/index.json",
+      "url": "/assembly/tylko/videos/index.json",
+      "bytes": 6514,
+      "sha256": "4181fa792c73084c16cf804056dadefae1061ab175b5769fd33e587da49009ae"
+    },
+    {
+      "file": "videos/How to assemble an extended-width Tylko shelf [Zvi9fUoucog].mp4",
+      "url": "/assembly/tylko/videos/How to assemble an extended-width Tylko shelf [Zvi9fUoucog].mp4",
+      "bytes": 6473119,
+      "sha256": "471e0f561bede39a8fc553986e1317a11fd6286dd9cb721b7952e10a050c7ed6"
+    },
+    {
+      "file": "videos/Leg Assembly and Disassembly [y_6rMHwOIzo].mp4",
+      "url": "/assembly/tylko/videos/Leg Assembly and Disassembly [y_6rMHwOIzo].mp4",
+      "bytes": 2221903,
+      "sha256": "ac0e371b5b04dfa533af17ceafdf088d7b0bfc1bb3fb3703378eb1c17f7cac2c"
+    },
+    {
+      "file": "videos/Correcting a Hinge Element [71SSgWoilwE].mp4",
+      "url": "/assembly/tylko/videos/Correcting a Hinge Element [71SSgWoilwE].mp4",
+      "bytes": 3814165,
+      "sha256": "88cdeb194e33b48d8f144821ce5739597cf2e7f3b88381ae0c5285e9d775548d"
+    },
+    {
+      "file": "manuals/EN_Disassembly_tall_furniture.pdf",
+      "url": "/assembly/tylko/manuals/EN_Disassembly_tall_furniture.pdf",
+      "bytes": 6328818,
+      "sha256": "3c4fef4862a3adec819cf9f4d8a6934f753a1259919e818d384d20b6780e6426"
+    },
+    {
+      "file": "manuals/Tylko_166766_53pages.pdf",
+      "url": "/assembly/tylko/manuals/Tylko_166766_53pages.pdf",
+      "bytes": 1452726,
+      "sha256": "19014d3c0abda590f24aff765acd7bd76475195dc1610c6d177ebb32b231e2d2"
+    },
+    {
+      "file": "manuals/EN_Disassembly_low_furniture.pdf",
+      "url": "/assembly/tylko/manuals/EN_Disassembly_low_furniture.pdf",
+      "bytes": 4953249,
+      "sha256": "982c86359871adeb75372131bf76f3b38a1e2c836e0ec3b22ab9d198e9ff48b5"
+    },
+    {
+      "file": "guides/34-aligning-horizontal-and-vertical-elements.pdf",
+      "url": "/assembly/tylko/guides/34-aligning-horizontal-and-vertical-elements.pdf",
+      "bytes": 2175023,
+      "sha256": "e55fb4a174567262e17a04ba0a8a3f59a401d73f3fddc1732260d126b90bd97d"
+    },
+    {
+      "file": "guides/35-troubleshooting-inserts-that-don-t-fit.pdf",
+      "url": "/assembly/tylko/guides/35-troubleshooting-inserts-that-don-t-fit.pdf",
+      "bytes": 427584,
+      "sha256": "68694d6f40d82ac57fd41df333f8dcbf4881d8693e183c1411b674c3219b39a4"
+    },
+    {
+      "file": "guides/how-do-i-disassemble-my-tylko.md",
+      "url": "/assembly/tylko/guides/how-do-i-disassemble-my-tylko.md",
+      "bytes": 1190,
+      "sha256": "4a4c3e0df59f6fd7332c7bc00aeaefefe5dc17cbc88a9138b029ea52efaf558b"
+    },
+    {
+      "file": "guides/32-back-panels-and-supports.md",
+      "url": "/assembly/tylko/guides/32-back-panels-and-supports.md",
+      "bytes": 9320,
+      "sha256": "2ced6249fb0fa54164a0f0d5c695ee217307f45e6733c9912e8ca810a84196bc"
+    },
+    {
+      "file": "guides/13-assembly-video-tutorials.md",
+      "url": "/assembly/tylko/guides/13-assembly-video-tutorials.md",
+      "bytes": 3052,
+      "sha256": "c48f09c49ea9f51d7f362cd8e8bb3628f7ea3fc6841aff9b49c5ced02ae99745"
+    },
+    {
+      "file": "guides/14-securing-your-tylko-to-the-wall.pdf",
+      "url": "/assembly/tylko/guides/14-securing-your-tylko-to-the-wall.pdf",
+      "bytes": 101471,
+      "sha256": "70b7edc5d716f9839e8859a80842a8e6697662ffaed56a1715c5a1ad3542fccd"
+    },
+    {
+      "file": "guides/35-troubleshooting-inserts-that-don-t-fit.md",
+      "url": "/assembly/tylko/guides/35-troubleshooting-inserts-that-don-t-fit.md",
+      "bytes": 4015,
+      "sha256": "87056075a572a45500b5d7c0e6eec5b2d523d051e0a61a3950de8d55550a5af9"
+    },
+    {
+      "file": "guides/37-incorrectly-assembled-elements.md",
+      "url": "/assembly/tylko/guides/37-incorrectly-assembled-elements.md",
+      "bytes": 9157,
+      "sha256": "8d59192769806ae63bc435d822aabdb53dcc9413fd6219b76b02fd1526e74c0b"
+    },
+    {
+      "file": "guides/14-securing-your-tylko-to-the-wall.md",
+      "url": "/assembly/tylko/guides/14-securing-your-tylko-to-the-wall.md",
+      "bytes": 1027,
+      "sha256": "262219135cac6bcef5e650acbd304f88aeb8e2072a7a89af2249cd0b60288bf8"
+    },
+    {
+      "file": "guides/34-aligning-horizontal-and-vertical-elements.md",
+      "url": "/assembly/tylko/guides/34-aligning-horizontal-and-vertical-elements.md",
+      "bytes": 4715,
+      "sha256": "da356b115e051d0ed5c1380bbb64402eee4a3e7464f5ddf320cd0e922d4d2313"
+    },
+    {
+      "file": "guides/38-doors-assembly-and-adjustment.pdf",
+      "url": "/assembly/tylko/guides/38-doors-assembly-and-adjustment.pdf",
+      "bytes": 276351,
+      "sha256": "d7cf66158e30bce41b8f42b6d439bbe76e776dd200c3f94318d31a9c2ecfa45f"
+    },
+    {
+      "file": "guides/38-doors-assembly-and-adjustment.md",
+      "url": "/assembly/tylko/guides/38-doors-assembly-and-adjustment.md",
+      "bytes": 4030,
+      "sha256": "d5bbdccbf3f5f9290dd997254f1d967c733a8bf0cf5a66e1804fafbf971e865b"
+    },
+    {
+      "file": "guides/32-back-panels-and-supports.pdf",
+      "url": "/assembly/tylko/guides/32-back-panels-and-supports.pdf",
+      "bytes": 529542,
+      "sha256": "5d2e558a2ea66edf6727ecd91d6c773cfb9faf5499b44744c1b0f347c60998dc"
+    },
+    {
+      "file": "guides/13-assembly-video-tutorials.pdf",
+      "url": "/assembly/tylko/guides/13-assembly-video-tutorials.pdf",
+      "bytes": 123732,
+      "sha256": "fe6fd582625c9aed9aa6cef7e30442e99539a55d0cdae0aa5e3fb94da9b86c98"
+    },
+    {
+      "file": "guides/36-drawers-assembly-and-adjustment.md",
+      "url": "/assembly/tylko/guides/36-drawers-assembly-and-adjustment.md",
+      "bytes": 6822,
+      "sha256": "25516ea0c40cdca3dc87b1e8611b3f36961915181593a32f8ec76a9736de4c3d"
+    },
+    {
+      "file": "guides/how-do-i-disassemble-my-tylko.pdf",
+      "url": "/assembly/tylko/guides/how-do-i-disassemble-my-tylko.pdf",
+      "bytes": 103952,
+      "sha256": "8c36932ce399c7faf5be7c5364d69b415fb3b569f9c0d136d755331c14a31d7d"
+    },
+    {
+      "file": "guides/37-incorrectly-assembled-elements.pdf",
+      "url": "/assembly/tylko/guides/37-incorrectly-assembled-elements.pdf",
+      "bytes": 1402146,
+      "sha256": "21b7ff7b694d136f85bc1ac2240a5896dd4411738ed70a333ada5e59dd95b5b8"
+    },
+    {
+      "file": "guides/33-extra-wide-shelves-connecting-two-halves.md",
+      "url": "/assembly/tylko/guides/33-extra-wide-shelves-connecting-two-halves.md",
+      "bytes": 3678,
+      "sha256": "6686b880365f041a3a5529b01964d9ac2b93e13dadbfab2b51d0e9491f5ce74a"
+    },
+    {
+      "file": "guides/36-drawers-assembly-and-adjustment.pdf",
+      "url": "/assembly/tylko/guides/36-drawers-assembly-and-adjustment.pdf",
+      "bytes": 9688520,
+      "sha256": "fba5a300483045d88c93a0760545247ef7aec57dc841bb30df9beee5960cfad5"
+    },
+    {
+      "file": "guides/33-extra-wide-shelves-connecting-two-halves.pdf",
+      "url": "/assembly/tylko/guides/33-extra-wide-shelves-connecting-two-halves.pdf",
+      "bytes": 392022,
+      "sha256": "2a45edc7de0dd17227ddd286099b3872b5e3bfa15bc4b81663f4c3f5c7a5cca2"
+    },
+    {
+      "file": "videos/thumbnails/Drawer Assembly and Disassembly [nQP5VWmSs3k].webp",
+      "url": "/assembly/tylko/videos/thumbnails/Drawer Assembly and Disassembly [nQP5VWmSs3k].webp",
+      "bytes": 100454,
+      "sha256": "dea7fc1edac80e83d72cc5012fcd06683befefbc92e9799297dccd688c31ddd5"
+    },
+    {
+      "file": "videos/thumbnails/Insert Assembly and Disassembly [1eMum5ec0ig].webp",
+      "url": "/assembly/tylko/videos/thumbnails/Insert Assembly and Disassembly [1eMum5ec0ig].webp",
+      "bytes": 10898,
+      "sha256": "54a46c36d17a29a43c63069ec4b0f349cfdce909b44f6bbfe7b2c95296194ca4"
+    },
+    {
+      "file": "videos/thumbnails/Mounting and Removing Drawers [hWDpACJiRWY].webp",
+      "url": "/assembly/tylko/videos/thumbnails/Mounting and Removing Drawers [hWDpACJiRWY].webp",
+      "bytes": 43534,
+      "sha256": "dca1029e608f0a127fd70701013653f023867b47ffc8c99c2a135aa0a60792fc"
+    },
+    {
+      "file": "videos/thumbnails/Correcting a Drawer Rail Element [tkMWk3KPwD8].webp",
+      "url": "/assembly/tylko/videos/thumbnails/Correcting a Drawer Rail Element [tkMWk3KPwD8].webp",
+      "bytes": 53634,
+      "sha256": "9a2331ba68be599e289a0218b12b8c2ef33fe7be50eee999dddbc74233e76c6b"
+    },
+    {
+      "file": "videos/thumbnails/How to disassemble a Tylko shelf [bpHEmZBUMAg].webp",
+      "url": "/assembly/tylko/videos/thumbnails/How to disassemble a Tylko shelf [bpHEmZBUMAg].webp",
+      "bytes": 24106,
+      "sha256": "ffa72dd011d568809fd28fc8246638a3c1a6b1924b568662fbfcb940cd21c319"
+    },
+    {
+      "file": "videos/thumbnails/Plinth Assembly and Disassembly [lgHYY5T504w].webp",
+      "url": "/assembly/tylko/videos/thumbnails/Plinth Assembly and Disassembly [lgHYY5T504w].webp",
+      "bytes": 71186,
+      "sha256": "90af88549cd434cdd04c43c70711b05bc114849f1c75695450b4dddded03a035"
+    },
+    {
+      "file": "videos/thumbnails/Lifting your Tylko [nO2MPDnBXDk].webp",
+      "url": "/assembly/tylko/videos/thumbnails/Lifting your Tylko [nO2MPDnBXDk].webp",
+      "bytes": 34712,
+      "sha256": "4566e0317ef8f06d34cf5ec9b85bb049928389eba4cabb5eab73fb18eedcbc21"
+    },
+    {
+      "file": "videos/thumbnails/Element incorrectly assembled∩╝ƒ [DYpU9nWbrvA].webp",
+      "url": "/assembly/tylko/videos/thumbnails/Element incorrectly assembled∩╝ƒ [DYpU9nWbrvA].webp",
+      "bytes": 34272,
+      "sha256": "96b47c15e01123ac23ff0ccdc3cfd32adb4ff956b381c70f57b4de417393b6b3"
+    },
+    {
+      "file": "videos/thumbnails/How to disassemble back panels [eGsCR6_Cqi4].webp",
+      "url": "/assembly/tylko/videos/thumbnails/How to disassemble back panels [eGsCR6_Cqi4].webp",
+      "bytes": 74890,
+      "sha256": "5acf255587c5e40140520060b37cb8cf4a1e2d0c093128b5ec5e3dff6893d144"
+    },
+    {
+      "file": "videos/thumbnails/Assembling and Disassembling Modules for Wide and Low Units [7fkFU6Tz4DA].webp",
+      "url": "/assembly/tylko/videos/thumbnails/Assembling and Disassembling Modules for Wide and Low Units [7fkFU6Tz4DA].webp",
+      "bytes": 35050,
+      "sha256": "a1f0b43b525066596241c17eab5ca5e05398fa2e8959cc70d9983a4aae2b81e9"
+    },
+    {
+      "file": "videos/thumbnails/How to assemble an extended-width Tylko shelf [Zvi9fUoucog].webp",
+      "url": "/assembly/tylko/videos/thumbnails/How to assemble an extended-width Tylko shelf [Zvi9fUoucog].webp",
+      "bytes": 37918,
+      "sha256": "6e80ad725dec174329dcf84a83b2eee82c07b95f8dd855fdc7f44555dd4c991f"
+    },
+    {
+      "file": "videos/thumbnails/Leg Assembly and Disassembly [y_6rMHwOIzo].webp",
+      "url": "/assembly/tylko/videos/thumbnails/Leg Assembly and Disassembly [y_6rMHwOIzo].webp",
+      "bytes": 33836,
+      "sha256": "00c77d4b782ca28abdc795ea59cb73e9b4da28ab2c07fc6f345cbd42b94d80d8"
+    },
+    {
+      "file": "videos/thumbnails/How to add a missing door bumper [MtWHpUer6hA].webp",
+      "url": "/assembly/tylko/videos/thumbnails/How to add a missing door bumper [MtWHpUer6hA].webp",
+      "bytes": 45686,
+      "sha256": "8bf6077c27a274ee53f631b697f62d83df6c81003104619fa773bd7d10274f2a"
+    },
+    {
+      "file": "videos/thumbnails/Mounting the Back Panels [blfcT3pgLCs].webp",
+      "url": "/assembly/tylko/videos/thumbnails/Mounting the Back Panels [blfcT3pgLCs].webp",
+      "bytes": 24436,
+      "sha256": "2886bc3720f01f1f8e0c00fd15061321e01f5f813e3953ac696fef5fc8cf6dae"
+    },
+    {
+      "file": "videos/thumbnails/Correcting a Hinge Element [71SSgWoilwE].webp",
+      "url": "/assembly/tylko/videos/thumbnails/Correcting a Hinge Element [71SSgWoilwE].webp",
+      "bytes": 40390,
+      "sha256": "2ffaf24dd58c5aa07a774c572a308f1666aacad98561c578837af48d5c66a529"
+    },
+    {
+      "file": "videos/thumbnails/Stickers removal [lFmHbD2uVLU].webp",
+      "url": "/assembly/tylko/videos/thumbnails/Stickers removal [lFmHbD2uVLU].webp",
+      "bytes": 30220,
+      "sha256": "15107792755062b365cbb4522a417f8252cfed58a8229b126f96811295f6c167"
+    },
+    {
+      "file": "videos/thumbnails/Disassembling Modules [_yjSDPmH4s8].webp",
+      "url": "/assembly/tylko/videos/thumbnails/Disassembling Modules [_yjSDPmH4s8].webp",
+      "bytes": 26222,
+      "sha256": "f2af2b05031225abb3ef500691c7c2260598074419d44360403d370b54f025bf"
+    },
+    {
+      "file": "videos/thumbnails/Reassembling Modules [DXFkO9fkcBM].webp",
+      "url": "/assembly/tylko/videos/thumbnails/Reassembling Modules [DXFkO9fkcBM].webp",
+      "bytes": 33642,
+      "sha256": "b6ce899ba77f6dc83121b26c344b1a1fb06a571feb7b337cf81c7d58c80ec020"
+    }
+  ]
+}

@@ -46,3 +46,13 @@ test('camera seeking is deterministic and a reverse-side view changes only the s
   assert.notDeepEqual(reverse.position, shot.position);
   assert.ok((reverse.position[0] - reverse.target[0]) * (shot.position[0] - shot.target[0]) < 0, 'rear view must show the opposite laminate face');
 });
+
+test('completed P/R joints still support a user-selected close inspection', () => {
+  for (const [model, step] of [['V-1230P', 6], ['V-1230R', 7]]) {
+    const detail = cinematicJointShot(model, step, 1, 1.5, false, false);
+    const wide = cinematicJointShot(model, step, 1, 1.5, true, false);
+    assert.equal(detail.target[2], jointExample.centers[0]);
+    assert.ok(new Vector3(...detail.position).distanceTo(new Vector3(...detail.target)) <
+      new Vector3(...wide.position).distanceTo(new Vector3(...wide.target)) / 2);
+  }
+});

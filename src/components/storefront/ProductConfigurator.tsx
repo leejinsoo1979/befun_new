@@ -154,7 +154,6 @@ export function ProductSpecifications({ ready = false }: { ready?: boolean } = {
   const { width, depth, numRows, rowHeights, thickness, style, density, hasBackPanel, baseType } = useShelfStore();
   const { currentColor, colorCategory } = useMaterialStore();
   const { doorsCreatedLayers, drawersCreatedLayers } = useHardwareStore();
-  const initialized = useRef<string | null>(null);
   const prepared = usePreparedProduct(state => state.id !== null);
   const height = thickness + rowHeights.slice(0, numRows).reduce((total, row) => total + row + thickness, 0) + baseHeight(baseType);
   return <section className={`${styles.section} ${styles.productSpecifications}`}><h2>제품 사양</h2><div className={styles.specificationRows}>

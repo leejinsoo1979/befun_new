@@ -26,7 +26,8 @@
   "screenshots": [
     "screenshots/wardrobe-catalog-002-reference.jpg",
     "screenshots/wardrobe-catalog-002-befun.jpg",
-    "screenshots/wardrobe-catalog-002-restored.jpg"
+    "screenshots/wardrobe-catalog-002-restored.jpg",
+    "screenshots/wardrobe-catalog-002-original.jpg"
   ],
   "browserChecks": {
     "status": "pass",
@@ -99,7 +100,9 @@
       }
     },
     "accountDbCartTested": false,
-    "originalImageLoadedAndPreserved": true
+    "originalImageLoadedAndPreserved": false,
+    "imageNote": "Earlier source URL recorded; final display uses previewDelivery exact-product local asset. Raw catalogue byte preservation is not claimed for Edge.",
+    "finalLocalPreviewLoaded": true
   },
   "catalogId": "wardrobe-2",
   "sourceUrl": "https://tylko.com/en-uk/furniture/wardrobe/92332,w",
@@ -217,5 +220,15 @@
     "wardrobe-bar-cross-section-assets"
   ],
   "catalogImageSource": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/02/unreal_render_tasks/unreal_5947061.webp",
-  "familyEvidence": "Product body explicitly contains TYLKO TONE. Family not inferred from card title."
+  "familyEvidence": "Product body explicitly contains TYLKO TONE. Family not inferred from card title.",
+  "previewDelivery": {
+    "verifiedAt": "2026-10-14T05:04:29.380055+00:00",
+    "localOnly": true,
+    "otherFamilySubstitution": false,
+    "originalCatalogueUrl": "https://media.tylko.com/media/catalogue/catalogue_entry/2026/02/unreal_render_tasks/unreal_5947061.webp",
+    "method": "Leader-imported original catalogue download matched by exact product ID and suffix, category 옷장 전체; no image generation or other preset substitution.",
+    "productKey": "92332,w",
+    "localAsset": "/imgs/product-cards/7f89c538f4bc49db0e568023bfa5abd2f1c14ca1b0794dc2baae00fa252d8ce6.webp",
+    "sha256": "7f89c538f4bc49db0e568023bfa5abd2f1c14ca1b0794dc2baae00fa252d8ce6"
+  }
 }

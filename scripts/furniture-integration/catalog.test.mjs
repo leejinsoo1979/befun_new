@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { registerHooks } from 'node:module';
 import fs from 'node:fs';
 import { installTestLoader } from '../storefront-save-validation/loader.mjs';
-registerHooks({load(url,context,next){if(url.endsWith('.json'))return {format:'module',source:`export default ${fs.readFileSync(new URL(url),'utf8')}`,shortCircuit:true};return next(url,context);}});
+registerHooks({resolve(specifier,context,next){if(specifier==='@/lib/catalog-images/existing-matches.json')return {url:new URL('../../src/lib/catalog-images/existing-matches.json',import.meta.url).href,shortCircuit:true};return next(specifier,context);},load(url,context,next){if(url.endsWith('.json'))return {format:'module',source:`export default ${fs.readFileSync(new URL(url),'utf8')}`,shortCircuit:true};if(url.endsWith('.jpg'))return {format:'module',source:`export default ${JSON.stringify({src:'/_next/static/media/'+new URL(url).pathname.split('/').at(-1)})}`,shortCircuit:true};return next(url,context);}});
 installTestLoader({mockServices:false});
 const {catalogFurnitureDesign}=await import('../../src/lib/furniture/catalog-design.ts');
 const {parseFurnitureDesign,furnitureDesignHref}=await import('../../src/lib/furniture/design.ts');
@@ -64,4 +64,17 @@ for (const number of ['001','002','003']) {
 
 test('Unknown wardrobe IDs never fall back to a default Edge design',()=>{
   for(const id of ['wardrobe-0','wardrobe-4','__proto__','constructor']) assert.equal(catalogFurnitureDesign(id),null);
+});
+
+test('Wardrobe previews remain local and distinct with exact source-product identity',()=>{
+  const wardrobes=referenceCatalog.filter(p=>p.category==='wardrobe');
+  assert.equal(new Set(wardrobes.map(p=>p.image)).size,3);
+  for(const product of wardrobes) assert.ok(product.image.startsWith('/'));
+  const matches=JSON.parse(fs.readFileSync(new URL('../../src/lib/catalog-images/existing-matches.json',import.meta.url),'utf8'));
+  for(const product of wardrobes.slice(1)) {
+    const match=matches[product.id];
+    assert.equal(product.source.split('/').at(-1),match.productKey);
+    assert.equal(product.image,match.thumbnail);
+    assert.ok(fs.existsSync(new URL('../../public'+product.image,import.meta.url)));
+  }
 });

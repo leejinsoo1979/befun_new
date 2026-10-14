@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import { useLocale } from '@/lib/commerce/useLocale';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { ConfiguratorLoading } from '@/components/ui/ConfiguratorLoading';
@@ -39,6 +40,7 @@ const Scene = dynamic(() => import('@/components/three/Scene'), {
 });
 
 export default function ConfiguratorPage() {
+  const { t } = useLocale();
   const router = useRouter();
   const [saving, setSaving] = useState(false);
   const [shareUrl, setShareUrl] = useState('');
@@ -141,7 +143,7 @@ export default function ConfiguratorPage() {
       setShareUrl(url);
       return url;
     } catch {
-      alert('디자인 저장에 실패했습니다');
+      alert(t('디자인 저장에 실패했습니다'));
       return null;
     } finally {
       setSaving(false);
@@ -164,7 +166,7 @@ export default function ConfiguratorPage() {
           return;
         } catch (err) {
           console.error('[Befun] AR 시작 실패', err);
-          alert('AR을 시작하지 못했어요. 카메라 권한을 확인해주세요.');
+          alert(t('AR을 시작하지 못했어요. 카메라 권한을 확인해주세요.'));
           return;
         }
       }
@@ -197,11 +199,11 @@ export default function ConfiguratorPage() {
           <ul className="flex list-none gap-[10px] pr-2 text-xs lg:pr-5">
             <li>
               <button type="button" onClick={handleOpenOptimizer} className="cursor-pointer">
-                CNC 옵티마이저
+                {t('CNC 옵티마이저')}
               </button>
             </li>
-            <li><Link href="/myshop">myshop</Link></li>
-            <li><Link href="/cart">장바구니</Link></li>
+            <li><Link href="/myshop">{t('myshop')}</Link></li>
+            <li><Link href="/cart">{t('장바구니')}</Link></li>
           </ul>
         </div>
       </header>
@@ -237,7 +239,7 @@ export default function ConfiguratorPage() {
         <div className="hidden shrink-0 flex-col overflow-y-auto bg-white px-4 pt-4 pb-6 shadow-[inset_0_1px_0_#eee] sm:px-6 lg:flex lg:w-[460px] lg:px-8 lg:pt-5 lg:pb-8 lg:shadow-[inset_1px_0_0_#eee]">
           {/* Price header */}
           <div className="mb-1">
-            <h2 className="text-[14px] font-normal text-[#333]">다용도 수납장 기본형</h2>
+            <h2 className="text-[14px] font-normal text-[#333]">{t('다용도 수납장 기본형')}</h2>
             <PriceDisplay />
           </div>
 
@@ -254,10 +256,10 @@ export default function ConfiguratorPage() {
               onClick={handleAddToCart}
               className="w-full cursor-pointer rounded-full bg-[var(--green)] py-3.5 text-[15px] font-semibold text-white shadow-sm transition-all hover:bg-[#2a7a1a] active:scale-[0.98]"
             >
-              구매하기
+              {t('구매하기')}
             </button>
             <p className="mt-3 text-center text-[11px] text-[#bbb]">
-              Made in KR &middot; 제작 5-6주 소요
+              {t('Made in KR · 제작 5-6주 소요')}
             </p>
           </div>
         </div>

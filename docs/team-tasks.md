@@ -1407,3 +1407,74 @@
 - R5 graphics 조율 수신: I18nProvider 쿠키/Accept-Language 구조 유지, 기존 번역 사전 보존. 리더 MarketSelector를 header navIcons에 연결해 현재 디자인을 떠나지 않고 4지역·유럽국가 변경 가능. ProductConfigurator의 preset effect에 동일 입력 key 가드를 추가해 router.refresh 객체변경으로 사용자 가구가 초기화되는 문제 예방.
 
 - R4-ASM 최종후속: 가공면은normal+외부skin좌표로판정,평행한홈바닥도맨목재. 추가검사후42PASS,최신격리build/TypeScript PASS,lint0/7. Tylko선택적추정3D5단계/백패널7재확인. source36파일격리차이0,최종fingerprint갱신,ASM잠금최종해제.
+
+### R5 locale_ui 추가 제한 번역 — 착수
+- 리더 배정: src/app/configurator/page.tsx, src/components/ui/MobileConfiguratorPanel.tsx의 버튼·기본 문구와 ui-dictionary.ts 필요 문자열만 잠금. 저장/AR/가구 상태/계산 로직 보존. scoped lint 후 해제.
+- R5 locale_ui 추가 번역 완료·잠금 해제: configurator/page.tsx 및 MobileConfiguratorPanel.tsx 버튼/헤더/기본문구/오류알림을 useLocale로 연결, 사전11항목 추가. 조작/저장/가격/AR 로직 변경 없음. 두 컴포넌트+사전 scoped lint 오류0/경고0. 3D toolbar·공유/AR modal 등 자식 범위는 미포함; 전체 사이트 번역 완료 아님. handoff r5-locale-ui.md 후속 절.
+
+### R5 리더 통합 결과 — 2026-10-14
+- 적용: 기존 i18n 단일 지역 상태에4지역 선택기/통화 연결, EU10배송국, 예상환산 가격·통화별 소수자리·장바구니 합계 반올림 통일. 상품 preset effect가 언어 refresh에서 재실행되어 편집을 덮어쓰지 않게 가드. 해외 견적은 주문API에서도 KRW결제로 오인 접수되지 않음.
+- 실제Chrome JP/US/EU/KR 언어·통화 변경,111cm편집 유지,프랑스 선택,모바일390px 메뉴 확인. 산술16PASS(11합성 reference+5market). scoped lint0/0.
+- 미완료: Tylko coefficients403, 운영 단가 미확보. reference-pricing.ts는 현재 운영가격에 연결하지 않음. 기존KRW환산예상과 Tylko동일산정은 구분. 책상·옷장가격 및 경제부품adapter/실제지역견적·결제 미완료. 상세본문·제품명·일부보조UI 미번역.
+- 인계: pricing-analysis.md, pricing-source-audit.md, cases/markets-001.json, handoffs/r5-locale-ui.md. 신규공통코드와 가격표시 소유잠금은 검증 후 해제; 다음 작업자는 기존I18nProvider를 보존하고 지역store 중복 생성 금지.
+
+- R5 최종검증: 최신 소스 격리 production build/TypeScript PASS. 공유3003 재시작·.next 삭제 없음. 리더 R5 신규commerce/가격표시 잠금 해제. 상세 미완료 범위는 위 기록 유지.
+
+### R5 지역 선택기 시각 개선 — 리더 착수
+- 사용자 피드백: 선택창이 너무 크고 투박함. MarketSelector.tsx/market-selector.module.css만 잠금. 헤더 팝오버를 간결한4행 국가·언어·통화 선택으로 변경. 별도지역설정페이지/가격/지역상태는 유지. desktop/mobile 및 키보드/외부닫기 확인 후 해제.
+
+- R5 지역선택 UI 개선 완료: 340px 설정폼→248px 4행 국가 목록. 국가/언어/통화를 한줄로, 선택 체크, 중복요약·설명 제거. 선택 즉시닫기(EU는 배송국가 추가 선택), Escape/외부클릭/포커스이탈 닫기. 헤더색상 상속.
+- Chrome desktop/390×844 일본→유럽→한국 전환,111cm유지,EU배송국 선택, Escape/외부클릭 확인. 스크린샷 markets-002-compact-{desktop,mobile}.png. scoped ESLint0/0, 기존격리소스에 수정2파일 적용 production build+TypeScript PASS. 해당2파일잠금해제.
+
+### OVVO 실제 홈 표시·MDF 절삭면·투명 내부 표시 — 왼쪽5 codex-assembly / 2026-10-14 사용자 후속 수신
+- 재현: GuideScene의 Shape 입구 뒤 바닥이 라미네이트색, 안쪽 벽 없음. 내부보기는 패널만투명하고하우징은불투명하며단계전환이사용자투명선택을초기화함. 사용자 새캡처는R 02/08 하우징삽입 단계.
+- 잠금: `src/components/assembly-guide/GuideScene.tsx`, `JointSectionCaps.tsx`, `AssemblyGuide.tsx`, `src/lib/assembly-guide/panelMaterials.ts`; 신규 `src/lib/assembly-guide/panelPocket.ts`, `panelPocket.test.mjs`, `viewState.ts`, `viewState.test.mjs`; 기존 본인 `disassembly.test.mjs` 필요 자원 검사만.
+- 증거 신규 정확한 경로: `docs/handoffs/assets/codex-assembly/pocket-transparency/{README.md,verification.json,source-fingerprint.json,before-pocket.png,after-pocket.jpg,inside-r.jpg,inside-p.jpg,section-r.jpg,mobile.jpg}`. 본인 docs/assembly-guide.md 및 배포 인계만 append.
+- 기존외부양면라미네이트/자작엣지 유지, 사용자 지정홈내부는MDF 절삭면으로표시. 공식입구/깊이와미확정언더컷을구분, 하드웨어원본/CNC/공용materials/상품/R5/.git는수정하지않음. 공유3003 유지, 독립게시사본검증.
+
+### R6 다운로드 상품카드 이미지 — 리더 착수 / 카테고리 확장 담당과 분리
+- 사용자 제공 befun 섬네일 CSV31카테고리1442세트/2884파일 확인, 누락0. 카테고리 증설은 사용자 지정 다른 에이전트 담당. 리더는 navigation/category목록/가격/상품명 데이터 수정하지 않음.
+- 리더 잠금: 신규 public/imgs/product-cards/**, src/lib/catalog-images/**, src/components/storefront/ProductCardImage.tsx 및 전용CSS, scripts/catalog-images/**, docs/handoffs/catalog-images/**. 기존 StorefrontUI.tsx ProductCard 이미지2태그 및 ReferenceCatalogPages.tsx 카드이미지영역만 변경. CatalogPages.tsx 소파카드 이미지영역만 좁게 연결 예정. 카테고리 담당은 이 이미지영역과 충돌 금지, 나머지 카테고리 작업 유지.
+- 공통 연결 계약: 신규 getDownloadedCardImages(sourceProductUrl, categoryName?)로 상품 URL 끝의 실제상품번호(타입접미사포함)를 조회. 기본/호버 경로 제공. 출처SKU 없는 Befun 샘플은 기존이미지SHA256 일치가 확인된 항목만연결. 전체31카테고리 membership CSV순번·상품번호로보존, 임의 파일순서매칭/새가격생성 없음. 상세 API는 docs/handoffs/catalog-images/README.md에 게시.
+
+### 보기 방향 버튼 정리 / codex-assistant / 2026-10-14
+- 사용자 직접 요청: 보기 메뉴 정면·좌측·우측·위·아래 5항목 제거. ViewToolbar.tsx의 views 목록만 잠금, 카메라 상태/다른 보기 도구는 변경하지 않음.
+- 완료: views 목록에서 요청한5버튼 제거. Chrome localhost:3003/configurator 보기 펼침에서 후면·입체와 나머지 도구만 표시 확인. ViewToolbar.tsx scoped ESLint PASS. 전체 build 미실행(공유 개발 서버 보존); 해당 단일 목록 수정 잠금 해제.
+
+- 추가 잠금: `src/lib/assembly-guide/cinematicShot.ts`, `cinematicShot.test.mjs`의 A/B 홈 삽입 클로즈업만. 홈 바닥까지 보이는 시점으로 조정하며 이동/치수/하드웨어는 유지한다.
+
+
+### R6 상품 카드 이미지 인계 완료 — 2026-10-14
+
+- 리더: 31개 카테고리/1,442세트 검증 및 로컬 이미지 매핑 구축, 기존 카드 31개 연결 완료. 미매칭 17개 보존.
+- **카테고리 확장 담당 필독:** `docs/handoffs/catalog-images/README.md`. 신규 카테고리는 `src/lib/catalog-images/manifest.json`의 category+sequence+productKey 단위로 연결. 기존 카드 가격/이름을 새 상품번호에 재사용하지 말 것. 일부 동일 상품의 이미지 역할이 카테고리에 따라 반대이므로 productKey 단독 평탄화 금지.
+- 공통 이미지 컴포넌트: `src/components/storefront/ProductCardImage.tsx`. 기존 Link/카드 레이아웃을 유지한 채 이미지 영역에 사용. 다운로드 이미지의 신규 가격/치수/SKU는 제공되지 않았으므로 추측하지 않음.
+- 검증: 페어/해시 테스트 5개, 고유 이미지 2,435개 전체 디코딩, 변경 파일 lint, 격리 production build 통과. Chrome 기본/호버/복귀 및 모바일 터치 이동 확인. 증거 캡처는 위 인계 폴더.
+- 이번 작업의 이미지 연결 영역 잠금 해제. 카테고리 담당은 완성된 매핑/컴포넌트를 사용해 확장 가능. 문서 게시이며 외부 에이전트 자동 전달/수신을 확인했다는 뜻은 아님.
+
+### R4-ENTRY-READY — 왼쪽3 Codex 쇼핑몰 / 2026-10-14
+- wardrobe-1/2/3 실제 원본 Edge/Tone 초기값 검증·factory 연결 완료, supported3/entry blocked0. 기존 책상 연결 재구현 없음. 원본2preset과 별도 사례; 공개 API403로 private channel keys 미확인, 앱 stable slot IDs 보존.
+- 카테고리→실제3D→폭변경→로컬저장/불러오기→URL공유/새로고침 3종 PASS. Tone 물리 runner/bar 기존 한계는 리더 요청 유지. 회귀26PASS, scoped ESLint0/0,전체lint0오류8타영역경고,최신 격리build/TypeScript17페이지PASS.
+- R6 리더 이미지 연결 보존: Tone 두 상품번호의 로컬 원본 사진 사용; 미다운로드 Edge1936508은 자기 원본뷰어 캡처. 다른가족대표사진대체 제거. 원격CDN raw사진 동일성/원본숨은key/계정·장바구니·DB·가격·배포 완료 주장 없음.
+- 인계 `docs/handoffs/codex-storefront-integration.md` 최종R4절, cases/wardrobe-catalog-001..004.json 및 대응캡처. 리더/QA알림 게시. `catalog-design.ts`, `referenceCatalog.ts`, `ReferenceCatalogPages.tsx`, `scripts/furniture-integration/catalog.test.mjs`,본인사례·캡처·handoff 잠금 해제. 공통모델/route/FurnitureConfigurator 미수정,공유3003 유지.
+- `claude-graphics` **카테고리 확장 착수** (사용자 지시: Tylko 상품 전부, R6 이미지 계약 docs/handoffs/catalog-images/README.md 수신) 2026-10-14: 잠금 신규 `src/lib/catalog-expansion/**`(카테고리 매핑·이름 현지화·서버 필터), 신규 `src/components/storefront/DownloadedCatalog.tsx`, `CatalogPages.tsx` 카테고리 목록 연결부, `app/(storefront)/[...segments]/page.tsx`의 furniture-c 전달 prop·신규 catalog-item 경로 분기만. R6 잠금(lib/catalog-images, ProductCardImage, public/imgs/product-cards)은 읽기 전용 소비. 가격·SKU·치수 생성 없음, 기존 카드 이름/가격 미변경.
+
+### OVVO 홈·MDF·투명 표시 교정 완료 — 왼쪽5 / 2026-10-14
+- 사용자 캡처 R02/08 재현 후 홈 MDF벽/바닥, A/B 삽입시점, 하우징투명/커넥터불투명, 명시적 보기 유지, 최종 단계 확대 교정. 제조언더컷/BOM확정은 미확인. HW/CNC/공용재질/R5/상품/공유.git 미수정.
+- 47검사PASS, 변경eslint0/0, 격리전체lint0오류/기존경고7, production build/TypeScript/17정적페이지PASS. 안내40파일SHA사본차이0. 실제Chrome desktop/390px·기존P/R/Tylko5/백패널7/다리5·재생/탐색/초기화/전환, 24회투명토글자원36geometry/9texture/10program안정. 최신새로고침error/warn0.
+- 증거: docs/handoffs/assets/codex-assembly/pocket-transparency/README.md 및verification/fingerprint·전후/P/R/단면/모바일캡처. R4실제제품입력계약 요청 유지, 정밀다리/전체주문/제조승인 제외.
+- 이번 소유 잠금 해제: 위 assembly-guide components/lib 및신규panelPocket/viewState/검사, cinematicShot/검사, docs/assembly-guide.md, pocket-transparency증거. 공유3003/.next유지. 독립게시사본에서 이번ASM만 Git반영하며 배포결과 별도기록.
+
+
+### R7 Tylko 조립 ZIP 통합 — 리더 착수 / 2026-10-14
+- 사용자 제공 tylko_assembly.zip 217MB: PDF14(추가 connector.pdf 포함), 영상18, 도해79, 가이드10. 원본 자료와 현재 5단계 클립 시연을 대조해 조립/분해/재조립 및 부속 매뉴얼을 통합한다.
+- 잠금: 신규 src/lib/assembly-guide/tylko-manual/**, src/components/assembly-guide/tylko-manual/**, public/assembly/tylko/**, scripts/assembly-manual/**, docs/handoffs/tylko-assembly/** 및 src/app/assembly-guide/page.tsx의 Tylko 진입 분기. 기존 AssemblyGuide/GuideScene/OVVO 홈 관련 타 작업자 잠금 파일은 수정하지 않음.
+- 별도 Tylko 통합 안내 컴포넌트를 기존 /assembly-guide에 연결하고 OVVO topic=connector 등 기존 진입 유지. 시뮬레이션은 자료상 확인된 순서와 동작을 사용, 미확인 치수/내부 형상은 설명용으로 구분. 원본 모든 자료의 로컬 열람을 제공한다.
+- connector.pdf는 KNAPP Mod-eez 자료이며 Tylko 공급품 동일성·제조 치수로 자동 승격하지 않는다. 가격/카테고리/CNC 출력 변경 없음.
+- `claude-graphics` **카테고리 확장 1차 완료** 2026-10-14: R6 manifest 31카테고리 1,442세트 전부를 사이트 카테고리에 연결. 신규 `lib/catalog-expansion/{categories,names,server}.ts`(CSV 카테고리↔/furniture-c 경로·쿼리 31개, 독일어 원문명→ko/en/ja 구성 번역 732종 미번역 0, 서버에서 카테고리 1개만 클라이언트 전달), 신규 `components/storefront/DownloadedCatalog.tsx`(ProductCardImage 계약 그대로, 24개씩 더 보기, 상세 `/catalog-item/<key>/<seq>` 썸네일+스튜디오컷·레퍼런스 안내·3D 디자인 이동). `CatalogPages.tsx` downloaded prop·렌더 1줄, `[...segments]/page.tsx` furniture-c prop 전달·catalog-item 분기, `navigation.ts` modular_sofas 추가. 가격/치수/SKU 생성 없음, 기존 카드 미변경. 확인: 8개 카테고리·더보기 24→48·상세·일본어 이름, 깨진 이미지 0, tylko 요청 0, 콘솔 예외 0, lint/tsc 0.
+
+
+### 책상·옷장 상세 구성 통일 — codex-storefront / 2026-10-14 착수
+- 사용자 직접 지시: 책장과 동일한 상세 이미지/갤러리·하단 상세 흐름을 책상·옷장에도 연결. 기존3D·저장·공유·가격은 보존.
+- 단독 잠금: 신규 storefront/FurnitureProductDetails.tsx 및 furnitureProductPhotos.ts/전용CSS·검사, 신규 public/imgs/furniture-details/** 및 본인 상세 증거; FurnitureConfigurator.tsx의 하단 상세 연결/선택 상품 prop만. `(storefront)/[...segments]/page.tsx`의 reference-product branch prop만(카테고리 확장 담당의 다른 분기 보존). furniture-design/[family]/page.tsx 필요한 상세 prop만. 기존 ProductDetails/ProductMaterialGallery는 읽기 전용 재사용. docs/handoffs/codex-storefront-integration.md 본인 append.
+- 원본 상품별 갤러리 출처 확인 후 로컬 사진만 사용. 다른 제품군 이미지/가짜 고객 리뷰/가격 생성 없음. 현재 카테고리 확장·조립 ZIP 잠금 영역 미수정.

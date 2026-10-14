@@ -3,14 +3,16 @@
 import { Suspense, memo, useCallback, useEffect, useMemo, useRef, useState, type ComponentRef } from 'react';
 import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
 import { Html, Line, OrbitControls } from '@react-three/drei';
-import { BoxGeometry, BufferGeometry, DoubleSide, Group, MeshStandardMaterial, Path, Plane, PlaneGeometry, Shape, ShapeGeometry, TextureLoader, Vector3 } from 'three';
+import { BoxGeometry, DoubleSide, Group, MeshStandardMaterial, Plane, PlaneGeometry, Shape, ShapeGeometry, TextureLoader, Vector3 } from 'three';
 import { OvvoPH, OvvoRH, OvvoPC, OvvoRC, guideMounts } from '@/components/three/furniture-hardware/ovvo';
 import { ovvoGuideModel } from '@/lib/assembly-guide/ovvoMounts';
 import { inspectionShot, type JointInspection } from '@/lib/assembly-guide/inspectionShot';
 import { jointExample, jointPose, type ConnectorModel, type GuideTopic } from '@/lib/assembly-guide/sequence';
 import { cinematicJointShot } from '@/lib/assembly-guide/cinematicShot';
-import { birchEdgeTexture, mapPanelEdgeUvs } from '@/lib/assembly-guide/panelMaterials';
+import { birchEdgeTexture, createMdfCutMaterial, mapPanelEdgeUvs } from '@/lib/assembly-guide/panelMaterials';
 import { releasePose, releaseShot, type JointAction } from '@/lib/assembly-guide/disassembly';
+import { capsuleMouth, createPocketInterior } from '@/lib/assembly-guide/panelPocket';
+import type { PanelView } from '@/lib/assembly-guide/viewState';
 import { usePanelMaterials } from './usePanelMaterials';
 import { createCameraRig, updateCameraRig } from './cameraRig';
 import { GuideEnvironment } from './GuideEnvironment';
@@ -38,6 +40,7 @@ export interface GuidePlayback {
   reference: boolean;
   legAction: LegAction;
   jointAction: JointAction;
+  panelView: PanelView;
 }
 
 export type SceneProps = {
@@ -59,18 +62,8 @@ function pocketSurface(width: number, depth: number) {
   shape.lineTo(width / 2, depth / 2);
   shape.lineTo(-width / 2, depth / 2);
   shape.closePath();
-  const radius = jointExample.slotWidth / 2;
-  const travel = (jointExample.slotLength - jointExample.slotWidth) / 2;
-  for (const center of jointExample.centers) {
-    const hole = new Path();
-    hole.moveTo(-radius, center - travel);
-    hole.lineTo(-radius, center + travel);
-    hole.absarc(0, center + travel, radius, Math.PI, 0, true);
-    hole.lineTo(radius, center - travel);
-    hole.absarc(0, center - travel, radius, 0, -Math.PI, true);
-    shape.holes.push(hole);
-  }
-  // Only the observed mouth outline. No invented straight or undercut interior walls.
+  for (const center of jointExample.centers) shape.holes.push(capsuleMouth(center, jointExample.slotWidth, jointExample.slotLength));
+  // The mouth and recess use one capsule outline; detailed supplier undercut is not asserted.
   return new ShapeGeometry(shape, 32);
 }
 
@@ -85,22 +78,23 @@ function Board({ upright, inside }: { upright?: boolean; inside: boolean }) {
     }
     return geometry;
   }, [width, upright]);
-  const outlines = useMemo(() => jointExample.centers.map(center => {
-    const radius = jointExample.slotWidth / 2;
-    const straight = (jointExample.slotLength - jointExample.slotWidth) / 2;
-    const points: Vector3[] = [];
-    for (let i = 0; i <= 64; i++) {
-      const angle = i / 64 * Math.PI * 2;
-      points.push(new Vector3(radius * Math.cos(angle), 0, center + radius * Math.sin(angle) + (Math.sin(angle) >= 0 ? straight : -straight)));
-    }
-    return new BufferGeometry().setFromPoints(points);
-  }), []);
-  useEffect(() => () => { surface.dispose(); outlines.forEach(outline => outline.dispose()); }, [surface, outlines]);
+  useEffect(() => () => surface.dispose(), [surface]);
   const direction = upright ? 1 : -1;
   const remaining = height - jointExample.slotDepth;
   const material = usePanelMaterials(upright ? 0 : 1, inside);
+  const cut = useMemo(() => createMdfCutMaterial(inside), [inside]);
+  const pocket = useMemo(() => createPocketInterior(jointExample.centers, jointExample.slotWidth, jointExample.slotLength, jointExample.slotDepth, direction), [direction]);
+  useEffect(() => () => { cut.material.dispose(); cut.texture.dispose(); }, [cut]);
+  useEffect(() => () => { pocket.walls.dispose(); pocket.floor.dispose(); }, [pocket]);
   const bodyCenter = direction * (jointExample.slotDepth + remaining / 2);
-  const geometry = useMemo(() => mapPanelEdgeUvs(new BoxGeometry(width, remaining, jointExample.depth), upright ? 0 : 1, jointExample.thickness, upright ? -width / 2 : -height, [0, bodyCenter, 0]), [upright, width, height, remaining, bodyCenter]);
+  const geometry = useMemo(() => {
+    const value = mapPanelEdgeUvs(new BoxGeometry(width, remaining, jointExample.depth), upright ? 0 : 1, jointExample.thickness, upright ? -width / 2 : -height, [0, bodyCenter, 0]);
+    // Remove the internal slab face. Each visible pocket has its own MDF floor;
+    // a full laminate plane here previously filled the recess with panel colour.
+    const floorFace = upright ? 3 : 2;
+    value.groups = value.groups.filter(group => group.materialIndex !== floorFace);
+    return value;
+  }, [upright, width, height, remaining, bodyCenter]);
   const edgePlanes = useMemo(() => {
     const x = new PlaneGeometry(jointExample.depth, jointExample.slotDepth);
     const z = new PlaneGeometry(width, jointExample.slotDepth);
@@ -114,15 +108,14 @@ function Board({ upright, inside }: { upright?: boolean; inside: boolean }) {
   return <group>
     <mesh geometry={surface} material={upright ? material.birch : material.laminate} rotation={[Math.PI / 2, 0, 0]} receiveShadow={!inside} dispose={null} />
     <mesh geometry={geometry} material={material.faces} position={[0, bodyCenter, 0]} castShadow={!inside} receiveShadow={!inside} dispose={null} />
-    {/* Outer board edges are known. The pocket-depth interval is an explicit cutaway;
-        its interior profile is unmeasured, so there are no pretend wood sidewalls. */}
+    <mesh geometry={pocket.walls} material={cut.material} castShadow={!inside} receiveShadow={!inside} dispose={null} />
+    <mesh geometry={pocket.floor} material={cut.material} receiveShadow={!inside} dispose={null} />
+    {/* Basic recess envelope, not a measured undercut or a manufacturing profile. */}
     {[-1, 1].map(side => <group key={side}>
       <mesh geometry={edgePlanes.x} material={upright ? material.laminate : material.birch} position={[side * width / 2, direction * jointExample.slotDepth / 2, 0]} rotation={[0, Math.PI / 2, 0]} dispose={null} />
       <mesh geometry={edgePlanes.z} material={material.birch} position={[0, direction * jointExample.slotDepth / 2, side * jointExample.depth / 2]} dispose={null} />
     </group>)}
-    {outlines.map((outline, index) => <lineLoop key={index} geometry={outline} position={[0, direction * .03, 0]} dispose={null}>
-      <lineBasicMaterial color="#9ca5b0" transparent opacity={inside ? .3 : .7} />
-    </lineLoop>)}
+
   </group>;
 }
 
@@ -149,16 +142,16 @@ function JointScene({ onTick, onManual, model, step, jointAction, inside, onUpda
   const published = useRef({ progress: -1, playing: false });
   const cameraRig = useMemo(() => createCameraRig(), []);
   const materials = useMemo(() => ({
-    housing: new MeshStandardMaterial({ color: '#b9bec6', roughness: .28, metalness: .06, side: DoubleSide }),
+    housing: new MeshStandardMaterial({ color: '#b9bec6', roughness: .28, metalness: .06, side: DoubleSide, transparent: inside, opacity: inside ? .18 : 1, depthWrite: !inside }),
     connector: new MeshStandardMaterial({ color: '#22262c', roughness: .38, metalness: .02, side: DoubleSide }),
-  }), []);
+  }), [inside]);
   useEffect(() => () => { materials.housing.dispose(); materials.connector.dispose(); }, [materials]);
   const mounts = useMemo(() => jointExample.centers.map(center => guideMounts(ovvoGuideModel(model), model === 'V-1230P' ? 'pressed' : 'locked', center)), [model]);
 
   useFrame(({ camera, size, gl }, delta) => {
     const state = onTick(delta);
     const releasing = state.jointAction === 'disassemble';
-    const reveal = state.continuous && state.model === 'V-1230R' && (releasing ? state.step === 1 : state.step === 6) && state.inspection === 'auto' && !state.overview && !state.manual;
+    const reveal = state.panelView === 'auto' && state.continuous && state.model === 'V-1230R' && (releasing ? state.step === 1 : state.step === 6) && state.inspection === 'auto' && !state.overview && !state.manual;
     const amount = Math.min(1, Math.max(0, state.progress / .2));
     sectionPlanes.current[0].constant = reveal ? 6 * (1 - amount * amount * (3 - 2 * amount)) : 0;
     const cut = state.inspection === 'section' && !state.manual || reveal;
@@ -214,7 +207,7 @@ function JointScene({ onTick, onManual, model, step, jointAction, inside, onUpda
     </group>
     {jointAction === 'assemble' && step === 0 && <Html position={[47, 1, 67]} center className={styles.partLabel}><span>A</span> 받침판 · 홈이 위로</Html>}
     <group ref={arrow}><DirectionArrow direction={jointAction === 'disassemble' ? step === 1 ? 'slide' : 'up' : step === 2 || step === 3 ? 'up' : model === 'V-1230R' && step === 6 ? 'slide' : 'down'} /></group>
-    <JointSectionCaps sources={capSources} active={capActive} planes={sectionPlanes} model={model} />
+    <JointSectionCaps sources={capSources} active={capActive} planes={sectionPlanes} model={model} inside={inside} />
     <OrbitControls ref={controls} makeDefault enableDamping minDistance={35} maxDistance={1800} maxPolarAngle={Math.PI * .8} onStart={onManual} />
   </>;
 }
