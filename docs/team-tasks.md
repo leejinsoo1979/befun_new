@@ -95,6 +95,10 @@
 
 ## 조율 요청
 
+- `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 14:50: **회원가입·소셜 로그인(구글·카카오·네이버)·쇼핑몰 관리자 페이지 → 구현 완료·잠금 해제.** [디자인 개편(사용자 지시): 좌측 라이프스타일 사진(creator-10) + 우측 카드, 네이버·카카오·구글 공식 로고/브랜드색 버튼, 입력칸·가입 약관 박스 정리, 390px 단일 열. 신규 `components/account/AuthShell.tsx`. 1440/390 넘침 0, 오류 0.] User에 role(USER/ADMIN)·passwordHash(scrypt)·termsAgreedAt·marketingAgreed, email optional(카카오) — migration `20261014054634_auth_roles`. auth.ts: 네이버 추가, 구글·네이버 이메일 계정 연결, Credentials는 비밀번호 검증(기존 '비밀번호 없이 아무 이메일 로그인/자동 가입' 제거), ADMIN_EMAILS로 관리자 승격(.env.local). /signup·/api/auth/signup·/login 개편, /admin(대시보드·주문 상태 변경·회원 권한·저장 디자인) — 서버에서 DB role 재확인. 별도 3005 테스트 서버에서 가입→자동 로그인→중복 409→일반회원 /admin 거부→틀린 비번 안내→관리자 4페이지→본인 권한 해제 비활성→네이버/카카오/구글 인증 페이지 이동 확인, 테스트 계정 삭제. 격리 build PASS(.env 없이). **주의: 3003 공유 dev 서버는 스키마 변경 전 Prisma 클라이언트를 메모리에 들고 있어 재시작 전까지 가입 500 — 재시작 필요(사용자 승인 대기).** → 사용자 승인으로 2026-10-14 15:10 3003 dev 서버 재시작(`npx next dev -p 3003`, nohup). 재시작 후 가입 201, /·/configurator 200 확인. 다른 작업자는 HMR 상태가 초기화됐을 수 있음. 잠금: `src/lib/auth.ts`, 신규 `src/lib/password.ts`·`src/lib/admin.ts`, `src/types/next-auth.d.ts`, `prisma/schema.prisma`의 **User 모델(role·passwordHash·약관 동의 필드, email optional)과 UserRole enum만** + 신규 migration, `src/app/login/page.tsx`, 신규 `src/app/signup/**`·`src/app/admin/**`·`src/app/api/auth/signup/**`. 주문·결제·디자인 API/모델과 storefront 저장 경로는 수정하지 않음(관리자 화면은 읽기·상태 변경만). 보안 수정: 기존 Credentials가 비밀번호 없이 아무 이메일로 로그인/계정 생성되던 개발용 동작 제거.
+
+- `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 14:30: **Supabase DB 연결.** 사용자가 Supabase 프로젝트 `befun`(서울 ap-northeast-2, Free)을 생성. `.env.local`에 `DATABASE_URL`(Session pooler 5432) 저장 — 값은 사용자 입력 창(osascript)으로만 받고 출력하지 않음(`scripts/set-database-url.sh`, `scripts/set-database-password.sh`). 기존 schema 그대로 `prisma migrate dev --name init` → 신규 `prisma/migrations/20261014052759_init/`(스키마 변경 없음, 리더 schema 소유 유지). 테이블 10개 생성 확인, 3003에서 `/api/designs` 저장→조회 실제 DB 왕복 성공(검사 행은 삭제). 다음: 회원가입·구글/카카오/네이버 로그인·관리자 페이지(키 필요, 착수 시 별도 잠금).
+
 - `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 13:10: **책상 카탈로그 썸네일을 Tylko 책상 이미지로 교체 → 완료·잠금 해제.** /furniture-c/desk 3개 카드와 /reference-product/desk-1~3 상세가 로컬 desk-1~3.webp(900×900) 표시 확인, catalog.test 9/9. 원본 카탈로그 렌더(unreal_10087621 등 800×800)는 VPN Chrome에서 로드 확인됐으나 확장 다운로드 저장 실패 — 사용자가 받으면 같은 경로로 교체. 원인: media.tylko.com이 VPN 없는 접속에 403 → 카드가 storage.avif(주황 수납장)로 대체됨. 좁은 수정: `storefront/referenceCatalog.ts`의 desk 3개 이미지 값과 로컬 경로 허용 1줄, 신규 `public/imgs/storefront/desk-1~3.webp`(Tylko 상품 페이지 VPN 캡처 `desk-ui-001/002-reference`·`desk-catalog-003-reference`에서 가구 영역만 잘라낸 것). 다른 카테고리·리더 catalog-design 연결은 수정하지 않음.
 
 - `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 12:30: **측정 모드(그리드 판재 + 판재 hover 시 가로·세로·깊이 화살표 치수, formbar Measure 참고) → 완료·잠금 해제.** [2차 사용자 피드백 반영: 도어·서랍·손잡이 등 소품 제외 가구 전체를 월드 cm 그리드로, 치수는 커서 지점 실시간 스캔(면 위 두 방향 광선 → 칸 안쪽 너비·높이, 바깥 방향 → 다음 면 또는 몸통 끝 '최대'), 바깥면(도어·서랍 전면·상판·측판 바깥)은 그 부재의 가로·세로·두께. Panel.tsx userData 줄은 되돌림(불필요). 실측: 칸 29.8×28.2×32(최대), 선반 칸 안쪽 42.3, 도어 41.7×27.5×1.6, 상판 90×1.8×32. 알려진 점: 행 hover 시 기존 RowColliders가 도어를 살짝 여는 동작은 그대로.] 1차 기록: 보기 메뉴 '측정' 토글. 켜면 모든 판재가 cm 모눈 재질(1cm 가는 선/10cm 굵은 선, 판 로컬 좌표 기준)로 바뀌고, 마우스를 올린 판재는 연녹색 강조와 함께 X·Y·Z 화살표+cm 라벨(4cm 미만 변은 화살표 생략)과 '가로×세로×깊이' 요약 칩 표시. 끄면 원래 재질 복원. 분해 중 비활성. 화면 전용(설계·가공 데이터 불변). Chrome3003 1440: 세로판 1.8×28.2×32, 가로판·상판 90×1.8×32 확인, 끈 뒤 원래 색 복원, 오류0. eslint/tsc(내 파일)0, 격리 build PASS. 캡처 `docs/handoffs/claude-1-ui-assets/measure/`. 잠금: 신규 `src/components/three/measure/**`; 좁게 `Panel.tsx`의 mesh `userData`(판재 치수 태그) 1줄, `Scene.tsx`의 `<MeasureMode />` 마운트 1줄, `display/ViewToolbar.tsx`의 '측정' 토글 버튼 1개. graphics 성능 작업(useBoredBox)·DisplayModel·store는 수정하지 않음.
@@ -1478,3 +1482,56 @@
 - 사용자 직접 지시: 책장과 동일한 상세 이미지/갤러리·하단 상세 흐름을 책상·옷장에도 연결. 기존3D·저장·공유·가격은 보존.
 - 단독 잠금: 신규 storefront/FurnitureProductDetails.tsx 및 furnitureProductPhotos.ts/전용CSS·검사, 신규 public/imgs/furniture-details/** 및 본인 상세 증거; FurnitureConfigurator.tsx의 하단 상세 연결/선택 상품 prop만. `(storefront)/[...segments]/page.tsx`의 reference-product branch prop만(카테고리 확장 담당의 다른 분기 보존). furniture-design/[family]/page.tsx 필요한 상세 prop만. 기존 ProductDetails/ProductMaterialGallery는 읽기 전용 재사용. docs/handoffs/codex-storefront-integration.md 본인 append.
 - 원본 상품별 갤러리 출처 확인 후 로컬 사진만 사용. 다른 제품군 이미지/가짜 고객 리뷰/가격 생성 없음. 현재 카테고리 확장·조립 ZIP 잠금 영역 미수정.
+
+- 왼쪽5게시최종: `2cce836814736341f0c17945126f3346e96904f5` main push/원격동일, `dpl_8GPYFbrb7ZjJZr6FpCim8QZKnKBY` 운영READY/alias동일/실제MDF홈·투명커넥터확인. 기존f46배포도READY. Git sourceCI이며 prebuilt업로드아님. 이번ASM10소스와증거만포함, 공유R5/R6제외. 잠금해제·독립사본clean·3003보존. 자세한게시인계PUBLISH.md.
+- `claude-graphics` (사용자 지적 "올프로덕트가 이따위로 나옴", 2026-10-14 14:20) → 카테고리 목록을 Tylko PLP처럼 **하나의 그리드**로 통합: 편집 가능한 디자인(desk/wardrobe 시작점) → 비펀 상품 → R6 레퍼런스(CSV 순) 순서, 단일 개수·24개씩 더 보기(`DownloadedCatalog` lead prop, `CatalogPages` 분기). 제품 라인 카드 맨 앞 Uff 추가(→ /furniture-c/sofas). CatalogPages 고정 문구·브레드크럼·카테고리명, StorefrontUI ProductCard 이름/라벨 `useLocale().t` 적용 + messages.ts en/ja 보강(누락 0). 확인 1000px·DPR2: EU "All products / 56 designs"·영문 카드, KR 정상, 콘솔 오류 0. 헤더 겹침은 현재 서버에서 재현 안 됨(브레드크럼 top 152 > 헤더 bottom 88).
+
+### 재생 방향 화살표 시각 교정 — 왼쪽5 codex-assembly / 2026-10-14
+- 사용자 직접 지적 수신: 얇은 녹색 선 화살표의 모양·색·가독성 개선. 기존 삽입/슬라이드/해제 실제 방향·기구 동작은 유지. Befun 검정/흰색의 짧은 벡터 화살표, 카메라 투영 방향 유지, 재생 진행률에 맞춘 절제된 전진 표시로 교정.
+- 단독 잠금: 신규 src/components/assembly-guide/MotionArrow.tsx, 기존 GuideScene.tsx의화살표 소비/갱신부, TylkoClipScene.tsx의화살표 소비부, guide.module.css의신규화살표스타일만. 리더R7 tylko-manual/**/route/원본자료 잠금은 읽기전용.
+- 신규 증거 정확한 경로: docs/handoffs/assets/codex-assembly/motion-arrows/{README.md,verification.json,source-fingerprint.json,before.jpg,insertion.jpg,slide.jpg,release.jpg,mobile.jpg}. 본인 docs/assembly-guide.md·배포인계 append만.
+- 공유3003/.next/.git/R5/R6/R7소스 보존. desktop/390px·재생/일시정지/탐색·P/R/기존Tylko 추정3D·주제전환을 확인하고 독립게시사본으로lint/build/기존검사 진행.
+
+- codex-storefront → R7 리더: 책상/옷장 상세 격리 build에서 R7 진행중 `TylkoManual.tsx:70` Image src={b.src}의 string|undefined TypeScript 오류로 중단됐습니다. 원본 잠금 파일 미수정. `b.kind === 'image' && 'src' in b`만으로 src 존재가 좁혀지지 않는 진단입니다. R7 수정 완료 후 인계 부탁드립니다. 책상/옷장 스코프 ESLint/47사진 디코딩/29회귀·상세검사 PASS, 자체 브라우저 검증 계속 중.
+
+- R7 관리자 접합 방식 연결 추가 잠금: `src/components/optimizer/ConnectorBar.tsx`의 안내 링크·저장 범위 표시, `src/lib/optimizer/connectors/settings.ts`의 검증·구독, 신규 `src/components/assembly-guide/tylko-manual/AssemblyEntry.tsx` 및 `src/lib/assembly-guide/tylko-manual/selection.ts`. 기존 관리자 권한 검사와 CNC 출력 제약 보존. 현재 브라우저 저장과 상품/주문 영구 저장은 구분하며 후자는 아직 구현 완료로 간주하지 않음.
+- `claude-graphics` (사용자 지적 "Tylko처럼 했냐", 2026-10-14 14:40) → PLP를 Tylko en-de 실측 화면과 대조해 수정: 제품 라인 카드 배경을 R6 스튜디오 컷(우리 서버)으로 교체+하단 그라데이션, 카테고리 아이콘 4개를 R6 썸네일 동일 크기 타일로 교체(사람 사진 제거), 그리드 첫 칸 "Configure yours" 프로모 카드, 레퍼런스 카드 Tylko식(굵은 종류명·한 줄 이름·작은 태그), 그리드 간격 24/10px, "colours"→"Colour" 라벨 키 분리. 남은 차이: 비펀 상품 6개 카드 형식(리더 R5 가격 안내 문구 포함)·색상 변형 썸네일 줄·가격(레퍼런스는 가격 없음)·Trustpilot/중간 프로모 타일.
+
+### 방향 화살표 교정 완료 — 왼쪽5 / 2026-10-14
+- 기존녹색선→검정벡터/흰윤곽/화면고정크기. 실제세계축투영·진행률동기화·pause/seek/reduced-motion·완료숨김·모바일이름표간격교정. 기존P/R/Tylko이동축/HW/치수/공식해제 보존. R7매뉴얼/route 및공용상품/UI미수정.
+- Chrome desktop/390px, R조립(-.0147rad)/반대해제(3.1174rad), P제한, Tylko진입/슬라이드, 정지glyph동일, 주제전환잔류DOM0, 콘솔0확인. 기존47검사PASS, 변경eslint0/0, 격리전체lint0오류/기존7경고, 최종production build/TypeScript/17페이지PASS, 안내41파일SHA차이0. 증거 motion-arrows/README.md.
+- 이번MotionArrow/GuideScene화살표부/TylkoClipScene화살표부/guide.module.css화살표스타일·본인증거잠금해제. 공유3003/.next/.git유지. 독립게시사본에이번4소스와본인증거만반영, 운영결과별도기록.
+
+
+### FURNITURE-DETAILS-READY — codex-storefront / 2026-10-14 완료
+- 책상·옷장6개 원본 상세47장 로컬 제공, 책장과 같은 갤러리/확대·공통 상세스타일·실시간사양·관련 디자인 연결. 공통생성기/저장/가격/DB/계정·장바구니/배포 변경 없음.
+- 29검사·47사진디코딩·scoped ESLint PASS;최신전체소스 격리build/TypeScript17페이지PASS. 이전R7타입오류는 리더수정 확인 후 포함해 다시통과. 안정production6상품 console0. 공유dev useId 경고는별도기록,서버재시작없음.
+- docs/handoffs/furniture-details/README.md·verification.json·source-photos.json. 실제 CUA 화면 시각검사; 저장 CDP 캡처는 빈 프레임 감사로 폐기해 증거 제외. 사용자 요청 상세 범위 완료,위 소유파일 잠금 해제. `(storefront)/[...segments]`의 다른 카테고리 확장 작업 보존하고 reference-product catalogId 전달만 수정. 공유 furniture-design 경로도 상세 유지.
+
+- 왼쪽5 화살표게시: `104ac8505a771434d60e62698def5fc18da70f99` main push/원격동일, `dpl_5zeaJFgcaxPKdBZ5i9uhrPqUQqxC` READY·befun-new.vercel.app alias·운영신규화살표표시확인. 독립사본clean,31789종료/임시탭정리,공유3003유지. 이번4소스와본인증거만포함,R7매뉴얼/route미포함. 소유잠금해제.
+
+- R7 → 책상/옷장 상세 담당: `TylkoManual.tsx`의 `b.src` 좁히기 오류 수정 완료. 최신 R7 격리 webpack production build/TypeScript PASS. 귀 담당 파일 미수정. 공유 서버 유지.
+- `claude-graphics` (2026-10-14 14:50) → StorefrontUI `ProductCard`에 `plp` 옵션 추가(카탈로그 그리드 전용): Tylko 카드 형식(굵은 컬렉션명·이름·가격·"Full customization"), 카드별 PriceNotice는 그리드 상단 1회로 이동(리더 R5 문구 그대로, KR에선 미표시). 다른 화면의 ProductCard는 기존 형식 유지.
+- `claude-graphics` (2026-10-14 15:00) → Tylko en-de 사이드보드 PLP 대조 2차: 카탈로그 전용 `CatalogBreadcrumbs`(모든 제품 • 상위 분류 • 현재, 점 구분, 루트는 "All products"만), 분류 페이지 상단을 큰 분류 아이콘·글자 탭 대신 해당 제품 라인 카드(수납=OC/OM/Edge/Tone, 옷장=Edge/Tone, 소파=Uff/Smooth)로, 아이콘 4개는 루트에서만. 다른 페이지의 공용 Breadcrumbs는 미변경. 남은 차이: Style 칩(Grid/Gradient/…) — 레퍼런스에 스타일 데이터가 없어 필터 불가로 미추가.
+
+### 실제 Befun 캐비넷 모의 조립 — 왼쪽5 / 사용자 직접 요청 수신
+- 기존카탈로그 `sideboard-terra` 실제110cm/2행/32cm/하단도어 구성과 공통 buildBefunShelfModel→CNC 접합 결과를 읽기전용 소비. 별도 가구 생성기/저장 형식·상품 옵션 변경 없음. 실제 생성 판재·도어·접합점을 이용한 전체 조립 보기와 직접 부품 선택/배치/단계 확인을 구현.
+- 단독잠금 신규: src/lib/assembly-guide/cabinet.ts, cabinet.test.mjs; src/components/assembly-guide/{CabinetSimulator.tsx,CabinetScene.tsx,CabinetPanel.tsx,cabinet.module.css}; 신규 src/app/assembly-guide/cabinet/page.tsx. 기존 AssemblyGuide.tsx의 캐비넷 진입링크만, GuidePanel.tsx/usePanelMaterials.ts/panelMaterials.ts의 선택적 시연 마감색/MDF가공면 소비만 잠금. 기존P/R/Tylko/다리/백패널 보존.
+- 리더R7요청: 기존 AssemblyEntry/TylkoManual에 새 `/assembly-guide/cabinet` 진입링크를 추가해주세요. 본인은 잠금중인 R7컴포넌트/부모route/selection/settings를 수정하지 않고 별도 캐비넷 route에서 독립 완료합니다. 공통상품쪽 실제 디자인 전달은 기존 BefunDesign 입력을 읽기전용 소비하며, FurnitureDesign(Desk/Wardrobe)은 아직 별도 미지원으로 유지.
+- 신규증거 정확한 경로: docs/handoffs/assets/codex-assembly/cabinet/{README.md,verification.json,source-fingerprint.json,overview.jpg,laid-out.jpg,connector.jpg,assembled.jpg,mobile.jpg}. 본인 docs/assembly-guide.md·배포인계 append.
+- 제조언더컷/탄성/공급사완제품 조립순서 미확정은 시연으로 구분. 공유3003/.next/.git/CNC/HW원본/상품/공통저장소스 미수정. 전체 조립/직접 조작·역탐색·초기화·주제전환·390px·자원해제 및격리lint/build검사.
+
+- 캐비넷 첫검사: sideboard-terra2단 모델은18mm 중간판 양면에 V-1230P12.5mm 홈을계획하면 양면가공교차6건이 공통 검증기에서 검출된다. 이를 정상OVVO전체조립으로표시하지 않는다. 첫완주모델은 동일Befun grid생성기·테라코타마감·폭110/깊이32의1단38cm수납칸(본체입력42cm)으로정해 모든몸통접합검사를통과시킨다. 기존카탈로그2단SKU와동일하다고표시하지않는다.
+
+### R8 옷장 구조·뷰어 일관성 교정 — 리더 / 2026-10-14
+- 사용자 지적: wardrobe-2 내부 서랍·힌지·뷰어 확대 및 별도 조작 UI. 기존 VPN Chrome 원본과 같은 설정에서 비교한다.
+- 리더 잠금: components/furniture/{FurnitureScene,WardrobeModel,FurnitureConfigurator}.tsx의 뷰어/모델 영역, furniture.module.css 뷰어 영역, lib/furniture/wardrobe/adapter.ts 및 신규 camera/검증 파일. FurnitureConfigurator 하단 상세·상품 연결과 타 담당 변경 보존. 공용 UI 패널은 읽기전용.
+- 구조/외형/카메라를 각각 검증하며 미확정 제조 치수는 완료 주장하지 않는다. 원본 이미지·옵션·회귀 결과를 docs/handoffs/wardrobe-viewer-review/에 기록.
+- `claude-graphics` (사용자 지적 "아이콘 그대로", 2026-10-14 15:05) → 카테고리 아이콘을 Tylko처럼 흰 바탕 위 가구 컷으로: R6 썸네일 4장(사이드보드·옷장·소파·북엔드)의 배경을 행별 가장자리 색 보간으로 키잉해 투명 PNG(208×160) 생성 → `public/imgs/storefront/category-icons/{storage,wardrobe,sofas,accessories}.png`. 회색 타일·밝기 보정 제거, 104×80·13px 라벨. 원본 R6 파일은 미변경.
+- `claude-graphics` (사용자 Tylko 캡처 4장 기준, 2026-10-14 15:15) → 상위 분류 페이지 Tylko 구조: Storage=라인 4+세부 아이콘 11, Sofas=Uff·Smooth 넓은 카드+아이콘 8, Accessories=아이콘 2(라인 카드·Configure 카드 없음), Wardrobes=Edge·Tone 넓은 카드+Type 칩(Fully closed/Partially open/Fully open → ?types=). 세부 아이콘 26종은 R6 썸네일 배경 키잉 투명 PNG(`public/imgs/storefront/category-icons/`). 레퍼런스가 있는 분류에도 Colour/All filters 표시. Uff/Smooth 표지 = R6 노란·로즈 부클레 스튜디오 컷. 남은 차이: Sofa covers 아이콘(원본이 원단 클로즈업·연출 사진뿐), 옷장 Number of columns 칩(열 수 데이터 없음), "New" 배지·Trustpilot.
+- 추가 잠금: lib/furniture/wardrobe/tone-drawers.ts 및 신규 scripts/furniture-wardrobe/tone-render*.mjs/json. 기존 drawer fixture는 getRender 중간 판재 좌표만 검증하여 최종 toToneDrawerSegment 폭/높이·인출 보정을 누락. 기존 fixture를 덮어쓰지 않고 최종 표시 단계 독립 검증 추가.
+
+- 캐비넷 진입링크 연관 잠금: 기존 src/components/assembly-guide/guide.module.css의 신규 .cabinetEntry 스타일만. 이전 화살표 및 기타스타일/리더R7 CSS는 보존.
+
+- 캐비넷 광원 소비 추가잠금: src/components/assembly-guide/GuideEnvironment.tsx의선택적 lightingScale/shadows props만. 기존단품시연 기본광원값은 유지, 전체캐비넷 내부에 들어오는 단품전용shadow광원을 비활성화하고 캐비넷전용광원으로그림자검증.
+- `claude-graphics` (사용자 직접 지시 "푸터에 기업정보", 2026-10-14) → `StorefrontFrame.tsx` 푸터 하단에 `<address>` 기업정보 추가: 상호 (주)유에이블 코퍼레이션 · 대표자 이진수 · 주소 서울시 강남구 언주로 97길 7, 5F · 이메일 contact@befun.co.kr(mailto). en/ja 라벨·주소 표기(messages.ts), 상호는 법인명 원문 유지. CSS `.footerCompany`.

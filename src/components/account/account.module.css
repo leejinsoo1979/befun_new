@@ -1,0 +1,59 @@
+/* 로그인·회원가입 — 좌측 라이프스타일 이미지 + 우측 카드 */
+.shell { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); background: #f4f3ef; }
+/* 헤더 아래 화면 높이에 맞춰 고정(긴 가입 폼을 스크롤해도 사진은 그대로) */
+.visual { position: sticky; top: 0; height: min(calc(100vh - 160px), 880px); min-height: 560px; overflow: hidden; align-self: start; }
+.visual img { object-fit: cover; }
+.visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%); }
+.visualCopy { position: absolute; left: 48px; right: 48px; bottom: 48px; z-index: 1; color: #fff; }
+.visualCopy strong { display: block; font-size: 34px; line-height: 1.25; font-weight: 700; letter-spacing: -0.5px; }
+.visualCopy span { display: block; margin-top: 12px; font-size: 15px; opacity: 0.85; }
+.panel { display: flex; align-items: flex-start; justify-content: center; padding: 48px 24px 72px; }
+.card { width: 100%; max-width: 420px; background: #fff; border-radius: 24px; padding: 40px 36px 32px; box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 18px 48px rgba(0,0,0,0.06); }
+.card h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.4px; text-align: left; margin: 0; }
+.lead { margin: 0; padding: 8px 0 28px; color: #6b6b6b; font-size: 15px; line-height: 1.5; word-break: keep-all; }
+
+.social { display: grid; gap: 10px; }
+.social button { position: relative; height: 54px; width: 100%; border-radius: 14px; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center; border: 1px solid transparent; cursor: pointer; transition: transform .15s ease, box-shadow .15s ease, filter .15s ease; }
+.social button:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
+.social button:active { transform: translateY(0); }
+.social button:focus-visible { outline: 2px solid #1d1e1f; outline-offset: 3px; }
+.social svg { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; }
+.naver { background: #03c75a; color: #fff; }
+.kakao { background: #fee500; color: rgba(0, 0, 0, 0.85); }
+.google { background: #fff; color: #1f1f1f; border-color: #dadce0 !important; }
+.recent { position: absolute; right: 12px; top: -9px; background: #1d1e1f; color: #fff; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
+
+.divider { display: flex; align-items: center; gap: 14px; margin: 26px 0 22px; color: #9a9a9a; font-size: 13px; }
+.divider::before, .divider::after { content: ''; flex: 1; border-top: 1px solid #ececec; }
+
+.form { display: grid; gap: 14px; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: 13px; font-weight: 600; color: #3a3a3a; }
+.field input { width: 100%; height: 50px; border: 1px solid #e0e0e0; border-radius: 12px; padding: 0 16px; font-size: 15px; background: #fafafa; transition: border-color .15s, background .15s, box-shadow .15s; }
+.field input:hover { border-color: #cfcfcf; }
+.field input:focus { outline: none; border-color: #1d1e1f; background: #fff; box-shadow: 0 0 0 4px rgba(29,30,31,0.06); }
+.field input[aria-invalid='true'] { border-color: #e5484d; background: #fff; }
+.field small { color: #8a8a8a; font-size: 12px; }
+.fieldError { color: #d93025; font-size: 12px; font-weight: 500; }
+.error { color: #d93025; font-size: 13px; text-align: center; background: #fdf0ef; border-radius: 10px; padding: 10px; }
+.submit { height: 54px; width: 100%; border-radius: 14px; background: #1d1e1f; color: #fff; font-size: 16px; font-weight: 600; margin-top: 6px; cursor: pointer; transition: background .15s; }
+.submit:hover { background: #000; }
+.submit:disabled { opacity: .5; cursor: progress; }
+
+.terms { display: grid; gap: 10px; border: 1px solid #ececec; border-radius: 14px; padding: 16px; font-size: 14px; margin: 4px 0 0; }
+.terms label { display: flex; align-items: center; gap: 10px; cursor: pointer; color: #3a3a3a; }
+.terms input { width: 18px; height: 18px; accent-color: #2fc614; }
+.terms .all { font-weight: 700; color: #1d1e1f; padding-bottom: 12px; border-bottom: 1px solid #f0f0f0; }
+.terms em { font-style: normal; color: #9a9a9a; font-size: 12px; margin-left: auto; }
+
+.switch { margin-top: 22px; text-align: center; font-size: 14px; color: #6b6b6b; }
+.switch a { color: #1d1e1f; font-weight: 700; margin-left: 6px; }
+.switch a:hover { text-decoration: underline; }
+.fine { margin-top: 18px; text-align: center; font-size: 12px; color: #a0a0a0; line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .shell { grid-template-columns: 1fr; background: #fff; }
+  .visual { display: none; }
+  .panel { padding: 16px 16px 48px; }
+  .card { box-shadow: none; padding: 8px 4px; }
+}

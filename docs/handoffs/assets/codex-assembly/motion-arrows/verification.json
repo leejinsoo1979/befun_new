@@ -1,0 +1,63 @@
+{
+  "owner": "왼쪽5 / codex-assembly",
+  "status": "MOTION-ARROWS-READY",
+  "date": "2026-10-14",
+  "sourceFilesChanged": [
+    "src/components/assembly-guide/MotionArrow.tsx",
+    "src/components/assembly-guide/GuideScene.tsx",
+    "src/components/assembly-guide/TylkoClipScene.tsx",
+    "src/components/assembly-guide/guide.module.css"
+  ],
+  "appearance": {
+    "old": "thin green world-space line",
+    "new": "compact charcoal vector with white edge",
+    "desktopCssBox": [
+      64,
+      40
+    ],
+    "mobileCssBox": [
+      56,
+      35
+    ],
+    "motion": "6px forward travel driven by chapter progress",
+    "rotation": "projection of existing world motion axis including parent rotation",
+    "pause": "glyph transform unchanged across paused observations",
+    "reducedMotion": "computed transform none / opacity 1"
+  },
+  "browser": {
+    "buildUrl": "http://localhost:31789/assembly-guide?topic=connector",
+    "mobile": [
+      390,
+      844
+    ],
+    "mobileScrollWidth": 390,
+    "checks": [
+      "A insert/down",
+      "B/connector up axis preserved",
+      "P disassembly remains disabled",
+      "R assembly slide and release reverse direction",
+      "pause and seeking",
+      "completed state hides arrow",
+      "existing Tylko estimated 3D pin entry and long-axis slide",
+      "back-panel switch leaves zero arrow DOM nodes",
+      "reduced-motion emulation cleared"
+    ],
+    "assemblySlideAngleRad": -0.0147081,
+    "releaseSlideAngleRad": 3.11738,
+    "consoleErrorWarningCount": 0
+  },
+  "validation": {
+    "existingTestsPassed": 47,
+    "failed": 0,
+    "scopedEslintErrors": 0,
+    "scopedEslintWarnings": 0,
+    "isolatedFullLintErrors": 0,
+    "isolatedFullLintExistingWarnings": 7,
+    "finalProductionBuild": "PASS",
+    "typescript": "PASS",
+    "staticPages": 17,
+    "sourceFingerprintDifferences": 0
+  },
+  "scope": "four owned arrow files only; hardware, machining, material/disassembly, shared route and leader R7 manual unchanged",
+  "deployment": "recorded separately in PUBLISH.md"
+}

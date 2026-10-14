@@ -1,0 +1,310 @@
+[
+  {
+    "id": "clip-assemble",
+    "title": "클립 · 가로/세로판 조립",
+    "mechanism": "clip",
+    "steps": 5,
+    "pdf": "/assembly/tylko/guides/34-aligning-horizontal-and-vertical-elements.pdf",
+    "videos": [],
+    "images": [
+      30,
+      31,
+      32,
+      33,
+      34
+    ],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "clip-release",
+    "title": "클립 · 분해와 방향 교정",
+    "mechanism": "clip",
+    "steps": 6,
+    "pdf": "/assembly/tylko/manuals/EN_Disassembly_low_furniture.pdf#page=14",
+    "videos": [
+      "DYpU9nWbrvA",
+      "tkMWk3KPwD8",
+      "71SSgWoilwE"
+    ],
+    "images": [
+      55,
+      56,
+      69
+    ],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "back-assemble",
+    "title": "백패널·보강대 장착",
+    "mechanism": "back",
+    "steps": 5,
+    "pdf": "/assembly/tylko/guides/32-back-panels-and-supports.pdf",
+    "videos": [
+      "blfcT3pgLCs"
+    ],
+    "images": [
+      1,
+      2,
+      3,
+      4,
+      8,
+      9
+    ],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "back-release",
+    "title": "백패널 · 낮은 가구 분해",
+    "mechanism": "back",
+    "steps": 5,
+    "pdf": "/assembly/tylko/manuals/EN_Disassembly_low_furniture.pdf#page=11",
+    "videos": [
+      "eGsCR6_Cqi4"
+    ],
+    "images": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "wide",
+    "title": "넓은 선반 · 가로판 분절 연결",
+    "mechanism": "wide",
+    "steps": 6,
+    "pdf": "/assembly/tylko/guides/33-extra-wide-shelves-connecting-two-halves.pdf",
+    "videos": [
+      "Zvi9fUoucog",
+      "7fkFU6Tz4DA"
+    ],
+    "images": [
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "insert",
+    "title": "인서트 · 내부 선반",
+    "mechanism": "insert",
+    "steps": 5,
+    "pdf": "/assembly/tylko/guides/35-troubleshooting-inserts-that-don-t-fit.pdf",
+    "videos": [
+      "1eMum5ec0ig"
+    ],
+    "images": [
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
+    ],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "drawer-box",
+    "title": "서랍 박스 조립·분해",
+    "mechanism": "drawer",
+    "steps": 8,
+    "pdf": "/assembly/tylko/guides/36-drawers-assembly-and-adjustment.pdf",
+    "videos": [
+      "nQP5VWmSs3k"
+    ],
+    "images": [
+      49,
+      50
+    ],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "drawer-rail",
+    "title": "서랍 레일 장착·해제·조정",
+    "mechanism": "drawer",
+    "steps": 6,
+    "pdf": "/assembly/tylko/guides/36-drawers-assembly-and-adjustment.pdf",
+    "videos": [
+      "hWDpACJiRWY",
+      "tkMWk3KPwD8"
+    ],
+    "images": [
+      51,
+      52,
+      53,
+      54
+    ],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "door",
+    "title": "도어 장착·분리",
+    "mechanism": "door",
+    "steps": 6,
+    "pdf": "/assembly/tylko/manuals/EN_Disassembly_low_furniture.pdf#page=6",
+    "videos": [],
+    "images": [
+      72,
+      73
+    ],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "door-adjust",
+    "title": "힌지 3축 조정·범퍼",
+    "mechanism": "door",
+    "steps": 5,
+    "pdf": "/assembly/tylko/guides/38-doors-assembly-and-adjustment.pdf",
+    "videos": [
+      "MtWHpUer6hA",
+      "71SSgWoilwE"
+    ],
+    "images": [
+      74,
+      75,
+      76,
+      77,
+      78
+    ],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "legs",
+    "title": "다리 장착·핀 해제",
+    "mechanism": "leg",
+    "steps": 6,
+    "pdf": "/assembly/tylko/manuals/EN_Disassembly_low_furniture.pdf#page=24",
+    "videos": [
+      "y_6rMHwOIzo"
+    ],
+    "images": [],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "plinth",
+    "title": "플린스 조립·분해",
+    "mechanism": "plinth",
+    "steps": 7,
+    "pdf": "/assembly/tylko/manuals/EN_Disassembly_low_furniture.pdf#page=21",
+    "videos": [
+      "lgHYY5T504w"
+    ],
+    "images": [],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "module-low",
+    "title": "낮은 가구 · 행 분리·재조립",
+    "mechanism": "module",
+    "steps": 7,
+    "pdf": "/assembly/tylko/manuals/EN_Disassembly_low_furniture.pdf#page=16",
+    "videos": [
+      "7fkFU6Tz4DA",
+      "bpHEmZBUMAg",
+      "DXFkO9fkcBM"
+    ],
+    "images": [
+      55,
+      63,
+      64
+    ],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "module-tall",
+    "title": "높은 가구 · 행·백패널 분해",
+    "mechanism": "module",
+    "steps": 8,
+    "pdf": "/assembly/tylko/manuals/EN_Disassembly_tall_furniture.pdf#page=12",
+    "videos": [
+      "_yjSDPmH4s8",
+      "DXFkO9fkcBM"
+    ],
+    "images": [],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "lifting",
+    "title": "가구 세우기",
+    "mechanism": "lift",
+    "steps": 4,
+    "pdf": "/assembly/tylko/manuals/Tylko_166766_53pages.pdf#page=23",
+    "videos": [
+      "nO2MPDnBXDk"
+    ],
+    "images": [],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "wall",
+    "title": "벽 고정",
+    "mechanism": "wall",
+    "steps": 4,
+    "pdf": "/assembly/tylko/guides/14-securing-your-tylko-to-the-wall.pdf",
+    "videos": [],
+    "images": [
+      79
+    ],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  },
+  {
+    "id": "transport",
+    "title": "운반 보호·스티커·관리",
+    "mechanism": "care",
+    "steps": 4,
+    "pdf": "/assembly/tylko/manuals/EN_Disassembly_low_furniture.pdf#page=25",
+    "videos": [
+      "lFmHbD2uVLU"
+    ],
+    "images": [],
+    "status": "interactive-explanatory-model",
+    "manufacturingVerified": false,
+    "actualFurnitureDesignBound": false
+  }
+]

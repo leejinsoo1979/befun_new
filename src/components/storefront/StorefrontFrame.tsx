@@ -87,7 +87,7 @@ export function StorefrontFrame({ children, overlay = false }: { children: React
     </header>
     {open ? <button className={styles.menuBackdrop} aria-label={t('메뉴 닫기')} onClick={() => setOpen(false)} /> : null}
     <main id="main">{children}</main>
-    <footer className={styles.footer}><h2>{t('가구에 공간을 맞추는 대신,')}<br />{t('당신에게 맞는 가구를 만드세요.')}</h2><div className={styles.footerColumns}>{footerGroups.map(group => <FooterGroup key={group.title} group={group} />)}</div><div className={styles.footerBottom}><Link href="/" className={styles.footerLogo} aria-label={t('Befun 홈')} onClick={goHome}><BrandLogo color="white" /></Link><Link href="/region-settings"><MarketLabel /></Link><span>© {new Date().getFullYear()} Befun</span><span>{t('Visa · Mastercard · 간편결제')}</span></div></footer>
+    <footer className={styles.footer}><h2>{t('가구에 공간을 맞추는 대신,')}<br />{t('당신에게 맞는 가구를 만드세요.')}</h2><div className={styles.footerColumns}>{footerGroups.map(group => <FooterGroup key={group.title} group={group} />)}</div><div className={styles.footerBottom}><Link href="/" className={styles.footerLogo} aria-label={t('Befun 홈')} onClick={goHome}><BrandLogo color="white" /></Link><Link href="/region-settings"><MarketLabel /></Link><span>© {new Date().getFullYear()} Befun</span><span>{t('Visa · Mastercard · 간편결제')}</span></div><address className={styles.footerCompany}><span>{t('상호')} (주)유에이블 코퍼레이션</span><span>{t('대표자')} {t('이진수')}</span><span>{t('주소')} {t('서울시 강남구 언주로 97길 7, 5F')}</span><span>{t('이메일')} <a href="mailto:contact@befun.co.kr">contact@befun.co.kr</a></span></address></footer>
     <Link className={styles.helpButton} href="/contact"><span>?</span> {t('도움이 필요하세요?')}</Link>
   </div>;
 }

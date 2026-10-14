@@ -446,3 +446,12 @@ terminal-instructions 최신 왼쪽3 지시 및 leader-review 2차 점검을 수
 - 기존 책상3종 실제3003에서 폭201.5/238.5/161.5cm로 한 옵션 변경→링크 공유→새로고침 후 각각 같은 값 및 canvas1 확인. 저장/책상 연결 재구현 없음. 공유 전 새로고침은 초기 preset으로 돌아가는 기존 동작이며 공유/저장 후 복원을 검사했습니다.
 - **리더 요청 유지:** Tone 기존 generator 한계 `tone-drawer-runner-travel-unmeasured`, `wardrobe-bar-cross-section-assets`는 공통 물리·모델 소유 영역입니다. 초기 옵션 중 표현 불가 필드는 확인되지 않았으므로 진입 blocked 상품은0개입니다. 원본 private key/손잡이 제작 치수/runner 이동의 물리 동치까지 완료했다는 뜻은 아닙니다.
 - 구매·계정·장바구니 지원 문구 없음. 로컬은 가족별 마지막1개이며 Tone 두 상품은 동일 family 슬롯을 공유합니다. 가격/DB/결제/배포 변경은 수행하지 않았습니다. 공유3003 재시작·공유.next 삭제 없음. 본인 proxy/검증 탭 정리 후 **위임4소스·신규 사례/캡처·본 handoff 잠금 해제**. 리더/QA는 `R4-ENTRY-READY`와 위 사례를 다음 검증 입력으로 사용할 수 있습니다.
+
+
+### FURNITURE-DETAILS-READY — 책상·옷장 상세 구성 통일 / 2026-10-14
+- 사용자 직접 요청 처리: 책상3/옷장3 및 공통 furniture-design 공유 경로에 책장과 같은 공통 상세 갤러리·클릭 확대·소개/특징·실시간 제품 사양·브랜드/소재/기프트/관련 디자인 흐름 연결. 기존 3D/저장/공유·계정/가격/DB/결제 보존.
+- 원본 상품별 사진47장(8/8/8/7/8/8) VPN Chrome DOM에서 확인 후 원본 바이트 로컬 제공. 같은 가족의 확인된 사진만 갤러리 색 선택. Edge7장 순서 보존·다른가족사진대체 없음.
+- 실제3003 및 안정 production6종 사진 전부 로딩, Classic/Tone 사진 전환 후3D 설정 유지, 확대/닫기/Escape,390px 가로넘침0,Graphite61cm 공유/새로고침/사양 반영 PASS.
+- 기존26+사진검사3=29PASS,변경ESLint0/0,전체lint0/8경고. 최초R7타입오류 리더수정 후 최신전체소스 격리build/TypeScript/17페이지PASS(최종R7제외없음). 안정 production console0; 공유dev 빠른경로의 useId 속성 경고는 기록을 분리.
+- 상세 증거/한계: [furniture-details 인계](furniture-details/README.md). 수정5소스 빌드 SHA일치. ProductDetails/ProductMaterialGallery 공통 구현 읽기전용 재사용; 카테고리 담당route 변경 보존.
+- 신규 FurnitureProductDetails.tsx/furnitureProductPhotos.ts/전용CSS·photos.test.mjs·public/imgs/furniture-details·본인증거, FurnitureConfigurator 하단연결/prop 및 reference-product branch prop 잠금 해제. 공유3003/.next 미접촉, 본인임시서버/탭 정리.

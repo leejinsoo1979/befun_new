@@ -110,3 +110,12 @@ export function localizedProductName(source: string, lang: NameLanguage): string
   if (lang === 'ja') return `${colours}${mat ? `の${mat}` : 'の'}${type}${modifiers.length ? `（${modifiers.join('・')}）` : ''}${features.length ? ` · ${features.join('・')}` : ''}`;
   return `${colours}${mat ? ` ${mat}` : ''} ${type}${modifiers.length ? ` (${modifiers.join(', ')})` : ''}${features.length ? ` · ${features.join(', ')}` : ''}`;
 }
+
+/** 카드 상단 라벨용 종류명 (예: 사이드보드 / Sideboard). 모르면 빈 문자열 */
+export function localizedProductType(source: string, lang: NameLanguage): string {
+  const match = source.match(/^(.*?)(?: (Bouclé \w+|aus \w+))? in /);
+  if (!match) return '';
+  const head = parseHead(match[1]);
+  if (head.cover) return pick(TYPES['Polsterhocker'] && (['커버', 'Cover', 'カバー'] as const), lang, '');
+  return TYPES[head.base] ? pick(TYPES[head.base], lang, '') : '';
+}

@@ -1,0 +1,87 @@
+[
+  {
+    "chapter": "clip-assemble",
+    "title": "클립 · 가로/세로판 조립",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "clip-release",
+    "title": "클립 · 분해와 방향 교정",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "back-assemble",
+    "title": "백패널·보강대 장착",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "back-release",
+    "title": "백패널 · 낮은 가구 분해",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "wide",
+    "title": "넓은 선반 · 가로판 분절 연결",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "insert",
+    "title": "인서트 · 내부 선반",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "drawer-box",
+    "title": "서랍 박스 조립·분해",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "drawer-rail",
+    "title": "서랍 레일 장착·해제·조정",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "door",
+    "title": "도어 장착·분리",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "door-adjust",
+    "title": "힌지 3축 조정·범퍼",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "legs",
+    "title": "다리 장착·핀 해제",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "plinth",
+    "title": "플린스 조립·분해",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "module-low",
+    "title": "낮은 가구 · 행 분리·재조립",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "module-tall",
+    "title": "높은 가구 · 행·백패널 분해",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "lifting",
+    "title": "가구 세우기",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "wall",
+    "title": "벽 고정",
+    "sameCanvas": true
+  },
+  {
+    "chapter": "transport",
+    "title": "운반 보호·스티커·관리",
+    "sameCanvas": true
+  }
+]

@@ -53,7 +53,7 @@ export default async function StorePage({params,searchParams}: Props) {
   else if (path.startsWith('reference-product/')) {
     const id = path.slice(18);
     const initial = catalogFurnitureDesign(id);
-    content = initial ? <FurnitureConfigurator key={id} initial={initial} title={title} /> : <SourceProductPage id={id} />;
+    content = initial ? <FurnitureConfigurator key={id} initial={initial} title={title} catalogId={id} /> : <SourceProductPage id={id} />;
   }
   else if (path.startsWith('sofa/')) content=<ReferenceProductPage id={path.slice(5)} />;
   else if (path.startsWith('catalog-item/')) { const [, key, seq] = path.split('/'); content=<DownloadedItemPage item={downloadedItem(key, Number(seq))!} />; }

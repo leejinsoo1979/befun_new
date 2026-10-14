@@ -1,0 +1,117 @@
+{
+  "verifiedAt": "2026-10-14T05:35:42.386865+00:00",
+  "story": "Catalog entry or shared design → existing live FurnitureConfigurator → same shelf gallery component and detail styles → local original photo bytes → zoom/specifications/related links; no API or DB changes.",
+  "status": "FURNITURE-DETAILS-READY",
+  "galleryChecks": [
+    {
+      "id": "desk-1",
+      "photos": 8,
+      "loaded": 8,
+      "liveOrigin": "http://localhost:3003",
+      "stableProductionOrigin": "http://localhost:31784"
+    },
+    {
+      "id": "desk-2",
+      "photos": 8,
+      "loaded": 8,
+      "liveOrigin": "http://localhost:3003",
+      "stableProductionOrigin": "http://localhost:31784"
+    },
+    {
+      "id": "desk-3",
+      "photos": 8,
+      "loaded": 8,
+      "liveOrigin": "http://localhost:3003",
+      "stableProductionOrigin": "http://localhost:31784"
+    },
+    {
+      "id": "wardrobe-1",
+      "photos": 7,
+      "loaded": 7,
+      "liveOrigin": "http://localhost:3003",
+      "stableProductionOrigin": "http://localhost:31784"
+    },
+    {
+      "id": "wardrobe-2",
+      "photos": 8,
+      "loaded": 8,
+      "liveOrigin": "http://localhost:3003",
+      "stableProductionOrigin": "http://localhost:31784"
+    },
+    {
+      "id": "wardrobe-3",
+      "photos": 8,
+      "loaded": 8,
+      "liveOrigin": "http://localhost:3003",
+      "stableProductionOrigin": "http://localhost:31784"
+    }
+  ],
+  "interactions": {
+    "classicGalleryColour": "Clay Brown → Black replaces all8 photos; width stays200cm",
+    "toneGalleryColour": "Graphite → Cashmere/Pink replaces all8 photos; edited width remains61cm",
+    "zoom": "same ProductMaterialGallery/Dialog as shelf; image opens and close/Escape restores scrolling",
+    "urlShareReload": "Graphite61cm → existing share → reload retains61cm, correct family gallery8 and live specification61×275×63",
+    "mobile": [
+      {
+        "product": "desk-1",
+        "viewportWidth": 390,
+        "documentWidth": 390,
+        "photos": 8
+      },
+      {
+        "product": "wardrobe-3",
+        "viewportWidth": 390,
+        "documentWidth": 390,
+        "photos": 8
+      }
+    ],
+    "clipboard": "original clipboard items restored after share check",
+    "viewport": "Both browser capability and tab CDP overrides cleared; final actual DOM innerWidth1728, viewport restored."
+  },
+  "validation": {
+    "testsPassed": 29,
+    "testsFailed": 0,
+    "originalImageDecodePassed": 47,
+    "changedLintErrors": 0,
+    "changedLintWarnings": 0,
+    "repositoryLintErrors": 0,
+    "repositoryLintWarnings": 8,
+    "isolatedBuild": "PASS: latest whole source including owner-fixed R7; webpack/TypeScript/17 static pages. No exclusions in final build.",
+    "fullCurrentBuild": "PASS in independent snapshot /private/tmp/befun-furniture-details-build after R7 owner fixed src type narrowing. Shared .next/server untouched.",
+    "stableProductionBrowserErrors": 0,
+    "stableProductionBrowserWarnings": 0,
+    "sharedDevBrowser": "Hydration useId attribute mismatches observed on some rapid route navigations including header/controls/gallery; not hidden or claimed zero. Stable production6pages had no errors. Shared server not restarted.",
+    "priorBuildFailure": "Initial R7 WIP src type error blocked build; owner notified in docs and fixed it. First stable UI run excluded R7; final build/screenshots include the fix. Owned product source unchanged between these runs."
+  },
+  "sourceFingerprints": {
+    "src/components/storefront/FurnitureProductDetails.tsx": {
+      "sha256": "871f5c9b43c74c90bb16d7eb146a43fa5e48f95edb71c17b243b61a26b53f9f5",
+      "snapshotMatch": true
+    },
+    "src/components/storefront/furnitureProductPhotos.ts": {
+      "sha256": "bc756b2fdfade5f73cb96705e4b430761ef0e62a935ce0929dc48e9b769d96b7",
+      "snapshotMatch": true
+    },
+    "src/components/storefront/furniture-product-details.module.css": {
+      "sha256": "8fa27c40b9d390721240eb04fcb01504f8a0538eb9bfc43dbcd38ebde02b9f20",
+      "snapshotMatch": true
+    },
+    "src/components/furniture/FurnitureConfigurator.tsx": {
+      "sha256": "81bdd2da5b73da3d9e27f202768a5dd5d0cc507615ac8969340d2ec4204e23a8",
+      "snapshotMatch": true
+    },
+    "src/app/(storefront)/[...segments]/page.tsx": {
+      "sha256": "de3050570cdd15660888a6181086eb19ba7bb86a7dabe534778dd21b7892ecb9",
+      "snapshotMatch": true
+    }
+  },
+  "limitations": [
+    "Photo sets are collection examples from each actual source product; not generated renders of edited dimensions. Edge original page offers7 photos and depth-60 gallery examples while editable preset depth is45cm.",
+    "Only observed local photo colours offered in gallery selector; uncaptured colours keep same-family labelled examples, never another family.",
+    "Existing common Dialog focus return was not certified; visual close/Escape and scroll restoration verified.",
+    "Untranslated global/detail phrases retained; this is not a new all-language completion claim.",
+    "Prices/accounts/cart/payment/DB/deployment unchanged."
+  ],
+  "screenshots": [],
+  "screenshotNote": "Native CUA screenshots were visually reviewed in the task. Saved CDP screenshots failed final visual audit (page-coordinate clipping yielded blank frames); faulty generated files discarded, not treated as evidence. Runtime image loading/47 original bytes/viewport/zoom/restore checks remain separately recorded."
+}

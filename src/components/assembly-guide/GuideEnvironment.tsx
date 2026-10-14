@@ -13,7 +13,7 @@ function reportRenderer(gl: WebGLRenderer) {
 }
 
 /** Befun studio lightformers; one soft shadow light across all guide topics. */
-export function GuideEnvironment() {
+export function GuideEnvironment({ lightingScale = 1, shadows = true }: { lightingScale?: number; shadows?: boolean }) {
   const gl = useThree(state => state.gl);
   const sample = useRef({ seconds: 0, frames: 0 });
   useEffect(() => {
@@ -40,7 +40,7 @@ export function GuideEnvironment() {
       <Lightformer form="rect" intensity={.6} position={[0, 1.5, 7]} scale={[10, 4, 1]} />
       <Lightformer form="rect" intensity={.3} position={[0, -3, 2]} rotation-x={-Math.PI / 2} scale={[14, 14, 1]} />
     </Environment>
-    <directionalLight position={[-180, 300, 220]} intensity={2.3} castShadow shadow-mapSize={[1536, 1536]} shadow-radius={3} shadow-camera-left={-220} shadow-camera-right={220} shadow-camera-top={300} shadow-camera-bottom={-160} shadow-camera-near={1} shadow-camera-far={1100} shadow-bias={-.00015} shadow-normalBias={.18} />
-    <directionalLight position={[160, 80, -200]} intensity={.7} />
+    <directionalLight position={[-180 * lightingScale, 300 * lightingScale, 220 * lightingScale]} intensity={2.3} castShadow={shadows} shadow-mapSize={[1536, 1536]} shadow-radius={3} shadow-camera-left={-220 * lightingScale} shadow-camera-right={220 * lightingScale} shadow-camera-top={300 * lightingScale} shadow-camera-bottom={-160 * lightingScale} shadow-camera-near={1} shadow-camera-far={1100 * lightingScale} shadow-bias={-.00015} shadow-normalBias={.18} />
+    <directionalLight position={[160 * lightingScale, 80 * lightingScale, -200 * lightingScale]} intensity={.7} />
   </>;
 }

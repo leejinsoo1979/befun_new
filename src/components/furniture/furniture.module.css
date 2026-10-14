@@ -24,3 +24,16 @@
 .deskOptions [data-control-id='legSpace'] input[type='range']::-webkit-slider-thumb{width:64px;height:34px;border:2px solid #cfd3d3;border-radius:24px;background:white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 20'%3E%3Cpath d='M3 18V3h30v15M12 3v15M24 3v15' fill='none' stroke='%23339922' stroke-width='1.2'/%3E%3C/svg%3E") center/30px 20px no-repeat}
 .deskOptions [data-control-id='legSpace'] input[type='range']::-moz-range-thumb{width:60px;height:30px;border:2px solid #cfd3d3;border-radius:24px;background:white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 20'%3E%3Cpath d='M3 18V3h30v15M12 3v15M24 3v15' fill='none' stroke='%23339922' stroke-width='1.2'/%3E%3C/svg%3E") center/30px 20px no-repeat}
 .deskOptions [data-control-id='legSpace'] input:focus-visible{outline:2px solid var(--green,#339922);outline-offset:4px;border-radius:24px}
+
+/* R8: shared shelf viewer presentation; options keep their product-specific controls. */
+.page{background:#e7e7e7;padding-top:0}
+.heading{max-width:1800px;padding:20px 32px 12px}
+.heading h1{font-size:16px;font-weight:600;margin:4px 0 0}
+.heading p{font-size:12px}
+.layout{gap:16px;padding:0 32px 24px}
+.viewer{border-radius:0;background:#e7e7e7;height:max(600px,calc(100svh - 210px));top:12px}
+.fullscreen{position:absolute;bottom:24px;left:24px;display:flex;align-items:center;gap:8px;border:0;border-radius:28px;background:white;padding:16px 20px;font-size:13px;cursor:pointer}
+.fullscreen:focus-visible{outline:2px solid #339922;outline-offset:3px}
+.viewerHint{bottom:5px;left:24px;font-size:10px}
+@media(max-width:1000px){.layout{padding:0 12px 24px}.heading{padding:16px 24px 12px}}
+@media(max-width:760px){.layout{padding:0}.heading{padding:12px 16px}.heading h1{font-size:16px}.heading p{font-size:11px}.viewer{top:auto;height:54svh;min-height:340px}.fullscreen{left:12px;bottom:24px;padding:10px 14px;font-size:12px}.viewerHint{left:12px;font-size:9px}.viewer:fullscreen{height:100svh}}

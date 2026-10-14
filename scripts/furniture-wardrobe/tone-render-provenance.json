@@ -1,0 +1,10 @@
+{
+  "source": "Public wardrobe renderer, module1017.toToneDrawerSegment; offline verification only",
+  "sha256": "1f633a6e826742499d803d82c3c4a9c9006db5cc39bc6310e472627dc2cfd34c",
+  "caseCount": 72,
+  "drawerCount": 234,
+  "units": "centimetres",
+  "sourceScalar": 0.001,
+  "physicalManufacturingClaim": false,
+  "observation": "Final presentation panel transforms and fully open stagger; intermediate getRender bounds are insufficient."
+}

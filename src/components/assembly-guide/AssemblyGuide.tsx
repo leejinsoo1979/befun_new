@@ -245,6 +245,7 @@ export function AssemblyGuide({ initialTopic = 'tylko-clip', initialJointAction 
       <Link href="/" className={styles.brand} aria-label="Befun 홈"><Image src="/imgs/icon/befun_logo.svg" alt="Befun" width={120} height={28} unoptimized priority /></Link>
       <span className={styles.pageLabel}>조립·분해 안내</span>
       <div className={styles.topics} role="group" aria-label="조립 안내 종류">
+        <Link href="/assembly-guide/cabinet" className={styles.cabinetEntry}>캐비넷 조립</Link>
         <button type="button" aria-pressed={topic === 'tylko-clip'} onClick={() => selectStep(0, model, 'tylko-clip')}>Tylko 클립</button>
         <button type="button" aria-pressed={topic === 'connector'} onClick={() => selectStep(0, model, 'connector')}>OVVO</button>
         <button type="button" aria-pressed={topic === 'legs'} onClick={() => selectStep(0, model, 'legs')}>다리</button>

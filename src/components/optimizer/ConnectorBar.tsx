@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import Link from 'next/link';
 import { OVVO_CONNECTORS } from '@/lib/optimizer/connectors/ovvo';
 import type { ConnectorReport, ConnectorSelection } from '@/lib/optimizer/connectors/apply';
 import { CLIP_SPEC_PENDING, PANEL_CONNECTOR_SYSTEMS, type PanelConnectorSystem } from '@/types/connectors';
@@ -48,6 +49,10 @@ export function ConnectorBar({ selection, report, onChange }: ConnectorBarProps)
             {PANEL_CONNECTOR_SYSTEMS.map(option => <option key={option.id} value={option.id}>{option.label}</option>)}
           </select>
         </label>
+        <Link href={`/assembly-guide?system=${system}`} className="font-semibold underline underline-offset-4">
+          {system === 'ovvo' ? 'OVVO' : 'Tylko'} 시뮬레이션·조립 안내 ↗
+        </Link>
+        <span className="text-gray-500">관리자 선택 · 이 브라우저에 저장</span>
         {system === 'ovvo' && <>
           <label className="flex items-center gap-1">몸통(가로판·세로판) {select('body')}</label>
           <label className="flex items-center gap-1">백패널·보강대 {select('back')}</label>

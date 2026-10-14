@@ -1,0 +1,5 @@
+.photoHeader { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 0 var(--gutter); }
+.photoHeader p { font-size: 14px; line-height: 20px; }
+.photoHeader > div { margin: 0; }
+.colour { width: 24px; height: 24px; display: block; border-radius: 50%; }
+@media (max-width: 767px) { .photoHeader { flex-wrap: wrap; } }

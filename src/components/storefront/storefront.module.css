@@ -703,3 +703,50 @@
 .downloadedDetailInfo { display: grid; align-content: start; gap: 16px; padding: 0 0 0 48px; }
 .downloadedDetailInfo h1 { font-size: 32px; line-height: 1.25; }
 @media (max-width: 1023px) { .downloadedDetailInfo { padding: 24px 0 0; } }
+
+/* Tylko PLP 카드 형식 (카테고리 목록) */
+.downloadedCatalog .productGrid { gap: 24px 10px; }
+.downloadedCatalog .productVisual { background: #efefef; }
+.plpText { padding-top: 12px; }
+.plpLine { font-size: 14px; font-weight: 600; margin: 0; }
+.plpName { font-size: 14px !important; color: #555; margin: 4px 0 !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.plpName a { color: inherit; }
+.plpTag { font-size: 12px !important; color: #888; margin: 6px 0 0; }
+.plpPromo { position: relative; display: flex; flex-direction: column; justify-content: space-between; aspect-ratio: auto; min-height: 100%; padding: 22px; overflow: hidden; color: white; background: #8c7766; }
+.plpPromo img { object-fit: cover; z-index: 0; }
+.plpPromo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #0006, #0000 45%, #0004); z-index: 0; }
+.plpPromo > span, .plpPromo > strong, .plpPromo > em { position: relative; z-index: 1; }
+.plpPromo > span { font-size: 15px; }
+.plpPromo > strong { font-size: clamp(28px, 3.2vw, 48px); line-height: 1.1; font-weight: 500; margin-top: 8px; flex: 1; }
+.plpPromo > em { align-self: center; font-style: normal; font-size: 15px; font-weight: 600; color: var(--ink, #222); background: white; padding: 10px 22px; border-radius: 999px; }
+
+/* Tylko PLP 카테고리 아이콘: 같은 크기 상품 컷 */
+.illustratedCategories { gap: 20px; }
+.illustratedCategories a { min-width: 104px; gap: 8px; font-size: 13px; line-height: 1.3; color: #333; }
+.illustratedCategories a > .categoryIcon { position: relative; width: 104px; height: 80px; background: transparent; border-radius: 0; overflow: visible; }
+/* 배경을 오려 낸 투명 PNG(public/imgs/storefront/category-icons) */
+.illustratedCategories .categoryIcon img { object-fit: contain; }
+@media (max-width:700px) { .illustratedCategories a > .categoryIcon { width: 84px; height: 64px; } }
+/* 제품 라인 카드: 사진 위 글자 가독성 (Tylko처럼 하단 어둡게) */
+.lineCover img { object-fit: cover; }
+.lineCover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #0000 35%, #0008); pointer-events: none; }
+.lineCover > div { z-index: 1; }
+.plpPriceRow { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-top: 6px; }
+.plpPriceRow .price { margin-top: 0; font-size: 14px; }
+.plpCustom { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: #444; white-space: nowrap; }
+.plpCustom::before { content: ""; width: 11px; height: 11px; border-radius: 50%; border: 2px solid transparent; background: conic-gradient(#e94f35, #f2c94c, #4caf50, #2f80ed, #9b51e0, #e94f35) border-box; -webkit-mask: linear-gradient(#000 0 0) padding-box exclude, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) padding-box exclude, linear-gradient(#000 0 0); }
+/* Tylko PLP 경로: 점 구분 */
+.plpBreadcrumbs { gap: 0; font-size: 13px; margin-bottom: 20px; color: #222; }
+.plpBreadcrumbs > * + *::before { content: "•"; margin: 0 10px; font-size: 9px; vertical-align: 2px; color: #222; }
+.plpBreadcrumbs > span[aria-current] { color: #8a8a8a; }
+.subcategoryIcons { flex-wrap: nowrap; gap: 12px; }
+.subcategoryIcons a { min-width: 112px; text-align: center; }
+.lineCoversWide .lineCover { flex: 1 1 0; height: 300px; }
+.typeChips { display: grid; gap: 10px; margin-right: auto; margin-left: 40px; }
+.typeChips > span { font-size: 15px; }
+.typeChips > div { display: flex; gap: 10px; flex-wrap: wrap; }
+.typeChips button { padding: 10px 18px; border-radius: 999px; background: #f2f2f2; font-size: 15px; }
+.typeChips button[aria-pressed="true"] { background: var(--ink, #222); color: white; }
+/* 푸터 기업 정보 */
+.footerCompany { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 18px; font-style: normal; font-size: 12px; line-height: 1.6; color: #b5b5b1; }
+.footerCompany a { color: inherit; text-decoration: underline; }

@@ -7,6 +7,7 @@ import { useMoney } from '@/lib/commerce/useMoney';
 import { PriceNotice } from '@/components/commerce/PriceNotice';
 import { asset, palette, productDisplayHeight, productPrice, type CatalogProduct } from './catalog';
 import styles from './storefront.module.css';
+import { useLocale } from '@/lib/commerce/useLocale';
 import { ProductCardImage } from './ProductCardImage';
 import matches from '@/lib/catalog-images/existing-matches.json';
 import { loadProductConfiguration } from './configuration';
@@ -71,25 +72,30 @@ export function Carousel({ children, label }: { children: ReactNode; label: stri
   </div>;
 }
 
-export function ProductCard({ product, saved, toggleSaved, open }: { product: CatalogProduct; saved: boolean; toggleSaved: () => void; open: () => void }) {
+export function ProductCard({ product, saved, toggleSaved, open, plp = false }: { product: CatalogProduct; saved: boolean; toggleSaved: () => void; open: () => void; plp?: boolean }) {
   const { formatPrice } = useMoney();
+  const { t } = useLocale();
   const price = productPrice(product);
   const matched = (matches as Record<string, {originalImage?:string;thumbnail:string;studio:string}>)[product.id];
   const pair = matched?.originalImage === product.image ? matched : undefined;
   return <article className={styles.productCard}>
     <div className={styles.productVisual}>
-      <button className={styles.productImageButton} onClick={open} aria-label={`${product.name} 디자인 보기`}>
-        <ProductCardImage key={pair?.thumbnail ?? product.image} thumbnail={pair?.thumbnail ?? asset(product.image)} studio={pair?.studio ?? asset(product.alternate)} alt={product.name} sizes="(max-width: 700px) 75vw, (max-width: 1100px) 45vw, 24vw" />
+      <button className={styles.productImageButton} onClick={open} aria-label={`${t(product.name)} · ${t('디자인 보기')}`}>
+        <ProductCardImage key={pair?.thumbnail ?? product.image} thumbnail={pair?.thumbnail ?? asset(product.image)} studio={pair?.studio ?? asset(product.alternate)} alt={t(product.name)} sizes="(max-width: 700px) 75vw, (max-width: 1100px) 45vw, 24vw" />
       </button>
       <span className={styles.discount}>−{price.discountRate}%</span>
-      <button className={styles.saveButton} aria-label={`${product.name} ${saved ? '즐겨찾기 해제' : '즐겨찾기'}`} aria-pressed={saved} onClick={toggleSaved}><FiHeart fill={saved ? 'currentColor' : 'none'} /></button>
+      <button className={styles.saveButton} aria-label={`${t(product.name)} ${saved ? t('즐겨찾기 해제') : t('즐겨찾기')}`} aria-pressed={saved} onClick={toggleSaved}><FiHeart fill={saved ? 'currentColor' : 'none'} /></button>
     </div>
-    <div className={styles.productSwatches}><span>디자인 예시</span>{palette.slice(0, 5).map(color => <i key={color.name} style={{ background: color.hex }} />)}<span>+7</span></div>
+    {plp ? <button onClick={open} className={`${styles.productText} ${styles.plpText}`}>
+      <p className={styles.plpLine}>{product.collection}</p><h3 className={styles.plpName}>{t(product.name)}</h3>
+      <div className={styles.plpPriceRow}><span className={styles.price}>{formatPrice(price.finalPrice)} <del>{formatPrice(price.originalPrice)}</del></span><span className={styles.plpCustom}>{t('완전 맞춤 제작')}</span></div>
+    </button> : <>
+    <div className={styles.productSwatches}><span>{t('디자인 예시')}</span>{palette.slice(0, 5).map(color => <i key={color.name} style={{ background: color.hex }} />)}<span>+7</span></div>
     <button onClick={open} className={styles.productText}>
-      <p>{product.collection}</p><h3>{product.name}</h3>
+      <p>{product.collection}</p><h3>{t(product.name)}</h3>
       <p>{product.width} × {productDisplayHeight(product)} cm</p>
       <div className={styles.price}>{formatPrice(price.finalPrice)} <del>{formatPrice(price.originalPrice)}</del><PriceNotice /></div>
-    </button>
+    </button></>}
   </article>;
 }
 

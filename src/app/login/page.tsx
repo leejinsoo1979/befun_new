@@ -1,31 +1,40 @@
 'use client';
 
 import { Suspense, useState } from 'react';
+import Link from 'next/link';
 import { signIn } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ShopLayout } from '@/components/common/ShopLayout';
-import styles from '@/components/storefront/storefront.module.css';
+import { SocialLogin, safeCallback } from '@/components/account/SocialLogin';
+import { AuthShell } from '@/components/account/AuthShell';
+import account from '@/components/account/account.module.css';
+
+const OAUTH_ERRORS: Record<string, string> = {
+  OAuthAccountNotLinked: '이미 다른 방법으로 가입된 이메일입니다. 처음 가입한 방법으로 로그인해 주세요.',
+  CredentialsSignin: '이메일 또는 비밀번호가 맞지 않습니다.',
+  OAuthSignin: '소셜 로그인 연결에 실패했습니다. 잠시 후 다시 시도해 주세요.',
+  OAuthCallback: '소셜 로그인 연결에 실패했습니다. 잠시 후 다시 시도해 주세요.',
+  AccessDenied: '로그인이 취소되었습니다.',
+};
 
 function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const requestedCallback = searchParams.get('callbackUrl') ?? '/mypage';
-  const callbackUrl = requestedCallback.startsWith('/') && !requestedCallback.startsWith('//') ? requestedCallback : '/mypage';
+  const callbackUrl = safeCallback(searchParams.get('callbackUrl'));
   const [email, setEmail] = useState(searchParams.get('email') ?? '');
+  const [password, setPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState('');
+  const urlError = searchParams.get('error');
+  const [error, setError] = useState(urlError ? (OAUTH_ERRORS[urlError] ?? '로그인에 실패했습니다. 다시 시도해 주세요.') : '');
 
   const handleEmailLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
-
     setIsSubmitting(true);
     setError('');
-
     try {
-      const result = await signIn('credentials', { email, redirect: false });
-      if (result?.error || !result?.ok) setError('로그인에 실패했습니다. 잠시 후 다시 시도해 주세요.');
-      else router.push(callbackUrl);
+      const result = await signIn('credentials', { email, password, redirect: false });
+      if (result?.error || !result?.ok) setError(OAUTH_ERRORS.CredentialsSignin);
+      else { router.push(callbackUrl); router.refresh(); }
     } catch {
       setError('로그인 연결을 확인해 주세요.');
     } finally {
@@ -34,68 +43,30 @@ function LoginForm() {
   };
 
   return (
-    <div className={styles.accountForm}>
-      <h1 className="mb-8 text-center text-2xl font-bold">로그인</h1>
-
-      {/* 소셜 로그인 */}
-      <div className="space-y-3">
-        <button
-          onClick={() => signIn('google', { callbackUrl })}
-          className={styles.outlineButton}
-        >
-          Google로 로그인
-        </button>
-        <button
-          onClick={() => signIn('kakao', { callbackUrl })}
-          className={styles.whiteButton}
-          style={{background: "#FEE500"}}
-        >
-          카카오로 로그인
-        </button>
-      </div>
-
-      <div className="my-6 flex items-center gap-3">
-        <div className="flex-1 border-t border-gray-200" />
-        <span className="text-xs text-gray-400">또는</span>
-        <div className="flex-1 border-t border-gray-200" />
-      </div>
-
-      {/* 이메일 로그인 */}
-      <form onSubmit={handleEmailLogin} className={styles.form}>
-        <label>이메일 주소<input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="이메일 주소"
-          autoComplete="email"
-          required
-          className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-gray-900 focus:outline-none"
-        /></label>
-        {error && <p className="text-center text-xs text-red-500">{error}</p>}
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className={styles.darkButton}
-        >
-          {isSubmitting ? '로그인 중...' : '이메일로 로그인'}
-        </button>
+    <AuthShell title="로그인" lead="소셜 계정으로 1초 만에 시작하세요. 처음이면 자동으로 가입돼요.">
+      <SocialLogin callbackUrl={callbackUrl} />
+      <div className={account.divider}>또는 이메일로 로그인</div>
+      <form onSubmit={handleEmailLogin} className={account.form}>
+        <div className={account.field}>
+          <label htmlFor="li-email">이메일</label>
+          <input id="li-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" placeholder="you@example.com" required />
+        </div>
+        <div className={account.field}>
+          <label htmlFor="li-password">비밀번호</label>
+          <input id="li-password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" placeholder="비밀번호" required />
+        </div>
+        {error && <p className={account.error} role="alert">{error}</p>}
+        <button type="submit" disabled={isSubmitting} className={account.submit}>{isSubmitting ? '로그인 중…' : '로그인'}</button>
       </form>
-
-      <p className="mt-6 text-center text-xs text-gray-400">
-        계정이 없으면 자동으로 생성됩니다
-      </p>
-    </div>
+      <p className={account.switch}>아직 회원이 아니신가요?<Link href={`/signup?callbackUrl=${encodeURIComponent(callbackUrl)}`}>회원가입</Link></p>
+    </AuthShell>
   );
 }
 
 export default function LoginPage() {
   return (
     <ShopLayout>
-      <Suspense
-        fallback={
-          <div className="py-20 text-center text-gray-500">로딩 중...</div>
-        }
-      >
+      <Suspense fallback={<div className="py-20 text-center text-gray-500">로딩 중...</div>}>
         <LoginForm />
       </Suspense>
     </ShopLayout>

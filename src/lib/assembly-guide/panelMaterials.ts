@@ -25,14 +25,14 @@ export function isLaminateSkin(normal: number, coordinates: readonly number[], t
   return Math.abs(normal) > .999 && coordinates.every(value => Math.abs(Math.abs(value) - thickness / 2) < .001);
 }
 
-export function createGuidePanelMaterials(source: Texture, axis: PanelAxis, inside: boolean, opacity = .08) {
+export function createGuidePanelMaterials(source: Texture, axis: PanelAxis, inside: boolean, opacity = .08, finish = '#e4e7eb') {
   const texture = source.clone();
   texture.colorSpace = SRGBColorSpace;
   texture.wrapT = RepeatWrapping;
   texture.anisotropy = 8;
   texture.needsUpdate = true;
   const common = { side: DoubleSide, transparent: inside, opacity: inside ? opacity : 1, depthWrite: !inside };
-  const laminate = new MeshStandardMaterial({ ...common, color: '#e4e7eb', roughness: .38, metalness: 0 });
+  const laminate = new MeshStandardMaterial({ ...common, color: finish, roughness: .38, metalness: 0 });
   const birch = new MeshStandardMaterial({ ...common, map: texture, roughness: .72, metalness: 0 });
   return { laminate, birch, faces: panelFaceMaterials(laminate, birch, axis), texture };
 }

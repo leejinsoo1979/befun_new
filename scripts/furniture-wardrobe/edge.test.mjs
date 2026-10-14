@@ -56,21 +56,19 @@ try {
   for (const change of [{model:'bad'}, {sections:[]}, {heightMm:2281}, {lighting:'yes'}, {drawerStyle:'bad'}, {topEdge:1}, {sections:[{id:'x',seriesId:'unknown'}]}, {sections:valid.sections.map(s=>({...s,id:'same'}))}, {sections:valid.sections.map(s=>({...s,widthMm:NaN}))}, {sections:valid.sections.map(s=>({...s,facade:'bad'}))}, {sections:valid.sections.map(s=>({...s,doorDirection:'bad'}))}]) assert.ok(validateWardrobeInput({...valid,...change}).length);
   const stable = generateEdgeWardrobe({...valid,sections:valid.sections.map((s,i)=>({...s,id:`stable-${i}`}))});
   for(const item of [...stable.sections,...stable.fronts,...stable.drawers,...stable.bars,...stable.openings]) assert.ok((item.sectionId ?? item.id).startsWith('stable-'));
-  const toneDrawers = JSON.parse(fs.readFileSync('scripts/furniture-wardrobe/tone-drawer-fixtures.json','utf8'));
+  const toneDrawers = JSON.parse(fs.readFileSync('scripts/furniture-wardrobe/tone-render-fixtures.json','utf8'));
   let tonePanelCount=0;
   for(const fixture of toneDrawers) for(const [index,drawer] of fixture.drawers.entries()) {
     const result=resolveToneDrawer(drawer,fixture.drawers,fixture.faces,'1',index);
     assert.ok(result);
     for(const [i,panel] of [result.front,...result.parts].entries()) {
-      const expected=fixture.expected[index][i];
-      for(const [center,size,low,high] of [['x','w','x1','x2'],['y','h','y1','y2'],['z','d','z1','z2']]) {
-        assert.ok(Math.abs((panel[center]-panel[size]/2)*10-expected[low])<=1+1e-8);
-        assert.ok(Math.abs((panel[center]+panel[size]/2)*10-expected[high])<=1+1e-8);
-      }
+      const expected=fixture.expected[index].panels[i];
+      for(const key of ['x','y','z','w','h','d']) assert.ok(Math.abs(panel[key]-expected[key])<1e-8, `Tone final drawer ${index} panel ${i} ${key}: ${panel[key]} vs ${expected[key]}`);
+      assert.ok(Math.abs(result.travelCm-fixture.expected[index].travelCm)<1e-8, 'Tone staggered display travel');
       tonePanelCount++;
     }
   }
-  console.log(`PASS Tone ${toneDrawers.length} drawer cases / ${tonePanelCount} panels, <=1mm source rounding; strict save validation; stable IDs`);
+  console.log(`PASS Tone ${toneDrawers.length} drawer cases / ${tonePanelCount} panels, final renderer panels + staggered motion, <1e-8cm; strict save validation; stable IDs`);
   console.log(`PASS Edge ${fixtures.length} frozen source geometry cases + ${drawerFixtures.length} physical drawer cases + option boundaries`);
 } finally {
   fs.rmSync(output, { recursive: true, force: true });

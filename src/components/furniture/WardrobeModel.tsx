@@ -46,9 +46,9 @@ function Handle({handle,material}:{handle:NonNullable<WardrobeFront['handle']>;m
     {hole&&<mesh geometry={hole} position-z={.1}><meshStandardMaterial color="#302923" roughness={.85}/></mesh>}
   </group>;
 }
-function Front({front,materials,open,onSelect,hinges,hingeGeometry}:{front:WardrobeFront;materials:MaterialSet;open:boolean;onSelect:(id:string)=>void;hinges:WardrobeHingePlacement[];hingeGeometry:THREE.BufferGeometry|null}){
+function Front({front,materials,open,interior,onSelect,hinges,hingeGeometry}:{front:WardrobeFront;materials:MaterialSet;open:boolean;interior:boolean;onSelect:(id:string)=>void;hinges:WardrobeHingePlacement[];hingeGeometry:THREE.BufferGeometry|null}){
   const hinge=useRef<THREE.Group>(null);
-  useFrame((_,delta)=>{if(hinge.current)hinge.current.rotation.y=THREE.MathUtils.damp(hinge.current.rotation.y,open?front.openAngle:0,9,delta);});
+  useFrame((_,delta)=>{if(hinge.current)hinge.current.rotation.y=THREE.MathUtils.damp(hinge.current.rotation.y,open?(interior?front.openAngle:Math.sign(front.openAngle)*Math.min(Math.abs(front.openAngle),Math.PI*(Math.abs(front.openAngle)>Math.PI*100/180?65:70)/180)):0,9,delta);});
   return <group ref={hinge} position={[front.pivotX,0,front.z]} onClick={event=>{event.stopPropagation();onSelect(front.sectionId);}} userData={{sectionId:front.sectionId,doorId:front.id}}>
     <group position={[-front.pivotX,0,-front.z]}>
       {hingeGeometry&&hinges.map((hinge,i)=><HingeMesh key={i} geometry={hingeGeometry} placement={hinge}/>)}
@@ -97,7 +97,7 @@ function CabinetLight({part}:{part:{x1:number;x2:number;y1:number;z2:number}}){
     <mesh geometry={diffuser}><meshStandardMaterial color="#fff6e6" emissive="#fff1d7" emissiveIntensity={1.2} toneMapped={false}/></mesh>
   </group>;
 }
-export function WardrobeModel({config,materials,innerMaterials,open,selectedSectionId,onSelectSection}:{config:WardrobeInput;materials:MaterialSet;innerMaterials:MaterialSet;open:boolean;selectedSectionId:string|null;onSelectSection:(id:string)=>void}){
+export function WardrobeModel({config,materials,innerMaterials,open,interior,selectedSectionId,onSelectSection}:{config:WardrobeInput;materials:MaterialSet;innerMaterials:MaterialSet;open:boolean;interior:boolean;selectedSectionId:string|null;onSelectSection:(id:string)=>void}){
   const result=useMemo(()=>generateWardrobe(config),[config]);
   const source=result.sourceGeometryMm;
   const hingeAssets=useHingeAssets();
@@ -106,8 +106,8 @@ export function WardrobeModel({config,materials,innerMaterials,open,selectedSect
   const frameStart=source?source.slabs.length+source.walls.length+source.backs.length:Infinity;
   return <group name="befun-wardrobe" userData={{model:config.model,unsupported:result.unsupported,panelCount:result.panels.length,doorCount:result.fronts.length,drawerCount:result.drawers?.length??0}}>
     {result.panels.map((panel,index)=><DeskPanel key={`panel-${index}`} panel={panel} bores={NO_BORES} openings={panelOpenings[index]} materials={config.model==='tone'&&index<frameStart?innerMaterials:materials}/>)}
-    {result.fronts.map(front=><Front key={front.id} front={front} materials={materials} open={open} onSelect={onSelectSection} hinges={hinges.filter(h=>h.asset==='hingeWing'&&h.doorIndex===Number(front.id.replace('door-','')))} hingeGeometry={hingeAssets?.wing??null}/>)}
-    {result.drawers?.map(drawer=><SlidingDrawer key={drawer.id} drawer={drawer} materials={drawer.front.external?materials:innerMaterials} bodyMaterials={innerMaterials} open={open} onSelect={onSelectSection}/>)}
+    {result.fronts.map(front=><Front key={front.id} front={front} materials={materials} open={open} interior={interior} onSelect={onSelectSection} hinges={hinges.filter(h=>h.asset==='hingeWing'&&h.doorIndex===Number(front.id.replace('door-','')))} hingeGeometry={hingeAssets?.wing??null}/>)}
+    {result.drawers?.map(drawer=><SlidingDrawer key={drawer.id} drawer={drawer} materials={drawer.front.external?materials:innerMaterials} bodyMaterials={innerMaterials} open={open&&interior} onSelect={onSelectSection}/>)}
     {hingeAssets&&hinges.filter(h=>h.asset==='hingeAnchor').map((hinge,i)=><HingeMesh key={`anchor-${i}`} geometry={hingeAssets.anchor} placement={hinge}/>)}
     {source?.lighting?.map((part,index)=><CabinetLight key={`light-${index}`} part={part}/>)}
     {result.bars.map(bar=><Rail key={bar.id} bar={bar} material={innerMaterials.backPanel}/>)}

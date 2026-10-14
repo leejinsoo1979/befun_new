@@ -1,0 +1,285 @@
+[
+  {
+    "id": "desk-1",
+    "source": "https://tylko.com/en-uk/furniture/desk/9281707,j",
+    "method": "Visible product-gallery DOM after normal page scrolling/reload in existing VPN Chrome; pageAssets bundle; raw original bytes copied without image editing.",
+    "assets": [
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-clay-brown-plywood/1/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-1/1.avif",
+        "sha256": "8d7a504e7d304b45db37adbe87aef6f5ac8fb53c1f4f7fbca03d2947cc69764c"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-clay-brown-plywood/2/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-1/2.avif",
+        "sha256": "00b216ccfa98157647d1c29742a6a79d9fc9befd814da5c311841a00da219cb1"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-clay-brown-plywood/3/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-1/3.avif",
+        "sha256": "16fdec6f54ef3c22f81708b093e533986716be4a3e9e6fd2e2e06023167500a1"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-clay-brown-plywood/4/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-1/4.avif",
+        "sha256": "560c05b80d9eb07200fe560bfc92f48f702f385972d2234b718b9ec96c1cc5a4"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-clay-brown-plywood/5/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-1/5.avif",
+        "sha256": "e58bd9f054d434c3c45725b7e1c476cacbc9ae552b3960b43cd4dfcc0fb637fc"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-clay-brown-plywood/6/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-1/6.avif",
+        "sha256": "c928b2a289f1b8b06f9f31d55bc568b88db85251c07797d71293891a732f588f"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-clay-brown-plywood/7/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-1/7.avif",
+        "sha256": "1135ab10f911ca669212b931b0f0b7accf719ed9e1028bac996df9ac6a8b9397"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-clay-brown-plywood/8/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-1/8.avif",
+        "sha256": "ea55d9369c846033400cbde2ba188c09be806faa9a2ae4e45e72356165f921cd"
+      }
+    ],
+    "failures": []
+  },
+  {
+    "id": "desk-2",
+    "source": "https://tylko.com/en-uk/furniture/desk/3716771,j",
+    "method": "Visible product-gallery DOM after normal page scrolling/reload in existing VPN Chrome; pageAssets bundle; raw original bytes copied without image editing.",
+    "assets": [
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-modern/02-sand/1/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-2/1.avif",
+        "sha256": "3886e9936cbc73ae0b8c91663d03294bf542be2135aa2db04d3ce11c874d47b9"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-modern/02-sand/2/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-2/2.avif",
+        "sha256": "3478bb744b0281e5c75774541bb860941273f64cee10366e7ba86cb77cf70e4b"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-modern/02-sand/3/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-2/3.avif",
+        "sha256": "03769ad2c8e6314ecc9bed00798a394180599ad27402ee360a48fc1519e086b9"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-modern/02-sand/4/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-2/4.avif",
+        "sha256": "d6513a8f5d18536f15af08f311a4b6d8458f2d3b1abfb94fd08a002c770fc31e"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-modern/02-sand/5/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-2/5.avif",
+        "sha256": "6d073b5e47d64be4ae3e8d448cabe8ceeebb8f46a8a4d87574b730c2a43ddf7d"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-modern/02-sand/6/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-2/6.avif",
+        "sha256": "27bf87a8a0c0dab6c6a6366e29f7c674d00eec0bb234e5818b8fb5d5e4b42e49"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-modern/02-sand/7/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-2/7.avif",
+        "sha256": "aceb20a487ea5ef25fa91282b29c3a68d263620ff4b1185f30e4d723c15e2638"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-modern/02-sand/8/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-2/8.avif",
+        "sha256": "9f2817629429d4582d7564603610b7de0e1ad7cf43199ce708ecfc10cc1d8ff9"
+      }
+    ],
+    "failures": []
+  },
+  {
+    "id": "desk-3",
+    "source": "https://tylko.com/en-uk/furniture/desk/3760531,j",
+    "method": "Visible product-gallery DOM after normal page scrolling/reload in existing VPN Chrome; pageAssets bundle; raw original bytes copied without image editing.",
+    "assets": [
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-black/1/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-3/1.avif",
+        "sha256": "ad66f281a4709c8de77e57d07f7c51ab8fe23fed3cf71361236457bb27087904"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-black/2/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-3/2.avif",
+        "sha256": "60d208728b2cf51806348850569bf399d8fac194c2cd6d9d238c80c02297eba4"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-black/3/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-3/3.avif",
+        "sha256": "48d40a1c0b74639848248ab04c450f496c8cdff8137a09d766006d7a30a1665b"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-black/4/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-3/4.avif",
+        "sha256": "9b3712a733d1f59e0d6b82ea33c51ff0ef3194f47b646f9f6f259d1154fbb766"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-black/5/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-3/5.avif",
+        "sha256": "d1bda72598647f801876656d266911688fe9566c30182eed180fcf3081a12866"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-black/6/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-3/6.avif",
+        "sha256": "c5ce866fceff7463faaee56ca694b8062f047d506e3c787c472ce7993695f04c"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-black/7/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-3/7.avif",
+        "sha256": "c637c57d05e3f7c0aaf4293eb043e53e601ea813172737f8abac296e055caead"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/desk/original-classic/01p-black/8/D.avif",
+        "localUrl": "/imgs/furniture-details/desk-3/8.avif",
+        "sha256": "1e8f5cb716bca79cba070c8344a52fd854348460d90ebdbb8924508d931bac8e"
+      }
+    ],
+    "failures": []
+  },
+  {
+    "id": "wardrobe-1",
+    "source": "https://tylko.com/en-uk/furniture/wardrobe/1936508,w",
+    "method": "Visible product-gallery DOM after normal page scrolling/reload in existing VPN Chrome; pageAssets bundle; raw original bytes copied without image editing.",
+    "assets": [
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/edge/depth-60/13-deep-plum/1/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-1/1.avif",
+        "sha256": "9437afc372d6041715da907afa169befa28fc350189c652d8901fe4996f2119a"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/edge/depth-60/13-deep-plum/2/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-1/2.avif",
+        "sha256": "96c7d830a5ec631c873f47a2f394029a70d9c74d9cb373711a13e3535885c574"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/edge/depth-60/13-deep-plum/3/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-1/3.avif",
+        "sha256": "bc72af1f56b2ed7abdb29f25d0199520426c4809def1e0eabf82d924e7d34a42"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/edge/depth-60/13-deep-plum/5/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-1/5.avif",
+        "sha256": "ea282b8499416b849a702f3dfda89ebabdacf28078c3a877119c505b618bd3d3"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/edge/depth-60/13-deep-plum/6/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-1/6.avif",
+        "sha256": "05a32411de79fd44bdce3e1c483bb096719e8a0538418ae32015a7a760420e6c"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/edge/depth-60/13-deep-plum/7/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-1/7.avif",
+        "sha256": "9644063a7e1ea4a7fb683f51d7c8e8d7611eb75c7a1ec0d1be5b2cb2e82f19ef"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/edge/depth-60/13-deep-plum/8/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-1/8.avif",
+        "sha256": "2167a0c30d81c9a7911fe57a166e45826b6d0c3f790c8e39ace94b45a30e2126"
+      }
+    ],
+    "failures": []
+  },
+  {
+    "id": "wardrobe-2",
+    "source": "https://tylko.com/en-uk/furniture/wardrobe/92332,w",
+    "method": "Visible product-gallery DOM after normal page scrolling/reload in existing VPN Chrome; pageAssets bundle; raw original bytes copied without image editing.",
+    "assets": [
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-cashmere-beige+antique-pink/1/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-2/1.avif",
+        "sha256": "66beb4aa030bf69562ca7f66e86374e85e79372d29c365660a3ed08b023e4a88"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-cashmere-beige+antique-pink/2/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-2/2.avif",
+        "sha256": "b063848e46edf23df8a9772aea3d773a1ef5cbc1faad714b9b50e76dd0fa5498"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-cashmere-beige+antique-pink/3/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-2/3.avif",
+        "sha256": "0668692cf43f4bcc4ea5faa348e8ae1f2db819e9afbd722752e311b44c72da2c"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-cashmere-beige+antique-pink/4/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-2/4.avif",
+        "sha256": "907b054a91912375549323d05bf3c92da1862533aa664d53d682d1b20717748b"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-cashmere-beige+antique-pink/5/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-2/5.avif",
+        "sha256": "7733432779b570d6668371f017f54ebcdcdb3ea49382661e4e4e242262c4a075"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-cashmere-beige+antique-pink/6/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-2/6.avif",
+        "sha256": "74ccb379b193641ba451485064f3a07b0320c216ffa946c0bfa877fe0a447fed"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-cashmere-beige+antique-pink/7/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-2/7.avif",
+        "sha256": "b9016bac3b0994206c7f733a02d62a75f85d6251ffc77c5553db1a3c340c111a"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-cashmere-beige+antique-pink/8/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-2/8.avif",
+        "sha256": "70528e5163aee6fce4dbfaf20583f9898ddf55901945cca261046a1908c3e171"
+      }
+    ],
+    "failures": []
+  },
+  {
+    "id": "wardrobe-3",
+    "source": "https://tylko.com/en-uk/furniture/wardrobe/92275,w",
+    "method": "Visible product-gallery DOM after normal page scrolling/reload in existing VPN Chrome; pageAssets bundle; raw original bytes copied without image editing.",
+    "assets": [
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-graphite-grey/1/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-3/1.avif",
+        "sha256": "74b51f767bab9731a14d2b3e3556266b0260ac5d77aba0d1630de27fb576dfaa"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-graphite-grey/2/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-3/2.avif",
+        "sha256": "b9cc5faa2f36fa4c4fb8e90fa888ac6861f2daec1c50e4bfd85d0ac0cd4d624c"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-graphite-grey/3/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-3/3.avif",
+        "sha256": "ffc97648415b3b8a098895dbedc8ebf84bf1230a5e112ff1d4a2d1a363015cf0"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-graphite-grey/4/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-3/4.avif",
+        "sha256": "8fe8168ac135265d46eb737cf888fd0e5a817a43a676a25477c7e73b4975e21d"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-graphite-grey/5/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-3/5.avif",
+        "sha256": "34e865f3dcb90b0b4fd2bf02d1bd9745d374234a4228a24b0100482c764db5bc"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-graphite-grey/6/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-3/6.avif",
+        "sha256": "a258dc2371a975140ebfd959633108e8a16647f9aa144b9469d997ee8ae74c32"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-graphite-grey/7/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-3/7.avif",
+        "sha256": "0e6b5f2fc03009b4a8afa77a4e53820c521e7fa4013c228156b1c2800c89d0d0"
+      },
+      {
+        "sourceUrl": "https://media.tylko.com/cloudinary/pdp/gallery/updated/wardrobe/tone/03-graphite-grey/8/D.avif",
+        "localUrl": "/imgs/furniture-details/wardrobe-3/8.avif",
+        "sha256": "5d634a4eec800aaafcb43a8a8424e5e435357ee0f0692ca8eab9f459af4240a4"
+      }
+    ],
+    "failures": []
+  }
+]
