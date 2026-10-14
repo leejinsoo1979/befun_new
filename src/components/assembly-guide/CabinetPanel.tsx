@@ -6,11 +6,13 @@ import { useGLTF } from '@react-three/drei';
 import { Box3, DoubleSide, Group, Mesh, MeshStandardMaterial, Vector3 } from 'three';
 import type { RefObject } from 'react';
 import { OvvoPH, OvvoPC } from '@/components/three/furniture-hardware/ovvo/OvvoParts';
-import { BlumCup, BlumPlate } from '@/components/three/blum/BlumHardware';
+import { BlumPlate } from '@/components/three/blum/BlumHardware';
+import { cabinetDoorAngle, cabinetDoorHinge } from '@/lib/assembly-guide/cabinetDoor';
 import { cabinetPinExtension, createCabinetPanelGeometry, type CabinetPart, type CabinetPlan, type CabinetState } from '@/lib/assembly-guide/cabinet';
 import { GuidePanel } from './GuidePanel';
 import { usePanelMaterials } from './usePanelMaterials';
 import { SpringDowel } from './SpringDowel';
+import { CabinetHinge } from './CabinetHinge';
 
 const clamp = (value: number) => Math.max(0, Math.min(1, value));
 
@@ -65,8 +67,9 @@ export function CabinetPanel({ part, plan, inside, finish, state, preview, doorO
   const opening = useRef<Group>(null);
   const doorIndex = part.animation.id.startsWith('door-') ? Number(part.animation.id.slice(5)) : -1;
   const door = plan.model.doors[doorIndex], hinge = plan.hinges[doorIndex];
-  const sign = hinge?.side === 'left' ? 1 : -1;
-  const pivot: [number, number, number] = door ? [-sign * door.width * 5, -(door.reference?.frontOffsetY ?? 0) * 10, -box.d * 5] : [0, 0, 0];
+  const doorPlan = useMemo(() => door ? cabinetDoorHinge(plan, part) : null, [door, plan, part]);
+  const sign = doorPlan?.sign ?? 1;
+  const pivot = doorPlan?.pivot ?? [0, 0, 0] as [number, number, number];
   const vectors = useMemo(() => ({ normal: new Vector3() }), []);
   useFrame((_, delta) => {
     const value = state.current;
@@ -88,13 +91,17 @@ export function CabinetPanel({ part, plan, inside, finish, state, preview, doorO
       });
     }
     if (opening.current) {
+      if (!installed && active && (value.phase === 'placing' || value.phase.startsWith('hinge-'))) {
+        opening.current.rotation.y = cabinetDoorAngle(part, value);
+        return;
+      }
       const angle = doorOpen && (installed || value.phase === 'check') ? door?.reference?.openAngle ?? Math.PI / 2 : 0;
       if (value.automatic) {
         const p = clamp(value.progress / .6), blend = p * p * (3 - 2 * p);
         opening.current.rotation.y = angle * (value.phase === 'reveal' ? blend : 1);
       } else opening.current.rotation.y += (angle - opening.current.rotation.y) * (1 - Math.exp(-delta * 9));
     }
-  });
+  }, -.3);
   const body = <>
     <GuidePanel source={geometry} size={[box.w * 10, box.h * 10, box.d * 10]} axis={box.frame.n} inside={inside} finish={finish} mdfCuts />
     {part.pinCenters.map(x => <RearDowel key={x} x={x} part={part} state={state} inside={inside} preview={preview} />)}
@@ -116,9 +123,9 @@ export function CabinetPanel({ part, plan, inside, finish, state, preview, doorO
       <group scale={10}>
         {hinge?.cups.map((center, index) => {
           const mount = hinge.mounts[index];
-          return <BlumCup key={index} center={center.map(value => value / 10) as [number, number, number]} inwardSign={sign}
+          return <CabinetHinge key={index} center={center.map(value => value / 10) as [number, number, number]} sign={sign}
             platePoint={[mount.position[0] - box.x + sign * .85, mount.position[1] - box.y, mount.position[2] - box.z]}
-            pivot={pivot.map(value => value / 10) as [number, number, number]} opening={opening} />;
+            pivot={pivot.map(value => value / 10) as [number, number, number]} opening={opening} part={part} state={state} order={doorPlan!.order.indexOf(index)} preview={preview} />;
         })}
       </group>
     </>}

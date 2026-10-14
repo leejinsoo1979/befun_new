@@ -7,11 +7,12 @@ import { calculateShortFeet } from '@/lib/three/reference-feet';
 import { createBlumShelfPlans } from '@/lib/three/blum/boring';
 import { machinedPanelGeometry, panelToWorldMatrix } from '@/lib/optimizer/befun/panelGeometry';
 import { backExample } from './backPanel';
+import { cabinetDoorGap, isCabinetDoor } from './cabinetDoor';
 import type { Boring, PanelBoringData } from '@/lib/optimizer/upstream/domain/boring/types';
 
 export type CabinetVector = [number, number, number];
 export type CabinetQuaternion = [number, number, number, number];
-export type CabinetPhase = 'choose' | 'hardware' | 'ready' | 'placing' | 'spring-press' | 'spring-seat' | 'spring-lock' | 'check' | 'reveal' | 'complete';
+export type CabinetPhase = 'choose' | 'hardware' | 'ready' | 'placing' | 'spring-press' | 'spring-seat' | 'spring-lock' | 'hinge-hook' | 'hinge-top' | 'hinge-bottom' | 'hinge-test' | 'check' | 'reveal' | 'complete';
 export interface CabinetState { step: number; phase: CabinetPhase; progress: number; playing: boolean; automatic: boolean; selectedId: string | null }
 export interface CabinetMount { id: string; role: 'face' | 'end'; at: CabinetVector; quaternion: CabinetQuaternion; connectorQuaternion: CabinetQuaternion }
 /** Reuses the existing back-panel illustration. These values never enter CNC/order output. */
@@ -69,10 +70,10 @@ export function createCabinetPlan(design: BefunDesign = cabinetDesign) {
     const title = base ? '바닥판 놓기' : box.kind === 'door' ? '도어 달기' : box.kind === 'horizontal' ? '상판 체결하기' : box.kind === 'vertical' ? '세로판 세우기' : box.kind === 'back' ? '백패널 체결하기' : '후면 보강 패널 체결하기';
     const rear = box.kind === 'back' || box.kind === 'support';
     return { id: box.panelId, number: step + 1, box, panel: cnc.panels[index], animation: { ...part, anchor: [box.x, box.y, box.z] as CabinetVector },
-      hardware, title, label: box.meshName, feet: base,
+      hardware, title, label: box.meshName, feet: base, hingeSide: box.kind === 'door' ? model.doors[index - model.panels.length]?.reference?.hingeSide : undefined,
       pinCenters: rear ? backExample.pinCenters.map(x => x / backExample.width * box.w * 10) : [],
       displayBorings: [] as Boring[],
-      connection: rear ? '아래 고정 다보 2개 · 위 스프링 다보 2개' : hardware.length ? `${hardware.filter(m => m.role === 'end').length} 연결 커넥터 · ${hardware.length} 하우징` : '공통 도어 모델의 경첩 위치' };
+      connection: rear ? '아래 고정 다보 2개 · 위 스프링 다보 2개' : hardware.length ? `${hardware.filter(m => m.role === 'end').length} 연결 커넥터 · ${hardware.length} 하우징` : '열린 문을 받친 채 앞 걸림 → 위·아래 경첩 뒤 눌림 → 개폐 확인' };
   }).sort((a, b) => {
     // Spring dowels need both receiving boards present before the rear panel enters.
     const order = (p: typeof a) => p.feet ? 0 : p.box.kind === 'vertical' ? 1 : p.box.kind === 'horizontal' ? 2 : isCabinetRear(p) ? 3 : 4;
@@ -141,7 +142,7 @@ export function advanceCabinet(state: CabinetState, seconds: number, plan: Cabin
   if (!state.playing) return state;
   let next = { ...state }, remaining = Math.max(0, Number.isFinite(seconds) ? seconds : 0);
   // Absolute stage time preserves pause/seek and long-frame behavior.
-  for (let transitions = 0; transitions < plan.parts.length * 9 + 2; transitions++) {
+  for (let transitions = 0; transitions < plan.parts.length * 13 + 2; transitions++) {
     if (next.automatic && next.phase === 'ready') next = placeCabinetPart(next);
     const duration = cabinetPhaseDuration(next, plan);
     if (!duration) return next;
@@ -154,8 +155,8 @@ export function advanceCabinet(state: CabinetState, seconds: number, plan: Cabin
       else next = { ...confirmCabinetPart(next, plan.parts.length), playing: true };
     } else if (next.phase === 'reveal') return { ...next, phase: 'complete', progress: 1, playing: false };
     else {
-      const phase: CabinetPhase = next.phase === 'hardware' ? 'ready' : next.phase === 'placing' ? isCabinetRear(plan.parts[next.step]) ? 'spring-press' : 'check' : next.phase === 'spring-press' ? 'spring-seat' : next.phase === 'spring-seat' ? 'spring-lock' : 'check';
-      next = { ...next, phase, progress: 0, playing: next.automatic || phase.startsWith('spring-') };
+      const phase: CabinetPhase = next.phase === 'hardware' ? 'ready' : next.phase === 'placing' ? isCabinetRear(plan.parts[next.step]) ? 'spring-press' : isCabinetDoor(plan.parts[next.step]) ? 'hinge-hook' : 'check' : next.phase === 'spring-press' ? 'spring-seat' : next.phase === 'spring-seat' ? 'spring-lock' : next.phase === 'hinge-hook' ? 'hinge-top' : next.phase === 'hinge-top' ? 'hinge-bottom' : next.phase === 'hinge-bottom' ? 'hinge-test' : 'check';
+      next = { ...next, phase, progress: 0, playing: next.automatic || phase.startsWith('spring-') || phase.startsWith('hinge-') };
     }
     if (!next.playing) return next;
   }
@@ -163,6 +164,10 @@ export function advanceCabinet(state: CabinetState, seconds: number, plan: Cabin
 }
 export function cabinetPartPose(part: CabinetPart, state: CabinetState, preview = false) {
   const installed = preview || state.phase === 'complete' || state.phase === 'reveal' || part.number - 1 < state.step || part.number - 1 === state.step && state.phase === 'check';
+  if (!installed && isCabinetDoor(part) && part.number - 1 === state.step && (state.phase === 'placing' || state.phase.startsWith('hinge-'))) {
+    const gap = cabinetDoorGap(part, state), anchor = part.animation.anchor.map((at, axis) => at + gap[axis]) as CabinetVector;
+    return { ...samplePart({ ...part.animation, anchor }, state.phase === 'placing' ? state.progress : 1), tilt: 0 };
+  }
   if (!installed && isCabinetRear(part) && part.number - 1 === state.step && ['placing', 'spring-press', 'spring-seat', 'spring-lock'].includes(state.phase)) {
     const p = state.progress, tilt = cabinetDowel.tilt * (state.phase === 'spring-lock' ? 0 : state.phase === 'spring-seat' ? 1 - smooth(p) : 1);
     const h = part.box.h / 2;
@@ -189,6 +194,9 @@ export function cabinetPhaseDuration(state: CabinetState, plan: CabinetPlan) {
   if (state.phase === 'spring-press') return .8;
   if (state.phase === 'spring-seat') return 1.25;
   if (state.phase === 'spring-lock') return .9;
+  if (state.phase === 'hinge-hook') return 1.1;
+  if (state.phase === 'hinge-top' || state.phase === 'hinge-bottom') return 1.05;
+  if (state.phase === 'hinge-test') return 2.8;
   if (state.phase === 'check') return state.automatic ? .85 : 0;
   if (state.phase === 'reveal') return 3.5;
   void plan;

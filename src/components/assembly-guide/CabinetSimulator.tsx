@@ -4,10 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { FiArrowLeft, FiCheck, FiLayers, FiPause, FiPlay, FiRotateCcw, FiZoomIn } from 'react-icons/fi';
+import { FiArrowLeft, FiCheck, FiLayers, FiPause, FiPlay, FiRotateCcw, FiVolume2, FiVolumeX, FiZoomIn } from 'react-icons/fi';
 import { advanceCabinet, cabinetStepState, confirmCabinetPart, createCabinetPlan, initialCabinetState, placeCabinetPart, selectCabinetPart, type CabinetState } from '@/lib/assembly-guide/cabinet';
 import type { CabinetView } from './CabinetScene';
 import { cabinetActionCaption, cabinetFilmDuration, cabinetFilmElapsed, seekCabinetFilm } from '@/lib/assembly-guide/cabinetFilm';
+import { cabinetSoundsBetween, createCabinetAudio, type CabinetAudioReport } from '@/lib/assembly-guide/cabinetSound';
+import { isCabinetDoor } from '@/lib/assembly-guide/cabinetDoor';
 import styles from './cabinet.module.css';
 
 const CabinetScene = dynamic(() => import('./CabinetScene').then(module => module.CabinetScene), { ssr: false,
@@ -20,6 +22,12 @@ export function CabinetSimulator() {
   const [mode, setMode] = useState<Mode>('preview');
   const [ui, setUi] = useState<CabinetState>(initialCabinetState);
   const live = useRef<CabinetState>(ui);
+  const [muted, setMuted] = useState(false), [audioReport, setAudioReport] = useState<CabinetAudioReport>({ state: 'idle', count: 0, last: '' });
+  const audio = useRef<ReturnType<typeof createCabinetAudio> | null>(null);
+  useEffect(() => {
+    const value = createCabinetAudio(setAudioReport); audio.current = value;
+    return () => { value.dispose(); if (audio.current === value) audio.current = null; };
+  }, []);
   const [view, setView] = useState<CabinetView>('overview');
   const [inside, setInside] = useState(false), [doorOpen, setDoorOpen] = useState(false);
   const [revision, setRevision] = useState(0), [message, setMessage] = useState('');
@@ -33,10 +41,11 @@ export function CabinetSimulator() {
   const [furthest, setFurthest] = useState(0), [speed, setSpeed] = useState(1);
   const rate = useRef(1), report = useRef(0);
   const active = plan.parts[ui.step], complete = ui.phase === 'complete';
-  const publish = useCallback((state: CabinetState) => { live.current = state; setUi(state); }, []);
+  const publish = useCallback((state: CabinetState) => { audio.current?.stop(); live.current = state; setUi(state); }, []);
   const tick = useCallback((seconds: number) => {
     const previous = live.current;
     const state = advanceCabinet(previous, seconds * rate.current, plan);
+    audio.current?.play(cabinetSoundsBetween(plan, previous, state));
     live.current = state;
     report.current += seconds;
     if (state.phase !== previous.phase || state.step !== previous.step || report.current >= .1 && state.playing) {
@@ -57,17 +66,20 @@ export function CabinetSimulator() {
     publish(next); setMessage(''); setView('part'); setInside(false); setRevision(value => value + 1);
   }, [plan, publish]);
   const place = useCallback(() => {
+    void audio.current?.unlock();
     const next = placeCabinetPart(live.current);
     publish(next); setView('overview'); setInside(false); setRevision(value => value + 1); setMessage('');
   }, [publish]);
   const lost = useCallback(() => { publish({ ...live.current, playing: false }); }, [publish]);
   const changeMode = (next: Mode) => {
+    if (next !== 'preview') void audio.current?.unlock();
     setMode(next); publish({ ...initialCabinetState(), automatic: next === 'watch', playing: next === 'watch' });
     setFurthest(0); setInside(false); setDoorOpen(false); setView('overview'); setMessage(''); setRevision(value => value + 1);
     setCinematic(true);
   };
   const prepare = () => {
     if (live.current.phase !== 'hardware') return;
+    void audio.current?.unlock();
     publish({ ...live.current, playing: true }); setView('joint'); setInside(true); setRevision(value => value + 1);
   };
   const confirm = () => {
@@ -80,13 +92,13 @@ export function CabinetSimulator() {
     setView('overview'); setRevision(value => value + 1);
   };
   const phaseAction = ui.phase === 'hardware' ? prepare : ui.phase === 'ready' ? place : confirm;
-  const phaseLabel = ui.phase === 'hardware' ? '커넥터 끼우기' : ui.phase === 'ready' ? active.box.kind === 'horizontal' ? '판재 제자리에 놓기' : '판재 제자리에 끼우기' : complete ? '조립 완료' : '체결 확인';
+  const phaseLabel = ui.phase === 'hardware' ? '커넥터 끼우기' : ui.phase === 'ready' ? isCabinetDoor(active) ? '열린 문을 받쳐 경첩 맞추기' : active.box.kind === 'horizontal' ? '판재 제자리에 놓기' : '판재 제자리에 끼우기' : complete ? '조립 완료' : '체결 확인';
   const finalAvailable = mode === 'preview' || complete;
   const height = Math.max(...plan.cnc.boxes.map(box => (box.y + box.h / 2) * 10)) + 10;
   const filmLength = cabinetFilmDuration(plan), filmElapsed = cabinetFilmElapsed(plan, ui);
-  const springAction = ui.phase.startsWith('spring-');
+  const springAction = ui.phase.startsWith('spring-') || ui.phase.startsWith('hinge-');
   const openDoor = doorOpen || mode === 'watch' && (ui.phase === 'reveal' || complete);
-  return <main className={styles.simulator}>
+  return <main className={styles.simulator} data-sound-state={audioReport.state} data-sound-count={audioReport.count} data-sound-last={audioReport.last}>
     <header className={styles.header}>
       <Link href="/" aria-label="Befun 홈" className={styles.brand}><Image src="/imgs/icon/befun_logo.svg" width={120} height={28} alt="Befun" unoptimized priority /></Link>
       <span className={styles.pageLabel}>캐비넷 모의 조립</span>
@@ -102,7 +114,7 @@ export function CabinetSimulator() {
         <CabinetScene plan={plan} state={live} preview={mode === 'preview'} inside={inside} doorOpen={openDoor} view={view} revision={revision}
           cinematic={mode === 'watch' && cinematic} reducedMotion={reducedMotion}
           step={ui.step} phase={ui.phase} onTick={tick} onSelect={select} onPlace={place} onLost={lost} />
-        <div className={styles.heading}>
+        <div className={`${styles.heading} ${mode === 'watch' ? styles.filmHeading : ''}`}>
           <span className={styles.eyebrow}>BEFUN · TERRACOTTA</span>
           <h1>{mode === 'preview' ? '우리 캐비넷을 직접 조립해 보세요.' : complete ? '캐비넷을 완성했습니다.' : active.title}</h1>
           <p>{plan.design.width} × {Math.round(height / 10)} × {plan.design.depth} cm <span>1단 도어 캐비넷</span></p>
@@ -110,7 +122,7 @@ export function CabinetSimulator() {
         <div className={styles.viewTools} role="group" aria-label="캐비넷 보기">
           <button type="button" aria-pressed={view === 'overview'} onClick={() => inspect('overview')}><FiLayers /> 전체</button>
           <button type="button" aria-pressed={view === 'part'} onClick={() => inspect('part')}><FiZoomIn /> 부품</button>
-          {mode !== 'preview' && <button type="button" aria-pressed={view === 'joint'} disabled={!active.hardware.length && !active.pinCenters.length} onClick={() => inspect('joint')}>연결부</button>}
+          {mode !== 'preview' && <button type="button" aria-pressed={view === 'joint'} disabled={!active.hardware.length && !active.pinCenters.length && !isCabinetDoor(active)} onClick={() => inspect('joint')}>연결부</button>}
           <button type="button" aria-pressed={inside} onClick={() => setInside(value => !value)}>내부</button>
           {mode === 'watch' && <button type="button" aria-pressed={cinematic} onClick={() => { setCinematic(value => !value); setRevision(value => value + 1); }}>자동 시점</button>}
         </div>
@@ -142,7 +154,7 @@ export function CabinetSimulator() {
           <button type="button" className={styles.icon} aria-label="캐비넷 처음부터" onClick={() => changeMode(mode)}><FiRotateCcw /></button>
         </div>
         <div className={styles.controls}>
-          {mode === 'watch' || ui.playing || ui.phase === 'placing' || springAction ? <button type="button" className={styles.primary} onClick={() => { if (complete) changeMode('watch'); else { publish({ ...live.current, playing: !live.current.playing }); setRevision(value => value + 1); } }}>{ui.playing ? <FiPause /> : <FiPlay />}{complete ? '다시 전체 보기' : ui.playing ? '일시정지' : '재생'}</button> :
+          {mode === 'watch' || ui.playing || ui.phase === 'placing' || springAction ? <button type="button" className={styles.primary} onClick={() => { if (complete) changeMode('watch'); else { void audio.current?.unlock(); publish({ ...live.current, playing: !live.current.playing }); setRevision(value => value + 1); } }}>{ui.playing ? <FiPause /> : <FiPlay />}{complete ? '다시 전체 보기' : ui.playing ? '일시정지' : '재생'}</button> :
             <button type="button" className={styles.primary} disabled={ui.phase === 'choose' || complete} onClick={phaseAction}>{phaseLabel}{ui.phase === 'check' && <FiCheck />}</button>}
           <label className={styles.seek}>{mode === 'watch' ? `${Math.round(filmElapsed)} / ${Math.round(filmLength)}초` : '동작'} <input type="range" aria-label={mode === 'watch' ? '전체 영상 탐색' : '현재 부품 동작 탐색'} min="0" max="1000" value={Math.round((mode === 'watch' ? filmElapsed / filmLength : ui.progress) * 1000)} disabled={mode !== 'watch' && !['hardware', 'placing'].includes(ui.phase) && !springAction} onChange={event => {
             const p = Number(event.target.value) / 1000;
@@ -152,8 +164,11 @@ export function CabinetSimulator() {
           <label className={styles.speed}><span className={styles.srOnly}>캐비넷 재생 속도</span><select aria-label="캐비넷 재생 속도" value={speed} onChange={event => { const value = Number(event.target.value); setSpeed(value); rate.current = value; }}><option value=".5">0.5×</option><option value="1">1×</option><option value="1.5">1.5×</option></select></label>
         </div>
       </>}
+      {mode !== 'preview' && <button type="button" className={styles.sound} aria-label={muted ? '체결 효과음 켜기' : '체결 효과음 끄기'} aria-pressed={!muted} onClick={() => {
+        const next = !muted; setMuted(next); audio.current?.setMuted(next); if (!next) void audio.current?.unlock();
+      }}>{muted ? <FiVolumeX /> : <FiVolume2 />}<span>{muted ? '효과음 꺼짐' : '효과음 켜짐'}</span></button>}
       {finalAvailable && mode !== 'watch' && <button type="button" className={styles.doorButton} aria-pressed={doorOpen} onClick={() => setDoorOpen(value => !value)}>{doorOpen ? '도어 닫기' : '도어 열어보기'}</button>}
-      <details className={styles.scope}><summary>모델·조립 범위</summary><p>실제 Befun 생성기의 1단 도어 구성입니다. OVVO V-1230P 몸통 접합은 영구형이며, 단계 초기화는 화면 연습 기능입니다. 보강 패널과 백패널은 아래 고정 다보·위 스프링 다보로 체결합니다. 다보와 경첩은 설명용 모델이며 정밀 제조 치수는 확정하지 않았습니다.</p></details>
+      <details className={styles.scope}><summary>모델·조립 범위</summary><p>실제 Befun 생성기의 1단 도어 구성입니다. OVVO V-1230P 몸통 접합은 영구형이며, 단계 초기화는 화면 연습 기능입니다. 보강 패널과 백패널은 아래 고정 다보·위 스프링 다보로 체결합니다. 도어는 미리 장착된 Blum CLIP 경첩을 플레이트에 걸고 눌러 잠급니다. <a href="https://www.blum.com/us/en/products/hingesystems/clip-top-blumotion/assembly/" target="_blank" rel="noreferrer">공식 장착 안내</a>. 다보와 경첩은 설명용 모델이며 정밀 제조 치수는 확정하지 않았습니다.</p></details>
     </footer>
   </main>;
 }

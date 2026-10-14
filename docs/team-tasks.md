@@ -1605,3 +1605,8 @@
 - 56검사PASS, 변경eslint0/0, 전체lint0오류/기존8경고, 독립production build/TypeScript PASS. 원격43a8ba0 역할enum반영 후Prisma client재생성, DB/migration/관리자소스미수정. 자세한근거·6캡처·10소스SHA차이0: cabinet-film/README.md/verification.json/source-fingerprint.json.
 - 기존백패널7은설명용SpringPin을공유SpringDowel로추출해형상·기본색·동작을보존. OVVO P/R/Tylko5/다리원본기구구분 유지. 다보치수·간격·스프링강성·실물CAD/제조승인미확인,manufacturingApproved=false. 실시간3D전체영상이며MP4파일출력아님.
 - 이번CabinetScene/Panel/Simulator/CSS·cabinet.ts/test·신규cabinetFilm.ts/test·SpringDowel·BackPanelScene추출소비·본인증거잠금해제. 공유3003/.next/.git·다른작업자실행/공통생성/HW/CNC/저장/부모route미수정. Git/운영배포상태는별도기록.
+
+
+### 캐비넷 그림자·효과음·도어 장착 교정 — 왼쪽5 / 2026-10-14
+- 사용자 직접 지시 수신·소유13소스/검사 및 cabinet-polish 증거만 수정. 기본 PCF grain→VSM 고정블러/4096/DPR2; 실제 체결음4종/음소거; 열린 도어 앞걸림→위·아래 뒤눌림→개폐 확인. 공유 Blum 모델 소비/정밀 래치 CAD 및 기구 치수 미확인/제조승인false 유지.
+- 63검사·변경lint0·전체lint0오류/기존8경고·최종격리production build/TypeScript PASS, 실제8부품 수동/전체영상 완주·25회48kHz AudioDestination 출력·desktop/390px·pause/seek/mute/reset/topic회귀·24투명토글자원안정·console0. SHA15소스일치, 신규증거 docs/handoffs/assets/codex-assembly/cabinet-polish/README.md. 소유잠금해제, Git/운영READY는별도기록. 공통가구/HW/CNC/R15재질조명/공유 .git/.next/3003/타진행소스 미혼입.

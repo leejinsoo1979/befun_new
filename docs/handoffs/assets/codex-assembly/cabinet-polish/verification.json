@@ -1,0 +1,72 @@
+{
+  "status": "local and production-build validation complete; commit/deployment pending",
+  "tests": {
+    "passed": 63,
+    "failed": 0
+  },
+  "lint": {
+    "scopedErrors": 0,
+    "fullErrors": 0,
+    "existingWarnings": 8
+  },
+  "build": "independent production build passed; shared .next untouched",
+  "desktop": {
+    "viewport": [
+      1728,
+      881
+    ],
+    "canvas": [
+      2976,
+      1256
+    ],
+    "renderFpsObserved": [
+      105.8,
+      120
+    ],
+    "consoleErrors": 0,
+    "filmSeconds": 58.2,
+    "completedParts": 8,
+    "effectsPlayed": 25,
+    "soundContext": "running / realtime / 48000Hz stereo AudioDestination"
+  },
+  "mobile": {
+    "width": 390,
+    "height": 844,
+    "documentWidth": 390,
+    "scrollWidth": 390
+  },
+  "checks": [
+    "preview and film shadows",
+    "top and bottom hinge closeups",
+    "door open-close-open-close test",
+    "pause and seek do not play impacts",
+    "muted replay keeps effect count unchanged",
+    "both laminate skins / birch outer edges / MDF grooves preserved by existing regression",
+    "production 8-part direct assembly completed",
+    "OVVO R4 release / P7 permanent restriction / Tylko5 / back7 / original leg5 browser topic changes passed",
+    "production console error/warn zero",
+    "AudioBufferSource-to-AudioDestination CDP connection and destroyed source observed",
+    "24 inside toggles: geometries143/textures16/programs14 stable after first shader warm-up; no cumulative growth"
+  ],
+  "officialSources": [
+    {
+      "url": "https://www.blum.com/file/me164570_md_dok_bau?country=us&language=en",
+      "document": "MD-029/3 11.24",
+      "page": 6,
+      "observation": "ordered hook, then press behind hinge arm; preinstalled hardware"
+    },
+    {
+      "url": "https://www.blum.com/file/cme226128_ma_dok_bus?country=us&language=en",
+      "page": 2,
+      "observation": "mounting plate snaps onto CLIP; release lever not adjustment screw"
+    }
+  ],
+  "limits": [
+    "shared hardware is parametric, not supplier CAD",
+    "display clearances and clip lift are illustrative, never CNC dimensions",
+    "the source hinge two-link opening solver is a visual model, not measured rigid-body kinematics",
+    "no recorded physical sound or verified force/torque",
+    "manufacturingApproved=false",
+    "OVVO P remains permanent; resets are virtual practice only"
+  ]
+}

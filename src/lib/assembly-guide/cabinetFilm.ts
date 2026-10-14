@@ -1,8 +1,9 @@
 import { Box3, Euler, Quaternion, Vector3 } from 'three';
 import { advanceCabinet, cabinetPartPose, cabinetPhaseDuration, initialCabinetState, isCabinetRear, type CabinetPart, type CabinetPhase, type CabinetPlan, type CabinetState, type CabinetVector } from './cabinet';
+import { cabinetDoorAngle, cabinetDoorHinge, cabinetHingeTarget, doorAssemblyPhases, isCabinetDoor } from './cabinetDoor';
 
 const smooth = (value: number) => { const p = Math.max(0, Math.min(1, value)); return p * p * (3 - 2 * p); };
-const phases = (part: CabinetPart): CabinetPhase[] => ['choose', ...(part.hardware.length ? ['hardware' as const] : []), 'placing', ...(isCabinetRear(part) ? ['spring-press', 'spring-seat', 'spring-lock'] as const : []), 'check'];
+const phases = (part: CabinetPart): CabinetPhase[] => ['choose', ...(part.hardware.length ? ['hardware' as const] : []), 'placing', ...(isCabinetRear(part) ? ['spring-press', 'spring-seat', 'spring-lock'] as const : []), ...(isCabinetDoor(part) ? doorAssemblyPhases : []), 'check'];
 export function cabinetFilmDuration(plan: CabinetPlan) {
   return plan.parts.reduce((sum, part, step) => sum + phases(part).reduce((at, phase) => at + cabinetPhaseDuration({ ...initialCabinetState(), automatic: true, step, phase }, plan), 0), 0) + 3.5;
 }
@@ -23,6 +24,12 @@ export function seekCabinetFilm(plan: CabinetPlan, seconds: number) {
   return { ...advanceCabinet({ ...initialCabinetState(), automatic: true, playing: true }, Math.max(0, Math.min(cabinetFilmDuration(plan), seconds)), plan), playing: false };
 }
 export function cabinetActionCaption(state: CabinetState, part: CabinetPart) {
+  if (state.phase === 'hinge-hook') return '열린 문을 계속 받치고, 경첩 앞부분을 마운팅 플레이트에 먼저 겁니다.';
+  if (state.phase === 'hinge-top') return '위 경첩 뒤쪽을 눌러 딸깍 소리와 함께 잠급니다. 문은 계속 받쳐 주세요.';
+  if (state.phase === 'hinge-bottom') return '아래 경첩도 뒤쪽을 눌러 잠급니다. 두 경첩의 체결을 확인하세요.';
+  if (state.phase === 'hinge-test') return '두 경첩이 잠긴 다음 천천히 여닫아 빠짐과 간섭을 확인합니다.';
+  if (state.phase === 'placing' && isCabinetDoor(part)) return '문을 열린 자세로 들어 올려, 장착된 경첩을 몸통의 플레이트 앞에 맞춥니다.';
+  if (state.phase === 'ready' && isCabinetDoor(part)) return '문을 열린 상태로 받치고 경첩을 맞춥니다. 앞부분부터 걸어 주세요.';
   if (state.phase === 'spring-press') return '상단 스프링 다보 두 개를 눌러 넣습니다.';
   if (state.phase === 'spring-seat') return '아래 다보를 받침점으로 유지하며 패널 상단을 안으로 세웁니다.';
   if (state.phase === 'spring-lock') return '구멍에 맞춘 스프링 다보가 복귀하며 잠깁니다.';
@@ -69,10 +76,16 @@ function laidOutShot(plan: CabinetPlan, aspect: number) {
   }
   return shot(bounds.getCenter(new Vector3()), bounds.getSize(new Vector3()).length() * .5 + 30, new Vector3(.65, 1.4, 1.15), aspect, 42);
 }
-function partShot(part: CabinetPart, state: CabinetState, aspect: number) {
-  return shot(world(part, state), Math.hypot(part.box.w, part.box.h, part.box.d) * 5 + 25, new Vector3(.55 + .2 * Math.sin(state.progress * Math.PI), .65, 1.25), aspect, 40);
+function partShot(part: CabinetPart, state: CabinetState, aspect: number, plan?: CabinetPlan) {
+  const target = world(part, state);
+  if (plan && isCabinetDoor(part)) {
+    const { pivot } = cabinetDoorHinge(plan, part), at = new Vector3(...pivot);
+    target.add(at.clone().negate().applyAxisAngle(new Vector3(0, 1, 0), cabinetDoorAngle(part, state)).add(at).applyQuaternion(rotation(part, state)));
+  }
+  return shot(target, Math.hypot(part.box.w, part.box.h, part.box.d) * 5 + 25, new Vector3(.55 + .2 * Math.sin(state.progress * Math.PI), .65, 1.25), aspect, 40);
 }
-function detailShot(part: CabinetPart, state: CabinetState, aspect: number, upper = false) {
+function detailShot(part: CabinetPart, state: CabinetState, aspect: number, upper = false, plan?: CabinetPlan) {
+  if (plan && isCabinetDoor(part)) return shot(cabinetHingeTarget(plan, part, upper), 72, new Vector3(cabinetDoorHinge(plan, part).sign * .85, .35, 1.6), aspect, 36);
   if (isCabinetRear(part)) return shot(world(part, state, [part.pinCenters[0], (upper ? 1 : -1) * part.box.h * 5 + (upper ? 2 : -2.5), 0]), 38,
     new Vector3(.7, upper ? -.25 : .6, -1.2), aspect, 34);
   const mount = part.hardware[0];
@@ -90,16 +103,21 @@ export function cabinetFilmShot(plan: CabinetPlan, state: CabinetState, aspect: 
   if (state.phase === 'reveal') return bodyShot(plan, plan.parts.length, aspect, .45 + .35 * smooth(p) - .5 * Math.sin(p * Math.PI), smooth(p / .55));
   if (state.phase === 'choose') {
     const start = state.step === 0 ? laidOutShot(plan, aspect) : bodyShot(plan, state.step, aspect);
-    const next = isCabinetRear(part) ? detailShot(part, state, aspect) : partShot(part, state, aspect);
+    const next = isCabinetRear(part) ? detailShot(part, state, aspect) : partShot(part, state, aspect, plan);
     return mix(start, next, p);
   }
   if (state.phase === 'hardware') return mix(partShot(part, state, aspect), detailShot(part, state, aspect), Math.min(1, p / .4));
   if (state.phase === 'placing') {
-    const detail = detailShot(part, state, aspect), following = partShot(part, state, aspect);
+    const detail = detailShot(part, state, aspect, false, plan), following = partShot(part, state, aspect, plan);
+    if (isCabinetDoor(part)) return p < .65 ? following : mix(following, detail, (p - .65) / .35);
     return p < .22 ? mix(detail, following, p / .22) : p < .65 ? following : mix(following, detail, (p - .65) / .17);
   }
   if (state.phase === 'spring-press') return mix(detailShot(part, state, aspect), detailShot(part, state, aspect, true), p / .65);
   if (state.phase === 'spring-seat' || state.phase === 'spring-lock') return detailShot(part, state, aspect, true);
-  if (state.phase === 'check') return mix(detailShot(part, state, aspect, isCabinetRear(part)), bodyShot(plan, state.step + 1, aspect), p);
-  return partShot(part, state, aspect);
+  if (state.phase === 'hinge-hook') return detailShot(part, state, aspect, false, plan);
+  if (state.phase === 'hinge-top') return mix(detailShot(part, state, aspect, false, plan), detailShot(part, state, aspect, true, plan), Math.max(0, (p - .78) / .22));
+  if (state.phase === 'hinge-bottom') return detailShot(part, state, aspect, true, plan);
+  if (state.phase === 'hinge-test') return mix(detailShot(part, state, aspect, true, plan), bodyShot(plan, state.step + 1, aspect, .7, true), Math.min(1, p / .25));
+  if (state.phase === 'check') return mix(isCabinetDoor(part) ? bodyShot(plan, state.step + 1, aspect, .7, true) : detailShot(part, state, aspect, isCabinetRear(part)), bodyShot(plan, state.step + 1, aspect), p);
+  return partShot(part, state, aspect, plan);
 }
