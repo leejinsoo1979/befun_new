@@ -762,6 +762,17 @@
 .subcategoryIcons { flex-wrap: nowrap; gap: 12px; }
 .subcategoryIcons a { min-width: 112px; text-align: center; }
 .lineCoversWide .lineCover { flex: 1 1 0; height: 300px; }
+.lineCoversWide .sofaLineCover { height: auto; aspect-ratio: 38 / 13; }
+.sofaLineCover::after { display: none; }
+.sofaLineCover h2 { font-weight: 500; }
+.sofaLineCover > div > span { border: 0; background: #ffffff40; }
+@media (max-width:700px) {
+  .lineCoversWide .sofaLineCover { flex: 0 0 min(85vw, 420px); }
+  .sofaLineCover > div { left: 20px; right: 20px; bottom: 16px; }
+  .sofaLineCover h2 { font-size: 24px; line-height: 28px; }
+  .sofaLineCover p { font-size: 12px; line-height: 16px; margin-top: 4px; max-width: 210px; }
+  .sofaLineCover > div > span { width: 36px; height: 36px; }
+}
 .typeChips { display: grid; gap: 10px; margin-right: auto; margin-left: 40px; }
 .typeChips > span { font-size: 15px; }
 .typeChips > div { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -772,9 +783,15 @@
 .footerCompany a { color: inherit; text-decoration: underline; }
 /* 메인 히어로 버튼 2개: 디자인하기(주) + 새로운 컬러 */
 .heroActions { display: flex; flex-wrap: wrap; gap: 12px; }
+.heroActions .orangeButton { background: #1e1e1e; }
+.heroActions .orangeButton:hover { background: #333; }
 @media (max-width:700px) { .heroActions > * { min-height: 52px; padding: 10px 22px; } }
 /* 애니메이션 로고: 본체(768×144 @1200)를 120×23 칸에 맞춤, 튀는 글자는 칸 위로 넘침 */
 .brandLogoAnimated { position: relative; display: block; width: 120px; height: 23px; overflow: visible; }
 .brandLogoGif { position: absolute; width: 125px !important; max-width: none; height: auto; left: -2.5px; top: -21.25px; pointer-events: none; }
 .brandLogoStatic { display: none; width: 120px; height: auto; }
 @media (prefers-reduced-motion: reduce) { .brandLogoGif { display: none; } .brandLogoStatic { display: block; } }
+
+/* User-approved home hero copy. */
+.heroSlogan > span { display: block; }
+@media(max-width:700px) { .heroContent .heroSlogan:lang(ja) { font-size: clamp(18px, 5.3vw, 28px); line-height: 1.4; letter-spacing: -.5px; } }

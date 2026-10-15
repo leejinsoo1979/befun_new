@@ -33,8 +33,15 @@ function subscribeMotion(callback: () => void) {
   return () => media.removeEventListener('change', callback);
 }
 
+const heroCopy = {
+  ko: { lines: ['내 공간에 맞게.', '내 취향대로.', '완성은 쉽게.'], button: '나만의 가구 만들기' },
+  en: { lines: ['Your space.', 'Your way.', 'Made simple.'], button: 'Create yours' },
+  ja: { lines: ['空間にぴったり。', '自分好みに。', 'カスタマイズは、かんたんに。'], button: '自分だけの家具をつくる' },
+};
+
 function Hero() {
-  const { t } = useI18n();
+  const { t, region } = useI18n();
+  const copy = heroCopy[region.locale];
   const video = useRef<HTMLVideoElement>(null);
   const reducedMotion = useSyncExternalStore(subscribeMotion, () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, () => true);
   const [ready, setReady] = useState(false);
@@ -54,11 +61,9 @@ function Hero() {
       </div> : null}
       <div className={styles.heroShade} />
       <div className={styles.heroContent}>
-        <p className={styles.eyebrow}>{t('새로운 계절, 새로운 컬러')}</p>
-        <h1>{t('새로운 색으로.')}<br className={styles.mobileBreak} /> {t('오래도록 당신답게.')}</h1>
+        <h1 className={styles.heroSlogan} lang={region.locale}>{copy.lines.map(line => <span key={line}>{line}</span>)}</h1>
         <div className={styles.heroActions}>
-          <Link href="/configurator-intro" className={styles.orangeButton}>{t('디자인하기')} <FiArrowRight /></Link>
-          <a href="#collections" className={styles.whiteButton}>{t('새로운 컬러 만나보기')}</a>
+          <Link href="/configurator-intro" className={styles.orangeButton}>{copy.button} <FiArrowRight aria-hidden="true" /></Link>
         </div>
       </div>
       {!failed ? <div className={styles.videoControls}>
