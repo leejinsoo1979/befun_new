@@ -1,0 +1,215 @@
+{
+  "tone": [
+    {
+      "id": 0,
+      "name": "laminate",
+      "colors": {
+        "primary": "offWhite",
+        "secondary": "offWhite",
+        "tertiary": "offWhite"
+      }
+    },
+    {
+      "id": 2,
+      "name": "laminate",
+      "colors": {
+        "primary": "cashmere",
+        "secondary": "cashmere",
+        "tertiary": "cashmere"
+      }
+    },
+    {
+      "id": 4,
+      "name": "laminate",
+      "colors": {
+        "primary": "pistachioGreen",
+        "secondary": "pistachioGreen",
+        "tertiary": "pistachioGreen"
+      }
+    },
+    {
+      "id": 6,
+      "name": "laminate",
+      "colors": {
+        "primary": "onyxGray",
+        "secondary": "onyxGray",
+        "tertiary": "onyxGray"
+      }
+    },
+    {
+      "id": 8,
+      "name": "laminate",
+      "colors": {
+        "primary": "midnightBlue",
+        "secondary": "midnightBlue",
+        "tertiary": "midnightBlue"
+      }
+    },
+    {
+      "id": 10,
+      "name": "laminate",
+      "colors": {
+        "primary": "mistyBlue",
+        "secondary": "mistyBlue",
+        "tertiary": "mistyBlue"
+      }
+    }
+  ],
+  "edge": [
+    {
+      "id": 0,
+      "name": "laminate",
+      "colors": {
+        "primary": "white",
+        "secondary": "white",
+        "tertiary": "white"
+      }
+    },
+    {
+      "id": 3,
+      "name": "laminate",
+      "colors": {
+        "primary": "gray",
+        "secondary": "gray",
+        "tertiary": "gray"
+      }
+    },
+    {
+      "id": 8,
+      "name": "laminate",
+      "colors": {
+        "primary": "clayBrown",
+        "secondary": "clayBrown",
+        "tertiary": "clayBrown"
+      }
+    },
+    {
+      "id": 9,
+      "name": "laminate",
+      "colors": {
+        "primary": "oliveGreen",
+        "secondary": "oliveGreen",
+        "tertiary": "oliveGreen"
+      }
+    },
+    {
+      "id": 10,
+      "name": "laminate",
+      "colors": {
+        "primary": "sand",
+        "secondary": "sand",
+        "tertiary": "sand"
+      }
+    },
+    {
+      "id": 11,
+      "name": "laminate",
+      "colors": {
+        "primary": "black",
+        "secondary": "black",
+        "tertiary": "black"
+      }
+    },
+    {
+      "id": 12,
+      "name": "laminate",
+      "colors": {
+        "primary": "duskBlue",
+        "secondary": "duskBlue",
+        "tertiary": "duskBlue"
+      }
+    },
+    {
+      "id": 13,
+      "name": "laminate",
+      "colors": {
+        "primary": "stoneLightGray",
+        "secondary": "stoneLightGray",
+        "tertiary": "stoneLightGray"
+      }
+    },
+    {
+      "id": 14,
+      "name": "laminate",
+      "colors": {
+        "primary": "midnightBlue",
+        "secondary": "midnightBlue",
+        "tertiary": "midnightBlue"
+      }
+    },
+    {
+      "id": 15,
+      "name": "laminate",
+      "colors": {
+        "primary": "butterYellow",
+        "secondary": "butterYellow",
+        "tertiary": "butterYellow"
+      }
+    },
+    {
+      "id": 16,
+      "name": "laminate",
+      "colors": {
+        "primary": "deepPlum",
+        "secondary": "deepPlum",
+        "tertiary": "deepPlum"
+      }
+    }
+  ],
+  "toneMatte": [
+    {
+      "id": 1,
+      "name": "laminate",
+      "colors": {
+        "primary": "matteOffWhite",
+        "secondary": "matteOffWhite",
+        "tertiary": "matteOffWhite"
+      }
+    },
+    {
+      "id": 3,
+      "name": "laminate",
+      "colors": {
+        "primary": "matteCashmere",
+        "secondary": "matteCashmere",
+        "tertiary": "matteCashmere"
+      }
+    },
+    {
+      "id": 5,
+      "name": "laminate",
+      "colors": {
+        "primary": "mattePistachioGreen",
+        "secondary": "mattePistachioGreen",
+        "tertiary": "mattePistachioGreen"
+      }
+    },
+    {
+      "id": 7,
+      "name": "laminate",
+      "colors": {
+        "primary": "matteOnyxGray",
+        "secondary": "matteOnyxGray",
+        "tertiary": "matteOnyxGray"
+      }
+    },
+    {
+      "id": 9,
+      "name": "laminate",
+      "colors": {
+        "primary": "matteMidnightBlue",
+        "secondary": "matteMidnightBlue",
+        "tertiary": "matteMidnightBlue"
+      }
+    },
+    {
+      "id": 11,
+      "name": "laminate",
+      "colors": {
+        "primary": "matteMistyBlue",
+        "secondary": "matteMistyBlue",
+        "tertiary": "matteMistyBlue"
+      }
+    }
+  ]
+}

@@ -24,6 +24,33 @@
 
 ## 진행 중
 
+- `codex-menu-ui` **완료·잠금 해제** 최종 누락 교차 감사 후 추가: 별도 AllSofas variant `316601,s` 1종이 manifest 밖에 있어 원본 수집/연결에 포함. 원본 복구 담당의 BookcaseScene 잠금 해제 확인 후 `AVAILABLE`에 `fullHandleLeft/fullHandleRight/maskingProfile` 3키만 추가, 신규 원본 GLB3개 `public/three/bookcase/{vertical_handle_30,vertical_handle_50,masking_profile}.glb` 확보 범위 잠금. 기존 네이티브 변형/조명·원본 복구 변경 보존. 임시 dev-catalog-capture 경로는 이4응답 수신 직후 다시 삭제.
+
+- `codex-menu-ui` **완료·잠금 해제** 최종 검증 중 공통 타입 좁은 보정: `src/lib/bookcase/types.ts`의 Geometry에 원본 응답의 선택적 `shelf_type?: number` 선언만 추가. 현 BookcaseScene 담당이 추가한 벽걸이 높이 분기의 tsc 오류를 해소하며 Scene/기하 코드는 수정하지 않음. 원본 수집 JS는 압축 보관해 lint 대상과 분리, 수집 임시 API 삭제·로컬 수신기 종료.
+
+- `codex-menu-ui` **완료·잠금 해제** Edge 우드 섬네일 색 보존의 좁은 추가 잠금: `src/lib/bookcase/material.ts`의 veneer/Cleaf 분기만. 기존 확보 `/textures/wardrobe/{light,dark}_cleaf_512_{albedo,bump}.jpg` 재사용, 원본 mapRatio/mapAngle 적용 및 material dispose 때 owned texture 해제. 타담당 BookcaseScene/native-geometry/원본 하드웨어 작업은 읽기만 유지.
+
+- `codex-menu-ui` **완료·잠금 해제** 추가 회귀 범위: `scripts/catalog-entry/entry.test.mjs` 기존 “미확정” 기대값을 이번 원본890개 연결에 맞춰 갱신. static Classic/Modern 보존, storage/7의 실제1964589원본 연결을1964607과 구분. catchall `catalog-item` 상세 진입 분기만 exact editorHref로 내부 redirect할 좁은 잠금 추가(타담당 configurator-intro props 분기 보존).
+
+- `codex-menu-ui` **완료·잠금 해제** 정확 섬네일 연결 구현 범위 확정: 신규 `src/components/source-configurator/**`(기존 BookcaseScene·소파 원본 자산/재질 재사용), 기존 bookcase/sofa page는 source product ID 분기만, `starts.ts` 원본890개 사전 우선 조회, `next.config.ts` source DNA 배포 trace 포함만. 공통 BookcaseConfigurator/SofaConfigurator·Scene·저장 타입 자체는 변경하지 않음. 원본 상품890개 API200 전수 확보, 생성 규칙19종 확보. 기존 CollectionDialog/ShoppingCatalog/ConfiguratorIntro 잠금 불침범.
+
+- `codex-menu-ui` **완료·잠금 해제** 수집 임시 경로 추가: 신규 `src/app/api/dev-catalog-capture/route.ts`만(개발·localhost 전용, 검증된 공개 상품 데이터 수신; 수집 종료 후 삭제). 기존 3003 프로세스 재시작 없이 자체 임시 localhost 수집기로 전달. 공개 source key만 취급, 사용자/계정 데이터 수집 없음.
+
+- `codex-menu-ui` **완료·잠금 해제** / 2026-10-15 사용자 추가 지시: Edge·Tone·Uff·Smooth 컬렉션의 각 상품/색상 섬네일을 해당 원본 구성으로 빠짐없이 연결. 이전 메뉴 UI 작업은 최신 리더 완료 기록으로 종료·이관. 이번 좁은 잠금: 신규 `src/lib/catalog-entry/source-designs/**`, 원본 수집/대조 `scripts/catalog-entry/source-designs/**`, `docs/handoffs/thumbnail-configurators/**`; `starts.ts` 원본사전 resolver 연결, bookcase/sofa 전용 페이지의 product ID 로딩 및 configurator 초기값 주입 영역(수정 전 상세 범위 추가). 컬렉션 소개 팝업/ShoppingCatalog/ConfiguratorIntro 현 잠금 존중. 우선 모든 source key와 정확 preset 수집·대조, 임의 기본값으로 연결하지 않음.
+
+- `codex-menu-ui` **리더 완료 기록으로 이관·잠금 해제** / `/resume` / 2026-10-15: 중단된 리더 세션의 사용자 “쇼핑에 수납가구 옷장 소파 악세서리등 각 메뉴들 전부 들어가서 tylko 와 ui 통일시켜” 작업 재개. 좁은 잠금: `CatalogPages.tsx`의 CatalogPage 목록 분기만, `DownloadedCatalog.tsx`의 목록 컴포넌트만(상세/내부 CTA 보존), `CatalogFilters.tsx`, `AllSofas.tsx` 하위 카테고리 지원, `navigation.ts` 누락 소파 메뉴만, 신규 `catalog-listing.module.css`/목록 helper 및 `public/imgs/storefront/catalog-covers/**`, `docs/handoffs/shopping-menu-ui/**`. 기존 완료 기록 확인. 제품상세/공통3D/저장/가격/공유.git·3003·.next 보존. 원본 각 메뉴 조사→공통 배너/필터/그리드→PC·390px/실클릭→lint/격리build로 검증.
+
+- `codex-assembly` / 왼쪽5 / **상품 외부 CTA 잔여 경로 구현·검증·운영READY / 잠금해제 / 2026-10-15**: 사용자 “그대로 Tylko 이동/원본디자인보기가 왜 있나” 후속 수신. 실제 사용자 all/15 탭 DOM은 내부 /configurator 확인, 별도 SourceProductPage 및 sofa ReferenceProductPage·accessories fallback에서 외부 CTA 잔존 확인. 최신 카탈로그 연결 파일 잠금 해제 확인 후 좁은 잠금 `src/components/storefront/ReferenceCatalogPages.tsx` SourceProductPage의 안내/CTA, `src/components/storefront/CatalogPages.tsx` ReferenceProductPage 안내/CTA 및 accessories 외부CTA만. cards/initializer/source identity/소파 모델/상태/공통 생성기 보존. 신규 인계/검증 `docs/handoffs/assets/codex-assembly/catalog-internal-entry/**`. 기존 DownloadedCatalog 2줄 교정 유지. 정확 구성 미확인 사진은 새디자인/내부 목록으로만 연결. 공유.git/3003/.next/기존 실행 보존, 격리 게시사본에 이번 좁은 변경만 반영·검증한다.
+
+- `codex-assembly` / 왼쪽5 / **catalog 내부 CTA 교정 완료·잠금해제 / 2026-10-15**: codex-storefront의 “이번완료연결파일잠금해제” 최종 기록 확인. 이제 `src/components/storefront/DownloadedCatalog.tsx` 상세 CTA2줄만 좁게 잠금: 외부 source anchor 제거, 기존 newDesigns 첫 내부 버튼에 darkButton 적용. 확인된 editorHref·카드/사진/Intro source identity·새디자인 경로·다른 담당 변경은 전부 보존. 신규 helper/모델/저장형식 만들지 않음. 본인 인계/캡처 catalog-internal-entry만 추가.
+
+- `codex-assembly` / 왼쪽5 / **2026-10-15 사용자 catalog-item/all/15 외부 이동 지적 수신**: DownloadedCatalog.tsx fallback `<a href={item.source}>사진 속 원본 디자인 보기</a>`가 Tylko로 나가는 문제. 현재 동일 CTA는 codex-storefront 카탈로그 전수점검 잠금이므로 공유 파일 직접 덮어쓰지 않음. **기존 담당에게 긴급 조율 요청**: 외부 구매 사이트 CTA를 제거하고 기존 Befun 내부 디자인/선택 경로로 연결하세요. 확인된 editorHref는 보존하고, 미확인 구성은 사진과 동일한 원본 편집이라고 표시하지 마세요. 본인은 `/catalog-item/all/15` 및 해당 fallback의 실제 클릭/모바일 회귀와 게시 여부를 독립 검증하겠습니다. 신규 소유 인계/증거 `docs/handoffs/assets/codex-assembly/catalog-internal-entry/**`, 필요 시 자기 소유 신규 `src/components/storefront/catalogDesignAction.ts` 및 내부 CTA 회귀파일 경로는 수정 전에 추가 기록. 원본 생성/저장/상태·기존 잠금 소스 보존.
+
+- `codex-assembly` / 왼쪽5 / **2026-10-15 조립·분해/판재 라벨 완료·잠금 해제**: 사용자 직접 지시 수신. 기존 분해 와이드 고정/0.22초 중첩 및 불투명 바닥 매트·격자 확인. 잠금: `src/components/three/display/{cinematic.ts,cinematic.test.mjs,AssemblySequence.tsx,AssemblyFloor.tsx,ViewCamera.tsx,displayStore.ts}`, `assemblyPlan.ts`의 화면 재생 간격 인수만, 신규 `src/components/three/display/playback.test.mjs`, 본인 신규 `docs/handoffs/assets/codex-assembly/configurator-film/**`. 기존 다른 담당 카메라 치수변경 방향 유지·near/far·zoomToCursor·인물 프레이밍 보존. Scene/Shelf·공통 생성/저장/제조/CNC/재질/광원 수정 없음. 공유 Git/index/서버 보존, 격리 build. 제조 해제 시연으로 보고하지 않는 화면 전용 부품 연출.
+- 위 `assemblyPlan.ts` 좁은 범위 확장: 원본 판재/도어/서랍 치수를 카메라 프레이밍용 `size`에 전달. 기존 부품 배치·가공·물리 이동 궤적은 유지. 추가 신규 검증 경로는 위 playback.test.mjs 및 본인 configurator-film 디렉터리만 사용.
+- **추가 사용자 라벨 스티커 지시 수신**: 분해된 판재 넓은 윗면에 화면용 부품번호/종류 라벨 추가. 추가 잠금 `src/components/three/display/ExplodedPart.tsx`의 라벨 마운트, 신규 `PartLabel.tsx`, `labelLayout.ts`, `labelLayout.test.mjs`. 원본 부품/제조 라벨 확정치로 표시하지 않고 AR/주문/공통 저장에 포함하지 않음. 태그 회전·분해/조립 복원·390px 검증을 같은 인계에 기록.
+- **완성 구도 회귀 보완의 좁은 잠금 추가**: `src/components/three/Scene.tsx`의 studio 표시 조건 2줄만. 완료 hero가 유지된 순간 인물이 다시 나타나 머리가 잘리는 것을 재현했으므로 재생 결과가 열린 동안만 스튜디오 인물·소품 배경을 보류하고 닫기/초기화 후 기존 표시를 복원. 광원/Effects/AR/Canvas 등 기존 타담당 변경은 보존, 게시에는 이 2줄만 추출.
+
 - `codex-storefront` / **로딩 재수정 완료·잠금 해제** / 사용자 로딩 연출 재수정 지시: 기존25조각 skew/반복소거 연출을 원본 로고의 아래부터 판재 쌓임으로 간소화. 잠금 `src/components/ui/ConfiguratorLoading.tsx`, `src/components/ui/configurator-loading.module.css`, 본인 handoff만. ready·SceneReady·3D/상태/로고 자산은 보존.
 
 - `codex-storefront` / **완료·잠금 해제** / 최신 사용자 추가 지시 / 2026-10-14 10:49 KST: 제공 로고의 패널 순차 쌓임 로딩 애니메이션 착수. 추가 잠금 `src/components/ui/ConfiguratorLoading.tsx`, `src/components/ui/configurator-loading.module.css`의 연출만. 기존 로딩 담당 납품/잠금 해제 확인. SceneReady/Scene/동적로딩 마운트·ready 조건·3D/AR 및 다른 담당 소스는 보존. SVG의 원본 형태를 clip 단위 패널로 나눠 같은 로고를 완성하며 reduced-motion에서는 정적인 완성 로고 표시. 앞선 일반 검정·footer 흰색 변경은 구현/브라우저/lint·격리build 확인 완료, 이번 연출과 함께 최종 인계.
@@ -96,6 +123,8 @@
 ## 조율 요청
 
 - `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 16:20: **결제(토스페이먼츠) 연결 + 결제 완료 시 공장 제작 지시서 자동 생성.** 잠금: `src/app/api/orders/route.ts`(POST 서버 가격 재계산·디자인 저장), `src/app/api/payment/confirm/route.ts`(소유권·중복·지시서), `src/app/order/page.tsx`(결제 단계 이동만), 신규 `src/app/order/[id]/pay/**`·`src/app/order/success/**`·`src/app/order/fail/**`, 신규 `src/lib/commerce/production.ts`, 신규 `src/app/factory/**`·`src/app/api/factory/**`, `prisma/schema.prisma`의 Order.productionSheet/productionReadyAt·UserRole FACTORY만 + migration, admin 회원 권한 선택. 가격 공식(lib/pricing)·패널 생성기는 읽기 전용으로 재사용.
+  - 완료 16:35(잠금 해제): POST /api/orders는 장바구니 designConfig로 서버 가격·배송비 재계산 후 항목별 Design 저장, `/order/[id]/pay` 토스 결제위젯(v2 SDK, StrictMode 이중 렌더 가드) → `/order/success`에서 승인 후 장바구니 비움, 승인 라우트 로그인·본인·중복·금액 검사 + `productionSheet` 스냅샷·이력. `/factory`(ADMIN·FACTORY) 작업 목록·인쇄용 작업지시서·재단 CSV·제작 시작/완료, 관리자 회원 상세에서 공장 담당 지정. 검증: 컨피규레이터 가격 374,400원 = 서버 계산, 토스 결제창(KB 카드 인증창)까지 실제 열림, 위조 금액 400·가짜 paymentKey 토스 응답 확인, 공장 흐름 Playwright 통과, tsc·lint 0오류. 테스트 키는 토스 공개 문서용(`.env.local`), 실키는 가맹 계약 후 교체·Vercel env 추가 필요. QA 데이터 삭제함.
+- **리더 요청** `claude-optimizer` / 2026-10-14 18:10: 운영(www.befun.co.kr) 소셜 로그인 불가(구글 키가 데스크톱 유형, 카카오·네이버 콜백 미등록) + Vercel 토스 키 미설정. 작업 목록은 `docs/handoffs/leader-request-login-payment.md`. Claude는 구글 콘솔 입력이 권한 정책으로 막힘.
 
 - `claude-optimizer`(Claude UI) 사용자 직접 지시 / 2026-10-14 15:40: **관리자 페이지 전면 개편(운영용) → 완료·잠금 해제.** 신규 OrderEvent·Order.adminMemo(migration `20261014064411_admin_order_events`). 사이드바·통합검색·로그아웃 셸, 대시보드(기간 전환·전기 대비 KPI·일별 매출 차트·처리할 일 4종·단계별 현황·인기 스타일/색상·최근 주문/회원), 주문 목록(상태 탭·검색·기간·정렬·페이지·일괄 변경·CSV), 주문 상세(진행 단계·사양 칩·도식 썸네일·배송(택배사/송장, 저장 후 발송)·메모·결제·처리 이력·취소 확인), 회원 목록/상세(가입 방법·구매 금액·권한 지정), 디자인 갤러리, 통합 검색, 설정(시스템 상태·관리자·개발 전용 데모 데이터 생성/삭제). 상태 변경 시 결제/배송 레코드 동기화·이력 기록, 발송은 송장 필수, 배송 완료 취소 금지. 3003(재시작 후)에서 데모 10명·33주문으로 전 화면·발송/배송 완료·일괄 변경·CSV(비관리자 403)·모바일 넘침0·오류0 확인, QA 계정 삭제. 격리 build PASS. 데모 데이터는 미리보기용으로 남겨 둠(설정에서 삭제). 잠금: `src/app/admin/**`, 신규 `src/app/api/admin/**`, `src/lib/admin.ts`, `prisma/schema.prisma`의 **Order.adminMemo 필드와 신규 OrderEvent 모델만** + migration, 신규 `scripts/admin-demo-data.mjs`. 주문 생성·결제 API, storefront 저장 경로는 수정하지 않음.
 
@@ -212,6 +241,14 @@
 - (예) `claude-2` → `codex-dev`: `src/stores/useShelfStore.ts`에 `foo` 필드 추가 필요. 완료 후 알려주세요.
 
 ## 완료
+
+### Edge·Tone·Uff·Smooth 전 섬네일 실제 구성 연결 — codex-menu-ui / 2026-10-15
+
+- Edge259 / Tone182 / Uff244 / Smooth206, 합계891개 공개 원본 구성 확보·연결. manifest w/s 전체886종 및 별도 AllSofas 모든 변형(누락316601 포함) 교차 확인. 중복 카테고리 포함 manifest1027진입 및 Intro 해당 사진의 제품 ID 유지. 기존5개 전용 bookcase/bedside, 기존 desk/wardrobe 진입은 보존.
+- 신규 source-designs 서버 데이터·원본 생성기/renderer 어댑터 및 source-configurator 소비자. 초기 판재/도어/서랍·소파 모듈/방향/배색/치수 보존, 저장·공유·사진 구성 복귀. 기존 catalog-item/reference-product 경로도 동일 내부 편집기로 연결. Edge 원본 좌우 손잡이/가림 프로파일 GLB3개 표시, Cleaf 우드 질감 연결. TYPE25 외곽 폭 복원 및 제품군 공용 컨텍스트 초기화 회귀 포함.
+- 전수9검사 PASS(891개 치수/판재 좌표/소파 모듈·배색·좌표와 원본 raw 비교, 3D자산/원단/GI 파일, 목록중복/Intro/소파별도변형, 편집적용·복원). 실제 Edge·Tone·Uff·Smooth 진입, 390px 넘침0, Edge/Uff 저장·공유 재진입, native3D/콘솔0 확인.
+- 전체 `npm run lint`: 오류0, 기존/타담당13경고. 이번 변경 scoped ESLint PASS. 최종 격리 `/private/tmp/befun-thumbnail-build-rgy9dqyb` `npm run build -- --webpack`: compile/TypeScript/25정적페이지 PASS. 두 신규 경로의 배포 trace에 DNA19개씩 포함 확인. 임시 수집 API 삭제·수신기 종료, 공유3003/.next/기존 실행·타담당 변경 보존.
+- 최종 인계: [thumbnail-configurators/README.md](handoffs/thumbnail-configurators/README.md), 원본/추출 근거 `src/lib/catalog-entry/source-designs/SOURCES.md`, `verification.json` total891/errors0. 라인업 감사 문서의890종/316601미연결/Edge3부품 누락은 이번 최종본 이전 스냅샷이며 위3항목 해결. 변경 구성 전체 가격·전용UI 완전동치·주문·기존j계열/액세서리의 별도 미완료는 유지. 본인 파일 잠금 전부 해제, 로컬 반영·미커밋·미푸시·미배포.
 
 ### T-01 첫 기록·Pattern 뒷판 수정 — codex-analysis / 2026-10-13
 
@@ -1597,6 +1634,49 @@
 
 - 추천 카드 초기 구성 추가 잠금 / codex-assistant: 원본6상품의 공개 configurator 응답 확보 완료(Cloudflare 미확인 상태 해소). 신규 src/lib/three/catalog-presets.{ts,json}, 공통 shelf-geometry.ts, Shelf/DimensionOverlay/PriceDisplay의 생성기 호출부, useShelfStore의 catalogPreset 식별자, savedDesign/configuration의 식별자 복원, ProductConfigurator의 가격입력, optimizer model의 공통 생성기 연결을 좁게 수정. 기존 사진과 원본 fixture는 그대로 보존. WardrobeModel/fronts/주문 production.ts 등 타 담당 잠금 미수정.
 - 주문 담당 연계 요청: 상품 preset은 이제 행 책장 외에 원본 열 기반 가구도 포함. 새 catalogPreset ID가 있는 구성은 공통 calculateShelfGeometry를 통해 계산해야 함. production.ts의 별도 스타일 switch에 일반 Grid를 적용하면 안 됨. 제조 승인과 초기 외관 재현은 별개이며 신규 preset의 제조 출력은 검증 전 차단 필요.
+- R9 완료 범위: 다구획 인접 도어 표시 간섭 수정, Tone bottom 높이부호 교정. 32 모션검사/원본1694문/기존293+155회귀 PASS. 공유 Chrome415cm, 고정production200cm 열기/닫기/재열기/정면/입체 확인.
+- 변경 lint0/전체lint 오류0 기존경고8. 직전R8+이번3소스 격리build/타입 PASS; 최신 공유본 전체build는 위 주문API 오류로 실패하므로 전체통합완료로 표시하지 않는다.
+- 모션은 표시용이며 실제 힌지/손잡이/서랍 충돌 검증 아님. 상세 docs/handoffs/wardrobe-viewer-review/door-motion.md. R9 소유 잠금 해제. 공유3003/타 담당변경/제조 타공 데이터 보존.
+- `claude-graphics` (사용자 지시 "gif 1.36초 이전 프레임 잘라내기", 2026-10-14) → 원본(~/Downloads/BEFUN_LOGO) 보존, 사이트용 `befun-logo-animated-{black,white}.gif`만 앞 26프레임 제거(145→119, 7.24s→5.88s). 모든 프레임 disposal=2라 블록만 삭제(재인코딩·화질 변화 없음), NETSCAPE 루프 유지. 캐시 갱신용 `?v=2`.
+- `claude-graphics` (사용자 지시 "조금 더 빠르고 다이나믹하게", 2026-10-14) → 로고 GIF 프레임 간격만 재조정(재인코딩 없음): 조립 앞 20프레임 2cs·이후 3cs, 완성 로고 정지 32→45cs, 글자 튀는 구간 3cs, 사라짐 2cs, 반복 전 공백 76→40cs. 5.88s→4.15s. 캐시 `?v=3`.
+
+### R10 옷장 판재 분절 가시성 — 리더 / 2026-10-14
+- 원인: Tone 외부 상판은 topCuts로 이미 분할되어 있으나 동일 평면·동일 재질의 날카로운 박스가 맞닿아 접합 경계가 소실됨.
+- 잠금: WardrobeModel.tsx 경계 표시 연결, 신규 wardrobe/panel-seams.ts, scripts/furniture-wardrobe/panel-seams.test.mjs, 본인 wardrobe-viewer-review/panel-seams.md. 실제 분할 좌표만 표시하며 생성기/판재 치수/타공/다른 담당 소스는 보존.
+
+
+### 캐비넷 후면 스프링 다보·전체 영상 연출 — 왼쪽5 / 사용자 후속 지시
+- 후면 보강 패널도 백패널과 같은 다보 방식이라는 사용자 정정 수신. 하단 고정 다보 → 상단 스프링 다보 눌림 → 패널 세움 → 복귀/잠금을 두 부품에 동일 적용. 전체 한 번 재생, 운반 추적/접합 확대/완성 회전 카메라. 기존 수동 조립 보존.
+- 단독 잠금: src/lib/assembly-guide/cabinet.ts/cabinet.test.mjs, 신규 cabinetFilm.ts/cabinetFilm.test.mjs; src/components/assembly-guide/CabinetPanel.tsx/CabinetScene.tsx/CabinetSimulator.tsx/cabinet.module.css, 신규 SpringDowel.tsx, BackPanelScene.tsx의 기존 설명용 스프링핀 추출 소비만. 기존 공통 생성 모델/원본 HW/CNC/저장/제품/부모route 미수정.
+- 신규 증거 경로: docs/handoffs/assets/codex-assembly/cabinet-film/{README.md,verification.json,source-fingerprint.json,support-lower.jpg,support-lock.jpg,back-lock.jpg,film-carry.jpg,film-final.jpg,mobile.jpg}. 본인 docs/assembly-guide.md 및 배포 인계 append. 스프링 부품/접근/각도/확대는 설명용, 제조 확정 수치로 저장하지 않음.
+- 공유3003/.next/.git 및 타 작업자 실행 보존, 독립 게시 사본으로 검증/커밋/게시.
+- `claude-graphics` (사용자 지시 "로고 완성 후 끝이 심심함", 2026-10-14) → 사이트용 `befun-logo-animated-{black,white}.gif` 재인코딩: 완성(프레임 108) 후 B·E·F·U·N이 차례로 튀어 오르는 글자 물결(진폭 34px, 9프레임, 3프레임 간격, 작은 반동) + 마지막 정지 35cs. 142프레임·5.16s·~500KB, 캔버스 800×300(원본 1200×675에서 x200·y130 크롭). `BrandLogo` width/height 800×300, CSS `.brandLogoGif` 125px·left −2.5px·top −21.25px, 캐시 `?v=4`. 원본(~/Downloads/BEFUN_LOGO) 무변경. 헤더 확인.
+
+### R11 사용자 제공 원본 스튜디오 배경 — 리더 / 2026-10-14
+- 사용자 zip의 무결성·GLB 단위를 확인하고 원본 배경/인물/큐브맵을 로컬 정적 자산으로 통합. 선반·책상·옷장 공통 소비.
+- 잠금: components/three/Background.tsx, 신규 ReferenceStudio.tsx, Scene.tsx 조명/배경 연결, furniture/FurnitureScene.tsx 조명/배경 연결, public/three/reference-studio/** 및 출처/검증 문서. 기존 AR·조립 모드·카메라 조작·재질 팩토리는 보존.
+- zip 설정은 공개 번들 정적 분석 자료이며 현재 원본의 재질별 활성 조명 preset 실측이 아님. 공통 default preset을 적용하고 정확한 재질별 광원 동치는 미확인으로 기록.
+
+- 추천 초기구성 QA → R11 리더 긴급: 실제 Chrome /furniture/sideboard-terra 에서 ReferenceStudio.tsx:16 `cube.clone is not a function` 발생. useLoader(CubeTextureLoader, [FACES]) 반환 배열을 texture로 취급하는 경로 확인 필요. 현재 공통 3D 검증 BLOCKED. 해당 잠금 파일은 수정하지 않았습니다.
+- 초기구성 추가 잠금: FurnitureLegs.tsx의 catalogue 원본 다리 좌표 소비만 추가. 기존 일반 다리 계획은 유지.
+
+- 추천 초기구성 검증 제출 / codex-assistant: 6개 원본 수치 preset·기존 사진 유지·공통 생성기·저장 식별자·정확한 long-leg 좌표 연결. 초기값/앞판수/이전상태오염/저장복원/로컬가격 7검사 PASS, 범위lint PASS, 격리webpack build23페이지 PASS. Chrome6구성/사진·상품명 경로 확인. 증거 docs/handoffs/assets/codex-qa/catalog-presets/README.md. 임의치수 생성 동치/소품·광원 동치/서버주문·제조는 승인하지 않음. production.ts 별도 switch 연계 요청 유지. R11 cube.clone 오류는 담당 수정 후 해소; 공통 렌더러 shader 오류 이력도 별도 기록. 본인 초기구성 파일 잠금 해제, 다른 담당 변경 보존.
+
+- R10/R11 완료 범위 / 리더: 옷장 실제 판재 접합선 표시, 사용자제공 원본 스튜디오11자산 및 선반·책상·옷장 공통 배경/환경 연결. 원본13자산SHA256 PASS. 155원본구조회귀+분절4검사 PASS, 변경 ESLint0, 전체lint0오류/기존9경고, 최종 격리 production build/TypeScript PASS.
+- 공유Chrome3003 3뷰어 시각 확인·최종 선반/책상탭 오류0·상판분절캡처 저장. 기존 공유서버·타 담당 소스 보존. 원본 재질별 조명분기/PCSS와 현PCF필터의 차이·bias호환보정 명시, 완전동치 주장 안 함. 문서 sources/viewer-background/README.md 및 handoffs/wardrobe-viewer-review/panel-seams.md. R10/R11 소유 잠금 해제.
+- `claude-graphics` (사용자 직접 지시 "브랜드소개 영역 대표 이미지를 첫번째 여인으로 변경", 2026-10-14) → codex-storefront 잠금 파일 `ProductDiscovery.tsx` 최소 수정: 브랜드 카드 이미지를 사용자 제공 사진 `public/imgs/product-discovery/brand-pastel-shelf.jpg`(1447×1087, 원본 Desktop JPEG 복사)로 교체, 얼굴이 잘리지 않게 카드별 `objectPosition`(브랜드 `center 15%`) 추가. 기존 `brand.avif`는 삭제하지 않음. 소재 카드 무변경. /configurator 하단에서 확인, ESLint 0.
+
+### R12 사용자 제공 여성 사진 / 리더 / 2026-10-14
+- 사용자 요청: 가구 옆 실루엣을 제공 PNG 인물로 교체하고 카메라를 바라보게 한다. 원본은 이미 RGBA 투명 PNG임을 확인, 재생성·배경 가공 없이 그대로 로컬 복사한다.
+- 잠금: Background.tsx의 기존 인물 연결만, 신규 StudioPerson.tsx, public/three/reference-studio/person/ivory-linen-woman.png, 본인 검증·출처 문서. 선반·책상·옷장 공통 사용. 바닥 고정·수직축 회전, 제조 치수/카메라/가구 생성기 보존.
+- 별도 옷장 경첩 분리 문제는 조사 중이며 해결 완료로 처리하지 않는다.
+- `claude-graphics` (사용자 직접 지시 "그래픽 퀄리티 완전 최상", 2026-10-14) → 조명·배경·톤매핑 등 보이는 모습은 그대로 두고 렌더 정밀도만 상향: materials.ts 텍스처 이방성 8→16(GPU 최대로 자동 제한), ReferenceStudio 키 라이트 그림자맵 2048→4096 + shadow-radius 4→8(texel 단위라 같은 부드러움, 계단만 감소), Effects MSAA 4→min(8,maxSamples)·GTAO samples 16→32, Scene gl powerPreference 'high-performance', FurnitureScene dpr 1.5→2, Background bg 텍스처 이방성 16. R11 해제 파일/R12 인물부 미수정. ESLint 0오류, /configurator 렌더·콘솔 오류 0, Retina dpr2 캔버스 2468×1464에서 44fps(배터리 상태).
+- R12 완료: 원본 투명 PNG 보존·로컬 연결, 수직축 카메라 추적, 발 기준 바닥 정렬, 가구 깊이 가림 유지. 선반/옷장/책상 Chrome 확인, 변경 lint0/전체lint 오류0 기존8경고, 격리 webpack build/타입 PASS. 증거·제한 사항은 handoffs/wardrobe-viewer-review/studio-person.md. R12 소유 잠금 해제. 별도 경첩 오류는 미완료로 유지.
+
+### R13 상품 뷰어 상단 100px 잘림 / 리더 / 2026-10-14
+- 실제 Chrome 측정: section y112, padding-top48 → viewer y160, scene inset-top52 → canvas y212. 회색100px은 3D 물체가 아닌 레이아웃 공백이며 소품/인물이 캔버스 경계에서 잘림.
+- 좁은 잠금: storefront.module.css의 productConfigurator/productScene/productViewer/productOptions 상단 배치만. 우측 패널 위치와 뷰어 하단 위치를 유지하고 캔버스를 상단까지 확장. 타 담당 카드/갤러리/상품 초기값·3D 형상 미수정.
+- R13 완료: Chrome desktop canvas 시작 y212→112(상단100px 확보), 옵션y160/뷰어하단y876 유지. 모바일390px에서도 section/canvas y80일치, 가로넘침0. 전체lint 오류0/기존8경고, 기존 검증 격리사본+CSS 변경 webpack build/타입 PASS. 증거 handoffs/wardrobe-viewer-review/viewer-top-clipping.md. 좁은 CSS 잠금 해제.
 
 
 ### 캐비넷 스프링 다보·전체 영상 완료 — 왼쪽5 / 2026-10-14
@@ -1606,10 +1686,125 @@
 - 기존백패널7은설명용SpringPin을공유SpringDowel로추출해형상·기본색·동작을보존. OVVO P/R/Tylko5/다리원본기구구분 유지. 다보치수·간격·스프링강성·실물CAD/제조승인미확인,manufacturingApproved=false. 실시간3D전체영상이며MP4파일출력아님.
 - 이번CabinetScene/Panel/Simulator/CSS·cabinet.ts/test·신규cabinetFilm.ts/test·SpringDowel·BackPanelScene추출소비·본인증거잠금해제. 공유3003/.next/.git·다른작업자실행/공통생성/HW/CNC/저장/부모route미수정. Git/운영배포상태는별도기록.
 
+### R14 상품 preset 크기 편집 시 판재 이탈 / 리더 / 2026-10-14
+- 사용자 재현: sideboard-terra Pattern0,148cm,6행,긴다리,표시높이199cm. calculateCatalogPreset는 최초2행 좌표만 비례확대하며 판 두께는 고정해 접합 간격 발생, 추가 행 선반 미생성.
+- 잠금: catalog-presets.ts 유효 입력 판정/확대 제거, useShelfStore.ts 치수·행 편집 시 preset 해제, legacy/actions.ts 행수전환, FurnitureLegs.tsx preset 좌표 사용 조건, configuration.ts 저장/복구 preset 정규화, 신규 scripts/catalog-presets/resize.test.mjs 및 본인문서. 기존6원본fixture·원본 이미지·가격공식은 보존.
+- 입력이 원본과 동일할 때만 원본 preset 사용. 크기/행 편집 시 기존 스타일 일반생성기로 이행. 미관측 임의크기의 Tylko 원본배치 동치는 주장하지 않음. 기존 잘못 저장된 크기도 계산단 방어 적용.
 
-### 캐비넷 그림자·효과음·도어 장착 교정 — 왼쪽5 / 2026-10-14
-- 사용자 직접 지시 수신·소유13소스/검사 및 cabinet-polish 증거만 수정. 기본 PCF grain→VSM 고정블러/4096/DPR2; 실제 체결음4종/음소거; 열린 도어 앞걸림→위·아래 뒤눌림→개폐 확인. 공유 Blum 모델 소비/정밀 래치 CAD 및 기구 치수 미확인/제조승인false 유지.
-- 63검사·변경lint0·전체lint0오류/기존8경고·최종격리production build/TypeScript PASS, 실제8부품 수동/전체영상 완주·25회48kHz AudioDestination 출력·desktop/390px·pause/seek/mute/reset/topic회귀·24투명토글자원안정·console0. SHA15소스일치, 신규증거 docs/handoffs/assets/codex-assembly/cabinet-polish/README.md. 소유잠금해제, Git/운영READY는별도기록. 공통가구/HW/CNC/R15재질조명/공유 .git/.next/3003/타진행소스 미혼입.
+- 왼쪽5 전체영상 Git게시: `2e0e1e54a1f11ad558848a51f898f693ec72f01c`, befun_new/main 정상push·원격동일. 본인10소스/6캡처/검증문서만 추가, 원격43a8ba0이전완료커밋보존, 공유WIP preset/주문/R9소스미혼입. Vercel Gitproduction `dpl_94idkqadXd5H34YLjMiEqdM7tFxa` BUILDING, 운영READY는별도확인. 본인31789검증서버종료·공유3003유지.
+- `claude-graphics` (사용자 지시 "뿌옇다·둘다 별로", 2026-10-14) → R11 원본 스튜디오 조명 대비 보강(공용 ReferenceStudio, 선반·책상·옷장 공통): LightProbe .89→.62, 키 라이트 2.7→3.3, shadow-intensity .4→.75, Effects GTAO blendIntensity .85→1. 톤매핑(No)·배경색 #E4E6E6·큐브맵 무변경. 원본 preset 수치에서 의도적으로 벗어남(되돌리려면 위 4값 복원). /furniture/sideboard-terra 전후 캡처 확인.
+
+### 인물 접지 수정 — codex-assistant / 사용자 직접 지시
+- R12 해제 확인. StudioPerson.tsx만 잠금: 회전하는 사진의 발이 z=0 배경 벽 뒤로 넘어가지 않게 여유 깊이 확보, 바닥 접촉 그림자 추가. 원본 PNG·카메라·가구 생성기는 보존.
+
+- 왼쪽5 전체영상 운영READY: `dpl_94idkqadXd5H34YLjMiEqdM7tFxa`, SHA=`2e0e1e54a1f11ad558848a51f898f693ec72f01c`, Gitproduction·befun-new.vercel.app/befun.co.kr/www.befun.co.kr alias 확인. 새 전체영상 버튼·상판선행 순서·52초 타임라인 운영표시 확인, 전체재생검증진행. CLI업로드/QUEUED상태와구분,타프로젝트빌드취소없음.
+
+- 인물 접지 수정 완료 / codex-assistant: StudioPerson.tsx z벽여유26.11cm·왼발 원본alpha 끝1507/오른발1525 차이를 하단메시2.07cm 보정·두발 접촉데칼 추가. 원본PNG/상체/카메라/가구 미수정. Chrome sideboard-terra 줌·회전 확인/scopedlint PASS. person-grounding/README.md·orbit.png 증거. 본인 StudioPerson 잠금 해제.
+
+R14 구현 조정: `shelf-geometry.ts` 공통 분기까지 리더 수정 범위에 포함. catalogPreset ID는 상품 원본 규격/저장 검증의 출처로 보존하고, 실제 판재/다리 사용 여부는 전체 치수·스타일·밀도·행 배열 일치 검사로 판정합니다. 기존 상품의 36/45cm 깊이 및 29/33cm 행 저장을 깨뜨리지 않도록 ID 삭제 방식은 사용하지 않습니다.
+
+- 왼쪽5 운영최종검증: 위 READY alias에서 새 전체영상 실제연속재생52/52초·8/8완주·완성회전/도어열림·다시전체보기 확인, 브라우저error/warn0. 로컬/운영 캐비넷탭유지. 본인작업/검증/게시완료,타작업자파일·실행보존.
+
+### R15 뿌연 렌더링 회귀 점검 / 리더 / 2026-10-14
+- 사용자: 원본 배경 연결 후 가구 명암·재질감 저하. claude-graphics의 정밀도 상향과 대비 조정 이력을 확인했고, 픽셀 수보다 색출력/환경광 조합을 우선 대조한다.
+- 잠금: ReferenceStudio.tsx 조명/환경 설정, Scene.tsx·FurnitureScene.tsx의 공통 렌더 설정 연결만. 기존 정밀도(2x DPR/MSAA/텍스처 이방성), 원본 배경/인물, 형상은 보존. 다른 그래픽 담당자는 본 설정 동시 수정을 멈추고 인계 문서에 제안만 남길 것.
+- R15 원인 추가: materials.ts solidDisplayColor의 기존 gain1.25/lift.038이 새 원본 조명에 중복 적용. materials.ts는 기존 graphics 소유를 존중해 미수정. 리더 소유 Shelf.tsx와 FurnitureScene.tsx 기준색 소비부에서 신규 reference-materials.ts를 통해 실측 base/edge albedo를 복원한다. roughness·microtexture·해상도는 보존. 이번 보정은 Reference 색상에 한정하며 기존 알 수 없는 legacy 팔레트는 변경하지 않는다.
+
+### 캐비넷 그림자·체결 효과음·도어 장착 교정 — 왼쪽5 / 사용자 직접 지시 수신
+- 기존 작업자/실행 유지. 거친 움직이는 그림자 재현, 체결 순간 실제 효과음, 닫힌 판재를 밀어 붙이던 도어를 열린 상태의 CLIP 앞걸림→뒤 눌림→잠금 확인 순서로 교정한다. Blum 공식 근거와 설명용 모델 한계를 기록한다.
+- 단독 잠금: src/components/assembly-guide/{CabinetScene.tsx,CabinetPanel.tsx,CabinetSimulator.tsx,cabinet.module.css}, src/lib/assembly-guide/{cabinet.ts,cabinet.test.mjs,cabinetFilm.ts,cabinetFilm.test.mjs}; 신규 src/components/assembly-guide/CabinetHinge.tsx, src/lib/assembly-guide/{cabinetDoor.ts,cabinetDoor.test.mjs,cabinetSound.ts,cabinetSound.test.mjs,cabinetRender.ts,cabinetRender.test.mjs}.
+- 신규 증거 전용: docs/handoffs/assets/codex-assembly/cabinet-polish/** (README.md,verification.json,source-fingerprint.json,shadow-before.jpg,shadow-after.jpg,door-hook.jpg,door-top-clip.jpg,door-bottom-clip.jpg,door-check.jpg,mobile.jpg,sound-preview.wav). docs/assembly-guide.md 및 기존 본인 배포 인계 append. 공유 재질/BlumHardware/ReferenceStudio/Scene/FurnitureScene/CNC/생성기/상태/부모route 미수정; R15 잠금 존중.
+- 공유 .git/.next/3003 보존. 본인 독립 게시 사본에서 lint/build/commit/push/운영 READY를 구분해 검증한다. 이동/해제 거리·클립 내부 형상은 제조 확정치로 기록하지 않는다.
+- 중간 확인: Blum MD-029/3 11.24 p.6의 앞 걸림→뒤 눌림 도식 및 실제 CLIP 사진 대조. 기본 r182 PCF의 픽셀별 5샘플 회전이 노이즈 요인; 본인 Canvas만 VSM 고정 블러/4096/DPR2로 교정. 63검사·범위lint0·격리전체lint0오류8기존경고·production build/TypeScript PASS. 실제58.2초8/8, 25회 AudioBufferSource→stereo AudioDestination/48kHz running 및 노드 종료 확인. 음소거·탐색 count 유지,390px overflow0. 경첩 모델은 공유 설명용 형상이며 래치 CAD/정밀 다관절 운동은 여전히 미확인.
+- 구현 최종검증 완료/잠금 해제: 15개 본인 소스·검사 SHA가 공유/게시/기록과 일치. 최종재build PASS. 실제 직접8부품완주, R4/P7·Tylko5·백7·다리원본5 전환,24투명토글 뒤geometry143/texture16/program14 안정·console0. 신규 도어의 열린 장착 위치 안내도 교정했다. cabinet-polish/README.md·verification.json·전후/클립/모바일 캡처 제출. 공통 가구/HW/재질/R15 설정·공유서버/진행중소스 보존. Git/운영 배포는 별도 후속 기록.
+
+- 인물 높이 후속 조정 / codex-assistant: 사용자 지시로 StudioPerson.tsx 사진 높이만 추가 하향. 발뒤꿈치 기준을 가구 뒤 하단에 가깝게 맞춤. 바닥 그림자·카메라·R15 조명은 보존. 파일 잠금.
+
+- 인물 후속 높이: 사진 메시 추가2cm 하향, 바닥 데칼 위치 유지. StudioPerson scopedlint PASS. 잠금 해제.
+
+- 인물 높이 사용자 후속 조정 / codex-assistant: 현재보다 추가3cm 하향(HEEL_DROP_CM 2→5cm). StudioPerson.tsx 해당 상수만 수정, 접촉 그림자·기타 변경 보존.
+- `claude-graphics` (사용자 지적 "프레임 엄청 버벅여", 2026-10-14) → 무거운 품질 상향 되돌림: 그림자맵 4096→2048·radius 8→4, MSAA 8→4, GTAO samples 32→16, FurnitureScene dpr 2→1.5. 추가로 Scene(컨피규레이터) dpr 상한 2→1.5(GTAO 포함 픽셀 수 0.56배). 유지: 텍스처 이방성 16, 바닥 텍스처 이방성, powerPreference, 조명 대비 보강(probe .62/키 3.3/그림자 .75/AO 1). /configurator Retina 측정 40fps→57fps(최악 프레임 50→38ms).
+
+### 사용자 영상 아바타 교체 — codex-assistant
+- 잠금: StudioPerson.tsx, 신규 StudioPersonMotion.tsx, scripts/studio-person-video/**, person/ivory-linen-motion-packed.mp4. 로컬 원본 컷편집.mp4 배경 분리·무음반복·기존 위치/175cm/5cm 하향 기준 유지. 타 담당 조명/카메라 보존.
+- `claude-graphics` (사용자 지시 "카메라 줌아웃을 마우스포인터 기준으로", 2026-10-14) → OrbitControls `zoomToCursor` 추가: 선반 `display/ViewCamera.tsx`, 책상·옷장·사이드보드 `furniture/FurnitureScene.tsx`. 조립가이드 뷰어들은 미변경. /configurator 휠 줌인/아웃 시 포인터 아래 지점 고정 확인, ESLint 0오류.
+
+- 영상 아바타 완료 / codex-assistant: 로컬 컷편집.mp4 441프레임 배경분리→RGB/alpha 동기화 H2641.3MB, 기존175cm·위치·5cm하향·카메라 추적 유지. 무음반복·탭숨김일시정지·정지사진fallback·리소스정리. Chrome sideboard-terra 실제 움직이는 인물/회색배경없음/consoleerror0 확인. scopedeslint/전체tsc PASS. 증거 person-video/{README.md,playing-a.png,playing-b.png,fingerprints.json}. 원본영상/PNG/다른담당소스 보존. 본인 잠금 해제. 확대선명도는448×672 원본 한계.
+
+### R14/R15 검증 제출 / 리더 / 2026-10-14 17:58 KST
+- R14: 원본과 전체 구조 입력이 일치할 때만 captured preset 사용. 변경 시 공통 생성기로 전환; ID는 출처로 보존. 판재/다리 affine 확대 제거. 148×199×40,6행/7수평높이 접합 및 6상품 저장·복원/값복귀 검증.
+- R15: 기준색 gain1.25/lift.038 중복 제거, microtexture/roughness 보존. scene.environmentIntensity .4 + NeutralToneMapping/노출1 + shadow-intensity .4. 가로판에만 흰 반사가 과하게 얹히는 현상 감소. material.envMapIntensity 변경만으로 해결되지 않는 Three r182 경로 확인.
+- claude-graphics 성능 조정(2048/radius4/DPR1.5/MSAA4/GTAO16)은 보존. 원본 대비 차이와 제조/전체 시각동치 미확인을 문서에 명시.
+- 총17검사PASS, 수정범위eslint0/0, 최종전체lint0오류/기존8경고, 최종격리production build/TypeScript PASS. Chrome 선반·책상·옷장 렌더/오류0, before/after 및 원목 증거 저장.
+- 인계: docs/handoffs/wardrobe-viewer-review/panel-resize-and-rendering.md 및 cases/panel-resize-001.json. R14/R15 해당 좁은 잠금 해제. 옷장 경첩/PCF-PCSS 차이/책상 인물 잘림은 완료 처리하지 않음. 운영배포 수행 안 함.
+
+- 영상 인물 위치 후속 / codex-assistant: 사용자 요청으로 StudioPerson의 가구 측면 간격66→56cm, 오른쪽으로10cm 이동. 영상·사진·접촉 그림자 공통 부모 위치만 변경, 높이/크기/재생 보존.
+
+### R16 캐비넷 조절발 / 리더 / 2026-10-14
+- 사용자 wall-green 바닥뷰: 캐비넷당 네 모서리4개, 중간 추가발 제거 요청. 일반 선반의 60cm 간격 보강 규칙이 캡처된 캐비넷 바닥에도 적용된 원인을 확인.
+- 좁은 잠금: reference-feet.ts 캐비넷 분기 추가, LevelingFeet.tsx 원본 캐비넷 판정 소비, 신규 scripts/catalog-presets/cabinet-feet.test.mjs 및 본인 증거/문서. 일반 선반/조립가이드/장다리 규칙은 보존.
+
+- R16 완료 / 리더: reference-feet.ts calculateCabinetFeet + LevelingFeet의 matching watty 분기. wall-green3통14→12, bookcase-plum2통8개. 각 바닥판4개/중복없음/소속검사 및 기존회귀20PASS. 바닥 접점 유지·바닥판 하단까지 발 높이 연결. 원본 캐비넷만 적용, 변경 규격은 기존 일반 생성/받침 경로 유지.
+- Chrome3003 wall-green 바닥뷰12개 확인·error0, cabinet-feet-001-befun-bottom.png/cases/cabinet-feet-001.json 기록. scopedlint0/0, 전체lint0오류/기존8경고, 격리build/TypeScript PASS. 본인2소스/신규검사 잠금해제, 공유3003/타작업자 변경 보존. 정확한 제조 setback 미확인.
+- `claude-graphics` (사용자 직접 지시 "썸네일 클릭하면 바로 다음으로, 다음 버튼 없애", 2026-10-14) → `ConfiguratorIntro.tsx` 1단계: 분류 썸네일 클릭 시 즉시 2단계(모델 선택)로 이동(구성 상품 없는 분류는 기존과 같이 컬렉션 목록 이동), 1단계 "다음" 버튼 제거, "돌아가기" 유지. 2단계 이전/커스터마이즈 무변경. Chrome에서 책상 클릭→2단계 확인, ESLint 0.
+- `claude-graphics` (사용자 직접 지시 "2단계 우측에 대표사진", 2026-10-14) → `ConfiguratorIntro.tsx` 2단계: 우측 이미지를 원격 Tylko URL+사이드보드 대체사진에서 각 분류 R6 원본 상품의 공간 연출 사진(`categoryStudios`, manifest studio, `/imgs/product-cards/`)으로 교체(cover). 모델 카드도 사이드보드 대체사진 대신 해당 분류 썸네일. ReferenceImage import 제거. Chrome 책상 2단계 확인, ESLint 0.
+
+
+- 왼쪽5 캐비넷 그래픽/체결음/도어 Git반영: `379f85c8fd5e894cbe8c115d9aff4d18c223e0fe`, https://github.com/leejinsoo1979/befun_new.git main 정상push/ls-remote동일. 원격 a4b3c94(로고/브랜드/줌)·3a58de2(스튜디오 인물영상) 완료커밋을 정상rebase로 보존,force없음. 최신통합production build/TypeScript PASS·63검사·lint0오류8기존경고·15본인소스SHA일치. 본인13소스/검사·전후/클립/음원검토/모바일증거·인계26파일만 추가; 리더R14/R15 진행중생성기/재질/조명 및 기타shared dirty는미혼입. Vercel Gitproduction `dpl_6su4FWSeX3i6MQbfjFMYu1DNQMao` BUILDING, READY는별도확인; CLI업로드아님/타프로젝트취소없음.
+
+- 영상 다리 깜빡임 / codex-assistant: packed alpha 프레임에서 바지 내부 투명도 변동 확인. 잠금 scripts/studio-person-video/** 및 ivory-linen-motion-packed.mp4. 내부 마스크 보강, 외곽 경계/위치/조명 보존.
+
+- 영상 다리 alpha 보정 완료 / codex-assistant: 441프레임 처리, 바지 내부 mask dropout 제거/외곽 2px feather 보존. 캐시 키 갱신. 1초간격 전후 contact sheet 확인; 브라우저 실재생 후속 확인 필요. 본인 잠금 해제.
+- `claude-graphics` (사용자 직접 지시 "썸네일 하단에 틸코처럼 가구 색상 아이콘, 그에 따라 썸네일 색상도 변경", 2026-10-14) → 신규 `src/components/storefront/introVariants.ts`(생성 데이터): 13개 분류별로 같은 R6 manifest 분류의 원본 상품에서 색 이름(독일어 상품명 'in <색>' → names.ts COLOURS 한국어)마다 1개씩 최대 6개, 첫 항목은 기존 대표 썸네일. 무지배경 상품컷만 채택. 스와치 색은 같은 색 이름 상품컷 전체의 실측(가장 밝은 주요 면) 중앙값. `ConfiguratorIntro.tsx`: 카드 하단 스와치 → 썸네일 교체, 2단계 모델 카드·우측 공간 사진도 선택 색 변형 사용. CSS `.introCard/.introSwatches` 추가(storefront.module.css). 커스터마이즈 진입 색은 기존 상품 초기값 그대로(미연결). Chrome 책상 옐로/책장 확인, ESLint 0.
+
+- 왼쪽5 캐비넷 개선 운영READY: `dpl_6su4FWSeX3i6MQbfjFMYu1DNQMao`, source=Git/production, SHA=`379f85c8fd5e894cbe8c115d9aff4d18c223e0fe`, aliases befun-new.vercel.app/befun.co.kr/www.befun.co.kr. 운영 캐비넷의 부드러운 그림자·58초 전체영상·효과음 버튼 표시 확인, 실제연속재생검증진행. CLI업로드/QUEUED/다른프로젝트취소와구분.
+- `claude-graphics` (사용자 직접 지시 "뷰어 좌측 상단에 제목 넣지 마라", 2026-10-14) → `app/configurator/page.tsx` GUI 패널 상단 `<h2>다용도 수납장 기본형</h2>` 제거(레이아웃상 뷰어 좌측 상단에 표시되던 것). 가격 표시 무변경. 재추가 금지.
+
+- 헤더 축소 / codex-assistant: 사용자 직접 요청. storefront.module.css의 내부 페이지 데스크톱 헤더 여백/메뉴 높이만 잠금. 모바일 및 타 담당 편집 보존.
+
+- 왼쪽5 캐비넷 개선 운영최종검증 완료: 위 READY alias에서 실제58/58초·8/8 연속완주, 판재/커넥터/스프링/위·아래경첩 효과음25회·AudioContext running 확인. 위경첩 macro/뒤눌림 표식 실제확인, 완료 후 탐색해도 count25 유지. 운영console error/warn0. 로컬/운영완성화면·기본1× 유지, 본인31789임시서버종료·공유3003보존. 최종인계 cabinet-polish/README.md·verification.json, 소유잠금해제/이번구현·게시완료. 정밀래치CAD/실측기구·제조승인false 한계는보존.
+
+- 헤더 축소 완료 / codex-assistant: 데스크톱 내부 페이지112→80px, 메뉴64→56px, 여백24→12px. 모바일 유지, diff check PASS, 잠금 해제.
+- 아바타 바닥 그림자 / codex-assistant: StudioPersonMotion.tsx 잠금. 영상 alpha를 공유한 부드러운 바닥 투영 추가, 별도 영상 디코더 없음.
+- 아바타 바닥 그림자 구현/Chrome 확인: sideboard-terra에서 움직이는 발과 바닥 윤곽 그림자 표시 확인. 동일 VideoTexture alpha를 흐리게 투영(별도 디코더 없음), 먼 부분 감쇠. 광원 계산 기반 3D cast shadow가 아닌 영상 투영 방식. scoped ESLint PASS. 헤더80px 표시 확인. 본인 잠금 해제.
+- `claude-graphics` (사용자 직접 지시 "책상·옷장 뷰어 위 제목 넣지 마라", 2026-10-14) → 리더 소유 `components/furniture/FurnitureConfigurator.tsx`의 뷰어 위 heading(가구 선택 링크·가구명 h1·치수 p) 제거, 미사용 import(Link, FAMILY_NAMES) 정리. /furniture-design/desk-classic·wardrobe-edge 확인, ESLint 0. 하단 상세 섹션 제목은 유지. 재추가 금지.
+
+### 캐비넷 무광 판재·체결음 재교정 — 왼쪽5 / 사용자 직접 지시 수신
+- 판재 반짝임과 장난감 같은 합성 클릭음 지적 수신. 본인 안내 라미네이트 반사만 줄이고, 기존 톤 합성음을 짧은 목재/플라스틱/금속 접촉 샘플로 교체한다. 체결 시점/도어/후면 다보/기존 안내는 보존.
+- 단독 잠금: src/lib/assembly-guide/panelMaterials.ts, cabinetSound.ts, cabinetSound.test.mjs; 필요 시 CabinetSimulator.tsx의 효과음 출처 링크·안내만. 신규 자산 public/assembly-guide/audio/{wood-seat.wav,connector-seat.wav,spring-lock.wav,hinge-lock.wav,SOURCES.md}; 신규 증거 docs/handoffs/assets/codex-assembly/cabinet-matte-foley/{README.md,verification.json,source-fingerprint.json,matte-before.jpg,matte-after.jpg,matte-open.jpg,mobile.jpg,foley-preview.wav}. 본인 docs/assembly-guide.md 및 PUBLISH.md append.
+- 샘플 원본은 /private/tmp에서 확인·편집 후 위4파일만 추가. 공유 materials.ts/R15 조명·HW/CNC/생성기·공유 .git/.next/3003 및 타 작업자 실행 미수정. 오디오 원본 출처/편집/라이선스와 실제 OVVO 실측 녹음 아님을 인계에 기록. 독립 게시 사본에서 검증/커밋/운영 확인.
+
+- 아바타 그림자 품질 / codex-assistant: 사용자 지적에 따라 바닥 영상 투영 제거, packed alpha customDepthMaterial로 기존 주광원 실제 shadow map에 인물 반영. StudioPersonMotion 및 ReferenceStudio shadow-camera-left만 잠금/수정. 인물 영역까지 그림자 범위 확장, 다른 조명 수치 보존.
+- 아바타 그림자 교체 완료: 영상 바닥 투영 삭제, 실루엣 customDepthMaterial + castShadow 적용. 주광원 좌측130cm 확장/상단 최소235cm로 낮은 가구에서도 전신 포함. 실제 Chrome bookcase-brown에서 인물 뒤 벽/발밑으로 이어지는 그림자와 가구 동일 방향 확인. scoped ESLint 및 전체 tsc PASS. 인물은 영상 평면이므로 실제 입체 인체 그림자와는 차이 있음. 본인 잠금 해제.
+
+- 발끝 바닥 관통 수정 / codex-assistant: 사용자 스크린샷 확인. StudioPerson.tsx 높이 상수만 잠금, 기존5cm 하향을 해제하여 영상 하단을 바닥0에 정렬.
+- 발끝 관통 수정 완료: HEEL_DROP_CM 5→0, 인물만5cm 상승/접촉그림자 유지. scoped ESLint PASS. 로컬 반영, 사용자 캡처의 befun.co.kr 운영 반영은 아직 하지 않음. 잠금 해제.
+
+### 📮 claude-graphics → 리더 (R11/R12 스튜디오 게시 요청) / 2026-10-14
+리더님, 사용자 요청으로 편지 드립니다.
+
+1. **현황**: 사용자가 현재 로컬(3003) 화면을 "훌륭하다"고 승인했습니다. 그런데 그 모습의 핵심인 R11 원본 스튜디오(`ReferenceStudio.tsx`, `Background.tsx`·`Scene.tsx`·`FurnitureScene.tsx` 조명/배경 연결, `public/three/reference-studio/**` 큐브맵·bg.glb·텍스처)가 **아직 GitHub main에 없습니다**. origin/main(`ffad652`)의 `Scene.tsx`는 예전 Lightformer+NeutralToneMapping, `ReferenceStudio.tsx` 미존재. main 푸시가 Vercel 운영(befun.co.kr)으로 배포되므로 운영도 예전 조명입니다.
+2. **비교 캡처**: `docs/handoffs/assets/claude-graphics-github-vs-local/index.html` (선반·사이드보드·옷장, 왼쪽 GitHub / 오른쪽 로컬). GitHub판 옷장은 바닥/벽 경계가 사선으로 거칠게 보입니다. 사이드보드는 codex-assistant 초기구성(패턴·40cm·긴다리·뒷판)도 미게시라 구성 자체가 다릅니다.
+3. **R11 위에 얹힌 제 변경(미게시, 사용자 승인)** — 스튜디오 게시 시 함께 포함 부탁드립니다. 따로 올리면 R11 없이 깨집니다.
+   - `ReferenceStudio.tsx`: LightProbe .89→.62, 키 라이트 2.7→3.3, **shadow-intensity .4→.75**
+   - `Effects.tsx`: GTAO blendIntensity .85→1
+   - `Scene.tsx`: dpr [1,2]→[1,1.5](Retina 40→57fps), gl powerPreference 'high-performance'
+   - `Background.tsx`: bg 텍스처 anisotropy 16
+4. **그림자 복구 알림**: 아바타 그림자 작업 때 `ReferenceStudio.tsx`의 shadow-intensity가 .4로 되돌아가 있어서, 사용자가 승인한 **.75로 다시 복구**했습니다(사용자 지시 "알아서 판단"). 같이 들어온 shadow-camera 범위 확장(left −130, top ≥235)과 `scene.environmentIntensity = 0.4`는 그대로 두었습니다. 다른 의도가 있으면 알려 주세요.
+5. **제안**: 리더님이 R11/R12 + 위 3번을 한 커밋으로 묶어 격리 빌드 확인 후 게시해 주시거나, 위임해 주시면 제가 격리 worktree에서 빌드 PASS 확인 후 게시하겠습니다. 공유 3003/.next는 건드리지 않습니다.
+6. 참고: 비교용으로 origin/main 사본을 webpack dev **3010** 포트에 띄워 두었습니다(제 소유, 끝나면 종료).
+
+— 왼쪽1 Claude 하드웨어·그래픽 (claude-graphics)
+- `claude-graphics` (사용자 직접 지시 "지금 헤더 너무 커", 2026-10-14) → storefront.module.css 내부 페이지 데스크톱 헤더 재축소(codex-assistant 80px 축소 이후): 상단 여백 12→8px, 메뉴 높이 56→44px, 본문 시작 80→60px, 메뉴 글자 16→14px, 아이콘 버튼 38→32px(svg 18px), 로고 0.85배, megaMenu top 68→52px. 홈(히어로) 헤더·모바일(≤950px) 무변경. /configurator Chrome 확인.
+
+
+### 운영 로그인·결제 설정 / 리더 / 2026-10-14
+- 사용자 직접 승인: Google 웹 OAuth, Kakao/Naver 운영 콜백, Vercel Production 토스 테스트 키, 재배포 및 검증. 로컬 공유 소스/미게시 그래픽 변경은 배포에 혼입하지 않음.
+- Google 웹 클라이언트 입력 완료, 신규 자격증명 생성 실행 직전 확인 대기. 기존 Desktop 클라이언트는 보존.
+- Vercel befun-new Production에 TOSS_SECRET_KEY(Secret), NEXT_PUBLIC_TOSS_CLIENT_KEY(Config) 로컬 테스트 키 저장 확인. 아직 새 배포에는 미적용. 비밀값 기록 금지.
+- 환경 설정 작업만 진행, 다른 담당자 소스 잠금 없음. 결과 문서 docs/handoffs/production-auth-payment.md 소유.
+- `claude-graphics` (사용자 지시 "커밋푸시 — 리더 바쁘니 알아서 판단", 2026-10-14) → **R11/R12 스튜디오 묶음 게시 `e1e85bc`** (origin/main 위 격리 worktree, `next build --webpack` PASS, `next start`로 /configurator·wardrobe-edge 확인). 포함: ReferenceStudio.tsx(신규), Background/Scene/Effects/FurnitureScene/StudioPerson/StudioPersonMotion 로컬본 그대로, reference-materials.ts(신규), Shelf.tsx는 applyReferenceAlbedo 2줄만, public/three/reference-studio/{env,geometry,texture}+person mp4, ViewCamera(초기화 시점 인물 포함), 헤더 축소 CSS 블록. **미포함**(타 담당 미게시): catalog-presets/shelf-geometry/Shelf 나머지, reference-colors 2색, DimensionOverlay, FurnitureLegs, reference-feet/hardware, grid.ts 등 — 사이드보드 초기구성은 아직 운영에 없음. 비교용 3010/검증 3017 서버 종료, worktree 정리.
+- `claude-graphics` (사용자 지시 "스페이스 초기화 시점 조금 뒤로, 여자 보이게", 2026-10-14) → `display/ViewCamera.tsx`: realistic 정면/기본 시점(분해 제외)은 가구 폭+2×96cm, 높이 ≥185cm로 프레이밍(가구 중앙 유지) → 인물 전신 포함. 위 커밋에 포함.
 
 
 ### 캐비넷 무광 판재·샘플 체결음 완료 — 왼쪽5 / 2026-10-14
@@ -1617,20 +1812,546 @@
 - 64검사·범위lint0·전체lint0오류8기존경고·최종격리build/TypeScript PASS. 실제58/58초8부품/21회 출력·탐색/mute count 유지·390px overflow0·console0·120fps 관찰. 늦은load/unmount 음원 및gain node 정리 검사 포함. cabinet-matte-foley/README.md·검증/전후·모바일·음원검토파일 제출. 공유 materials.ts/R15/HW/CNC/생성기/.git/.next/3003/타실행 보존, 소유잠금해제. Git/운영READY는별도기록.
 
 
+- 왼쪽5 무광/샘플체결음 Git반영: `f8649cafb0f666ff118ecc93b12bdb6c6dbba71a`, befun_new/main push/ls-remote동일. 원격 ffad652·e1e85bc 완료 변경 보존/정상rebase, force없음. 본인4소스+5음원/출처 및 검증/캡처19파일만 추가. 64검사·최종통합build/TypeScript PASS·전체lint0오류8기존경고·9소스/음원SHA차이0. Vercel Gitproduction `dpl_4Tqte7jARbmadzXXZcrWc5w3LPUN` BUILDING, 운영READY 별도확인. 진행중공유CNC/모델/상태/재질/조명 미혼입, 타프로젝트빌드취소없음.
+- 운영 콜백 재현 추가: Kakao 토큰 교환 성공 후 Prisma linkAccount에서 refresh_token_expires_in 미지원으로 실패. 좁은 잠금 src/lib/auth.ts adapter 생성/안전 오류 로깅, 신규 src/lib/auth-account.ts 및 scripts/auth-account.test.mjs. DB 스키마 변경 없이 저장 필드를 Account 모델에 맞춰 제한.
+
+- 왼쪽5 무광/샘플체결음 운영READY: `dpl_4Tqte7jARbmadzXXZcrWc5w3LPUN`, source=Git/production, SHA=`f8649cafb0f666ff118ecc93b12bdb6c6dbba71a`, aliases befun-new.vercel.app/befun.co.kr/www.befun.co.kr. 운영에서 무광 판재·새음원21회 전체재생 확인 진행. CLI업로드/QUEUED와 구분, 타프로젝트 취소 없음.
+
+- 남성 영상/아바타 선택 / codex-assistant: 사용자 직접 제공 generated_video (1).mp4 로컬 배경분리. 잠금 StudioPerson.tsx, StudioPersonMotion.tsx, display/ViewToolbar.tsx, FurnitureViewToolbar.tsx 및 신규 avatarStore/AvatarSelector/남성 자산. 공유 가구 설계 상태와 분리한 보기 설정으로 연결, 다른 담당자 변경 보존.
+
+- 왼쪽5 무광/샘플체결음 운영최종검증 완료: 위 READY alias에서 무광 판재 실제화면·전체58/58초8부품/21회 샘플체결음·running 확인, console error/warn0. 기본1×/효과음켜짐/viewport 복원, 로컬·운영탭 유지. 공유서버/타실행 보존. 최종인계 cabinet-matte-foley/README.md·verification.json. 구현/게시완료·소유잠금해제. 제조/실측기구/실제OVVO녹음으로 주장하지 않음.
+
+- 남성 영상/선택 완료 검증 중: 361프레임 RGB/alpha H264·무음·정지사진, 선반/가구 보기 공통 여자·남자 선택 및 독립 localStorage 설정. 사용자 공중부양 피드백 반영: clip최대598px 대신 매프레임 sole588–598px를 렌더루프에서 기준점으로 적용, 첫프레임 약2.4cm 하향. 기존 여성 위치 보존. scoped ESLint PASS.
+- 남성 아바타 최종 검증 완료/잠금 해제: Chrome bookcase-brown에서 남자↔여자 영상/그림자 전환, 새로고침 뒤 남자 선택 유지, wardrobe-edge 정면에서도 남자 표시 확인. console error0, 수정범위 ESLint PASS, 최종 전체 tsc PASS (초기 auth.ts 타담당 작업중 오류는 최종 실행에서 해소). 361프레임 sole 좌표 정렬 수치검증PASS. 옷장 입체 기본각은 기존 벽 가림에 따라 인물이 가려질 수 있음; 정면 표시 확인. 로컬 적용, 커밋/운영 배포는 수행하지 않음.
+
+- 남성 높이 사용자 후속 요청 / codex-assistant: 영상 매프레임 sole 기준과 정지사진 위치에 -5cm 적용. 여성/크기/접촉 그림자 유지. 두 인물 컴포넌트 수정 완료, 잠금 해제.
+
+- 여성 키 사용자 요청 / codex-assistant: 여성 영상/정지사진 비례를175→165cm로 축소, 발 기준 높이 및 공통 부모 위치 보존. 남성180cm/추가5cm 하향 보존. StudioPerson/Motion 수정, 잠금 해제.
+
+- 남성 키 사용자 지정 / codex-assistant: 남성 영상/정지사진/발 접촉 위치 비례180→185cm. 프레임별 sole 정렬과 추가5cm 하향 유지, 여성165cm 보존. StudioPerson/Motion 수정 완료, 잠금 해제.
+
+- 남성 실제 표시키 교정 / codex-assistant: 첫 중립프레임 head5/sole590 실측. 영상 전체598px 분모+5cm하향으로 머리높이가약176cm였음. (185+5)/(590-5) 공통 scale로 변경하여 발위치 -5cm 유지/중립머리185cm. 영상·fallback·접촉그림자 비례 공유, 여성 보존.
+
+- 운영 로그인·결제 후속: d21a7e5 운영 배포 Ready. 네이버/카카오 실제 로그인 성공, 토스 테스트 위젯 표시 성공. Google 웹 클라이언트 생성과 토스 약관 동의는 실행 직전 사용자 확인 대기. 상세 상태: docs/handoffs/production-auth-payment.md. 인증 코드 파일 잠금 해제.
+
+- 남성 표시키 미세조정 / codex-assistant: 사용자 요청으로 기준 자세 머리높이185→183cm, 공통 avatarScale만 수정. 발 -5cm 위치 및 여성165cm 보존.
+
+- 여성 표시키 미세조정 / codex-assistant: 사용자 요청으로 여성 영상/정지사진165→167cm, 발 기준 높이와 공통 부모 위치 유지. 남성183cm 설정 보존.
+
+- 여성 벽 간격 조정 / codex-assistant: 사용자 지적에 따라 여성 부모 Z를10cm 앞으로 이동. 여성 영상/정지사진/접촉그림자 함께 이동, 높이167cm 및 남성 위치 보존.
+
+- 헤더 추가 축소 / codex-assistant: 사용자 재요청. 기존 Claude 축소본 유지하며 내부 데스크톱60→48px, 상하8→4px, 메뉴44→40px. 글자/로고 크기 및 모바일 유지. CSS 해당4규칙만 수정.
+
+- 헤더 의미 정정 / codex-assistant: 사용자 요청은 검은 네비게이션이 아닌 흰색 헤더 여백. 직전 메뉴40px 변경을44px로 복원하고 위아래4px로 흰 헤더 총52px 적용(기존60px). 모바일 규칙 유지. CSS 확인 완료, 잠금 해제.
+
+
+### 백패널 가구 관통 경로 수정 수신 — 왼쪽5 / 2026-10-14
+- 기존 세션/앱 작업 유지. 사용자 직접 지적: 백패널 체결 때 본체를 통과함. 본인 기존 캐비넷/백패널 동작 재현 후 뒤쪽 외부 접근, 하단 다보 정렬/상단 눌림/세움/잠금 경로의 몸통 간섭을 수정·검사한다. 후면 보강 패널 동일 점검.
+- 소유잠금: src/lib/assembly-guide/cabinet.ts, cabinetFilm.ts, cabinet.test.mjs, cabinetFilm.test.mjs, backPanel.ts, 신규 src/lib/assembly-guide/cabinetRear.test.mjs; 필요 시 src/components/assembly-guide/CabinetScene.tsx, BackPanelScene.tsx. 문서 docs/assembly-guide.md, 본인 신규 docs/handoffs/assets/codex-assembly/cabinet-rear-clearance/**, PUBLISH.md 본인 게시상태 append.
+- 공통 모델/HW/CNC/재질/상태/공유.git/.next/3003 및 타 작업 보존. 공유 .git 읽기 전용, 기존 독립 게시사본에서 본인 수정만 build/Git 반영. 무광·샘플 체결음 커밋 f8649ca 원격 main 포함 확인(exit0); 이번 경로 수정 별도 진행.
+
+
+### 사람 그림자 크기 조정 — codex-storefront / 2026-10-14 착수
+- 사용자 직접 요청: 사람 그림자를 더 크게. 인물 실제 표시키·발 위치·가구/주광원은 보존하고 인물 영상의 shadow pass에서만 발 기준으로 폭/높이20% 확대.
+- 좁은 잠금: StudioPersonMotion.tsx shadow material shader/발 기준 uniform만. 기존 남녀 영상/sole 정렬/아바타 선택 미게시 변경 보존. 본인 신규 docs/handoffs/person-shadow-size.md. ReferenceStudio/StudioPerson 및 타잠금영역 미수정.
+- 잠금 경로 추가: src/components/assembly-guide/CabinetPanel.tsx, src/lib/assembly-guide/backPanel.test.mjs. 원본 높이가 개구부와 정확히 같아 유한 두께 판재의 마지막 회전에 최대0.33mm 간섭이 생김. 안내 전용 상단0.6mm 회전 여유를 명시하고 소유 렌더에서만 적용; 공통 원본 치수/CNC/제조 출력은 보존, 실물 공차는 미확인.
+
+- 사람 그림자 크기 조정 완료 / codex-storefront: 기존 영상 shadow pass만 바닥기준 폭/높이1.2배. 사람키·발정렬·가구광원미변경. Chrome3003 책장 남녀영상/벽그림자확대/오류0, scoped lint0·전체lint0오류8기존경고·통합src격리webpack build/TypeScript23페이지PASS. StudioPersonMotion 그림자영역 잠금해제, 기존타담당미게시남성/키/영상변경보존. docs/handoffs/person-shadow-size.md 인계. 이번변경로컬적용,운영게시미수행.
+
+- 사람 그림자 미세축소 착수 / codex-storefront: 사용자 후속 요청으로 StudioPersonMotion.tsx의 shadow scale/cache key만 잠금. 1.20→1.15, 인물키/발 기준/기존변경 보존.
+
+- 사람 그림자 미세축소 완료 / codex-storefront: 1.20→1.15, 직전대비약4.2% 축소. Chrome3003 시각확인/error0, scoped lint0·격리build/TypeScriptPASS. 이번shadow scale/cache key 잠금해제. 로컬적용·운영게시미수행.
+
+### EUR 기준 가격·소파 컨피규레이터 / 리더 / 2026-10-14 착수
+- 사용자 직접 지시. 실제 Tylko EUR 기준 견적·통화환산 계약 및 소파 편집/저장/공유/카탈로그 진입 구현. 공개 원본 가격/옵션 관찰, 실계수 미확보 금액은 발명하지 않음.
+- 잠금: 신규 src/lib/sofa/**, src/components/sofa/**, src/app/(storefront)/sofa-configurator/**, 신규 src/lib/commerce/eur-quote.ts 및 reference-sofa-pricing.ts, scripts/sofa/**. 기존 quote.ts/useMoney.ts는 기존 KRW 주문 호환 보존하며 EUR 함수 추가. 카탈로그/ConfiguratorIntro는 소파 진입 링크만 좁게 수정. 다른 하드웨어/인물/조명/조립/로그인 작업 보존.
+
+- 사람보다 조금 작은 그림자 조정 착수 / codex-storefront: 사용자 후속 요청. StudioPersonMotion.tsx shadow scale/cache key만 잠금, 1.15→1.10, 인물/가구광원 보존.
+
+
 ### 백패널 관통 경로 수정 — 왼쪽5 / 2026-10-14
 - 앞쪽에서 상판을 통과하던 carry 재현·뒤쪽 floor 배치→들어올림/기울임/낮춤→외부 접근→하단 삽입→상단 눌림/세움/복귀로 교정. 보강 패널과 단독 백패널7 동일 적용. 후면 카메라/absolute seek 유지.
 - finite-thickness 마지막 회전에서 원본 zero-clearance가 간섭하므로 설명용 상단0.6mm만 소유 렌더에 적용. 제조사 공차가 아니며 원본 box/CNC/생성기/타공/HW 보존, 제조승인false 유지.
 - 69검사·OBB SAT rear2×4phase×1001/guide7×1001·이전 관통 negative control·하단핀 홀내 검사 PASS. 변경lint0/전체lint0오류8기존경고·독립 production build/TypeScript PASS. desktop/390px carry·seek/잠금/직접모드 초기화 확인; 전체영상·게시 별도 기록. docs/handoffs/assets/codex-assembly/cabinet-rear-clearance/ 제출.
 
+- 사람보다 조금 작은 그림자 조정 완료 / codex-storefront: 1.15→1.10, Chrome3003 사람전신보다살짝작은벽그림자확인/error0. scoped lint0·격리build/TypeScriptPASS. 소유shadow scale/cache key잠금해제. 로컬반영,운영게시미수행.
+
 - 왼쪽5 백패널 경로 최종 로컬검증: 전체영상 실제58/58초8/8완주·샘플음21회/running·console0. 단독7단계는 /assembly-guide?topic=connector 진입 후 백패널 탭에서 실제확인/console0(기본back-panel URL은 리더의 새Tylko매뉴얼로 연결됨). 기존 source/main 경로 보존. 본인8소스/검사 잠금해제, 게시/운영상태 별도 기록.
+
+- 왼쪽5 백패널 관통 수정 Git반영: a4e81a0e1681ed7385d9762763614cd347112619, befun_new/main 정상push·ls-remote동일, 독립사본clean. 원격0c6ebf4 이전 완료변경 보존, 본인8소스/검사와 캡처/문서21파일만 추가. 최종격리build/TypeScript·69검사·lint0오류8기존경고·8소스SHA일치. 공유 .git/.next/3003 및 타 담당WIP 미혼입. Git CI 운영READY 별도대기, CLI업로드/타프로젝트취소없음.
+
+- 리더에 전달할 미확인 계약: 현재 rear source box 높이는 개구부 높이와 정확히 같다. 조립용 생산 여유/핀 실측/상·하 receiver 중심과 depth 계약이 아직 없어 안내 렌더 상단0.6mm만 적용했다(실측/제조 값으로 전달하지 않음). 실제 상품 통합 때 공통 모델에서 확인된 fit clearance와 mounted bore 계약을 전달하면 소유 안내 값을 대체할 수 있다. 독립 경로 수정은 완료했으며 이 계약 대기 때문에 중단하지 않음.
+
+- 헤더 중앙 정렬 / codex-assistant: 사용자 직접 지시. product-details.module.css workspace의 상단32px 중복 여백만 잠금·수정. 실제 Chrome header y4/h44, main padding52, workspace y84 확인.
+- 헤더 중앙 정렬 완료: Chrome 실제 header top4/bottom48, viewer top52 → 상하4px 대칭 확인. 네비/로고 크기 유지. git diff --check 통과. product-details.module.css 잠금 해제.
+
+
+### 책상 시작 시점·하단 상세 메뉴 정리 — codex-storefront / 2026-10-14 착수
+- 사용자 캡처 desk-1 초기 입체구도에서 인물머리잘림 및 뷰어하단 detailNavigation 제거 요청 수신. desk만 정면진입/초기화·가구+인물 프레이밍, 다른 제품구성/편집 기능 유지.
+- 좁은 잠금: FurnitureConfigurator.tsx front 초기값/시점초기화만, FurnitureScene.tsx Camera desk 프레이밍/필요prop만, FurnitureProductDetails.tsx detailNavigation만. DeskModel 편집아이콘·상세본문/원본갤러리/공통카메라·뷰어재질·옷장카메라 미수정. 본인 신규 docs/handoffs/desk-start-view.md. 리더/graphics의 다른영역WIP 보존.
+
+- 헤더 여백 재조정 / codex-assistant: 사용자 직접 요청. storefront.module.css 내부 desktop header 규칙만 잠금. 상하4→12px, 전체52→68px, 네비44px 유지.
+- 완료: 헤더68px=상단12+네비44+하단12. 중복 workspace margin0 유지, 모바일 규칙 보존. CSS 수치 및 diff --check 확인, 잠금 해제.
+
+- 왼쪽5 백패널 수정 운영READY: dpl_HVQHzpsZKXPk31ntgGRDFM3d4wsC, SHA=a4e81a0e1681ed7385d9762763614cd347112619, source=Git/production. aliases befun-new.vercel.app/befun.co.kr/www.befun.co.kr. 원격 CI build/TypeScript 완료 및 READY 확인; 실제 운영 보강 패널/백패널 뒤쪽 carry 캡처·신규문구 확인. 40초부터 체결/완성까지 운영재생 검사 진행. 타프로젝트 취소/공유WIP 혼입 없음.
+
+- 왼쪽5 백패널 수정 운영최종검증: 위 READY alias에서 뒤쪽 support/back carry 확인 후40초→후면 체결/도어/58초8/8완성까지 실제재생, console error/warn0. 기본1×/효과음켜짐·로컬/운영탭유지·viewport복원. 구현·검증·Git·운영반영완료. 설명용0.6mm 회전여유/실측기구·제조false 제한은 인계에 명시, 공통 CNC·진행WIP·공유.git/.next/3003 및 타실행 보존. 소유잠금해제.
+
+- 책상 시작 시점·하단 메뉴 정리 완료 / codex-storefront: desk3종 정면진입/초기화·가구+인물전신프레이밍, 공유FurnitureProductDetails 4앵커메뉴삭제/상세본문보존. Chrome3003 3종실화면·입체→초기화정면·wardrobe메뉴0/갤러리8/사양5확인. 13회귀/scoped lint0/전체lint0오류8기존경고/격리build·TypeScriptPASS. 이번3소스좁은잠금해제. 인계 docs/handoffs/desk-start-view.md, 로컬적용·운영게시미수행.
+
+- 헤더/옵션 패널 배경 정렬 / codex-assistant: 사용자 요청. storefront.module.css와 product-details.module.css의 configurator 배경/데스크톱 패널 간격만 수정 잠금.
+- 완료: Chrome /configurator viewerTop120/panelTop136으로16px 하향 검증, 패널 radius12px. 헤더 RGB228/230/230으로 Scene 배경 #E4E6E6 일치. h2 제거로 끊긴 패널 selector를 실제 bg-white 패널로 교정. ProductConfigurator 패널48→16px. diff --check 통과, 잠금 해제.
+
+- Intro 썸네일 색상 분산 / codex-assistant: 사용자 직접 요청. ConfiguratorIntro.tsx 초기 variantBy만 좁은 잠금, 기존 카테고리 연결/상품설정 보존.
+- 완료: 초기색을 slug 기반 분산 선택, 이미 사용한 swatch 우선 회피. Chrome 13카테고리 색상 확인(그레이/브라운/그린/플럼/화이트/옐로/핑크/블랙/블루 등). 초기 표시와 선택 스와치 동일, 사용자 선택 유지. ESLint/diff --check 통과. 기존 모델별 커스터마이즈 색상 연결은 이 수정 범위에 포함하지 않음. 잠금 해제.
+
+- 뷰어 흰 테두리 제거 / codex-assistant: product-details.module.css 패널 selector만 좁은 잠금. bg-white가 뷰어까지 매칭해 생긴 padding/margin/radius를 옵션 패널에만 한정.
+
+
+### 책상 Space 정면 초기화 — codex-storefront / 2026-10-14 착수
+- 사용자 직접 지적: desk Space가 상세로 기본스크롤. FurnitureConfigurator.tsx의 desk 키보드effect만 잠금. 일반뷰어 Space 기본스크롤방지/정면초기화, 입력·버튼·슬라이더·대화상자 키조작 보호. 공통선반/옷장/카메라/설계설정 미수정. 본인 desk-start-view 인계 append.
+- 완료: Chrome3003 실측 viewer margin/padding/radius 모두0, viewerTop120/옵션패널Top136으로 패널만16px 하향 유지. 이전 검증에서 bg-white 첫 매칭을 패널로 잘못 해석했던 기록을 정정함. diff --check 통과, 좁은 잠금 해제.
+
+- 사용자 후속 Space 카메라 부드러운 복귀 요청 수신: FurnitureScene.tsx Camera 목표보간/useFrame/사용자orbit 중단 영역 추가잠금. 공유선반 CameraControls와 같은 지수보간속도4.5, 최초로드만즉시배치. 줌·직접조작시보간중단.
+
+- Intro 사진 확대 / codex-assistant: 사용자 요청. storefront.module.css introCard 사진/여백 규칙만 잠금. 카드 폭 전체로 정사각 원본을 표시하고 이름·스와치 아래 여백 유지.
+
+- codex-storefront → 소파 리더: Space카메라 작업 전체root lint에서 진행중 src/lib/sofa/design.ts54 `module` 변수 no-assign-module-variable 오류1건이 검출됩니다. 소유잠금파일미수정, 소파완료검사에포함부탁드립니다.
+- 책상 Space/부드러운 정면복귀완료 / codex-storefront: 페이지scrollY0유지·정면전환, sliderSpace페이지스크롤방지, 책장과동일지수보간4.5/최초로드즉시배치/직접orbit·zoom시중단. Chrome입체→중간이동→정면실화면확인. 수정2소스lint0·격리build/TypeScriptPASS, 전체소파WIP lint오류는위요청. dev기존radio useId경고분리기록. FurnitureConfigurator키보드/FurnitureScene Camera보간영역잠금해제. docs/handoffs/desk-start-view.md 인계,로컬적용·운영게시미수행.
+- 완료: Chrome 실제 카드291px/이미지291px로 사진 폭100% 확인. 기존164px 사진을 카드 전체 정사각으로 확대, 상단·좌우16px 여백 제거. 모바일도 같은 비율 적용. diff --check 통과, 잠금 해제.
+
+
+### 옷장 목록 직접 만들기 오연결 수정 — 왼쪽5 / 2026-10-14
+- 사용자 새 직접 요청으로 이번 좁은 storefront 링크 수정 수신. /furniture-c/wardrobe 첫 카드 시작하기가 /configurator(수납장)으로 연결되는 원인 확인.
+- 좁은 잠금: src/components/storefront/DownloadedCatalog.tsx PLP promo 링크의 wardrobe 목적지만. 리더 소파 작업의 sofas 조건/상세 링크 미게시 변경은 보존·공유본 덮어쓰기 금지, 독립 게시에는 이번 wardrobe 목적지 변경만 포함. 카탈로그 상품/공통 편집기/저장형식/소파/공통 상태는 수정하지 않음.
+- 본인 신규 증거 경로 docs/handoffs/assets/codex-assembly/wardrobe-create-entry/**. desktop/390px 실제 목록→시작하기→기존 wardrobe-edge 렌더/컨트롤 확인, scoped lint와 안정본 격리 build. 기존 공유서버/실행/.git/.next 보존.
+
+- 옷장 정면 시작 / codex-assistant: FurnitureConfigurator.tsx front 초기값/onReset 두 지점만 좁은 잠금. 책상과 동일하게 옷장 첫 진입 및 시점 초기화 정면 지정.
+- 완료: 공통 FurnitureConfigurator front=true 및 초기화 정면 적용(Edge/Tone 공통). Chrome wardrobe-edge 정면 렌더 확인, 단일파일 ESLint/diff --check 통과. 탭별 기존 내부편집 동작 보존. 좁은 잠금 해제.
+
+
+### 컨피규레이터 비펀 녹색 통일 — codex-storefront / 2026-10-14 착수
+- 사용자 직접 요청: 비펀 버튼과 동일한 테마녹색. 기존 구매버튼/전역 --green #339922를 기준으로 책장/책상/옷장 선택·보기·주요CTA·가격강조의 색만통일, 제품swatch색·동작/저장/가격계산보존.
+- 좁은 잠금: three/display/display.module.css의 도구선택/포커스색, ViewToolbar.tsx ACCENT/svg색만; FurnitureViewToolbar.tsx svgfill만; furniture.module.css 기존구조보존/new action색오버라이드·포커스색만; ui/furniture-panels/panels.module.css 선택테두리/포커스색만; RowControls.tsx 선택class만; storefront.module.css configPrice/configActions 색규칙만. 본인 신규 docs/handoffs/configurator-brand-green.md.
+- 소파 리더 요청: 진행중 소파CSS의 #2e8b24/#3a9c29 선택강조와 검정 primary를 전역 var(--green) 기준으로 맞춰주세요. 소파 잠금파일은 이번담당이 수정하지않으며 실제제품스와치/가격계산은유지합니다.
 
 - 왼쪽5 옷장 직접만들기 진입 수정완료: DownloadedCatalog wardrobe promo만 /configurator→/furniture-design/wardrobe-edge. desktop/390px 목록 실제클릭→Edge 옷장118×198×60·3D/외형/내부구성 확인, overflow0/console0. 변경lint0·안정본격리 production build/TypeScript PASS·전체lint0오류8기존경고·diff check PASS. 소파리더 WIP 조건/상세링크 공유본보존·게시사본제외. 이번 좁은 href 잠금해제, docs/handoffs/assets/codex-assembly/wardrobe-create-entry/ 제출.
 
+- 옵티마이저 실제 재질 / codex-assistant: PanelHighlight3DViewer.tsx 및 신규 befun/previewMaterials.ts 잠금. 고정 베이지 제거, 컨피규레이터 재질/Reference 보정 재사용, 판재별 색상·가공 메시 면 그룹 복원. 제조 원본 데이터 미변경.
+
+- 컨피규레이터 비펀녹색통일 완료 / codex-storefront: 기준구매버튼/전역green#339922, 선반·책상·옷장 주요CTA/선택/보기SVG·포커스색 var소비. 실제Chrome4경로computed rgb(51,153,34)동일확인. scoped lint0·root전체lint0오류8기존경고·범위diffcheck·격리build/TypeScriptPASS. 이번7파일좁은색영역잠금해제. docs/handoffs/configurator-brand-green.md 기록,로컬적용·운영게시미수행. 소파리더잠금영역연결은위요청으로남김.
+
+- 왼쪽5 옷장 시작카드 Git반영: eb2cd6e31c95ac3eb475af8e8b6ca90754325023, befun_new/main 정상push·ls-remote동일·독립사본clean. 본인 wardrobe href1줄/증거·인계7파일만, 소파미완료 href/상세 변경과 타담당 WIP 미혼입. build/TypeScript PASS·lint0오류8기존경고. Git production READY 별도확인.
+- 범위 추가: CuttingLayoutPreview2.tsx 판재 fill/글자 대비만 잠금. 2D 패널도 PB/MDF 고정색 대신 전달된 Befun 색상 표시, 가공·치수 계산 보존.
+
+
+### 옵티마이저 보라색 테마 교정 — codex-storefront / 2026-10-14 착수
+- 사용자 /optimizer AI로딩캡처로 대상정정. 기존보라 theme HSL254를비펀 --green #339922와연결, 로딩아이콘/진행률/배경빛도녹색으로통일. 계산/가공/내보내기/실재질영역미수정.
+- 좁은소유잠금: src/components/optimizer/optimizer-theme.css palette/primary변수만; src/lib/optimizer/upstream/editor/CNCOptimizer/components/AILoadingModal.module.css 배경/그림자/테두리/텍스트강조색만. 기존 PanelHighlight3DViewer/previewMaterials 타담당잠금보존. 본인 configurator-brand-green 인계 append.
+
+- 왼쪽5 옷장 시작카드 운영READY/실제검증완료: dpl_EicC6FGhGD1yzo9ynKAEvcjBPG4d, SHA=eb2cd6e31c95ac3eb475af8e8b6ca90754325023, Git/production·befun-new.vercel.app/befun.co.kr/www.befun.co.kr. 운영 옷장 목록 첫 카드 href/실제클릭→wardrobe-edge·Edge 옷장118×198×60·녹색옷장 모델/옵션 정상로드/console0 확인. 단순URL 확인만으로 완료하지 않음. source1줄만게시·타소파작업보존, 공유.git/.next/3003/타실행유지. 로컬/운영옷장탭유지·viewport복원·소유잠금해제.
+
+- 옵티마이저 녹색교정완료 / codex-storefront: 별도HSL254팔레트→비펀버튼#339922/var green. AI팝업배경빛/진행률/아이콘/완료안내녹색확인, 실제계산25패널3시트완료. CSS2개만변경, 계산/실재질/가공영역보존. root lint0오류8기존경고·diffcheck·격리build/TypeScriptPASS. 소유CSS잠금해제, configurator-brand-green 인계append. 로컬적용/운영게시미수행.
+
+
+### 옷장·책상 뷰어 크기 책장과 통일 — 왼쪽5 / 2026-10-14
+- 사용자 직접 캡처 wardrobe-2 및 책상도 동일 적용 요청 수신. 실제 책장 /configurator와 /furniture/bookcase-brown의 viewer/옵션 폭·높이·패딩/반응형을 비교 후 기준 확정.
+- 좁은 잠금: src/components/furniture/furniture.module.css의 page/layout/viewer/options 반응형 치수/간격만. 필요 시 신규 공통 src/components/storefront/configurator-viewer.module.css 및 해당 클래스 연결부는 수정 전 별도 경로 기록. 다른 담당 primary녹색/키보드/카메라/인물/설계/모델/사진/저장 WIP 보존. 이번 수정은 공통 옷장·책상 편집 레이아웃 소비, 별도 편집기 생성하지 않음.
+- 본인 신규 증거 docs/handoffs/assets/codex-assembly/viewer-size-parity/**. desktop/390px/중간브레이크포인트와 fullscreen 복귀를 실제검증. 공유.git/.next/3003/타실행유지, 안정본에 이번 크기 수정만 격리 검증·게시.
+- 완료: 고정 베이지 제거·Shelf와 동일 단색/Reference 보정/Classic 단면/Natural 텍스처 로딩. CSG 제조축 3종 면그룹 검증 PASS, Mix 표면/엣지 구분 PASS. Chrome Midnight Blue→컨피규레이터 Natural/Walnut→CNC 이동으로 실제 월넛3D·25판재 이름 확인, 2D 배치 색상은 live snapshot 마감으로 동기화(중간 계산 결과 MW/기존색 우선 사용 방지), 어두운 판재 글자 흰색. Chrome 콘솔 error0. 신규 helper/3D scoped lint 및 전체 TypeScript PASS. 2D upstream 기존 ts-nocheck 유지. 조명 환경은 별도이며 픽셀 동일/전체 제조 동치 승인은 아님. 소유3파일 잠금 해제, 커밋/배포 미수행.
+
+- 옵티마이저 녹색 커밋·푸시 수신 / codex-storefront: 최신origin/main 별도게시사본에서 CSS2개+신규 docs/handoffs/optimizer-brand-green.md만게시. 공유본 .git/진행중 다른dirty영역보존, 가격·실재질·타테마 미혼입. 신규본인인계 잠금.
+
+- 클래식 그린 연결 / codex-assistant: befun/colors.ts swatch 목록만 잠금. 기존 C_Moss Green은 UI/재질/가격/갤러리 존재, optimizer 견본 열거에 REFERENCE_CLASSIC_COLORS 누락 수정.
+- 완료: 기존 클래식 모스그린(#6B6C56) 포함 모든 Reference Classic 색상을 optimizer 견본에 등록. Node assertion 모스그린 견본/색상/합판 노출(edgeBand null) PASS, ESLint/diff check PASS. 신규 임의 색상/가격ID 미생성. 잠금 해제.
+
+- 옵티마이저 녹색게시완료 / codex-storefront: 8282e058350b6d76d6553792715872c9466d8fad 원격main정상push/ls-remote동일. 최신eb2cd6e이후CSS2+본인인계1만포함, 게시사본clean. 원격최신기준전체lint0오류8기존경고/build·TypeScriptPASS. 공유본.git/.next/3003/다른dirty보존,본인인계잠금해제. Git게시완료이며자동운영배포READY는미확인.
+
+### 소파/EUR 리더 진행 업데이트 — 2026-10-14
+- VPN Chrome에서 사용자 Uff 316001 실제 확인: 315cm 표시(원데이터3145mm)×150×73cm, Glory0 고정커버 €2841, 교체커버 €3069. 둘 다 새 S02 계산 결과와 대조 일치. Smooth734 €1963 및 DE 책장9268349 €2646도 확인.
+- 소파 진입→편집/가격·언어·저장/공유 확인 중. Uff/Smooth 모델 분리, 일체형 팔걸이 중복계상 방지, 커버 선택 연결. 공통 green 요청 반영.
+- 가격 좁은 수정 잠금 추가: src/lib/commerce/shelf-quote.ts, reference-pricing.ts, production.ts unitPrice, components/storefront/{configuration.ts,catalog.ts,ProductConfigurator.tsx} 가격 호출만, components/ui/PriceDisplay.tsx, components/commerce/PriceNotice.tsx, app/configurator/page.tsx getPrice. 다른 담당 변경 보존.
+- 실제 계수는 data/tylko-coefficients-20261014.json에 보관. 관찰 구성 외 가구 경제부품 일치 미확정은 예상견적으로 표시. 미확인 색상은 기존 견적 유지하며 Tylko 확정가로 표시하지 않음. 전체 가구 일치/주문·결제 완료라고 보고하지 않음.
+
+- codex-assistant 커밋/푸시 완료: origin/main 670dc20 (Match optimizer finishes and refine configurator presentation). 격리 /private/tmp/befun-ui-material-publish-20261014, UI 여백·Intro 확대/분산·옷장 정면·optimizer 실제재질/2D색/Classic그린 8파일. 격리 webpack production build/TypeScript/scoped lint PASS. 타담당 optimizer theme 8282e05 위 rebase 충돌없이 완료. 공유 체크아웃/미완료 소파·카메라·브랜드색 WIP 보존. 운영 배포 상태는 별도 미확인.
+
+- 행 설정 팝업 정리 / codex-assistant: RowControls.tsx 표현부, FloatingBox.tsx 닫기버튼 스타일만, 신규 row-controls.module.css 및 ui-dictionary 문구 추가 좁은 잠금. 하드웨어 조건/상태 계산 보존.
+
+
+### 사용자 RAR 내추럴 우드 추가 — codex-storefront / 2026-10-14 착수
+- 사용자 제공 51539.rar(W4),51537.rar(W2), 각각Diffuse/Gloss/NormalGL 확인. 원본RAR유지, 모델파일미사용, 웹용WebP3맵+견본으로경량화후 기존 Natural에 신규2옵션추가.
+- 잠금: 신규 src/lib/three/{natural-textures.ts,natural-materials.ts,imported-natural-textures.json}, public/imgs/textures/imported-natural-{w4,w2}/**, public/imgs/natural_color/imported-wood-{w4,w2}.webp, scripts/natural-materials/**, docs/handoffs/natural-materials/**. 기존 ColorPicker.tsx NATURAL_COLORS/label만, Shelf.tsx material loader import/call만, optimizer/befun/previewMaterials.ts material loader import만, optimizer/befun/colors.ts 신규견본/색look소비만.
+- 기존graphics소유 materials.ts잠금은수정하지않고 새loader에서기존factory로fallback. 기존솔리드/Classic·가격공식/사진·모델/뷰어레이아웃/생성기/저장형식미변경. 리더가격/Sofa 및 추가왼쪽5 viewer-size잠금존중.
+- 완료: 저해상도 book.png 제거, 264px 카드/행번호·14px 제목/12px 라벨/13px 세그먼트 선택지, 닫기 내부 배치, KR/EN/JA 표기·조건 설명 번역. Chrome 실제 정렬 및 18cm 선택→도어All disabled→28cm 복원 확인. scoped ESLint/diff check PASS. 모바일 280px/40px 타깃 CSS 적용, 실제 모바일은 미검증. 계산/하드웨어 상태 규칙 유지. 소유 잠금 해제, 로컬 적용.
+
+- 내추럴추가 표시문구소유 추가잠금: commerce/ui-dictionary.ts 신규우드2라벨3언어행만. 기존dict/가격관련행보존.
+
+- 보기 메뉴 다국어 / codex-assistant: ViewToolbar.tsx·AvatarSelector.tsx 표현 문자열 및 ui-dictionary 신규 보기 문구만 잠금. 타담당 우드2라벨 보존. 상태/카메라/제조 로직 미변경.
+
+- 아바타 경계선 / codex-assistant: StudioPersonMotion.tsx packed RGB/alpha 샘플링만 잠금. 좌우 영상 경계 선형보간으로 RGB가 alpha로 혼입되는 경로 확인. 스케일/바닥위치/원본영상 보존.
+- 완료 / codex-assistant: packed 영상 RGB/마스크 경계의 반 texel clamp 적용, visible/depth shader 동일 보정 및 cache key 갱신. Chrome 남성 영상 재생 화면에서 좌측 세로선 제거 확인. 인물 크기·위치 보존. 보기 메뉴/AvatarSelector는 useLocale 및 KR/EN/JA 사전 연결; Chrome JP 메뉴 전체 일본어 확인. scoped ESLint/diff check PASS, React 훅/기존 리소스 dispose 유지 확인. 소유 잠금 해제. 로컬 수정, 커밋/푸시 미수행.
+
 - 왼쪽5 옷장·책상 뷰어 크기 통일완료: furniture.module.css 공통 크기블록만. 책장상품 기준764px/420px사이드바/왼쪽0/오른쪽74px, 1200이하388·1023이하540·700이하430. 8화면×book/wardrobe/desk DOM viewer 사각형 및 옵션위치/폭일치·overflow0. 최종격리build/TypeScript PASS·lint0오류8기존경고·diffcheck/소유CSS블록SHA일치. 공유녹색/카메라/Space/초기정면/모델/저장/소파WIP미혼입. 반복dev fullscreen스트레스중context loss관찰·기존복구사용, native 안정성미인증/renderer미수정. 이번크기잠금해제, viewer-size-parity/ 인계. Git/운영검증별도.
 
+- codex-storefront → 소파 리더: 내추럴추가검사 전체lint에서 새 public/three/sofa/basis/basis_transcoder.js require2건이 lint범위에포함됩니다. 벤더런타임미수정, 소파완료검사시 vendor ignore범위확인부탁드립니다.
+
+- 사용자 내추럴2종추가완료 / codex-storefront: W4다크/W2브라운 신규N_Wood_W4/N_Wood_W2. 원본맵47,389,645→웹맵·견본1,140,882bytes(97.59%축소). GLnormal/Gloss반전roughness·독립맵소유, 기존materials.ts잠금미수정. Chrome3003 Natural선택/2종3D결·W2CNC25판재·W4공유미리보기새로고침/W2공유미리보기키복원확인. 신규3+기존13검사PASS, scoped lint0·통합src격리build/TypeScript24페이지PASS. 전체lint타소파vendor2오류는위요청. 소유Natural/UI라벨/Shelf·CNC material호출영역/신규자산·스크립트·인계잠금해제. docs/handoffs/natural-materials/ 기록, 원본RAR유지·공유3003/.next미변경,로컬적용·이번커밋/운영게시미수행.
+
+- 왼쪽5 뷰어크기 Git반영: 2fe18fa1ba1e7e700aed0afdc60b94e997be4fb3, befun_new/main 정상push·ls-remote동일. 완료원격8282e05/670dc20(optimizer/intro/header/front)보존 정상rebase·최종통합build/TypeScript PASS·lint0오류8기존경고. 본인CSS블록1파일/검증캡처·인계14파일만추가, 녹색/카메라/인물/소파 등 공유WIP미혼입. Gitproduction dpl_DsLam9MooHQVNMuwhCk6GpS2dcu1 BUILDING, 운영READY별도확인. 스트레스후옷장 정상모델재로드확인·본인비교탭만정리·화면override해제·공유3003/실행보존.
+- codex-assistant 게시완료: 7b44a59 Localize viewer tools and fix avatar video edges. origin/main 2fe18fa 위 격리사본에서 13파일 커밋·push. 보기/아바타 KR/EN/JA, 남녀선택 필수영상·scale·foot anchors, RGB/mask texel 경계 수정, 칸설정 팝업 포함. 타담당 W4/W2 문구·가격/소파 WIP 제외. scoped lint/diffcheck 및 격리 webpack production build/TypeScript PASS (Prisma client 로컬생성). 공유본 git/index 및 서버 보존. 운영배포 READY 별도 미확인.
+
+- 옷장 Space 복귀 / codex-assistant: FurnitureConfigurator.tsx 키보드 effect의 desk 전용 조건만 잠금. 기존 카메라 보간/타담당 UI 보존.
+
+- 소파 리더: 원본 GLB/KTX2 연결 검증 중. eslint.config.mjs의 public/three/sofa/basis/** 벤더 제외 한 줄만 좁은 잠금. Three 패키지의 원본 Basis transcoder는 수정하지 않음. 위 codex-storefront lint 조율 요청 반영.
+
+### 보기 메뉴 바깥 클릭 접기 — codex-storefront / 2026-10-14
+- 사용자 요청 수신. 선반·책상·옷장 보기 메뉴의 외부 pointerdown만 감지해 접기, 내부 선택/캔버스 회전/기존 Escape 유지.
+- 좁은 잠금: src/components/three/display/ViewToolbar.tsx 및 src/components/furniture/FurnitureViewToolbar.tsx ref/외부클릭 effect/루트 ref만, 신규 docs/handoffs/view-menu-dismiss.md. 번역/녹색/타담당 Space·모델 변경 보존.
+
+### 소파/EUR 리더 검증 기록 — 2026-10-14 원본 Uff 교체
+- 사용자 지적 인정: 최초 소파는 구성·가격만 원본이고 외형은 RoundedBox 근사였음. 기본 Uff를 실제 GLB 3종과 KTX2 원단/GI로 교체, `/sofa-configurator` 기본값을 사용자 Uff316001로 연결. 원본파일/해시/범위 docs/tylko-reference/sofa-316001-source-integration.md 기록.
+- 정상 브라우저 원본 응답에서 자산12개 확보. 원본 API 중심좌표/실제품 binding-loss 치수 분리. 좌우 전환·모바일390px overflow0·기본 EUR2841 확인. 다른 너비/원단/풋스툴/Smooth는 아직 근사, 원본 UI 전체·장바구니 미완료. 전체동일/전체완료로 보고하지 않음.
+- 자동검사27/27·TypeScript·scoped lint·격리webpack build PASS. 전체lint 오류0/기존경고8. codex-storefront 지적 Basis 벤더 lint 제외 반영.
+- 본인 소파/가격 좁은 잠금 및 eslint.config.mjs 벤더제외 잠금 해제. 현재 변경 로컬 적용, 커밋/배포 미수행. 공유 .git/.next/3003 및 타 담당 변경 보존.
+- 옷장 Space 완료: desk 전용 early-return 제거, 공통 effect로 정면/reset 호출. Chrome wardrobe-edge 3D view→뷰어 안내영역 focus 해제→Space: scrollY 379→379 유지, Front view aria-pressed=true 확인. scoped ESLint/diffcheck PASS. 입력/버튼 기본 키조작 및 기존 카메라 보간 유지. 좁은 잠금 해제, 로컬수정/미커밋.
+
+### 소파 리더 — Uff 팔걸이 접합/색 번짐 수정 착수
+- 사용자 확대 캡처에서 팔걸이 이탈 및 녹색/분홍 GI 얼룩 확인. src/components/sofa/UffSourceModel.tsx, SofaScene.tsx, src/lib/sofa/design.ts의 Uff 렌더 배치, scripts/sofa/design.test.mjs 좁은 잠금. 원본 GI 채널 해석과 팔걸이 overlap을 각각 검증. 타 작업 보존, 공유 .next/3003 유지.
+
+- 보기바깥클릭완료 / codex-storefront: 두툴바 pointerdown capture로빈canvas/외부클릭시접기, 내부옵션유지·Escape포커스·캔버스이벤트유지. Chrome 선반/책상/옷장 actual expanded true→false 확인, 선반후면/책상입체 내부선택후열림유지. scoped lint/diffcheck PASS·전체lint0오류8기존경고·통합src격리build/TypeScript24페이지PASS. docs/handoffs/view-menu-dismiss.md 기록,이번좁은잠금해제·로컬적용/커밋푸시미수행.
+
+- 왼쪽5 운영 비교에서 미완료 발견: 새 옷장/책상은1234×764/y68이나 운영책장은여전히viewer1234×716/y116·canvas664/y168. 로컬책장 R13 완료 CSS3규칙이 아직 게시되지 않았음. 최종동일성을 위해 storefront.module.css productConfigurator padding-top48→0, productScene inset52→0, productViewer716→764만 독립게시사본에 반영(공유파일은 이미교정되어 재수정안함). 좁은 게시잠금3규칙만, 가격/색상/Intro/타WIP제외. 2fe18fa READY는옷장/책상치수게시이며 운영3뷰어일치완료로 보고하지않음.
+
+- 가로판 X축 나뭇결 / codex-assistant: natural-materials.ts 가로판 맵회전, materials.ts createFaceMaterials의 원본 map 회전 보존 부분만 잠금. 신규 W2/W4의 세로 소스결을 가로판에서 90도 전환.
+
+### 소파 리더 — Uff 팔걸이 접합/색 번짐 수정 검증 완료
+- GI RGB 오용을 수정: R AO / G 단색 간접광. Glory roughness는 sheen G 채널로 적용.
+- 명목 좌표 대신 조립 overlap/binding loss를 적용해 별도 팔걸이 이탈 수정.
+- 실제 Chrome 기본/확대/좌우 반전 확인, 콘솔 오류·경고 없음. 관련 테스트 27/27, 타입·변경 범위 lint, 격리 webpack build 통과.
+- 캡처 및 제한 사항: docs/tylko-reference/sofa-316001-source-integration.md. 로컬 수정이며 배포하지 않음.
+- 이번 UffSourceModel.tsx / design.ts / design.test.mjs 좁은 범위 잠금 해제. 다른 미완료 소파 옵션을 완료 처리하지 않음.
+
 - 왼쪽5 운영 기준 마감: initial2fe18fa는READY지만 운영책장 구CSS(716/상단100px공백) 때문에3뷰어동일성이FAIL임을 실제측정·기록. 공유R13 완료값 productConfigurator top0/productScene inset0/productViewer764 세규칙만 독립사본에 추가. 원격완료7b44a59 번역/인물경계보정보존. 최신통합 production build/TypeScript PASS·전체lint0오류8기존경고·diffcheck PASS. 최종운영비교는후속READY에서별도확인, 공유책장소스는이미정상이므로재수정안함/타WIP제외.
+- 가로판 결/다크 우드 완료: W2/W4 horizontalBase·horizontalEdge의 base/normal/roughness를 동일90도 회전, createFaceMaterials에서 기본0회전이 원본맵 회전을 지우지 않도록 additive 처리. 세로판 유지. W4만 linear albedo gain3.5로 어두운 결 밝기 보정, 원본자산/발광/조명 미변경. Chrome W2 입체 가로결 및 W4 표면 확인. Natural 기존 검증3개 PASS, ESLint0오류(materials 기존 unused import 경고1), diffcheck PASS. 공유 CNC loader에도 적용. 소유 좁은 잠금 해제. 로컬/미커밋.
+
+- 왼쪽5 최종책장기준 Git반영: 3f5c1c92b3fadfff9a6cef47258b5e0c26509b12, befun_new/main 정상push·ls-remote동일·독립사본clean. source는책장CSS3규칙만추가, 원격7b44a59와본인2fe18fa보존. build/TypeScript PASS·lint0오류8기존경고. 운영3뷰어일치가검증되기전완료로표시하지않음. 공유책장파일이미교정값/재수정없음/본인좁은게시잠금해제.
+
+- 조립 컨트롤 하단바 / codex-assistant: display.module.css transport 계열만 잠금. 재생상태·조립로직 유지, 데스크톱 얇은 전체폭/모바일2행 구성.
+
+### 별도 클래식 그린 추가 — codex-storefront / 2026-10-14
+- 사용자 정정: 기존 모스그린 확인이 아니라 새 그린 추가. 신규 C_Green을 독립 색상으로 추가, C_Moss Green 유지. 색조 선택 질문 전달, 응답 대기 중 독립 연결 점검.
+- 좁은 잠금: ColorPicker.tsx CLASSIC_COLORS 신규1행, reference-colors.ts 클래식 신규1항목 및 출처주석, furniture/desk-panel.ts 신규 그린표시1항목, commerce/ui-dictionary.ts 그린번역1행, 신규 docs/handoffs/classic-green.md. Shelf/optimizer/desk 동적 공통색목록 소비 확인. 자료 없는 가격 source ID/갤러리사진 별칭/원본재질맵 임의 생성하지 않음.
+- 조립 하단바 완료: transport CSS만 변경, desktop 뷰어 좌우16px/하단12px 전체폭·64px 높이의 밝은 반투명바, 진행선 하단2px, 상태좌측/조작우측. 모바일은 상태+40px 버튼행 분리. 기존 짙은카드/강한그림자 제거. Chrome 분해완료·조립시작·일시정지 및 가로바 화면 확인 PASS, diffcheck PASS. 모바일 실기 미검증. 소유CSS잠금 해제, 미커밋.
+
+### 소파 리더 — 원본 UI 구조 정렬 착수
+- 사용자 지적: 현재 소파 UI가 원본과 구조적으로 다름. 원본 316001의 전체화면 2/3 뷰어, 우측 단계 탭/스크롤 옵션/고정 가격 액션, 이미지 선택 카드, 하단 뷰어 도구를 적용.
+- 좁은 잠금: src/components/sofa/SofaConfigurator.tsx, sofa.module.css, SofaScene.tsx 카메라 줌 명령; src/app/(storefront)/sofa-configurator/page.tsx 프레임; 신규 public/three/sofa/ui 및 UI 출처 기록. 다른 가구/재질/가격/전역 헤더 변경 없음.
+
+- 신규클래식그린완료 / codex-storefront: 기존모스그린유지·C_Green#339922별도추가(색조질문무응답시명시한비펀버튼기준). 선반/클래식책상 UI·3D·합판단면, CNC동적색목록 연결. Chrome그린선택 및 책상링크공유→실제URL→새로고침그린복원확인. Node선반local/URL·CNC색/단면·desk-1/3 roundtrip PASS, 기존회귀13/13·scopedlint/diffcheck·전체lint0오류8기존경고·격리build/TypeScript24페이지PASS. 사진/source가격ID모스그린으로임의매핑안함·가격미확인견적유지. docs/handoffs/classic-green.md 기록, 4파일신규항목/본인인계 좁은잠금해제·로컬적용/미커밋.
+
+- 왼쪽5 뷰어크기 최종운영READY/동일성PASS: 3f5c1c92b3fadfff9a6cef47258b5e0c26509b12, dpl_EQBeuHMiQkt1n2r9eNgEqNsXqy2r Gitproduction READY·befun-new.vercel.app/befun.co.kr/www.befun.co.kr. 실제 운영book/wardrobe-2/desk-1 1728×880에서 viewer와canvas 모두x0/y68/1234×764, 옵션x1234/y84/w420 동일·overflow0·console0. initial2fe단독READY와구분, 최종책장상단100px제거 포함. 소유CSS/게시잠금해제·공유3003/.next/.git/실행보존, 목적별카메라/모델/미완료가격·소파제외. native fullscreen 스트레스 안정성미인증은인계유지.
+- 별도 담당자에 전달: 운영desk-1의인물머리잘림은공유본 desk-start-view.md에완료된카메라보정의미게시상태와일치. 이번CSS크기동일성과분리하며완료본으로혼입하지않음. 해당담당/리더의안정본카메라게시필요.
+
+### 클래식 그린 믹스엣지색 일치 — codex-storefront / 2026-10-14
+- 사용자 캡처 정정수신: 비펀버튼색 대신 기존 Sand+Green 엣지와 동일그린. 원본 runtime edge=#034A22, 기존 createColorMaterials의 linear gain/lift 보정도 비교.
+- 좁은 잠금: reference-colors.ts C_Green1항목, Shelf.tsx/FurnitureScene.tsx/optimizer/befun/previewMaterials.ts C_Green 표면색·roughness·envMapIntensity 연결만, 본인 classic-green.md 인계append. 기존우드결/카메라/가격/다른Classic소비 보존.
+
+- 다리 옵션 문구 / codex-assistant: FeetSelector.tsx 버튼 표시만 Standard→없음, Legs→있음. 저장값/하드웨어 조건 유지.
+- 다리 문구 완료: 기존 locale 없음/있음(KR), Off/On(EN), なし/あり(JA) 재사용. 저장값 standard/legs 및 높이·다리색상 조건 미변경. scoped ESLint/diffcheck PASS. 소유 잠금 해제, 로컬/미커밋.
+
+- 같은작업추가지시 / codex-storefront: 단색탭에도동일그린추가. ColorPicker.tsx SOLID_COLORS 신규S_Green1항목 좁은잠금추가. 기존materials.ts S_Green#034A22/runtime loader/CNC견본이미존재, 참조원본ID임의추가없이노출연결.
+
+- 클래식/단색그린최종수정완료 / codex-storefront: 사용자캡처Sand+Green edge#034A22로C_Green정정, 기존edge linear밝기보정/roughness.5/env1도선반·책상·CNC동일연결. 추가지시S_Green단색탭노출·기존solid-green.svg견본정상decode. Chrome 클래식/단색/desk-1 짙은그린실제확인, Node mixedge대classic3표면 linearRGB/roughness/env일치·합판map/Moss보존PASS. 전체lint0오류8기존경고/scopedlint·diffcheck/최종격리buildTypeScript24페이지PASS. docs/handoffs/classic-green.md 최신값기록, 이번5소스좁은잠금해제·로컬적용/미커밋.
+
+### 소파 리더 — UI 구조 정렬 반영 / 2026-10-15
+- 원본 전체높이 2/3 뷰어·우측 고정 탭/가격·연속 옵션스크롤, 원본 UI 이미지26개 로컬 연결, 선택체크·뷰어 도구 적용. 데스크톱/390px 모바일 및 좌석추가복귀/커버가격 검증, scoped ESLint·격리 production build PASS. 상세 및 미완료범위: docs/tylko-reference/sofa-316001-source-integration.md. 소파 장바구니·사람표시는 미완료, 현재 견적액션 유지. 이번 UI 좁은 잠금 해제, 로컬/미커밋/미배포.
+
+### codex-storefront 완료 변경 커밋·푸시 — 2026-10-15
+- 사용자 지시 수신. 최신 원격 main 별도 사본에서 본인 Natural2종/클래식·단색그린/보기외부클릭 완료영역만 추출·검증·게시. 공유 .git/index/.next/3003 및 다른 담당 변경 보존.
+- 좁은 게시 잠금: 위 본인 인계3종 docs/handoffs/{natural-materials/**,classic-green.md,view-menu-dismiss.md} 게시기록 및 본인 완료 코드항목. 공유소스 추가변경 없음.
+- codex-assistant 커밋/푸시 완료 2026-10-15: 8c50bc6 Refine assembly controls and natural wood presentation. origin/main 3f5c1c9→8c50bc6 정상push. 옷장/책상 Space, 하단 재생바, 다리없음/있음, W2/W4 의존 재질·8이미지/견본과 가로결/W4밝기 포함20파일. 별도 /private/tmp/befun-controls-publish-20261015 production webpack/TypeScript PASS, scopedlint0오류1기존경고, diffcheck PASS. 타담당 Classic/Solid Green·소파·geometry WIP 미포함. 공유git/index/서버 보존. 운영배포 READY 미확인.
+
+### 소파 리더 — 카우치 등받이/선택 외곽선 수정 착수 2026-10-15
+- 일반 CL 카우치를 ST 전체 깊이 스케일로 표시해 등받이까지 늘어나는 오류 확인. 원본 에셋 확인과 비변형 배치 수정, 선택 모듈 외곽 글로우 연결.
+- 좁은 잠금: src/components/sofa/UffSourceModel.tsx, SofaScene.tsx, 신규 소파 geometry/outline helper 및 검증, uff-assets.json/source 에셋(필요 시). 기존 다른 담당 변경 보존.
+
+- codex-storefront 커밋·푸시완료 / 2026-10-15: 93b7095922fc10038960414f8f3df093951253c0 origin/main 정상push·ls-remote동일·독립게시사본clean. 선행8c50bc6 Natural2종자산/우드표현·조립바·옷장Space완료본보존, 겹친import중복4경로병합/검증. 본인16파일그린·보기외부클릭·재질검사/인계만추가. 최종통합webpack production build/TypeScript23페이지PASS·전체lint0오류8기존경고·회귀16/16PASS·그린계약PASS. 공유.git/index/.next/3003/다른dirty원본보존, 이번게시소유잠금해제. 자동운영배포READY미확인.
+
+### 메인 디자인하기 버튼 검정 — codex-storefront / 2026-10-15
+- 사용자 요청 수신. storefront.module.css의 .heroActions .orangeButton 기본/hover 2규칙만 좁은잠금. 메인 디자인하기1버튼만 변경, 다른CTA·전역녹색·href/크기 유지.
+
+- codex-assistant 2026-10-15 desk price/decor 수신·좁은잠금: 신규 DeskPrice.tsx, DeskAccessories.tsx; DeskModel decor연결, FurnitureConfigurator 가격연결, furniture.module.css deskPrice만. 가격은 기존 판재부피 예상견적으로 명시, 확정가격/할인 미주장. 검증진행.
+
+- 메인디자인하기검정완료 / codex-storefront: heroActions orangeButton 기본#1e1e1e/hover#333 2규칙만변경. Chrome3003 main actual computed rgb(30,30,30)/흰글씨·href/configurator-intro 유지확인. root전체lint0오류8기존경고·diffcheck PASS, 원격완료93b7095격리사본에동일2규칙적용후webpack build/TypeScript23페이지PASS. 공유CSS다른WIP/서버보존, 이번2규칙잠금해제·로컬적용/이번커밋푸시미수행.
+
+- 소파 리더 카우치/글로우 완료: CL80/90/100 전용 원본GLB+GI 6파일 연결, 깊이1.5배 등받이왜곡 제거, 선택모듈 외곽글로우 및 직접클릭/좌석선택 연결. 상부·3너비·반전 Chrome확인, 오류로그없음·scopedlint/tsc/27회귀/격리build PASS. 출처·검증·제한은 sofa-316001-source-integration.md 및 sofa-chaise-assets.json. 이번 좁은잠금 해제, 로컬/미커밋/미배포.
+- codex-assistant desk price/decor 완료·잠금해제: Classic/Modern 공통 가격표시(기존 판재부피×단가, 확정판매가/할인 미적용), 상판 노트북31×21.5cm/돔조명24.8cm, 다리공간 중심 이동 및 폭 경계 제한. Chrome Classic102×50→90×40 예상367000→285000, 다리공간 좌우 전환 소품배치 확인; 실제상품 /reference-product/desk-2 240×50 1028000 표시와 렌더 확인. tsc PASS, scoped eslint PASS, diffcheck PASS. HMR 중 useId hydration 경고1건 관찰, 하드리로드 후 신규동일경고 없음. 가격은 하드웨어/마감 확정가격 미검증인 예상값으로 표시. 현재 작업 커밋/푸시 미실행.
+- codex-assistant 2026-10-15 사용자 후속 수신: 가격(예상 표기 제거), MacBook 소품 재작업. 좁은잠금 DeskPrice.tsx/DeskAccessories.tsx/신규 lib/three/desk-macbook.ts. 산식 변경 없음. 다른 담당 변경 보존.
+- codex-assistant 후속 완료/잠금해제: DeskPrice의 KR/EN/JA '가격/Price/価格', 예상·추가비용 설명 제거(산식 그대로). 노트북 helper 신규: 얇은 알루미늄 라운드본체, 키캡/키보드문자/트랙패드/힌지/포트, 106도 개방 얇은베젤·노치·카메라, 절차적 고해상도 배경/메뉴바/dock, 후면 사과 실루엣. 공식 CAD가 아닌 연출용 모델. 소품 texture disposal 포함. Chrome /furniture-design/desk-classic 가격표시 및 확대3회 렌더 확인. scoped eslint/tsc/diffcheck PASS. 이번 변경 미커밋·미푸시.
+
+### 소파 리더 — 나머지 타입 원본 모델 연결 / 2026-10-15
+- 사용자 요청: 다른 소파 타입도 동일 기준 적용. 좁은 잠금: src/components/sofa/{UffSourceModel,SofaScene,SofaConfigurator}.tsx, 신규 SofaSourceModel 및 src/lib/sofa/source-*; public/three/sofa/source, scripts/sofa/source-assets.test.mjs, 원본 출처/검증 문서. 가격·다른 가구·공유 서버 미변경.
+- codex-assistant 7987.rar 변환 수신/잠금: public/models/desk/7987/**, scripts/assets/convert-desk-7987.py, DeskAccessories.tsx. 사용자 제공 FBX에서 열린 MacBook/커피잔 GLB 추출, V-Ray 재질 복원 및 웹 배치.
+
+### 섬네일별 초기구성 전수 점검 — codex-storefront / 2026-10-15
+- 사용자 요청 수신. 6 shelf preset/desk3/wardrobe3 및 Intro13분류79변형·R6 manifest1442(1261제품) 진입/초기값 비교. Intro 이미지/스와치가 현재 고정 기본값과 무관하게 열리는 경로 우선 해결. 소파 source renderer는 리더잠금 존중.
+- 초기 좁은 잠금: 신규 src/lib/catalog-entry/** 및 scripts/catalog-entry/**, docs/handoffs/catalog-entry-audit/**; ConfiguratorIntro.tsx 선택 섬네일→진입 resolve/표시부, introVariants.ts source key 연결 필드만. 다른담당 가격/소파/생성기/thumbnail 원본 미수정. 확정 초기값 없는 상품을 기본 디자인으로 일치했다고 표시하지 않음. 추가 필요한파일은 수정전 별도 기록.
+
+- 소파 다른 타입 원본 연결 완료: Smooth/Uff 기존 선택 규격의 GLB/원본 패브릭/GI 연결, 임시 RoundedBox/늘림 제거, L/R 전용 모델·풋스툴회전·공통글로우·부분로딩 적용. 77 catalog 매핑/232파일해시·31회귀·scopedlint·격리productionbuild PASS. Chrome Smooth/Uff 대표규격·팔걸이·풋스툴·재질·반전·공유복원 확인. 원본모델과 렌더러완전동일성 구분, corner배치 UI 미포함. sofa-source-types.md 인계, 이번 좁은잠금해제. 로컬/미커밋/미배포.
 
 ### 컨피규레이터 조립·분해 및 판재 스티커 완료 — 왼쪽5 / 2026-10-15
 - 사용자 직접 지시 수신·등록 범위 완료. 매트/격자 제거→투명 그림자만, 양방향 부품별 추적/마무리 구도·다음재생 시네마틱perspective·reduced-motion·수동시점 보존, 실제 넓은 면 P번호/종류 스티커 및 이동/회전/복원/AR 제외. Scene은 완료 hero의 인물 재등장 보류2줄만.
 - 27/27검사·scopedlint0·source전체lint0오류8기존경고·격리webpack/TypeScript23페이지PASS. 3003/독립3028 desktop/390px 분해/조립100%, 일시정지캡처동일, 평행투영→시네마틱투시도, 연속replay/닫기/크기복원/Space·overflow0·최종3028 console0. 인계 docs/handoffs/assets/codex-assembly/configurator-film/. 제조 해제 동작/가공 승인으로 보고하지 않음.
 - 본인13소스 및 신규검사/캡처 잠금해제. 원격 완료93b7095 보존·본인12 display파일/Scene2줄만 게시사본에 적용. 공통 모델/저장/CNC/공용재질·미완료소파/가격/소품·공유.git/.next/3003/기존실행 보존. Git/운영배포는 아래 별도기록.
+
+- 왼쪽5 컨피규레이터 연출/라벨 Git반영: 439b4732b1ec2a3d1c6b4aaa62785b1cee9f742f, origin/main 정상93b7095→439b473 push·ls-remote동일·독립사본clean. 본인13소스/검사·신규캡처/인계29파일만 포함. 완료93b7095 보존, 진행소파/가격/MacBook/공용재질 등 제외. 로컬/격리build 완료와 운영READY 구분. CLI조회 sandbox npmDNS 차단은 허용네트워크로 재조회, 연결Vercel MCP는 해당team403이어서 동일scope CLI자격으로 조회중. 다른프로젝트 취소/공유git변경 없음.
+- codex-assistant 7987 완료/잠금해제: 동일압축 FBX→원본맥북/커피/폰 GLB3종(약3.8MB), 텍스처포함, 화면유리 투명PBR/도자기 복원. .max 직접변환 아님. DeskAccessories에서 원본GLB로 교체, 40cm깊이 커피 생략/140cm이상 폰 표시/상판 경계 제한. 출처SHA/치수 public/models/desk/7987/README.md, 재현 scripts/assets/convert-desk-7987.py. Chrome Classic 확대화면 원본화면/키보드/커피 확인, 실제 desk-2 맥북/컵/폰 표시·console error0. tsc/scopedlint PASS. 미커밋·미푸시.
+
+- 점검 범위 추가잠금: catalog-expansion/server.ts DownloadedItem에 source/editorHref 필드추가·resolver소비만, DownloadedCatalog.tsx 상품사진/CTA href와 사진대응 안내문구만. R6 매니페스트13행은 이미원본동일제품5키(wall-green/desk1·2·3/wardrobe2·3 중실제일치6키) 초기값있지만기본편집기연결오류, source ID로연결. Intro78변형 source ID를사진파일정확매칭(이름추정없음). 원본API 일반HTTP403/Chrome 직접JSON주소ERR_BLOCKED_BY_CLIENT, 정상PDP공개치수는읽었으나전체구획응답미확보. source 확인안된값조작않음.
+
+- 왼쪽5 컨피규레이터 연출/라벨 운영최종READY: dpl_BcpSQ9TUSvBHpiD1n1iaKzkPYBtj, GitCI/production·SHA439b4732b1ec2a3d1c6b4aaa62785b1cee9f742f·READY. CLI 동일team/source metadata 및 aliases befun-new.vercel.app/befun.co.kr/www.befun.co.kr 확인. 실제 운영분해100% 매트/격자없음·흰색P라벨→조립100% 결과인물숨김·console0, 닫기/높이4 복원. 새로운 source/label 변경은 운영반영완료. 초기connector의 제조해제/공차 검증과 구분. 전체 운영캡처 및 최종metadata는 본인 신규 configurator-film 인계에 로컬추가(상태만 추가커밋해 CI를 다시 만들지 않음). 공유Git/서버/다른담당진행본 보존·소유잠금해제.
+- codex-assistant 소품 사선 수정 수신/잠금: DeskAccessories.tsx imported GLB shadow 설정만. 원본 bitmap/geometry 유지, 자기그림자 간섭 재현 및 전후 확인.
+- codex-assistant 소품 사선 완료/잠금해제: 가구 스케일 shadow map이 얇은 GLB 표면에 만드는 self-shadow acne 확인. ImportedProp receiveShadow=false, castShadow=true 유지(램프/가구 공통조명 변경없음). Chrome desk-1 입체+6회확대에서 맥북/커피 표면 사선 제거·상판 투영그림자 유지 확인. scopedeslint PASS. 미커밋·미푸시.
+- codex-assistant 소품 면음영 수정 수신/잠금: scripts/assets/convert-desk-7987.py, public/models/desk/7987/**, DeskAccessories.tsx asset revision. FBX 좌표정규화 후 normals/곡면 modifier 재검증.
+
+- 소파리더연결요청 / codex-storefront: 이번전수작업전체lint에 신규 public/three/sofa/draco/{draco_decoder,draco_wasm_wrapper}.js 벤더11오류포함(총228경고). source양식미수정, 변경소유5TS/TSX scopedlint0·격리buildPASS. 소파에현재source asset잠금이므로 eslint vendor ignore 확인부탁드립니다. sourceKey별카탈로그 SofaDesign 도함수자료도 Q-thumbnail-start-20261015에요청했습니다.
+
+- **왼쪽5 → codex-storefront 즉시 교정/잠금 조율 요청**: 사용자가 `localhost:3003/catalog-item/all/15`의 “사진 속 원본 디자인 보기”가 Tylko로 나간다고 직접 지적했습니다. 아직 DownloadedCatalog.tsx:93 fallback source anchor가 남아 있습니다. 이 외부 CTA 한 분기를 제거해 주세요. 현재 본인 추가 `newDesigns` 내부 버튼과 검증된 editorHref는 그대로 유지하면 됩니다. 또는 그 한 줄만 좁은 잠금을 해제해 주시면 왼쪽5가 바로 수정·브라우저/격리build 검증하겠습니다. 저는 소스 잠금을 침범하지 않고 현재 클릭/390px 검증 및 1줄 패치를 준비 중입니다. Orca 런타임에는 Befun 작업 공간/터미널이 등록되지 않아 직접 전송을 확인할 수 없었으며 다른프로젝트에 보내거나 새 작업자/실행 중단은 하지 않았습니다.
+
+- 섬네일 초기구성점검 진행 / codex-storefront:1442행1261제품 metadata전수 source identity점검. 기존확정12시작구성검증·매니페스트실매칭13행6제품의잘못된기본입구수정. Intro78사진exactpair→실제sourceidentity연결(2개동일3D,76개아직원본정보), 사진/순서/스와치보존·generic새디자인과원본구분. 실제3경로치수/색상확인·20검사PASS·scopedlint/diffcheck/통합src격리build24페이지PASS. 전체lint타소파dracovendor11오류요청위기록. 가구미완료1337행1184제품(액세서리92행제외) source preset자료필요, HTTP403/ChromeJSON주소clientblocked·원본PDP측정만으로구획미확정. 자료경로질문/analysis질문기록, docs/handoffs/catalog-entry-audit/ 전수미완료표. 전체완료/READY로표시하지않음. 이번완료연결파일잠금해제·로컬적용/미커밋·소파/가격/생성기WIP보존.
+
+### 소파 리더 — 재질 원본 대응 수정 / 2026-10-15
+- 사용자 Smooth 재질 불일치 지적. 원본734 화면 및 공개 renderer 재질 설정과 대조. 좁은 잠금: src/components/sofa/{SofaSourceModel,SofaConfigurator}.tsx, src/lib/sofa/{source-model,materials}.ts, 신규 source-material helper/settings, public/three/sofa/ui Smooth 견본, 관련 tests/docs. eslint.config.mjs는 본인 Draco vendor ignore 1줄만. 다른 담당 파일/공유 서버 보존.
+- codex-assistant 면음영 수정 완료/잠금해제: 이전 직접vertex좌표변경→Mesh.transform, custom split normals 초기화·winding재계산·45도 sharp분리, MacBook 상판 planar/주변weighted normal, cup subdivision modifier 실제apply, glTF export_apply. GLB3개 재생성, asset URL normals-3로 캐시분리. Chrome desk-1 입체7회확대 컵 둥근rim/매끈한body 및 맥북평면 확인. scopedlint PASS. 미커밋·미푸시.
+
+### 책상 핫스팟 팝업 제목 교정 — codex-storefront / 2026-10-15
+- 사용자 큰 제목 지적 수신. 좁은 잠금: furniture.module.css의 .deskEditor h2 한 규칙만. 전역 storefront h2와 동일 specificity로 54px 스타일이 덮이는 문제를 팝업 header 전용 selector로 교정, 수납/다리공간 실제 팝업 확인. 다른 CSS/컴포넌트/가구 상태 미수정.
+- 왼쪽5 외부 CTA 요청 수신: 기존 DownloadedCatalog.tsx 잠금은 해제됐습니다. fallback item.source 외부 링크 한 분기 제거를 왼쪽5가 좁은 잠금 등록 후 진행해 주세요. newDesigns 내부 버튼 및 검증 editorHref 유지. 본인은 팝업 CSS만 진행합니다.
+
+- 팝업 사용자 후속 반영: 원본처럼 제목/닫기 헤더를 없애고 구획8타일+가로 도어방향+케이블만 남기는 범위로 확장. 좁은 추가잠금 DeskSectionEditor.tsx 표시/초기focus, furniture.module.css deskEditor/storageChoices 전용 규칙. 공통패널/control 상태값 미수정. 자동Popover 외부클릭/Escape 닫기 및 핫스팟 포커스 복귀 유지.
+
+- ソ파리더 lint 연결요청 / codex-storefront: 현재 전체lint public draco는 해결됐으나 scripts/sofa/source-assets.test.mjs 19/32의 module 변수명 @next/next/no-assign-module-variable 2오류가 남았습니다. 본인 desk popup scoped 검증과 분리, 소유 검사파일에서 확인 부탁드립니다.
+
+- 책상핫스팟팝업완료 / codex-storefront: 원본 예시처럼 시각적 제목·닫기헤더 제거, dialog 접근성 이름 유지. 수납 8타일 60px/흰배경·작은 도어방향 pill·가벼운그림자·폭540px, 다리공간은360px. Chrome3003 desk-1 actual 수납540×217/다리360×88.5px·h2없음 확인. 도어왼쪽/케이블있음 변경→닫기/재진입 값 유지, Escape 및 외부클릭 닫기 확인. source scoped ESLint0·diffcheck PASS·통합src격리 webpack production/TypeScript24페이지PASS. 전체lint 소파 소유 source-assets.test.mjs module변수2오류/기존8경고로실패(위연결요청), 본인수정파일오류없음. 기존소스/공유3003/.next 보존, 이번DeskSectionEditor 및 deskEditor/storageChoices CSS잠금해제. 로컬반영/미커밋·미푸시.
+
+- codex-assistant 조절발 통일 수신/좁은잠금: DeskModel.tsx 발 렌더, LevelingFeet.tsx 단품 export만. 책장 발 재사용·데스크73cm/발배치 유지, 다른 작업 보존.
+- 조절발 공통 단품을 신규 LevelingFoot.tsx로 분리(잠금추가). 공유 LevelingFeet의 카탈로그 분기 미완료 의존성을 게시본에 섞지 않도록 독립 컴포넌트로 재사용.
+- codex-assistant 조절발 통일 완료/잠금해제: 책장 Foot을 LevelingFoot 단품으로 추출해 양쪽 재사용(검정25mm). desk 기존22.5mm ShortLeg 제거; 본체offset12mm를 받침높이로 사용해 접점world y=0/총높이730mm 유지. scopedeslint PASS, 격리 production webpack/TypeScript PASS. 실제 Chrome 확대 접지확인은 미실행. 로컬수정이며 이번 변경 미커밋/미푸시.
+
+- 소파 리더 재질 교정 완료/잠금해제: Smooth 원본 27견본·6재질군/실제색상명 연결, Smooth/Uff 42개 재질 source profile·회전·sheen/GI/normal 적용. sRGB 표기된 normal 데이터 색 공간 교정, packed RG 및 Glory hex sampling 대응. 회귀35PASS/scopedeslint·TypeScript·격리 webpack build PASS. Chrome Smooth6/Uff2재질군 전환·console error없음, 원본 가죽/셰닐/부클레 직접 비교 캡처. docs/tylko-reference/sofa-materials.md 참조. 전체 렌더러 픽셀동일성은 미인증. Draco vendor lint 제외 및 본인 source-assets.test module변수2오류도 교정/재검사PASS. 로컬반영, 미커밋·미배포. 관련 소파 파일 잠금해제.
+
+### 책상 바닥 접지 — codex-storefront / 2026-10-15
+- 사용자 지시: 바닥을 올리지 말고 가구를 내릴 것. 현재 DeskModel 발 접점world0, 책상studio바닥-1.08cm로 약10.8mm 공중 간격 확인. 좁은잠금 FurnitureScene.tsx desk 렌더분기 모델그룹 y offset만. Background/인물/카메라/73cm 설계치수/발형상 미수정. 책상전체(소품/핫스팟포함)만 기존 바닥 높이로 내림.
+
+### catalog-item 외부 CTA 제거 완료 — 왼쪽5 / 2026-10-15
+- codex-storefront explicit잠금해제/수신확인 후 DownloadedCatalog.tsx 상세2줄만 교정: fallback source/Tylko anchor삭제·기존첫 newDesigns 내부버튼검정. editorHref/원본사진/초기값/다른source변경보존. desktop390 all/15실제click→Befun/configurator·외부본문링크0/overflow0, desk/1 기존editor·wardrobe/37 Edge/Tone 내부버튼회귀. 3검사/scopedlint·격리current-src webpack/TypeScript24페이지PASS. 전체lint 타sofa검사2오류/8경고는소유자기록과동일·미수정. docs/handoffs/assets/codex-assembly/catalog-internal-entry/ 인계, 이번CTA2줄/증거잠금해제. 로컬반영완료·새Git/push/배포없음(현재stable439b473엔외부분기없음; pendinginitializer/sofa등무단혼입안함). **기존카탈로그담당/리더는다음게시때외부anchor를복원하지말고이2줄교정을보존해주세요.**
+
+### 소파 리더 — 선택 윤곽 가림/재질 반복 교정 / 2026-10-15
+- 좁은 잠금: SofaSelectionOutline.tsx, SofaScene.tsx, SofaSourceModel.tsx, src/lib/sofa/source-material.ts 및 관련 shader/settings/helper/tests/docs. 선택 윤곽의 가려진 경계와 직물 반복/조명 실화면 비교 수정. 다른 담당 파일/서버/공유 .next 보존.
+
+- 책상접지완료 / codex-storefront: FurnitureScene desk 렌더분기만 group y=-1.08cm로 하향(10.8mm), 기존바닥/background/person y변환 그대로보존. 현재 조절발 bottom0→-1.08cm로기존studio바닥에맞춤; 설계높이73cm·소품상대좌표·기존발모델변경없음. Chrome3003 Classic desk-1 확대 발/바닥간격 및 Modern desk-2 접지 화면 확인·console error0. scopedeslint/diffcheck PASS·catalog회귀10/10PASS·통합src격리webpack build/TypeScript24페이지PASS. 이번 FurnitureScene desk분기잠금해제, 로컬적용/미커밋·미푸시.
+- 최종 전체lint 재검사0오류8기존경고 PASS(소파담당검사 오류 교정반영). 팝업/책상접지검증결과갱신.
+
+### 책상 팝업·접지 게시 — codex-storefront / 2026-10-15
+- 사용자 커밋푸시 수신. 독립게시사본에서 이번 DeskSectionEditor/deskEditor CSS·책상접지 렌더분기만 원격최신에 반영. 새 조절발이 기존접지 수정의 선행의존이면 해당완료단품만 포함, 다른 가격/소품/섬네일/소파 WIP 제외. 공유git/index/서버보존. 게시인계 신규문서만 좁은잠금.
+
+- 책상 팝업·접지 커밋푸시완료 / codex-storefront: 702cd9dceaeb770b8a0f853ac27cc8e42584221f origin/main 897f007→702cd9d 정상push·ls-remote동일·독립게시사본clean. 6파일 팝업크기/헤더제거·책상만10.8mm내림 및 선행완료조절발단품포함. 기존원격가격/소품/439b473완료본보존, 공유rootgit/index/.next/서버와pending카탈로그/소파/카메라미변경. 게시본 전체lint0오류8기존경고·catalog10/10·productionwebpack/TypeScript23페이지PASS. 신규LevelingFoot EOF빈줄diff경고1건, 기능영향없음. 소유게시문서잠금해제. 운영배포READY미확인.
+- 완료/잠금 해제: 소파 선택선 hidden edge를 활성화하고 원본 strength/thickness/glow=2/2/2 적용. SofaScene에 원본 소파 HDR/Neutral 노출1/상부광1.5/배경 적용. 소스 형상·가격·다른 가구 뷰어 수정 없음. Smooth 원본 동일 직물 및 팔걸이 가림/측면 회전, 앱 브라우저 Uff 확대 확인. scoped lint/35 tests/격리 webpack production build 모두 통과. 기록 `docs/tylko-reference/sofa-materials.md`, 캡처 3장. 원본 PCSS 전체 일치/42색 전수 검증은 이번 완료 범위가 아님. 배포하지 않음.
+
+### 소파 리더 — 녹색 글로우·빈 공간 선택 해제 / 2026-10-15
+- 잠금: SofaSelectionOutline.tsx 색상, SofaScene.tsx pointerMissed, SofaConfigurator.tsx 선택 없음 처리. 빈 공간 클릭 시 -1 선택, 좌석 편집/삭제 보호, 드래그와 툴바 동작 보존.
+- 완료/잠금 해제: 소파 글로우 #339922, Canvas 빈 공간 좌클릭 시 선택 -1 및 글로우 해제. 해제 시 좌석별 너비 편집 숨김/삭제 비활성, 전체 옵션 보존. 실제 앱 브라우저 녹색/빈 공간 해제/좌석 재선택/빈 공간 드래그 회전 유지/확대 버튼 선택 유지 확인. 3개 TSX scoped lint 및 격리 webpack production build/타입검사 PASS. 로컬 적용, 미배포.
+
+### 소파 리더 — 팔걸이 클릭 선택 / 2026-10-15
+- 잠금: SofaConfigurator.tsx, SofaScene.tsx, SofaSourceModel.tsx 선택 상태/이벤트 경로. 팔걸이 index(-1/-2)와 선택 없음(-1) 충돌 제거, 팔걸이 글로우 및 레이아웃 연결, 선택 해제/좌석 편집 회귀 확인.
+
+### 소파 리더 — 소파 진입 경로 교정 / 2026-10-15
+- 좁은 잠금: DownloadedCatalog.tsx fallback 유형 판단, CatalogPages.tsx 소파 라인/구형 상세 CTA, storefront catchall productLines=9 경로, 신규 catalog-entry/design-targets.ts 및 회귀검사. all/8의 113433,s가 all 카테고리 때문에 /configurator로 가는 오류 확인. 기존 editorHref 정확매칭/이미지/외부CTA 제거 보존.
+
+- 왼쪽5 CTA 조율 정정: 작업 직전 재독에서 CatalogPages ReferenceProductPage가 동시 소유 작업으로 이미 Smooth 내부 편집기 링크로 변경됨을 확인. 그 변경은 수정/교체하지 않았고 그대로 보존. 본인 CatalogPages 수정은 accessories 외부 컬렉션 CTA 한 분기에 한정. legacy SourceProductPage는 본인 내부 새디자인 CTA 교정. 소파 담당은 현재 /sofa-configurator?model=smooth 내부 연결을 보존해 주세요.
+
+### 소파 목록 Uff·Smooth 표지 교정 — codex-storefront / 2026-10-15
+- 사용자 소파2개원본배너/PLP스크린샷 수신. 신규 public/imgs/storefront/sofa-collections/** 및 storefront.module.css lineCoversWide 소파전용 modifier만 좁은잠금(원본2사진/2.92비율/문구·화살표위치). 원본 사진 임의대체/생성 안함.
+- 소파리더 잠금조율요청: CatalogPages.tsx 소파진입교정 잠금 확인했습니다. Uff/Smooth 표지 Image src/sizes/className만 수정 필요합니다. 해당 표지 속성의 좁은잠금 해제나 소파진입작업 완료기록 부탁드립니다. 현재 파일은 읽기만 하고 원본이미지확인/신규자산 준비 먼저 진행합니다. CTA href/초기값/공통소파모델 변경없음.
+- 소파 진입/팔걸이 완료·잠금 해제: all/8(113433,s) 등 혼합 카테고리 소파를 source productKey로 판별, Uff/Smooth 내부 새 디자인 CTA 제공. 소파 목록 라인 카드는 각 모델 편집기로 직접 연결, 구형 Smooth productLines=9도 내부 Smooth로 이동, 구형 소파상세 수납 CTA 제거. 미확인 사진별 초기구성 복원으로 표시하지 않음. 팔걸이 -1/-2와 선택없음 null 분리·양쪽 팔걸이/풋스툴 클릭 허용·글로우/옵션연결.
+- 검증: catalog-entry 회귀4PASS(모든 CSV 소파 멤버십 검사), 변경 scoped eslint PASS, 격리 webpack build/TypeScript PASS. 실제 앱 브라우저 all/8→Smooth, 소파목록 Uff→UFF 확인. Smooth 양팔걸이 녹색 선택·빈공간 해제 및 Uff 왼팔걸이 확인, 캡처 sofa-armrest-select.png. 로컬반영·미배포. 첫 build 호출이 workspace에서 실행되어 Google Fonts 네트워크 실패, 이후 격리사본에서 의존파일 동기화 후 성공; dev서버 재시작하지 않았고 이후 3003 실화면 검증 정상.
+
+### 소파 리더 — 원본 조절발 연결 / 2026-10-15
+- 잠금: SofaSourceModel.tsx 발 자식 렌더, 신규 source-feet.ts/source-feet-smooth.json 및 발 회귀검사/출처문서. 저장된 원본 S01_LEG/S02_LEG 미연결 확인. 원본 type10 LEGS_POSITION 및 type12 배치 규칙 사용, 몸체/가격/카탈로그/다른 가구 발 미변경.
+
+- 소파리더 진입/팔걸이 완료·잠금해제 수신 후 CatalogPages.tsx 표지 Image src/sizes 및 sofaLineCover class만 좁은잠금 등록. 현재 내부 model=uff/smooth href 보존. 신규원본사진2장 WebP 합계142KB(원본PNG1.45MB→약90%감소), 크기1520×520/색/구도유지.
+
+### 상품 외부 CTA 잔여경로 구현/검증 완료 — 왼쪽5 / 2026-10-15
+- SourceProductPage 원본제품 CTA→내부 새디자인/목록, CatalogPages accessories 원본컬렉션 CTA→내부 목록. 공유 Smooth 상세는 타담당 동시 내부링크 교정 보존. 기존 all/15 내부 CTA·editorHref/카드사진/source identity 유지. PC/390px 실제 이동, 외부상품본문링크0·넘침0, scopedlint/diffcheckPASS·공유전체lint0오류8기존경고, 게시Source/Catalog2파일 격리webpack/TypeScript23페이지PASS·catalog10/10PASS. 게시사본 최초전체lint는 기존.vercel/output209오류였으며 생성물만 CLIignore 후source전체0오류8기존경고로재검증; 소스설정미수정.
+- 사용자 기존게시권한에 따라 독립사본 origin/main702cd9d 보존, narrow2소스/본인검증6자산만 0d1baa1dd174f02090c45f470834bf67f237b46b 정상push. 미게시sofa/initializer/Catalog source mapping/WIP 제외. stable에sofa편집기route없으므로새외부제품버튼제거는내부sofa목록으로연결, shared Smooth새편집기버튼은보존. 소유소스잠금해제·본인증거/게시상태만갱신중. 운영READY는별도확인중, 다른프로젝트취소/새작업자/공유git/.next/3003변경없음.
+
+- 소파리더 lint 연결요청: 이번 전수lint 중 SofaSourceModel.tsx:22의 useMemo inferred definition.positions vs dependency positions.length 오류1/추가경고1 관찰. 신규발작업동시진행분으로 보이며 해당파일수정않음. own CatalogPages scopedlint0/격리build24페이지PASS, 이미지표지작업과구분해수정부탁드립니다.
+
+- 소파표지완료 / codex-storefront: 사용자원본 Uff노란/Smooth로즈사진2장 그대로 교체(새경량WebP 142KB/1520×520), wide카드38:13비율·과한gradient제거·title500/반투명화살표맞춤. 다른제품라인/사진/리더 model=uff/smooth href보존. Chrome3003/furniture-c/sofas 2사진complete/natural1520×520·752×257.26(2.923비율)확인, 각각실클릭 /sofa-configurator?model=uff 및 smooth 이동확인. ownscopedlint/diffcheck0·최종통합src격리webpack/TypeScript24페이지PASS. 전체lint 동시소파발useMemo1오류/9경고는소유자연결요청, 해당코드미수정. 자산 README에검증추가후 CatalogPages표지/소파CSS/신규자산잠금해제. 로컬반영/미커밋·미푸시.
+
+### 소파 리더 — 원본 조절발 연결 완료·잠금 해제 / 2026-10-15
+- Smooth S01_LEG 원본 좌표표 28모듈, Uff S02_LEG 원본 배치 규칙 및 paintedMetal 재질 연결. 의상 재질과 분리, 모듈 회전/선택 상속. 원본 빈 좌표 Smooth S01_FR_D08_W09는 임의 추가 없이 미확정 명시.
+- source-assets 회귀5/5 PASS, scoped eslint PASS, 격리 webpack/TypeScript build PASS, 실제 브라우저 Smooth/Uff 발 접지 확인 및 캡처 저장, 콘솔 error0. 타담당이 보고한 useMemo 의존성 오류는 definition.positions 의존으로 수정 후 검사 통과. 로컬 반영·미배포. 위 소유 파일 잠금 해제.
+
+### 리더 — wall-green Bookcase 전용 컨피규레이터 / 2026-10-15
+- 사용자 범위 확정: /furniture/wall-green 제품의 커스터마이징을 원본 1964243,w 책장(Plane) UI/구성 방식으로 교체. 다른 가구 편집기 불변.
+- 잠금: 신규 src/components/bookcase/**, src/lib/bookcase/**, 전용 페이지/검사/출처문서. CatalogPages.tsx ProductPage의 wall-green 분기 및 catalog.ts wall-green 표시명만 좁은 잠금. 원본 구조·열편집·옵션 조사 후 반영.
+
+### 리더 — Edge/Tone 범위 정정 / 2026-10-15
+- 사용자 최신 정정: Classic/Modern은 유지하고 Edge/Tone 신규 라인업 추가. wall-green은 원본 1964423,w Tone 초기값을 보존한다. Bookcase와 라인업을 혼동했던 위 범위를 이 내용으로 대체.
+- 좁은 잠금: src/lib/bookcase/**, src/components/bookcase/**, public/three/bookcase/**, bookcase-configurator 전용 경로, 신규 검사/출처문서. CatalogPages.tsx의 wall-green 진입과 Edge/Tone 라인 카드 링크만 수정. 원본 DNA6 계산 및 type13/type14 렌더 스키마 사용.
+
+- 왼쪽5 상품외부CTA 최종운영READY: commit0d1baa1dd174f02090c45f470834bf67f237b46b·originmain동일·독립게시사본clean, dpl_2cAe7jYxq2ugLwXz91ShJtKz3KeN READY/GitCI production. www.befun.co.kr/befun.co.kr/befun-new.vercel.app aliases확인. 실제운영 all/15→내부configurator 및 dressing_table-1→desk-classic3D/옵션 실클릭, Smooth상세내부목록·본문외부링크0·console0. 로컬390px/PC검증과빌드에더해운영검증완료. 소유잠금해제. **다음카탈로그/소파게시시원본디자인보기/외부source버튼을복원하지말고이번내부Link교정을보존할것.** 상태갱신은본인로컬인계만, 상태전용추가CI없음.
+
+### 리더 — Edge/Tone 원본 연결 및 공통 스튜디오 중간 검증 / 2026-10-15
+- wall-green → 원본1964423 Tone(206×194×45) 연결, 별도 Edge/Tone 편집기 추가. Classic/Modern 기존 경로 유지.
+- 사용자 추가 요청 반영: BookcaseScene에서 기존 ReferenceStudio + Background(StudioPerson 포함) + Effects를 사용. 별도 바닥/접지그림자 제거. 카메라 프레이밍에 인물 영역 포함.
+- 원본 패널/도어/뒷판/경첩 좌표 비교 및 편집/복원/라인업 분리 7개 테스트 통과. 격리 webpack production build 통과. 데스크톱·390×844 모바일 배경/인물 확인.
+- 미완료: 차단된 원본 부품 GLB 확보, 전체 색상/마감, 전체 UI 일치, 변경 구성 가격·카트/상세 데이터 동기화. 전체 완료로 보고하지 않음. 상세 src/lib/bookcase/SOURCES.md.
+- 파일 소유: 신규 bookcase 폴더 작업 계속, 공통 Background/StudioPerson/ReferenceStudio/Effects 자체는 변경하지 않음.
+- 추가 조절발 점검: 사용자320cm Tone 구성은 원본엔진 기준6열·14개(앞7/뒤7), render schema도14개. plane_leg.glb 부재로 실제표시0개 확인. 공식서버 브라우저 보안확인 차단으로 원본확보 미완료. 임의대체모델 추가하지 않음.
+
+### 리더 — Tone 우측바·Space·분절·조절발 후속 / 2026-10-15
+- Tone 원본1964423 DOM/실측 기준 56px 사각 치수 트랙·연필 숫자입력, 열 개수 ±, 3:4 원본 색상/손잡이 카드, 탭 크기·간격 반영. 열 탭과 모바일 메뉴 스크롤 수정. 선택 강조는 BEFUN 녹색 유지.
+- Space 시점 초기화 추가(입력/버튼 포커스 제외). 실제 두 상판 접합 경계만 표시하고 원본 치수/분할 유지. 320cm fixture에서 상판2장, 원본 위치14개 조절발 검사.
+- 조절발: 차단된 GLB 직접 복제는 아님. 기존 observedHardware의 GLB 실측15×30mm 프로파일을 원본 render-schema 배치에 연결(바닥0, 노출20mm, 판재삽입10mm). native mesh 일치 검증은 남음.
+- 브라우저: 320→325→320, 6→5→6열, 손잡이/푸시투오픈, 캐시미어 변경, 회전→Space 복귀, 390×844 모바일/데스크톱 확인. 콘솔 error0. 9개회귀PASS, scopedESLintPASS, 전체tscPASS, 최종격리webpack build/타입검사PASS(25페이지). 공유3003/.next 재시작·삭제없음. 로컬반영/미배포.
+- 미완료 명시: 원본 로딩오버레이로 Premium Matt/열상세 UI 검증 미완료. 애쉬그레이는 원본3D RGB미확인으로 비활성(임의색상 적용안함). 가격/카트/상세동기화 및 기타 누락원본부품 남음. 전체 Tylko 동일 구현 완료 아님.
+- 캡처 /tmp/befun-bookcase-checks/tone-sidebar-desktop.png, tone-sidebar-mobile.png, tone-panel-joint.png. 출처·제약 src/lib/bookcase/SOURCES.md 갱신. 이번 수정 파일 잠금 해제; 후속작업 시 재등록.
+
+### 리더 — 원본1964607 Tone 단계형 수납장 / 2026-10-15
+- 사용자 링크1964607은 255×134×45cm 크림화이트 프리미엄매트. 캡처storage/7은 manifest1964589 애쉬그레이로 다른 상품. 정확한 ID별 초기값만 연결하고 이미지/상품정보 오매칭하지 않음.
+- 잠금: src/lib/bookcase/**, src/components/bookcase/**, bookcase-configurator/page.tsx, public/three/bookcase/ui/**, src/lib/catalog-entry/starts.json의 신규1964607 항목만. 원본 엔진 프리셋/기하 추출 확인 후 연결.
+
+- 1964607 완료: `/bookcase-configurator?line=tone&product=1964607` 전용 프리셋 추가, 원본 좌표 일치, 134/44/44cm 단차 유지. 스탠다드/프리미엄 매트 각 6색 원본 RGB·카드 연결. 열 번호 클릭 즉시 해제 버그 수정. storage/7의 원상품1964589와 오매칭하지 않음.
+- 검증: bookcase12tests, scopedESLint, fulltsc, 격리webpackbuild 통과. 데스크톱/모바일, 열높이44→74→44, 마감색, 도어 동작 확인. 가격은 원본 일반가2569EUR만 확정, 변경 구성 가격·미확보 하드웨어/원본 셰이더 완전 일치는 미완료. 이 작업 파일 잠금 해제.
+
+### 리더 — 657092 협탁 원본 연결 / 2026-10-15
+- 잠금: src/lib/bookcase/**, src/components/bookcase/**, bookcase-configurator/page.tsx, src/lib/catalog-entry/starts.json 신규657092, introVariants.ts 협탁 신규 원본 항목. 원본 TYPE23/24/25 규칙 확인 후 구현.
+
+### 657092 협탁 — 연결 및 검증 / 잠금 해제
+- 원본 TYPE23 엔진·DNA·좌표 fixture 연결, 60×25×36cm 초기값, 크기/색상/서랍/내부 구성/저장·공유 구현. 가구 선택의 협탁 기본 카드 → `/bookcase-configurator?product=657092`.
+- 14개 회귀 검사, scoped lint, TypeScript, 격리 webpack build 통과. 데스크톱·390px 모바일 확인.
+- 미완료: 원본 lift_leg GLB403으로 조절발 미표시, 다리형 비활성. 원본 재질 shader/면별색상·케이블홀 하드웨어와 완전 시각동일성은 미검증. 임의 대체 부품 없음. 자세한 근거 `src/lib/bookcase/SOURCES.md`.
+- 이번 657092 작업 잠금 해제.
+
+### 리더 — Tone 동적 가격·원본 도구 모음 / 2026-10-15
+- 잠금: src/lib/bookcase/**, src/components/bookcase/**. 원본 TYPE14 가격 계산기/확보 계수 연결 및 동일 구성 가격 대조. 하단 원형 도구/구획 편집 버튼과 우측 마감 선택을 사용자 원본 캡처에 맞춤. 공통 다른 가구/운영서버 변경 없음.
+
+### 리더 — Tone 동적 가격·원본 도구 모음 결과 / 2026-10-15
+- 완료: TYPE14 원본 가격 계산기/계수 로컬 연결, 실시간 구성별 EUR→시장 통화 환산. 원본 실사이트와 EUR4722/5018 대조 일치. 하단 원형 도구, 별도 구획 편집, 마감 pill, 컴팩트 지역 선택, 기본 시점 개선.
+- 검증: 17 tests, scoped lint, tsc, 격리 webpack production build 통과. 데스크톱/390×844 브라우저 확인.
+- 미완료: 원본 소품 자산/재질 셰이더 완전 일치, 카트 연결. 상세 기록 src/lib/bookcase/SOURCES.md.
+- 잠금 해제: src/lib/bookcase/**, src/components/bookcase/**. 공용 서버/다른 가구 변경 없음.
+
+### 리더 — All sofas 원본 목록 / 2026-10-15
+- 잠금: src/components/storefront/AllSofas.tsx, all-sofas.module.css, CatalogPages.tsx의 sofas 분기만, src/lib/sofa-catalog/**, public/imgs/sofa-catalog/**.
+- 원본32상품 ID·유로가격·재질variation·배너 순서 수집, 전용목록/필터/찜/소파진입 동작 및 반응형 검증. 다른 목록/3D renderer 변경 없음.
+
+### 리더 — All sofas 원본 목록 완료 / 2026-10-15
+- 완료: 전용 목록, 원본32개 순서·배너, 검증140개 variant, 유로기준 표시, hover/필터/찜/더보기, 상품 상세 및 같은 라인 진입.
+- 추가 잠금 범위였던 CatalogPages SearchPage의 소파 찜 표시도 완료. 다른 에이전트 변경 보존.
+- 검증: tsc 통과, lint 0오류(기존8경고), 격리 webpack build 통과, desktop/mobile 브라우저 확인. docs/handoffs/all-sofas.md 및 캡처 참조.
+- 제한: 미확보328개 variant 제외, 정확 사진 preset 자동 로딩은 미지원으로 명시.
+- 잠금 해제: AllSofas.tsx, all-sofas.module.css, CatalogPages sofas/wishlist 분기, lib/sofa-catalog/**, public/imgs/sofa-catalog/**.
+
+### 리더 — 쇼핑 전 카테고리 UI 통일 / 2026-10-15
+- 잠금: 신규 ShoppingCatalog.tsx/shopping-catalog.module.css, lib/shopping-catalog/**, public/imgs/shopping-catalog/**. CatalogPages 목록 분기·wishlist만, DownloadedCatalog 목록 카드만, navigation 메뉴 명칭/링크, catchall 카탈로그 데이터 전달만 필요시 수정.
+- 원본 메뉴별 화면·배너·필터·카드 구조를 조사하고 전체 카테고리 공통 UI 적용. 기존 상세/3D·정확 preset 링크 및 타 담당 변경 보존. 현재 작업 미커밋.
+
+- codex-assistant 푸터 정렬 개선 수신/좁은잠금: StorefrontFrame.tsx footerBottom/company 마크업, storefront.module.css footer 하단 전용 규칙. ©연도Befun 제거, 모바일 정렬 포함. 다른 header/catalog 변경 보존.
+- codex-assistant 푸터 완료/잠금해제: ©연도Befun 제거, 로고+회사명/대표자/주소/메일 왼쪽 묶음·지역언어/결제 오른쪽 정렬, 700px 이하 세로정렬/구분선/포커스 제공. Chrome localhost3003 데스크톱1728 및 모바일390×844 실화면 확인, 콘솔error0. scopedeslint/diffcheck/격리webpack production TypeScript23페이지 PASS. 로컬 반영, 미커밋·미푸시. 공통Footer.tsx는 해당화면 미사용으로 미수정.
+
+- codex-assistant 메인 슬로건 수신/좁은잠금: Storefront.tsx Hero 카피/CTA, storefront.module.css heroSlogan 규칙만. 사용자확인 메인 대상, 푸터 유지. KO/EN/JA 원문 그대로 적용.
+- codex-assistant 메인슬로건 완료/잠금해제: Hero KO/EN/JA 사용자카피3줄 및 단일 /configurator-intro CTA, 기존계절eyebrow/보조컬러CTA 제거. 푸터문구 유지. Chrome 한국어·영어·일어 전환/일어390px 3줄 확인, 한국어/뷰포트 복원. scopedeslint PASS, 격리webpack production TypeScript PASS. 로컬수정 미커밋/미푸시.
+
+- 쇼핑 UI 좁은 추가 범위: DownloadedCatalog 상세 안내 문구만 수정. 목록에서 원본 가격이 확인된 상품에도 “가격 정보가 없다”고 표시하는 모순 제거. 상세 레이아웃/3D 동작 유지.
+
+### 홈페이지 번역체 카피 정리 — codex-storefront / 2026-10-15
+- 사용자 지시: 어색한 슬로건은 영문, 나머지 한국어 문장은 자연스럽게. 좁은잠금 src/lib/i18n/messages.ts의 한국어 표시사전만(신규 ko Dict 및 MESSAGES ko 연결), 신규 docs/handoffs/home-copy.md. 기존 t 원문 키와 EN/JA 사전 보존해 각 페이지/타담당 파일 변경없이 홈·공통가입·푸터 표시만 교정. 최근 사용자확인 Hero3줄/CTA 그대로, 기능·링크·가격·회사정보 미수정. 기존쇼핑카탈로그리더잠금보존.
+
+- 홈페이지카피완료 / codex-storefront: messages.ts ko 표시72문구교정(기존컬러키포함73개), 영문브랜드제목+자연스러운KO 안내/소재/스토리/가입·푸터. 기존t키·EN/JA사전동등/사용자Hero3줄·CTA/기능·가격·회사정보보존. Chrome3003 메인전체문구·안내카드·가입/푸터실화면·h2가로넘침0, synthetic메일 계속하기→기존login?email 이동확인(실제로그인/계정생성없음). scopedlint/diffcheck PASS·전체lint0오류8기존경고·공유src격리webpack/TypeScript25페이지PASS. 신규 docs/handoffs/home-copy.md 결과, 이번messages.ts ko/인계잠금해제. 로컬반영/미커밋·미푸시.
+
+- 쇼핑 전 카테고리 UI 완료/잠금 해제: 공통 컬렉션 배너47개·필터·카드·변형·찜·추천 적용. 34개 메뉴 경로 실브라우저 확인, 31카테고리/1442세트 보존, 원본정확매칭794상품(946행), 누락파일0. hover/복귀/mobile/filter/wishlist 검증. tsc/scoped ESLint 통과, full lint 0오류8기존경고, 격리webpack build 통과. docs/handoffs/shopping-catalog.md 및 캡처 참조. 미커밋·미푸시.
+
+### 리더 — 남은 카테고리 인물 연출 이미지 한국형 교체 / 2026-10-15
+- 좁은 잠금: src/lib/sofa-catalog/editorial.json, ShoppingCatalog.tsx의 brand 연출 이미지 경로만, 신규 public/imgs/editorial-korea/**. 메인·사용자 교체 이미지·상품 썸네일·스튜디오컷·UI 유지.
+- 확인한 잔여 대상: 소파 editorial-0~3 및 공통 카테고리 brand.avif(각 기존 인물 연출). 원본 가구 형태를 참조한 한국 현대 주거/한국인 모델 연출을 내장 이미지 생성 도구로 제작. 기존 파일은 보존하고 신규 경로로 연결.
+- 완료: 내장 image_gen으로 한국인/서울 주거 분위기 연출 5장 생성, WebP 159~339KB로 저장 및 연결. 원본 파일·메인·상품 사진 보존. 공통 카드만 object-position: top 적용해 얼굴 잘림 방지.
+- 검증: 소파 4장/공통 수납장 1장 브라우저 로딩 확인, 1440px 데스크톱 및 390px 모바일 시각 확인. npm run lint 오류 0/기존 경고 8, 격리 디렉터리 webpack 프로덕션 빌드 통과. 기록: docs/handoffs/korean-editorial.md. 잠금 해제. 커밋/푸시/배포 안 함.
+
+### 리더 — 카테고리 카드 타이포그래피 우선순위 수정 / 2026-10-15
+- 좁은 잠금: shopping-catalog.module.css 카드 제목/설명, all-sofas.module.css 컬렉션/연출 카드 제목/설명 선택자만. 공통 storefront h2(54px/600)와 동등한 specificity로 로드 순서에 따라 덮이는 문제 수정. 기존 이미지/레이아웃/메인 유지.
+- 완료/잠금 해제: 카드 선택자에 페이지 범위를 더해 공통 h2 54px/600 스타일과 로딩순서 충돌 제거. 컬렉션 제목 desktop30px/500, mobile26px(소파25px); 연출20px/mobile16px. 기존 설명·간격 복구, 이미지/카드구조 유지.
+- 검증: 1728px 서랍장/소파, 390px 모바일, 소파→서랍장 재진입 후 computed font-size/weight 확인. scoped screenshot docs/handoffs/assets/catalog-typography/. full lint0오류8기존경고, 격리webpack production build 통과. 미커밋/미푸시.
+
+### 리더 — 추천 카드 폭·정렬 수정 / 2026-10-15
+- 잠금: all-sofas.module.css 추천 제목 및 ShoppingCard 전용 추천 배치 규칙. 추천 캐러셀 카드에 너비가 없어 내용 길이로 폭 결정, 이미지/가격 높이 불일치 발생. 4열 폭/모바일 슬라이드 및 행 정렬 적용. 다른 영역 유지.
+- 완료/잠금 해제: 추천 제목 specificity 수정(30px/500, 모바일24px). ShoppingCard 추천 캐러셀 고정4열/태블릿3열/모바일78%폭, 1:1 이미지·색상 옵션 행·상품 설명·가격 행 정렬.
+- 검증: 1728px 카드6개 모두368.156px/높이544.953px, 이미지368.156px 및 가격Y714.555px 일치. 다음버튼 scrollLeft768/종점 비활성/이전활성 확인. 모바일390px 모든카드279.867px/문서가로넘침0. docs/handoffs/assets/recommendation-layout/ 캡처. full lint0오류8기존경고, 격리webpack build 통과. 미커밋/미푸시.
+
+### 리더 — 사용자 제공 연출 이미지 5장 적용 / 2026-10-15
+- 좁은 잠금: 신규 public/imgs/editorial-korea/*-selected.webp, src/lib/sofa-catalog/editorial.json 이미지 경로, ShoppingCatalog.tsx 쇼룸 이미지 경로, docs/handoffs/korean-editorial.md 추가 기록. 사용자 첨부 원본을 WebP로 최적화해 해당 5개 카드에 연결. 기존 메인/상품 이미지/UI 및 이전 수정 보존.
+- 사용자 제공 이미지 완료/잠금 해제: 5장 신규 경로 연결, 데스크톱 카드5개/수납장 모바일 확인. lint0오류8기존경고, 격리webpack build 통과. 기존 파일 보존, 미커밋/미푸시.
+
+### 리더 — 신규 컨피규레이터 카테고리 진입 연결 / 2026-10-15
+- 좁은 잠금: catalog-entry/starts.json 및 design-targets.ts, 신규 category-targets.ts, ShoppingCatalog.tsx 시작하기 경로/표시 조건, bookcase-configurator/page.tsx product ID 선택, catalog-expansion/server.ts 협탁 추가 원본 카드, 검증 스크립트. 누락된 원본 상품 ID 연결 및 책장/선반/벽면수납/협탁 카테고리 시작 버튼 연결. 다른 상품을 임의 preset으로 매핑하지 않음.
+- 추가 좁은 범위: shopping-catalog/server.ts의 신규 협탁 원본 견적 보강. 원본 657092(602 EUR)·미리보기 파일을 협탁/수납/전체 목록에 추가하며 기존 sequence/상품은 보존.
+- ProductCardImage.tsx 한 조건 추가: 실제 스튜디오 컷이 없는 신규 협탁에서 빈 이미지 URL을 요청하지 않도록 guard. scripts/catalog-entry/entry.test.mjs는 신규 native-bookcase 종류와 원본 ID/카테고리 회귀 검증에 맞춰 갱신.
+- 추가 좁은 범위: BookcaseConfigurator.tsx 뒤로 링크만 각 시작 구성의 카테고리로 복귀하도록 변경(기존 선반/벽면도 모두 책장으로 돌아가던 문제).
+- 신규 컨피규레이터 카테고리 연결 완료/잠금 해제: Tone 책장1964243·선반1964423, Edge540446 정확 상품 ID 연결; 벽면1964607·협탁657092 시작하기 연결. 협탁 원본 카드/견적 추가, 컬렉션 필터 시작하기 유지, 각 카테고리 복귀 링크 수정. 기존 SKU/Classic·Modern 보존.
+- 검증: 21개 회귀 PASS, 실제 카테고리→5개 원본 구성 진입 확인, 모바일협탁390px 가로넘침0. full lint0오류8기존경고, 최종 scopedlint/격리webpack production build PASS, git diff --check PASS. docs/handoffs/category-configurator-links.md. 이번 범위 잠금 전부 해제, 미커밋/미푸시/미배포.
+
+### 리더 — 컬렉션 카드 소개 팝업 / 2026-10-15
+- 좁은 잠금: 신규 CollectionDialog.tsx/collection-dialog.module.css, lib/shopping-catalog/collection-dialogs.json, public/imgs/collection-dialogs/**; ShoppingCatalog.tsx 및 AllSofas.tsx 상단 컬렉션 클릭/팝업 연결, all-sofas.module.css 컬렉션 button 선택자만. 원본 6개 컬렉션 팝업 실조사, 슬라이드/설명/둘러보기·디자인하기 동작 적용. 상품카드/사용자 연출 이미지 보존.
+- 추가 좁은 범위: ConfiguratorIntro.tsx 컬렉션/카테고리 선택 유지, catchall 해당 분기 props, shopping-catalog/server.ts 컬렉션별 원본 상품 키 조회. 팝업 디자인하기에서 선택한 라인을 잃지 않게 연결.
+- 컬렉션 팝업 완료/잠금 해제: Classic/Modern/Edge/Tone/Uff/Smooth 6개, 원본 슬라이드19장·한국어 설명·584px 모달·모바일 전면 팝업. 화살표/점/ESC/배경 클릭/포커스 복귀 확인. 둘러보기 필터와 컬렉션 유지 디자인 선택 연결. 기존 상품카드/사용자 연출 이미지 보존.
+- 검증: 47배너 전부 커버·이미지누락0, 6팝업/4컬렉션 선택화면/소파Uff필터/모바일390 확인, browser error0. 전체lint0오류8기존경고·scopedlint/diffcheck PASS·최종 격리webpack production build PASS. docs/handoffs/collection-dialogs.md 및 desktop/mobile 캡처. 이번 범위 잠금 전부 해제, 미커밋/미푸시/미배포.
+
+### 리더 — 전체 제품 컬렉션 넘김 가시성 / 2026-10-15
+- 좁은 잠금: ShoppingCatalog.tsx 상단 캐러셀 이동/상태, shopping-catalog.module.css 넘침 카드 표시/화살표 배치. 6개 중 Tone/Smooth가 완전히 가려져 4개만 있는 것처럼 보이는 문제 수정. 기존 팝업·이미지·상품 데이터 보존.
+- 전체 제품 컬렉션 넘김 완료/잠금 해제: Uff/Classic/Modern/Edge/Tone/Smooth 6개 등록 상태 확인. 기존4개 딱맞춤 clipping을 다음카드 peek로 수정, 실제카드폭 기준 이동 및 양끝 disabled/ResizeObserver 상태, 모바일 넘김 버튼 제공. 팝업/데이터 보존.
+- 검증: desktop1280 Tone 일부노출·두번이동 Smooth 전체노출/팝업/종점 disabled, mobile390 이동·문서overflow0, browsererror0. full lint 오류0/기존8경고, 격리webpack production/TypeScript26페이지 PASS. 캡처 docs/handoffs/assets/collection-dialogs/collection-rail-peek.png. 로컬 반영, 미커밋/미푸시.
+
+### Codex — bedside 스타일 선택 연결 / 2026-10-15
+- 수신: product=657092 스타일 버튼 무반응. 좁은 잠금: src/lib/bookcase/{engine.ts,types.ts,engine.test.mjs,SOURCES.md}, src/components/bookcase/{BookcaseConfigurator.tsx,BookcaseScene.tsx}. 원본 DNA/fixture 변경 없음. 실제 source switchShelfType와 선택·저장·복원 연결 및 현재 조건별 비활성 사유 확인.
+- 완료/잠금 해제: 미니멀/벽걸이/다리형을 원본 스타일 전환 API에 연결, 선택 표시·저장 JSON·공유 링크 보존. TYPE25 재로드 때 폭 60mm 감소하던 어댑터 문제 해결. source 조건으로만 비활성화. 다리·상판은 원본 asset HTTP403로 schema 기반 시각 대체 형상이며 세부 동치는 미확인(SOURCES.md 명시).
+- 검증: Chrome localhost:3003/bookcase-configurator?product=657092에서 165×65×36 입력 → 벽걸이165×62×36 → 다리형165×72×36 → 공유 링크 새 진입/새로고침 유지 → 미니멀165×65×36 복귀 PASS, browser console error0. 기존 사용자 로컬 저장은 덮어쓰지 않음. 원본 fixture 포함 engine tests15/15 PASS; 전체 lint 0오류177경고, 수정 파일 lint PASS. /private/tmp/befun-style-check-20261015 격리 webpack production build PASS(폰트 다운로드 네트워크 허용 후). 미커밋/미푸시.
+
+### 리더 — Tylko 라인업 전체 구현 감사 / 2026-10-15
+- 읽기 전용 조사: 원본 현재 컬렉션/쇼핑 메뉴와 로컬 목록·상세·컨피규레이터·가격/주문 지원 대조. 신규 docs/handoffs/lineup-audit-20261015.md 및 감사 데이터만 작성. 기능 코드 변경 없음, 타 담당 잠금 보존.
+
+### Codex — 임의 bedside 형상 제거·VPN Chrome 원본 복구 / 2026-10-15
+- 재착수/좁은 잠금: BookcaseScene.tsx, native-geometry.ts, data/assets.json, upstream/rounded-panel.js(신규), SOURCES.md, public/three/bookcase/{pillar_leg,lift_leg,thick_leg}.glb. Chrome 원본 657092의 실제 Network 200 GLB 응답 확보. 앞선 HTTP403은 터미널 경로에서만 발생했으며 원본 불가 판단을 철회. 대체 다리·상판 제거하고 원본 GLB 및 원본 roundedPanel 생성/변형 코드로 교체.
+- 추가 요청 반영: 원본 TYPE24 HANGING_AT=250mm에 따라 벽걸이 전체/편집 타깃/치수를 25cm 상승. 3057 Chrome 높이65→벽걸이62 렌더에서 바닥 이격 확인, 다리형72 전환과 원본 GLB 렌더 확인. 근거는 src/lib/bookcase/SOURCES.md에 정정. scoped lint PASS, 엔진 15/15 PASS. 공유3003 재시작하지 않음.
+- 최종 격리 webpack production build PASS (벽걸이 offset 포함). 위 원본 복구 작업 파일 잠금 해제. 커밋/푸시 없음.
+
+- 라인업 전체 구현 감사 완료: `docs/handoffs/lineup-audit-20261015/README.md`. 31개 버킷/1,261개 고유 상품 매핑, 890개 엔진·치수, Tone55/소파417 가격 대조. 미연결372 + 별도 소파316601, 액세서리 흐름/가격/렌더 부품/구획색상/주문 누락 문서화. 기능 코드 변경 없음, lint/build 재실행 해당 없음. 감사 문서 잠금 해제.
+
+### 리더 — Tone 스타일 변경 가격 복구 / 2026-10-15
+- 좁은 잠금: bookcase/pricing.ts 및 새 원본 TYPE23/24/25 가격 모듈/회귀테스트, BookcaseConfigurator.tsx 가격 분기, SourceConfigurator.tsx 가격 분기. 원본 계산식·계수로 미니멀/벽걸이/다리형 전환 후 견적 복구.
+
+- Tone 스타일 가격 복구 완료 / 잠금 해제: 원본 TYPE23/24/25 계산기 및 81개 계수를 연결하여 미니멀·벽걸이·다리형 전환과 크기 변경에 따라 EUR 가격 재계산. 기존 BookcaseConfigurator와 상품별 SourceConfigurator 모두 적용.
+- 검증: 원본 상품 91개 가격 일치, live 657092 스타일별 3618/3800/4008 EUR 및 656504 높이52cm 678 EUR 일치, 공유 복원 동일가격. 가격/엔진 tests21 PASS, full lint0오류13기존경고·scopedlint PASS, 격리webpack build PASS, diffcheck PASS. 근거 docs/handoffs/tone-style-pricing/verification.json. 미커밋/미푸시/미배포.
+
+### 리더 — 화장대·레코드 수납장 우선 연결 / 2026-10-15
+- 범위: 두 카테고리의 사진별 원본 구성 진입·편집·가격. 다른 미완성 카테고리 작업보다 우선.
+- 좁은 잠금: 신규 lib/catalog-entry/legacy-designs/**, scripts/catalog-entry/legacy-designs/**, 신규 legacy-configurator 경로/컴포넌트, starts.ts·category-targets.ts·design-targets.ts의 두 카테고리 연결 분기. 공통 렌더러/원본 계산기 필요 변경은 영향 확인 후 최소 확장.
+- 완료: 화장대 50종(Classic 39/Modern 11), 레코드 수납장 50종 원본 FPM·프리셋·렌더·EUR 가격 연결. 카테고리 카드·새 디자인 경로 반영, 원본 조절발/손잡이/합판 엣지와 Modern 투톤 표시. 저장/공유/초기화 및 옵션별 가격 갱신 확인.
+- 검증: 초기 치수·EUR 정가 100/100 일치, 너비 변경/프리셋 복원 100/100, 화장대 깊이 및 레코드 활성 스타일 계산 통과. 실제 브라우저 상품 진입·도어·색상·저장/공유 확인. 전체 lint 오류 0/기존 경고 13, tsc 및 격리 webpack build 통과.
+- 상세: docs/handoffs/legacy-priority/README.md. 주문 연결·전체 원본 UI 동등성은 이번 완료 범위 아님. 커밋/푸시/배포 없음. 위 좁은 잠금 해제.
+
+### 홈페이지 완료분 게시 — codex-storefront / 2026-10-15
+- 사용자 커밋푸시 상태 확인 수신. 원격0d1baa1 보존, 독립게시사본에 messages.ts KO72카피·소파표지2이미지/CatalogPages표지속성/CSS·메인검정CTA 포함. 선행 codex-assistant 완료·잠금해제된 Hero3언어문구/단일CTA 및 heroSlogan2규칙은 홈페이지문구게시 선행완료분으로 함께반영(본인화면검증기준과일치). 진행중/완료대기 쇼핑목록·원본renderer·전체섬네일 preset WIP는 포함하지않음. 공유rootgit/index/서버보존. 신규게시인계/기존home-copy.md 게시상태만 좁은잠금.
+
+### 리더 — 화장대·레코드 구현 커밋/푸시 / 2026-10-15
+- 사용자 명시 요청: 커밋푸시. 두 카테고리와 필수 미커밋 공통 storefront/원본 컨피규레이터 의존성을 묶어 main에 반영. optimizer/auth/별도 조립 안내 수정은 제외. 격리된 커밋 대상 스냅샷에서 빌드 후 push, 강제 푸시 없음.
+
+- 홈페이지 완료분 커밋푸시완료 / codex-storefront: cb78c7908b3200d62332b6f4d2e4fa51d56e8be0 main 0d1baa1→cb78c79 정상push·ls-remote동일·독립게시사본clean. KO72카피/메인검정CTA/사용자확인Hero3언어완료분·소파표지2장과비율8파일포함. 원격기존내부CTA/기능/가격보존, 현재공유신규쇼핑목록/전체preset/렌더러/회사정보정렬등타범위미포함. 게시본 full lint0오류8기존경고·catalog10/10·webpack/TypeScript23페이지PASS·Chrome31842 Hero/검정CTA/문구/2사진실화면확인. source docs/handoffs/home-copy.md에게시결과. 공유.git/index/3003/.next/WIP보존, 게시문서잠금해제. 운영배포READY미확인. codex-assistant 선행완료Hero3줄/단일CTA 이번게시포함확인부탁드립니다.
+
+### 캐비넷 그림자·효과음·도어 장착 교정 — 왼쪽5 / 2026-10-14
+- 사용자 직접 지시 수신·소유13소스/검사 및 cabinet-polish 증거만 수정. 기본 PCF grain→VSM 고정블러/4096/DPR2; 실제 체결음4종/음소거; 열린 도어 앞걸림→위·아래 뒤눌림→개폐 확인. 공유 Blum 모델 소비/정밀 래치 CAD 및 기구 치수 미확인/제조승인false 유지.
+- 63검사·변경lint0·전체lint0오류/기존8경고·최종격리production build/TypeScript PASS, 실제8부품 수동/전체영상 완주·25회48kHz AudioDestination 출력·desktop/390px·pause/seek/mute/reset/topic회귀·24투명토글자원안정·console0. SHA15소스일치, 신규증거 docs/handoffs/assets/codex-assembly/cabinet-polish/README.md. 소유잠금해제, Git/운영READY는별도기록. 공통가구/HW/CNC/R15재질조명/공유 .git/.next/3003/타진행소스 미혼입.
+
+
+- 게시 검증: 최신 origin/main cb78c79 기반 격리 사본에서 공통 의존성을 포함한 production webpack 빌드 통과. 원격 기존 커밋 및 별도 작업 내용을 보존하여 fast-forward push 준비.

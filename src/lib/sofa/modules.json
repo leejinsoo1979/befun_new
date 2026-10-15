@@ -1,0 +1,888 @@
+[
+  {
+    "key": "AR_D875_W250",
+    "id": "S01_AR_D07_W02",
+    "container_type": [
+      "end"
+    ],
+    "type": [
+      "armrest"
+    ],
+    "width": 250,
+    "depth": 875,
+    "height": 580,
+    "default_rotation_z_as": {
+      "armrest": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "CL_D1625_W875",
+    "id": "S01_CL_D13_W07",
+    "container_type": [
+      "axis"
+    ],
+    "type": [
+      "chaise_longue"
+    ],
+    "width": 875,
+    "depth": 1625,
+    "height": 835,
+    "default_rotation_z_as": {
+      "chaise_longue": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": true,
+      "cushion": true
+    }
+  },
+  {
+    "key": "CL_D1625_W1000",
+    "id": "S01_CL_D13_W08",
+    "container_type": [
+      "axis"
+    ],
+    "type": [
+      "chaise_longue"
+    ],
+    "width": 1000,
+    "depth": 1625,
+    "height": 835,
+    "default_rotation_z_as": {
+      "chaise_longue": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": true,
+      "cushion": true
+    }
+  },
+  {
+    "key": "CL_D1625_W1125",
+    "id": "S01_CL_D13_W09",
+    "container_type": [
+      "axis"
+    ],
+    "type": [
+      "chaise_longue"
+    ],
+    "width": 1125,
+    "depth": 1625,
+    "height": 835,
+    "default_rotation_z_as": {
+      "chaise_longue": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": true,
+      "cushion": true
+    }
+  },
+  {
+    "key": "CN_D1000_W1000",
+    "id": "S01_CN_D08_W08",
+    "container_type": [
+      "turn"
+    ],
+    "type": [
+      "corner"
+    ],
+    "width": 1000,
+    "depth": 1000,
+    "height": 835,
+    "default_rotation_z_as": {
+      "corner": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": true,
+      "cushion": true
+    }
+  },
+  {
+    "key": "CN_D1125_W1125",
+    "id": "S01_CN_D09_W09",
+    "container_type": [
+      "turn"
+    ],
+    "type": [
+      "corner"
+    ],
+    "width": 1125,
+    "depth": 1125,
+    "height": 835,
+    "default_rotation_z_as": {
+      "corner": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": true,
+      "cushion": true
+    }
+  },
+  {
+    "key": "ST_D1000_W750",
+    "id": "S01_ST_D08_W06",
+    "container_type": [
+      "axis"
+    ],
+    "type": [
+      "seater"
+    ],
+    "width": 750,
+    "depth": 1000,
+    "height": 835,
+    "default_rotation_z_as": {
+      "seater": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": true,
+      "cushion": true
+    }
+  },
+  {
+    "key": "ST_D1000_W875",
+    "id": "S01_ST_D08_W07",
+    "container_type": [
+      "axis"
+    ],
+    "type": [
+      "seater"
+    ],
+    "width": 875,
+    "depth": 1000,
+    "height": 835,
+    "default_rotation_z_as": {
+      "seater": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": true,
+      "cushion": true
+    }
+  },
+  {
+    "key": "ST_D1000_W1000",
+    "id": "S01_ST_D08_W08",
+    "container_type": [
+      "axis"
+    ],
+    "type": [
+      "seater"
+    ],
+    "width": 1000,
+    "depth": 1000,
+    "height": 835,
+    "default_rotation_z_as": {
+      "seater": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": true,
+      "cushion": true
+    }
+  },
+  {
+    "key": "ST_D1000_W1125",
+    "id": "S01_ST_D08_W09",
+    "container_type": [
+      "axis"
+    ],
+    "type": [
+      "seater"
+    ],
+    "width": 1125,
+    "depth": 1000,
+    "height": 835,
+    "default_rotation_z_as": {
+      "seater": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": true,
+      "cushion": true
+    }
+  },
+  {
+    "key": "ST_D1125_W750",
+    "id": "S01_ST_D09_W06",
+    "container_type": [
+      "axis"
+    ],
+    "type": [
+      "seater"
+    ],
+    "width": 750,
+    "depth": 1125,
+    "height": 835,
+    "default_rotation_z_as": {
+      "seater": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": true,
+      "cushion": true
+    }
+  },
+  {
+    "key": "ST_D1125_W875",
+    "id": "S01_ST_D09_W07",
+    "container_type": [
+      "axis"
+    ],
+    "type": [
+      "seater"
+    ],
+    "width": 875,
+    "depth": 1125,
+    "height": 835,
+    "default_rotation_z_as": {
+      "seater": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": true,
+      "cushion": true
+    }
+  },
+  {
+    "key": "ST_D1125_W1000",
+    "id": "S01_ST_D09_W08",
+    "container_type": [
+      "axis"
+    ],
+    "type": [
+      "seater"
+    ],
+    "width": 1000,
+    "depth": 1125,
+    "height": 835,
+    "default_rotation_z_as": {
+      "seater": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": true,
+      "cushion": true
+    }
+  },
+  {
+    "key": "ST_D1125_W1125",
+    "id": "S01_ST_D09_W09",
+    "container_type": [
+      "axis"
+    ],
+    "type": [
+      "seater"
+    ],
+    "width": 1125,
+    "depth": 1125,
+    "height": 835,
+    "default_rotation_z_as": {
+      "seater": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": true,
+      "cushion": true
+    }
+  },
+  {
+    "key": "FR_D625_W750",
+    "id": "S01_FR_D05_W06",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest"
+    ],
+    "width": 750,
+    "depth": 625,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D625_W875",
+    "id": "S01_FR_D05_W07",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest"
+    ],
+    "width": 875,
+    "depth": 625,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D625_W1000",
+    "id": "S01_FR_D05_W08",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 1000,
+    "depth": 625,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 0,
+      "open_end": 90,
+      "open_middle": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D625_W1125",
+    "id": "S01_FR_D05_W09",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 1125,
+    "depth": 625,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 0,
+      "open_end": 90,
+      "open_middle": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D750_W625",
+    "id": "S01_FR_D05_W06",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest"
+    ],
+    "width": 625,
+    "depth": 750,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D750_W750",
+    "id": "S01_FR_D06_W06",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest"
+    ],
+    "width": 750,
+    "depth": 750,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D750_W875",
+    "id": "S01_FR_D06_W07",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest"
+    ],
+    "width": 875,
+    "depth": 750,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D750_W1000",
+    "id": "S01_FR_D06_W08",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 1000,
+    "depth": 750,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 0,
+      "open_end": 90,
+      "open_middle": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D750_W1125",
+    "id": "S01_FR_D06_W09",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 1125,
+    "depth": 750,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 0,
+      "open_end": 90,
+      "open_middle": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D875_W625",
+    "id": "S01_FR_D05_W07",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest"
+    ],
+    "width": 625,
+    "depth": 875,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D875_W750",
+    "id": "S01_FR_D06_W07",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest"
+    ],
+    "width": 750,
+    "depth": 875,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D875_W875",
+    "id": "S01_FR_D07_W07",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest"
+    ],
+    "width": 875,
+    "depth": 875,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D875_W1000",
+    "id": "S01_FR_D07_W08",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 1000,
+    "depth": 875,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 0,
+      "open_end": 90,
+      "open_middle": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D875_W1125",
+    "id": "S01_FR_D07_W09",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 1125,
+    "depth": 875,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 0,
+      "open_end": 90,
+      "open_middle": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D1000_W625",
+    "id": "S01_FR_D05_W08",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 625,
+    "depth": 1000,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 90,
+      "open_end": 90,
+      "open_middle": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D1000_W750",
+    "id": "S01_FR_D06_W08",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 750,
+    "depth": 1000,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 90,
+      "open_end": 90,
+      "open_middle": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D1000_W875",
+    "id": "S01_FR_D07_W08",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 875,
+    "depth": 1000,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 90,
+      "open_end": 90,
+      "open_middle": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D1000_W1000",
+    "id": "S01_FR_D08_W08",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 1000,
+    "depth": 1000,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 0,
+      "open_end": 0,
+      "open_middle": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D1000_W1125",
+    "id": "S01_FR_D08_W09",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 1125,
+    "depth": 1000,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 0,
+      "open_end": 0,
+      "open_middle": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D1125_W625",
+    "id": "S01_FR_D05_W09",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 625,
+    "depth": 1125,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 90,
+      "open_end": 90,
+      "open_middle": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D1125_W750",
+    "id": "S01_FR_D06_W09",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 750,
+    "depth": 1125,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 90,
+      "open_end": 90,
+      "open_middle": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D1125_W875",
+    "id": "S01_FR_D07_W09",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 875,
+    "depth": 1125,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 90,
+      "open_end": 90,
+      "open_middle": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D1125_W1000",
+    "id": "S01_FR_D08_W09",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 1000,
+    "depth": 1125,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 90,
+      "open_end": 90,
+      "open_middle": 90
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  },
+  {
+    "key": "FR_D1125_W1125",
+    "id": "S01_FR_D09_W09",
+    "container_type": [
+      "axis",
+      "free-stand"
+    ],
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 1125,
+    "depth": 1125,
+    "height": 430,
+    "default_rotation_z_as": {
+      "footrest": 0,
+      "open_end": 0,
+      "open_middle": 0
+    },
+    "material": {
+      "main": true,
+      "backrest": false,
+      "cushion": false
+    }
+  }
+]

@@ -1,0 +1,82 @@
+{
+  "1964423,w": {
+    "id": "wall-green",
+    "kind": "bookcase",
+    "href": "/bookcase-configurator?line=tone&product=1964423"
+  },
+  "9268349,j": {
+    "id": "bookcase-brown",
+    "kind": "shelf",
+    "href": "/furniture/bookcase-brown"
+  },
+  "9284011,j": {
+    "id": "sideboard-brown",
+    "kind": "shelf",
+    "href": "/furniture/sideboard-brown"
+  },
+  "7304141,j": {
+    "id": "sideboard-terra",
+    "kind": "shelf",
+    "href": "/furniture/sideboard-terra"
+  },
+  "1932418,w": {
+    "id": "bookcase-plum",
+    "kind": "shelf",
+    "href": "/furniture/bookcase-plum"
+  },
+  "9285829,j": {
+    "id": "tv-brown",
+    "kind": "shelf",
+    "href": "/furniture/tv-brown"
+  },
+  "9281707,j": {
+    "id": "desk-1",
+    "kind": "furniture",
+    "href": "/reference-product/desk-1"
+  },
+  "3716771,j": {
+    "id": "desk-2",
+    "kind": "furniture",
+    "href": "/reference-product/desk-2"
+  },
+  "3760531,j": {
+    "id": "desk-3",
+    "kind": "furniture",
+    "href": "/reference-product/desk-3"
+  },
+  "1936508,w": {
+    "id": "wardrobe-1",
+    "kind": "furniture",
+    "href": "/reference-product/wardrobe-1"
+  },
+  "92332,w": {
+    "id": "wardrobe-2",
+    "kind": "furniture",
+    "href": "/reference-product/wardrobe-2"
+  },
+  "92275,w": {
+    "id": "wardrobe-3",
+    "kind": "furniture",
+    "href": "/reference-product/wardrobe-3"
+  },
+  "1964243,w": {
+    "id": "tone-1964243",
+    "kind": "bookcase",
+    "href": "/bookcase-configurator?line=tone&product=1964243"
+  },
+  "540446,w": {
+    "id": "edge-540446",
+    "kind": "bookcase",
+    "href": "/bookcase-configurator?line=edge&product=540446"
+  },
+  "1964607,w": {
+    "id": "tone-1964607",
+    "kind": "bookcase",
+    "href": "/bookcase-configurator?line=tone&product=1964607"
+  },
+  "657092,w": {
+    "id": "bedside-657092",
+    "kind": "bookcase",
+    "href": "/bookcase-configurator?product=657092"
+  }
+}

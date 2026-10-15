@@ -1,0 +1,2451 @@
+{
+  "wall-green": {
+    "sourceId": 1964423,
+    "sourceType": "watty",
+    "width": 206.0,
+    "height": 194.0,
+    "depth": 45.0,
+    "style": "grid",
+    "density": 0,
+    "rows": [
+      38,
+      28,
+      28,
+      28,
+      28,
+      29
+    ],
+    "color": "S_Pistachio Green",
+    "colorCategory": "solid",
+    "baseType": "standard",
+    "hasBackPanel": true,
+    "originY": 10,
+    "panels": [
+      {
+        "bounds": [
+          -1012,
+          -349,
+          26,
+          44,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -331,
+          332,
+          26,
+          44,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          350,
+          1012,
+          26,
+          44,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -1012,
+          -349,
+          426,
+          444,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -1012,
+          -349,
+          726,
+          744,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -1012,
+          -349,
+          1026,
+          1044,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -1012,
+          -349,
+          1330,
+          1348,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -1012,
+          -349,
+          1626,
+          1644,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -1012,
+          1012,
+          1915,
+          1933,
+          0,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -331,
+          332,
+          426,
+          444,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -331,
+          332,
+          726,
+          744,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -331,
+          332,
+          1026,
+          1044,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -331,
+          332,
+          1330,
+          1348,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -331,
+          332,
+          1626,
+          1644,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          350,
+          1012,
+          426,
+          444,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          350,
+          1012,
+          726,
+          744,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          350,
+          1012,
+          1026,
+          1044,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          350,
+          1012,
+          1330,
+          1348,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          350,
+          1012,
+          1626,
+          1644,
+          18,
+          428
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -1030,
+          -1012,
+          20,
+          1933,
+          0,
+          428
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -349,
+          -331,
+          20,
+          1915,
+          0,
+          428
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          332,
+          350,
+          20,
+          1915,
+          0,
+          428
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          1012,
+          1030,
+          20,
+          1933,
+          0,
+          428
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -331,
+          332,
+          20,
+          1026,
+          6,
+          18
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -331,
+          332,
+          1026,
+          1915,
+          6,
+          18
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          350,
+          1012,
+          20,
+          1026,
+          6,
+          18
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          350,
+          1012,
+          1026,
+          1915,
+          6,
+          18
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -1012,
+          -349,
+          20,
+          1026,
+          6,
+          18
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -1012,
+          -349,
+          1026,
+          1915,
+          6,
+          18
+        ],
+        "material": "backPanel"
+      }
+    ],
+    "fronts": [
+      {
+        "bounds": [
+          -1030,
+          -686,
+          1326,
+          1933,
+          432,
+          450
+        ],
+        "type": "door",
+        "hingeSide": "left",
+        "parity": "single",
+        "handle": "push",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          -686,
+          -342,
+          1326,
+          1933,
+          432,
+          450
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "push",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          -1030,
+          -686,
+          20,
+          744,
+          432,
+          450
+        ],
+        "type": "door",
+        "hingeSide": "left",
+        "parity": "single",
+        "handle": "push",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          -686,
+          -342,
+          20,
+          744,
+          432,
+          450
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "push",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          -338,
+          1,
+          1326,
+          1933,
+          432,
+          450
+        ],
+        "type": "door",
+        "hingeSide": "left",
+        "parity": "single",
+        "handle": "push",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          1,
+          339,
+          1326,
+          1933,
+          432,
+          450
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "push",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          -338,
+          1,
+          20,
+          744,
+          432,
+          450
+        ],
+        "type": "door",
+        "hingeSide": "left",
+        "parity": "single",
+        "handle": "push",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          1,
+          339,
+          20,
+          744,
+          432,
+          450
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "push",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          343,
+          687,
+          1326,
+          1933,
+          432,
+          450
+        ],
+        "type": "door",
+        "hingeSide": "left",
+        "parity": "single",
+        "handle": "push",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          687,
+          1030,
+          1326,
+          1933,
+          432,
+          450
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "push",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          343,
+          687,
+          20,
+          744,
+          432,
+          450
+        ],
+        "type": "door",
+        "hingeSide": "left",
+        "parity": "single",
+        "handle": "push",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          687,
+          1030,
+          20,
+          744,
+          432,
+          450
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "push",
+        "handleAtBottom": false
+      }
+    ],
+    "longLegs": []
+  },
+  "bookcase-brown": {
+    "sourceId": 9268349,
+    "sourceType": "jetty",
+    "width": 120.0,
+    "height": 193.0,
+    "depth": 32.0,
+    "style": "pattern",
+    "density": 90,
+    "rows": [
+      38,
+      28,
+      28,
+      28,
+      28,
+      28
+    ],
+    "color": "C_Clay Brown",
+    "colorCategory": "classic",
+    "baseType": "standard",
+    "hasBackPanel": false,
+    "originY": 0,
+    "panels": [
+      {
+        "bounds": [
+          -600,
+          600,
+          0,
+          18,
+          0,
+          320
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -600,
+          600,
+          400,
+          418,
+          0,
+          320
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -600,
+          -110,
+          700,
+          718,
+          0,
+          320
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          241,
+          600,
+          700,
+          718,
+          0,
+          320
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -600,
+          600,
+          1000,
+          1018,
+          0,
+          320
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -600,
+          600,
+          1300,
+          1318,
+          0,
+          320
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -600,
+          600,
+          1600,
+          1618,
+          0,
+          320
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -600,
+          600,
+          1900,
+          1918,
+          0,
+          320
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -475,
+          -457,
+          718,
+          1000,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -475,
+          -457,
+          1318,
+          1600,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -249,
+          -231,
+          1018,
+          1300,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -600,
+          -582,
+          1018,
+          1300,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          38,
+          56,
+          1318,
+          1600,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          192,
+          210,
+          1618,
+          1900,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -119,
+          -101,
+          1618,
+          1900,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -600,
+          -582,
+          1618,
+          1900,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -128,
+          -110,
+          18,
+          400,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          293,
+          311,
+          18,
+          400,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -600,
+          -582,
+          18,
+          400,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -128,
+          -110,
+          418,
+          700,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -128,
+          -110,
+          718,
+          1000,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          241,
+          259,
+          418,
+          700,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          241,
+          259,
+          718,
+          1000,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -600,
+          -582,
+          418,
+          700,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          241,
+          259,
+          1018,
+          1300,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          582,
+          600,
+          1318,
+          1600,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          582,
+          600,
+          418,
+          700,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          582,
+          600,
+          718,
+          1000,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          457,
+          475,
+          1018,
+          1300,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          582,
+          600,
+          1618,
+          1900,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          582,
+          600,
+          18,
+          400,
+          0,
+          320
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -582,
+          -128,
+          18,
+          400,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -110,
+          293,
+          18,
+          400,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          311,
+          582,
+          18,
+          400,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -457,
+          -128,
+          718,
+          1000,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          259,
+          582,
+          718,
+          1000,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -231,
+          241,
+          1018,
+          1300,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -582,
+          -457,
+          1618,
+          1900,
+          0,
+          12
+        ],
+        "material": "supportPanel"
+      },
+      {
+        "bounds": [
+          -457,
+          -332,
+          1318,
+          1600,
+          0,
+          12
+        ],
+        "material": "supportPanel"
+      },
+      {
+        "bounds": [
+          -582,
+          -457,
+          418,
+          700,
+          0,
+          12
+        ],
+        "material": "supportPanel"
+      },
+      {
+        "bounds": [
+          -582,
+          -457,
+          1018,
+          1300,
+          0,
+          12
+        ],
+        "material": "supportPanel"
+      }
+    ],
+    "fronts": [
+      {
+        "bounds": [
+          -582,
+          -128,
+          18,
+          400,
+          301,
+          320
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          -110,
+          293,
+          18,
+          400,
+          301,
+          320
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          311,
+          582,
+          18,
+          400,
+          301,
+          320
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          -457,
+          -128,
+          718,
+          1000,
+          301,
+          320
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          259,
+          582,
+          718,
+          1000,
+          301,
+          320
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          -231,
+          241,
+          1018,
+          1300,
+          301,
+          320
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      }
+    ],
+    "longLegs": []
+  },
+  "sideboard-brown": {
+    "sourceId": 9284011,
+    "sourceType": "jetty",
+    "width": 190.0,
+    "height": 73.0,
+    "depth": 40.0,
+    "style": "mosaic",
+    "density": 80,
+    "rows": [
+      38,
+      18
+    ],
+    "color": "S_Dark Brown",
+    "colorCategory": "solid",
+    "baseType": "legs",
+    "hasBackPanel": true,
+    "originY": 109,
+    "panels": [
+      {
+        "bounds": [
+          -950,
+          950,
+          109,
+          127,
+          0,
+          400
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -950,
+          950,
+          709,
+          727,
+          0,
+          400
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -424,
+          950,
+          509,
+          527,
+          0,
+          400
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -950,
+          -932,
+          127,
+          709,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -424,
+          -406,
+          527,
+          709,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -424,
+          -406,
+          127,
+          509,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          102,
+          120,
+          127,
+          509,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          405,
+          423,
+          127,
+          509,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          932,
+          950,
+          127,
+          509,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          102,
+          120,
+          527,
+          709,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          405,
+          423,
+          527,
+          709,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          932,
+          950,
+          527,
+          709,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -932,
+          -424,
+          127,
+          709,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -406,
+          102,
+          127,
+          509,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -406,
+          102,
+          527,
+          709,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          120,
+          405,
+          127,
+          509,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          120,
+          405,
+          527,
+          709,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          423,
+          932,
+          127,
+          509,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          423,
+          932,
+          527,
+          709,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          423,
+          932,
+          309,
+          327,
+          18,
+          400
+        ],
+        "material": "horizontalBase"
+      }
+    ],
+    "fronts": [
+      {
+        "bounds": [
+          -406,
+          102,
+          127,
+          509,
+          381,
+          400
+        ],
+        "type": "drawer",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          -406,
+          102,
+          527,
+          709,
+          381,
+          400
+        ],
+        "type": "drawer",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          423,
+          932,
+          127,
+          309,
+          381,
+          400
+        ],
+        "type": "drawer",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          423,
+          932,
+          327,
+          509,
+          381,
+          400
+        ],
+        "type": "drawer",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          423,
+          932,
+          527,
+          709,
+          381,
+          400
+        ],
+        "type": "drawer",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      }
+    ],
+    "longLegs": [
+      {
+        "x": -941,
+        "y": 0,
+        "z": 9,
+        "rotation": 90
+      },
+      {
+        "x": -941,
+        "y": 0,
+        "z": 391,
+        "rotation": 0
+      },
+      {
+        "x": -415,
+        "y": 0,
+        "z": 9,
+        "rotation": 135
+      },
+      {
+        "x": -415,
+        "y": 0,
+        "z": 391,
+        "rotation": 315
+      },
+      {
+        "x": 111,
+        "y": 0,
+        "z": 9,
+        "rotation": 135
+      },
+      {
+        "x": 111,
+        "y": 0,
+        "z": 391,
+        "rotation": 315
+      },
+      {
+        "x": 414,
+        "y": 0,
+        "z": 9,
+        "rotation": 135
+      },
+      {
+        "x": 414,
+        "y": 0,
+        "z": 391,
+        "rotation": 315
+      },
+      {
+        "x": 941,
+        "y": 0,
+        "z": 9,
+        "rotation": 180
+      },
+      {
+        "x": 941,
+        "y": 0,
+        "z": 391,
+        "rotation": 270
+      }
+    ]
+  },
+  "sideboard-terra": {
+    "sourceId": 7304141,
+    "sourceType": "jetty",
+    "width": 110.0,
+    "height": 63.0,
+    "depth": 40.0,
+    "style": "pattern",
+    "density": 0,
+    "rows": [
+      28,
+      18
+    ],
+    "color": "S_Teracotta Orange",
+    "colorCategory": "solid",
+    "baseType": "legs",
+    "hasBackPanel": true,
+    "originY": 109,
+    "panels": [
+      {
+        "bounds": [
+          -550,
+          550,
+          109,
+          127,
+          0,
+          400
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -550,
+          180,
+          409,
+          427,
+          0,
+          400
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -550,
+          550,
+          609,
+          627,
+          0,
+          400
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -550,
+          -532,
+          127,
+          409,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -208,
+          -190,
+          127,
+          409,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          162,
+          180,
+          127,
+          409,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          162,
+          180,
+          427,
+          609,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          532,
+          550,
+          127,
+          609,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -425,
+          -407,
+          427,
+          609,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -116,
+          -98,
+          427,
+          609,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -532,
+          -208,
+          127,
+          409,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -407,
+          -116,
+          427,
+          609,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -190,
+          162,
+          127,
+          409,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -98,
+          162,
+          427,
+          609,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          180,
+          532,
+          127,
+          609,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      }
+    ],
+    "fronts": [
+      {
+        "bounds": [
+          -532,
+          -208,
+          127,
+          409,
+          381,
+          400
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      }
+    ],
+    "longLegs": [
+      {
+        "x": -541,
+        "y": 0,
+        "z": 9,
+        "rotation": 90
+      },
+      {
+        "x": -541,
+        "y": 0,
+        "z": 391,
+        "rotation": 0
+      },
+      {
+        "x": 171,
+        "y": 0,
+        "z": 9,
+        "rotation": 135
+      },
+      {
+        "x": 171,
+        "y": 0,
+        "z": 391,
+        "rotation": 315
+      },
+      {
+        "x": 541,
+        "y": 0,
+        "z": 9,
+        "rotation": 180
+      },
+      {
+        "x": 541,
+        "y": 0,
+        "z": 391,
+        "rotation": 270
+      }
+    ]
+  },
+  "bookcase-plum": {
+    "sourceId": 1932418,
+    "sourceType": "watty",
+    "width": 150.0,
+    "height": 228.0,
+    "depth": 36.0,
+    "style": "grid",
+    "density": 0,
+    "rows": [
+      38,
+      28,
+      28,
+      28,
+      28,
+      28,
+      33
+    ],
+    "color": "S_Deep Plum",
+    "colorCategory": "solid",
+    "baseType": "standard",
+    "hasBackPanel": true,
+    "originY": 10,
+    "panels": [
+      {
+        "bounds": [
+          -732,
+          -9,
+          30,
+          48,
+          18,
+          322
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          9,
+          732,
+          30,
+          48,
+          18,
+          322
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -732,
+          -9,
+          1030,
+          1048,
+          18,
+          322
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -732,
+          -9,
+          1330,
+          1348,
+          18,
+          341
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -732,
+          -9,
+          1630,
+          1648,
+          18,
+          341
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -732,
+          -9,
+          1930,
+          1948,
+          18,
+          341
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -732,
+          -9,
+          2230,
+          2248,
+          0,
+          341
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          9,
+          732,
+          430,
+          448,
+          18,
+          322
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          9,
+          732,
+          730,
+          748,
+          18,
+          322
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          9,
+          732,
+          1030,
+          1048,
+          18,
+          322
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          9,
+          732,
+          1330,
+          1348,
+          18,
+          341
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          9,
+          732,
+          1630,
+          1648,
+          18,
+          341
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          9,
+          732,
+          1930,
+          1948,
+          18,
+          341
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          9,
+          732,
+          2230,
+          2248,
+          0,
+          341
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -750,
+          -732,
+          0,
+          2266,
+          0,
+          360
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -9,
+          9,
+          0,
+          2266,
+          0,
+          360
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          732,
+          750,
+          0,
+          2266,
+          0,
+          360
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -732,
+          -9,
+          1948,
+          2230,
+          6,
+          18
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          9,
+          732,
+          1948,
+          2230,
+          6,
+          18
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -732,
+          -9,
+          0,
+          1030,
+          6,
+          18
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          9,
+          732,
+          0,
+          1030,
+          6,
+          18
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -732,
+          -9,
+          1030,
+          1948,
+          6,
+          18
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          9,
+          732,
+          1030,
+          1948,
+          6,
+          18
+        ],
+        "material": "backPanel"
+      }
+    ],
+    "fronts": [
+      {
+        "bounds": [
+          9,
+          371,
+          30,
+          1048,
+          325,
+          343
+        ],
+        "type": "door",
+        "hingeSide": "left",
+        "parity": "single",
+        "handle": "line",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          371,
+          732,
+          30,
+          1048,
+          325,
+          343
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "line",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          -732,
+          -9,
+          30,
+          408,
+          55,
+          343
+        ],
+        "type": "drawer",
+        "hingeSide": "left",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          -732,
+          -9,
+          458,
+          708,
+          55,
+          343
+        ],
+        "type": "drawer",
+        "hingeSide": "left",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          -732,
+          -9,
+          758,
+          1008,
+          55,
+          343
+        ],
+        "type": "drawer",
+        "hingeSide": "left",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      }
+    ],
+    "longLegs": []
+  },
+  "tv-brown": {
+    "sourceId": 9285829,
+    "sourceType": "jetty",
+    "width": 300.0,
+    "height": 53.0,
+    "depth": 40.0,
+    "style": "mosaic",
+    "density": 0,
+    "rows": [
+      28,
+      18
+    ],
+    "color": "S_Dark Brown",
+    "colorCategory": "solid",
+    "baseType": "standard",
+    "hasBackPanel": false,
+    "originY": 0,
+    "panels": [
+      {
+        "bounds": [
+          -1500,
+          -771,
+          500,
+          518,
+          0,
+          400
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -771,
+          1500,
+          500,
+          518,
+          0,
+          400
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -980,
+          -771,
+          300,
+          318,
+          0,
+          400
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -771,
+          980,
+          300,
+          318,
+          0,
+          400
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -1500,
+          -771,
+          0,
+          18,
+          0,
+          400
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -771,
+          1500,
+          0,
+          18,
+          0,
+          400
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          -980,
+          -962,
+          318,
+          500,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -789,
+          -771,
+          318,
+          500,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -269,
+          -251,
+          318,
+          500,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          251,
+          269,
+          318,
+          500,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          442,
+          460,
+          318,
+          500,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          962,
+          980,
+          318,
+          500,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -1500,
+          -1482,
+          18,
+          500,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -980,
+          -962,
+          18,
+          300,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -789,
+          -771,
+          18,
+          300,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -269,
+          -251,
+          18,
+          300,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          251,
+          269,
+          18,
+          300,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          442,
+          460,
+          18,
+          300,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          962,
+          980,
+          18,
+          300,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          1482,
+          1500,
+          18,
+          500,
+          0,
+          400
+        ],
+        "material": "verticalBase"
+      },
+      {
+        "bounds": [
+          -1482,
+          -980,
+          18,
+          500,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -771,
+          -269,
+          318,
+          500,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -251,
+          251,
+          18,
+          300,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          269,
+          442,
+          318,
+          500,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          980,
+          1482,
+          18,
+          500,
+          0,
+          12
+        ],
+        "material": "backPanel"
+      },
+      {
+        "bounds": [
+          -1482,
+          -980,
+          300,
+          318,
+          18,
+          370
+        ],
+        "material": "horizontalBase"
+      },
+      {
+        "bounds": [
+          980,
+          1482,
+          300,
+          318,
+          18,
+          370
+        ],
+        "material": "horizontalBase"
+      }
+    ],
+    "fronts": [
+      {
+        "bounds": [
+          -1482,
+          -980,
+          18,
+          500,
+          381,
+          400
+        ],
+        "type": "door",
+        "hingeSide": "left",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          -251,
+          251,
+          18,
+          300,
+          381,
+          400
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          980,
+          1482,
+          18,
+          500,
+          381,
+          400
+        ],
+        "type": "door",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      },
+      {
+        "bounds": [
+          -771,
+          -269,
+          318,
+          500,
+          381,
+          400
+        ],
+        "type": "drawer",
+        "hingeSide": "right",
+        "parity": "single",
+        "handle": "original",
+        "handleAtBottom": false
+      }
+    ],
+    "longLegs": []
+  }
+}

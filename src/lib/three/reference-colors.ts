@@ -3,6 +3,8 @@
  * to Befun's palette; names alone do not establish a reference correspondence.
  */
 export const REFERENCE_COLORS: Record<string, { referenceId: number; base: string; edge: string }> = {
+  'S_Pistachio Green': {referenceId:4,base:'#A2A596',edge:'#A2A596'},
+  'S_Deep Plum': {referenceId:16,base:'#67132C',edge:'#67132C'},
   S_White: { referenceId:0, base:'#F5F5F5', edge:'#F5F5F5' },
   'S_Matte Black': { referenceId:6, base:'#2A2A2C', edge:'#2A2A2C' },
   S_Cotton: { referenceId:9, base:'#D8D2C1', edge:'#D8D2C1' },

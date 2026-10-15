@@ -1,9 +1,6 @@
 /** Display copy only: identifiers, stored designs and money values never pass through this dictionary. */
 export type UILanguage = 'ko' | 'en' | 'ja';
 const phrases: readonly (readonly [string, string, string])[] = [
-  ['우드 W4 (다크)', 'Wood W4 (Dark)', 'ウッド W4（ダーク）'],
-  ['우드 W2 (브라운)', 'Wood W2 (Brown)', 'ウッド W2（ブラウン）'],
-  ['그린', 'Green', 'グリーン'],
   ["보기", "View", "表示"],
   ["보기 도구 접기", "Collapse view tools", "表示ツールを閉じる"],
   ["보기 도구 펼치기", "Expand view tools", "表示ツールを開く"],
@@ -49,6 +46,8 @@ const phrases: readonly (readonly [string, string, string])[] = [
   ["아바타 선택", "Select avatar", "アバター選択"],
   ["여자", "Woman", "女性"],
   ["남자", "Man", "男性"],
+  ['우드 W4 (다크)', 'Wood W4 (Dark)', 'ウッド W4（ダーク）'],
+  ['우드 W2 (브라운)', 'Wood W2 (Brown)', 'ウッド W2（ブラウン）'],
   ['칸 설정', 'Compartment settings', '収納スペースの設定'],
   ['칸 높이 28cm부터 도어 장착 가능', 'Doors require a row height of at least 28 cm.', '扉には28cm以上の段の高さが必要です。'],
   ['깊이 32cm부터 서랍 장착 가능', 'Drawers require a depth of at least 32 cm.', '引き出しには32cm以上の奥行きが必要です。'],
@@ -307,6 +306,7 @@ const phrases: readonly (readonly [string, string, string])[] = [
   ["스카이 블루", "Sky Blue", "スカイブルー"],
   ["옐로", "Yellow", "イエロー"],
   ["블루", "Blue", "ブルー"],
+  ["그린", "Green", "グリーン"],
   ["모스 그린", "Moss Green", "モスグリーン"],
   ["캐시미어", "Cashmere", "カシミア"],
   ["클레이 브라운", "Clay Brown", "クレイブラウン"],

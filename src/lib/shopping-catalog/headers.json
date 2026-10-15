@@ -1,0 +1,302 @@
+{
+  "": [
+    {
+      "name": "Uff",
+      "image": "/imgs/shopping-catalog/banner-0.avif"
+    },
+    {
+      "name": "Original Classic",
+      "image": "/imgs/shopping-catalog/banner-14.avif"
+    },
+    {
+      "name": "Original Modern",
+      "image": "/imgs/shopping-catalog/banner-15.avif"
+    },
+    {
+      "name": "Edge",
+      "image": "/imgs/shopping-catalog/banner-16.avif"
+    },
+    {
+      "name": "Tone",
+      "image": "/imgs/shopping-catalog/banner-17.avif"
+    },
+    {
+      "name": "Smooth",
+      "image": "/imgs/shopping-catalog/banner-18.avif"
+    }
+  ],
+  "sideboard": [
+    {
+      "name": "Original Classic",
+      "image": "/imgs/shopping-catalog/banner-1.avif"
+    },
+    {
+      "name": "Original Modern",
+      "image": "/imgs/shopping-catalog/banner-2.avif"
+    },
+    {
+      "name": "Edge",
+      "image": "/imgs/shopping-catalog/banner-3.avif"
+    },
+    {
+      "name": "Tone",
+      "image": "/imgs/shopping-catalog/banner-4.avif"
+    }
+  ],
+  "bookcase": [
+    {
+      "name": "Original Classic",
+      "image": "/imgs/shopping-catalog/banner-5.avif"
+    },
+    {
+      "name": "Original Modern",
+      "image": "/imgs/shopping-catalog/banner-19.avif"
+    },
+    {
+      "name": "Edge",
+      "image": "/imgs/shopping-catalog/banner-20.avif"
+    },
+    {
+      "name": "Tone",
+      "image": "/imgs/shopping-catalog/banner-21.avif"
+    }
+  ],
+  "wallstorage": [
+    {
+      "name": "Original Classic",
+      "image": "/imgs/shopping-catalog/banner-6.avif"
+    },
+    {
+      "name": "Original Modern",
+      "image": "/imgs/shopping-catalog/banner-7.avif"
+    },
+    {
+      "name": "Edge",
+      "image": "/imgs/shopping-catalog/banner-8.avif"
+    },
+    {
+      "name": "Tone",
+      "image": "/imgs/shopping-catalog/banner-9.avif"
+    }
+  ],
+  "wallunits": [
+    {
+      "name": "Edge",
+      "image": "/imgs/shopping-catalog/banner-10.avif"
+    },
+    {
+      "name": "Tone",
+      "image": "/imgs/shopping-catalog/banner-11.avif"
+    }
+  ],
+  "desk": [
+    {
+      "name": "Original Classic",
+      "image": "/imgs/shopping-catalog/banner-12.avif"
+    },
+    {
+      "name": "Original Modern",
+      "image": "/imgs/shopping-catalog/banner-13.avif"
+    }
+  ],
+  "tv-stand": [
+    {
+      "name": "Original Classic",
+      "image": "/imgs/shopping-catalog/banner-22.avif"
+    },
+    {
+      "name": "Original Modern",
+      "image": "/imgs/shopping-catalog/banner-23.avif"
+    },
+    {
+      "name": "Edge",
+      "image": "/imgs/shopping-catalog/banner-24.avif"
+    },
+    {
+      "name": "Tone",
+      "image": "/imgs/shopping-catalog/banner-25.avif"
+    }
+  ],
+  "chest-of-drawers": [
+    {
+      "name": "Original Classic",
+      "image": "/imgs/shopping-catalog/banner-26.avif"
+    },
+    {
+      "name": "Original Modern",
+      "image": "/imgs/shopping-catalog/banner-27.avif"
+    },
+    {
+      "name": "Edge",
+      "image": "/imgs/shopping-catalog/banner-28.avif"
+    },
+    {
+      "name": "Tone",
+      "image": "/imgs/shopping-catalog/banner-29.avif"
+    }
+  ],
+  "dressing_table": [
+    {
+      "name": "Original Classic",
+      "image": "/imgs/shopping-catalog/banner-30.avif"
+    },
+    {
+      "name": "Original Modern",
+      "image": "/imgs/shopping-catalog/banner-31.avif"
+    }
+  ],
+  "shoerack": [
+    {
+      "name": "Original Classic",
+      "image": "/imgs/shopping-catalog/banner-32.avif"
+    },
+    {
+      "name": "Original Modern",
+      "image": "/imgs/shopping-catalog/banner-33.avif"
+    },
+    {
+      "name": "Edge",
+      "image": "/imgs/shopping-catalog/banner-34.avif"
+    }
+  ],
+  "bedside_table": [
+    {
+      "name": "Original Classic",
+      "image": "/imgs/shopping-catalog/banner-35.avif"
+    },
+    {
+      "name": "Original Modern",
+      "image": "/imgs/shopping-catalog/banner-36.avif"
+    },
+    {
+      "name": "Edge",
+      "image": "/imgs/shopping-catalog/banner-37.avif"
+    },
+    {
+      "name": "Tone",
+      "image": "/imgs/shopping-catalog/banner-38.avif"
+    }
+  ],
+  "vinyl_storage": [],
+  "storage": [
+    {
+      "name": "Original Classic",
+      "image": "/imgs/shopping-catalog/banner-39.avif"
+    },
+    {
+      "name": "Original Modern",
+      "image": "/imgs/shopping-catalog/banner-40.avif"
+    },
+    {
+      "name": "Edge",
+      "image": "/imgs/shopping-catalog/banner-41.avif"
+    },
+    {
+      "name": "Tone",
+      "image": "/imgs/shopping-catalog/banner-42.avif"
+    }
+  ],
+  "wardrobe": [
+    {
+      "name": "Edge",
+      "image": "/imgs/shopping-catalog/banner-43.avif"
+    },
+    {
+      "name": "Tone",
+      "image": "/imgs/shopping-catalog/banner-44.avif"
+    }
+  ],
+  "two_seater": [
+    {
+      "name": "Uff",
+      "image": "/imgs/shopping-catalog/banner-45.avif"
+    },
+    {
+      "name": "Smooth",
+      "image": "/imgs/shopping-catalog/banner-46.avif"
+    }
+  ],
+  "three_seater": [
+    {
+      "name": "Uff",
+      "image": "/imgs/shopping-catalog/banner-45.avif"
+    },
+    {
+      "name": "Smooth",
+      "image": "/imgs/shopping-catalog/banner-46.avif"
+    }
+  ],
+  "four_plus_seater": [
+    {
+      "name": "Uff",
+      "image": "/imgs/shopping-catalog/banner-45.avif"
+    },
+    {
+      "name": "Smooth",
+      "image": "/imgs/shopping-catalog/banner-46.avif"
+    }
+  ],
+  "corner_sofas": [
+    {
+      "name": "Uff",
+      "image": "/imgs/shopping-catalog/banner-45.avif"
+    },
+    {
+      "name": "Smooth",
+      "image": "/imgs/shopping-catalog/banner-46.avif"
+    }
+  ],
+  "modular_sofas": [
+    {
+      "name": "Uff",
+      "image": "/imgs/shopping-catalog/banner-45.avif"
+    },
+    {
+      "name": "Smooth",
+      "image": "/imgs/shopping-catalog/banner-46.avif"
+    }
+  ],
+  "armchairs": [
+    {
+      "name": "Uff",
+      "image": "/imgs/shopping-catalog/banner-45.avif"
+    },
+    {
+      "name": "Smooth",
+      "image": "/imgs/shopping-catalog/banner-46.avif"
+    }
+  ],
+  "ottomans_and_modules": [
+    {
+      "name": "Uff",
+      "image": "/imgs/shopping-catalog/banner-45.avif"
+    },
+    {
+      "name": "Smooth",
+      "image": "/imgs/shopping-catalog/banner-46.avif"
+    }
+  ],
+  "covers": [
+    {
+      "name": "Uff",
+      "image": "/imgs/shopping-catalog/banner-45.avif"
+    },
+    {
+      "name": "Smooth",
+      "image": "/imgs/shopping-catalog/banner-46.avif"
+    }
+  ],
+  "sofas": [
+    {
+      "name": "Uff",
+      "image": "/imgs/shopping-catalog/banner-45.avif"
+    },
+    {
+      "name": "Smooth",
+      "image": "/imgs/shopping-catalog/banner-46.avif"
+    }
+  ],
+  "blankets": [],
+  "bookends": [],
+  "accessories": []
+}

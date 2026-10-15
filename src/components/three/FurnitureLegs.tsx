@@ -8,6 +8,7 @@ import { useGLTF } from '@react-three/drei';
 import type { Material } from 'three';
 import { Mesh } from 'three';
 import { footPanelIndex } from './display/assemblyPlan';
+import { catalogPreset, matchingCatalogPreset } from '@/lib/three/catalog-presets';
 import { planFurnitureLegs } from '@/lib/three/furniture-base';
 import type { PanelData, StyleType } from '@/types/shelf';
 
@@ -15,6 +16,7 @@ import type { PanelData, StyleType } from '@/types/shelf';
 export function FurnitureLegs({ panels, panelIndex, depth, style, material }: {
   panels: PanelData[]; panelIndex: number; depth: number; style: StyleType; material: Material;
 }) {
+  const presetId = useShelfStore(s => matchingCatalogPreset(s) ? s.catalogPreset : undefined);
   const color = useMaterialStore(s => s.currentColor);
   const woodFinish = color.startsWith('N_') || color.startsWith('C_');
   const finish = useShelfStore(s => s.legFinish);
@@ -24,8 +26,14 @@ export function FurnitureLegs({ panels, panelIndex, depth, style, material }: {
   useEffect(() => () => { metalMaterial?.dispose(); }, [metalMaterial]);
   const legMaterial = metalMaterial ?? material;
   const { scene } = useGLTF('/models/furniture/long-leg.glb');
-  const placements = useMemo(() => planFurnitureLegs(panels,depth,style)
-    .filter(p=>footPanelIndex(panels,p.position)===panelIndex), [panels,depth,style,panelIndex]);
+  const placements = useMemo(() => {
+    const preset = presetId ? catalogPreset(presetId) : null;
+    const all = preset?.longLegs.length ? preset.longLegs.map(leg => ({
+      position: [leg.x / 10, (leg.y - preset.originY) / 10, leg.z / 10] as [number, number, number],
+      rotationY: (180 - leg.rotation) * Math.PI / 180,
+    })) : planFurnitureLegs(panels, depth, style);
+    return all.filter(p => footPanelIndex(panels, p.position) === panelIndex);
+  }, [presetId,panels,depth,style,panelIndex]);
   const instances = useMemo(() => placements.map(() => {
     const object = scene.clone(true);
     object.traverse(child => { if (child instanceof Mesh) { child.material=legMaterial; child.castShadow=true; child.receiveShadow=true; } });

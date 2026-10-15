@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import { registerHooks } from 'node:module';
+import { installTestLoader } from '../storefront-save-validation/loader.mjs';
+registerHooks({load(url,context,next){if(url.endsWith('.json'))return {format:'module',shortCircuit:true,source:`export default ${fs.readFileSync(new URL(url),'utf8')}`};return next(url,context);}});
+installTestLoader({mockServices:false});
+const {catalogThumbnailStart}=await import('../../src/lib/catalog-entry/starts.ts');
+const {introVariants}=await import('../../src/components/storefront/introVariants.ts');
+const manifest=JSON.parse(fs.readFileSync(new URL('../../src/lib/catalog-images/manifest.json',import.meta.url),'utf8'));
+const records=manifest.map(item=>({category:item.category,sequence:item.sequence,productKey:item.productKey,source:item.source,thumbnail:item.thumbnail,studio:item.studio,editorHref:catalogThumbnailStart(item.productKey)?.href??null,status:catalogThumbnailStart(item.productKey)?'ready':(/^(blanket|bookend):/.test(item.productKey)||item.category==='커버와 쿠션')?'accessory':'needs-source-configuration'}));
+const intro=Object.entries(introVariants).flatMap(([category,items])=>items.map((item,index)=>({category,index,name:item.name,productKey:item.sourceProductKey,thumbnail:item.thumbnail,editorHref:catalogThumbnailStart(item.sourceProductKey)?.href??null,referenceHref:item.referenceHref,status:catalogThumbnailStart(item.sourceProductKey)?'ready':'needs-source-configuration'})));
+const summary={entries:records.length,uniqueProducts:new Set(records.map(x=>x.productKey)).size,readyEntries:records.filter(x=>x.status==='ready').length,readyUniqueProducts:new Set(records.filter(x=>x.status==='ready').map(x=>x.productKey)).size,accessoryEntries:records.filter(x=>x.status==='accessory').length,missingUniqueProducts:new Set(records.filter(x=>x.status==='needs-source-configuration').map(x=>x.productKey)).size,knownStartConfigurations:12,missingEntries:records.filter(x=>x.status==='needs-source-configuration').length,introVariants:intro.length,introReady:intro.filter(x=>x.status==='ready').length,introMissing:intro.filter(x=>x.status!=='ready').length};
+fs.writeFileSync(new URL('../../docs/handoffs/catalog-entry-audit/inventory.json',import.meta.url),JSON.stringify({summary,records,intro},null,2)+'\n');
+console.log(JSON.stringify(summary));

@@ -1,5 +1,6 @@
 /** Resolved fronts in cm. A generator must select actual compartments first. */
 export interface ReferenceFront {
+  catalogFront?: { z: number; depth: number; handle: string };
   x: number;
   y: number;
   width: number;
@@ -41,6 +42,24 @@ export interface ReferenceDrawerGeometry {
 /** Current Type01/Type02 renderer (modules135/189/335/1036).
  * Type02 replaces the gallery's 19mm envelope with a 16mm laminate front. */
 export function calculateReferenceDoorPlacement(front: ReferenceFront, depth: number) {
+  if (front.catalogFront) {
+    const side = front.hingeSide ?? 'right';
+    const line = front.catalogFront.handle === 'line';
+    const handleWidth = line ? (side === 'left' ? 1 : 3) : 0;
+    const boundingWidth = front.width - (line ? 0 : .4);
+    const width = boundingWidth - handleWidth, height = front.height - .4;
+    const x = front.x + (side === 'left' ? -boundingWidth/2 : boundingWidth/2);
+    const centerOffset = front.x - x;
+    const pivotOffsetX = centerOffset + (side === 'left' ? -handleWidth/2 : handleWidth/2);
+    return {x,y:front.y,z:front.catalogFront.z,width,height,pivotOffsetX,layerIndex:front.rowIndex,
+      reference:{thickness:1.8,frontOffsetY:0,boundingHeight:height,hingeSide:side,
+        handle:front.catalogFront.handle==='push'?null:line
+          ? {x:centerOffset+(side==='left'?boundingWidth/2-handleWidth:-boundingWidth/2+handleWidth),y:0,z:0}
+          : {x:centerOffset,y:height/2-1,z:.9},
+        handleKind:(line?(side==='left'?'full-left':'full-right'):'slim') as ReferenceDoorGeometry['handleKind'],
+        handleSize:line?{w:handleWidth,h:height,d:1.8}:undefined,
+        handleRotation:0,hinges:[],openAngle:(side==='left'?-1:1)*Math.PI/2}};
+  }
   const hingeSide = front.hingeSide ?? 'right';
   const type01 = front.family === 'type01';
   const double = front.parity === 'double';
@@ -86,6 +105,18 @@ export function calculateReferenceDrawerPlacement(front: ReferenceFront, depth: 
   const sideHeight = ({ 182: 10.6, 282: 20.6, 382: 30.6 } as Record<number, number>)[heightMm];
   const backHeight = ({ 182: 8.6, 282: 18.6, 382: 28.6 } as Record<number, number>)[heightMm];
   const bottomDepth = ({ 320: 25.8, 400: 33.8, 500: 43.8, 600: 53.8 } as Record<number, number>)[depthMm];
+  if (front.catalogFront) {
+    const w=front.width-.6,h=front.height-.6,d=front.catalogFront.depth;
+    const parts:ReferenceHardwarePart[]=[
+      {name:'front',w,h,d:1.8,x:0,y:0,z:d/2-.9},
+      {name:'side-left',w:1.2,h:h-3,d:d-3,x:-w/2+.6,y:-1,z:0},
+      {name:'side-right',w:1.2,h:h-3,d:d-3,x:w/2-.6,y:-1,z:0},
+      {name:'bottom',w:w-2.4,h:1.2,d:d-3,x:0,y:-h/2+1,z:0},
+      {name:'back',w:w-2.4,h:h-3,d:1.2,x:0,y:-1,z:-d/2+.6}];
+    return {x:front.x,y:front.y,z:front.catalogFront.z,compartmentWidth:front.width,rowHeight:front.height,drawerDepth:d,
+      layerIndex:front.rowIndex,reference:{parts,handle:{x:0,y:h/2-1.5,z:d/2-.9},handleKind:'full-top' as const,
+        handleSize:{w,h:3,d:1.8},openDistance:d*.8}};
+  }
   if (sideHeight === undefined || backHeight === undefined || bottomDepth === undefined) return null;
   const type01 = front.family === 'type01';
   const handleHeight = type01 ? 3 : .1;

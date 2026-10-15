@@ -34,12 +34,19 @@
 .layout{gap:16px;padding:0 32px 24px}
 .viewer{border-radius:0;background:#e7e7e7;height:max(520px,calc(100svh - 260px));top:12px}
 .fullscreen{position:absolute;bottom:24px;left:24px;display:flex;align-items:center;gap:8px;border:0;border-radius:28px;background:white;padding:16px 20px;font-size:13px;cursor:pointer}
-.fullscreen:focus-visible{outline:2px solid #339922;outline-offset:3px}
+.fullscreen:focus-visible{outline:2px solid var(--green);outline-offset:3px}
 .viewerHint{bottom:5px;left:24px;font-size:10px}
 @media(max-width:1000px){.layout{padding:0 12px 24px}.heading{padding:16px 24px 12px}}
 @media(max-width:760px){.layout{padding:0}.heading{padding:12px 16px}.heading h1{font-size:16px}.heading p{font-size:11px}.viewer{top:auto;height:54svh;min-height:340px}.fullscreen{left:12px;bottom:24px;padding:10px 14px;font-size:12px}.viewerHint{left:12px;font-size:9px}.viewer:fullscreen{height:100svh}}
 
 .viewer[data-fullscreen=true]{position:fixed;inset:0;z-index:1001;width:100vw;height:100svh;min-height:0;border-radius:0}
+
+/* Match the shelf's Befun primary button and selection accents. */
+.toolbar button[aria-pressed=true]{border-color:var(--green);color:var(--green)}
+.saveActions button:not(:last-child){border-color:var(--green);color:var(--green)}
+.saveActions button:first-child{background:var(--green);color:white}
+.saveActions button:first-child:hover{background:#2a7a1a;border-color:#2a7a1a}
+.saveActions button:focus-visible{outline:2px solid var(--green);outline-offset:3px}
 
 
 /* Match the bookcase product viewer for both wardrobe and desk routes. */

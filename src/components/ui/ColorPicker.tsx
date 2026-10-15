@@ -1,11 +1,11 @@
 'use client';
-import { IMPORTED_NATURAL_TEXTURES } from '@/lib/three/natural-textures';
 
 import { useLocale } from '@/lib/commerce/useLocale';
 
 import Image from 'next/image';
 import { REFERENCE_COLORS, REFERENCE_CLASSIC_COLORS } from '@/lib/three/reference-colors';
 import { useMaterialStore } from '@/stores/useMaterialStore';
+import { IMPORTED_NATURAL_TEXTURES } from '@/lib/three/natural-textures';
 import type { ColorCategory } from '@/types/shelf';
 
 interface ColorOption {
@@ -73,7 +73,8 @@ export function ColorPicker() {
   const colorCategory = useMaterialStore((s) => s.colorCategory);
   const setColor = useMaterialStore((s) => s.setColor);
 
-  const colors = COLORS_BY_CATEGORY[colorCategory];
+  const palette = COLORS_BY_CATEGORY[colorCategory];
+  const colors = palette.some(c=>c.name===currentColor || (c.name==='S_Teracotta' && currentColor==='S_Teracotta Orange')) ? palette : [{name:currentColor,image:'',category:colorCategory},...palette];
 
   const handleTabChange = (category: ColorCategory) => {
     // Switch tab and auto-select default color for that category

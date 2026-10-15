@@ -1,0 +1,245 @@
+{
+  "0": {
+    "image": "/three/sofa/ui/tile_color_10_wool_dark_brown.webp",
+    "color": "#51423e",
+    "name": [
+      "다크 브라운",
+      "Dark Brown",
+      "ダークブラウン"
+    ]
+  },
+  "1": {
+    "image": "/three/sofa/ui/tile_color_10_wool_khaki.webp",
+    "color": "#434b46",
+    "name": [
+      "카키",
+      "Khaki",
+      "カーキ"
+    ]
+  },
+  "2": {
+    "image": "/three/sofa/ui/tile_color_10_wool_grey.webp",
+    "color": "#938b85",
+    "name": [
+      "그레이",
+      "Grey",
+      "グレー"
+    ]
+  },
+  "3": {
+    "image": "/three/sofa/ui/tile_color_10_wool_pale_yellow.webp",
+    "color": "#9d9574",
+    "name": [
+      "페일 옐로",
+      "Pale Yellow",
+      "ペールイエロー"
+    ]
+  },
+  "4": {
+    "image": "/three/sofa/ui/tile_color_10_wool_powder_pink.webp",
+    "color": "#9d7f77",
+    "name": [
+      "파우더 핑크",
+      "Powder Pink",
+      "パウダーピンク"
+    ]
+  },
+  "5": {
+    "image": "/three/sofa/ui/tile_color_10_wool_green.webp",
+    "color": "#326748",
+    "name": [
+      "그린",
+      "Green",
+      "グリーン"
+    ]
+  },
+  "6": {
+    "image": "/three/sofa/ui/tile_color_10_wool_lilac_blue.webp",
+    "color": "#747685",
+    "name": [
+      "라일락 블루",
+      "Lilac Blue",
+      "ライラックブルー"
+    ]
+  },
+  "7": {
+    "image": "/three/sofa/ui/tile_color_10_corduroy_off_white.webp",
+    "color": "#adaba7",
+    "name": [
+      "오프화이트",
+      "Off White",
+      "オフホワイト"
+    ]
+  },
+  "8": {
+    "image": "/three/sofa/ui/tile_color_10_corduroy_beige.webp",
+    "color": "#9a8d7f",
+    "name": [
+      "베이지",
+      "Beige",
+      "ベージュ"
+    ]
+  },
+  "9": {
+    "image": "/three/sofa/ui/tile_color_10_corduroy_brown.webp",
+    "color": "#4c4342",
+    "name": [
+      "브라운",
+      "Brown",
+      "ブラウン"
+    ]
+  },
+  "10": {
+    "image": "/three/sofa/ui/tile_color_10_corduroy_light_grey.webp",
+    "color": "#848484",
+    "name": [
+      "라이트 그레이",
+      "Light Grey",
+      "ライトグレー"
+    ]
+  },
+  "11": {
+    "image": "/three/sofa/ui/tile_color_10_corduroy_mustard.webp",
+    "color": "#956440",
+    "name": [
+      "머스터드",
+      "Mustard",
+      "マスタード"
+    ]
+  },
+  "12": {
+    "image": "/three/sofa/ui/tile_color_10_corduroy_blush_pink.webp",
+    "color": "#7b5758",
+    "name": [
+      "블러시 핑크",
+      "Blush Pink",
+      "ブラッシュピンク"
+    ]
+  },
+  "13": {
+    "image": "/three/sofa/ui/tile_color_10_corduroy_olive_green.webp",
+    "color": "#606853",
+    "name": [
+      "올리브 그린",
+      "Olive Green",
+      "オリーブグリーン"
+    ]
+  },
+  "14": {
+    "image": "/three/sofa/ui/tile_color_10_corduroy_cobalt_blue.webp",
+    "color": "#1a3d6c",
+    "name": [
+      "코발트 블루",
+      "Cobalt Blue",
+      "コバルトブルー"
+    ]
+  },
+  "15": {
+    "image": "/three/sofa/ui/tile_color_10_leather_cognac.webp",
+    "color": "#966545",
+    "name": [
+      "코냑",
+      "Cognac",
+      "コニャック"
+    ]
+  },
+  "16": {
+    "image": "/three/sofa/ui/tile_color_10_leather_anthracite.webp",
+    "color": "#444242",
+    "name": [
+      "앤트러사이트",
+      "Anthracite",
+      "アンスラサイト"
+    ]
+  },
+  "17": {
+    "image": "/three/sofa/ui/tile_color_10_leather_oat_beige.webp",
+    "color": "#a2937d",
+    "name": [
+      "샌드 베이지",
+      "Sand Beige",
+      "サンドベージュ"
+    ]
+  },
+  "18": {
+    "image": "/three/sofa/ui/tile_color_10_leather_willow_green.webp",
+    "color": "#827c5e",
+    "name": [
+      "페퍼 그린",
+      "Pepper Green",
+      "ペッパーグリーン"
+    ]
+  },
+  "19": {
+    "image": "/three/sofa/ui/tile_color_10_plain_beige.webp",
+    "color": "#aa9c83",
+    "name": [
+      "오트 베이지",
+      "Oat Beige",
+      "オートベージュ"
+    ]
+  },
+  "20": {
+    "image": "/three/sofa/ui/tile_color_10_plain_light_gray.webp",
+    "color": "#afafab",
+    "name": [
+      "클래식 그레이",
+      "Classic Grey",
+      "クラシックグレー"
+    ]
+  },
+  "21": {
+    "image": "/three/sofa/ui/tile_color_10_plain_anthracite.webp",
+    "color": "#2e2a27",
+    "name": [
+      "바솔트 그레이",
+      "Basalt Grey",
+      "バサルトグレー"
+    ]
+  },
+  "22": {
+    "image": "/three/sofa/ui/tile_color_10_plain_terracota.webp",
+    "color": "#985231",
+    "name": [
+      "테라코타",
+      "Terracotta",
+      "テラコッタ"
+    ]
+  },
+  "23": {
+    "image": "/three/sofa/ui/tile_color_10_plain_green_spruce.webp",
+    "color": "#283424",
+    "name": [
+      "파인 그린",
+      "Pine Green",
+      "パイングリーン"
+    ]
+  },
+  "24": {
+    "image": "/three/sofa/ui/tile_color_10_boucle_classic_pearl.webp",
+    "color": "#d4d1c6",
+    "name": [
+      "펄 화이트",
+      "Pearl White",
+      "パールホワイト"
+    ]
+  },
+  "26": {
+    "image": "/three/sofa/ui/tile_color_10_boucle_melange_moss_green.webp",
+    "color": "#524631",
+    "name": [
+      "모스 그린",
+      "Moss Green",
+      "モスグリーン"
+    ]
+  },
+  "27": {
+    "image": "/three/sofa/ui/tile_color_10_boucle_melange_dark_brown.webp",
+    "color": "#262221",
+    "name": [
+      "딥 브라운",
+      "Deep Brown",
+      "ディープブラウン"
+    ]
+  }
+}

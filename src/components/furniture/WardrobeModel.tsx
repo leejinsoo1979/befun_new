@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
+import { Line } from '@react-three/drei';
 import * as THREE from 'three';
 import {DeskPanel} from './DeskPanel';
 import type {DeskCableOpening} from '@/lib/furniture/desk';
@@ -11,6 +12,7 @@ const NO_OPENINGS:readonly DeskCableOpening[]=[];
 import type { MaterialSet } from '@/lib/three/materials';
 import { generateWardrobe, type WardrobeInput, type WardrobeFront, type WardrobeDrawer, type WardrobeBar } from '@/lib/furniture/wardrobe';
 import { resolveWardrobeDoorMotions, type WardrobeDoorMotion } from '@/lib/furniture/wardrobe/door-motion';
+import { resolveWardrobePanelSeams } from '@/lib/furniture/wardrobe/panel-seams';
 import {loadWardrobeHingeGeometry} from '@/lib/furniture/wardrobe-hinge-assets';
 import {resolveWardrobeHingePlacements,type WardrobeHingePlacement,type WardrobeHingeDoor} from '@/lib/furniture/wardrobe-hinges';
 import { createType01Handle } from '@/lib/three/type01-handle';
@@ -103,12 +105,14 @@ export function WardrobeModel({config,materials,innerMaterials,open,interior,sel
   const result=useMemo(()=>generateWardrobe(config),[config]);
   const doorMotions=useMemo(()=>resolveWardrobeDoorMotions(result.fronts),[result.fronts]);
   const source=result.sourceGeometryMm;
+  const panelSeams=useMemo(()=>source?resolveWardrobePanelSeams(source):[],[source]);
   const hingeAssets=useHingeAssets();
   const hinges=useMemo(()=>source?.hinges?resolveWardrobeHingePlacements(config.model,source.doors as WardrobeHingeDoor[],source.walls,source.hinges):[],[source,config.model]);
   const panelOpenings=useMemo(()=>result.panels.map((panel,index):DeskCableOpening[]=>panel.matType==='backPanel'?(result.sourceGeometryMm?.cable_management??[]).filter(hole=>Math.abs(hole.z1/10-panel.z)<=panel.d/2&&Math.abs(hole.x1/10-panel.x)<panel.w/2&&Math.abs(hole.y1/10-panel.y)<panel.h/2).map(hole=>({panelIndex:index,columnIndex:0,storageIndex:0,surface:'back',x:hole.x1/10,y:hole.y1/10,z:hole.z1/10,radius:3})):[]),[result]);
   const frameStart=source?source.slabs.length+source.walls.length+source.backs.length:Infinity;
   return <group name="befun-wardrobe" userData={{model:config.model,unsupported:result.unsupported,panelCount:result.panels.length,doorCount:result.fronts.length,drawerCount:result.drawers?.length??0}}>
     {result.panels.map((panel,index)=><DeskPanel key={`panel-${index}`} panel={panel} bores={NO_BORES} openings={panelOpenings[index]} materials={config.model==='tone'&&index<frameStart?innerMaterials:materials}/>)}
+    {panelSeams.map(seam=><Line key={seam.id} points={seam.points} segments color="#49443e" lineWidth={0.85} transparent opacity={0.42} depthTest depthWrite={false} raycast={()=>null}/>)}
     {result.fronts.map((front,index)=><Front key={`${front.id}:${doorMotions[index].pivotX}:${doorMotions[index].pivotZ}`} front={front} motion={doorMotions[index]} materials={materials} open={open} interior={interior} onSelect={onSelectSection} hinges={hinges.filter(h=>h.asset==='hingeWing'&&h.doorIndex===Number(front.id.replace('door-','')))} hingeGeometry={hingeAssets?.wing??null}/>)}
     {result.drawers?.map(drawer=><SlidingDrawer key={drawer.id} drawer={drawer} materials={drawer.front.external?materials:innerMaterials} bodyMaterials={innerMaterials} open={open&&interior} onSelect={onSelectSection}/>)}
     {hingeAssets&&hinges.filter(h=>h.asset==='hingeAnchor').map((hinge,i)=><HingeMesh key={`anchor-${i}`} geometry={hingeAssets.anchor} placement={hinge}/>)}

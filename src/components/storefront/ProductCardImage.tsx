@@ -19,6 +19,6 @@ export function ProductCardImage({ thumbnail, studio, alt, sizes }: {
   }} onPointerLeave={() => setHovered(false)} onPointerCancel={() => setHovered(false)}>
     <Image src={thumbnail} alt={alt} fill sizes={sizes} loading="lazy" className={styles.base} onError={() => setBaseFailed(true)} />
     {baseFailed && <span className={styles.error} role="img" aria-label={alt}>이미지를 불러오지 못했습니다.</span>}
-    {requested && <Image src={studio} alt="" aria-hidden="true" fill sizes={sizes} loading="eager" className={styles.studio} onLoad={() => setReady(true)} onError={() => setReady(false)} />}
+    {requested && studio && <Image src={studio} alt="" aria-hidden="true" fill sizes={sizes} loading="eager" className={styles.studio} onLoad={() => setReady(true)} onError={() => setReady(false)} />}
   </span>;
 }

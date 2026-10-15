@@ -59,31 +59,57 @@ function Materials({color,children}:{color:string;children:(materials:MaterialSe
   },[color]);
   return loaded?.color===color?children(loaded.materials):null;
 }
-function Camera({width,height,depth,front,reset,zoom}:{width:number;height:number;depth:number;front:boolean;reset:number;zoom:{factor:number;revision:number}}){
+function Camera({width,height,depth,front,reset,zoom,desk}:{width:number;height:number;depth:number;front:boolean;reset:number;zoom:{factor:number;revision:number};desk:boolean}){
   const controls=useRef<OrbitControlsImpl>(null);
   const {camera,size,invalidate}=useThree();
-  const frame=useMemo(()=>fitView(width,height,depth,size.width/Math.max(1,size.height),front?'front':'standard'),[width,height,depth,size.width,size.height,front]);
+  const goal=useRef({position:new THREE.Vector3(),target:new THREE.Vector3(),active:false,camera:null as THREE.Camera|null});
+  // A 73cm desk alone crops the studio person. Include their full height and
+  // left-side clearance while keeping the desk centered horizontally.
+  const frameHeight=desk?Math.max(height,195):height;
+  const frame=useMemo(()=>fitView(desk?width+192:width,frameHeight,desk?depth+30:depth,size.width/Math.max(1,size.height),front?'front':'standard'),[width,frameHeight,depth,desk,size.width,size.height,front]);
   // Keep orbiting outside the cabinet, with room to zoom out even for the widest model.
   const minimum=Math.hypot(width,depth)/2+15;
   const maximum=Math.max(1500,frame.distance*4);
   useLayoutEffect(()=>{
-    const target=new THREE.Vector3(0,height/2,depth/2);
+    const target=new THREE.Vector3(0,frameHeight/2,depth/2);
+    const destination=goal.current;
+    destination.target.copy(target);
+    destination.position.copy(target).addScaledVector(frame.direction,Math.max(minimum,frame.distance));
     camera.up.copy(frame.up);
-    camera.position.copy(target).addScaledVector(frame.direction,Math.max(minimum,frame.distance));
-    camera.lookAt(target);
-    if(controls.current){controls.current.target.copy(target);controls.current.update();}
+    if(destination.camera!==camera){
+      camera.position.copy(destination.position);
+      camera.lookAt(target);
+      if(controls.current){controls.current.target.copy(target);controls.current.update();}
+      destination.camera=camera;
+      destination.active=false;
+    }else destination.active=true;
     invalidate();
-  },[camera,height,depth,frame,minimum,reset,invalidate]);
+  },[camera,frameHeight,depth,frame,minimum,reset,invalidate]);
+  useFrame((_,delta)=>{
+    const destination=goal.current;
+    if(!destination.active||!controls.current)return;
+    const alpha=1-Math.exp(-Math.min(delta,.05)*4.5);
+    camera.position.lerp(destination.position,alpha);
+    controls.current.target.lerp(destination.target,alpha);
+    if(camera.position.distanceTo(destination.position)<.02&&controls.current.target.distanceTo(destination.target)<.02){
+      camera.position.copy(destination.position);
+      controls.current.target.copy(destination.target);
+      destination.active=false;
+    }
+    controls.current.update();
+    invalidate();
+  });
   const appliedZoom=useRef(0);
   useEffect(()=>{
     if(zoom.revision===appliedZoom.current||!controls.current)return;
     appliedZoom.current=zoom.revision;
+    goal.current.active=false;
     const offset=camera.position.clone().sub(controls.current.target);
     offset.setLength(THREE.MathUtils.clamp(offset.length()*zoom.factor,minimum,maximum));
     camera.position.copy(controls.current.target).add(offset);
     controls.current.update();invalidate();
   },[zoom.revision,zoom.factor,camera,minimum,maximum,invalidate]);
-  return <OrbitControls ref={controls} makeDefault zoomToCursor minDistance={minimum} maxDistance={maximum} minAzimuthAngle={-Math.PI*.48} maxAzimuthAngle={Math.PI*.48} maxPolarAngle={Math.PI/2} enablePan={false} enableDamping/>;
+  return <OrbitControls ref={controls} makeDefault zoomToCursor onStart={()=>{goal.current.active=false;}} minDistance={minimum} maxDistance={maximum} minAzimuthAngle={-Math.PI*.48} maxAzimuthAngle={Math.PI*.48} maxPolarAngle={Math.PI/2} enablePan={false} enableDamping/>;
 }
 /** Animate option transitions, then let the GPU rest until the next interaction. */
 function TransitionFrames({design,open}:{design:FurnitureDesign;open:boolean}){
@@ -112,6 +138,6 @@ export default function FurnitureScene({design,open,dimensions,front,reset,zoom,
       </>}
     </Suspense>
     <Effects/>
-    <Camera width={width} height={height} depth={depth} front={front} reset={reset} zoom={zoom}/>
+    <Camera width={width} height={height} depth={depth} front={front} reset={reset} zoom={zoom} desk={design.kind==='desk'}/>
   </Canvas></>;
 }

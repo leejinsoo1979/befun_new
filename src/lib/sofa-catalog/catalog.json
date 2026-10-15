@@ -1,0 +1,2410 @@
+[
+  {
+    "id": 315996,
+    "model": "uff",
+    "category": "corner",
+    "width": 238,
+    "height": 73,
+    "depth": 188,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 315996,
+        "name": "Wohnlandschaft Bouclé Fein in Austerngrau",
+        "material": 0,
+        "eur": 2663.0,
+        "originalEur": 2663.0,
+        "thumbnail": "/imgs/product-cards/f12ec0dc977e4624c938691273dcfe7afdbb85556c606203b71985599bfc5270.webp",
+        "image": "/imgs/product-cards/f12ec0dc977e4624c938691273dcfe7afdbb85556c606203b71985599bfc5270.webp",
+        "studio": "/imgs/product-cards/d0cfd7d62e4c22003ee142c72e7f1be6624cf1eb711d89c50bbb04c41ffa99ba.webp",
+        "source": "https://tylko.com/de-de/sofa/wohnlandschaft/315996,s,/"
+      },
+      {
+        "id": 316403,
+        "name": "Wohnlandschaft Bouclé Fein in Leinenbeige",
+        "material": 1,
+        "eur": 2663.0,
+        "originalEur": 2663.0,
+        "thumbnail": "/imgs/sofa-catalog/ce8d4033bbfb8c59.webp",
+        "image": "/imgs/sofa-catalog/ce8d4033bbfb8c59.webp",
+        "studio": "/imgs/sofa-catalog/e1dc311089b2f660.webp",
+        "source": "https://tylko.com/de-de/sofa/wohnlandschaft/316403,s,/"
+      },
+      {
+        "id": 316406,
+        "name": "Wohnlandschaft Bouclé Fein in Graphitgrau",
+        "material": 4,
+        "eur": 2663.0,
+        "originalEur": 2663.0,
+        "thumbnail": "/imgs/product-cards/6da202662c5528c7f403e169ebc389ec4619fe555bcb7b0ab690187108a8d1c1.webp",
+        "image": "/imgs/product-cards/6da202662c5528c7f403e169ebc389ec4619fe555bcb7b0ab690187108a8d1c1.webp",
+        "studio": "/imgs/product-cards/72cea0966f90e2dfd29e80aea752ba4f237e92d54da17b8950c6b88fbacdda32.webp",
+        "source": "https://tylko.com/de-de/sofa/wohnlandschaft/316406,s,/"
+      },
+      {
+        "id": 316410,
+        "name": "Corner sofa in Walnut Fine Bouclé",
+        "material": 8,
+        "eur": 2663.0,
+        "originalEur": 2663.0,
+        "thumbnail": "/imgs/product-cards/05718cba9989e132fffe01521a0284bb85dd7cead6603bc3c962cf9c46bd550b.webp",
+        "image": "/imgs/product-cards/05718cba9989e132fffe01521a0284bb85dd7cead6603bc3c962cf9c46bd550b.webp",
+        "studio": "/imgs/product-cards/452c4e76e6080f6b3f109238bb8ead8b5d0403dcdef15aeb0fe13a16733b19fb.webp",
+        "source": "https://tylko.com/en-de/sofa/corner_sofa/316410,s,/"
+      },
+      {
+        "id": 316411,
+        "name": "Corner sofa in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 2904.0,
+        "originalEur": 2904.0,
+        "thumbnail": "/imgs/product-cards/b5405c982014fdb08109dad5784fba20273f0808899904a73f3193d87b1d1978.webp",
+        "image": "/imgs/product-cards/b5405c982014fdb08109dad5784fba20273f0808899904a73f3193d87b1d1978.webp",
+        "studio": "/imgs/product-cards/fb1ec2bffeb593034d1f3fa81d5ec782bd43e21c4088d288f116f4f5907af488.webp",
+        "source": "https://tylko.com/en-de/sofa/corner_sofa/316411,s,/"
+      },
+      {
+        "id": 316414,
+        "name": "Corner sofa in Sage & Mint Textured Bouclé",
+        "material": 12,
+        "eur": 2904.0,
+        "originalEur": 2904.0,
+        "thumbnail": "/imgs/product-cards/9b1d78195c777ed45476d5abfe532ec2c358bf0c602eb14d9cf792ccd0942b12.webp",
+        "image": "/imgs/product-cards/9b1d78195c777ed45476d5abfe532ec2c358bf0c602eb14d9cf792ccd0942b12.webp",
+        "studio": "/imgs/product-cards/21ee36400fa225b507763db26c88230975d758d4787c8b9744ddba0f534ad0e4.webp",
+        "source": "https://tylko.com/en-de/sofa/corner_sofa/316414,s,/"
+      },
+      {
+        "id": 316415,
+        "name": "Corner sofa in Mélange Grey Textured Bouclé",
+        "material": 13,
+        "eur": 2904.0,
+        "originalEur": 2904.0,
+        "thumbnail": "/imgs/product-cards/e6189db05ea1d9bff7d8f8af6342828912f52c4729102966259545f0afa69388.webp",
+        "image": "/imgs/product-cards/e6189db05ea1d9bff7d8f8af6342828912f52c4729102966259545f0afa69388.webp",
+        "studio": "/imgs/product-cards/c2ca8eb580a35e17abd845184c39086519c532e8eebd189a46fa685a9082666a.webp",
+        "source": "https://tylko.com/en-de/sofa/corner_sofa/316415,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316279,
+    "model": "uff",
+    "category": "three_seater",
+    "width": 341,
+    "height": 73,
+    "depth": 150,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 316277,
+        "name": "3-Sitzer-Sofa Bouclé Fein in Leinenbeige",
+        "material": 1,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/product-cards/b35ffef1f5a119cb0ceb65675da169f8596a96c6e9853b9bd8f98f6fceff7c88.webp",
+        "image": "/imgs/product-cards/b35ffef1f5a119cb0ceb65675da169f8596a96c6e9853b9bd8f98f6fceff7c88.webp",
+        "studio": "/imgs/product-cards/7c18611c88e89be9cb99dc874b9ea420710708119e92d9f8467acdcfa3f1ced0.webp",
+        "source": "https://tylko.com/de-de/sofa/drei_sitzer/316277,s,/"
+      },
+      {
+        "id": 316279,
+        "name": "3-Sitzer-Sofa Bouclé Fein in Taupe",
+        "material": 3,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/sofa-catalog/6978cad0487a4343.webp",
+        "image": "/imgs/sofa-catalog/6978cad0487a4343.webp",
+        "studio": "/imgs/product-cards/0eaee5349fcf9a5869b2220efda7cf88a452b537bce9b8e27fe580876bf48655.webp",
+        "source": "https://tylko.com/de-de/sofa/drei_sitzer/316279,s,/"
+      },
+      {
+        "id": 316282,
+        "name": "3-Sitzer-Sofa Bouclé Fein in Messinggelb",
+        "material": 6,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/product-cards/ea12abd7faae979af3a62efbfa23414708330485432bc766607e3d02297b62aa.webp",
+        "image": "/imgs/product-cards/ea12abd7faae979af3a62efbfa23414708330485432bc766607e3d02297b62aa.webp",
+        "studio": "/imgs/product-cards/4474ebb93fdfd19facc8f87488e3c15ee828d4aee25c023595d3ee1e8c496778.webp",
+        "source": "https://tylko.com/de-de/sofa/drei_sitzer/316282,s,/"
+      },
+      {
+        "id": 316284,
+        "name": "3-Sitzer-Sofa Bouclé Fein in Walnussbraun",
+        "material": 8,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/product-cards/9a1d5efd1fd7721ef8bead1b19221939d955014897221f188adad135fb634944.webp",
+        "image": "/imgs/product-cards/9a1d5efd1fd7721ef8bead1b19221939d955014897221f188adad135fb634944.webp",
+        "studio": "/imgs/product-cards/c536f048c5fbe7d587f4c75865cfaa5130d56a9e17922c82afe1b13c067244a5.webp",
+        "source": "https://tylko.com/de-de/sofa/drei_sitzer/316284,s,/"
+      },
+      {
+        "id": 316285,
+        "name": "3-seater sofa in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 3105.0,
+        "originalEur": 3105.0,
+        "thumbnail": "/imgs/product-cards/bdb257bc68f5eb69f9ae2fdb2befc613acfb9475628df7d5290f53c3d5a21d4d.webp",
+        "image": "/imgs/product-cards/bdb257bc68f5eb69f9ae2fdb2befc613acfb9475628df7d5290f53c3d5a21d4d.webp",
+        "studio": "/imgs/product-cards/279ff53b81febe12a107c828713cc7ec6d01710e64dd9236fe0d4c3a1e8c9e0d.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316285,s,/"
+      },
+      {
+        "id": 316290,
+        "name": "3-seater sofa in Plum & Charcoal Textured Bouclé",
+        "material": 14,
+        "eur": 3105.0,
+        "originalEur": 3105.0,
+        "thumbnail": "/imgs/product-cards/9507a9683f90a8e3c363c0693fc922dd853af7f6fbfc6a8f8e34ce7132724a30.webp",
+        "image": "/imgs/product-cards/9507a9683f90a8e3c363c0693fc922dd853af7f6fbfc6a8f8e34ce7132724a30.webp",
+        "studio": "/imgs/product-cards/d26b2454e1da3c3d0693cb9a650e3d18dba40edf465a2a78dfd9e5fb2132c269.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316290,s,/"
+      }
+    ]
+  },
+  {
+    "id": 113637,
+    "model": "smooth",
+    "category": "four_plus_seater",
+    "width": 345,
+    "height": 84,
+    "depth": 173,
+    "badge": "",
+    "lifestyleFirst": true,
+    "variants": [
+      {
+        "id": 113631,
+        "name": "Großes Sofa aus Wolle in Khaki",
+        "material": 1,
+        "eur": 6648.0,
+        "originalEur": 6648.0,
+        "thumbnail": "/imgs/product-cards/0cb297714c33935be1890069c4fb6a0f4457e17ffb63222cfc975a600b1883c9.webp",
+        "image": "/imgs/product-cards/0cb297714c33935be1890069c4fb6a0f4457e17ffb63222cfc975a600b1883c9.webp",
+        "studio": "/imgs/product-cards/1ad180782c8fccfadd281c98abc27bbc9364005a9beae28594908d324aaabba6.webp",
+        "source": "https://tylko.com/de-de/sofa/vier_plus_sitzer/113631,s,/"
+      },
+      {
+        "id": 113632,
+        "name": "Großes Sofa aus Wolle in Grau",
+        "material": 2,
+        "eur": 6648.0,
+        "originalEur": 6648.0,
+        "thumbnail": "/imgs/product-cards/017314d4e979c055702c8a938d6ab235d3d2eac4eb41238168527f2f03488f95.webp",
+        "image": "/imgs/product-cards/017314d4e979c055702c8a938d6ab235d3d2eac4eb41238168527f2f03488f95.webp",
+        "studio": "/imgs/product-cards/1be1695e8a9a2a39141a897d985fb47addce41e470175beb975881991e9b0ac9.webp",
+        "source": "https://tylko.com/de-de/sofa/vier_plus_sitzer/113632,s,/"
+      },
+      {
+        "id": 113637,
+        "name": "Large sofa in Off-White Corduroy",
+        "material": 7,
+        "eur": 4835.0,
+        "originalEur": 4835.0,
+        "thumbnail": "/imgs/sofa-catalog/93360e715a020efb.webp",
+        "image": "/imgs/sofa-catalog/93360e715a020efb.webp",
+        "studio": "/imgs/product-cards/574eb257541c6a31fafda85138e25adcb36026a8d8f882a736155d11583e5143.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/113637,s,/"
+      },
+      {
+        "id": 113643,
+        "name": "Large sofa in Cobalt Blue Corduroy",
+        "material": 14,
+        "eur": 4835.0,
+        "originalEur": 4835.0,
+        "thumbnail": "/imgs/product-cards/ea39311386396729111e58e57c50896137e2c376d2996d8ca5c797f6d79e1d04.webp",
+        "image": "/imgs/product-cards/ea39311386396729111e58e57c50896137e2c376d2996d8ca5c797f6d79e1d04.webp",
+        "studio": "/imgs/product-cards/30bdfe4588af4a6bbab4da40e3fcdd769c6d484d19b84e1dadeb135f814efd34.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/113643,s,/"
+      },
+      {
+        "id": 250064,
+        "name": "Large sofa in Classic Grey Plain Chenille",
+        "material": 20,
+        "eur": 4835.0,
+        "originalEur": 4835.0,
+        "thumbnail": "/imgs/product-cards/44732463fd1f94b461b59dc1aa168da608689de34f074c75a07d47a32b0e6a9c.webp",
+        "image": "/imgs/product-cards/44732463fd1f94b461b59dc1aa168da608689de34f074c75a07d47a32b0e6a9c.webp",
+        "studio": "/imgs/product-cards/437ba7fc70276328388449de6d88580c30a2650c861287cb66ce3dd77cf85062.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/250064,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316603,
+    "model": "uff",
+    "category": "chaise_longue",
+    "width": 227,
+    "height": 73,
+    "depth": 150,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 316601,
+        "name": "Ecksofa Bouclé Fein in Taupe",
+        "material": 3,
+        "eur": 2091.0,
+        "originalEur": 2091.0,
+        "thumbnail": "/imgs/sofa-catalog/1dd39db03f13197f.webp",
+        "image": "/imgs/sofa-catalog/1dd39db03f13197f.webp",
+        "studio": "/imgs/sofa-catalog/7e40fd51f2feae26.webp",
+        "source": "https://tylko.com/de-de/sofa/ecksofa/316601,s,/"
+      },
+      {
+        "id": 316602,
+        "name": "Chaise longue in Graphite Grey Fine Bouclé",
+        "material": 4,
+        "eur": 2091.0,
+        "originalEur": 2091.0,
+        "thumbnail": "/imgs/product-cards/a74d41ba812db8ca689c6e13fd712076d660f7f8887538f99776c77cb04915d6.webp",
+        "image": "/imgs/product-cards/a74d41ba812db8ca689c6e13fd712076d660f7f8887538f99776c77cb04915d6.webp",
+        "studio": "/imgs/product-cards/434f3e671cca8f7f2b9da3c96a41f663c5e0d00d4d103f053eacb172ae9cc2d5.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/316602,s,/"
+      },
+      {
+        "id": 316603,
+        "name": "Ecksofa Bouclé Fein in Rosenholz",
+        "material": 5,
+        "eur": 2091.0,
+        "originalEur": 2091.0,
+        "thumbnail": "/imgs/product-cards/7e76521bb31f66d62cac7d21f58dd4aa5bcf8e46968029ef4d8cdda131f21482.webp",
+        "image": "/imgs/product-cards/7e76521bb31f66d62cac7d21f58dd4aa5bcf8e46968029ef4d8cdda131f21482.webp",
+        "studio": "/imgs/product-cards/0199a4ef716199eab93076d7ad76adf761473f9614263a3158a869be69982641.webp",
+        "source": "https://tylko.com/de-de/sofa/ecksofa/316603,s,/"
+      },
+      {
+        "id": 316604,
+        "name": "Ecksofa Bouclé Fein in Messinggelb",
+        "material": 6,
+        "eur": 2091.0,
+        "originalEur": 2091.0,
+        "thumbnail": "/imgs/product-cards/36506cea9f91f5d0608aea9ffa92af505fa6fb74bdbf1efea3447e6d04f6867e.webp",
+        "image": "/imgs/product-cards/36506cea9f91f5d0608aea9ffa92af505fa6fb74bdbf1efea3447e6d04f6867e.webp",
+        "studio": "/imgs/product-cards/ba24b9c77a348f3d5563668358a7e9b02bad816d96e9e983689fda0788559acb.webp",
+        "source": "https://tylko.com/de-de/sofa/ecksofa/316604,s,/"
+      },
+      {
+        "id": 316606,
+        "name": "Ecksofa Bouclé Fein in Walnussbraun",
+        "material": 8,
+        "eur": 2091.0,
+        "originalEur": 2091.0,
+        "thumbnail": "/imgs/product-cards/88c031a5a41bc40e7c9aec7a23715f4ba9c6eae0fd8ec851d1206ab17c9c38f7.webp",
+        "image": "/imgs/product-cards/88c031a5a41bc40e7c9aec7a23715f4ba9c6eae0fd8ec851d1206ab17c9c38f7.webp",
+        "studio": "/imgs/product-cards/eb11093ad5c600ffce43e3a7afa92ced62406535e4f5722bb5801a9f86593276.webp",
+        "source": "https://tylko.com/de-de/sofa/ecksofa/316606,s,/"
+      },
+      {
+        "id": 316607,
+        "name": "Ecksofa Bouclé Strukturiert in Zitronencreme",
+        "material": 9,
+        "eur": 2281.0,
+        "originalEur": 2281.0,
+        "thumbnail": "/imgs/product-cards/4f606fc062cc746b3d6fdcd37d6e65aab3ddaa59488131f57f14a33d321607db.webp",
+        "image": "/imgs/product-cards/4f606fc062cc746b3d6fdcd37d6e65aab3ddaa59488131f57f14a33d321607db.webp",
+        "studio": "/imgs/product-cards/4e15d2fd2f06618cb073e47f98802036349653f06e526acbdef7f35e71c94c06.webp",
+        "source": "https://tylko.com/de-de/sofa/ecksofa/316607,s,/"
+      },
+      {
+        "id": 316609,
+        "name": "Ecksofa Bouclé Strukturiert in Salz & Pfeffer",
+        "material": 11,
+        "eur": 2281.0,
+        "originalEur": 2281.0,
+        "thumbnail": "/imgs/product-cards/5dc5a39f8a09d10fc334f31a8d7d7a574d32e7a229fb47f0d6aa5eadb6c5e4df.webp",
+        "image": "/imgs/product-cards/5dc5a39f8a09d10fc334f31a8d7d7a574d32e7a229fb47f0d6aa5eadb6c5e4df.webp",
+        "studio": "/imgs/product-cards/cbfc8791910da676f99cadb7934effc832cb5f1bd707f823fcbaecd3de7b8ce1.webp",
+        "source": "https://tylko.com/de-de/sofa/ecksofa/316609,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316370,
+    "model": "uff",
+    "category": "two_seater",
+    "width": 252,
+    "height": 73,
+    "depth": 100,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 316366,
+        "name": "2-Sitzer-Sofa Bouclé Fein in Messinggelb",
+        "material": 6,
+        "eur": 2090.0,
+        "originalEur": 2090.0,
+        "thumbnail": "/imgs/product-cards/909ae1a7045d74449abaec30b520e10ae106f7283384c49c972aae0cfa0cbaea.webp",
+        "image": "/imgs/product-cards/909ae1a7045d74449abaec30b520e10ae106f7283384c49c972aae0cfa0cbaea.webp",
+        "studio": "/imgs/product-cards/a60de63addab63143069f2c4f7d154b4a559964a1af95d5a789ab670c34e0e64.webp",
+        "source": "https://tylko.com/de-de/sofa/zwei_sitzer/316366,s,/"
+      },
+      {
+        "id": 316369,
+        "name": "2-seater sofa in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 2280.0,
+        "originalEur": 2280.0,
+        "thumbnail": "/imgs/product-cards/4eb67befcc493210fd99756ef2b81a9ca130abcf9bd402dd2f493f523a806a6f.webp",
+        "image": "/imgs/product-cards/4eb67befcc493210fd99756ef2b81a9ca130abcf9bd402dd2f493f523a806a6f.webp",
+        "studio": "/imgs/product-cards/b53000e5739543d6a6cbc4a68f2d0d88daa1864981b497625528e0a37afbec09.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316369,s,/"
+      },
+      {
+        "id": 316370,
+        "name": "2-seater sofa in Almond Cream Textured Bouclé",
+        "material": 10,
+        "eur": 2280.0,
+        "originalEur": 2280.0,
+        "thumbnail": "/imgs/product-cards/25a41efc4114fb025e875b8618c297fc9768a471a02686baf164f3ac0bc7b6e6.webp",
+        "image": "/imgs/product-cards/25a41efc4114fb025e875b8618c297fc9768a471a02686baf164f3ac0bc7b6e6.webp",
+        "studio": "/imgs/product-cards/b397b5a46aa68ba129fe02a5e0944c6d34b749fee9371d1abf85c7c9ac7e3efd.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316370,s,/"
+      },
+      {
+        "id": 316372,
+        "name": "2-seater sofa in Sage & Mint Textured Bouclé",
+        "material": 12,
+        "eur": 2280.0,
+        "originalEur": 2280.0,
+        "thumbnail": "/imgs/product-cards/c5f82a161c8b0b0e5dea052bda7e90c032fd205aa97ca00822dcc3ee374f969c.webp",
+        "image": "/imgs/product-cards/c5f82a161c8b0b0e5dea052bda7e90c032fd205aa97ca00822dcc3ee374f969c.webp",
+        "studio": "/imgs/product-cards/c5d918fd97918514412097bc8403a7edbbbf67b9e7382dde69cf649ff2c9c14a.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316372,s,/"
+      }
+    ]
+  },
+  {
+    "id": 61158,
+    "model": "smooth",
+    "category": "chaise_longue",
+    "width": 246,
+    "height": 84,
+    "depth": 163,
+    "badge": "",
+    "lifestyleFirst": true,
+    "variants": [
+      {
+        "id": 457,
+        "name": "Ecksofa aus Wolle in Dunkelbraun",
+        "material": 0,
+        "eur": 4294.0,
+        "originalEur": 4294.0,
+        "thumbnail": "/imgs/product-cards/2b8038b5675d18d67e23bfbfc255f8de274d1f3de566218cd65116d65b67a858.webp",
+        "image": "/imgs/product-cards/2b8038b5675d18d67e23bfbfc255f8de274d1f3de566218cd65116d65b67a858.webp",
+        "studio": "/imgs/product-cards/fde76b1e4b008b7fd3148985c3575a0c84ba5339c221e6b6d1c9d448a7e51c7f.webp",
+        "source": "https://tylko.com/de-de/sofa/ecksofa/457,s,/"
+      },
+      {
+        "id": 458,
+        "name": "Ecksofa aus Wolle in Khaki",
+        "material": 1,
+        "eur": 4294.0,
+        "originalEur": 4294.0,
+        "thumbnail": "/imgs/product-cards/c8fa728dd0655b5c20343b6a0cd535edfcc2364739dbaf8aef6ce9b252ae1382.webp",
+        "image": "/imgs/product-cards/c8fa728dd0655b5c20343b6a0cd535edfcc2364739dbaf8aef6ce9b252ae1382.webp",
+        "studio": "/imgs/product-cards/601fcc9e575cdd03beaf66ea4072e85854b8da24fda54924a62b45487db0c7f8.webp",
+        "source": "https://tylko.com/de-de/sofa/ecksofa/458,s,/"
+      },
+      {
+        "id": 464,
+        "name": "Ecksofa aus Cord in Beige",
+        "material": 8,
+        "eur": 3220.0,
+        "originalEur": 3220.0,
+        "thumbnail": "/imgs/product-cards/cb4c4c685d477b7fe648fd9e2c6e17e84a4cfa361c6354bee617004a4104df62.webp",
+        "image": "/imgs/product-cards/cb4c4c685d477b7fe648fd9e2c6e17e84a4cfa361c6354bee617004a4104df62.webp",
+        "studio": "/imgs/product-cards/b5c23912c2527dd94ca3101cccada68cadf0335dc1f1c1b015a50942017adde3.webp",
+        "source": "https://tylko.com/de-de/sofa/ecksofa/464,s,/"
+      },
+      {
+        "id": 466,
+        "name": "Chaise longue in Light Grey Corduroy",
+        "material": 10,
+        "eur": 3220.0,
+        "originalEur": 3220.0,
+        "thumbnail": "/imgs/product-cards/e242a92c79a1c7fb10616c143898ec8c2a734482188fb4aa79aecdef0ce82278.webp",
+        "image": "/imgs/product-cards/e242a92c79a1c7fb10616c143898ec8c2a734482188fb4aa79aecdef0ce82278.webp",
+        "studio": "/imgs/product-cards/ae367601e0f1def99ede0a5e66091a194d6d2a22f80b9fc3096237a5c0619ccb.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/466,s,/"
+      },
+      {
+        "id": 470,
+        "name": "Chaise longue in Cobalt Blue Corduroy",
+        "material": 14,
+        "eur": 3220.0,
+        "originalEur": 3220.0,
+        "thumbnail": "/imgs/product-cards/ef9131fe1f3e840986da471600e70f5bcb8b0ad739baecc477dfbcc230009afd.webp",
+        "image": "/imgs/product-cards/ef9131fe1f3e840986da471600e70f5bcb8b0ad739baecc477dfbcc230009afd.webp",
+        "studio": "/imgs/product-cards/e70ce7cc8a598a971e3801d1f62f49242fd7f9ae91b621158260374680723ee3.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/470,s,/"
+      },
+      {
+        "id": 61159,
+        "name": "Chaise longue in Cognac Leather",
+        "material": 15,
+        "eur": 5154.0,
+        "originalEur": 5154.0,
+        "thumbnail": "/imgs/product-cards/85b56be835420504b5633e7d8d6845ba6c829e794de7e49013924113d22656cb.webp",
+        "image": "/imgs/product-cards/85b56be835420504b5633e7d8d6845ba6c829e794de7e49013924113d22656cb.webp",
+        "studio": "/imgs/product-cards/bbaefd3c88bdfc33cf6474c86f9a007e6ea68a6745f461d9137048855a6bf50d.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/61159,s,/"
+      },
+      {
+        "id": 61158,
+        "name": "Chaise longue in Willow Green Leather",
+        "material": 18,
+        "eur": 5154.0,
+        "originalEur": 5154.0,
+        "thumbnail": "/imgs/product-cards/87e3fa38a7c9d63d7cebdf9f1172d4a9a14ac02a969c308c5c1288d8dc88b4d2.webp",
+        "image": "/imgs/product-cards/87e3fa38a7c9d63d7cebdf9f1172d4a9a14ac02a969c308c5c1288d8dc88b4d2.webp",
+        "studio": "/imgs/product-cards/beb238a62c018696d8af9481b398795c12483858c9305ff1e2ffe2c75aa8b1bc.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/61158,s,/"
+      },
+      {
+        "id": 312845,
+        "name": "Chaise longue in Classic Grey Plain Chenille",
+        "material": 20,
+        "eur": 3220.0,
+        "originalEur": 3220.0,
+        "thumbnail": "/imgs/product-cards/1b5af5dc24820617371afc130c3d4c4da378d4df0854bb6fa501368a5901f2ef.webp",
+        "image": "/imgs/product-cards/1b5af5dc24820617371afc130c3d4c4da378d4df0854bb6fa501368a5901f2ef.webp",
+        "studio": "/imgs/product-cards/965b39b5783cbff453223825a51740bf24e5e5473722b684b0f12a0095d57c29.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/312845,s,/"
+      },
+      {
+        "id": 312847,
+        "name": "Chaise longue in Terracotta Plain Chenille",
+        "material": 22,
+        "eur": 3220.0,
+        "originalEur": 3220.0,
+        "thumbnail": "/imgs/product-cards/877fbb4fbcb8dc112ee65e95145d09f960496aca17f8a090ab282a6e2babdb2a.webp",
+        "image": "/imgs/product-cards/877fbb4fbcb8dc112ee65e95145d09f960496aca17f8a090ab282a6e2babdb2a.webp",
+        "studio": "/imgs/product-cards/35196817439e1eb5409539cf3ffbfe215c26b663fbd8cf671b5f535b232fe397.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/312847,s,/"
+      },
+      {
+        "id": 312849,
+        "name": "Chaise longue in Pearl Classic Bouclé",
+        "material": 24,
+        "eur": 3542.0,
+        "originalEur": 3542.0,
+        "thumbnail": "/imgs/product-cards/a6b886bc65321b8abff63d2e11b018cbc6dbf0d18bf9868953666e7d399ebb12.webp",
+        "image": "/imgs/product-cards/a6b886bc65321b8abff63d2e11b018cbc6dbf0d18bf9868953666e7d399ebb12.webp",
+        "studio": "/imgs/product-cards/926e58108b16675023305df75c35b595fe9db7d3d8cd0020dd3cfb90ca1aec83.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/312849,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316346,
+    "model": "uff",
+    "category": "four_plus_seater",
+    "width": 300,
+    "height": 73,
+    "depth": 300,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 315988,
+        "name": "Großes Sofa Bouclé Fein in Austerngrau",
+        "material": 0,
+        "eur": 4449.0,
+        "originalEur": 4449.0,
+        "thumbnail": "/imgs/product-cards/76a75f967031ae660d3682e6460ca304016e587f09f0ea0154a01d539902d820.webp",
+        "image": "/imgs/product-cards/76a75f967031ae660d3682e6460ca304016e587f09f0ea0154a01d539902d820.webp",
+        "studio": "/imgs/product-cards/a8e372f5b8b7d13fe0506674b5fa3e689d04a421322596d787f3010d9824aa65.webp",
+        "source": "https://tylko.com/de-de/sofa/vier_plus_sitzer/315988,s,/"
+      },
+      {
+        "id": 316333,
+        "name": "Large sofa in Linen Beige Fine Bouclé",
+        "material": 1,
+        "eur": 4449.0,
+        "originalEur": 4449.0,
+        "thumbnail": "/imgs/product-cards/07df693b4b217d4f09e284513c4dfcd86bbd5a60b0ad350ee4cc98c1e84bad5e.webp",
+        "image": "/imgs/product-cards/07df693b4b217d4f09e284513c4dfcd86bbd5a60b0ad350ee4cc98c1e84bad5e.webp",
+        "studio": "/imgs/product-cards/d6a126e94ee6c82bf85d4558f283dcb957eaee016245690a2c376d380c9a17f5.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316333,s,/"
+      },
+      {
+        "id": 316334,
+        "name": "Large sofa in Moonstone Grey Fine Bouclé",
+        "material": 2,
+        "eur": 4449.0,
+        "originalEur": 4449.0,
+        "thumbnail": "/imgs/product-cards/85b50a702d1b8c0e9cebe7bdd71bacfc2473532c38438c7fd8c44a0feb38f9a8.webp",
+        "image": "/imgs/product-cards/85b50a702d1b8c0e9cebe7bdd71bacfc2473532c38438c7fd8c44a0feb38f9a8.webp",
+        "studio": "/imgs/product-cards/4da7b11e48b23b5101480ab3cae592f54990fcd3060be6bb6bbdb59180a46b59.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316334,s,/"
+      },
+      {
+        "id": 316335,
+        "name": "Large sofa in Taupe Fine Bouclé",
+        "material": 3,
+        "eur": 4449.0,
+        "originalEur": 4449.0,
+        "thumbnail": "/imgs/product-cards/cf4faeced26964c8ec658cba9d795d72fcfc6d01c58daeaed0399001eef7fbe3.webp",
+        "image": "/imgs/product-cards/cf4faeced26964c8ec658cba9d795d72fcfc6d01c58daeaed0399001eef7fbe3.webp",
+        "studio": "/imgs/product-cards/e75b5f0186574e7bbb2b254bdf63b4215db1c601ac2f313b7b0a4aa460062073.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316335,s,/"
+      },
+      {
+        "id": 316338,
+        "name": "Large sofa in Brass Yellow Fine Bouclé",
+        "material": 6,
+        "eur": 4449.0,
+        "originalEur": 4449.0,
+        "thumbnail": "/imgs/product-cards/cd5c012bd51ac3bc2401dce683605a0bebb9c89b18330ed59ce4f70cb20a26c6.webp",
+        "image": "/imgs/product-cards/cd5c012bd51ac3bc2401dce683605a0bebb9c89b18330ed59ce4f70cb20a26c6.webp",
+        "studio": "/imgs/product-cards/531ef9183771bff8a840e1979cb3fcff24e51932c946d32050eddb5cf9c20c4c.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316338,s,/"
+      },
+      {
+        "id": 316341,
+        "name": "Large sofa in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 4853.0,
+        "originalEur": 4853.0,
+        "thumbnail": "/imgs/product-cards/857dc21c185100cf6b72df7f9bd09cd68b5ea88107c8849fd52882dff01409c6.webp",
+        "image": "/imgs/product-cards/857dc21c185100cf6b72df7f9bd09cd68b5ea88107c8849fd52882dff01409c6.webp",
+        "studio": "/imgs/product-cards/941b6ca85258488097259dd9ff716550f79a8b83c8db6bb32d22b9231911dc9f.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316341,s,/"
+      },
+      {
+        "id": 316342,
+        "name": "Large sofa in Almond Cream Textured Bouclé",
+        "material": 10,
+        "eur": 4853.0,
+        "originalEur": 4853.0,
+        "thumbnail": "/imgs/product-cards/bc96e3d713da7eb7e15f9421ea545414a53c4e8e0dae7248b950431ca5157f43.webp",
+        "image": "/imgs/product-cards/bc96e3d713da7eb7e15f9421ea545414a53c4e8e0dae7248b950431ca5157f43.webp",
+        "studio": "/imgs/product-cards/46c1a96050faa48853c11e579c2e6990e9fb3faed39b27de3890666b73481ed2.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316342,s,/"
+      },
+      {
+        "id": 316346,
+        "name": "Large sofa in Plum & Charcoal Textured Bouclé",
+        "material": 14,
+        "eur": 4853.0,
+        "originalEur": 4853.0,
+        "thumbnail": "/imgs/product-cards/a27619564fc74a5022b44b680d62fb450139764e31b356aa31c695df26eb04da.webp",
+        "image": "/imgs/product-cards/a27619564fc74a5022b44b680d62fb450139764e31b356aa31c695df26eb04da.webp",
+        "studio": "/imgs/product-cards/b9b264559cbb4f4b6feadd6b1962318862f5236088202c6a0fbb6dc357deb9cb.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316346,s,/"
+      }
+    ]
+  },
+  {
+    "id": 324410,
+    "model": "uff",
+    "category": "ottoman",
+    "width": 30,
+    "height": 63,
+    "depth": 95,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 324406,
+        "name": "Ottoman in Taupe Fine Bouclé",
+        "material": 3,
+        "eur": 292.0,
+        "originalEur": 292.0,
+        "thumbnail": "/imgs/product-cards/f446f6f2716b824b6ee89bd0e90a449575d8590e272a60ee77c120c250b2667d.webp",
+        "image": "/imgs/product-cards/f446f6f2716b824b6ee89bd0e90a449575d8590e272a60ee77c120c250b2667d.webp",
+        "studio": "/imgs/product-cards/f446f6f2716b824b6ee89bd0e90a449575d8590e272a60ee77c120c250b2667d.webp",
+        "source": "https://tylko.com/en-de/sofa/ottomans_and_modules/324406,s,/"
+      },
+      {
+        "id": 324407,
+        "name": "Ottoman in Graphite Grey Fine Bouclé",
+        "material": 4,
+        "eur": 292.0,
+        "originalEur": 292.0,
+        "thumbnail": "/imgs/product-cards/68ac8e8fdcea666beef5269a59b92afb8fb90a99f19736eee2c30ee77514afdc.webp",
+        "image": "/imgs/product-cards/68ac8e8fdcea666beef5269a59b92afb8fb90a99f19736eee2c30ee77514afdc.webp",
+        "studio": "/imgs/product-cards/68ac8e8fdcea666beef5269a59b92afb8fb90a99f19736eee2c30ee77514afdc.webp",
+        "source": "https://tylko.com/en-de/sofa/ottomans_and_modules/324407,s,/"
+      },
+      {
+        "id": 324408,
+        "name": "Ottoman in Rosewood Fine Bouclé",
+        "material": 5,
+        "eur": 292.0,
+        "originalEur": 292.0,
+        "thumbnail": "/imgs/product-cards/4e5fd812f52c12a5c762ff92cbc27dca359989d93500c556019f08d1a040bd43.webp",
+        "image": "/imgs/product-cards/4e5fd812f52c12a5c762ff92cbc27dca359989d93500c556019f08d1a040bd43.webp",
+        "studio": "/imgs/product-cards/4e5fd812f52c12a5c762ff92cbc27dca359989d93500c556019f08d1a040bd43.webp",
+        "source": "https://tylko.com/en-de/sofa/ottomans_and_modules/324408,s,/"
+      },
+      {
+        "id": 324410,
+        "name": "Ottoman in Thyme Green Fine Bouclé",
+        "material": 7,
+        "eur": 292.0,
+        "originalEur": 292.0,
+        "thumbnail": "/imgs/product-cards/e39461b9c14c6054cfbd7d0e2fe924cda10d8026d09472f3a2eb4f2f9403a97b.webp",
+        "image": "/imgs/product-cards/e39461b9c14c6054cfbd7d0e2fe924cda10d8026d09472f3a2eb4f2f9403a97b.webp",
+        "studio": "/imgs/product-cards/e39461b9c14c6054cfbd7d0e2fe924cda10d8026d09472f3a2eb4f2f9403a97b.webp",
+        "source": "https://tylko.com/en-de/sofa/ottomans_and_modules/324410,s,/"
+      }
+    ]
+  },
+  {
+    "id": 250294,
+    "model": "smooth",
+    "category": "four_plus_seater",
+    "width": 442,
+    "height": 84,
+    "depth": 161,
+    "badge": "",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 113582,
+        "name": "Large sofa in Lilac Blue Wool",
+        "material": 6,
+        "eur": 7427.0,
+        "originalEur": 7427.0,
+        "thumbnail": "/imgs/product-cards/538c75f209296afbe84ea06e5a3396b059936efaefa4fde8921ea04e093d2a48.webp",
+        "image": "/imgs/product-cards/538c75f209296afbe84ea06e5a3396b059936efaefa4fde8921ea04e093d2a48.webp",
+        "studio": "/imgs/product-cards/2bedf4afc2bc14fc47cebc71c5c0a0b32021a8947b99e3836e40939aa0a97af8.jpg",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/113582,s,/"
+      },
+      {
+        "id": 113589,
+        "name": "Large sofa in Cobalt Blue Corduroy",
+        "material": 14,
+        "eur": 5510.0,
+        "originalEur": 5510.0,
+        "thumbnail": "/imgs/product-cards/d09a70e9b870aa6b80d30bdc93fcf100499f1e71a6f427acd554d6ec9888d704.webp",
+        "image": "/imgs/product-cards/d09a70e9b870aa6b80d30bdc93fcf100499f1e71a6f427acd554d6ec9888d704.webp",
+        "studio": "/imgs/product-cards/12dce8bf3fe67c8b2160fdb7e6feb4fc8383744303be77dd796592defcb03879.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/113589,s,/"
+      },
+      {
+        "id": 250287,
+        "name": "Large sofa in Cream Beige Plain Chenille",
+        "material": 19,
+        "eur": 5510.0,
+        "originalEur": 5510.0,
+        "thumbnail": "/imgs/product-cards/1c5f34cbaca33c784611ade85c5a51583050d9cf3fa060a75b72c2c37feb3ba7.webp",
+        "image": "/imgs/product-cards/1c5f34cbaca33c784611ade85c5a51583050d9cf3fa060a75b72c2c37feb3ba7.webp",
+        "studio": "/imgs/product-cards/92a4f3ac574956d393cde7800d0181aca7d040079ce7e16f328a4893aff59b47.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/250287,s,/"
+      },
+      {
+        "id": 250294,
+        "name": "Large sofa in Deep Brown Melange Bouclé",
+        "material": 27,
+        "eur": 6061.0,
+        "originalEur": 6061.0,
+        "thumbnail": "/imgs/product-cards/0f9efc5560f06817488dc25051ce8231b5c4b7b0e9f2ce4c4524bfc9da59e54d.webp",
+        "image": "/imgs/product-cards/0f9efc5560f06817488dc25051ce8231b5c4b7b0e9f2ce4c4524bfc9da59e54d.webp",
+        "studio": "/imgs/product-cards/281de82de237008032b0f3f9ddd7bd20401ee85ff7af0d9470a54ba5fb2f84ff.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/250294,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316518,
+    "model": "uff",
+    "category": "four_plus_seater",
+    "width": 403,
+    "height": 73,
+    "depth": 150,
+    "badge": "new",
+    "lifestyleFirst": true,
+    "variants": [
+      {
+        "id": 316518,
+        "name": "Large sofa with Ottoman in Graphite Grey Fine Bouclé",
+        "material": 4,
+        "eur": 3998.0,
+        "originalEur": 3998.0,
+        "thumbnail": "/imgs/product-cards/31a1a3627a84af2ab280fe85aeb25b389f9ef793e93d9f7f90ca8d5894ab8fc9.webp",
+        "image": "/imgs/product-cards/31a1a3627a84af2ab280fe85aeb25b389f9ef793e93d9f7f90ca8d5894ab8fc9.webp",
+        "studio": "/imgs/product-cards/0b059992880bc770cb1264e19ae0faf2c7e89f4114d45962a1144e0184f4b5fc.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316518,s,/"
+      },
+      {
+        "id": 316525,
+        "name": "Large sofa with Ottoman in Salt & Pepper Textured Bouclé",
+        "material": 11,
+        "eur": 4361.0,
+        "originalEur": 4361.0,
+        "thumbnail": "/imgs/product-cards/a44a8bf9a0ee4c3aef0be45c11b0ac19564115af7393bb45f156908817bdc629.webp",
+        "image": "/imgs/product-cards/a44a8bf9a0ee4c3aef0be45c11b0ac19564115af7393bb45f156908817bdc629.webp",
+        "studio": "/imgs/product-cards/7418530d51b31f2097a1ab80b34905a02b0d3df3260c2f66630176f0e8818a5d.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316525,s,/"
+      },
+      {
+        "id": 316526,
+        "name": "Large sofa with Ottoman in Sage & Mint Textured Bouclé",
+        "material": 12,
+        "eur": 4361.0,
+        "originalEur": 4361.0,
+        "thumbnail": "/imgs/product-cards/b7eaec9750c9132731ed248bc97f0e8afe63452104114e5a8e63c5dc045441fc.webp",
+        "image": "/imgs/product-cards/b7eaec9750c9132731ed248bc97f0e8afe63452104114e5a8e63c5dc045441fc.webp",
+        "studio": "/imgs/product-cards/3bac19d3c3f53e879109cff46e3f354fcc3d48ca15a3af07f711c1e89cda24ee.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316526,s,/"
+      },
+      {
+        "id": 316528,
+        "name": "Large sofa with Ottoman in Plum & Charcoal Textured Bouclé",
+        "material": 14,
+        "eur": 4361.0,
+        "originalEur": 4361.0,
+        "thumbnail": "/imgs/product-cards/2be0281d4449ba67ce31d3fe7ed8c2361623bc6a57f2454cd44cc7349b9d3607.webp",
+        "image": "/imgs/product-cards/2be0281d4449ba67ce31d3fe7ed8c2361623bc6a57f2454cd44cc7349b9d3607.webp",
+        "studio": "/imgs/product-cards/afc0ab9091b413e564d31994f969309df4b7784884bf52eb22d73ff8fbdd075c.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316528,s,/"
+      }
+    ]
+  },
+  {
+    "id": 250255,
+    "model": "smooth",
+    "category": "three_seater",
+    "width": 294,
+    "height": 84,
+    "depth": 100,
+    "badge": "",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 100,
+        "name": "3-seater sofa in Pale Yellow Wool",
+        "material": 3,
+        "eur": 3942.0,
+        "originalEur": 3942.0,
+        "thumbnail": "/imgs/product-cards/b18a11fb1ef6a42559f2edf0c62c78375da0f20c9fa0319ab2fca2a839db1421.webp",
+        "image": "/imgs/product-cards/b18a11fb1ef6a42559f2edf0c62c78375da0f20c9fa0319ab2fca2a839db1421.webp",
+        "studio": "/imgs/product-cards/4a565812d337b826fd6d33ee27122f790220513a688090cfc0500fef9e661afd.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/100,s,/"
+      },
+      {
+        "id": 332,
+        "name": "3-seater sofa in Green Wool",
+        "material": 5,
+        "eur": 3942.0,
+        "originalEur": 3942.0,
+        "thumbnail": "/imgs/product-cards/633ca8d356d2da847514e04672c1f6d8c38f193c7cab8115a6809c77fa844e3a.webp",
+        "image": "/imgs/product-cards/633ca8d356d2da847514e04672c1f6d8c38f193c7cab8115a6809c77fa844e3a.webp",
+        "studio": "/imgs/product-cards/ca7d8a4abbee8c83f95bbf20998bdc829a864e080df61bc9b066267e40e41c91.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/332,s,/"
+      },
+      {
+        "id": 250255,
+        "name": "3-seater sofa in Cream Beige Plain Chenille",
+        "material": 19,
+        "eur": 2958.0,
+        "originalEur": 2958.0,
+        "thumbnail": "/imgs/product-cards/d8e16918e877076430a16d5277d020711c8f2a619724fda55d2125afc09f94f4.webp",
+        "image": "/imgs/product-cards/d8e16918e877076430a16d5277d020711c8f2a619724fda55d2125afc09f94f4.webp",
+        "studio": "/imgs/product-cards/2620eddb81ad7b1556b9bfd9891e128e84d95b523a61344692d93ec381df3d8e.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/250255,s,/"
+      },
+      {
+        "id": 250260,
+        "name": "3-seater sofa in Pearl Classic Bouclé",
+        "material": 24,
+        "eur": 3254.0,
+        "originalEur": 3254.0,
+        "thumbnail": "/imgs/product-cards/6a38cd53c5c0597a0681cfd1c182afd6b15b6109de107158235d121126f21a59.webp",
+        "image": "/imgs/product-cards/6a38cd53c5c0597a0681cfd1c182afd6b15b6109de107158235d121126f21a59.webp",
+        "studio": "/imgs/sofa-catalog/a5fbf63819321257.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/250260,s,/"
+      }
+    ]
+  },
+  {
+    "id": 324406,
+    "model": "uff",
+    "category": "ottoman",
+    "width": 30,
+    "height": 63,
+    "depth": 95,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 324406,
+        "name": "Ottoman in Taupe Fine Bouclé",
+        "material": 3,
+        "eur": 292.0,
+        "originalEur": 292.0,
+        "thumbnail": "/imgs/product-cards/f446f6f2716b824b6ee89bd0e90a449575d8590e272a60ee77c120c250b2667d.webp",
+        "image": "/imgs/product-cards/f446f6f2716b824b6ee89bd0e90a449575d8590e272a60ee77c120c250b2667d.webp",
+        "studio": "/imgs/product-cards/f446f6f2716b824b6ee89bd0e90a449575d8590e272a60ee77c120c250b2667d.webp",
+        "source": "https://tylko.com/en-de/sofa/ottomans_and_modules/324406,s,/"
+      },
+      {
+        "id": 324407,
+        "name": "Ottoman in Graphite Grey Fine Bouclé",
+        "material": 4,
+        "eur": 292.0,
+        "originalEur": 292.0,
+        "thumbnail": "/imgs/product-cards/68ac8e8fdcea666beef5269a59b92afb8fb90a99f19736eee2c30ee77514afdc.webp",
+        "image": "/imgs/product-cards/68ac8e8fdcea666beef5269a59b92afb8fb90a99f19736eee2c30ee77514afdc.webp",
+        "studio": "/imgs/product-cards/68ac8e8fdcea666beef5269a59b92afb8fb90a99f19736eee2c30ee77514afdc.webp",
+        "source": "https://tylko.com/en-de/sofa/ottomans_and_modules/324407,s,/"
+      },
+      {
+        "id": 324408,
+        "name": "Ottoman in Rosewood Fine Bouclé",
+        "material": 5,
+        "eur": 292.0,
+        "originalEur": 292.0,
+        "thumbnail": "/imgs/product-cards/4e5fd812f52c12a5c762ff92cbc27dca359989d93500c556019f08d1a040bd43.webp",
+        "image": "/imgs/product-cards/4e5fd812f52c12a5c762ff92cbc27dca359989d93500c556019f08d1a040bd43.webp",
+        "studio": "/imgs/product-cards/4e5fd812f52c12a5c762ff92cbc27dca359989d93500c556019f08d1a040bd43.webp",
+        "source": "https://tylko.com/en-de/sofa/ottomans_and_modules/324408,s,/"
+      },
+      {
+        "id": 324410,
+        "name": "Ottoman in Thyme Green Fine Bouclé",
+        "material": 7,
+        "eur": 292.0,
+        "originalEur": 292.0,
+        "thumbnail": "/imgs/product-cards/e39461b9c14c6054cfbd7d0e2fe924cda10d8026d09472f3a2eb4f2f9403a97b.webp",
+        "image": "/imgs/product-cards/e39461b9c14c6054cfbd7d0e2fe924cda10d8026d09472f3a2eb4f2f9403a97b.webp",
+        "studio": "/imgs/product-cards/e39461b9c14c6054cfbd7d0e2fe924cda10d8026d09472f3a2eb4f2f9403a97b.webp",
+        "source": "https://tylko.com/en-de/sofa/ottomans_and_modules/324410,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316478,
+    "model": "uff",
+    "category": "three_seater",
+    "width": 313,
+    "height": 73,
+    "depth": 100,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 316475,
+        "name": "3-seater sofa in Taupe Fine Bouclé",
+        "material": 3,
+        "eur": 2834.0,
+        "originalEur": 2834.0,
+        "thumbnail": "/imgs/product-cards/afc9130bf3dc4a22704b0e1ceed18e8bf08fcf9e955f1afee59a32668c459eff.webp",
+        "image": "/imgs/product-cards/afc9130bf3dc4a22704b0e1ceed18e8bf08fcf9e955f1afee59a32668c459eff.webp",
+        "studio": "/imgs/product-cards/c3e16fce1e0981333f853b98bec06207f5123a853d5e3f11fc0f1c0f722b4571.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316475,s,/"
+      },
+      {
+        "id": 316478,
+        "name": "3-seater sofa in Brass Yellow Fine Bouclé",
+        "material": 6,
+        "eur": 2834.0,
+        "originalEur": 2834.0,
+        "thumbnail": "/imgs/product-cards/ba00c27ea86a6a122a76f0e2c9802c3a5ff9c62f7552cf9e32aeea00a823652c.webp",
+        "image": "/imgs/product-cards/ba00c27ea86a6a122a76f0e2c9802c3a5ff9c62f7552cf9e32aeea00a823652c.webp",
+        "studio": "/imgs/product-cards/4c8ea296a9b5edbf3282812b28279696da6a7d9e0bfced4756c3246b9d935e0b.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316478,s,/"
+      },
+      {
+        "id": 316479,
+        "name": "3-seater sofa in Thyme Green Fine Bouclé",
+        "material": 7,
+        "eur": 2834.0,
+        "originalEur": 2834.0,
+        "thumbnail": "/imgs/product-cards/6832c2a7915675d6fb268ce200eb1d9e7776a54abb72d01aa7c797e996750f58.webp",
+        "image": "/imgs/product-cards/6832c2a7915675d6fb268ce200eb1d9e7776a54abb72d01aa7c797e996750f58.webp",
+        "studio": "/imgs/product-cards/e1c029cc22725108be176a10e2f858ddcee029f5c02c75b743579cbe4435e63e.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316479,s,/"
+      },
+      {
+        "id": 316480,
+        "name": "3-seater sofa in Walnut Fine Bouclé",
+        "material": 8,
+        "eur": 2834.0,
+        "originalEur": 2834.0,
+        "thumbnail": "/imgs/product-cards/945d9317295b7f912d2ece228a3fa0406f0d424d21a344b5206e320460803b63.webp",
+        "image": "/imgs/product-cards/945d9317295b7f912d2ece228a3fa0406f0d424d21a344b5206e320460803b63.webp",
+        "studio": "/imgs/product-cards/8266ce3dddd9bc02c0cc4866cbec318564d1d33fc83cb676818ce8acb31bc202.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316480,s,/"
+      },
+      {
+        "id": 316481,
+        "name": "3-seater sofa in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 3092.0,
+        "originalEur": 3092.0,
+        "thumbnail": "/imgs/product-cards/ba8e3b851eb4898ea106b8bf7ced1d22ceb17daf8d1d59d9f16d6a95a8aa1ef6.webp",
+        "image": "/imgs/product-cards/ba8e3b851eb4898ea106b8bf7ced1d22ceb17daf8d1d59d9f16d6a95a8aa1ef6.webp",
+        "studio": "/imgs/product-cards/7ab44568a509091f3df93dde7391d2878d5ba9e2e70b4bd43a08ed3c6acbd7b0.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316481,s,/"
+      },
+      {
+        "id": 316482,
+        "name": "3-seater sofa in Almond Cream Textured Bouclé",
+        "material": 10,
+        "eur": 3092.0,
+        "originalEur": 3092.0,
+        "thumbnail": "/imgs/product-cards/8351d45902c936225bf08a1daab17d9fa44d4703a67d0a90d257d707ef6517ac.webp",
+        "image": "/imgs/product-cards/8351d45902c936225bf08a1daab17d9fa44d4703a67d0a90d257d707ef6517ac.webp",
+        "studio": "/imgs/product-cards/6209321454bd5fd661d3efbfe7ec2d83137033faa306729e6a6213b77347792a.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316482,s,/"
+      },
+      {
+        "id": 316483,
+        "name": "3-seater sofa in Salt & Pepper Textured Bouclé",
+        "material": 11,
+        "eur": 3092.0,
+        "originalEur": 3092.0,
+        "thumbnail": "/imgs/product-cards/dfa0db712748d2e2e8f13a22a5a21f6e237e4b775422d5de75d367120c8f5b87.webp",
+        "image": "/imgs/product-cards/dfa0db712748d2e2e8f13a22a5a21f6e237e4b775422d5de75d367120c8f5b87.webp",
+        "studio": "/imgs/product-cards/59b7b19ac6205ceb1e110dac8e35d3ab2d36373ecc1c6ed0af5ed4c91c2ec156.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316483,s,/"
+      }
+    ]
+  },
+  {
+    "id": 315988,
+    "model": "uff",
+    "category": "four_plus_seater",
+    "width": 300,
+    "height": 73,
+    "depth": 300,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 315988,
+        "name": "Großes Sofa Bouclé Fein in Austerngrau",
+        "material": 0,
+        "eur": 4449.0,
+        "originalEur": 4449.0,
+        "thumbnail": "/imgs/product-cards/76a75f967031ae660d3682e6460ca304016e587f09f0ea0154a01d539902d820.webp",
+        "image": "/imgs/product-cards/76a75f967031ae660d3682e6460ca304016e587f09f0ea0154a01d539902d820.webp",
+        "studio": "/imgs/product-cards/a8e372f5b8b7d13fe0506674b5fa3e689d04a421322596d787f3010d9824aa65.webp",
+        "source": "https://tylko.com/de-de/sofa/vier_plus_sitzer/315988,s,/"
+      },
+      {
+        "id": 316333,
+        "name": "Large sofa in Linen Beige Fine Bouclé",
+        "material": 1,
+        "eur": 4449.0,
+        "originalEur": 4449.0,
+        "thumbnail": "/imgs/product-cards/07df693b4b217d4f09e284513c4dfcd86bbd5a60b0ad350ee4cc98c1e84bad5e.webp",
+        "image": "/imgs/product-cards/07df693b4b217d4f09e284513c4dfcd86bbd5a60b0ad350ee4cc98c1e84bad5e.webp",
+        "studio": "/imgs/product-cards/d6a126e94ee6c82bf85d4558f283dcb957eaee016245690a2c376d380c9a17f5.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316333,s,/"
+      },
+      {
+        "id": 316334,
+        "name": "Large sofa in Moonstone Grey Fine Bouclé",
+        "material": 2,
+        "eur": 4449.0,
+        "originalEur": 4449.0,
+        "thumbnail": "/imgs/product-cards/85b50a702d1b8c0e9cebe7bdd71bacfc2473532c38438c7fd8c44a0feb38f9a8.webp",
+        "image": "/imgs/product-cards/85b50a702d1b8c0e9cebe7bdd71bacfc2473532c38438c7fd8c44a0feb38f9a8.webp",
+        "studio": "/imgs/product-cards/4da7b11e48b23b5101480ab3cae592f54990fcd3060be6bb6bbdb59180a46b59.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316334,s,/"
+      },
+      {
+        "id": 316335,
+        "name": "Large sofa in Taupe Fine Bouclé",
+        "material": 3,
+        "eur": 4449.0,
+        "originalEur": 4449.0,
+        "thumbnail": "/imgs/product-cards/cf4faeced26964c8ec658cba9d795d72fcfc6d01c58daeaed0399001eef7fbe3.webp",
+        "image": "/imgs/product-cards/cf4faeced26964c8ec658cba9d795d72fcfc6d01c58daeaed0399001eef7fbe3.webp",
+        "studio": "/imgs/product-cards/e75b5f0186574e7bbb2b254bdf63b4215db1c601ac2f313b7b0a4aa460062073.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316335,s,/"
+      },
+      {
+        "id": 316338,
+        "name": "Large sofa in Brass Yellow Fine Bouclé",
+        "material": 6,
+        "eur": 4449.0,
+        "originalEur": 4449.0,
+        "thumbnail": "/imgs/product-cards/cd5c012bd51ac3bc2401dce683605a0bebb9c89b18330ed59ce4f70cb20a26c6.webp",
+        "image": "/imgs/product-cards/cd5c012bd51ac3bc2401dce683605a0bebb9c89b18330ed59ce4f70cb20a26c6.webp",
+        "studio": "/imgs/product-cards/531ef9183771bff8a840e1979cb3fcff24e51932c946d32050eddb5cf9c20c4c.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316338,s,/"
+      },
+      {
+        "id": 316341,
+        "name": "Large sofa in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 4853.0,
+        "originalEur": 4853.0,
+        "thumbnail": "/imgs/product-cards/857dc21c185100cf6b72df7f9bd09cd68b5ea88107c8849fd52882dff01409c6.webp",
+        "image": "/imgs/product-cards/857dc21c185100cf6b72df7f9bd09cd68b5ea88107c8849fd52882dff01409c6.webp",
+        "studio": "/imgs/product-cards/941b6ca85258488097259dd9ff716550f79a8b83c8db6bb32d22b9231911dc9f.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316341,s,/"
+      },
+      {
+        "id": 316342,
+        "name": "Large sofa in Almond Cream Textured Bouclé",
+        "material": 10,
+        "eur": 4853.0,
+        "originalEur": 4853.0,
+        "thumbnail": "/imgs/product-cards/bc96e3d713da7eb7e15f9421ea545414a53c4e8e0dae7248b950431ca5157f43.webp",
+        "image": "/imgs/product-cards/bc96e3d713da7eb7e15f9421ea545414a53c4e8e0dae7248b950431ca5157f43.webp",
+        "studio": "/imgs/product-cards/46c1a96050faa48853c11e579c2e6990e9fb3faed39b27de3890666b73481ed2.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316342,s,/"
+      },
+      {
+        "id": 316346,
+        "name": "Large sofa in Plum & Charcoal Textured Bouclé",
+        "material": 14,
+        "eur": 4853.0,
+        "originalEur": 4853.0,
+        "thumbnail": "/imgs/product-cards/a27619564fc74a5022b44b680d62fb450139764e31b356aa31c695df26eb04da.webp",
+        "image": "/imgs/product-cards/a27619564fc74a5022b44b680d62fb450139764e31b356aa31c695df26eb04da.webp",
+        "studio": "/imgs/product-cards/b9b264559cbb4f4b6feadd6b1962318862f5236088202c6a0fbb6dc357deb9cb.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316346,s,/"
+      }
+    ]
+  },
+  {
+    "id": 1679,
+    "model": "smooth",
+    "category": "corner",
+    "width": 186,
+    "height": 84,
+    "depth": 186,
+    "badge": "bestseller",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 1666,
+        "name": "Corner sofa in Dark Brown Wool",
+        "material": 0,
+        "eur": 4438.0,
+        "originalEur": 4438.0,
+        "thumbnail": "/imgs/sofa-catalog/cc640a9487fb314b.webp",
+        "image": "/imgs/product-cards/a06c0d91a67ffd7266ec223403274ee4cd7f221318f2b63cef948ce8d286a8de.webp",
+        "studio": "/imgs/product-cards/13324ffc35db8459c14b8affb4a40bbe69068758f8f6229563a137529ce606a7.webp",
+        "source": "https://tylko.com/en-de/sofa/corner_sofa/1666,s,/"
+      },
+      {
+        "id": 1668,
+        "name": "Corner sofa in Grey Wool",
+        "material": 2,
+        "eur": 4438.0,
+        "originalEur": 4438.0,
+        "thumbnail": "/imgs/sofa-catalog/7996985d92f5cbee.webp",
+        "image": "/imgs/product-cards/353b09cf4f0fc4e0064d2a328f1c9d96f64a7a0aa3d76eeb730c39e4def7f8d9.webp",
+        "studio": "/imgs/product-cards/4810591c7b38092d08cb3d4221c8aeecb6401f9a68913826242055e3ee2bf06a.webp",
+        "source": "https://tylko.com/en-de/sofa/corner_sofa/1668,s,/"
+      },
+      {
+        "id": 1670,
+        "name": "Corner sofa in Green Wool",
+        "material": 5,
+        "eur": 4438.0,
+        "originalEur": 4438.0,
+        "thumbnail": "/imgs/product-cards/4c78fabc0a980441c02082ad1ce990ef4e7641beb26a5759c6822faf78c94721.webp",
+        "image": "/imgs/product-cards/4c78fabc0a980441c02082ad1ce990ef4e7641beb26a5759c6822faf78c94721.webp",
+        "studio": "/imgs/product-cards/a1432c6c43ade41195c24222bb2dfcd818334e19b063c88119b54c945d891fbc.webp",
+        "source": "https://tylko.com/en-de/sofa/corner_sofa/1670,s,/"
+      },
+      {
+        "id": 1679,
+        "name": "Wohnlandschaft aus Cord in Kobaltblau",
+        "material": 14,
+        "eur": 3211.0,
+        "originalEur": 3211.0,
+        "thumbnail": "/imgs/sofa-catalog/e82932672fcf4ed8.webp",
+        "image": "/imgs/product-cards/f1a446ff33919bb7a36e615041dc0d4d5ae943a729c2e2d51fadd9fe4741f621.webp",
+        "studio": "/imgs/product-cards/9be1fe8045151436433bb9503057b80d0ff4263f120d409ea6beac03edf4cfa3.webp",
+        "source": "https://tylko.com/de-de/sofa/wohnlandschaft/1679,s,/"
+      },
+      {
+        "id": 249873,
+        "name": "Corner sofa in Basalt Grey Plain Chenille",
+        "material": 21,
+        "eur": 3211.0,
+        "originalEur": 3211.0,
+        "thumbnail": "/imgs/product-cards/8c7f5028ba0cd423f1f05bea74554447a3749b1a4ac8ddccced414f7ce9d3192.webp",
+        "image": "/imgs/product-cards/8c7f5028ba0cd423f1f05bea74554447a3749b1a4ac8ddccced414f7ce9d3192.webp",
+        "studio": "/imgs/product-cards/a7ae9ee33018538f4e5d37f54717ab1df010785bb6830ea67ebed74c9f945d05.webp",
+        "source": "https://tylko.com/en-de/sofa/corner_sofa/249873,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316314,
+    "model": "uff",
+    "category": "four_plus_seater",
+    "width": 401,
+    "height": 73,
+    "depth": 100,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 316305,
+        "name": "Large sofa in Linen Beige Fine Bouclé",
+        "material": 1,
+        "eur": 3584.0,
+        "originalEur": 3584.0,
+        "thumbnail": "/imgs/sofa-catalog/b38f930455a977c7.webp",
+        "image": "/imgs/product-cards/353d50f23900f01c46da813e8ca6ad8d24b508eb2933261fe7c5a8959fa07cbb.webp",
+        "studio": "/imgs/product-cards/a9609a895b89515388af7d977d4c307ca05756a1310738ee438056bb91eeaf86.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316305,s,/"
+      },
+      {
+        "id": 316311,
+        "name": "Large sofa in Thyme Green Fine Bouclé",
+        "material": 7,
+        "eur": 3584.0,
+        "originalEur": 3584.0,
+        "thumbnail": "/imgs/product-cards/477f8d99cfc8742c7886a1ff8c941df16837e0ff47b84ad90fa0f067e7f8a701.webp",
+        "image": "/imgs/product-cards/477f8d99cfc8742c7886a1ff8c941df16837e0ff47b84ad90fa0f067e7f8a701.webp",
+        "studio": "/imgs/product-cards/259d6c69a5f8f1d24682122a7041e0b6f23b3588a9742b8448ea203c2c20b3b3.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316311,s,/"
+      },
+      {
+        "id": 316312,
+        "name": "Large sofa in Walnut Fine Bouclé",
+        "material": 8,
+        "eur": 3584.0,
+        "originalEur": 3584.0,
+        "thumbnail": "/imgs/product-cards/ace3f5ddace1913f24f44dad4fe3920bb7f0d16faaec8a249b54fb963e4a432d.webp",
+        "image": "/imgs/product-cards/ace3f5ddace1913f24f44dad4fe3920bb7f0d16faaec8a249b54fb963e4a432d.webp",
+        "studio": "/imgs/product-cards/e824db7006d1adf35a4a39a36f7c1c4b9da47b9454d0523a6be870257aec48dc.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316312,s,/"
+      },
+      {
+        "id": 316314,
+        "name": "Large sofa in Almond Cream Textured Bouclé",
+        "material": 10,
+        "eur": 3909.0,
+        "originalEur": 3909.0,
+        "thumbnail": "/imgs/sofa-catalog/f01dfe1e7c9b4aba.webp",
+        "image": "/imgs/product-cards/caecbc9b2ac22e5cdc44354dc9b7a54f24634a23c4c017c32aa52e8c64e108f4.webp",
+        "studio": "/imgs/product-cards/ea2938dc8c6423dfafa24144f38f780bed8f07b9c4186d4ab5008c598596b211.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316314,s,/"
+      },
+      {
+        "id": 316316,
+        "name": "Large sofa in Sage & Mint Textured Bouclé",
+        "material": 12,
+        "eur": 3909.0,
+        "originalEur": 3909.0,
+        "thumbnail": "/imgs/product-cards/5684c11d8317867d5d017390e0851bbebb61425bc44338220e268a3862d026cd.webp",
+        "image": "/imgs/product-cards/5684c11d8317867d5d017390e0851bbebb61425bc44338220e268a3862d026cd.webp",
+        "studio": "/imgs/product-cards/6b59e6f9c0c3d672031fa706dcbe60baa224accf66ad126f2375a628b2f9ebd7.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316316,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316602,
+    "model": "uff",
+    "category": "chaise_longue",
+    "width": 227,
+    "height": 73,
+    "depth": 150,
+    "badge": "new",
+    "lifestyleFirst": true,
+    "variants": [
+      {
+        "id": 316601,
+        "name": "Ecksofa Bouclé Fein in Taupe",
+        "material": 3,
+        "eur": 2091.0,
+        "originalEur": 2091.0,
+        "thumbnail": "/imgs/sofa-catalog/1dd39db03f13197f.webp",
+        "image": "/imgs/sofa-catalog/1dd39db03f13197f.webp",
+        "studio": "/imgs/sofa-catalog/7e40fd51f2feae26.webp",
+        "source": "https://tylko.com/de-de/sofa/ecksofa/316601,s,/"
+      },
+      {
+        "id": 316602,
+        "name": "Chaise longue in Graphite Grey Fine Bouclé",
+        "material": 4,
+        "eur": 2091.0,
+        "originalEur": 2091.0,
+        "thumbnail": "/imgs/product-cards/a74d41ba812db8ca689c6e13fd712076d660f7f8887538f99776c77cb04915d6.webp",
+        "image": "/imgs/product-cards/a74d41ba812db8ca689c6e13fd712076d660f7f8887538f99776c77cb04915d6.webp",
+        "studio": "/imgs/product-cards/434f3e671cca8f7f2b9da3c96a41f663c5e0d00d4d103f053eacb172ae9cc2d5.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/316602,s,/"
+      },
+      {
+        "id": 316603,
+        "name": "Ecksofa Bouclé Fein in Rosenholz",
+        "material": 5,
+        "eur": 2091.0,
+        "originalEur": 2091.0,
+        "thumbnail": "/imgs/product-cards/7e76521bb31f66d62cac7d21f58dd4aa5bcf8e46968029ef4d8cdda131f21482.webp",
+        "image": "/imgs/product-cards/7e76521bb31f66d62cac7d21f58dd4aa5bcf8e46968029ef4d8cdda131f21482.webp",
+        "studio": "/imgs/product-cards/0199a4ef716199eab93076d7ad76adf761473f9614263a3158a869be69982641.webp",
+        "source": "https://tylko.com/de-de/sofa/ecksofa/316603,s,/"
+      },
+      {
+        "id": 316604,
+        "name": "Ecksofa Bouclé Fein in Messinggelb",
+        "material": 6,
+        "eur": 2091.0,
+        "originalEur": 2091.0,
+        "thumbnail": "/imgs/product-cards/36506cea9f91f5d0608aea9ffa92af505fa6fb74bdbf1efea3447e6d04f6867e.webp",
+        "image": "/imgs/product-cards/36506cea9f91f5d0608aea9ffa92af505fa6fb74bdbf1efea3447e6d04f6867e.webp",
+        "studio": "/imgs/product-cards/ba24b9c77a348f3d5563668358a7e9b02bad816d96e9e983689fda0788559acb.webp",
+        "source": "https://tylko.com/de-de/sofa/ecksofa/316604,s,/"
+      },
+      {
+        "id": 316606,
+        "name": "Ecksofa Bouclé Fein in Walnussbraun",
+        "material": 8,
+        "eur": 2091.0,
+        "originalEur": 2091.0,
+        "thumbnail": "/imgs/product-cards/88c031a5a41bc40e7c9aec7a23715f4ba9c6eae0fd8ec851d1206ab17c9c38f7.webp",
+        "image": "/imgs/product-cards/88c031a5a41bc40e7c9aec7a23715f4ba9c6eae0fd8ec851d1206ab17c9c38f7.webp",
+        "studio": "/imgs/product-cards/eb11093ad5c600ffce43e3a7afa92ced62406535e4f5722bb5801a9f86593276.webp",
+        "source": "https://tylko.com/de-de/sofa/ecksofa/316606,s,/"
+      },
+      {
+        "id": 316607,
+        "name": "Ecksofa Bouclé Strukturiert in Zitronencreme",
+        "material": 9,
+        "eur": 2281.0,
+        "originalEur": 2281.0,
+        "thumbnail": "/imgs/product-cards/4f606fc062cc746b3d6fdcd37d6e65aab3ddaa59488131f57f14a33d321607db.webp",
+        "image": "/imgs/product-cards/4f606fc062cc746b3d6fdcd37d6e65aab3ddaa59488131f57f14a33d321607db.webp",
+        "studio": "/imgs/product-cards/4e15d2fd2f06618cb073e47f98802036349653f06e526acbdef7f35e71c94c06.webp",
+        "source": "https://tylko.com/de-de/sofa/ecksofa/316607,s,/"
+      },
+      {
+        "id": 316609,
+        "name": "Ecksofa Bouclé Strukturiert in Salz & Pfeffer",
+        "material": 11,
+        "eur": 2281.0,
+        "originalEur": 2281.0,
+        "thumbnail": "/imgs/product-cards/5dc5a39f8a09d10fc334f31a8d7d7a574d32e7a229fb47f0d6aa5eadb6c5e4df.webp",
+        "image": "/imgs/product-cards/5dc5a39f8a09d10fc334f31a8d7d7a574d32e7a229fb47f0d6aa5eadb6c5e4df.webp",
+        "studio": "/imgs/product-cards/cbfc8791910da676f99cadb7934effc832cb5f1bd707f823fcbaecd3de7b8ce1.webp",
+        "source": "https://tylko.com/de-de/sofa/ecksofa/316609,s,/"
+      }
+    ]
+  },
+  {
+    "id": 250260,
+    "model": "smooth",
+    "category": "three_seater",
+    "width": 294,
+    "height": 84,
+    "depth": 100,
+    "badge": "",
+    "lifestyleFirst": true,
+    "variants": [
+      {
+        "id": 100,
+        "name": "3-seater sofa in Pale Yellow Wool",
+        "material": 3,
+        "eur": 3942.0,
+        "originalEur": 3942.0,
+        "thumbnail": "/imgs/product-cards/b18a11fb1ef6a42559f2edf0c62c78375da0f20c9fa0319ab2fca2a839db1421.webp",
+        "image": "/imgs/product-cards/b18a11fb1ef6a42559f2edf0c62c78375da0f20c9fa0319ab2fca2a839db1421.webp",
+        "studio": "/imgs/product-cards/4a565812d337b826fd6d33ee27122f790220513a688090cfc0500fef9e661afd.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/100,s,/"
+      },
+      {
+        "id": 332,
+        "name": "3-seater sofa in Green Wool",
+        "material": 5,
+        "eur": 3942.0,
+        "originalEur": 3942.0,
+        "thumbnail": "/imgs/product-cards/633ca8d356d2da847514e04672c1f6d8c38f193c7cab8115a6809c77fa844e3a.webp",
+        "image": "/imgs/product-cards/633ca8d356d2da847514e04672c1f6d8c38f193c7cab8115a6809c77fa844e3a.webp",
+        "studio": "/imgs/product-cards/ca7d8a4abbee8c83f95bbf20998bdc829a864e080df61bc9b066267e40e41c91.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/332,s,/"
+      },
+      {
+        "id": 250255,
+        "name": "3-seater sofa in Cream Beige Plain Chenille",
+        "material": 19,
+        "eur": 2958.0,
+        "originalEur": 2958.0,
+        "thumbnail": "/imgs/product-cards/d8e16918e877076430a16d5277d020711c8f2a619724fda55d2125afc09f94f4.webp",
+        "image": "/imgs/product-cards/d8e16918e877076430a16d5277d020711c8f2a619724fda55d2125afc09f94f4.webp",
+        "studio": "/imgs/product-cards/2620eddb81ad7b1556b9bfd9891e128e84d95b523a61344692d93ec381df3d8e.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/250255,s,/"
+      },
+      {
+        "id": 250260,
+        "name": "3-seater sofa in Pearl Classic Bouclé",
+        "material": 24,
+        "eur": 3254.0,
+        "originalEur": 3254.0,
+        "thumbnail": "/imgs/product-cards/6a38cd53c5c0597a0681cfd1c182afd6b15b6109de107158235d121126f21a59.webp",
+        "image": "/imgs/product-cards/6a38cd53c5c0597a0681cfd1c182afd6b15b6109de107158235d121126f21a59.webp",
+        "studio": "/imgs/sofa-catalog/a5fbf63819321257.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/250260,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316501,
+    "model": "uff",
+    "category": "two_seater",
+    "width": 245,
+    "height": 73,
+    "depth": 100,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 316501,
+        "name": "2-seater sofa in Linen Beige Fine Bouclé",
+        "material": 1,
+        "eur": 2200.0,
+        "originalEur": 2200.0,
+        "thumbnail": "/imgs/sofa-catalog/988df6208bef5fdc.webp",
+        "image": "/imgs/sofa-catalog/988df6208bef5fdc.webp",
+        "studio": "/imgs/product-cards/b94d1720ba3bdc8cfe7985cc0df36049d2d67b4dba6bc94289991b91a4b3ac54.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316501,s,/"
+      },
+      {
+        "id": 316507,
+        "name": "2-Sitzer-Sofa Bouclé Fein in Thymiangrün",
+        "material": 7,
+        "eur": 2200.0,
+        "originalEur": 2200.0,
+        "thumbnail": "/imgs/product-cards/01e80e1b76b3915540536969564098cd99a2803bb61ba91282a55565ff052f27.webp",
+        "image": "/imgs/product-cards/01e80e1b76b3915540536969564098cd99a2803bb61ba91282a55565ff052f27.webp",
+        "studio": "/imgs/product-cards/3561f53456450bb8208051353b27ef6e2ec98ecfbd33d8490ca2abafa27a7135.webp",
+        "source": "https://tylko.com/de-de/sofa/zwei_sitzer/316507,s,/"
+      },
+      {
+        "id": 316508,
+        "name": "2-seater sofa in Walnut Fine Bouclé",
+        "material": 8,
+        "eur": 2200.0,
+        "originalEur": 2200.0,
+        "thumbnail": "/imgs/product-cards/37817ea5aba6129754fdf5be0565f6f55fb47da83a78772b620bde11e124d119.webp",
+        "image": "/imgs/product-cards/37817ea5aba6129754fdf5be0565f6f55fb47da83a78772b620bde11e124d119.webp",
+        "studio": "/imgs/product-cards/dcce4f7a6faa4441ace67f0fcb860a82f650182d745d556eaf31ab7e2d5903b9.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316508,s,/"
+      },
+      {
+        "id": 316509,
+        "name": "2-seater sofa in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 2397.0,
+        "originalEur": 2397.0,
+        "thumbnail": "/imgs/product-cards/2cac900d0e74168df8749fa6371b588c6042c496341ae042ec2d5d70faf2cf83.webp",
+        "image": "/imgs/product-cards/2cac900d0e74168df8749fa6371b588c6042c496341ae042ec2d5d70faf2cf83.webp",
+        "studio": "/imgs/product-cards/08350a368e35199f728a047c1d49dc7f3fcbf8758da98bc6260b35d5396c8667.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316509,s,/"
+      },
+      {
+        "id": 316511,
+        "name": "2-seater sofa in Salt & Pepper Textured Bouclé",
+        "material": 11,
+        "eur": 2397.0,
+        "originalEur": 2397.0,
+        "thumbnail": "/imgs/product-cards/111044857b9261f9f170ab195aeb4eb8629afb3e94bf193f2b5419ce3da5ab5c.webp",
+        "image": "/imgs/product-cards/111044857b9261f9f170ab195aeb4eb8629afb3e94bf193f2b5419ce3da5ab5c.webp",
+        "studio": "/imgs/product-cards/e1aea32e49167d5d5c0233ef90d4950747b12d48c96c6daf6469a3ac51622d26.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316511,s,/"
+      }
+    ]
+  },
+  {
+    "id": 113665,
+    "model": "smooth",
+    "category": "four_plus_seater",
+    "width": 417,
+    "height": 84,
+    "depth": 271,
+    "badge": "",
+    "lifestyleFirst": true,
+    "variants": [
+      {
+        "id": 113656,
+        "name": "Large sofa in Beige Corduroy",
+        "material": 8,
+        "eur": 9463.0,
+        "originalEur": 9463.0,
+        "thumbnail": "/imgs/product-cards/2ce9edf15988be688dffde246adcff301b81e0e7c0603ec0b4ec7950358eaad4.webp",
+        "image": "/imgs/product-cards/2ce9edf15988be688dffde246adcff301b81e0e7c0603ec0b4ec7950358eaad4.webp",
+        "studio": "/imgs/product-cards/94abf2e4b2dbdf16c245779010668513b3901b96f77c46b07bbac9810da66582.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/113656,s,/"
+      },
+      {
+        "id": 113661,
+        "name": "Large sofa in Cobalt Blue Corduroy",
+        "material": 14,
+        "eur": 9463.0,
+        "originalEur": 9463.0,
+        "thumbnail": "/imgs/product-cards/2b11be43b5992d869a928fa94ed1dfec72bf3939e9a8dafdf6c68ea5a4609a15.webp",
+        "image": "/imgs/product-cards/2b11be43b5992d869a928fa94ed1dfec72bf3939e9a8dafdf6c68ea5a4609a15.webp",
+        "studio": "/imgs/product-cards/5b68d9b7ec4f9cf43eb2b7f6c665f869ad08124a7a75cda4db4401684a5ecc0b.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/113661,s,/"
+      },
+      {
+        "id": 113665,
+        "name": "Large sofa in Willow Green Leather",
+        "material": 18,
+        "eur": 15812.0,
+        "originalEur": 15812.0,
+        "thumbnail": "/imgs/product-cards/789b9caf94ed4ed7e686e0a1e53a82a975a60d87f76145c3166adf70c1c0a296.webp",
+        "image": "/imgs/product-cards/789b9caf94ed4ed7e686e0a1e53a82a975a60d87f76145c3166adf70c1c0a296.webp",
+        "studio": "/imgs/sofa-catalog/7296441f3a0f5636.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/113665,s,/"
+      },
+      {
+        "id": 250279,
+        "name": "Large sofa in Cream Beige Plain Chenille",
+        "material": 19,
+        "eur": 9463.0,
+        "originalEur": 9463.0,
+        "thumbnail": "/imgs/product-cards/3e402004b801fa695012366417c5b2d34ebf78b20856f2e0b4c0705dd1cef1ae.webp",
+        "image": "/imgs/product-cards/3e402004b801fa695012366417c5b2d34ebf78b20856f2e0b4c0705dd1cef1ae.webp",
+        "studio": "/imgs/product-cards/3d00bd25cd1aea17258128e40c2f095d1d8dd15a7c2c7e87fee0bffb80890d67.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/250279,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316380,
+    "model": "uff",
+    "category": "two_seater",
+    "width": 225,
+    "height": 73,
+    "depth": 100,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 315993,
+        "name": "2-seater sofa with Ottoman in Oyster Grey Fine Bouclé",
+        "material": 0,
+        "eur": 2491.0,
+        "originalEur": 2491.0,
+        "thumbnail": "/imgs/product-cards/84663fc4eb34c9802b9f738c34dcaf1e43ef3f8b0ddf13782c0b6dd2c07913db.webp",
+        "image": "/imgs/product-cards/84663fc4eb34c9802b9f738c34dcaf1e43ef3f8b0ddf13782c0b6dd2c07913db.webp",
+        "studio": "/imgs/product-cards/ff38ed96ce268629938f90ee78b2500093f638ba7878e4428f2ed3c115870d26.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/315993,s,/"
+      },
+      {
+        "id": 316377,
+        "name": "2-seater sofa with Ottoman in Taupe Fine Bouclé",
+        "material": 3,
+        "eur": 2491.0,
+        "originalEur": 2491.0,
+        "thumbnail": "/imgs/product-cards/dc42431b2175edf301b24a0cf960d937c489ad32c5a60d8726709d567bcbf3af.webp",
+        "image": "/imgs/product-cards/dc42431b2175edf301b24a0cf960d937c489ad32c5a60d8726709d567bcbf3af.webp",
+        "studio": "/imgs/product-cards/db86ec3236ad5b2554108de8375633a322c94acbcf0166e101c03c41510851c3.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316377,s,/"
+      },
+      {
+        "id": 316379,
+        "name": "2-seater sofa with Ottoman in Rosewood Fine Bouclé",
+        "material": 5,
+        "eur": 2491.0,
+        "originalEur": 2491.0,
+        "thumbnail": "/imgs/product-cards/7f8f7e90fefd49514b754d598f08be0d5c2215e744e6bf3f221483a5e4d00e96.webp",
+        "image": "/imgs/product-cards/7f8f7e90fefd49514b754d598f08be0d5c2215e744e6bf3f221483a5e4d00e96.webp",
+        "studio": "/imgs/product-cards/eee9129e3f19ec8ad22dfe4ab49dd35eae1bcea6bd797edea26625d80ca749e3.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316379,s,/"
+      },
+      {
+        "id": 316380,
+        "name": "2-seater sofa with Ottoman in Brass Yellow Fine Bouclé",
+        "material": 6,
+        "eur": 2491.0,
+        "originalEur": 2491.0,
+        "thumbnail": "/imgs/product-cards/73ccbecefd26e665646118be23e0755013614ed937ca9e86c73d6806a1a58d21.webp",
+        "image": "/imgs/product-cards/73ccbecefd26e665646118be23e0755013614ed937ca9e86c73d6806a1a58d21.webp",
+        "studio": "/imgs/product-cards/ea4aadf113704390c6e95928c0ec750d534f9ee239dd57b57ccc5274766ecf8a.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316380,s,/"
+      },
+      {
+        "id": 316381,
+        "name": "2-seater sofa with Ottoman in Thyme Green Fine Bouclé",
+        "material": 7,
+        "eur": 2491.0,
+        "originalEur": 2491.0,
+        "thumbnail": "/imgs/product-cards/9433308d5fdfa3bd32c75b5397318c83f91c03288273c7608bfb9f820b0d7056.webp",
+        "image": "/imgs/product-cards/9433308d5fdfa3bd32c75b5397318c83f91c03288273c7608bfb9f820b0d7056.webp",
+        "studio": "/imgs/product-cards/6b35ff0a01e2ee1bef79dfab1125d46aa16345ece506e4146d7b74c8b6d9e388.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316381,s,/"
+      },
+      {
+        "id": 316382,
+        "name": "2-Sitzer-Sofa mit Polsterhocker Bouclé Fein in Walnussbraun",
+        "material": 8,
+        "eur": 2491.0,
+        "originalEur": 2491.0,
+        "thumbnail": "/imgs/product-cards/108f72b01628789703e6d1ef92b2054d9cf7bf6cacd1299cc3eb6c522bb93711.webp",
+        "image": "/imgs/product-cards/108f72b01628789703e6d1ef92b2054d9cf7bf6cacd1299cc3eb6c522bb93711.webp",
+        "studio": "/imgs/product-cards/13e2a0d708cb2dccb087f3ad5080d8e034b9aa20a1c08c27002c805e4c64a2c2.webp",
+        "source": "https://tylko.com/de-de/sofa/zwei_sitzer/316382,s,/"
+      },
+      {
+        "id": 316383,
+        "name": "2-seater sofa with Ottoman in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 2718.0,
+        "originalEur": 2718.0,
+        "thumbnail": "/imgs/product-cards/0da2c3ef8d0760e10f57d0059d58da8d73f76c1d3fd79d244a565456eaafed5d.webp",
+        "image": "/imgs/product-cards/0da2c3ef8d0760e10f57d0059d58da8d73f76c1d3fd79d244a565456eaafed5d.webp",
+        "studio": "/imgs/product-cards/8066c6542780b3546b5d6910bce62211894999fa75d2ce1297b12dd184380a70.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316383,s,/"
+      },
+      {
+        "id": 316384,
+        "name": "2-seater sofa with Ottoman in Almond Cream Textured Bouclé",
+        "material": 10,
+        "eur": 2718.0,
+        "originalEur": 2718.0,
+        "thumbnail": "/imgs/product-cards/d0b76243a5fa743cce0bbdcfd0f6a7cede32b9d172a836029186bc0c5599bb1c.webp",
+        "image": "/imgs/product-cards/d0b76243a5fa743cce0bbdcfd0f6a7cede32b9d172a836029186bc0c5599bb1c.webp",
+        "studio": "/imgs/product-cards/72b19e2acfdc8d6d262e3943fbd11eedef349ad4e72d284924f4d23b9c10da37.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316384,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316533,
+    "model": "uff",
+    "category": "two_seater",
+    "width": 253,
+    "height": 73,
+    "depth": 150,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 316533,
+        "name": "2-Sitzer-Sofa Bouclé Fein in Rosenholz",
+        "material": 5,
+        "eur": 2098.0,
+        "originalEur": 2098.0,
+        "thumbnail": "/imgs/product-cards/bbddd3850a5d14d1bf83487ac987b3a22da563c815aa89ca85f63c0d036c309c.webp",
+        "image": "/imgs/product-cards/bbddd3850a5d14d1bf83487ac987b3a22da563c815aa89ca85f63c0d036c309c.webp",
+        "studio": "/imgs/product-cards/825d6a6f5e947847b1b555ef537dd6de662f06ff779e6f36fcb61c6ad2a29761.webp",
+        "source": "https://tylko.com/de-de/sofa/zwei_sitzer/316533,s,/"
+      },
+      {
+        "id": 316534,
+        "name": "2-seater sofa in Brass Yellow Fine Bouclé",
+        "material": 6,
+        "eur": 2098.0,
+        "originalEur": 2098.0,
+        "thumbnail": "/imgs/product-cards/943bb56af6f52046f0d94938cc6f09ecc64b26a5e90b024b2e298d3f9d9f2132.webp",
+        "image": "/imgs/product-cards/943bb56af6f52046f0d94938cc6f09ecc64b26a5e90b024b2e298d3f9d9f2132.webp",
+        "studio": "/imgs/product-cards/46b9d46a44229e61c844d510d15fd1aec4e2df40ca0213e7359368488d846bf1.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316534,s,/"
+      },
+      {
+        "id": 316535,
+        "name": "2-seater sofa in Thyme Green Fine Bouclé",
+        "material": 7,
+        "eur": 2098.0,
+        "originalEur": 2098.0,
+        "thumbnail": "/imgs/product-cards/e865f1bfa384bc4fb084989f4d09f37f73ac2acd663493adac7295f8d4acfc67.webp",
+        "image": "/imgs/product-cards/e865f1bfa384bc4fb084989f4d09f37f73ac2acd663493adac7295f8d4acfc67.webp",
+        "studio": "/imgs/product-cards/ba715451631fbedc81f8cc88c9f66e0f8357e4f2ee4e89824576db82db5d1023.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316535,s,/"
+      },
+      {
+        "id": 316537,
+        "name": "2-seater sofa in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 2287.0,
+        "originalEur": 2287.0,
+        "thumbnail": "/imgs/product-cards/e28009e474701406be51ceaa9ca5b035f1af44f1c6c2e04b406b6b2b61edb1a2.webp",
+        "image": "/imgs/product-cards/e28009e474701406be51ceaa9ca5b035f1af44f1c6c2e04b406b6b2b61edb1a2.webp",
+        "studio": "/imgs/product-cards/c3ba0ae7e15e2e5af7f5817c1676426ad7b63ff9359653c1eee165e4310e68a8.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316537,s,/"
+      },
+      {
+        "id": 316539,
+        "name": "2-seater sofa in Salt & Pepper Textured Bouclé",
+        "material": 11,
+        "eur": 2287.0,
+        "originalEur": 2287.0,
+        "thumbnail": "/imgs/product-cards/8567710743369b08bb51c6f6bc134c5de1c92b16a6fd386c731b6003f9161185.webp",
+        "image": "/imgs/product-cards/8567710743369b08bb51c6f6bc134c5de1c92b16a6fd386c731b6003f9161185.webp",
+        "studio": "/imgs/product-cards/24dccfe092487a24935480116778b4d051efae284f784141affc52650aeb4871.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316539,s,/"
+      },
+      {
+        "id": 316542,
+        "name": "2-seater sofa in Plum & Charcoal Textured Bouclé",
+        "material": 14,
+        "eur": 2287.0,
+        "originalEur": 2287.0,
+        "thumbnail": "/imgs/product-cards/0e93d93895e099884fa8cb925627512d9e571e94165e3dad2ddfe44317ba1fb7.webp",
+        "image": "/imgs/product-cards/0e93d93895e099884fa8cb925627512d9e571e94165e3dad2ddfe44317ba1fb7.webp",
+        "studio": "/imgs/product-cards/622011f1b15f9ed1f6bf066881fa2b4fa1206f15c3676c43eaa4b50cd1416b64.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316542,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316616,
+    "model": "uff",
+    "category": "chaise_longue",
+    "width": 341,
+    "height": 73,
+    "depth": 150,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 316613,
+        "name": "Chaise longue in Linen Beige Fine Bouclé",
+        "material": 1,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/product-cards/b35ffef1f5a119cb0ceb65675da169f8596a96c6e9853b9bd8f98f6fceff7c88.webp",
+        "image": "/imgs/product-cards/b35ffef1f5a119cb0ceb65675da169f8596a96c6e9853b9bd8f98f6fceff7c88.webp",
+        "studio": "/imgs/product-cards/7c18611c88e89be9cb99dc874b9ea420710708119e92d9f8467acdcfa3f1ced0.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/316613,s,/"
+      },
+      {
+        "id": 316616,
+        "name": "Chaise longue in Graphite Grey Fine Bouclé",
+        "material": 4,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/product-cards/1ef98a8b0657d18772b0435aca7a3f7fcdeb84086255f20176cd207fc790ebb5.webp",
+        "image": "/imgs/product-cards/1ef98a8b0657d18772b0435aca7a3f7fcdeb84086255f20176cd207fc790ebb5.webp",
+        "studio": "/imgs/product-cards/3f55c6bd812a5c4038f6acc1fa1b3d35453b03c839c64b77db9c81d1847ecf3f.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/316616,s,/"
+      },
+      {
+        "id": 316619,
+        "name": "Chaise longue in Thyme Green Fine Bouclé",
+        "material": 7,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/product-cards/a06bd507d6a464b5fb21e916e470c85a37c414f3a43c46844b3f9edd3eabf24f.webp",
+        "image": "/imgs/product-cards/a06bd507d6a464b5fb21e916e470c85a37c414f3a43c46844b3f9edd3eabf24f.webp",
+        "studio": "/imgs/product-cards/87c09b152ed7931cc0f0d5ebca002617491c1539a030ee389a767bd3502b8720.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/316619,s,/"
+      },
+      {
+        "id": 316620,
+        "name": "Chaise longue in Walnut Fine Bouclé",
+        "material": 8,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/product-cards/9a1d5efd1fd7721ef8bead1b19221939d955014897221f188adad135fb634944.webp",
+        "image": "/imgs/product-cards/9a1d5efd1fd7721ef8bead1b19221939d955014897221f188adad135fb634944.webp",
+        "studio": "/imgs/product-cards/c536f048c5fbe7d587f4c75865cfaa5130d56a9e17922c82afe1b13c067244a5.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/316620,s,/"
+      },
+      {
+        "id": 316621,
+        "name": "Chaise longue in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 3105.0,
+        "originalEur": 3105.0,
+        "thumbnail": "/imgs/product-cards/bdb257bc68f5eb69f9ae2fdb2befc613acfb9475628df7d5290f53c3d5a21d4d.webp",
+        "image": "/imgs/product-cards/bdb257bc68f5eb69f9ae2fdb2befc613acfb9475628df7d5290f53c3d5a21d4d.webp",
+        "studio": "/imgs/product-cards/279ff53b81febe12a107c828713cc7ec6d01710e64dd9236fe0d4c3a1e8c9e0d.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/316621,s,/"
+      },
+      {
+        "id": 316623,
+        "name": "Chaise longue in Salt & Pepper Textured Bouclé",
+        "material": 11,
+        "eur": 3105.0,
+        "originalEur": 3105.0,
+        "thumbnail": "/imgs/product-cards/8c603948e5133184bff3a26294412c61f18c61e0414c24875f1e190d530d8b5c.webp",
+        "image": "/imgs/product-cards/8c603948e5133184bff3a26294412c61f18c61e0414c24875f1e190d530d8b5c.webp",
+        "studio": "/imgs/product-cards/eed5856fabcf2eb6d1e3bdb75c9e38a153650672d2455eee9883eabc91f56b84.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/316623,s,/"
+      },
+      {
+        "id": 316626,
+        "name": "Chaise longue in Plum & Charcoal Textured Bouclé",
+        "material": 14,
+        "eur": 3105.0,
+        "originalEur": 3105.0,
+        "thumbnail": "/imgs/product-cards/9507a9683f90a8e3c363c0693fc922dd853af7f6fbfc6a8f8e34ce7132724a30.webp",
+        "image": "/imgs/product-cards/9507a9683f90a8e3c363c0693fc922dd853af7f6fbfc6a8f8e34ce7132724a30.webp",
+        "studio": "/imgs/product-cards/d26b2454e1da3c3d0693cb9a650e3d18dba40edf465a2a78dfd9e5fb2132c269.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/316626,s,/"
+      }
+    ]
+  },
+  {
+    "id": 250233,
+    "model": "smooth",
+    "category": "three_seater",
+    "width": 296,
+    "height": 84,
+    "depth": 100,
+    "badge": "",
+    "lifestyleFirst": true,
+    "variants": [
+      {
+        "id": 113390,
+        "name": "3-seater sofa in Olive Green Corduroy",
+        "material": 13,
+        "eur": 3568.0,
+        "originalEur": 3568.0,
+        "thumbnail": "/imgs/product-cards/69df8df9c423d6b302f932a4854af9b5196f4c5b3a7aedb24c1f5ba7450fb388.webp",
+        "image": "/imgs/product-cards/69df8df9c423d6b302f932a4854af9b5196f4c5b3a7aedb24c1f5ba7450fb388.webp",
+        "studio": "/imgs/product-cards/7ed8f7a32f678d65d865655143b7644b57cead0d92fe01a4c592670b7c7850c3.jpg",
+        "source": "https://tylko.com/en-de/sofa/three_seater/113390,s,/"
+      },
+      {
+        "id": 113571,
+        "name": "3-seater sofa in Cobalt Blue Corduroy",
+        "material": 14,
+        "eur": 3568.0,
+        "originalEur": 3568.0,
+        "thumbnail": "/imgs/product-cards/0fdf9408ee35d1789164dce7226477439db621092e11d4858e7320c214c8ac57.webp",
+        "image": "/imgs/product-cards/0fdf9408ee35d1789164dce7226477439db621092e11d4858e7320c214c8ac57.webp",
+        "studio": "/imgs/product-cards/f297315daa85328d3ee9458d9b63d7135a0980da4b9903980ed2b6ebe11a9436.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/113571,s,/"
+      },
+      {
+        "id": 113573,
+        "name": "3-seater sofa in Anthracite Leather",
+        "material": 16,
+        "eur": 6041.0,
+        "originalEur": 6041.0,
+        "thumbnail": "/imgs/product-cards/61eae3bbb15d4eb67210fed03c70196bff5a34f29103ac154d36c4952491a745.webp",
+        "image": "/imgs/product-cards/61eae3bbb15d4eb67210fed03c70196bff5a34f29103ac154d36c4952491a745.webp",
+        "studio": "/imgs/product-cards/308e3858b56b18ac550a438745fad02c2e3ac938fcee18ae6d2b544f64158dea.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/113573,s,/"
+      },
+      {
+        "id": 113575,
+        "name": "3-seater sofa in Willow Green Leather",
+        "material": 18,
+        "eur": 6041.0,
+        "originalEur": 6041.0,
+        "thumbnail": "/imgs/product-cards/8be8edca8979b9cc38d11ebf5cfc566c063aa150282aeafa1ff2f54cd3cecef4.webp",
+        "image": "/imgs/product-cards/8be8edca8979b9cc38d11ebf5cfc566c063aa150282aeafa1ff2f54cd3cecef4.webp",
+        "studio": "/imgs/product-cards/36e10af94419f10b51411e7972d86434c732d99eb68d713cc5cbfd961c8fbb62.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/113575,s,/"
+      },
+      {
+        "id": 250232,
+        "name": "3-seater sofa in Classic Grey Plain Chenille",
+        "material": 20,
+        "eur": 3568.0,
+        "originalEur": 3568.0,
+        "thumbnail": "/imgs/product-cards/970db523bbdda5da53776c9150154551af30d7de872077ae9e5928c46f7745f9.webp",
+        "image": "/imgs/product-cards/970db523bbdda5da53776c9150154551af30d7de872077ae9e5928c46f7745f9.webp",
+        "studio": "/imgs/product-cards/3b07ddff2f09fe0993b28bd6981354a91d8457aa390569b1459edba3cba3cea6.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/250232,s,/"
+      },
+      {
+        "id": 250233,
+        "name": "3-seater sofa in Basalt Grey Plain Chenille",
+        "material": 21,
+        "eur": 3568.0,
+        "originalEur": 3568.0,
+        "thumbnail": "/imgs/product-cards/4d1f658f16dd004c96aa8180e9fab98be5e1f9090712cfd646b7f6dc52fde1a9.webp",
+        "image": "/imgs/product-cards/4d1f658f16dd004c96aa8180e9fab98be5e1f9090712cfd646b7f6dc52fde1a9.webp",
+        "studio": "/imgs/product-cards/c6a9541fb347f7b5e30c69c14a3170f59caef2268ba0d31248bc2f2acf97d42e.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/250233,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316511,
+    "model": "uff",
+    "category": "two_seater",
+    "width": 245,
+    "height": 73,
+    "depth": 100,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 316501,
+        "name": "2-seater sofa in Linen Beige Fine Bouclé",
+        "material": 1,
+        "eur": 2200.0,
+        "originalEur": 2200.0,
+        "thumbnail": "/imgs/sofa-catalog/988df6208bef5fdc.webp",
+        "image": "/imgs/sofa-catalog/988df6208bef5fdc.webp",
+        "studio": "/imgs/product-cards/b94d1720ba3bdc8cfe7985cc0df36049d2d67b4dba6bc94289991b91a4b3ac54.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316501,s,/"
+      },
+      {
+        "id": 316507,
+        "name": "2-Sitzer-Sofa Bouclé Fein in Thymiangrün",
+        "material": 7,
+        "eur": 2200.0,
+        "originalEur": 2200.0,
+        "thumbnail": "/imgs/product-cards/01e80e1b76b3915540536969564098cd99a2803bb61ba91282a55565ff052f27.webp",
+        "image": "/imgs/product-cards/01e80e1b76b3915540536969564098cd99a2803bb61ba91282a55565ff052f27.webp",
+        "studio": "/imgs/product-cards/3561f53456450bb8208051353b27ef6e2ec98ecfbd33d8490ca2abafa27a7135.webp",
+        "source": "https://tylko.com/de-de/sofa/zwei_sitzer/316507,s,/"
+      },
+      {
+        "id": 316508,
+        "name": "2-seater sofa in Walnut Fine Bouclé",
+        "material": 8,
+        "eur": 2200.0,
+        "originalEur": 2200.0,
+        "thumbnail": "/imgs/product-cards/37817ea5aba6129754fdf5be0565f6f55fb47da83a78772b620bde11e124d119.webp",
+        "image": "/imgs/product-cards/37817ea5aba6129754fdf5be0565f6f55fb47da83a78772b620bde11e124d119.webp",
+        "studio": "/imgs/product-cards/dcce4f7a6faa4441ace67f0fcb860a82f650182d745d556eaf31ab7e2d5903b9.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316508,s,/"
+      },
+      {
+        "id": 316509,
+        "name": "2-seater sofa in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 2397.0,
+        "originalEur": 2397.0,
+        "thumbnail": "/imgs/product-cards/2cac900d0e74168df8749fa6371b588c6042c496341ae042ec2d5d70faf2cf83.webp",
+        "image": "/imgs/product-cards/2cac900d0e74168df8749fa6371b588c6042c496341ae042ec2d5d70faf2cf83.webp",
+        "studio": "/imgs/product-cards/08350a368e35199f728a047c1d49dc7f3fcbf8758da98bc6260b35d5396c8667.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316509,s,/"
+      },
+      {
+        "id": 316511,
+        "name": "2-seater sofa in Salt & Pepper Textured Bouclé",
+        "material": 11,
+        "eur": 2397.0,
+        "originalEur": 2397.0,
+        "thumbnail": "/imgs/product-cards/111044857b9261f9f170ab195aeb4eb8629afb3e94bf193f2b5419ce3da5ab5c.webp",
+        "image": "/imgs/product-cards/111044857b9261f9f170ab195aeb4eb8629afb3e94bf193f2b5419ce3da5ab5c.webp",
+        "studio": "/imgs/product-cards/e1aea32e49167d5d5c0233ef90d4950747b12d48c96c6daf6469a3ac51622d26.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316511,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316366,
+    "model": "uff",
+    "category": "two_seater",
+    "width": 252,
+    "height": 73,
+    "depth": 100,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 316366,
+        "name": "2-Sitzer-Sofa Bouclé Fein in Messinggelb",
+        "material": 6,
+        "eur": 2090.0,
+        "originalEur": 2090.0,
+        "thumbnail": "/imgs/product-cards/909ae1a7045d74449abaec30b520e10ae106f7283384c49c972aae0cfa0cbaea.webp",
+        "image": "/imgs/product-cards/909ae1a7045d74449abaec30b520e10ae106f7283384c49c972aae0cfa0cbaea.webp",
+        "studio": "/imgs/product-cards/a60de63addab63143069f2c4f7d154b4a559964a1af95d5a789ab670c34e0e64.webp",
+        "source": "https://tylko.com/de-de/sofa/zwei_sitzer/316366,s,/"
+      },
+      {
+        "id": 316369,
+        "name": "2-seater sofa in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 2280.0,
+        "originalEur": 2280.0,
+        "thumbnail": "/imgs/product-cards/4eb67befcc493210fd99756ef2b81a9ca130abcf9bd402dd2f493f523a806a6f.webp",
+        "image": "/imgs/product-cards/4eb67befcc493210fd99756ef2b81a9ca130abcf9bd402dd2f493f523a806a6f.webp",
+        "studio": "/imgs/product-cards/b53000e5739543d6a6cbc4a68f2d0d88daa1864981b497625528e0a37afbec09.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316369,s,/"
+      },
+      {
+        "id": 316370,
+        "name": "2-seater sofa in Almond Cream Textured Bouclé",
+        "material": 10,
+        "eur": 2280.0,
+        "originalEur": 2280.0,
+        "thumbnail": "/imgs/product-cards/25a41efc4114fb025e875b8618c297fc9768a471a02686baf164f3ac0bc7b6e6.webp",
+        "image": "/imgs/product-cards/25a41efc4114fb025e875b8618c297fc9768a471a02686baf164f3ac0bc7b6e6.webp",
+        "studio": "/imgs/product-cards/b397b5a46aa68ba129fe02a5e0944c6d34b749fee9371d1abf85c7c9ac7e3efd.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316370,s,/"
+      },
+      {
+        "id": 316372,
+        "name": "2-seater sofa in Sage & Mint Textured Bouclé",
+        "material": 12,
+        "eur": 2280.0,
+        "originalEur": 2280.0,
+        "thumbnail": "/imgs/product-cards/c5f82a161c8b0b0e5dea052bda7e90c032fd205aa97ca00822dcc3ee374f969c.webp",
+        "image": "/imgs/product-cards/c5f82a161c8b0b0e5dea052bda7e90c032fd205aa97ca00822dcc3ee374f969c.webp",
+        "studio": "/imgs/product-cards/c5d918fd97918514412097bc8403a7edbbbf67b9e7382dde69cf649ff2c9c14a.webp",
+        "source": "https://tylko.com/en-de/sofa/two_seater/316372,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316328,
+    "model": "uff",
+    "category": "four_plus_seater",
+    "width": 428,
+    "height": 73,
+    "depth": 100,
+    "badge": "new",
+    "lifestyleFirst": true,
+    "variants": [
+      {
+        "id": 316319,
+        "name": "Large sofa in Linen Beige Fine Bouclé",
+        "material": 1,
+        "eur": 3590.0,
+        "originalEur": 3590.0,
+        "thumbnail": "/imgs/product-cards/42a2a8c5063c647688ce70d3fcec790e96c6beaf61379422c1d5c01a664500be.webp",
+        "image": "/imgs/product-cards/42a2a8c5063c647688ce70d3fcec790e96c6beaf61379422c1d5c01a664500be.webp",
+        "studio": "/imgs/product-cards/34569b2b02ef1fcad9baf4737302cdb06aa9ec37b21c72fb48bcf3a640b51b36.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316319,s,/"
+      },
+      {
+        "id": 316326,
+        "name": "Large sofa in Walnut Fine Bouclé",
+        "material": 8,
+        "eur": 3590.0,
+        "originalEur": 3590.0,
+        "thumbnail": "/imgs/product-cards/53212b1e45bab7dd30dd5e035478609acc1ce0d06a26867dc8bce7492e9d5a3c.webp",
+        "image": "/imgs/product-cards/53212b1e45bab7dd30dd5e035478609acc1ce0d06a26867dc8bce7492e9d5a3c.webp",
+        "studio": "/imgs/product-cards/1ef05e20cf7741285ed571802f40908b78492eca9e0f3c45d842335db359928b.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316326,s,/"
+      },
+      {
+        "id": 316327,
+        "name": "Large sofa in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 3916.0,
+        "originalEur": 3916.0,
+        "thumbnail": "/imgs/product-cards/9d8609dfbc84eceead14d404786329a7daef4dbd7c92789f3f53522c4490d2a6.webp",
+        "image": "/imgs/product-cards/9d8609dfbc84eceead14d404786329a7daef4dbd7c92789f3f53522c4490d2a6.webp",
+        "studio": "/imgs/product-cards/ef59d47f7c5ca7f89e14bdef9eed9ed577dae5770b409b3301421ef13b5de21e.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316327,s,/"
+      },
+      {
+        "id": 316328,
+        "name": "Large sofa in Almond Cream Textured Bouclé",
+        "material": 10,
+        "eur": 3916.0,
+        "originalEur": 3916.0,
+        "thumbnail": "/imgs/product-cards/36cfce3d112a897611a3080a59e25d1b1d4c9f8cf7361386bd875859b5d5014d.webp",
+        "image": "/imgs/product-cards/36cfce3d112a897611a3080a59e25d1b1d4c9f8cf7361386bd875859b5d5014d.webp",
+        "studio": "/imgs/product-cards/82732b2ced300ee148e967f5e56f2a2a77daf27295f07694192afcdf9211ae69.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316328,s,/"
+      },
+      {
+        "id": 316330,
+        "name": "Large sofa in Sage & Mint Textured Bouclé",
+        "material": 12,
+        "eur": 3916.0,
+        "originalEur": 3916.0,
+        "thumbnail": "/imgs/product-cards/5c3b94dee5299627ce3733cd78571976745660ee4f6c000fd80541b6c696a1a0.webp",
+        "image": "/imgs/product-cards/5c3b94dee5299627ce3733cd78571976745660ee4f6c000fd80541b6c696a1a0.webp",
+        "studio": "/imgs/product-cards/eb0d2c7c450ca0e58c71cd3090608e210908e06f742c8565c93303f289668470.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316330,s,/"
+      },
+      {
+        "id": 316332,
+        "name": "Large sofa in Plum & Charcoal Textured Bouclé",
+        "material": 14,
+        "eur": 3916.0,
+        "originalEur": 3916.0,
+        "thumbnail": "/imgs/product-cards/2350cbf70c51120eb8ff056788b40183cfc5cac8cbb51b9329a9a2af457ab1fb.webp",
+        "image": "/imgs/product-cards/2350cbf70c51120eb8ff056788b40183cfc5cac8cbb51b9329a9a2af457ab1fb.webp",
+        "studio": "/imgs/product-cards/e52fbc552043fdb612eb0861963b10bc7818a5a9fb33516ba897c901177c9652.webp",
+        "source": "https://tylko.com/en-de/sofa/four_plus_seater/316332,s,/"
+      }
+    ]
+  },
+  {
+    "id": 848,
+    "model": "smooth",
+    "category": "armchair",
+    "width": 88,
+    "height": 84,
+    "depth": 100,
+    "badge": "",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 846,
+        "name": "Armchair in Off-White Corduroy",
+        "material": 7,
+        "eur": 981.0,
+        "originalEur": 981.0,
+        "thumbnail": "/imgs/product-cards/e03e1244ab3e42af3b6b14c064cbf699979c22b955fd28aa37b47bd9e8fe737e.webp",
+        "image": "/imgs/product-cards/e03e1244ab3e42af3b6b14c064cbf699979c22b955fd28aa37b47bd9e8fe737e.webp",
+        "studio": "/imgs/product-cards/821b8aa8e13b00c961e0bff34d008e0f517ebe0c98f620461ee566cdd87c4ca9.webp",
+        "source": "https://tylko.com/en-de/sofa/armchair/846,s,/"
+      },
+      {
+        "id": 848,
+        "name": "Armchair in Brown Corduroy",
+        "material": 9,
+        "eur": 981.0,
+        "originalEur": 981.0,
+        "thumbnail": "/imgs/product-cards/9aafeab9827a2cce36f28d0f25523aab103e5b06999922596384eb46d098cbe6.webp",
+        "image": "/imgs/product-cards/9aafeab9827a2cce36f28d0f25523aab103e5b06999922596384eb46d098cbe6.webp",
+        "studio": "/imgs/product-cards/d7ec213d48e2827df18782ac222b27b39fd4fdd2721b1d30acb00e863934b917.webp",
+        "source": "https://tylko.com/en-de/sofa/armchair/848,s,/"
+      },
+      {
+        "id": 849,
+        "name": "Armchair in Light Grey Corduroy",
+        "material": 10,
+        "eur": 981.0,
+        "originalEur": 981.0,
+        "thumbnail": "/imgs/product-cards/789cc7b9aadc89a06f7ba82a1878060d9f6efd67f77a831780db3cd42506e405.webp",
+        "image": "/imgs/product-cards/789cc7b9aadc89a06f7ba82a1878060d9f6efd67f77a831780db3cd42506e405.webp",
+        "studio": "/imgs/product-cards/59604e885107ef66a3e5919a6afae6744e775c03c7432c05f3057f4db284a24c.webp",
+        "source": "https://tylko.com/en-de/sofa/armchair/849,s,/"
+      },
+      {
+        "id": 850,
+        "name": "Armchair in Mustard Corduroy",
+        "material": 11,
+        "eur": 981.0,
+        "originalEur": 981.0,
+        "thumbnail": "/imgs/product-cards/0ccab5cc333128167a1a5cdb9cac8d0b6a32712c6fa1b28aa30f6aef85c52b9b.webp",
+        "image": "/imgs/product-cards/0ccab5cc333128167a1a5cdb9cac8d0b6a32712c6fa1b28aa30f6aef85c52b9b.webp",
+        "studio": "/imgs/product-cards/03a1f969e32acf8d30e291ea831f6f9ac5e477e20b0b21d4f0e6b7d3488630a0.webp",
+        "source": "https://tylko.com/en-de/sofa/armchair/850,s,/"
+      },
+      {
+        "id": 61143,
+        "name": "Armchair in Cognac Leather",
+        "material": 15,
+        "eur": 1588.0,
+        "originalEur": 1588.0,
+        "thumbnail": "/imgs/product-cards/3c946c0d69420a170e116956765e338204d3eb2a53d2cc764879666ab1b38cd6.webp",
+        "image": "/imgs/product-cards/3c946c0d69420a170e116956765e338204d3eb2a53d2cc764879666ab1b38cd6.webp",
+        "studio": "/imgs/product-cards/02dbe3da122b59937439202ae6c6ecab31372830ed3c9dfff30ad4928beae158.webp",
+        "source": "https://tylko.com/en-de/sofa/armchair/61143,s,/"
+      },
+      {
+        "id": 61142,
+        "name": "Armchair in Willow Green Leather",
+        "material": 18,
+        "eur": 1588.0,
+        "originalEur": 1588.0,
+        "thumbnail": "/imgs/product-cards/0e4d037ee3dc35e0d5302899ae97a360fdf89188863d09df0913ced4d2610d28.webp",
+        "image": "/imgs/product-cards/0e4d037ee3dc35e0d5302899ae97a360fdf89188863d09df0913ced4d2610d28.webp",
+        "studio": "/imgs/product-cards/d7c7f19c31c2bb5ae7f2ce4d7f35749dcb369de67665e6090a230681eee6bf8c.webp",
+        "source": "https://tylko.com/en-de/sofa/armchair/61142,s,/"
+      },
+      {
+        "id": 249543,
+        "name": "Armchair in Cream Beige Plain Chenille",
+        "material": 19,
+        "eur": 981.0,
+        "originalEur": 981.0,
+        "thumbnail": "/imgs/product-cards/e45d6cecb5507f397c0c77b0b2690b6d1c0a45ddc72fba3f8fb8b6fc738b331a.webp",
+        "image": "/imgs/product-cards/e45d6cecb5507f397c0c77b0b2690b6d1c0a45ddc72fba3f8fb8b6fc738b331a.webp",
+        "studio": "/imgs/product-cards/ba1358d397b2f298392514b2c1ca5aab507ee8e493e520e027736902923bf461.webp",
+        "source": "https://tylko.com/en-de/sofa/armchair/249543,s,/"
+      },
+      {
+        "id": 249546,
+        "name": "Armchair in Terracotta Plain Chenille",
+        "material": 22,
+        "eur": 981.0,
+        "originalEur": 981.0,
+        "thumbnail": "/imgs/product-cards/3bdcf352fd8cd989f33522c2c9d61ebb37391c31cb15f770c5cca8b95aa59c4a.webp",
+        "image": "/imgs/product-cards/3bdcf352fd8cd989f33522c2c9d61ebb37391c31cb15f770c5cca8b95aa59c4a.webp",
+        "studio": "/imgs/product-cards/98d29276e21058b86ab8f23ca3602122de32d465ca4135a9d1d2b0408a8e4a5b.webp",
+        "source": "https://tylko.com/en-de/sofa/armchair/249546,s,/"
+      },
+      {
+        "id": 249548,
+        "name": "Armchair in Pearl Classic Bouclé",
+        "material": 24,
+        "eur": 1079.0,
+        "originalEur": 1079.0,
+        "thumbnail": "/imgs/product-cards/84afd48cf9f85852da6f24bc39f2f895ba3c2dc3f9d3aa2d4ccfdf3b10b397c2.webp",
+        "image": "/imgs/product-cards/84afd48cf9f85852da6f24bc39f2f895ba3c2dc3f9d3aa2d4ccfdf3b10b397c2.webp",
+        "studio": "/imgs/product-cards/4486abe5b29c615d0b75632b6601d6b534f4d280c222120ea072c37732e29a9b.webp",
+        "source": "https://tylko.com/en-de/sofa/armchair/249548,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316456,
+    "model": "uff",
+    "category": "three_seater",
+    "width": 315,
+    "height": 73,
+    "depth": 150,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 316451,
+        "name": "3-seater sofa in Thyme Green Fine Bouclé",
+        "material": 7,
+        "eur": 2841.0,
+        "originalEur": 2841.0,
+        "thumbnail": "/imgs/product-cards/bc287518956d2509757e005839eb60fb1d81a2a43e94823324765e2b493c8855.webp",
+        "image": "/imgs/product-cards/bc287518956d2509757e005839eb60fb1d81a2a43e94823324765e2b493c8855.webp",
+        "studio": "/imgs/product-cards/98c6ab752e0468179061a81e6d6716d3771800b6826048527c505cc63d3e0616.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316451,s,/"
+      },
+      {
+        "id": 316453,
+        "name": "3-seater sofa in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 3099.0,
+        "originalEur": 3099.0,
+        "thumbnail": "/imgs/product-cards/11eae7ba8419870c062562fdd035d630dc582b7723c5036dc0c24eb01cb38907.webp",
+        "image": "/imgs/product-cards/11eae7ba8419870c062562fdd035d630dc582b7723c5036dc0c24eb01cb38907.webp",
+        "studio": "/imgs/product-cards/82f39cd2c3805cef9281b4b93b12651f616f0703f82df059f41249af46adeb09.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316453,s,/"
+      },
+      {
+        "id": 316456,
+        "name": "3-seater sofa in Sage & Mint Textured Bouclé",
+        "material": 12,
+        "eur": 3099.0,
+        "originalEur": 3099.0,
+        "thumbnail": "/imgs/product-cards/61cc8bc7196bc1f933bab1c4b005467f18b873ad27ed0d949fdc8b0676dcb957.webp",
+        "image": "/imgs/product-cards/61cc8bc7196bc1f933bab1c4b005467f18b873ad27ed0d949fdc8b0676dcb957.webp",
+        "studio": "/imgs/product-cards/0d2adf6484e23f408599ecb5d7dfa8b28c2c859563dc40045b7bace234cf150f.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316456,s,/"
+      }
+    ]
+  },
+  {
+    "id": 273317,
+    "model": "smooth",
+    "category": "chaise_longue",
+    "width": 88,
+    "height": 84,
+    "depth": 163,
+    "badge": "",
+    "lifestyleFirst": true,
+    "variants": [
+      {
+        "id": 273311,
+        "name": "Chaise longue in Dark Brown Wool",
+        "material": 0,
+        "eur": 1741.0,
+        "originalEur": 1741.0,
+        "thumbnail": "/imgs/product-cards/8eb44e691e614a1a7a6cbb8a7f9ea256070c707b53fa863e1a432ac65fc66125.webp",
+        "image": "/imgs/product-cards/8eb44e691e614a1a7a6cbb8a7f9ea256070c707b53fa863e1a432ac65fc66125.webp",
+        "studio": "/imgs/product-cards/52ee14a3e95ab5a274a1af156d5d40af5558c8a41b1927df019fbe9a7ece1232.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/273311,s,/"
+      },
+      {
+        "id": 273316,
+        "name": "Chaise longue in Green Wool",
+        "material": 5,
+        "eur": 1741.0,
+        "originalEur": 1741.0,
+        "thumbnail": "/imgs/product-cards/35999de84e19373de76666dc9ee9078b3dc5860de3c0b43adbefac1f8629d18d.webp",
+        "image": "/imgs/product-cards/35999de84e19373de76666dc9ee9078b3dc5860de3c0b43adbefac1f8629d18d.webp",
+        "studio": "/imgs/product-cards/06e76c93267b6823dec149da258aa444d0312eb908029b0f2c11f1d6989119ef.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/273316,s,/"
+      },
+      {
+        "id": 273317,
+        "name": "Chaise longue in Lilac Blue Wool",
+        "material": 6,
+        "eur": 1741.0,
+        "originalEur": 1741.0,
+        "thumbnail": "/imgs/product-cards/e387efcce532577433cd15a660e0895ac4f9f65e92cb69351cf6e1b1a0b1a0af.webp",
+        "image": "/imgs/product-cards/e387efcce532577433cd15a660e0895ac4f9f65e92cb69351cf6e1b1a0b1a0af.webp",
+        "studio": "/imgs/product-cards/6a21d42f674cbdd06365e2a44d5aa60a940c0dcb27c7a95a80be589574e1f7c3.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/273317,s,/"
+      },
+      {
+        "id": 273320,
+        "name": "Chaise longue in Light Grey Corduroy",
+        "material": 10,
+        "eur": 1311.0,
+        "originalEur": 1311.0,
+        "thumbnail": "/imgs/product-cards/dc7da0ad81d5e8888508b8cfe148f3ffc7931957f684880ca94427e1c160df9f.webp",
+        "image": "/imgs/product-cards/dc7da0ad81d5e8888508b8cfe148f3ffc7931957f684880ca94427e1c160df9f.webp",
+        "studio": "/imgs/product-cards/6c8dafc6e31fdd90c373ed02ee6f6faf3d8edd6af2f131df0c796f94538a8ca9.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/273320,s,/"
+      },
+      {
+        "id": 273323,
+        "name": "Chaise longue in Olive Green Corduroy",
+        "material": 13,
+        "eur": 1311.0,
+        "originalEur": 1311.0,
+        "thumbnail": "/imgs/product-cards/f0ba049ae0c7270b247dc73d20c351e2b1452f5eb4a2f1856110bc87a99807d0.webp",
+        "image": "/imgs/product-cards/f0ba049ae0c7270b247dc73d20c351e2b1452f5eb4a2f1856110bc87a99807d0.webp",
+        "studio": "/imgs/product-cards/e03305be2c35f9133180d10ce31102c6c9d02bc1ddeff1acb12c6be13b70ccf5.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/273323,s,/"
+      },
+      {
+        "id": 273324,
+        "name": "Chaise longue in Cobalt Blue Corduroy",
+        "material": 14,
+        "eur": 1311.0,
+        "originalEur": 1311.0,
+        "thumbnail": "/imgs/product-cards/f78b67510694dd1610de94bd9d606f5ab252c94d57d4af5ce7a34aff1138cca4.webp",
+        "image": "/imgs/product-cards/f78b67510694dd1610de94bd9d606f5ab252c94d57d4af5ce7a34aff1138cca4.webp",
+        "studio": "/imgs/product-cards/ba0378a9ace460f16fa110f4b7faee671e52816b1b4c3fc35c3a3a6605569f54.webp",
+        "source": "https://tylko.com/en-de/sofa/chaise_longue/273324,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316284,
+    "model": "uff",
+    "category": "three_seater",
+    "width": 341,
+    "height": 73,
+    "depth": 150,
+    "badge": "new",
+    "lifestyleFirst": true,
+    "variants": [
+      {
+        "id": 316277,
+        "name": "3-Sitzer-Sofa Bouclé Fein in Leinenbeige",
+        "material": 1,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/product-cards/b35ffef1f5a119cb0ceb65675da169f8596a96c6e9853b9bd8f98f6fceff7c88.webp",
+        "image": "/imgs/product-cards/b35ffef1f5a119cb0ceb65675da169f8596a96c6e9853b9bd8f98f6fceff7c88.webp",
+        "studio": "/imgs/product-cards/7c18611c88e89be9cb99dc874b9ea420710708119e92d9f8467acdcfa3f1ced0.webp",
+        "source": "https://tylko.com/de-de/sofa/drei_sitzer/316277,s,/"
+      },
+      {
+        "id": 316279,
+        "name": "3-Sitzer-Sofa Bouclé Fein in Taupe",
+        "material": 3,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/sofa-catalog/6978cad0487a4343.webp",
+        "image": "/imgs/sofa-catalog/6978cad0487a4343.webp",
+        "studio": "/imgs/product-cards/0eaee5349fcf9a5869b2220efda7cf88a452b537bce9b8e27fe580876bf48655.webp",
+        "source": "https://tylko.com/de-de/sofa/drei_sitzer/316279,s,/"
+      },
+      {
+        "id": 316282,
+        "name": "3-Sitzer-Sofa Bouclé Fein in Messinggelb",
+        "material": 6,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/product-cards/ea12abd7faae979af3a62efbfa23414708330485432bc766607e3d02297b62aa.webp",
+        "image": "/imgs/product-cards/ea12abd7faae979af3a62efbfa23414708330485432bc766607e3d02297b62aa.webp",
+        "studio": "/imgs/product-cards/4474ebb93fdfd19facc8f87488e3c15ee828d4aee25c023595d3ee1e8c496778.webp",
+        "source": "https://tylko.com/de-de/sofa/drei_sitzer/316282,s,/"
+      },
+      {
+        "id": 316284,
+        "name": "3-Sitzer-Sofa Bouclé Fein in Walnussbraun",
+        "material": 8,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/product-cards/9a1d5efd1fd7721ef8bead1b19221939d955014897221f188adad135fb634944.webp",
+        "image": "/imgs/product-cards/9a1d5efd1fd7721ef8bead1b19221939d955014897221f188adad135fb634944.webp",
+        "studio": "/imgs/product-cards/c536f048c5fbe7d587f4c75865cfaa5130d56a9e17922c82afe1b13c067244a5.webp",
+        "source": "https://tylko.com/de-de/sofa/drei_sitzer/316284,s,/"
+      },
+      {
+        "id": 316285,
+        "name": "3-seater sofa in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 3105.0,
+        "originalEur": 3105.0,
+        "thumbnail": "/imgs/product-cards/bdb257bc68f5eb69f9ae2fdb2befc613acfb9475628df7d5290f53c3d5a21d4d.webp",
+        "image": "/imgs/product-cards/bdb257bc68f5eb69f9ae2fdb2befc613acfb9475628df7d5290f53c3d5a21d4d.webp",
+        "studio": "/imgs/product-cards/279ff53b81febe12a107c828713cc7ec6d01710e64dd9236fe0d4c3a1e8c9e0d.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316285,s,/"
+      },
+      {
+        "id": 316290,
+        "name": "3-seater sofa in Plum & Charcoal Textured Bouclé",
+        "material": 14,
+        "eur": 3105.0,
+        "originalEur": 3105.0,
+        "thumbnail": "/imgs/product-cards/9507a9683f90a8e3c363c0693fc922dd853af7f6fbfc6a8f8e34ce7132724a30.webp",
+        "image": "/imgs/product-cards/9507a9683f90a8e3c363c0693fc922dd853af7f6fbfc6a8f8e34ce7132724a30.webp",
+        "studio": "/imgs/product-cards/d26b2454e1da3c3d0693cb9a650e3d18dba40edf465a2a78dfd9e5fb2132c269.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316290,s,/"
+      }
+    ]
+  },
+  {
+    "id": 316285,
+    "model": "uff",
+    "category": "three_seater",
+    "width": 341,
+    "height": 73,
+    "depth": 150,
+    "badge": "new",
+    "lifestyleFirst": false,
+    "variants": [
+      {
+        "id": 316277,
+        "name": "3-Sitzer-Sofa Bouclé Fein in Leinenbeige",
+        "material": 1,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/product-cards/b35ffef1f5a119cb0ceb65675da169f8596a96c6e9853b9bd8f98f6fceff7c88.webp",
+        "image": "/imgs/product-cards/b35ffef1f5a119cb0ceb65675da169f8596a96c6e9853b9bd8f98f6fceff7c88.webp",
+        "studio": "/imgs/product-cards/7c18611c88e89be9cb99dc874b9ea420710708119e92d9f8467acdcfa3f1ced0.webp",
+        "source": "https://tylko.com/de-de/sofa/drei_sitzer/316277,s,/"
+      },
+      {
+        "id": 316279,
+        "name": "3-Sitzer-Sofa Bouclé Fein in Taupe",
+        "material": 3,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/sofa-catalog/6978cad0487a4343.webp",
+        "image": "/imgs/sofa-catalog/6978cad0487a4343.webp",
+        "studio": "/imgs/product-cards/0eaee5349fcf9a5869b2220efda7cf88a452b537bce9b8e27fe580876bf48655.webp",
+        "source": "https://tylko.com/de-de/sofa/drei_sitzer/316279,s,/"
+      },
+      {
+        "id": 316282,
+        "name": "3-Sitzer-Sofa Bouclé Fein in Messinggelb",
+        "material": 6,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/product-cards/ea12abd7faae979af3a62efbfa23414708330485432bc766607e3d02297b62aa.webp",
+        "image": "/imgs/product-cards/ea12abd7faae979af3a62efbfa23414708330485432bc766607e3d02297b62aa.webp",
+        "studio": "/imgs/product-cards/4474ebb93fdfd19facc8f87488e3c15ee828d4aee25c023595d3ee1e8c496778.webp",
+        "source": "https://tylko.com/de-de/sofa/drei_sitzer/316282,s,/"
+      },
+      {
+        "id": 316284,
+        "name": "3-Sitzer-Sofa Bouclé Fein in Walnussbraun",
+        "material": 8,
+        "eur": 2847.0,
+        "originalEur": 2847.0,
+        "thumbnail": "/imgs/product-cards/9a1d5efd1fd7721ef8bead1b19221939d955014897221f188adad135fb634944.webp",
+        "image": "/imgs/product-cards/9a1d5efd1fd7721ef8bead1b19221939d955014897221f188adad135fb634944.webp",
+        "studio": "/imgs/product-cards/c536f048c5fbe7d587f4c75865cfaa5130d56a9e17922c82afe1b13c067244a5.webp",
+        "source": "https://tylko.com/de-de/sofa/drei_sitzer/316284,s,/"
+      },
+      {
+        "id": 316285,
+        "name": "3-seater sofa in Lemon Cream Textured Bouclé",
+        "material": 9,
+        "eur": 3105.0,
+        "originalEur": 3105.0,
+        "thumbnail": "/imgs/product-cards/bdb257bc68f5eb69f9ae2fdb2befc613acfb9475628df7d5290f53c3d5a21d4d.webp",
+        "image": "/imgs/product-cards/bdb257bc68f5eb69f9ae2fdb2befc613acfb9475628df7d5290f53c3d5a21d4d.webp",
+        "studio": "/imgs/product-cards/279ff53b81febe12a107c828713cc7ec6d01710e64dd9236fe0d4c3a1e8c9e0d.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316285,s,/"
+      },
+      {
+        "id": 316290,
+        "name": "3-seater sofa in Plum & Charcoal Textured Bouclé",
+        "material": 14,
+        "eur": 3105.0,
+        "originalEur": 3105.0,
+        "thumbnail": "/imgs/product-cards/9507a9683f90a8e3c363c0693fc922dd853af7f6fbfc6a8f8e34ce7132724a30.webp",
+        "image": "/imgs/product-cards/9507a9683f90a8e3c363c0693fc922dd853af7f6fbfc6a8f8e34ce7132724a30.webp",
+        "studio": "/imgs/product-cards/d26b2454e1da3c3d0693cb9a650e3d18dba40edf465a2a78dfd9e5fb2132c269.webp",
+        "source": "https://tylko.com/en-de/sofa/three_seater/316290,s,/"
+      }
+    ]
+  }
+]

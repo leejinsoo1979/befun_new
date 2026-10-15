@@ -1,9 +1,9 @@
 export const categoryLinks = [
-  ['소파', 'sofas'], ['블랭킷', 'blankets'], ['수납장', 'sideboard'], ['월 수납장', 'wallstorage'], ['책장', 'bookcase'], ['TV 스탠드', 'tv-stand'], ['옷장', 'wardrobe'], ['침대 옆 수납장', 'bedside_table'], ['서랍장', 'chest-of-drawers'], ['모든 제품', ''],
+  ['소파', 'sofas'], ['블랭킷', 'blankets'], ['수납장', 'sideboard'], ['선반 시스템', 'wallstorage'], ['책장', 'bookcase'], ['TV 스탠드', 'tv-stand'], ['옷장', 'wardrobe'], ['침대 옆 수납장', 'bedside_table'], ['서랍장', 'chest-of-drawers'], ['모든 제품', ''],
 ] as const;
 export const catalogCategories: Record<string, string> = Object.fromEntries([
   ...categoryLinks.map(([title, slug]) => [slug, title]),
-  ['wallunits', '월 유닛'], ['desk', '책상'], ['dressing_table', '화장대'], ['shoerack', '신발장'], ['vinyl_storage', '레코드 수납장'], ['storage', '수납 가구'],
+  ['wallunits', '벽면 수납장'], ['desk', '책상'], ['dressing_table', '화장대'], ['shoerack', '신발장'], ['vinyl_storage', '레코드 수납장'], ['storage', '수납 가구'],
   ['two_seater', '2인용 소파'], ['three_seater', '3인용 소파'], ['four_plus_seater', '4인용 이상 소파'], ['chaise_longues', '셰즈 롱'], ['corner_sofas', '코너 소파'], ['modular_sofas', '모듈형 대형 소파'], ['armchairs', '암체어'], ['ottomans_and_modules', '오토만 · 모듈'], ['covers', '소파 커버'], ['bookends', '북엔드'], ['accessories', '액세서리'],
 ]);
 export const catalogHref = (slug: string) => `/furniture-c${slug ? `/${slug}` : ''}`;
@@ -11,7 +11,7 @@ export const menuGroups = [
   { title: '둘러보기', links: [['모든 제품', '/furniture-c'], ['직접 디자인하기', '/configurator-intro'], ['베스트셀러', '/furniture-c?additional=topSeller'], ['신제품', '/furniture-c?additional=newArrival'], ['컬렉션', '/product-lines'], ['소재 샘플', '/material-samples'], ['기프트카드', '/e-gift-card/1'], ['리뷰', '/review-list'], ['Befun Sound', '/tylko-sound']] },
   { title: '수납 가구', links: ['sideboard', 'bookcase', 'wallstorage', 'wallunits', 'desk', 'tv-stand', 'chest-of-drawers', 'dressing_table', 'shoerack', 'bedside_table', 'vinyl_storage', 'storage'].map(slug => [catalogCategories[slug], catalogHref(slug)]).concat([['벽걸이 수납장', '/furniture-c/sideboard?features=hanging&productLines=3,6,7,8']]) },
   { title: '옷장', links: [['도어 옷장', '/furniture-c/wardrobe?types=fullyClosed'], ['오픈 옷장', '/furniture-c/wardrobe?types=fullyOpen'], ['부분 오픈 옷장', '/furniture-c/wardrobe?types=partiallyOpen'], ['서랍 옷장', '/furniture-c/wardrobe?features=internalDrawers'], ['모든 옷장', '/furniture-c/wardrobe']] },
-  { title: '소파', links: ['two_seater', 'three_seater', 'four_plus_seater', 'chaise_longues', 'corner_sofas', 'armchairs', 'ottomans_and_modules', 'covers', 'sofas'].map(slug => [catalogCategories[slug], catalogHref(slug)]) },
+  { title: '소파', links: ['two_seater', 'three_seater', 'four_plus_seater', 'chaise_longues', 'corner_sofas', 'modular_sofas', 'armchairs', 'ottomans_and_modules', 'covers', 'sofas'].map(slug => [catalogCategories[slug], catalogHref(slug)]) },
   { title: '액세서리', links: ['blankets', 'bookends', 'accessories'].map(slug => [catalogCategories[slug], catalogHref(slug)]) },
 ];
 export const footerGroups = [

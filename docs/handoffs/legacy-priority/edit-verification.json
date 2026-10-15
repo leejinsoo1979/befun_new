@@ -1,0 +1,602 @@
+[
+  {
+    "key": "295502,j",
+    "initialEur": 2288,
+    "editedEur": 2607,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "329800,j",
+    "initialEur": 2803,
+    "editedEur": 1383,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "333124,j",
+    "initialEur": 1144,
+    "editedEur": 1144,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "339529,j",
+    "initialEur": 2377,
+    "editedEur": 2426,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "343219,j",
+    "initialEur": 6520,
+    "editedEur": 7040,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "343454,j",
+    "initialEur": 6744,
+    "editedEur": 5065,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "343971,j",
+    "initialEur": 2524,
+    "editedEur": 2524,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3760595,j",
+    "initialEur": 1542,
+    "editedEur": 1542,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3763247,j",
+    "initialEur": 2803,
+    "editedEur": 1383,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3849492,j",
+    "initialEur": 1150,
+    "editedEur": 1278,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3849864,j",
+    "initialEur": 3705,
+    "editedEur": 3034,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3850199,j",
+    "initialEur": 3129,
+    "editedEur": 2879,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3850557,j",
+    "initialEur": 3721,
+    "editedEur": 3259,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3850607,j",
+    "initialEur": 2517,
+    "editedEur": 1395,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3850663,j",
+    "initialEur": 2700,
+    "editedEur": 1504,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3850802,j",
+    "initialEur": 1767,
+    "editedEur": 1393,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3850806,j",
+    "initialEur": 1767,
+    "editedEur": 1393,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3850876,j",
+    "initialEur": 2194,
+    "editedEur": 2056,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3850965,j",
+    "initialEur": 6546,
+    "editedEur": 6246,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3851399,j",
+    "initialEur": 7305,
+    "editedEur": 7900,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3851639,j",
+    "initialEur": 12020,
+    "editedEur": 11408,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3851641,j",
+    "initialEur": 9903,
+    "editedEur": 7863,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3851655,j",
+    "initialEur": 13702,
+    "editedEur": 10936,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3851713,j",
+    "initialEur": 3048,
+    "editedEur": 2818,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3851774,j",
+    "initialEur": 2519,
+    "editedEur": 2917,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3851896,j",
+    "initialEur": 8615,
+    "editedEur": 8005,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3852171,j",
+    "initialEur": 3242,
+    "editedEur": 3225,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3852175,j",
+    "initialEur": 3373,
+    "editedEur": 3355,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3852418,j",
+    "initialEur": 2361,
+    "editedEur": 2660,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3852570,j",
+    "initialEur": 2583,
+    "editedEur": 1979,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3852659,j",
+    "initialEur": 5103,
+    "editedEur": 5157,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3852730,j",
+    "initialEur": 566,
+    "editedEur": 524,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3852741,j",
+    "initialEur": 6139,
+    "editedEur": 4951,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "3852782,j",
+    "initialEur": 3226,
+    "editedEur": 3226,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "4956508,j",
+    "initialEur": 20337,
+    "editedEur": 15914,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "4956836,j",
+    "initialEur": 3107,
+    "editedEur": 3576,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7386654,j",
+    "initialEur": 1462,
+    "editedEur": 1740,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7386672,j",
+    "initialEur": 1793,
+    "editedEur": 1799,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7386673,j",
+    "initialEur": 1982,
+    "editedEur": 1988,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7386675,j",
+    "initialEur": 1431,
+    "editedEur": 1436,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7386677,j",
+    "initialEur": 1555,
+    "editedEur": 1560,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7386680,j",
+    "initialEur": 1793,
+    "editedEur": 1799,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7386683,j",
+    "initialEur": 1999,
+    "editedEur": 2318,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7386688,j",
+    "initialEur": 1942,
+    "editedEur": 1799,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7386694,j",
+    "initialEur": 1836,
+    "editedEur": 2127,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7386696,j",
+    "initialEur": 2229,
+    "editedEur": 2582,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7388953,j",
+    "initialEur": 1492,
+    "editedEur": 1729,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7388962,j",
+    "initialEur": 2370,
+    "editedEur": 2746,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7388967,j",
+    "initialEur": 2570,
+    "editedEur": 2978,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7388971,j",
+    "initialEur": 2807,
+    "editedEur": 3252,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7388988,j",
+    "initialEur": 1162,
+    "editedEur": 1382,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389005,j",
+    "initialEur": 1136,
+    "editedEur": 1350,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389010,j",
+    "initialEur": 1294,
+    "editedEur": 1500,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389012,j",
+    "initialEur": 1294,
+    "editedEur": 1500,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389017,j",
+    "initialEur": 888,
+    "editedEur": 1030,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389018,j",
+    "initialEur": 888,
+    "editedEur": 1030,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389019,j",
+    "initialEur": 888,
+    "editedEur": 1030,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389026,j",
+    "initialEur": 943,
+    "editedEur": 1093,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389028,j",
+    "initialEur": 1030,
+    "editedEur": 1194,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389031,j",
+    "initialEur": 2143,
+    "editedEur": 2482,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389040,j",
+    "initialEur": 2573,
+    "editedEur": 2981,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389042,j",
+    "initialEur": 2810,
+    "editedEur": 3256,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389051,j",
+    "initialEur": 1928,
+    "editedEur": 2233,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389053,j",
+    "initialEur": 1075,
+    "editedEur": 1246,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389056,j",
+    "initialEur": 1174,
+    "editedEur": 1361,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389063,j",
+    "initialEur": 1507,
+    "editedEur": 1747,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389068,j",
+    "initialEur": 1277,
+    "editedEur": 1479,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389077,j",
+    "initialEur": 2230,
+    "editedEur": 2584,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389084,j",
+    "initialEur": 1484,
+    "editedEur": 1375,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389119,j",
+    "initialEur": 2142,
+    "editedEur": 2483,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389126,j",
+    "initialEur": 2099,
+    "editedEur": 2434,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389130,j",
+    "initialEur": 1900,
+    "editedEur": 2202,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389161,j",
+    "initialEur": 1802,
+    "editedEur": 2087,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389168,j",
+    "initialEur": 1633,
+    "editedEur": 1638,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389189,j",
+    "initialEur": 1370,
+    "editedEur": 1375,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389200,j",
+    "initialEur": 1724,
+    "editedEur": 1729,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389237,j",
+    "initialEur": 1736,
+    "editedEur": 1740,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389261,j",
+    "initialEur": 1346,
+    "editedEur": 1351,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "7389388,j",
+    "initialEur": 1847,
+    "editedEur": 2196,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "905398,j",
+    "initialEur": 1487,
+    "editedEur": 1306,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9271780,j",
+    "initialEur": 1573,
+    "editedEur": 1823,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9272016,j",
+    "initialEur": 1359,
+    "editedEur": 1575,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9274023,j",
+    "initialEur": 5394,
+    "editedEur": 4244,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9275034,j",
+    "initialEur": 3090,
+    "editedEur": 4366,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9275107,j",
+    "initialEur": 2108,
+    "editedEur": 2132,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9275344,j",
+    "initialEur": 4754,
+    "editedEur": 4754,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9275349,j",
+    "initialEur": 7987,
+    "editedEur": 6340,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9275771,j",
+    "initialEur": 3090,
+    "editedEur": 4366,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9276090,j",
+    "initialEur": 3076,
+    "editedEur": 2425,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9276429,j",
+    "initialEur": 5099,
+    "editedEur": 4883,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9276602,j",
+    "initialEur": 2914,
+    "editedEur": 2921,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9276909,j",
+    "initialEur": 11172,
+    "editedEur": 10460,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9276937,j",
+    "initialEur": 2578,
+    "editedEur": 2930,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9277281,j",
+    "initialEur": 5974,
+    "editedEur": 5005,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9277328,j",
+    "initialEur": 1383,
+    "editedEur": 1316,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9285746,j",
+    "initialEur": 2282,
+    "editedEur": 2287,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9285747,j",
+    "initialEur": 1125,
+    "editedEur": 1129,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9285749,j",
+    "initialEur": 1244,
+    "editedEur": 1248,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9285753,j",
+    "initialEur": 1032,
+    "editedEur": 957,
+    "saveRoundTrip": true
+  },
+  {
+    "key": "9285763,j",
+    "initialEur": 1558,
+    "editedEur": 1854,
+    "saveRoundTrip": true
+  }
+]

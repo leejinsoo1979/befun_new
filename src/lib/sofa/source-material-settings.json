@@ -1,0 +1,783 @@
+{
+  "profiles": {
+    "darven": {
+      "albedo": {
+        "map": null,
+        "color": 16777215
+      },
+      "roughness": {
+        "map": null,
+        "value": 1
+      },
+      "metalness": {
+        "map": null,
+        "value": 0
+      },
+      "reflectivity": {
+        "map": null,
+        "value": 0
+      },
+      "clearcoat": {
+        "map": null,
+        "value": 0.2
+      },
+      "clearcoatRoughness": {
+        "map": null,
+        "value": 1
+      },
+      "sheen": {
+        "map": null,
+        "value": 0.3
+      },
+      "sheenRoughness": {
+        "map": null,
+        "value": 0.4
+      },
+      "sheenFresnel": {
+        "map": null,
+        "value": 0
+      },
+      "sheenFresnelPower": {
+        "map": null,
+        "value": 3
+      },
+      "sheenColorScale": {
+        "map": null,
+        "value": 1
+      },
+      "aoMapIntensity": {
+        "map": null,
+        "value": 1.2
+      },
+      "iridescence": {
+        "map": null,
+        "value": 0
+      },
+      "lightMapIntensity": {
+        "map": null,
+        "value": 2
+      },
+      "giScale": {
+        "map": null,
+        "value": 1
+      },
+      "bump": {
+        "map": null,
+        "value": 0
+      },
+      "normal": {
+        "map": null,
+        "scale": {
+          "x": 2.5,
+          "y": 2.5
+        }
+      },
+      "repeat": {
+        "x": 1.6,
+        "y": 1.6
+      },
+      "opacity": {
+        "map": null,
+        "value": 1
+      },
+      "emissive": {
+        "map": null,
+        "value": 0,
+        "color": 0
+      },
+      "environment": {
+        "map": "interior_environment",
+        "value": 1
+      }
+    },
+    "rewool": {
+      "albedo": {
+        "map": null,
+        "color": 16777215
+      },
+      "roughness": {
+        "map": null,
+        "value": 1.29
+      },
+      "metalness": {
+        "map": null,
+        "value": 0
+      },
+      "reflectivity": {
+        "map": null,
+        "value": 0
+      },
+      "clearcoat": {
+        "map": null,
+        "value": 0.05
+      },
+      "clearcoatRoughness": {
+        "map": null,
+        "value": 0.98
+      },
+      "sheen": {
+        "map": null,
+        "value": 0.3
+      },
+      "sheenRoughness": {
+        "map": null,
+        "value": 0.84
+      },
+      "sheenFresnel": {
+        "map": null,
+        "value": 0
+      },
+      "sheenFresnelPower": {
+        "map": null,
+        "value": 3
+      },
+      "sheenColorScale": {
+        "map": null,
+        "value": 0.28
+      },
+      "aoMapIntensity": {
+        "map": null,
+        "value": 1
+      },
+      "iridescence": {
+        "map": null,
+        "value": 0
+      },
+      "lightMapIntensity": {
+        "map": null,
+        "value": 2
+      },
+      "giScale": {
+        "map": null,
+        "value": 1
+      },
+      "bump": {
+        "map": null,
+        "value": 0
+      },
+      "normal": {
+        "map": null,
+        "scale": {
+          "x": 2.39,
+          "y": 2.39
+        }
+      },
+      "repeat": {
+        "x": 1.6,
+        "y": 1.6
+      },
+      "opacity": {
+        "map": null,
+        "value": 1
+      },
+      "emissive": {
+        "map": null,
+        "value": 0,
+        "color": 0
+      },
+      "environment": {
+        "map": "interior_environment",
+        "value": 1
+      }
+    },
+    "leather": {
+      "albedo": {
+        "map": null,
+        "color": 16777215
+      },
+      "roughness": {
+        "map": null,
+        "value": 0.63
+      },
+      "metalness": {
+        "map": null,
+        "value": 0
+      },
+      "reflectivity": {
+        "map": null,
+        "value": 0.67
+      },
+      "clearcoat": {
+        "map": null,
+        "value": 0
+      },
+      "clearcoatRoughness": {
+        "map": null,
+        "value": 0
+      },
+      "sheen": {
+        "map": null,
+        "value": 0
+      },
+      "sheenRoughness": {
+        "map": null,
+        "value": 0
+      },
+      "sheenFresnel": {
+        "map": null,
+        "value": 0
+      },
+      "sheenFresnelPower": {
+        "map": null,
+        "value": 3
+      },
+      "sheenColorScale": {
+        "map": null,
+        "value": 0
+      },
+      "aoMapIntensity": {
+        "map": null,
+        "value": 1.3
+      },
+      "iridescence": {
+        "map": null,
+        "value": 0
+      },
+      "lightMapIntensity": {
+        "map": null,
+        "value": 2
+      },
+      "giScale": {
+        "map": null,
+        "value": 1
+      },
+      "bump": {
+        "map": null,
+        "value": 0
+      },
+      "normal": {
+        "map": null,
+        "scale": {
+          "x": 2.39,
+          "y": 2.39
+        }
+      },
+      "repeat": {
+        "x": 1.6,
+        "y": 1.6
+      },
+      "opacity": {
+        "map": null,
+        "value": 1
+      },
+      "emissive": {
+        "map": null,
+        "value": 0,
+        "color": 0
+      },
+      "environment": {
+        "map": "interior_environment",
+        "value": 1
+      }
+    },
+    "plain": {
+      "albedo": {
+        "map": null,
+        "color": 16777215
+      },
+      "roughness": {
+        "map": null,
+        "value": 0.9
+      },
+      "metalness": {
+        "map": null,
+        "value": 0
+      },
+      "reflectivity": {
+        "map": null,
+        "value": 0
+      },
+      "clearcoat": {
+        "map": null,
+        "value": 0.05
+      },
+      "clearcoatRoughness": {
+        "map": null,
+        "value": 0.98
+      },
+      "sheen": {
+        "map": null,
+        "value": 0.7
+      },
+      "sheenRoughness": {
+        "map": null,
+        "value": 0.7
+      },
+      "sheenFresnel": {
+        "map": null,
+        "value": 0
+      },
+      "sheenFresnelPower": {
+        "map": null,
+        "value": 3
+      },
+      "sheenColorScale": {
+        "map": null,
+        "value": 1
+      },
+      "aoMapIntensity": {
+        "map": null,
+        "value": 1
+      },
+      "iridescence": {
+        "map": null,
+        "value": 0
+      },
+      "lightMapIntensity": {
+        "map": null,
+        "value": 2
+      },
+      "giScale": {
+        "map": null,
+        "value": 1
+      },
+      "bump": {
+        "map": null,
+        "value": 0
+      },
+      "normal": {
+        "map": null,
+        "scale": {
+          "x": 2.39,
+          "y": 2.39
+        }
+      },
+      "repeat": {
+        "x": 4,
+        "y": 5
+      },
+      "opacity": {
+        "map": null,
+        "value": 1
+      },
+      "emissive": {
+        "map": null,
+        "value": 0,
+        "color": 0
+      },
+      "environment": {
+        "map": "interior_environment",
+        "value": 1
+      }
+    },
+    "boucle_ascot": {
+      "albedo": {
+        "map": null,
+        "color": 16777215
+      },
+      "roughness": {
+        "map": null,
+        "value": 0.9
+      },
+      "metalness": {
+        "map": null,
+        "value": 0
+      },
+      "reflectivity": {
+        "map": null,
+        "value": 0
+      },
+      "clearcoat": {
+        "map": null,
+        "value": 0.05
+      },
+      "clearcoatRoughness": {
+        "map": null,
+        "value": 0.98
+      },
+      "sheen": {
+        "map": null,
+        "value": 0.4
+      },
+      "sheenRoughness": {
+        "map": null,
+        "value": 0.9
+      },
+      "sheenFresnel": {
+        "map": null,
+        "value": 0
+      },
+      "sheenFresnelPower": {
+        "map": null,
+        "value": 3
+      },
+      "sheenColorScale": {
+        "map": null,
+        "value": 1
+      },
+      "aoMapIntensity": {
+        "map": null,
+        "value": 1
+      },
+      "iridescence": {
+        "map": null,
+        "value": 0
+      },
+      "lightMapIntensity": {
+        "map": null,
+        "value": 2
+      },
+      "giScale": {
+        "map": null,
+        "value": 1
+      },
+      "bump": {
+        "map": null,
+        "value": 0
+      },
+      "normal": {
+        "map": null,
+        "scale": {
+          "x": 1,
+          "y": 1
+        }
+      },
+      "repeat": {
+        "x": 5,
+        "y": 5
+      },
+      "opacity": {
+        "map": null,
+        "value": 1
+      },
+      "emissive": {
+        "map": null,
+        "value": 0,
+        "color": 0
+      },
+      "environment": {
+        "map": "interior_environment",
+        "value": 1
+      }
+    },
+    "boucle_impressme": {
+      "albedo": {
+        "map": null,
+        "color": 16777215
+      },
+      "roughness": {
+        "map": null,
+        "value": 0.9
+      },
+      "metalness": {
+        "map": null,
+        "value": 0
+      },
+      "reflectivity": {
+        "map": null,
+        "value": 0
+      },
+      "clearcoat": {
+        "map": null,
+        "value": 0.05
+      },
+      "clearcoatRoughness": {
+        "map": null,
+        "value": 0.98
+      },
+      "sheen": {
+        "map": null,
+        "value": 0.2
+      },
+      "sheenRoughness": {
+        "map": null,
+        "value": 0.9
+      },
+      "sheenFresnel": {
+        "map": null,
+        "value": 0
+      },
+      "sheenFresnelPower": {
+        "map": null,
+        "value": 3
+      },
+      "sheenColorScale": {
+        "map": null,
+        "value": 1
+      },
+      "aoMapIntensity": {
+        "map": null,
+        "value": 1
+      },
+      "iridescence": {
+        "map": null,
+        "value": 0
+      },
+      "lightMapIntensity": {
+        "map": null,
+        "value": 2
+      },
+      "giScale": {
+        "map": null,
+        "value": 1
+      },
+      "bump": {
+        "map": null,
+        "value": 0
+      },
+      "normal": {
+        "map": null,
+        "scale": {
+          "x": 1,
+          "y": 1
+        }
+      },
+      "repeat": {
+        "x": 5,
+        "y": 5
+      },
+      "normalRepeat": {
+        "x": 15,
+        "y": 15
+      },
+      "opacity": {
+        "map": null,
+        "value": 1
+      },
+      "emissive": {
+        "map": null,
+        "value": 0,
+        "color": 0
+      },
+      "environment": {
+        "map": "interior_environment",
+        "value": 1
+      }
+    },
+    "glory": {
+      "albedo": {
+        "map": null,
+        "color": 16777215
+      },
+      "roughness": {
+        "map": null,
+        "value": 0.9
+      },
+      "metalness": {
+        "map": null,
+        "value": 0
+      },
+      "reflectivity": {
+        "map": null,
+        "value": 0
+      },
+      "clearcoat": {
+        "map": null,
+        "value": 0.05
+      },
+      "clearcoatRoughness": {
+        "map": null,
+        "value": 0.98
+      },
+      "sheen": {
+        "map": null,
+        "value": 0.1
+      },
+      "sheenRoughness": {
+        "map": "glory_roughness",
+        "value": 0.3
+      },
+      "sheenFresnel": {
+        "map": null,
+        "value": 0.45
+      },
+      "sheenFresnelPower": {
+        "map": null,
+        "value": 3
+      },
+      "sheenColorScale": {
+        "map": null,
+        "value": 1
+      },
+      "aoMapIntensity": {
+        "map": null,
+        "value": 0.1
+      },
+      "iridescence": {
+        "map": null,
+        "value": 0
+      },
+      "lightMapIntensity": {
+        "map": null,
+        "value": 1
+      },
+      "giScale": {
+        "map": null,
+        "value": 1
+      },
+      "bump": {
+        "map": null,
+        "value": 0
+      },
+      "normal": {
+        "map": "glory_normal",
+        "scale": {
+          "x": 1.6,
+          "y": 1.6
+        }
+      },
+      "repeat": {
+        "x": 5,
+        "y": 5
+      },
+      "sheenRoughnessRepeat": {
+        "x": 1.6,
+        "y": 1.6
+      },
+      "hexTiling": {
+        "enabled": true
+      },
+      "opacity": {
+        "map": null,
+        "value": 1
+      },
+      "emissive": {
+        "map": null,
+        "value": 0,
+        "color": 0
+      },
+      "environment": {
+        "map": "interior_environment",
+        "value": 1
+      }
+    },
+    "colormax": {
+      "albedo": {
+        "map": null,
+        "color": 16777215
+      },
+      "roughness": {
+        "map": null,
+        "value": 0.9
+      },
+      "metalness": {
+        "map": null,
+        "value": 0
+      },
+      "reflectivity": {
+        "map": null,
+        "value": 0
+      },
+      "clearcoat": {
+        "map": null,
+        "value": 0.05
+      },
+      "clearcoatRoughness": {
+        "map": null,
+        "value": 0.98
+      },
+      "sheen": {
+        "map": null,
+        "value": 0.1
+      },
+      "sheenRoughness": {
+        "map": "aydin_roughness",
+        "value": 0.9
+      },
+      "sheenFresnel": {
+        "map": null,
+        "value": 0
+      },
+      "sheenFresnelPower": {
+        "map": null,
+        "value": 3
+      },
+      "sheenColorScale": {
+        "map": null,
+        "value": 1
+      },
+      "aoMapIntensity": {
+        "map": null,
+        "value": 0.4
+      },
+      "iridescence": {
+        "map": null,
+        "value": 0
+      },
+      "lightMapIntensity": {
+        "map": null,
+        "value": 1
+      },
+      "giScale": {
+        "map": null,
+        "value": 1
+      },
+      "bump": {
+        "map": null,
+        "value": 0
+      },
+      "normal": {
+        "map": "aydin_normal",
+        "scale": {
+          "x": 9,
+          "y": 9
+        }
+      },
+      "repeat": {
+        "x": 2.5,
+        "y": 2.5
+      },
+      "sheenRoughnessRepeat": {
+        "x": 1.6,
+        "y": 1.6
+      },
+      "opacity": {
+        "map": null,
+        "value": 1
+      },
+      "emissive": {
+        "map": null,
+        "value": 0,
+        "color": 0
+      },
+      "environment": {
+        "map": "interior_environment",
+        "value": 1
+      }
+    }
+  },
+  "sheenColors": {
+    "darven_ecru": 14207423,
+    "darven_rock": 14207423,
+    "darven_darkBrown": 14207423,
+    "darven_steel": 14207423,
+    "darven_tobacco": 14207423,
+    "darven_pink": 14207423,
+    "darven_camouflage": 14207423,
+    "darven_klein": 14207423,
+    "rewool_babyBlue": 14207423,
+    "rewool_brown": 14207423,
+    "rewool_oliveGreen": 14207423,
+    "rewool_lightGrey": 14207423,
+    "rewool_butterYellow": 14207423,
+    "rewool_shadowPink": 14207423,
+    "rewool_green": 14207423,
+    "leather_cognac": 11184810,
+    "leather_anthracite": 11184810,
+    "leather_oatBeige": 11184810,
+    "leather_willowGreen": 11184810,
+    "plain_beige": 16777215,
+    "plain_lightGray": 16777215,
+    "plain_anthracite": 7566195,
+    "plain_terracota": 11579568,
+    "plain_greenSpruce": 8750469,
+    "boucle_pearl": 16777215,
+    "boucle_mossGreen": 6513507,
+    "boucle_darkBrown": 6513507,
+    "glory_natural": 16777215,
+    "glory_linen": 16777215,
+    "glory_steel": 16777215,
+    "glory_liver": 16777215,
+    "glory_graphite": 16777215,
+    "glory_pale": 16777215,
+    "glory_brass": 16777215,
+    "glory_thyme": 16777215,
+    "glory_hazel": 16777215,
+    "colormax_butterYellow": 16777215,
+    "colormax_beige": 16777215,
+    "colormax_saltPepper": 16777215,
+    "colormax_mint": 16777215,
+    "colormax_grey": 16777215,
+    "colormax_blackPink": 16777215
+  }
+}

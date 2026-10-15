@@ -1,0 +1,21 @@
+export type Line = 'edge' | 'tone';
+export type StartKey = 'edge' | 'tone' | 'tone-wall' | 'tone-1964607' | 'bedside';
+export type Preset = Record<string, unknown>;
+export type Value = string | number | boolean | null | number[];
+export type Parameter = { name: string; label: string; visible: boolean; enabled: boolean; type: string; options?: {value: Value; label: string; disabled: boolean}[]; ranges?: {min: number; max: number; step: number}[] };
+export type ChannelValues = Record<string, Value>;
+export type Configuration = {
+  values: {width: number; height: number; depth: number; columnCount: number; material: number; ridges: boolean; handles: boolean; channels: Record<string, ChannelValues>};
+  parameters: Record<string, Parameter> & {channels: Record<string, Record<string, Parameter>>};
+};
+export type Vec = {x: number; y: number; z: number};
+export type SourceMaterial = {name: string; colors: {primary: string; secondary: string; tertiary: string}; mapAngle?: number; mapRatio?: {u: number; v: number; w: number} | null};
+export type Part = {asset: string; groupTag: string; position: Vec; size: Vec; rotation: {axis: 'x'|'y'|'z';angle:number}|null; mirror: 'x'|'y'|'z'|null; material: SourceMaterial|null};
+export type Segment = {name: string;position:Vec;size:Vec;segmentTag:{sectionId?:string;channelId?:string;direction?:number;motion?:{open:number;close:number;ajar:number}};geometries:Part[]};
+export type Schema = {key:string; children: Segment[]}[];
+export type SourcePanel = {x1:number;x2:number;y1:number;y2:number;z1:number;z2:number; channel_id?:number};
+export type Geometry = {shelf_type?:number;width:number;height:number;depth:number;walls:SourcePanel[];slabs:SourcePanel[];backs:SourcePanel[];doors:SourcePanel[];drawers:SourcePanel[];components:SourcePanel[]};
+export type Thumbnail = {series_id:string;series_name:string;render:boolean;format:{walls:SourcePanel[];slabs:SourcePanel[];doors:SourcePanel[];drawers:SourcePanel[]}};
+export type Snapshot = {preset:Preset;configuration:Configuration;geometry:Geometry;schema:Schema;thumbnails:Thumbnail[]};
+export type BedsideStyle = 6 | 7 | 8;
+export type Design = {version:1;start:StartKey;preset:Preset;bedsideStyle?:BedsideStyle};

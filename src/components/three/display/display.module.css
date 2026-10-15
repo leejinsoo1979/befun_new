@@ -4,12 +4,12 @@
 .actions { padding-left:4px; border-left:1px solid #e5e5e5; }
 .toolbar button { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; min-width:40px; min-height:48px; padding:5px; border:1px solid transparent; border-radius:7px; background:transparent; cursor:pointer; font-size:10px; white-space:nowrap; }
 .toolbar button:hover { background:#f5f5f5; }
-.toolbar button[aria-pressed=true] { background:#e8f5e3; border-color:#339922; color:#287515; }
-.toolbar button:focus-visible { outline:2px solid #287515; outline-offset:2px; }
+.toolbar button[aria-pressed=true] { background:var(--green-light); border-color:var(--green); color:var(--green); }
+.toolbar button:focus-visible { outline:2px solid var(--green); outline-offset:2px; }
 .toolbar button:disabled { opacity:.4; cursor:not-allowed; }
 /* 접기/펼치기 토글 (전 화면 크기) */
-.toolbar .menu { display:flex; flex-direction:row; gap:7px; min-height:40px; padding:6px 12px; border:1px solid #ddd; border-radius:12px; background:rgba(255,255,255,.96); box-shadow:0 3px 14px #0000000d; font-size:12px; font-weight:600; color:#287515; }
-.toolbar .menu[aria-expanded=true] { border-color:#339922; }
+.toolbar .menu { display:flex; flex-direction:row; gap:7px; min-height:40px; padding:6px 12px; border:1px solid #ddd; border-radius:12px; background:rgba(255,255,255,.96); box-shadow:0 3px 14px #0000000d; font-size:12px; font-weight:600; color:var(--green); }
+.toolbar .menu[aria-expanded=true] { border-color:var(--green); }
 .chevron { font-size:16px; line-height:1; }
 .options.expanded { display:flex; }
 .hint { width:100%; margin:3px 5px; max-width:350px; font-size:10px; line-height:1.5; color:#666; }
