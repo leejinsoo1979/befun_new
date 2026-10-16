@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import dynamic from 'next/dynamic';
 import { ConfiguratorLoading } from '@/components/ui/ConfiguratorLoading';
 import Link from 'next/link';
@@ -72,7 +74,7 @@ export function ProductConfigurator({ product, configuration }: { product: Catal
     }
     usePreparedProduct.setState({ id: product.id });
   }, [product, configuration, prepared]);
-  if (!prepared) return <section className={styles.productConfigurator} aria-label={`${product.name} 3D 커스터마이저`}><div className={styles.productViewer}><h1 className={styles.srOnly}>{product.name}</h1><ConfiguratorLoading /></div></section>;
+  if (!prepared) return <section className={styles.productConfigurator} aria-label={`${t(product.name)} ${t('3D 커스터마이저')}`}><div className={styles.productViewer}><h1 className={styles.srOnly}>{t(product.name)}</h1><ConfiguratorLoading /></div></section>;
   const addToCart = () => {
     useCartStore.getState().addItem({ designId: '', designConfig: currentConfiguration(), quantity: 1, price: price.finalPrice });
     router.push('/cart');
@@ -134,9 +136,9 @@ export function ProductConfigurator({ product, configuration }: { product: Catal
       setSaving(false);
     }
   };
-  return <section className={styles.productConfigurator} aria-label={`${product.name} 3D 커스터마이저`}>
+  return <section className={styles.productConfigurator} aria-label={`${t(product.name)} ${t('3D 커스터마이저')}`}>
     <div className={styles.productViewer}>
-      <h1 className={styles.srOnly}>{product.name}</h1>
+      <h1 className={styles.srOnly}>{t(product.name)}</h1>
       <div className={styles.productScene}><Scene /><FloatingBox /></div>
       <button className={styles.fullscreenButton} onClick={() => router.push('/configurator')}><FiMaximize /> {t('전체 화면')}</button>
     </div>
@@ -144,24 +146,25 @@ export function ProductConfigurator({ product, configuration }: { product: Catal
       <div className={styles.configPrice} aria-live="polite">{price.discountRate > 0 && <div><del>{formatPrice(price.originalPrice)}</del><span>−{price.discountRate}%</span></div>}<strong>{formatPrice(price.finalPrice)}</strong><PriceNotice estimated={price.isEstimate} /></div>
       <LegacyShelfPanel controls={LEGACY_BEFORE_FEET} /><FeetSelector /><LegacyShelfPanel controls={LEGACY_AFTER_FEET} /><ColorPicker />
       <div className={styles.configActions}><button className={styles.darkButton} onClick={addToCart}>{t('장바구니에 담기')} <FiArrowRight /></button><button className={styles.outlineButton} disabled={saving} onClick={saveDesign}><FiShare2 /> {t(saving ? '디자인 저장 중…' : '디자인 저장·공유')}</button></div>
-      {error ? <p className={styles.configError} role="alert">{error}</p> : null}
+      {error ? <p className={styles.configError} role="alert">{t(error)}</p> : null}
       <p className={styles.configHelp}>{t('선반의 칸을 선택해 행 높이와 도어·서랍을 변경하세요.')} <Link href="/contact">{t('도움받기')}</Link></p>
     </div>
-    {shareUrl ? <Dialog title={localSave ? "디자인을 이 브라우저에 보관했습니다" : "디자인이 서버에 저장되었습니다"} close={() => setShareUrl('')}>{localSave ? <p className={styles.localSaveNotice}>{localSaveReason} 서버 저장 성공은 확인되지 않았으며 이 브라우저에 보관했습니다. 아래 링크에는 디자인 구성이 담겨 있어 다른 브라우저에서도 열 수 있습니다.</p> : null}<label className={styles.shareField}>디자인 공유 링크<input readOnly value={shareUrl} onFocus={event => event.target.select()} /></label><div className={styles.configActions}><button className={styles.darkButton} onClick={async () => { try { await navigator.clipboard.writeText(shareUrl); setCopied(true); } catch { setError('링크를 선택해서 복사해 주세요.'); } }}>{copied ? '복사되었습니다' : '링크 복사'}</button><Link href={shareUrl} className={styles.outlineButton}>저장한 디자인 열기</Link></div>{error ? <p className={styles.configError} role="alert">{error}</p> : null}</Dialog> : null}
+    {shareUrl ? <Dialog title={t(localSave ? "디자인을 이 브라우저에 보관했습니다" : "디자인이 서버에 저장되었습니다")} close={() => setShareUrl('')}>{localSave ? <p className={styles.localSaveNotice}>{t(localSaveReason)}  {t("서버 저장 성공은 확인되지 않았으며 이 브라우저에 보관했습니다. 아래 링크에는 디자인 구성이 담겨 있어 다른 브라우저에서도 열 수 있습니다.")}</p> : null}<label className={styles.shareField}>{t("디자인 공유 링크")}<input readOnly value={shareUrl} onFocus={event => event.target.select()} /></label><div className={styles.configActions}><button className={styles.darkButton} onClick={async () => { try { await navigator.clipboard.writeText(shareUrl); setCopied(true); } catch { setError('링크를 선택해서 복사해 주세요.'); } }}>{t(copied ? '복사되었습니다' : '링크 복사')}</button><Link href={shareUrl} className={styles.outlineButton}>{t("저장한 디자인 열기")}</Link></div>{error ? <p className={styles.configError} role="alert">{t(error)}</p> : null}</Dialog> : null}
   </section>;
 }
 
 export function ProductSpecifications({ ready = false }: { ready?: boolean } = {}) {
+  const { t } = useLocale();
   const { width, depth, numRows, rowHeights, thickness, style, density, hasBackPanel, baseType } = useShelfStore();
   const { currentColor, colorCategory } = useMaterialStore();
   const { doorsCreatedLayers, drawersCreatedLayers } = useHardwareStore();
   const prepared = usePreparedProduct(state => state.id !== null);
   const height = thickness + rowHeights.slice(0, numRows).reduce((total, row) => total + row + thickness, 0) + baseHeight(baseType);
-  return <section className={`${styles.section} ${styles.productSpecifications}`}><h2>제품 사양</h2><div className={styles.specificationRows}>
-    <details><summary>치수와 구성</summary>{prepared || ready ? <dl><dt>너비 × 높이 × 깊이</dt><dd>{Math.round(width)} × {Math.round(height)} × {depth} cm</dd><dt>스타일 · 밀도</dt><dd>{style} · {density}%</dd><dt>선반 행</dt><dd>{numRows}행</dd><dt>도어 · 서랍</dt><dd>{doorsCreatedLayers.length}행 · {drawersCreatedLayers.length}행</dd><dt>뒷판</dt><dd>{hasBackPanel ? '포함' : '없음'}</dd></dl> : <p>선택한 디자인을 불러오는 중…</p>}</details>
-    <details><summary>소재와 컬러</summary><p>{colorCategory} · {currentColor.replace(/^[SCN]_/, '')}</p><Link href="/material-samples">소재와 컬러 살펴보기 <FiArrowRight /></Link></details>
-    <details><summary>배송과 주문</summary><p>위에서 변경한 구성이 장바구니에 반영됩니다. 배송지와 주문 금액은 주문 화면에서 확인할 수 있습니다.</p><Link href="/shipping">배송 안내 <FiArrowRight /></Link></details>
-    <details><summary>조립과 관리</summary><p>가구의 행 높이와 도어·서랍 구성은 3D 화면에서 확인하세요. 제작·조립 관련 문의는 상담 페이지에서 안내받을 수 있습니다.</p><Link href="/faq">자주 묻는 질문 <FiArrowRight /></Link></details>
-    <details><summary>제품 문의</summary><Link href="/contact">이 디자인에 대해 상담하기 <FiArrowRight /></Link></details>
+  return <section className={`${styles.section} ${styles.productSpecifications}`}><h2>{t("제품 사양")}</h2><div className={styles.specificationRows}>
+    <details><summary>{t("치수와 구성")}</summary>{prepared || ready ? <dl><dt>{t("너비 × 높이 × 깊이")}</dt><dd>{Math.round(width)} × {Math.round(height)} × {depth} cm</dd><dt>{t("스타일 · 밀도")}</dt><dd>{style} · {density}%</dd><dt>{t("선반 행")}</dt><dd>{numRows}{t("행")}</dd><dt>{t("도어 · 서랍")}</dt><dd>{doorsCreatedLayers.length}{t("행 ·")} {drawersCreatedLayers.length}{t("행")}</dd><dt>{t("뒷판")}</dt><dd>{t(hasBackPanel ? '포함' : '없음')}</dd></dl> : <p>{t("선택한 디자인을 불러오는 중…")}</p>}</details>
+    <details><summary>{t("소재와 컬러")}</summary><p>{colorCategory} · {currentColor.replace(/^[SCN]_/, '')}</p><Link href="/material-samples">{t("소재와 컬러 살펴보기")} <FiArrowRight /></Link></details>
+    <details><summary>{t("배송과 주문")}</summary><p>{t("위에서 변경한 구성이 장바구니에 반영됩니다. 배송지와 주문 금액은 주문 화면에서 확인할 수 있습니다.")}</p><Link href="/shipping">{t("배송 안내")} <FiArrowRight /></Link></details>
+    <details><summary>{t("조립과 관리")}</summary><p>{t("가구의 행 높이와 도어·서랍 구성은 3D 화면에서 확인하세요. 제작·조립 관련 문의는 상담 페이지에서 안내받을 수 있습니다.")}</p><Link href="/faq">{t("자주 묻는 질문")} <FiArrowRight /></Link></details>
+    <details><summary>{t("제품 문의")}</summary><Link href="/contact">{t("이 디자인에 대해 상담하기")} <FiArrowRight /></Link></details>
   </div></section>;
 }

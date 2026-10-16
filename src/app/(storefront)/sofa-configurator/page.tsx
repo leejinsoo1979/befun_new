@@ -1,9 +1,12 @@
+import { localizedMetadata } from '@/lib/i18n/server';
 import { Suspense } from 'react';
 import SofaConfigurator from '@/components/sofa/SofaConfigurator';
 import { notFound } from 'next/navigation';
 import { sourceProduct } from '@/lib/catalog-entry/source-designs/server';
 import SourceConfigurator from '@/components/source-configurator/SourceConfigurator';
-export const metadata = { title: '모듈 소파 만들기 | BEFUN' };
+export async function generateMetadata() {
+  return localizedMetadata({ title: '모듈 소파 만들기 | BEFUN' });
+}
 export default async function SofaConfiguratorPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const params = await searchParams;
   if (typeof params.product === 'string') {

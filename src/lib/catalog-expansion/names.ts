@@ -1,3 +1,5 @@
+import { supplementalTranslation } from '@/lib/i18n/supplemental';
+
 /**
  * R6 manifest의 상품명(독일어 원문, CSV 그대로)을 화면 언어로 구성한다.
  * 원문 구조: <종류>[ <소재>] in <색상>[ und <색상>][ mit <특징> und <특징>]
@@ -94,7 +96,7 @@ function parseHead(head: string) {
 /** 원문 상품명 → 화면 언어 이름. 구조를 못 읽으면 원문 반환 */
 export function localizedProductName(source: string, lang: NameLanguage): string {
   const match = source.match(/^(.*?)(?: (Bouclé \w+|aus \w+))? in (.*?)(?: mit (.*))?$/);
-  if (!match) return source;
+  if (!match) return lang === 'ko' ? source : supplementalTranslation(lang, source) ?? source;
   const [, headRaw, fabric, colourRaw, featureRaw] = match;
   const head = parseHead(headRaw);
   const material = fabric ?? head.material;

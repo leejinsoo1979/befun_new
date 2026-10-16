@@ -60,7 +60,7 @@ export function FurnitureProductDetails({ design, title, catalogId }: {
         </label>)}
       </div>
     </div>
-    <ProductMaterialGallery key={photos.id} images={photos.images} title={`${FAMILY_NAMES[design.family]} ${photos.label}`} fallback={photos.images[0]} />
+    <ProductMaterialGallery key={photos.id} images={photos.images} title={`${t(FAMILY_NAMES[design.family])} ${t(photos.label)}`} fallback={photos.images[0]} />
 
     <section id="design-specifications" className={`${shared.section} ${shared.productSpecifications}`}>
       <h2>{t('제품 사양')}</h2><div className={shared.specificationRows}>

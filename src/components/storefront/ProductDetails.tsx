@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FiArrowRight, FiDroplet, FiGrid, FiLayers, FiSave, FiSliders } from 'react-icons/fi';
@@ -41,6 +43,7 @@ const showrooms = [
 ];
 
 export function ProductDetails({ product }: { product?: CatalogProduct }) {
+  const { t } = useLocale();
   const router = useRouter();
   const { saved, toggleSaved } = useSavedProducts();
   const ready = useProductReady(product?.id);
@@ -62,35 +65,35 @@ export function ProductDetails({ product }: { product?: CatalogProduct }) {
 
   return <div className={styles.details}>
     <section className={`${styles.section} ${styles.introduction}`}>
-      <h2>{title}</h2><p>너비 {ready ? width : product?.width}cm · 높이 {ready ? Math.round(height * 10) / 10 : product && productDisplayHeight(product)}cm · 깊이 {ready ? depth : product?.depth}cm</p>
+      <h2>{t(title)}</h2><p>{t("너비")} {ready ? width : product?.width}{t("cm · 높이")} {ready ? Math.round(height * 10) / 10 : product && productDisplayHeight(product)}{t("cm · 깊이")} {ready ? depth : product?.depth}cm</p>
       <div className={styles.benefits}>{[
         { title: '크기를 직접 조절', text: '공간에 맞는 너비와 높이', icon: FiSliders, href: '/configurator-intro' },
         { title: '컬러와 마감 선택', text: '취향에 맞는 색과 소재', icon: FiDroplet, href: '/material-samples' },
         { title: '다양한 선반 스타일', text: '여섯 가지 형태로 시작', icon: FiGrid, href: '/product-lines' },
         { title: '나만의 수납 구성', text: '오픈 선반과 도어·서랍', icon: FiLayers, href: '/faq' },
         { title: '디자인 저장과 공유', text: '완성한 구성을 링크로', icon: FiSave, href: '/saved-designs' },
-      ].map(({ title: name, text, icon: Icon, href }) => <Link key={name} href={href}><Icon /><div><h3>{name}</h3><p>{text}</p><span>더 알아보기</span></div></Link>)}</div>
+      ].map(({ title: name, text, icon: Icon, href }) => <Link key={name} href={href}><Icon /><div><h3>{t(name)}</h3><p>{t(text)}</p><span>{t("더 알아보기")}</span></div></Link>)}</div>
     </section>
 
-    <ProductMaterialGallery key={`${product?.id ?? 'configurator'}-${currentColor}`} images={gallery} title={title} fallback={fallback} />
+    <ProductMaterialGallery key={`${product?.id ?? 'configurator'}-${currentColor}`} images={gallery} title={t(title)} fallback={fallback} />
 
     <div id="design-specifications"><ProductSpecifications ready={!product} /></div>
-    <div className={styles.contactLine}>도움이 필요하세요? <Link href="/contact">디자인 상담</Link><span>·</span><Link href="/faq">자주 묻는 질문</Link></div>
+    <div className={styles.contactLine}>{t("도움이 필요하세요?")} <Link href="/contact">{t("디자인 상담")}</Link><span>·</span><Link href="/faq">{t("자주 묻는 질문")}</Link></div>
 
 
-    <section className={styles.section}><p className={styles.eyebrow}>수납 가구</p><h2>좋아하는 것은 보여주고,<br />일상의 물건은 담아두세요.</h2><Carousel label="디자인 특징">{highlights.map(([name, image, href], index) => { const HighlightLink = href.startsWith('#') ? 'a' : Link; return <HighlightLink href={href} key={image} className={styles.highlight}><ReferenceImage source={`https://media.tylko.com/cloudinary/pdp/section-highlights-carousel/AP/${image}.webp`} fallback={`step-${index % 4 + 1}.avif`} alt={name} sizes="(max-width:767px) 80vw, 30vw" /><div><p>{['디자인', '크기', '수납', '컬러', '구성', '조립', '공유'][index]}</p><h3>{name}</h3><span>더 보기 <FiArrowRight /></span></div></HighlightLink>; })}</Carousel></section>
+    <section className={styles.section}><p className={styles.eyebrow}>{t("수납 가구")}</p><h2>{t("좋아하는 것은 보여주고,")}<br />{t("일상의 물건은 담아두세요.")}</h2><Carousel label="디자인 특징">{highlights.map(([name, image, href], index) => { const HighlightLink = href.startsWith('#') ? 'a' : Link; return <HighlightLink href={href} key={image} className={styles.highlight}><ReferenceImage source={`https://media.tylko.com/cloudinary/pdp/section-highlights-carousel/AP/${image}.webp`} fallback={`step-${index % 4 + 1}.avif`} alt={t(name)} sizes="(max-width:767px) 80vw, 30vw" /><div><p>{t(['디자인', '크기', '수납', '컬러', '구성', '조립', '공유'][index])}</p><h3>{t(name)}</h3><span>{t("더 보기")} <FiArrowRight /></span></div></HighlightLink>; })}</Carousel></section>
 
-    <section className={`${styles.section} ${styles.experience}`}><p className={styles.eyebrow}>공간 속 디자인</p><h2>실제 공간에서 발견하는<br />수납의 가능성.</h2><div className={styles.experienceGrid}><aside><h3>다양한 취향,<br />다양한 일상.</h3><p>Befun과 함께한 고객들의 공간 이야기입니다.</p><Link href="/review-list" className={shared.outlineButton}>리뷰 더 보기 <FiArrowRight /></Link></aside><div>{reviewReferences.map(item => <article key={item.name}><div className={styles.reviewImage}><ReferenceImage source={item.image} fallback="creator-3.avif" alt={item.title} sizes="200px" /></div><div><p>{item.name} · {item.color}</p><h3>{item.title}</h3><p>Tylko 공간 레퍼런스</p></div></article>)}<Link href="/gallery" className={`${shared.outlineButton} ${shared.smallButton}`}>공간 더 보기</Link></div></div></section>
+    <section className={`${styles.section} ${styles.experience}`}><p className={styles.eyebrow}>{t("공간 속 디자인")}</p><h2>{t("실제 공간에서 발견하는")}<br />{t("수납의 가능성.")}</h2><div className={styles.experienceGrid}><aside><h3>{t("다양한 취향,")}<br />{t("다양한 일상.")}</h3><p>{t("Befun과 함께한 고객들의 공간 이야기입니다.")}</p><Link href="/review-list" className={shared.outlineButton}>{t("리뷰 더 보기")} <FiArrowRight /></Link></aside><div>{reviewReferences.map(item => <article key={item.name}><div className={styles.reviewImage}><ReferenceImage source={item.image} fallback="creator-3.avif" alt={t(item.title)} sizes="200px" /></div><div><p>{t(item.name)} · {t(item.color)}</p><h3>{t(item.title)}</h3><p>{t("Tylko 공간 레퍼런스")}</p></div></article>)}<Link href="/gallery" className={`${shared.outlineButton} ${shared.smallButton}`}>{t("공간 더 보기")}</Link></div></div></section>
 
-    <section className={styles.soundBanner}><ReferenceImage source="https://media.tylko.com/cloudinary/lp/tylko-sound/pdp-banner/LD.webp" fallback="creator-9.avif" alt="선반에 어울리는 컬러 스피커" sizes="100vw" /><div><p className={styles.eyebrow}>선반에서 만나는 음악</p><h2>공간에 어울리는 소리.</h2><Link href="/tylko-sound" className={shared.whiteButton}>Sound 컬렉션 보기</Link></div></section>
+    <section className={styles.soundBanner}><ReferenceImage source="https://media.tylko.com/cloudinary/lp/tylko-sound/pdp-banner/LD.webp" fallback="creator-9.avif" alt={t("선반에 어울리는 컬러 스피커")} sizes="100vw" /><div><p className={styles.eyebrow}>{t("선반에서 만나는 음악")}</p><h2>{t("공간에 어울리는 소리.")}</h2><Link href="/tylko-sound" className={shared.whiteButton}>{t("Sound 컬렉션 보기")}</Link></div></section>
 
     <ProductDiscovery />
 
-    <section className={styles.giftBanner}><ReferenceImage source="/imgs/storefront/befun/gift-befun-logo.webp" fallback="befun/gift.avif" alt="취향을 선물하는 기프트카드" sizes="100vw" /><div><h2>취향을 선물하는 즐거움.</h2><p>좋아하는 공간을 직접 고르는 선물.</p><Link href="/e-gift-card/1" className={shared.outlineButton}>기프트카드 안내</Link></div></section>
+    <section className={styles.giftBanner}><ReferenceImage source="/imgs/storefront/befun/gift-befun-logo.webp" fallback="befun/gift.avif" alt={t("취향을 선물하는 기프트카드")} sizes="100vw" /><div><h2>{t("취향을 선물하는 즐거움.")}</h2><p>{t("좋아하는 공간을 직접 고르는 선물.")}</p><Link href="/e-gift-card/1" className={shared.outlineButton}>{t("기프트카드 안내")}</Link></div></section>
 
-    <section className={`${styles.section} ${styles.recommendations}`}><p className={styles.eyebrow}>함께 둘러보기</p><h2>이런 디자인은 어떠세요?</h2><Carousel label="추천 디자인">{products.filter(item => item.id !== product?.id).map(item => <ProductCard key={item.id} product={item} saved={saved.includes(item.id)} toggleSaved={() => toggleSaved(item.id)} open={() => router.push(productHref(item))} />)}</Carousel></section>
+    <section className={`${styles.section} ${styles.recommendations}`}><p className={styles.eyebrow}>{t("함께 둘러보기")}</p><h2>{t("이런 디자인은 어떠세요?")}</h2><Carousel label="추천 디자인">{products.filter(item => item.id !== product?.id).map(item => <ProductCard key={item.id} product={item} saved={saved.includes(item.id)} toggleSaved={() => toggleSaved(item.id)} open={() => router.push(productHref(item))} />)}</Carousel></section>
 
-    <section className={styles.section}><p className={styles.eyebrow}>쇼룸</p><h2>공간과 소재를 직접 만나보세요.</h2><h3 className={styles.showroomHeading}>Befun 쇼룸 &amp; 파트너 공간</h3><Carousel label="쇼룸 레퍼런스">{showrooms.map(([name, image, address]) => <Link href="/showrooms" className={styles.showroom} key={name}><div><ReferenceImage source={asset(image)} fallback="creator-6.avif" alt={name} sizes="(max-width:767px) 75vw, 24vw" /><span>Showroom</span></div><h3>{name}</h3><p>{address}</p><span>원본 방문 안내 <FiArrowRight /></span></Link>)}</Carousel><p className={styles.caption}>Tylko 쇼룸 레퍼런스</p><Link href="/showrooms" className={shared.darkButton}>모두 보기</Link></section>
+    <section className={styles.section}><p className={styles.eyebrow}>{t("쇼룸")}</p><h2>{t("공간과 소재를 직접 만나보세요.")}</h2><h3 className={styles.showroomHeading}>{t("Befun 쇼룸 & 파트너 공간")}</h3><Carousel label="쇼룸 레퍼런스">{showrooms.map(([name, image, address]) => <Link href="/showrooms" className={styles.showroom} key={name}><div><ReferenceImage source={asset(image)} fallback="creator-6.avif" alt={t(name)} sizes="(max-width:767px) 75vw, 24vw" /><span>Showroom</span></div><h3>{t(name)}</h3><p>{t(address)}</p><span>{t("원본 방문 안내")} <FiArrowRight /></span></Link>)}</Carousel><p className={styles.caption}>{t("Tylko 쇼룸 레퍼런스")}</p><Link href="/showrooms" className={shared.darkButton}>{t("모두 보기")}</Link></section>
     <JoinSection />
   </div>;
 }

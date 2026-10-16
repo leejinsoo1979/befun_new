@@ -1,0 +1,35 @@
+
+> befun-v2-next@0.1.0 lint
+> eslint
+
+[BABEL] Note: The code generator has deoptimised the styling of /private/tmp/befun-locale-publish-20261016/src/lib/catalog-entry/legacy-designs/upstream/engine.js as it exceeds the max of 500KB.
+[BABEL] Note: The code generator has deoptimised the styling of /private/tmp/befun-locale-publish-20261016/src/lib/catalog-entry/source-designs/upstream/wardrobe.js as it exceeds the max of 500KB.
+
+/private/tmp/befun-locale-publish-20261016/scripts/furniture-validation/r4-contracts.mjs
+  14:8  warning  'calculateDeskGeometry' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/private/tmp/befun-locale-publish-20261016/src/app/mypage/page.tsx
+  178:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/private/tmp/befun-locale-publish-20261016/src/app/order/[id]/page.tsx
+  128:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/private/tmp/befun-locale-publish-20261016/src/app/share/[code]/page.tsx
+  104:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/private/tmp/befun-locale-publish-20261016/src/lib/bookcase/upstream/rounded-panel.js
+  3:230   warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  3:481   warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  3:596   warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  3:758   warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  3:1050  warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+/private/tmp/befun-locale-publish-20261016/src/lib/three/hardware.ts
+    4:10  warning  'calculateSlantSpacing' is defined but never used            @typescript-eslint/no-unused-vars
+   37:7   warning  'DRAWER_GAP' is assigned a value but never used              @typescript-eslint/no-unused-vars
+  363:10  warning  'getPixelVerticalPanelXPositions' is defined but never used  @typescript-eslint/no-unused-vars
+
+/private/tmp/befun-locale-publish-20261016/src/lib/three/materials.ts
+  2:15  warning  'MaterialType' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 13 problems (0 errors, 13 warnings)

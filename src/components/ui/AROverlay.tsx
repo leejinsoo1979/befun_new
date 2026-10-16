@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import { useEffect, useState, type RefObject } from 'react';
 import { FiChevronLeft, FiRotateCcw, FiRotateCw, FiShoppingCart, FiSliders, FiDroplet } from 'react-icons/fi';
 import { useARStore } from '@/components/three/ar/arStore';
@@ -23,6 +25,7 @@ const ROTATE_STEP = Math.PI / 8; // 22.5°
  *   아래 '크기 조절'(너비·높이·깊이 자 슬라이더 + 취소/적용) / '스타일·색상'(전체 옵션 패널)
  */
 export function AROverlay({ rootRef, onPurchase }: AROverlayProps) {
+  const { t } = useLocale();
   const active = useARStore((s) => s.webxrActive);
   const placed = useARStore((s) => s.placed);
   const surfaceFound = useARStore((s) => s.surfaceFound);
@@ -61,9 +64,8 @@ export function AROverlay({ rootRef, onPurchase }: AROverlayProps) {
       {/* 상단: 쇼룸(종료) / 가격·장바구니 */}
       <div className="flex items-start justify-between gap-3 p-4 pt-[max(16px,env(safe-area-inset-top))]">
         <button type="button" data-ar-ui onClick={end} className={`${pill} border border-[var(--green)] text-[var(--green)]`}>
-          <FiChevronLeft size={18} /> 쇼룸
-        </button>
-        <button type="button" data-ar-ui onClick={purchase} aria-label="장바구니에 담기"
+          <FiChevronLeft size={18} />  {t("쇼룸")} </button>
+        <button type="button" data-ar-ui onClick={purchase} aria-label={t("장바구니에 담기")}
           className="flex items-center gap-3 rounded-xl bg-white/90 px-3 py-1.5 shadow-md">
           <PriceDisplay compact />
           <FiShoppingCart size={20} className="text-[var(--green)]" />
@@ -77,9 +79,9 @@ export function AROverlay({ rootRef, onPurchase }: AROverlayProps) {
         )}
         {placed && sheet === 'none' && (
           <div data-ar-ui className="flex gap-2">
-            <button type="button" aria-label="왼쪽으로 회전" onClick={() => rotate(ROTATE_STEP)}
+            <button type="button" aria-label={t("왼쪽으로 회전")} onClick={() => rotate(ROTATE_STEP)}
               className="flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-[#222] shadow-md"><FiRotateCcw size={18} /></button>
-            <button type="button" aria-label="오른쪽으로 회전" onClick={() => rotate(-ROTATE_STEP)}
+            <button type="button" aria-label={t("오른쪽으로 회전")} onClick={() => rotate(-ROTATE_STEP)}
               className="flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-[#222] shadow-md"><FiRotateCw size={18} /></button>
           </div>
         )}
@@ -91,15 +93,15 @@ export function AROverlay({ rootRef, onPurchase }: AROverlayProps) {
         {sheet === 'options' && (
           <div>
             <div className="flex justify-end px-4 pb-2">
-              <button type="button" onClick={() => setSheet('none')} className={pill}>닫기</button>
+              <button type="button" onClick={() => setSheet('none')} className={pill}>{t("닫기")}</button>
             </div>
             <MobileConfiguratorPanel inOverlay onPurchase={purchase} />
           </div>
         )}
         {sheet === 'none' && (
           <div className="flex justify-center gap-3 p-4 pb-[max(16px,env(safe-area-inset-bottom))]">
-            <button type="button" onClick={() => setSheet('size')} className={pill}><FiSliders size={16} /> 크기 조절</button>
-            <button type="button" onClick={() => setSheet('options')} className={pill}><FiDroplet size={16} /> 스타일·색상</button>
+            <button type="button" onClick={() => setSheet('size')} className={pill}><FiSliders size={16} />  {t("크기 조절")}</button>
+            <button type="button" onClick={() => setSheet('options')} className={pill}><FiDroplet size={16} />  {t("스타일·색상")}</button>
           </div>
         )}
       </div>

@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import Image from 'next/image';
 import { useState } from 'react';
 import styles from './product-card-image.module.css';
@@ -8,6 +10,7 @@ import styles from './product-card-image.module.css';
 export function ProductCardImage({ thumbnail, studio, alt, sizes }: {
   thumbnail: string; studio: string; alt: string; sizes: string;
 }) {
+  const { t } = useLocale();
   const [requested, setRequested] = useState(false);
   const [ready, setReady] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -18,7 +21,7 @@ export function ProductCardImage({ thumbnail, studio, alt, sizes }: {
     setHovered(true);
   }} onPointerLeave={() => setHovered(false)} onPointerCancel={() => setHovered(false)}>
     <Image src={thumbnail} alt={alt} fill sizes={sizes} loading="lazy" className={styles.base} onError={() => setBaseFailed(true)} />
-    {baseFailed && <span className={styles.error} role="img" aria-label={alt}>이미지를 불러오지 못했습니다.</span>}
+    {baseFailed && <span className={styles.error} role="img" aria-label={alt}>{t('이미지를 불러오지 못했습니다.')}</span>}
     {requested && studio && <Image src={studio} alt="" aria-hidden="true" fill sizes={sizes} loading="eager" className={styles.studio} onLoad={() => setReady(true)} onError={() => setReady(false)} />}
   </span>;
 }

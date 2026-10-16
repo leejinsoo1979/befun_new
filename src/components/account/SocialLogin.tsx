@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import { signIn } from 'next-auth/react';
 import styles from './account.module.css';
 
@@ -20,11 +22,12 @@ const GoogleIcon = () => (
 
 /** 네이버·카카오·구글 로그인 버튼(처음이면 자동 가입) */
 export function SocialLogin({ callbackUrl, verb = '로그인' }: { callbackUrl: string; verb?: string }) {
+  const { t } = useLocale();
   return (
     <div className={styles.social}>
-      <button type="button" className={styles.naver} onClick={() => signIn('naver', { callbackUrl })}><NaverIcon />네이버로 {verb}</button>
-      <button type="button" className={styles.kakao} onClick={() => signIn('kakao', { callbackUrl })}><KakaoIcon />카카오로 {verb}</button>
-      <button type="button" className={styles.google} onClick={() => signIn('google', { callbackUrl })}><GoogleIcon />Google로 {verb}</button>
+      <button type="button" className={styles.naver} onClick={() => signIn('naver', { callbackUrl })}><NaverIcon />{t(`네이버로 ${verb}`)}</button>
+      <button type="button" className={styles.kakao} onClick={() => signIn('kakao', { callbackUrl })}><KakaoIcon />{t(`카카오로 ${verb}`)}</button>
+      <button type="button" className={styles.google} onClick={() => signIn('google', { callbackUrl })}><GoogleIcon />{t(`Google로 ${verb}`)}</button>
     </div>
   );
 }

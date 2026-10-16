@@ -91,7 +91,7 @@ export function StorefrontFrame({ children, overlay = false }: { children: React
       <div className={styles.footerIdentity}>
         <Link href="/" className={styles.footerLogo} aria-label={t('Befun 홈')} onClick={goHome}><BrandLogo color="white" /></Link>
         <address className={styles.footerCompany}>
-          <span className={styles.footerCompanyName}>(주)유에이블 코퍼레이션</span>
+          <span className={styles.footerCompanyName}>{t('(주)유에이블 코퍼레이션')}</span>
           <span>{t('대표자')} {t('이진수')}</span>
           <span className={styles.footerAddress}>{t('서울시 강남구 언주로 97길 7, 5F')}</span>
           <a href="mailto:contact@befun.co.kr">contact@befun.co.kr</a>

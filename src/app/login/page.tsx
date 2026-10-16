@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import { Suspense, useState } from 'react';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
@@ -18,6 +20,7 @@ const OAUTH_ERRORS: Record<string, string> = {
 };
 
 function LoginForm() {
+  const { t } = useLocale();
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = safeCallback(searchParams.get('callbackUrl'));
@@ -43,30 +46,31 @@ function LoginForm() {
   };
 
   return (
-    <AuthShell title="로그인" lead="소셜 계정으로 1초 만에 시작하세요. 처음이면 자동으로 가입돼요.">
+    <AuthShell title={t("로그인")} lead="소셜 계정으로 1초 만에 시작하세요. 처음이면 자동으로 가입돼요.">
       <SocialLogin callbackUrl={callbackUrl} />
-      <div className={account.divider}>또는 이메일로 로그인</div>
+      <div className={account.divider}>{t("또는 이메일로 로그인")}</div>
       <form onSubmit={handleEmailLogin} className={account.form}>
         <div className={account.field}>
-          <label htmlFor="li-email">이메일</label>
+          <label htmlFor="li-email">{t("이메일")}</label>
           <input id="li-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" placeholder="you@example.com" required />
         </div>
         <div className={account.field}>
-          <label htmlFor="li-password">비밀번호</label>
-          <input id="li-password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" placeholder="비밀번호" required />
+          <label htmlFor="li-password">{t("비밀번호")}</label>
+          <input id="li-password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" placeholder={t("비밀번호")} required />
         </div>
-        {error && <p className={account.error} role="alert">{error}</p>}
-        <button type="submit" disabled={isSubmitting} className={account.submit}>{isSubmitting ? '로그인 중…' : '로그인'}</button>
+        {error && <p className={account.error} role="alert">{t(error)}</p>}
+        <button type="submit" disabled={isSubmitting} className={account.submit}>{t(isSubmitting ? '로그인 중…' : '로그인')}</button>
       </form>
-      <p className={account.switch}>아직 회원이 아니신가요?<Link href={`/signup?callbackUrl=${encodeURIComponent(callbackUrl)}`}>회원가입</Link></p>
+      <p className={account.switch}>{t("아직 회원이 아니신가요?")}<Link href={`/signup?callbackUrl=${encodeURIComponent(callbackUrl)}`}>{t("회원가입")}</Link></p>
     </AuthShell>
   );
 }
 
 export default function LoginPage() {
+  const { t } = useLocale();
   return (
     <ShopLayout>
-      <Suspense fallback={<div className="py-20 text-center text-gray-500">로딩 중...</div>}>
+      <Suspense fallback={<div className="py-20 text-center text-gray-500">{t("로딩 중...")}</div>}>
         <LoginForm />
       </Suspense>
     </ShopLayout>

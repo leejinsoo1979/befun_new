@@ -79,8 +79,8 @@ export function ConfiguratorIntro({ productLine = '', category = '', allowedProd
   };
   return <><section className={`${styles.pageSection} ${styles.configuratorIntro}`}>
     <h1>{collectionName ? `${collectionName} · ${t('가구 종류를 선택하세요')}` : t('가구 종류를 선택하세요')}</h1>
-    <p>사진을 선택해 해당 디자인을 살펴보세요. 구성 정보가 준비된 디자인은 같은 설정의 3D 편집기로 열립니다.</p>
-    <div className={styles.introCategories}>{orderedCategories.map(([slug]) => <div key={slug} className={styles.introCard}><button onClick={() => choose(slug)}><div><Image src={variantOf(slug)?.thumbnail ?? categoryThumbnails[slug]} alt={t(catalogCategories[slug])} fill sizes="(max-width:700px) 42vw, 20vw" /></div><span>{t(catalogCategories[slug])}</span></button>{variants[slug]?.length > 1 && <div className={styles.introSwatches} role="group" aria-label={`${t(catalogCategories[slug])} 컬러`}>{variants[slug].map((variant, vi) => <button key={variant.thumbnail} aria-label={variant.name} title={variant.name} aria-pressed={(variantBy[slug] ?? 0) === vi} style={{ background: variant.swatch }} onClick={() => setVariantBy(current => ({ ...current, [slug]: vi }))} />)}</div>}</div>)}</div>
-    <div className={styles.introNavigation}><Link href="/furniture-c" className={styles.outlineButton}><FiArrowLeft /> 돌아가기</Link></div>
+    <p>{t("사진을 선택해 해당 디자인을 살펴보세요. 구성 정보가 준비된 디자인은 같은 설정의 3D 편집기로 열립니다.")}</p>
+    <div className={styles.introCategories}>{orderedCategories.map(([slug]) => <div key={slug} className={styles.introCard}><button onClick={() => choose(slug)}><div><Image src={variantOf(slug)?.thumbnail ?? categoryThumbnails[slug]} alt={t(catalogCategories[slug])} fill sizes="(max-width:700px) 42vw, 20vw" /></div><span>{t(catalogCategories[slug])}</span></button>{variants[slug]?.length > 1 && <div className={styles.introSwatches} role="group" aria-label={`${t(catalogCategories[slug])} ${t('컬러')}`}>{variants[slug].map((variant, vi) => <button key={variant.thumbnail} aria-label={t(variant.name)} title={t(variant.name)} aria-pressed={(variantBy[slug] ?? 0) === vi} style={{ background: variant.swatch }} onClick={() => setVariantBy(current => ({ ...current, [slug]: vi }))} />)}</div>}</div>)}</div>
+    <div className={styles.introNavigation}><Link href="/furniture-c" className={styles.outlineButton}><FiArrowLeft />  {t("돌아가기")}</Link></div>
   </section><JoinSection /></>;
 }

@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import { Suspense, useState } from 'react';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
@@ -13,18 +15,20 @@ type Field = 'name' | 'email' | 'password' | 'confirm' | 'terms';
 
 /** 라벨·도움말·오류를 분리한 입력칸(라벨만 접근 가능한 이름, 도움말·오류는 aria-describedby) */
 function Input({ id, label, hint, error, ...props }: { id: string; label: string; hint?: string; error?: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+  const { t } = useLocale();
   const described = [hint && `${id}-hint`, error && `${id}-error`].filter(Boolean).join(' ') || undefined;
   return (
     <div className={account.field}>
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id}>{t(label)}</label>
       <input id={id} aria-invalid={!!error} aria-describedby={described} {...props} />
-      {hint && <small id={`${id}-hint`}>{hint}</small>}
-      {error && <span id={`${id}-error`} className={account.fieldError}>{error}</span>}
+      {hint && <small id={`${id}-hint`}>{t(hint)}</small>}
+      {error && <span id={`${id}-error`} className={account.fieldError}>{t(error)}</span>}
     </div>
   );
 }
 
 function SignupForm() {
+  const { t } = useLocale();
   const router = useRouter();
   const callbackUrl = safeCallback(useSearchParams().get('callbackUrl'));
   const [form, setForm] = useState({ name: '', email: '', password: '', confirm: '' });
@@ -67,34 +71,35 @@ function SignupForm() {
   };
 
   return (
-    <AuthShell title="회원가입" lead="소셜 계정으로 바로 시작하거나 이메일로 가입하세요.">
+    <AuthShell title={t("회원가입")} lead="소셜 계정으로 바로 시작하거나 이메일로 가입하세요.">
       <SocialLogin callbackUrl={callbackUrl} verb="시작하기" />
-      <div className={account.divider}>또는 이메일로 가입</div>
+      <div className={account.divider}>{t("또는 이메일로 가입")}</div>
       <form onSubmit={submit} className={account.form} noValidate>
         <Input id="su-name" label="이름" error={errors.name} value={form.name} onChange={set('name')} autoComplete="name" required maxLength={40} />
         <Input id="su-email" label="이메일" error={errors.email} type="email" value={form.email} onChange={set('email')} autoComplete="email" required />
         <Input id="su-password" label="비밀번호" hint="8자 이상, 영문과 숫자를 함께 넣어 주세요." error={errors.password} type="password" value={form.password} onChange={set('password')} autoComplete="new-password" required />
         <Input id="su-confirm" label="비밀번호 확인" error={errors.confirm} type="password" value={form.confirm} onChange={set('confirm')} autoComplete="new-password" required />
         <fieldset className={account.terms}>
-          <legend className="sr-only">약관 동의</legend>
-          <label className={account.all}><input type="checkbox" checked={allAgreed} onChange={(e) => setAgree({ terms: e.target.checked, privacy: e.target.checked, marketing: e.target.checked })} /> 전체 동의</label>
-          <label><input type="checkbox" checked={agree.terms} onChange={(e) => setAgree((a) => ({ ...a, terms: e.target.checked }))} /> 이용약관 동의 <em>(필수)</em></label>
-          <label><input type="checkbox" checked={agree.privacy} onChange={(e) => setAgree((a) => ({ ...a, privacy: e.target.checked }))} /> 개인정보 수집·이용 동의 <em>(필수)</em></label>
-          <label><input type="checkbox" checked={agree.marketing} onChange={(e) => setAgree((a) => ({ ...a, marketing: e.target.checked }))} /> 할인·이벤트 소식 받기 <em>(선택)</em></label>
-          {errors.terms && <span className={account.fieldError}>{errors.terms}</span>}
+          <legend className="sr-only">{t("약관 동의")}</legend>
+          <label className={account.all}><input type="checkbox" checked={allAgreed} onChange={(e) => setAgree({ terms: e.target.checked, privacy: e.target.checked, marketing: e.target.checked })} />  {t("전체 동의")}</label>
+          <label><input type="checkbox" checked={agree.terms} onChange={(e) => setAgree((a) => ({ ...a, terms: e.target.checked }))} />  {t("이용약관 동의")} <em>{t("(필수)")}</em></label>
+          <label><input type="checkbox" checked={agree.privacy} onChange={(e) => setAgree((a) => ({ ...a, privacy: e.target.checked }))} />  {t("개인정보 수집·이용 동의")} <em>{t("(필수)")}</em></label>
+          <label><input type="checkbox" checked={agree.marketing} onChange={(e) => setAgree((a) => ({ ...a, marketing: e.target.checked }))} />  {t("할인·이벤트 소식 받기")} <em>{t("(선택)")}</em></label>
+          {errors.terms && <span className={account.fieldError}>{t(errors.terms)}</span>}
         </fieldset>
-        {formError && <p className={account.error} role="alert">{formError}</p>}
-        <button type="submit" disabled={submitting} className={account.submit}>{submitting ? '가입 중…' : '가입하기'}</button>
+        {formError && <p className={account.error} role="alert">{t(formError)}</p>}
+        <button type="submit" disabled={submitting} className={account.submit}>{t(submitting ? '가입 중…' : '가입하기')}</button>
       </form>
-      <p className={account.switch}>이미 회원이신가요?<Link href={`/login?callbackUrl=${encodeURIComponent(callbackUrl)}`}>로그인</Link></p>
+      <p className={account.switch}>{t("이미 회원이신가요?")}<Link href={`/login?callbackUrl=${encodeURIComponent(callbackUrl)}`}>{t("로그인")}</Link></p>
     </AuthShell>
   );
 }
 
 export default function SignupPage() {
+  const { t } = useLocale();
   return (
     <ShopLayout>
-      <Suspense fallback={<div className="py-20 text-center text-gray-500">로딩 중...</div>}>
+      <Suspense fallback={<div className="py-20 text-center text-gray-500">{t("로딩 중...")}</div>}>
         <SignupForm />
       </Suspense>
     </ShopLayout>

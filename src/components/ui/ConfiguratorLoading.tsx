@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import type { CSSProperties } from 'react';
 import styles from './configurator-loading.module.css';
 
@@ -8,6 +10,7 @@ const panels = [4, 3, 2, 1, 0];
 
 /** Lightweight fallback shown until the existing scene-ready signal arrives. */
 export function ConfiguratorLoading({ ready = false }: { ready?: boolean }) {
+  const { t } = useLocale();
   return <div
     className={`${styles.loader} ${ready ? styles.ready : ''}`}
     role={ready ? undefined : 'status'}
@@ -26,6 +29,6 @@ export function ConfiguratorLoading({ ready = false }: { ready?: boolean }) {
         } as CSSProperties}
       ><span className={styles.artwork} /></span>)}
     </div>
-    <span className={styles.caption}>불러오는 중</span>
+    <span className={styles.caption}>{t("불러오는 중")}</span>
   </div>;
 }

@@ -134,7 +134,7 @@ export function Storefront() {
       </section>
       <section id="community" className={`${styles.section} ${styles.communitySection}`}>
         <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>{t('실제 사람들, 저마다의 공간')}</p><h2>{t('모든 디자인의 중심에는 당신이 있어요.')}</h2></div><Link className={styles.outlineButton} href="/inspirations">{t('더 알아보기')} <FiArrowRight /></Link></div>
-        <Carousel label={t('공간 이야기')}>{stories.map(item => <Link key={item.name} className={styles.storyCard} href={`/creators?influencer=${encodeURIComponent(item.name)}`}><Image src={asset(item.image)} alt={item.name} fill sizes="(max-width: 700px) 85vw, 33vw" /><div><span className={styles.eyebrow}>{t('공간 이야기')}</span><h3>{item.name}</h3><p>{t(item.title)}</p></div></Link>)}</Carousel>
+        <Carousel label={t('공간 이야기')}>{stories.map(item => <Link key={item.name} className={styles.storyCard} href={`/creators?influencer=${encodeURIComponent(item.name)}`}><Image src={asset(item.image)} alt={t(item.name)} fill sizes="(max-width: 700px) 85vw, 33vw" /><div><span className={styles.eyebrow}>{t('공간 이야기')}</span><h3>{t(item.name)}</h3><p>{t(item.title)}</p></div></Link>)}</Carousel>
       </section>
       <section className={styles.giftSection}><ReferenceImage source={asset('befun/gift-befun-logo.webp')} fallback="befun/gift.avif" alt={t('컬러와 취향을 선물하는 즐거움')} sizes="100vw" /><div><p className={styles.eyebrow}>{t('취향을 담는 즐거움')}</p><h2>{t('좋아하는 공간을,')}<br />{t('좋아하는 사람과.')}</h2><p>{t('함께 상상하고, 직접 디자인해 보세요.')}</p><Link href="/e-gift-card/1" className={styles.whiteButton}>{t('기프트카드 보기')}</Link></div></section>
       <section id="materials" className={styles.sustainability}>

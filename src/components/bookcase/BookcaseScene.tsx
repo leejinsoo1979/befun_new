@@ -1,4 +1,6 @@
 'use client';
+
+import { useLocale } from '@/lib/commerce/useLocale';
 import {Suspense, useEffect, useMemo, useRef} from 'react';
 import {Canvas, useFrame, useThree} from '@react-three/fiber';
 import {Html, OrbitControls, useGLTF} from '@react-three/drei';
@@ -80,12 +82,13 @@ function Camera({width,height,depth,reset,zoom}:{width:number;height:number;dept
  return <OrbitControls ref={controls} makeDefault enableDamping minDistance={60} maxDistance={2500} minPolarAngle={.08} maxPolarAngle={Math.PI/2} target={[targetX,frameHeight/2,depth/2]}/>;
 }
 export default function BookcaseScene({snapshot,selected,onSelect,open,editingColumns,dimensions,reset,zoom}:{snapshot:Snapshot;selected:number|null;onSelect:(n:number|null)=>void;open:boolean;editingColumns:boolean;dimensions:boolean;reset:number;zoom:number}){
+  const { t } = useLocale();
  const {width,height,depth}=snapshot.geometry;const w=width/10,h=height/10,d=depth/10;
  // Original calculateShelfOrigin: TYPE_24 HANGING_AT.y = 250 mm.
  const elevation="shelf_type" in snapshot.geometry && snapshot.geometry.shelf_type===7?25:0;
 
  return <Canvas shadows="percentage" dpr={[1,2]} camera={{fov:30,near:1,far:10000,position:[-200,200,700]}} gl={{antialias:true}} onCreated={({gl})=>{gl.toneMapping=THREE.NeutralToneMapping;gl.toneMappingExposure=1;}} onPointerMissed={()=>onSelect(null)}>
- <Suspense fallback={<Html center><span>가구 불러오는 중…</span></Html>}>
+ <Suspense fallback={<Html center><span>{t('가구 불러오는 중…')}</span></Html>}>
  <ReferenceStudio width={w} height={h+elevation}/>
  <Background shelfWidth={w} shelfHeight={h} shelfDepth={d}/>
  <group position={[0,elevation,0]} scale={100}>

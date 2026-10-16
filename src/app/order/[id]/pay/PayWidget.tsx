@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import { useEffect, useRef, useState } from 'react';
 import { loadTossPayments, type TossPaymentsWidgets } from '@tosspayments/tosspayments-sdk';
 
@@ -9,6 +11,7 @@ interface Props {
 }
 
 export function PayWidget({ clientKey, customerKey, orderId, orderName, amount, customerEmail, customerName }: Props) {
+  const { t } = useLocale();
   const widgetsRef = useRef<TossPaymentsWidgets | null>(null);
   const [ready, setReady] = useState(false);
   const [paying, setPaying] = useState(false);
@@ -59,14 +62,14 @@ export function PayWidget({ clientKey, customerKey, orderId, orderName, amount, 
     <div>
       <div id="payment-method" />
       <div id="agreement" />
-      {error && <p className="my-3 text-center text-sm text-red-500" role="alert">{error}</p>}
+      {error && <p className="my-3 text-center text-sm text-red-500" role="alert">{t(error)}</p>}
       <button
         type="button"
         onClick={pay}
         disabled={!ready || paying}
         className="mt-4 w-full rounded-lg bg-gray-900 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-gray-800 disabled:bg-gray-400"
       >
-        {paying ? '결제 진행 중…' : ready ? `${new Intl.NumberFormat('ko-KR').format(amount)}원 결제하기` : '결제창 불러오는 중…'}
+        {t(paying ? '결제 진행 중…' : ready ? `${new Intl.NumberFormat('ko-KR').format(amount)}원 결제하기` : '결제창 불러오는 중…')}
       </button>
     </div>
   );

@@ -21,21 +21,26 @@ import { catalogCategories, infoTitles, journalArticles } from '@/components/sto
 import { catalogThumbnailStart } from '@/lib/catalog-entry/starts';
 import { sourceProductKey } from '@/lib/catalog-images/identity';
 
+import { currentRegion } from '@/lib/i18n/server';
+import { translate } from '@/lib/i18n/messages';
+import type { Locale } from '@/lib/i18n/regions';
+
 type Props = {params: Promise<{segments: string[]}>; searchParams: Promise<Record<string, string | string[] | undefined>>};
 const policies = ['terms','terms-gift-card','privacy_policy','digital-services-act','terms/user-account-and-promo-codes'];
-function titleFor(path: string) {
+function titleFor(path: string, locale: Locale = 'ko') {
   if (path === 'furniture-c') return '모든 제품';
   if (path.startsWith('furniture-c/')) return catalogCategories[path.slice(12)];
   if (path.startsWith('furniture/')) return products.find(product=>product.id===path.slice(10))?.name;
   if (path.startsWith('reference-product/')) return referenceCatalog.find(product=>product.id===path.slice(18))?.name;
-  if (path.startsWith('catalog-item/')) { const [, key, seq] = path.split('/'); const item = downloadedItem(key, Number(seq)); return item ? localizedProductName(item.name, 'ko') : undefined; }
+  if (path.startsWith('catalog-item/')) { const [, key, seq] = path.split('/'); const item = downloadedItem(key, Number(seq)); return item ? localizedProductName(item.name, locale) : undefined; }
   if (path.startsWith('sofa/')) return referenceProducts.find(product=>product.id===path.slice(5))?.name;
   if (path.startsWith('journal/')) return journalArticles.find(article=>article.slug===path.slice(8))?.title;
   return infoTitles[path] ?? ({gallery:'공간 갤러리','region-settings':'지역 설정',account:'계정',myshop:'내 쇼핑', 'tylko-pro/apply':'프로젝트 문의', 'configurator-intro':'가구 선택', 'design-preview':'공유된 디자인', 'saved-designs':'저장한 디자인', 'investor-relations':'투자자 정보'} as Record<string,string>)[path];
 }
 export async function generateMetadata({params}: Props): Promise<Metadata> {
   const path = (await params).segments.join('/');
-  return {title: `${titleFor(path) ?? '페이지를 찾을 수 없습니다'} | Befun`};
+  const { locale } = await currentRegion();
+  return {title: `${translate(locale, titleFor(path, locale) ?? '페이지를 찾을 수 없습니다')} | Befun`};
 }
 export default async function StorePage({params,searchParams}: Props) {
   const path = (await params).segments.join('/');

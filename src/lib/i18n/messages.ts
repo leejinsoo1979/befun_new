@@ -1,8 +1,9 @@
 import type { Locale } from './regions';
+import { translate as translateUI } from '@/lib/commerce/ui-dictionary';
+import { supplementalTranslation } from './supplemental';
 
 /**
- * 한국어 원문을 키로 쓰는 번역 사전. 사전에 없는 문구는 원문(한국어) 그대로 표시된다.
- * 1단계 범위: 헤더·메뉴·푸터·알림바·홈·지역 설정. 상품/컨피규레이터 등은 다음 단계에서 추가.
+ * 한국어 원문을 키로 쓰는 번역 사전. 공통 화면과 편집기 모두 같은 번역 경로를 사용한다.
  */
 type Dict = Record<string, string>;
 
@@ -383,5 +384,10 @@ const ko: Dict = {
 export const MESSAGES: Record<Locale, Dict> = { ko, en, ja };
 
 export function translate(locale: Locale, source: string): string {
-  return MESSAGES[locale][source] ?? source;
+  if (Object.hasOwn(MESSAGES[locale], source)) return MESSAGES[locale][source];
+  if (locale === 'ko') return source;
+  const supplemental = supplementalTranslation(locale, source);
+  if (supplemental !== undefined) return supplemental;
+  if (source.includes(' · ')) return source.split(' · ').map(part => translate(locale, part)).join(' · ');
+  return translateUI(source, locale);
 }

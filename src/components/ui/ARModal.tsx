@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import { QRCodeSVG } from 'qrcode.react';
 
 interface ARModalProps {
@@ -8,6 +10,7 @@ interface ARModalProps {
 }
 
 export function ARModal({ shareUrl, onClose }: ARModalProps) {
+  const { t } = useLocale();
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
@@ -28,11 +31,9 @@ export function ARModal({ shareUrl, onClose }: ARModalProps) {
         </button>
 
         <h3 className="mb-2 text-center text-lg font-semibold text-[#333]">
-          AR 뷰어
-        </h3>
+           {t("AR 뷰어")} </h3>
         <p className="mb-6 text-center text-sm text-gray-500">
-          모바일에서 QR 코드를 스캔하여<br />디자인을 확인하세요
-        </p>
+           {t("모바일에서 QR 코드를 스캔하여")}<br />{t("디자인을 확인하세요")} </p>
 
         {/* QR 코드 */}
         <div className="mb-6 flex justify-center">
@@ -46,8 +47,7 @@ export function ARModal({ shareUrl, onClose }: ARModalProps) {
           <div className="flex items-start gap-2.5">
             <span className="mt-0.5 text-base">📱</span>
             <p className="text-xs leading-relaxed text-gray-500">
-              스마트폰 카메라로 QR 코드를 스캔하면 브라우저에서 선반 디자인을 바로 확인할 수 있습니다.
-            </p>
+               {t("스마트폰 카메라로 QR 코드를 스캔하면 브라우저에서 선반 디자인을 바로 확인할 수 있습니다.")} </p>
           </div>
         </div>
       </div>

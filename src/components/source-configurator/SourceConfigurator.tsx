@@ -48,13 +48,14 @@ const colorNames: Record<string, string> = { white: '화이트', whiteSmoke: '�
 const uffTiles = ['glory_natural', 'glory_linen', 'glory_steel', 'glory_liver', 'glory_graphite', 'glory_pale', 'glory_brass', 'glory_thyme', 'glory_hazel', 'colormax_butter_yellow', 'colormax_beige', 'colormax_salt_pepper', 'colormax_mint', 'colormax_grey', 'colormax_black_pink'];
 const uffNames = ['오이스터 그레이', '리넨 베이지', '문스톤 그레이', '토프', '그래파이트 그레이', '로즈우드', '브라스 옐로', '타임 그린', '월넛 브라운', '레몬 크림', '아몬드 크림', '솔트 & 페퍼', '세이지 & 민트', '멜란지 그레이', '플럼 & 차콜'];
 const valueKey = (value: unknown): string => JSON.stringify(value, value && typeof value === 'object' && !Array.isArray(value) ? Object.keys(value).sort() : undefined);
-function colourName(name: string) {
+function sourceColourName(name: string) {
   const standard = name.replace(/^matte([A-Z])/, (_, letter: string) => letter.toLowerCase());
   return `${colorNames[standard] ?? standard}${name.startsWith('matte') ? ' · 프리미엄 매트' : ''}`;
 }
 function ParameterControl({ name, parameter, value, change }: { name: string; parameter?: SourceParameter; value: unknown; change: (value: unknown) => void }) {
+  const { t } = useLocale();
   if (!parameter?.visible || parameter.type === 'custom' || name === 'localMaterial') return null;
-  const title = labels[name] ?? parameter.label ?? name;
+  const title = t(labels[name] ?? parameter.label ?? name);
   const choices = parameter.options ?? [];
   if (parameter.type.includes('ranges')) {
     const ranges = parameter.ranges ?? [];
@@ -65,12 +66,12 @@ function ParameterControl({ name, parameter, value, change }: { name: string; pa
       const candidates = [...numbers, ...ranges.map(range => Math.max(range.min, Math.min(range.max, range.min + Math.round((next - range.min) / range.step) * range.step)))];
       change(candidates.reduce((closest, current) => Math.abs(current - next) < Math.abs(closest - next) ? current : closest, candidates[0]));
     };
-    return <label className={styles.dimension}>{title}<span><input aria-label={`${title} 슬라이더`} type="range" min={minimum} max={maximum} step={.1} value={Number(value)} disabled={!parameter.enabled} onChange={event => snap(Number(event.target.value))} /><input key={String(value)} type="number" aria-label={title} min={minimum} max={maximum} defaultValue={Number(value)} disabled={!parameter.enabled} onBlur={event => { if (event.target.value && Number.isFinite(Number(event.target.value))) snap(Number(event.target.value)); }} onKeyDown={event => { if (event.key === 'Enter') event.currentTarget.blur(); }} /><small>{name === 'density' ? '%' : 'cm'}</small></span></label>;
+    return <label className={styles.dimension}>{title}<span><input aria-label={`${title} ${t('슬라이더')}`} type="range" min={minimum} max={maximum} step={.1} value={Number(value)} disabled={!parameter.enabled} onChange={event => snap(Number(event.target.value))} /><input key={String(value)} type="number" aria-label={title} min={minimum} max={maximum} defaultValue={Number(value)} disabled={!parameter.enabled} onBlur={event => { if (event.target.value && Number.isFinite(Number(event.target.value))) snap(Number(event.target.value)); }} onKeyDown={event => { if (event.key === 'Enter') event.currentTarget.blur(); }} /><small>{name === 'density' ? '%' : 'cm'}</small></span></label>;
   }
-  if (choices.length > 12 || parameter.type === 'action-options') return <label className={styles.select}>{title}<select aria-label={title} value={parameter.type === 'action-options' ? '' : valueKey(value)} disabled={!parameter.enabled} onChange={event => { const option = choices.find(option => valueKey(option.value) === event.target.value); if (option) change(option.value); }}><option value="" disabled>{title} 선택</option>{choices.map(option => <option key={valueKey(option.value)} value={valueKey(option.value)} disabled={option.disabled}>{optionNames[option.label] ?? option.label}</option>)}</select></label>;
+  if (choices.length > 12 || parameter.type === 'action-options') return <label className={styles.select}>{title}<select aria-label={title} value={parameter.type === 'action-options' ? '' : valueKey(value)} disabled={!parameter.enabled} onChange={event => { const option = choices.find(option => valueKey(option.value) === event.target.value); if (option) change(option.value); }}><option value="" disabled>{title}  {t("선택")}</option>{choices.map(option => <option key={valueKey(option.value)} value={valueKey(option.value)} disabled={option.disabled}>{t(optionNames[option.label] ?? option.label)}</option>)}</select></label>;
   return <fieldset className={styles.parameter}><legend>{title}</legend><div>{choices.map(option => {
     const selected = parameter.type === 'multiselect' ? Array.isArray(value) && value.some(entry => valueKey(entry) === valueKey(option.value)) : valueKey(value) === valueKey(option.value);
-    return <button type="button" key={valueKey(option.value)} disabled={option.disabled || !parameter.enabled} aria-pressed={selected} onClick={() => change(parameter.type === 'multiselect' ? selected ? (value as unknown[]).filter(entry => valueKey(entry) !== valueKey(option.value)) : [...(Array.isArray(value) ? value : []), option.value] : option.value)}>{optionNames[option.label] ?? optionNames[String(option.value)] ?? option.label}</button>;
+    return <button type="button" key={valueKey(option.value)} disabled={option.disabled || !parameter.enabled} aria-pressed={selected} onClick={() => change(parameter.type === 'multiselect' ? selected ? (value as unknown[]).filter(entry => valueKey(entry) !== valueKey(option.value)) : [...(Array.isArray(value) ? value : []), option.value] : option.value)}>{t(optionNames[option.label] ?? optionNames[String(option.value)] ?? option.label)}</button>;
   })}</div></fieldset>;
 }
 function Template({ thumbnail }: { thumbnail: Thumbnail }) {
@@ -84,7 +85,8 @@ function Template({ thumbnail }: { thumbnail: Thumbnail }) {
 
 export default function SourceConfigurator({ source }: { source: SourceDefinition }) {
   const params = useSearchParams();
-  const { language, market } = useLocale();
+  const { language, market, t } = useLocale();
+  const colourName = (name: string) => t(sourceColourName(name));
   const legacy = source.shelfType === 0 || source.shelfType === 1;
   const sofa = source.shelfType === 10 || source.shelfType === 12;
   const originalState = useMemo(() => sourceInitialState(source), [source]);
@@ -147,40 +149,40 @@ export default function SourceConfigurator({ source }: { source: SourceDefinitio
   const selectMaterial = (id: number) => update({ material: sofa ? { material: id, material_backrest: id, material_cushion: id } : id });
   const fabricName = (id: number) => {
     const nameIndex = language === 'ko' ? 0 : language === 'ja' ? 2 : 1;
-    const colour = sofaModel === 'uff' ? uffNames[id] : smoothSwatch(id)?.name[nameIndex];
+    const colour = sofaModel === 'uff' ? t(uffNames[id]) : smoothSwatch(id)?.name[nameIndex];
     return `${colour ?? ''} · ${sofaFabric(id, sofaModel).name[nameIndex]}`;
   };
-  const colorPanel = <section><h2>재질과 색상을 선택하세요</h2><div className={styles.colours}>
+  const colorPanel = <section><h2>{t("재질과 색상을 선택하세요")}</h2><div className={styles.colours}>
     {sofa ? Array.from({ length: source.shelfType === 12 ? 15 : 28 }, (_, id) => id).filter(id => id !== 25).map(id => {
       const name = fabricName(id);
       const image = sofaModel === 'uff' ? `/three/sofa/ui/tile_color_12_${uffTiles[id]}.png` : smoothSwatch(id)?.image;
       return <button key={id} aria-label={name} title={name} aria-pressed={materialId === id} onClick={() => selectMaterial(id)}>{image ? <Image src={image} alt="" width={72} height={96} /> : <span style={{ background: sofaColor(id, sofaModel) }} />}<small>{name}</small></button>;
-    }) : palette.map(entry => <button key={entry.id} aria-label={entry.outer === entry.inner ? colourName(entry.outer) : `${colourName(entry.outer)} · ${source.shelfType === 1 ? '테두리' : '내부'} ${colourName(entry.inner)}`} title={`${colourName(entry.outer)} / ${colourName(entry.inner)}`} aria-pressed={materialId === entry.id} onClick={() => selectMaterial(entry.id)}><span style={{ background: `linear-gradient(135deg,${colorHex(entry.outer)} 65%,${colorHex(entry.inner)} 65%)` }} /><small>{colourName(entry.outer)}</small></button>)}
-  </div><p className={styles.caption}>{sofa ? fabricName(materialId) : selectedColour ? `표면: ${colourName(selectedColour.outer)} · ${source.shelfType === 1 ? '테두리' : '내부'}: ${colourName(selectedColour.inner)}` : source.color}</p></section>;
+    }) : palette.map(entry => <button key={entry.id} aria-label={entry.outer === entry.inner ? colourName(entry.outer) : `${colourName(entry.outer)} · ${t(source.shelfType === 1 ? '테두리' : '내부')} ${colourName(entry.inner)}`} title={`${colourName(entry.outer)} / ${colourName(entry.inner)}`} aria-pressed={materialId === entry.id} onClick={() => selectMaterial(entry.id)}><span style={{ background: `linear-gradient(135deg,${colorHex(entry.outer)} 65%,${colorHex(entry.inner)} 65%)` }} /><small>{colourName(entry.outer)}</small></button>)}
+  </div><p className={styles.caption}>{sofa ? fabricName(materialId) : selectedColour ? `${t('표면')}: ${colourName(selectedColour.outer)} · ${t(source.shelfType === 1 ? '테두리' : '내부')}: ${colourName(selectedColour.inner)}` : t(source.color)}</p></section>;
   const hasSofaParts = !!snapshot.schema.find(group => group.key === 'sofaParts')?.children.length;
   return <div className={`${shared.root} ${styles.root} ${full ? shared.full : ''}`} data-source-product-key={source.key} data-lineup={source.line} data-width-mm={snapshot.geometry.width} data-height-mm={snapshot.geometry.height} data-depth-mm={snapshot.geometry.depth}>
     <div className={shared.viewer}>
-      <div className={shared.brand}><Link href="/" aria-label="Befun 홈"><Image src="/imgs/icon/befun_logo.svg" alt="BEFUN" width={130} height={38} /></Link><Link href={`/furniture-c/${sofa ? 'sofas' : category}`}><FiArrowLeft /> 뒤로</Link></div>
-      <button className={shared.fullButton} aria-label="전체 화면" aria-pressed={full} onClick={() => setFull(value => !value)}><FiMaximize /></button>
+      <div className={shared.brand}><Link href="/" aria-label={t("Befun 홈")}><Image src="/imgs/icon/befun_logo.svg" alt="BEFUN" width={130} height={38} /></Link><Link href={`/furniture-c/${sofa ? 'sofas' : category}`}><FiArrowLeft />  {t("뒤로")}</Link></div>
+      <button className={shared.fullButton} aria-label={t("전체 화면")} aria-pressed={full} onClick={() => setFull(value => !value)}><FiMaximize /></button>
       {sofa ? hasSofaParts ? <SofaScene snapshot={snapshot} model={sofaModel} selected={selected} onSelect={index => { setSelected(index); if (index !== null) setTab('sections'); }} reset={reset} zoom={zoom} /> : source.image ? <div className={styles.coverPreview}><Image src={source.image} alt={sourceTitle} fill sizes="(max-width:800px) 100vw, 68vw" /></div> : null : <FurnitureScene snapshot={snapshot as unknown as FurnitureSnapshot} selected={selected} onSelect={index => { setSelected(index); if (index !== null) setTab('sections'); }} open={open} editingColumns={tab === 'sections'} dimensions={dimensions} reset={reset} zoom={zoom} />}
-      <div className={shared.toolDock}><div className={shared.tools} role="toolbar" aria-label="가구 보기 도구"><button aria-label="축소" onClick={() => setZoom(value => value - 1)}><FiMinus /></button><button aria-label="확대" onClick={() => setZoom(value => value + 1)}><FiPlus /></button><button aria-label="치수 표시" aria-pressed={dimensions} onClick={() => setDimensions(value => !value)}>↔</button>{!sofa && <button aria-label="도어·서랍 열기" aria-pressed={open} onClick={() => setOpen(value => !value)}>▥</button>}<button aria-label="디자인 공유" onClick={shareDesign}><FiShare2 /></button></div></div>
-      <button className={shared.resetButton} aria-label="시점 초기화" aria-keyshortcuts="Space" onClick={() => setReset(value => value + 1)}><FiRotateCcw /></button>
+      <div className={shared.toolDock}><div className={shared.tools} role="toolbar" aria-label={t("가구 보기 도구")}><button aria-label={t("축소")} onClick={() => setZoom(value => value - 1)}><FiMinus /></button><button aria-label={t("확대")} onClick={() => setZoom(value => value + 1)}><FiPlus /></button><button aria-label={t("치수 표시")} aria-pressed={dimensions} onClick={() => setDimensions(value => !value)}>↔</button>{!sofa && <button aria-label={t("도어·서랍 열기")} aria-pressed={open} onClick={() => setOpen(value => !value)}>▥</button>}<button aria-label={t("디자인 공유")} onClick={shareDesign}><FiShare2 /></button></div></div>
+      <button className={shared.resetButton} aria-label={t("시점 초기화")} aria-keyshortcuts="Space" onClick={() => setReset(value => value + 1)}><FiRotateCcw /></button>
       {sofa && dimensions && <p className={styles.dimensions}>{snapshot.geometry.width / 10} × {snapshot.geometry.height / 10} × {snapshot.geometry.depth / 10} cm</p>}
     </div>
     <aside className={shared.sidebar}>
-      <nav className={shared.tabs} aria-label="가구 편집 메뉴">{[['size', '크기·형태'], ['colour', '재질·색상'], ['sections', sofa ? '모듈 편집' : '구획 편집'], ['summary', '요약']].map(([key, label]) => <button key={key} aria-current={tab === key ? 'step' : undefined} onClick={() => setTab(key)}>{label}</button>)}</nav>
+      <nav className={shared.tabs} aria-label={t("가구 편집 메뉴")}>{[['size', '크기·형태'], ['colour', '재질·색상'], ['sections', sofa ? '모듈 편집' : '구획 편집'], ['summary', '요약']].map(([key, label]) => <button key={key} aria-current={tab === key ? 'step' : undefined} onClick={() => setTab(key)}>{t(label)}</button>)}</nav>
       <div className={shared.panel}>
         <header className={styles.product}><h1>{source.line === 'uff' ? 'Uff' : source.line === 'smooth' ? 'Smooth' : source.line === 'classic' ? 'Original Classic' : source.line === 'modern' ? 'Original Modern' : source.line === 'edge' ? 'Edge' : 'Tone'}</h1><p>{sourceTitle}</p><strong>{snapshot.geometry.width / 10} × {snapshot.geometry.height / 10} × {snapshot.geometry.depth / 10} cm</strong></header>
-        {tab === 'size' && <section><h2>공간에 맞게 디자인하세요</h2>{globalKeys.map(renderControl)}{source.detached && <p className={styles.caption}>이 단품은 표시된 크기로 제공됩니다.</p>}</section>}
+        {tab === 'size' && <section><h2>{t("공간에 맞게 디자인하세요")}</h2>{globalKeys.map(renderControl)}{source.detached && <p className={styles.caption}>{t("이 단품은 표시된 크기로 제공됩니다.")}</p>}</section>}
         {tab === 'colour' && colorPanel}
-        {tab === 'sections' && <section><h2>{sofa ? '모듈을 선택하세요' : '구획을 선택하세요'}</h2><div className={styles.sectionButtons}>{Object.keys(channels).map((key, index) => <button key={key} aria-pressed={selected === index} aria-label={`${index + 1}${sofa ? '번 모듈' : source.category === 'vinyl_storage' ? '단' : '열'} 편집`} onClick={() => setSelected(index)}>{index + 1}</button>)}</div>
-          {snapshot.thumbnails.length > 0 && <div className={styles.templates}>{snapshot.thumbnails.filter(thumbnail => thumbnail.render).map((thumbnail, index) => <button key={String(thumbnail.series_id)} aria-label={`내부 구성 ${index + 1}`} aria-pressed={channels[selectedChannel]?.seriesId === thumbnail.series_id} title={thumbnail.series_name} onClick={() => update({ channels: { [selectedChannel]: { seriesId: thumbnail.series_id } } })}><Template thumbnail={thumbnail} /></button>)}</div>}
+        {tab === 'sections' && <section><h2>{t(sofa ? '모듈을 선택하세요' : '구획을 선택하세요')}</h2><div className={styles.sectionButtons}>{Object.keys(channels).map((key, index) => <button key={key} aria-pressed={selected === index} aria-label={`${index + 1} ${t(sofa ? '모듈' : source.category === 'vinyl_storage' ? '단' : '열')} ${t('편집')}`} onClick={() => setSelected(index)}>{index + 1}</button>)}</div>
+          {snapshot.thumbnails.length > 0 && <div className={styles.templates}>{snapshot.thumbnails.filter(thumbnail => thumbnail.render).map((thumbnail, index) => <button key={String(thumbnail.series_id)} aria-label={`${t('내부 구성')} ${index + 1}`} aria-pressed={channels[selectedChannel]?.seriesId === thumbnail.series_id} title={t(thumbnail.series_name)} onClick={() => update({ channels: { [selectedChannel]: { seriesId: thumbnail.series_id } } })}><Template thumbnail={thumbnail} /></button>)}</div>}
           {Object.entries(parameters.channels?.[selectedChannel] ?? {}).map(([key, parameter]) => key === 'seriesId' ? null : <ParameterControl key={key} name={key} parameter={parameter} value={channels[selectedChannel]?.[key]} change={value => update({ channels: { [selectedChannel]: { [key]: value } } })} />)}
           {source.detached && colorPanel}
         </section>}
-        {tab === 'summary' && <section><h2>나만의 디자인</h2><p>{sourceTitle}</p><p>{snapshot.geometry.width / 10} × {snapshot.geometry.height / 10} × {snapshot.geometry.depth / 10} cm</p><button className={shared.textButton} onClick={load}>저장한 디자인 불러오기</button><button className={shared.textButton} onClick={() => { setState(originalState); setSelected(null); setShare(''); setMessage('사진 속 초기 구성으로 돌아왔습니다.'); }}>사진 속 초기 구성으로</button></section>}
+        {tab === 'summary' && <section><h2>{t("나만의 디자인")}</h2><p>{sourceTitle}</p><p>{snapshot.geometry.width / 10} × {snapshot.geometry.height / 10} × {snapshot.geometry.depth / 10} cm</p><button className={shared.textButton} onClick={load}>{t("저장한 디자인 불러오기")}</button><button className={shared.textButton} onClick={() => { setState(originalState); setSelected(null); setShare(''); setMessage('사진 속 초기 구성으로 돌아왔습니다.'); }}>{t("사진 속 초기 구성으로")}</button></section>}
       </div>
-      <footer className={shared.footer}><div className={shared.total}><span>합계</span><strong aria-live="polite" data-eur={euro ?? undefined}>{euro !== null ? formatMoney(eurToMarket(euro, market), market) : '가격 확인 필요'}</strong></div><div className={shared.marketRow}><MarketSelector /></div><p className={styles.caption}>독일 EUR 기준 참고 견적</p><div className={shared.actions}><button onClick={save}><FiHeart /> 디자인 저장</button><button onClick={shareDesign}><FiShare2 /> 링크 공유</button></div>{message && <p role="status">{message}</p>}{share && <input className={styles.share} aria-label="디자인 공유 링크" value={share} readOnly onFocus={event => event.target.select()} />}</footer>
+      <footer className={shared.footer}><div className={shared.total}><span>{t("합계")}</span><strong aria-live="polite" data-eur={euro ?? undefined}>{euro !== null ? formatMoney(eurToMarket(euro, market), market) : t('가격 확인 필요')}</strong></div><div className={shared.marketRow}><MarketSelector /></div><p className={styles.caption}>{t("독일 EUR 기준 참고 견적")}</p><div className={shared.actions}><button onClick={save}><FiHeart />  {t("디자인 저장")}</button><button onClick={shareDesign}><FiShare2 />  {t("링크 공유")}</button></div>{message && <p role="status">{t(message)}</p>}{share && <input className={styles.share} aria-label={t("디자인 공유 링크")} value={share} readOnly onFocus={event => event.target.select()} />}</footer>
     </aside>
   </div>;
 }

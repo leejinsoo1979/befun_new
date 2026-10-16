@@ -1,8 +1,7 @@
-import type { Metadata } from 'next';
 import { Noto_Sans_KR } from 'next/font/google';
 import { Providers } from '@/components/common/Providers';
 import { I18nProvider } from '@/lib/i18n/I18nProvider';
-import { currentRegion } from '@/lib/i18n/server';
+import { currentRegion, localizedMetadata } from '@/lib/i18n/server';
 import './globals.css';
 
 const notoSansKR = Noto_Sans_KR({
@@ -11,10 +10,12 @@ const notoSansKR = Noto_Sans_KR({
   variable: '--font-noto-sans-kr',
 });
 
-export const metadata: Metadata = {
-  title: 'Befun - 나만의 맞춤 가구',
-  description: '3D 커스터마이저로 나만의 수납 가구를 디자인하세요',
-};
+export async function generateMetadata() {
+  return localizedMetadata({
+    title: 'Befun - 나만의 맞춤 가구',
+    description: '3D 커스터마이저로 나만의 수납 가구를 디자인하세요',
+  });
+}
 
 export default async function RootLayout({
   children,

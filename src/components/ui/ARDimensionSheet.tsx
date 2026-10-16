@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import { useState } from 'react';
 import { FiCheck, FiX } from 'react-icons/fi';
 import { useShelfStore } from '@/stores/useShelfStore';
@@ -29,6 +31,7 @@ interface ARDimensionSheetProps {
  * 드래그하는 동안 AR 속 선반에 바로 반영되고, 취소하면 시트를 열 때의 크기로 되돌린다.
  */
 export function ARDimensionSheet({ onClose }: ARDimensionSheetProps) {
+  const { t } = useLocale();
   const width = useShelfStore((s) => s.width);
   const depth = useShelfStore((s) => s.depth);
   const numRows = useShelfStore((s) => s.numRows);
@@ -57,22 +60,20 @@ export function ARDimensionSheet({ onClose }: ARDimensionSheetProps) {
   return (
     <div className="rounded-t-2xl bg-white/95 shadow-[0_-6px_24px_rgba(0,0,0,0.15)] backdrop-blur">
       <div className="px-5 pt-3 pb-1">
-        <RulerSlider label="너비" value={width} min={30} max={450} step={1} tickEvery={10}
+        <RulerSlider label={t('너비')} value={width} min={30} max={450} step={1} tickEvery={10}
           display={`${Math.round(width)} cm`} onChange={setWidth} />
-        <RulerSlider label="높이" value={numRows} min={1} max={MAX_ROWS} step={1} tickEvery={1}
+        <RulerSlider label={t('높이')} value={numRows} min={1} max={MAX_ROWS} step={1} tickEvery={1}
           display={`${Math.round(totalHeight(numRows))} cm`} onChange={(v) => setRowCount(Math.round(v))} />
-        <RulerSlider label="깊이" value={depthIndex} min={0} max={DEPTHS.length - 1} step={1} tickEvery={1}
+        <RulerSlider label={t('깊이')} value={depthIndex} min={0} max={DEPTHS.length - 1} step={1} tickEvery={1}
           display={`${DEPTHS[depthIndex]} cm`} onChange={(i) => setDepth(DEPTHS[Math.round(i)])} />
       </div>
       <div className="grid grid-cols-2 border-t border-[#ececec] pb-[env(safe-area-inset-bottom)]">
         <button type="button" onClick={cancel}
           className="flex h-12 items-center justify-center gap-1.5 border-r border-[#ececec] text-[15px] text-[#555]">
-          <FiX size={16} /> 취소
-        </button>
+          <FiX size={16} />  {t("취소")} </button>
         <button type="button" onClick={onClose}
           className="flex h-12 items-center justify-center gap-1.5 text-[15px] font-semibold text-[var(--green)]">
-          <FiCheck size={17} /> 적용
-        </button>
+          <FiCheck size={17} />  {t("적용")} </button>
       </div>
     </div>
   );

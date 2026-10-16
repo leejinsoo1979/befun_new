@@ -2364,3 +2364,9 @@ R14 구현 조정: `shelf-geometry.ts` 공통 분기까지 리더 수정 범위�
 - 사용자 요청으로 /terms 임시 안내를 BEFUN 전용24조 약관 초안으로 교체. 좁은 범위: app/(storefront)/terms/page.tsx, components/storefront/legal/**, docs/handoffs/befun-terms/**. 최종 사양·주문 제작·철회/환급·하자·계정/개인정보/콘텐츠/분쟁 조항 작성. 미확정 운영 정보와 시행일은 초안/noindex로 유지.
 - 로컬 검증: 전체lint0오류13기존경고, 격리 production webpack·TypeScript PASS, Chrome1728/390 본문24조·목차/앵커/가로넘침0 확인. 사용자 커밋푸시 지시에 따라 최신 원격 main d280fbf 기준 독립 사본에서 지정 소스4파일과 인계만 추가 게시 검증 중. 공유 checkout/index/3003/다른 담당 WIP 보존.
 - 게시 검증 완료/잠금 해제: 게시 사본 lint0오류13기존경고/scopedlint PASS, production webpack·TypeScript·/terms 경로 생성 PASS, 검증 원본4파일 SHA256일치. 동시 번역 미게시 helper 의존성은 게시 사본에서 원래 정적 metadata로 분리하고 공유 번역 변경 유지. 변경6파일만 정상 fast-forward push 대상으로 확정. 자세한 범위와 운영 정보 미확정 사항은 docs/handoffs/befun-terms/README.md 참조.
+
+### Codex — EN/JA 한국어 잔존 수정 검증 완료 / 2026-10-16
+- 공통/편집기 사전 통합 fallback·보충 EN/JA, 고객/계정/주문/공유/AR/편집기 표시·동적 수량/색상·메타데이터·이용약관24조89항 번역. 한국어카피·ID·geometry·가격·인증·결제 동작 보존. 번역 소스 잠금 해제.
+- Chrome3003 desktop1728/mobile390 EN/JA 주요경로 본문·aria/alt/title/placeholder 확인, 모바일넘침0, 옷장235218,w 언어전환 전후1180×1980×600mm/EUR1682 동일, KR/viewport원복. 결제·가입·문의 전송 안 함.
+- 독립 게시 사본 최신 origin/main(58acde1, Pro 선게시 번역 호출 보존) 기준 번역만 분리. 기존 원격 소재/기프트 화면도 해당 버전으로 번역. tests6 PASS, full lint0오류13기존경고, 최종 production webpack/TypeScript·정적생성 PASS, diff-check PASS. 인계 docs/handoffs/locale-20261016/README.md 및 로그3개.
+- 아직 미게시인 신규 MaterialsPage의 수량aria/OptimizerLaunchButton 번역 호출은 공유 소스에 보존. 별도 언어유지 담당의 currentRegion/I18nProvider/regions/preference 변경은 포함하지 않음. 공유 HEAD/index/.next/서버·타담당 작업 보존. 사용자 요청으로 이 분리 변경을 정상 커밋·푸시 진행.

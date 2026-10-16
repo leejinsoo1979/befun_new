@@ -24,6 +24,7 @@ export function ReferenceImage({ source, fallback, alt, sizes, className }: { so
 
 
 export function Dialog({ title, children, close, drawer = false }: { title: string; children: ReactNode; close: () => void; drawer?: boolean }) {
+  const { t } = useLocale();
   const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     const dialog = ref.current;
@@ -38,8 +39,8 @@ export function Dialog({ title, children, close, drawer = false }: { title: stri
   return (
     <dialog ref={ref} className={`${styles.dialog} ${drawer ? styles.drawer : ''}`} aria-labelledby="storefront-dialog-title" onCancel={close} onClick={(event) => { if (event.target === event.currentTarget) { const rect = event.currentTarget.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) close(); } }}>
       <div className={styles.dialogHeading}>
-        <h2 id="storefront-dialog-title">{title}</h2>
-        <button className={styles.iconButton} aria-label="닫기" onClick={close}><FiX /></button>
+        <h2 id="storefront-dialog-title">{t(title)}</h2>
+        <button className={styles.iconButton} aria-label={t('닫기')} onClick={close}><FiX /></button>
       </div>
       {children}
     </dialog>
@@ -48,6 +49,7 @@ export function Dialog({ title, children, close, drawer = false }: { title: stri
 
 
 export function Carousel({ children, label }: { children: ReactNode; label: string }) {
+  const { t } = useLocale();
   const ref = useRef<HTMLDivElement>(null);
   const [edges, setEdges] = useState({ start: true, end: false });
   const measure = () => {
@@ -64,10 +66,10 @@ export function Carousel({ children, label }: { children: ReactNode; label: stri
     element?.scrollBy({ left: direction * element.clientWidth * 0.8, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   };
   return <div className={styles.carousel}>
-    <div ref={ref} className={styles.track} onScroll={measure} role="region" aria-label={label} tabIndex={0}>{children}</div>
+    <div ref={ref} className={styles.track} onScroll={measure} role="region" aria-label={t(label)} tabIndex={0}>{children}</div>
     <div className={styles.arrows}>
-      <button aria-label={`${label} 이전`} disabled={edges.start} onClick={() => scroll(-1)}><FiArrowLeft /></button>
-      <button aria-label={`${label} 다음`} disabled={edges.end} onClick={() => scroll(1)}><FiArrowRight /></button>
+      <button aria-label={`${t(label)} ${t('이전')}`} disabled={edges.start} onClick={() => scroll(-1)}><FiArrowLeft /></button>
+      <button aria-label={`${t(label)} ${t('다음')}`} disabled={edges.end} onClick={() => scroll(1)}><FiArrowRight /></button>
     </div>
   </div>;
 }

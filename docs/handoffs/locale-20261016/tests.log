@@ -1,0 +1,14 @@
+✔ The common translation API can use configurator copy and compound finish labels (0.877458ms)
+✔ Korean editorial copy and unknown source text are preserved (0.767083ms)
+✔ Supplemental translations have unique keys and no Korean in foreign-language values (0.595583ms)
+✔ Navigation, home products, creator names and FAQ content have both translations (0.804584ms)
+✔ All 24 draft terms articles retain their clauses and numeric conditions in English and Japanese (2.01025ms)
+✔ Updated customer screens contain no bare Korean JSX or untranslated literal t calls (126.114417ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 892.67925

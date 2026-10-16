@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import { useState } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 
@@ -9,6 +11,7 @@ interface ShareModalProps {
 }
 
 export function ShareModal({ shareUrl, onClose }: ShareModalProps) {
+  const { t } = useLocale();
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -49,8 +52,7 @@ export function ShareModal({ shareUrl, onClose }: ShareModalProps) {
         </button>
 
         <h3 className="mb-6 text-center text-lg font-semibold text-[#333]">
-          디자인 공유
-        </h3>
+           {t("디자인 공유")} </h3>
 
         {/* QR 코드 */}
         <div className="mb-6 flex justify-center">
@@ -71,13 +73,12 @@ export function ShareModal({ shareUrl, onClose }: ShareModalProps) {
             onClick={handleCopy}
             className="shrink-0 rounded-lg bg-[var(--green)] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#2a7a1a] active:scale-[0.97]"
           >
-            {copied ? '복사됨!' : '복사'}
+            {t(copied ? '복사됨!' : '복사')}
           </button>
         </div>
 
         <p className="mt-4 text-center text-xs text-gray-400">
-          링크를 공유하면 누구나 디자인을 확인할 수 있습니다
-        </p>
+           {t("링크를 공유하면 누구나 디자인을 확인할 수 있습니다")} </p>
       </div>
     </div>
   );

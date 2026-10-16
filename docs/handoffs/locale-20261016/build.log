@@ -1,0 +1,71 @@
+
+> befun-v2-next@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.1.6 (webpack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 21.7s
+  Running TypeScript ...
+  Collecting page data using 17 workers ...
+  Generating static pages using 17 workers (0/29) ...
+  Generating static pages using 17 workers (7/29)
+  Generating static pages using 17 workers (14/29)
+  Generating static pages using 17 workers (21/29)
+✓ Generating static pages using 17 workers (29/29) in 1162.3ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ƒ /
+├ ƒ /_not-found
+├ ƒ /[...segments]
+├ ƒ /admin
+├ ƒ /admin/designs
+├ ƒ /admin/orders
+├ ƒ /admin/orders/[id]
+├ ƒ /admin/search
+├ ƒ /admin/settings
+├ ƒ /admin/users
+├ ƒ /admin/users/[id]
+├ ƒ /api/admin/orders/export
+├ ƒ /api/auth/[...nextauth]
+├ ƒ /api/auth/signup
+├ ƒ /api/designs
+├ ƒ /api/designs/[code]
+├ ƒ /api/factory/[id]/cutlist
+├ ƒ /api/orders
+├ ƒ /api/orders/[id]
+├ ƒ /api/payment/confirm
+├ ƒ /api/webhook/payment
+├ ○ /apple-icon.png
+├ ƒ /assembly-guide
+├ ƒ /assembly-guide/cabinet
+├ ƒ /befun-pro
+├ ƒ /bookcase-configurator
+├ ƒ /cart
+├ ƒ /configurator
+├ ƒ /factory
+├ ƒ /factory/[id]
+├ ƒ /furniture-design/[family]
+├ ○ /icon.svg
+├ ƒ /legacy-configurator
+├ ƒ /login
+├ ƒ /mypage
+├ ƒ /optimizer
+├ ƒ /order
+├ ƒ /order/[id]
+├ ƒ /order/[id]/pay
+├ ƒ /order/fail
+├ ƒ /order/success
+├ ƒ /render-shelf
+├ ƒ /share/[code]
+├ ƒ /signup
+├ ƒ /sofa-configurator
+├ ƒ /terms
+└ ƒ /tylko-pro
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand

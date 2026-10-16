@@ -1,5 +1,7 @@
 'use client';
 
+import { useLocale } from '@/lib/commerce/useLocale';
+
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Html, OrbitControls } from '@react-three/drei';
@@ -120,13 +122,14 @@ function TransitionFrames({design,open}:{design:FurnitureDesign;open:boolean}){
   return null;
 }
 export default function FurnitureScene({design,open,dimensions,front,reset,zoom,interior,selectedSectionId,onSelectSection,onEditDeskLegroom}:{design:FurnitureDesign;open:boolean;dimensions:boolean;front:boolean;reset:number;zoom:{factor:number;revision:number};interior:boolean;selectedSectionId:string|null;onSelectSection:(id:string)=>void;onEditDeskLegroom?:()=>void}) {
+  const { t } = useLocale();
   const [ready,setReady]=useState(false);
   const [contextLost,setContextLost]=useState(false);
   const [contextKey,setContextKey]=useState(0);
   const footMaterial=useMemo(()=>new THREE.MeshStandardMaterial({color:'#202020',roughness:.65}),[]);
   useEffect(()=>()=>footMaterial.dispose(),[footMaterial]);
   const width=design.config.widthMm/10,depth=(design.kind==='desk'?design.config.depthMm:Math.max(design.config.depthMm,...design.config.sections.map(s=>s.localDepthMm??0)))/10,height=design.kind==='desk'?73:Math.max(design.config.heightMm,...design.config.sections.map(s=>s.localHeightMm??0))/10;
-  return <><ConfiguratorLoading ready={ready||contextLost}/>{contextLost&&<div role="alert" style={{position:'absolute',inset:0,zIndex:20,display:'grid',placeContent:'center',gap:12,textAlign:'center',background:'#e6e4e0'}}><p>3D 화면 연결이 끊겼습니다. 편집한 디자인은 유지됩니다.</p><button onClick={()=>{setContextLost(false);setReady(false);setContextKey(value=>value+1);}}>3D 화면 다시 열기</button></div>}<Canvas key={contextKey} shadows="percentage" frameloop="demand" dpr={[1,1.5]} camera={{position:[0,height/2,400],fov:40,near:1,far:5000}} onCreated={({gl})=>{gl.toneMapping=THREE.NeutralToneMapping;gl.toneMappingExposure=1;}}>
+  return <><ConfiguratorLoading ready={ready||contextLost}/>{contextLost&&<div role="alert" style={{position:'absolute',inset:0,zIndex:20,display:'grid',placeContent:'center',gap:12,textAlign:'center',background:'#e6e4e0'}}><p>{t('3D 화면 연결이 끊겼습니다. 편집한 디자인은 유지됩니다.')}</p><button onClick={()=>{setContextLost(false);setReady(false);setContextKey(value=>value+1);}}>{t('3D 화면 다시 열기')}</button></div>}<Canvas key={contextKey} shadows="percentage" frameloop="demand" dpr={[1,1.5]} camera={{position:[0,height/2,400],fov:40,near:1,far:5000}} onCreated={({gl})=>{gl.toneMapping=THREE.NeutralToneMapping;gl.toneMappingExposure=1;}}>
     <ContextStatus onLost={setContextLost}/>
     <Suspense fallback={null}><ReferenceStudio width={width} height={height}/></Suspense>
     <Suspense fallback={null}>

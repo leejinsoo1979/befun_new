@@ -1,3 +1,5 @@
+import { currentRegion } from '@/lib/i18n/server';
+import { translate } from '@/lib/i18n/messages';
 import { notFound, redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
@@ -10,6 +12,8 @@ export const dynamic = 'force-dynamic';
 /** 토스 결제위젯 화면. 본인의 결제 대기 주문만 */
 export default async function PayPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
+  const { locale } = await currentRegion();
+  const t = (source: string) => translate(locale, source);
   const session = await getServerSession(authOptions);
   if (!session?.user?.id) redirect(`/login?callbackUrl=${encodeURIComponent(`/order/${id}/pay`)}`);
   const order = await prisma.order.findFirst({
@@ -22,13 +26,14 @@ export default async function PayPage({ params }: { params: Promise<{ id: string
   const amount = order.totalAmount + order.shippingFee;
   const count = order.items.reduce((n, i) => n + i.quantity, 0);
   const orderName = count > 1 ? `맞춤 수납장 외 ${count - 1}건` : '맞춤 수납장';
-  const won = (n: number) => `${new Intl.NumberFormat('ko-KR').format(n)}원`;
+  const won = (n: number) => locale === 'ko' ? `${new Intl.NumberFormat('ko-KR').format(n)}원` : `₩${new Intl.NumberFormat('en-US').format(n)}`;
+  const displayName = `${t('맞춤 수납장')}${count > 1 ? ` ${t(`외 ${count - 1}건`)}` : ''}`;
 
   return (
     <ShopLayout>
       <div className="mx-auto max-w-2xl px-4 py-10">
-        <h1 className="mb-2 text-2xl font-bold">결제하기</h1>
-        <p className="mb-6 text-sm text-gray-500">{orderName} · 상품 {won(order.totalAmount)} · 배송비 {order.shippingFee ? won(order.shippingFee) : '무료'}</p>
+        <h1 className="mb-2 text-2xl font-bold">{t('결제하기')}</h1>
+        <p className="mb-6 text-sm text-gray-500">{displayName} · {t('상품')} {won(order.totalAmount)} · {t('배송비')} {order.shippingFee ? won(order.shippingFee) : t('무료')}</p>
         <PayWidget
           clientKey={process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY ?? ''}
           customerKey={session.user.id}
