@@ -1,8 +1,9 @@
 'use client';
 
-import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useSyncExternalStore, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
-import { REGION_COOKIE, regionById, type Region, type RegionId } from './regions';
+import { regionById, type Region, type RegionId } from './regions';
+import { persistRegionPreference, readRegionPreference, selectRegion, subscribeRegionPreference } from './preference';
 import { translate } from './messages';
 
 interface I18nValue {
@@ -16,14 +17,18 @@ const I18nContext = createContext<I18nValue>({ region: regionById('kr'), t: sour
 
 export function I18nProvider({ initialRegion, children }: { initialRegion: RegionId; children: ReactNode }) {
   const router = useRouter();
-  const [regionId, setRegionId] = useState<RegionId>(initialRegion);
+  const regionId = useSyncExternalStore(subscribeRegionPreference, readRegionPreference, () => initialRegion);
   const region = regionById(regionId);
   const setRegion = useCallback((id: RegionId) => {
-    document.cookie = `${REGION_COOKIE}=${id}; path=/; max-age=${60 * 60 * 24 * 365}; samesite=lax`;
-    document.documentElement.lang = regionById(id).htmlLang;
-    setRegionId(id);
-    router.refresh();
-  }, [router]);
+    selectRegion(id);
+  }, []);
+  useEffect(() => {
+    // Restore an explicit origin preference before the next server navigation.
+    // During hydration the server cookie may be older than the browser choice.
+    if (readRegionPreference() !== regionId) return;
+    persistRegionPreference(regionId);
+    if (regionId !== initialRegion) router.refresh();
+  }, [initialRegion, regionId, router]);
   const t = useCallback((source: string) => translate(region.locale, source), [region.locale]);
   const value = useMemo(() => ({ region, t, setRegion }), [region, t, setRegion]);
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;

@@ -14,6 +14,9 @@ export const REGIONS: readonly Region[] = [
 export const REGION_COOKIE = 'befun_region';
 export const DEFAULT_REGION: RegionId = 'kr';
 
+export const isRegionId = (id: unknown): id is RegionId =>
+  typeof id === 'string' && REGIONS.some(region => region.id === id);
+
 export const regionById = (id: string | undefined | null): Region =>
   REGIONS.find(region => region.id === id) ?? REGIONS.find(region => region.id === DEFAULT_REGION)!;
 

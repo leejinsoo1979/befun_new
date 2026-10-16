@@ -1,13 +1,12 @@
 import type { Metadata } from 'next';
 import { translate } from './messages';
-import { cookies, headers } from 'next/headers';
-import { REGION_COOKIE, regionById, regionFromAcceptLanguage, type Region } from './regions';
+import { cookies } from 'next/headers';
+import { REGION_COOKIE, regionById, type Region } from './regions';
 
-/** 서버에서 현재 국가: 쿠키 → 없으면 브라우저 Accept-Language */
+/** Explicit saved selection only. Browser/VPN locale must not change the site language. */
 export async function currentRegion(): Promise<Region> {
   const saved = (await cookies()).get(REGION_COOKIE)?.value;
-  if (saved) return regionById(saved);
-  return regionById(regionFromAcceptLanguage((await headers()).get('accept-language')));
+  return regionById(saved);
 }
 
 export async function localizedMetadata(metadata: Metadata): Promise<Metadata> {
