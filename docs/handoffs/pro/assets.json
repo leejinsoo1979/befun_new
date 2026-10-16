@@ -1,0 +1,97 @@
+[
+  {
+    "file": "hero.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/hero/XLD.avif",
+    "ok": true
+  },
+  {
+    "file": "brand.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/brand/D.avif",
+    "ok": true
+  },
+  {
+    "file": "benefits.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/benefits/D.avif",
+    "ok": true
+  },
+  {
+    "file": "collanine_colorate.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/spaces/retail/collanine_colorate/D.avif",
+    "ok": true
+  },
+  {
+    "file": "birkenstock.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/spaces/retail/birkenstock/D.avif",
+    "ok": true
+  },
+  {
+    "file": "moco_store_london.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/spaces/retail/moco_store_london/D.avif",
+    "ok": true
+  },
+  {
+    "file": "form.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/form/XLD.avif",
+    "ok": true
+  },
+  {
+    "file": "sigfrido_serra.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/spaces/residential/sigfrido_serra/D.avif",
+    "ok": true
+  },
+  {
+    "file": "felipe_pantone.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/spaces/residential/felipe_pantone/D.avif",
+    "ok": true
+  },
+  {
+    "file": "mistovia.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/spaces/residential/mistovia/D.avif",
+    "ok": true
+  },
+  {
+    "file": "skina.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/spaces/gastronomy/skina/D.avif",
+    "ok": true
+  },
+  {
+    "file": "helen_cafe.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/spaces/gastronomy/helen_cafe/D.avif",
+    "ok": true
+  },
+  {
+    "file": "amator.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/spaces/gastronomy/amator/D.avif",
+    "ok": true
+  },
+  {
+    "file": "plantonia.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/spaces/hotels/plantonia/D.avif",
+    "ok": true
+  },
+  {
+    "file": "autor_rooms.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/spaces/hotels/autor_rooms/D.avif",
+    "ok": true
+  },
+  {
+    "file": "menursery.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/spaces/facilities/menursery/D.avif",
+    "ok": true
+  },
+  {
+    "file": "satyendra_pakhale.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/spaces/workspaces/satyendra_pakhale/D.avif",
+    "ok": true
+  },
+  {
+    "file": "koi.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/spaces/workspaces/koi/D.avif",
+    "ok": true
+  },
+  {
+    "file": "polaroid.avif",
+    "source": "https://media.tylko.com/cloudinary/tylko-pro/spaces/workspaces/polaroid/D.avif",
+    "ok": true
+  }
+]
