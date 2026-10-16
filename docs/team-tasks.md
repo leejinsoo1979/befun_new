@@ -2359,3 +2359,8 @@ R14 구현 조정: `shelf-geometry.ts` 공통 분기까지 리더 수정 범위�
 ### Codex — 확대 화면 그림자 보정 / 2026-10-16
 - 사용자 캡처의 손잡이 그림자 계단 현상 보정. 좁은 소유: ReferenceStudio.tsx의 그림자 맵·카메라·반경, Scene.tsx/FurnitureScene.tsx/BookcaseScene.tsx의 Canvas PCF 설정 및 docs/handoffs/shadow-quality/README.md. 최신 원격 main 위의 독립 사본에서 검증·게시하며 공유 작업 폴더와 다른 담당 변경을 보존.
 - 완료/잠금 해제: 공통 Canvas3곳에 명시적 PCF, 데스크톱4096/좁은 뷰어2048(GPU 한도 제한), 그림자 카메라 하단·반경 조정. Chrome 확대/기본/모바일 및 공통3D 검증 완료. 게시 사본 full lint 오류0/기존13경고, webpack production build·TypeScript·정적26페이지 PASS. 미해결 질문 없음. 검증 기록: docs/handoffs/shadow-quality/README.md.
+
+### Codex — BEFUN 이용약관 작성·게시 / 2026-10-16
+- 사용자 요청으로 /terms 임시 안내를 BEFUN 전용24조 약관 초안으로 교체. 좁은 범위: app/(storefront)/terms/page.tsx, components/storefront/legal/**, docs/handoffs/befun-terms/**. 최종 사양·주문 제작·철회/환급·하자·계정/개인정보/콘텐츠/분쟁 조항 작성. 미확정 운영 정보와 시행일은 초안/noindex로 유지.
+- 로컬 검증: 전체lint0오류13기존경고, 격리 production webpack·TypeScript PASS, Chrome1728/390 본문24조·목차/앵커/가로넘침0 확인. 사용자 커밋푸시 지시에 따라 최신 원격 main d280fbf 기준 독립 사본에서 지정 소스4파일과 인계만 추가 게시 검증 중. 공유 checkout/index/3003/다른 담당 WIP 보존.
+- 게시 검증 완료/잠금 해제: 게시 사본 lint0오류13기존경고/scopedlint PASS, production webpack·TypeScript·/terms 경로 생성 PASS, 검증 원본4파일 SHA256일치. 동시 번역 미게시 helper 의존성은 게시 사본에서 원래 정적 metadata로 분리하고 공유 번역 변경 유지. 변경6파일만 정상 fast-forward push 대상으로 확정. 자세한 범위와 운영 정보 미확정 사항은 docs/handoffs/befun-terms/README.md 참조.
