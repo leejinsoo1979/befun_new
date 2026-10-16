@@ -1,3 +1,4 @@
+import { collectionProductKeys } from '@/lib/shopping-catalog/server';
 import type { Metadata } from 'next';
 import { notFound, redirect } from 'next/navigation';
 import { StorefrontFrame } from '@/components/storefront/StorefrontFrame';
@@ -10,12 +11,15 @@ import { referenceCatalog } from '@/components/storefront/referenceCatalog';
 import { SourceProductPage } from '@/components/storefront/ReferenceCatalogPages';
 import { DownloadedItemPage } from '@/components/storefront/DownloadedCatalog';
 import { downloadedItem, downloadedItems } from '@/lib/catalog-expansion/server';
+import { shoppingItems, shoppingWishlistItems, shoppingRecommendations, chaiseItems } from '@/lib/shopping-catalog/server';
 import { downloadedCategoryFor } from '@/lib/catalog-expansion/categories';
 import { localizedProductName } from '@/lib/catalog-expansion/names';
 import { ConfiguratorIntro } from '@/components/storefront/ConfiguratorIntro';
 import { FurnitureConfigurator } from '@/components/furniture/FurnitureConfigurator';
 import { catalogFurnitureDesign } from '@/lib/furniture/catalog-design';
 import { catalogCategories, infoTitles, journalArticles } from '@/components/storefront/navigation';
+import { catalogThumbnailStart } from '@/lib/catalog-entry/starts';
+import { sourceProductKey } from '@/lib/catalog-images/identity';
 
 type Props = {params: Promise<{segments: string[]}>; searchParams: Promise<Record<string, string | string[] | undefined>>};
 const policies = ['terms','terms-gift-card','privacy_policy','digital-services-act','terms/user-account-and-promo-codes'];
@@ -45,19 +49,23 @@ export default async function StorePage({params,searchParams}: Props) {
   if (!title) notFound();
   let content;
   let overlay=false;
-  if (path === 'furniture-c' || path.startsWith('furniture-c/')) { const slug = path === 'furniture-c' ? '' : path.slice(12); const category = downloadedCategoryFor(slug, query); content=<CatalogPage slug={slug} query={query} downloaded={category ? downloadedItems(category.key) : []} />; }
+  if (path === 'furniture-c' || path.startsWith('furniture-c/')) { const slug = path === 'furniture-c' ? '' : path.slice(12); const category = downloadedCategoryFor(slug, query); content=<CatalogPage slug={slug} query={query} items={shoppingItems(category ? downloadedItems(category.key) : slug === 'chaise_longues' ? chaiseItems() : [])} recommendations={shoppingRecommendations()} />; }
   else if (path === 'design-preview') content=<SharedDesignPage serialized={query.design ?? ''} />;
   else if (path === 'saved-designs') content=<SavedDesignsPage />;
-  else if (path === 'configurator-intro') content=<ConfiguratorIntro />;
+  else if (path === 'configurator-intro') content=<ConfiguratorIntro key={`${query.productLine ?? ''}:${query.category ?? ''}`} productLine={query.productLine} category={query.category} allowedProductKeys={collectionProductKeys(query.productLine)} />;
   else if (path.startsWith('furniture/')) content=<ProductPage product={products.find(product=>product.id===path.slice(10))!} />;
   else if (path.startsWith('reference-product/')) {
     const id = path.slice(18);
+    const reference = referenceCatalog.find(product=>product.id===id);
+    const key = reference ? sourceProductKey(reference.source) : null;
+    const exact = key ? catalogThumbnailStart(key) : null;
+    if (exact && exact.href !== `/${path}`) redirect(exact.href);
     const initial = catalogFurnitureDesign(id);
     content = initial ? <FurnitureConfigurator key={id} initial={initial} title={title} catalogId={id} /> : <SourceProductPage id={id} />;
   }
   else if (path.startsWith('sofa/')) content=<ReferenceProductPage id={path.slice(5)} />;
-  else if (path.startsWith('catalog-item/')) { const [, key, seq] = path.split('/'); content=<DownloadedItemPage item={downloadedItem(key, Number(seq))!} />; }
-  else if (['search','wishlist'].includes(path)) content=<SearchPage initialQuery={query.q} wishlist={path==='wishlist'} />;
+  else if (path.startsWith('catalog-item/')) { const [, key, seq] = path.split('/'); const item = downloadedItem(key, Number(seq))!; if(item.editorHref)redirect(item.editorHref); content=<DownloadedItemPage item={item} />; }
+  else if (['search','wishlist'].includes(path)) content=<SearchPage initialQuery={query.q} wishlist={path==='wishlist'} shoppingItems={path==='wishlist' ? shoppingWishlistItems() : []} />;
   else if (['inspirations','creators','gallery','review-list'].includes(path)) {content=<CommunityPage key={query.influencer} mode={path} influencer={query.influencer} />;overlay=path==='inspirations';}
   else if (path==='about-tylko') {content=<AboutPage />;overlay=true;}
   else if (path==='showrooms') content=<ShowroomsPage />;

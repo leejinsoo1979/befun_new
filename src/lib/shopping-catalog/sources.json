@@ -1,0 +1,836 @@
+{
+  "capturedAt": "2026-10-15",
+  "pages": [
+    {
+      "url": "https://tylko.com/de-de/mobel-c",
+      "title": "Alle Produkte",
+      "banners": [
+        "Uff",
+        "Original Classic",
+        "Original Modern",
+        "Edge",
+        "Tone",
+        "Smooth"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/sideboard",
+      "title": "Sideboards",
+      "banners": [
+        "Original Classic",
+        "Original Modern",
+        "Edge",
+        "Tone"
+      ],
+      "cards": 32,
+      "filters": [
+        {
+          "href": "/de-de/mobel-c/sideboard?styles=grid",
+          "text": " Grid"
+        },
+        {
+          "href": "/de-de/mobel-c/sideboard?styles=gradient",
+          "text": " Gradient"
+        },
+        {
+          "href": "/de-de/mobel-c/sideboard?styles=pattern",
+          "text": " Pattern"
+        },
+        {
+          "href": "/de-de/mobel-c/sideboard?styles=frame",
+          "text": " Frame"
+        },
+        {
+          "href": "/de-de/mobel-c/sideboard?styles=mosaic",
+          "text": " Mosaic"
+        },
+        {
+          "href": "/de-de/mobel-c/sideboard?styles=pixel",
+          "text": " Pixel"
+        }
+      ]
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/bucherregale",
+      "title": "Bücherregale",
+      "banners": [
+        "Original Classic",
+        "Original Modern",
+        "Edge",
+        "Tone"
+      ],
+      "cards": 32,
+      "filters": [
+        {
+          "href": "/de-de/mobel-c/bucherregale?styles=grid",
+          "text": " Grid"
+        },
+        {
+          "href": "/de-de/mobel-c/bucherregale?styles=gradient",
+          "text": " Gradient"
+        },
+        {
+          "href": "/de-de/mobel-c/bucherregale?styles=pattern",
+          "text": " Pattern"
+        },
+        {
+          "href": "/de-de/mobel-c/bucherregale?styles=mosaic",
+          "text": " Mosaic"
+        },
+        {
+          "href": "/de-de/mobel-c/bucherregale?styles=slant",
+          "text": " Slant"
+        },
+        {
+          "href": "/de-de/mobel-c/bucherregale?styles=pixel",
+          "text": " Pixel"
+        }
+      ]
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/regalsysteme",
+      "title": "Regalsysteme",
+      "banners": [
+        "Original Classic",
+        "Original Modern",
+        "Edge",
+        "Tone"
+      ],
+      "cards": 32,
+      "filters": [
+        {
+          "href": "/de-de/mobel-c/regalsysteme?styles=grid",
+          "text": " Grid"
+        },
+        {
+          "href": "/de-de/mobel-c/regalsysteme?styles=gradient",
+          "text": " Gradient"
+        },
+        {
+          "href": "/de-de/mobel-c/regalsysteme?styles=pattern",
+          "text": " Pattern"
+        },
+        {
+          "href": "/de-de/mobel-c/regalsysteme?styles=mosaic",
+          "text": " Mosaic"
+        },
+        {
+          "href": "/de-de/mobel-c/regalsysteme?styles=slant",
+          "text": " Slant"
+        },
+        {
+          "href": "/de-de/mobel-c/regalsysteme?styles=pixel",
+          "text": " Pixel"
+        }
+      ]
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/wohnwande",
+      "title": "Wohnwände",
+      "banners": [
+        "Edge",
+        "Tone"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/schreibtische",
+      "title": "Schreibtische",
+      "banners": [
+        "Original Classic",
+        "Original Modern"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/fernsehtische",
+      "title": "TV-Möbel",
+      "banners": [
+        "Original Classic",
+        "Original Modern",
+        "Edge",
+        "Tone"
+      ],
+      "cards": 32,
+      "filters": [
+        {
+          "href": "/de-de/mobel-c/fernsehtische?styles=grid",
+          "text": " Grid"
+        },
+        {
+          "href": "/de-de/mobel-c/fernsehtische?styles=gradient",
+          "text": " Gradient"
+        },
+        {
+          "href": "/de-de/mobel-c/fernsehtische?styles=pattern",
+          "text": " Pattern"
+        },
+        {
+          "href": "/de-de/mobel-c/fernsehtische?styles=frame",
+          "text": " Frame"
+        },
+        {
+          "href": "/de-de/mobel-c/fernsehtische?styles=mosaic",
+          "text": " Mosaic"
+        },
+        {
+          "href": "/de-de/mobel-c/fernsehtische?styles=pixel",
+          "text": " Pixel"
+        }
+      ]
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/kommoden",
+      "title": "Kommoden",
+      "banners": [
+        "Original Classic",
+        "Original Modern",
+        "Edge",
+        "Tone"
+      ],
+      "cards": 32,
+      "filters": [
+        {
+          "href": "/de-de/mobel-c/kommoden?styles=grid",
+          "text": " Grid"
+        },
+        {
+          "href": "/de-de/mobel-c/kommoden?styles=gradient",
+          "text": " Gradient"
+        },
+        {
+          "href": "/de-de/mobel-c/kommoden?styles=pattern",
+          "text": " Pattern"
+        },
+        {
+          "href": "/de-de/mobel-c/kommoden?styles=mosaic",
+          "text": " Mosaic"
+        },
+        {
+          "href": "/de-de/mobel-c/kommoden?styles=slant",
+          "text": " Slant"
+        },
+        {
+          "href": "/de-de/mobel-c/kommoden?styles=pixel",
+          "text": " Pixel"
+        }
+      ]
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/schminktisch",
+      "title": "Schminktisch",
+      "banners": [
+        "Original Classic",
+        "Original Modern"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/schuhregale",
+      "title": "Schuhregale",
+      "banners": [
+        "Original Classic",
+        "Original Modern",
+        "Edge"
+      ],
+      "cards": 32,
+      "filters": [
+        {
+          "href": "/de-de/mobel-c/schuhregale?styles=grid",
+          "text": " Grid"
+        },
+        {
+          "href": "/de-de/mobel-c/schuhregale?styles=gradient",
+          "text": " Gradient"
+        },
+        {
+          "href": "/de-de/mobel-c/schuhregale?styles=pattern",
+          "text": " Pattern"
+        },
+        {
+          "href": "/de-de/mobel-c/schuhregale?styles=mosaic",
+          "text": " Mosaic"
+        },
+        {
+          "href": "/de-de/mobel-c/schuhregale?styles=slant",
+          "text": " Slant"
+        }
+      ]
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/nachttische",
+      "title": "Nachttische",
+      "banners": [
+        "Original Classic",
+        "Original Modern",
+        "Edge",
+        "Tone"
+      ],
+      "cards": 32,
+      "filters": [
+        {
+          "href": "/de-de/mobel-c/nachttische?styles=grid",
+          "text": " Grid"
+        },
+        {
+          "href": "/de-de/mobel-c/nachttische?styles=gradient",
+          "text": " Gradient"
+        },
+        {
+          "href": "/de-de/mobel-c/nachttische?styles=pattern",
+          "text": " Pattern"
+        },
+        {
+          "href": "/de-de/mobel-c/nachttische?styles=slant",
+          "text": " Slant"
+        }
+      ]
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/sideboard?features=hanging&productLines=3,6,7,8",
+      "title": "Sideboards",
+      "banners": [
+        "Original Classic",
+        "Original Modern",
+        "Edge",
+        "Tone"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/schallplattenregale",
+      "title": "Vinyl-Regale",
+      "banners": [
+        "Original Classic"
+      ],
+      "cards": 32,
+      "filters": [
+        {
+          "href": "/de-de/mobel-c/schallplattenregale?styles=grid",
+          "text": " Grid"
+        },
+        {
+          "href": "/de-de/mobel-c/schallplattenregale?styles=pattern",
+          "text": " Pattern"
+        }
+      ]
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/stauraum",
+      "title": "Stauraum",
+      "banners": [
+        "Original Classic",
+        "Original Modern",
+        "Edge",
+        "Tone"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/kleiderschranke?types=fullyClosed",
+      "title": "Kleiderschränke",
+      "banners": [
+        "Edge",
+        "Tone"
+      ],
+      "cards": 32,
+      "filters": [
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyClosed&colors=white",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyClosed&colors=black",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyClosed&colors=grey",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyClosed&colors=blue",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyClosed&colors=pink",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyClosed&colors=wooden",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyClosed,partiallyOpen",
+          "text": " Teilweise offen"
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyClosed,fullyOpen",
+          "text": " Komplett offen"
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyClosed&columns=oneColumn",
+          "text": " 1 Abschnitt"
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyClosed&columns=twoColumns",
+          "text": " 2 Abschnitte"
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyClosed&columns=threePlusColumns",
+          "text": " 3+ Abschnitte"
+        }
+      ]
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/kleiderschranke?types=partiallyOpen",
+      "title": "Kleiderschränke",
+      "banners": [
+        "Edge",
+        "Tone"
+      ],
+      "cards": 32,
+      "filters": [
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=partiallyOpen&colors=white",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=partiallyOpen&colors=black",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=partiallyOpen&colors=grey",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=partiallyOpen&colors=blue",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=partiallyOpen&colors=pink",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=partiallyOpen&colors=wooden",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=partiallyOpen,fullyClosed",
+          "text": " Komplett geschlossen"
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=partiallyOpen,fullyOpen",
+          "text": " Komplett offen"
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=partiallyOpen&columns=oneColumn",
+          "text": " 1 Abschnitt"
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=partiallyOpen&columns=twoColumns",
+          "text": " 2 Abschnitte"
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=partiallyOpen&columns=threePlusColumns",
+          "text": " 3+ Abschnitte"
+        }
+      ]
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/kleiderschranke?types=fullyOpen",
+      "title": "Kleiderschränke",
+      "banners": [
+        "Edge",
+        "Tone"
+      ],
+      "cards": 32,
+      "filters": [
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyOpen&colors=white",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyOpen&colors=black",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyOpen&colors=grey",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyOpen&colors=blue",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyOpen&colors=pink",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyOpen&colors=wooden",
+          "text": ""
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyOpen,fullyClosed",
+          "text": " Komplett geschlossen"
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyOpen,partiallyOpen",
+          "text": " Teilweise offen"
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyOpen&columns=oneColumn",
+          "text": " 1 Abschnitt"
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyOpen&columns=twoColumns",
+          "text": " 2 Abschnitte"
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyOpen&columns=threePlusColumns",
+          "text": " 3+ Abschnitte"
+        }
+      ]
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/kleiderschranke?features=internalDrawers",
+      "title": "Kleiderschränke",
+      "banners": [
+        "Edge",
+        "Tone"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/kleiderschranke",
+      "title": "Kleiderschränke",
+      "banners": [
+        "Edge",
+        "Tone"
+      ],
+      "cards": 32,
+      "filters": [
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyClosed",
+          "text": " Komplett geschlossen"
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=partiallyOpen",
+          "text": " Teilweise offen"
+        },
+        {
+          "href": "/de-de/mobel-c/kleiderschranke?types=fullyOpen",
+          "text": " Komplett offen"
+        }
+      ]
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/zwei_sitzer",
+      "title": "2-Sitzer-Sofas",
+      "banners": [
+        "Uff",
+        "Smooth"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/drei_sitzer",
+      "title": "3-Sitzer-Sofas",
+      "banners": [
+        "Uff",
+        "Smooth"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/vier_plus_sitzer",
+      "title": "Große Sofas",
+      "banners": [
+        "Uff",
+        "Smooth"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/ecksofas",
+      "title": "Ecksofas",
+      "banners": [
+        "Uff",
+        "Smooth"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/wohnlandschaften",
+      "title": "Wohnlandschaften",
+      "banners": [
+        "Uff",
+        "Smooth"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/sessel",
+      "title": "Sessel",
+      "banners": [
+        "Uff",
+        "Smooth"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/ottomans_and_modules",
+      "title": "Polsterhocker und Module",
+      "banners": [
+        "Uff",
+        "Smooth"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/uberzuge_und_kissen",
+      "title": "Überzüge & Kissen",
+      "banners": [
+        "Uff",
+        "Smooth"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/sofas",
+      "title": "Sofas",
+      "banners": [
+        "Uff",
+        "Smooth"
+      ],
+      "cards": 32,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/decken",
+      "title": "Decken",
+      "banners": [],
+      "cards": 5,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/buchstutzen",
+      "title": "Buchstützen",
+      "banners": [],
+      "cards": 16,
+      "filters": []
+    },
+    {
+      "url": "https://tylko.com/de-de/mobel-c/wohnaccessoires/",
+      "title": "Wohnaccessoires",
+      "banners": [],
+      "cards": 28,
+      "filters": []
+    }
+  ],
+  "banners": [
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/ALL%20PRODUCTS/UFF/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-0.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/SIDEBOARD/ORIGINAL%20CLASIC/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-1.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/SIDEBOARD/ORIGINAL%20MODERN/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-2.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/SIDEBOARD/EDGE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-3.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/SIDEBOARD/TONE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-4.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/BOOKCASE/ORIGINAL%20CLASIC/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-5.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/WALLSTORAGE/ORIGINAL%20CLASIC/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-6.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/WALLSTORAGE/ORIGINAL%20MODERN/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-7.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/WALLSTORAGE/EDGE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-8.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/WALLSTORAGE/TONE/D.avif",
+      "file": "/imgs/shopping-catalog/banner-9.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/WALLUNIT/EDGE/D.avif",
+      "file": "/imgs/shopping-catalog/banner-10.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/WALLUNIT/TONE/D.avif",
+      "file": "/imgs/shopping-catalog/banner-11.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/DESKS/ORIGINAL%20CLASIC/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-12.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/DESKS/ORIGINAL%20MODERN/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-13.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/ALL%20PRODUCTS/ORIGINAL%20CLASIC/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-14.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/ALL%20PRODUCTS/ORIGINAL%20MODERN/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-15.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/ALL%20PRODUCTS/EDGE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-16.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/ALL%20PRODUCTS/TONE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-17.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/ALL%20PRODUCTS/SMOOTH/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-18.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/BOOKCASE/ORIGINAL%20MODERN/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-19.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/BOOKCASE/EDGE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-20.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/BOOKCASE/TONE/D.avif",
+      "file": "/imgs/shopping-catalog/banner-21.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/TV%20STANDS/ORIGINAL%20CLASIC/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-22.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/TV%20STANDS/ORIGINAL%20MODERN/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-23.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/TV%20STANDS/EDGE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-24.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/TV%20STANDS/TONE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-25.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/CHEST/ORIGINAL%20CLASIC/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-26.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/CHEST/ORIGINAL%20MODERN/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-27.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/CHEST/EDGE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-28.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/CHEST/TONE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-29.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/DRESSING_TABLES/ORIGINAL%20CLASIC/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-30.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/DRESSING_TABLES/ORIGINAL%20MODERN/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-31.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/SHOERACK/ORIGINAL%20CLASIC/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-32.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/SHOERACK/ORIGINAL%20MODERN/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-33.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/SHOERACK/EDGE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-34.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/BEDSIDE_TABLES/ORIGINAL%20CLASIC/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-35.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/BEDSIDE_TABLES/ORIGINAL%20MODERN/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-36.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/BEDSIDE_TABLES/EDGE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-37.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/BEDSIDE_TABLES/TONE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-38.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/STORAGE/ORIGINAL%20CLASIC/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-39.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/STORAGE/ORIGINAL%20MODERN/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-40.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/STORAGE/EDGE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-41.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/STORAGE/TONE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-42.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/WARDROBES/EDGE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-43.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/WARDROBES/TONE/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-44.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/SOFA/UFF/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-45.avif"
+    },
+    {
+      "source": "https://media.tylko.com/cloudinary/plp/category-product-lines-covers_new/SOFA/SMOOTH/XLD.avif",
+      "file": "/imgs/shopping-catalog/banner-46.avif"
+    }
+  ]
+}

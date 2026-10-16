@@ -92,3 +92,21 @@ R3 이력: [R3-ASM-01~06 제출](handoffs/assets/codex-assembly/r3-legs/README.m
 ### Befun 캐비넷 모의 조립 완료 — 왼쪽5 / 2026-10-14
 
 [직접 조립·자동 조립·실제 공통 모델·검사·한계](handoffs/assets/codex-assembly/cabinet/README.md). `/assembly-guide/cabinet`에 실제 Befun 생성 결과의 1단 도어 캐비넷8부품·몸통6접합/12커넥터를 연결했다. 양면 라미네이트/자작 엣지/MDF 홈·부품 선택/커넥터 준비/위치 체결/확인·완성 도어 열기를 제공한다. 직접8부품 및390px자동완주,53검사·production build/TypeScript PASS,lint0오류/기존8경고. 후면은위치연습·다리는고정외형·제조승인false,실제주문전체연결은별도다. 리더R7/공통가구/HW/CNC/재질/공유Git·서버보존. 원격의기존캐비넷초안보존후최종본을독립사본에서게시한다.
+
+
+### 캐비넷 후면 다보·전체 영상 교정 — 2026-10-14
+[스프링 다보·카메라 연출·56검사·6캡처·한계](handoffs/assets/codex-assembly/cabinet-film/README.md). 보강 패널/백패널의 실제시연을 하단고정→상단눌림→세움→복귀잠금으로 교정하고 상판을 먼저 체결한다. 전체52.2초를 한 번재생하며 운반추적/접합확대/잠금확인/완성회전·도어열림으로 카메라를 연결했다. 직접8부품 및390px영상연속완주,production build/TypeScript·56검사PASS,lint0오류/기존8경고. 이전인계의후면위치연습만구현상태는당시기록이다. 다보형상·치수·수용홀은설명용이고 CNC/주문데이터·제조승인은변경하지않는다.
+
+### 캐비넷 그림자·체결음·도어 장착 교정 — 2026-10-14
+
+[전후 그림자·경첩 클로즈업·효과음·63검사·한계](handoffs/assets/codex-assembly/cabinet-polish/README.md). 본인 Canvas에 고정 VSM 블러/4096 그림자/DPR2를 적용하고 판재·커넥터·스프링·경첩 접촉 효과음을 추가했다. 도어를 열린 상태로 받친 채 앞부분 걸기→위·아래 경첩 뒤 눌림→체결 후 개폐 확인으로 교정, 운반 중 몸통에 연결된 듯한 미체결 링크 이동을 제거했다. 공식 Blum MD-029/3 p.6 대조, 공유 설명용 모델 소비. 전체58.2초/8부품/25회 출력 및390px overflow0,기존안내회귀63검사·lint0오류/기존8경고·격리production build/TypeScript PASS. 실물 녹음/래치 CAD/정밀 다관절 운동·제조 승인과는 구분한다.
+
+### 무광 라미네이트·체결음 재교정 — 2026-10-14
+
+[전후 화면·음원 출처·64검사](handoffs/assets/codex-assembly/cabinet-matte-foley/README.md). 사용자 지적에 따라 안내 전용 양면 라미네이트를 무광으로 바꾸고, 높은 사인파 합성 클릭을 짧은 목재/기계 접촉 샘플로 교체했다. 몸통의 중복 효과음을 없애 전체21회로 정리했다. 이전25회 합성음 기록은 당시 상태다. 원본·라이선스·편집 출처를 화면에서 제공하며 실제 OVVO/Blum 실측 녹음으로 표시하지 않는다. 기존 면 배정/자작/MDF·모델별 조립/분해·도어/후면 다보·공통 재질/조명은 보존했다.
+
+
+### 백패널 관통 경로 수정 — 왼쪽5 / 2026-10-14
+- 앞쪽에서 상판을 통과하던 carry 재현·뒤쪽 floor 배치→들어올림/기울임/낮춤→외부 접근→하단 삽입→상단 눌림/세움/복귀로 교정. 보강 패널과 단독 백패널7 동일 적용. 후면 카메라/absolute seek 유지.
+- finite-thickness 마지막 회전에서 원본 zero-clearance가 간섭하므로 설명용 상단0.6mm만 소유 렌더에 적용. 제조사 공차가 아니며 원본 box/CNC/생성기/타공/HW 보존, 제조승인false 유지.
+- 69검사·OBB SAT rear2×4phase×1001/guide7×1001·이전 관통 negative control·하단핀 홀내 검사 PASS. 변경lint0/전체lint0오류8기존경고·독립 production build/TypeScript PASS. desktop/390px carry·seek/잠금/직접모드 초기화 확인; 전체영상·게시 별도 기록. docs/handoffs/assets/codex-assembly/cabinet-rear-clearance/ 제출.

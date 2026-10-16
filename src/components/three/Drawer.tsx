@@ -56,17 +56,16 @@ function ReferenceDrawer({ placement, materials, isOpen, thickness }: DrawerProp
       group.scale.set(fullWidth / size.x, fullHeight / size.y, fullDepth / size.z);
       return group;
     }
-    // Match the local slim profile's origin to the verified source anchor.
-    // Its wide grip originally faces -Z; centre depth and turn it toward +Z.
-    clone.rotation.y = Math.PI;
+    // Keep the native rear wing (-Z) and front grip (+Z) orientation.
+    // Align the 1.5 mm mounting wing's inner face with the front panel back.
     clone.updateMatrixWorld(true);
     const bounds = new THREE.Box3().setFromObject(clone);
     const center = bounds.getCenter(new THREE.Vector3());
-    clone.position.sub(new THREE.Vector3(center.x, bounds.max.y - .05, center.z));
+    clone.position.sub(new THREE.Vector3(center.x, bounds.max.y - .05, bounds.min.z + .15 + (front?.d ?? thickness) / 2));
     const group = new THREE.Group();
     group.add(clone);
     return group;
-  }, [handleGltf.scene, materials.backPanel, fullWidth, fullHeight, fullDepth]);
+  }, [handleGltf.scene, materials.backPanel, fullWidth, fullHeight, fullDepth, front?.d, thickness]);
   useFrame((_, delta) => {
     if (!groupRef.current) return;
     const target = placement.z + (isOpen ? Math.min(reference.openDistance, rail ? rail.nominalLengthMm / 10 : Infinity) : 0);

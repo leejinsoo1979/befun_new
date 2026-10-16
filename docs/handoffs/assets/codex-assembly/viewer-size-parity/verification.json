@@ -1,0 +1,70 @@
+{
+  "status": "initial wardrobe/desk deployment READY; published bookcase baseline mismatch identified and final 3-rule fix verified in isolated build",
+  "baseline": "bookcase product /furniture/bookcase-brown",
+  "scope": "one shared FurnitureConfigurator CSS, consumed by wardrobe Edge/Tone and desk Classic/Modern",
+  "desktop": {
+    "viewer_height_px": 764,
+    "sidebar_width_px": 420,
+    "right_gutter_px": 74,
+    "viewer_left_px": 0,
+    "options_top_gap_px": 16
+  },
+  "responsive": {
+    "max1200_sidebar_px": 388,
+    "max1023_viewer_px": 540,
+    "max700_viewer_px": 430,
+    "max700_options_margin_px": 12
+  },
+  "matrix": {
+    "screen_sizes": 8,
+    "routes_per_size": 3,
+    "all_viewer_rects_and_panel_positions_equal": true,
+    "horizontal_overflow": 0
+  },
+  "fullscreen": {
+    "baseline_full_window_entry_exit_sizes": "observed desktop1920x1080 and mobile390x844",
+    "layout_reservation": "CSS pseudo grid cell preserves normal viewer footprint while fixed fullscreen is active",
+    "native_stability": "not certified; repeated live dev viewport/fullscreen stress lost WebGL context; recovered using existing UI/reload, no renderer edits",
+    "local_recovery": "after closing our extra comparison tabs and reload, normal wardrobe model and original controls rendered again; source renderer unchanged"
+  },
+  "checks": {
+    "final_isolated_build_and_typescript": "PASS",
+    "stable_full_lint_errors": 0,
+    "existing_warnings": 8,
+    "diff_check": "PASS",
+    "owned_css_block_matches_private": true
+  },
+  "owned_block_sha256": "a94ad7f9fc6357781977d1c0d4293aad0a0d03f946f0fbbb64ffff03c96b8747",
+  "published_file_sha256": "4bac3dfc9aad8c748ac37188079a6c31f39dc1955516cca6fa6d55a935692d00",
+  "included": "owned dimension/spacing/fullscreen-reservation block only",
+  "excluded": [
+    "shared green-theme WIP",
+    "camera/Space/front-view WIP",
+    "models, manufacturing, save/state, screenshots/intro changes, sofa WIP"
+  ],
+  "publication": {
+    "commit": "2fe18fa1ba1e7e700aed0afdc60b94e997be4fb3",
+    "deployment_id": "dpl_DsLam9MooHQVNMuwhCk6GpS2dcu1",
+    "source": "Git production CI",
+    "state": "READY, incomplete operating parity",
+    "remote_main_verified": true,
+    "completed_remote_commits_preserved": [
+      "8282e05",
+      "670dc20"
+    ],
+    "final_integrated_build": "PASS",
+    "final_integrated_lint": "0 errors / 8 existing warnings"
+  },
+  "baseline_completion": {
+    "source": "shared verified R13 bookcase dimension rules only",
+    "file": "src/components/storefront/storefront.module.css",
+    "rules": [
+      "productConfigurator padding-top48→0",
+      "productScene inset52→0",
+      "productViewer height716→764"
+    ],
+    "build_typescript": "PASS after latest7b44a59",
+    "lint": "0 errors / 8 existing warnings",
+    "other_remote_completed_changes": "preserved"
+  }
+}

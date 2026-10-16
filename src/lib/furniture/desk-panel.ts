@@ -13,7 +13,7 @@ const COLOR_NAMES: Record<string, string> = {
   S_Burgundy: '버건디', S_Teracotta: '테라코타', S_Gray: '그레이', 'S_Olive Green': '올리브 그린', 'S_Sky Blue': '스카이 블루',
   'Sand+Midnight Blue': '샌드 · 미드나잇 블루',
   C_White: '화이트', C_Black: '블랙', C_Gray: '그레이', C_Pink: '핑크', C_Yellow: '옐로', C_Blue: '블루',
-  'C_Moss Green': '모스 그린', C_Cashmere: '캐시미어', 'C_Clay Brown': '클레이 브라운',
+  C_Green: '그린', 'C_Moss Green': '모스 그린', C_Cashmere: '캐시미어', 'C_Clay Brown': '클레이 브라운',
 };
 function deskSwatches(design: DeskDesign): SwatchOption[] {
   if (design.family === 'desk-classic') return Object.entries(REFERENCE_CLASSIC_COLORS)

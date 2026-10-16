@@ -9,6 +9,8 @@ export interface AssemblyPartPlan {
   floor: Vec3;
   rotation: Vec3;
   footprint: [number, number];
+  /** Rendered part dimensions, used only to frame the presentation camera. */
+  size?: Vec3;
   stage: number;
   order: number;
   label: string;
@@ -52,13 +54,13 @@ export function createAssemblyPlan(panels: PanelData[], doors: DoorPlacement[], 
     const layOnBack = !flat && p.d <= p.w && p.d <= p.h;
     const level = flat ? levels.indexOf(Math.round(p.y * 10) / 10) : floorLevel(p.y - p.h / 2);
     base.push({ id: `panel-${i}`, anchor: [p.x, p.y, p.z], rotation: flat ? [0, 0, 0] : layOnBack ? [Math.PI / 2, 0, 0] : [0, 0, (mountedFaceSigns[i] ?? 1) * Math.PI / 2],
-      footprint: flat ? [p.w, p.d] : layOnBack ? [p.w, p.h] : [p.h, p.d], floorHeight: flat ? p.h + (Math.abs(p.y - bottomY) < 1e-7 ? 2 : 0) : layOnBack ? p.d : p.w,
+      footprint: flat ? [p.w, p.d] : layOnBack ? [p.w, p.h] : [p.h, p.d], size: [p.w, p.h, p.d], floorHeight: flat ? p.h + (Math.abs(p.y - bottomY) < 1e-7 ? 2 : 0) : layOnBack ? p.d : p.w,
       rawStage: level * 3 + (flat ? 0 : back ? 2 : 1),
       kind: flat ? 'horizontal' : back ? 'back' : 'upright',
       label: flat && Math.abs(p.y - bottomY) < 1e-7 ? '조절발이 체결된 바닥판 놓기' : back ? `${level + 1}단 후면 보강대 체결` : `${level + 1}단 ${flat ? '가로판 놓기' : '세로판 세우기'}` });
   });
-  doors.forEach((p, i) => base.push({ id: `door-${i}`, anchor: [p.x + p.pivotOffsetX, p.y, p.z], rotation: [Math.PI / 2, 0, 0], footprint: [p.width + 10, p.height + 4], floorHeight: p.reference?.thickness ?? thickness, kind: 'front', rawStage: levels.length * 3 + 1, label: '도어 설치' }));
-  drawers.forEach((p, i) => base.push({ id: `drawer-${i}`, anchor: [p.x, p.y, p.z], rotation: [0, 0, 0], footprint: [p.compartmentWidth + 8, p.drawerDepth + 12], floorHeight: p.rowHeight, kind: 'front', rawStage: levels.length * 3 + 2, label: '서랍 설치' }));
+  doors.forEach((p, i) => base.push({ id: `door-${i}`, anchor: [p.x + p.pivotOffsetX, p.y, p.z], rotation: [Math.PI / 2, 0, 0], footprint: [p.width + 10, p.height + 4], size: [p.width + 10, p.height + 4, p.reference?.thickness ?? thickness], floorHeight: p.reference?.thickness ?? thickness, kind: 'front', rawStage: levels.length * 3 + 1, label: '도어 설치' }));
+  drawers.forEach((p, i) => base.push({ id: `drawer-${i}`, anchor: [p.x, p.y, p.z], rotation: [0, 0, 0], footprint: [p.compartmentWidth + 8, p.drawerDepth + 12], size: [p.compartmentWidth + 8, p.rowHeight, p.drawerDepth + 12], floorHeight: p.rowHeight, kind: 'front', rawStage: levels.length * 3 + 2, label: '서랍 설치' }));
   // Every piece has its own slot: stable left-to-right order, independent of renderer order.
   const sequence = [...base].sort((a,b) => a.rawStage-b.rawStage || a.anchor[0]-b.anchor[0] || a.anchor[2]-b.anchor[2] || a.id.localeCompare(b.id));
   const stages = sequence.map(p => p.label);
@@ -75,7 +77,7 @@ export function createAssemblyPlan(panels: PanelData[], doors: DoorPlacement[], 
     const stage = stageById.get(p.id)!;
     const order = orders.get(stage) ?? 0;
     orders.set(stage, order + 1);
-    return { id: p.id, anchor: p.anchor, floor, rotation: p.rotation, footprint: p.footprint, stage, order, label: p.label, kind: p.kind };
+    return { id: p.id, anchor: p.anchor, floor, rotation: p.rotation, footprint: p.footprint, size: p.size, stage, order, label: p.label, kind: p.kind };
   });
   const totalDepth = z + rowDepth + 25;
   return { parts, stages, bounds: { width: packingWidth + 30, height: height + 90, depth: totalDepth, center: [0, (height + 50) / 2, totalDepth / 2] },
@@ -83,10 +85,10 @@ export function createAssemblyPlan(panels: PanelData[], doors: DoorPlacement[], 
     disassemblyDuration: LEAD_IN + (stages.length - 1) * 0.22 + MOVE_TIME + 0.4 };
 }
 
-export function partProgress(part: AssemblyPartPlan, plan: AssemblyPlan, phase: AssemblyPhase, time: number): number {
+export function partProgress(part: AssemblyPartPlan, plan: AssemblyPlan, phase: AssemblyPhase, time: number, disassemblyInterval = 0.22): number {
   if (phase === 'assembled') return 1;
   if (phase === 'laidOut') return 0;
-  const delay = LEAD_IN + (phase === 'assembling' ? part.stage * STAGE_TIME : (plan.stages.length - 1 - part.stage) * 0.22) + Math.min(part.order * 0.045, 0.18);
+  const delay = LEAD_IN + (phase === 'assembling' ? part.stage * STAGE_TIME : (plan.stages.length - 1 - part.stage) * disassemblyInterval) + Math.min(part.order * 0.045, 0.18);
   const t = Math.max(0, Math.min(1, (time - delay) / MOVE_TIME));
   return phase === 'assembling' ? t : 1 - t;
 }

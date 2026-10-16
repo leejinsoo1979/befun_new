@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-14",
+  "sourceMapBytes": 47389645,
+  "webAssetBytes": 1140882,
+  "reductionPercent": 97.59,
+  "archiveBytes": {
+    "51539.rar": 41348781,
+    "51537.rar": 24379682
+  },
+  "tests": {
+    "natural": 3,
+    "catalogAndPhotos": 13,
+    "scopedLint": "PASS",
+    "webpackBuild": "PASS",
+    "staticPages": 24
+  },
+  "fullLint": "Blocked by two no-require-imports errors in another task’s newly added public/three/sofa/basis/basis_transcoder.js; not modified",
+  "browser": [
+    "Natural options W4/W2 visible, thumbnails loaded",
+    "W4 and W2 selected and rendered on Chrome3003/configurator",
+    "W2 transferred via CNC button: 25 panels with Befun N_Wood_W2 and same wood 3D preview",
+    "W4 canonical /design-preview?design=... selected after refresh",
+    "W2 canonical /design-preview?design=... restored with Wood W2 (Brown) selected"
+  ],
+  "limits": [
+    "Legacy encode/decode unit round trip passed; /configurator state query is not consumed by the current route, so real restore is checked at /design-preview",
+    "No DB save/order/cart/export execution",
+    "No additional desktop/wardrobe colours outside existing supported families",
+    "No original model or archive added to public assets"
+  ]
+}

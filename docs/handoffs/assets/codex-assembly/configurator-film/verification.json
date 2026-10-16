@@ -1,0 +1,75 @@
+{
+  "status": "implementation-ready",
+  "date": "2026-10-15",
+  "owner": "codex-assembly / left5",
+  "scope": "existing shelf configurator presentation; no furniture generator or manufacturing changes",
+  "base_commit": "93b7095922fc10038960414f8f3df093951253c0",
+  "tests": {
+    "passed": 27,
+    "failed": 0,
+    "suite": "cinematic, playback, assemblyPlan, labelLayout, viewMath"
+  },
+  "lint": {
+    "scoped_errors": 0,
+    "source_errors": 0,
+    "existing_warnings": 8,
+    "generated_artifacts_excluded": ".vercel/**"
+  },
+  "build": {
+    "production_webpack": "pass",
+    "typescript": "pass",
+    "static_pages": 23,
+    "sandbox_font_dns_failure": "resolved via allowed network build"
+  },
+  "manual": {
+    "local_3003": [
+      "mat/grid removed",
+      "moving camera",
+      "panel labels",
+      "one-row disassemble100% then assemble100%",
+      "paused canvas screenshots identical"
+    ],
+    "private_3028": [
+      "orthographic selection -> playback restores perspective",
+      "desktop disassemble100%",
+      "390px assemble100%",
+      "390px pause at19% and44%",
+      "390px scrollWidth390; no horizontal overflow",
+      "390px replay disassemble then assemble100% at2x",
+      "close/reset restores original view",
+      "height1 -> height4 restored",
+      "Space camera reset",
+      "console errors/warnings0 on final private production flow"
+    ]
+  },
+  "labels": {
+    "code": "P + existing panel-index, screen identification only",
+    "broad_faces": "horizontal/upright both signs/rear verified",
+    "ar_export": "excluded by assembledClone",
+    "texture_disposal": "useEffect cleanup; R3F-owned geometry/material lifecycle",
+    "manufacturing_labels_confirmed": false
+  },
+  "source_sha256": {
+    "cinematic.ts": "53411f42f880f994319826eec6be4222c45a9d90fdd28caa9d627b33fced59a6",
+    "cinematic.test.mjs": "de45d5953ab668cd9f61691c7180a6b37c7ea45fa27ca55fcf1a0aaa5ef512cd",
+    "AssemblySequence.tsx": "2b1ca1002d0ff9e1aacff40d90487148e77d68f3d4142aec4add0d4f455d39d2",
+    "AssemblyFloor.tsx": "b9b9eea731142a24f981b3f4370d39a791e68b0fa45fcf83307d7f9e27b64b76",
+    "ViewCamera.tsx": "74661e7acca94034f17fc6b60f569d369c8a20dd3e0d323e4e735675c309a1ea",
+    "displayStore.ts": "e195bf5def2dc7d04afb287d468fbe66b66066a59cc71e31485e54599fb55948",
+    "assemblyPlan.ts": "feb33bb7530ca8e267ce3aea7b5b2de9a41b887387e002fb29f25dedc44c1d04",
+    "playback.test.mjs": "daf3c0f833acd09dc7ae8e16c7e937683c67c369c4a0f9aa5eb481a118dc0f5a",
+    "ExplodedPart.tsx": "4f099e3c2bdcd026f93d10d4e21be5b04abfafa6671f3eb87ee23b3d181d5232",
+    "PartLabel.tsx": "c73097238e39060db2fbd29d539b13989624d8e2b4fcc527c3d6793c4f89e474",
+    "labelLayout.ts": "f9de7f7fc6724218933a8437c88bc4c6a18956c02bbea8a408f8f6a6460f814d",
+    "labelLayout.test.mjs": "225310a39cea43d54eb917eb4f13acd58101bffe0baa8d05e44d54759acb3c5c"
+  },
+  "unconfirmed": [
+    "actual connector release procedure in this generic carry animation",
+    "manufacturing geometry/tolerances",
+    "renderer memory counters under long stress"
+  ],
+  "publication": {
+    "git": "pending",
+    "deployment": "not yet checked"
+  }
+}

@@ -35,3 +35,17 @@
 - 왼쪽5 캐비넷 운영 게시: `dpl_F9sgMW164c3tavRsMrhSaBfmPYsn` READY, source=Git/production, SHA=`f9dccf9bf5c9aaf59d97e7493aac9233dc0fe4b8`, `befun-new.vercel.app`·`befun.co.kr`·`www.befun.co.kr` alias 확인. 운영 `/assembly-guide/cabinet` 실제8부품 표시·첫부품선택→커넥터준비→체결→확인 후1/8진행 확인. 별도운영인증 CLIENT_FETCH_ERROR2건 관찰(가구조립동작과분리,기존환경설정담당필요); 로컬조립검증console0과혼동하지않음. 관리자/환경변수/DB소스는미수정.
 
 - 왼쪽5 운영 최종 확인: 위 READY의 실제 alias에서 캐비넷 자동조립8/8·완성화면 확인. 본인 임시31789 생산검증서버 정상종료, 공유3003 유지. 사용자 로컬/운영 캐비넷 탭을 남겼다.
+
+
+- 왼쪽5 백패널/보강 패널 관통 수정: 8소유 소스/검사+본인 캡처/인계만 격리. 원격0c6ebf4까지 완료 변경 보존. 69검사·최종 production build/TypeScript PASS, lint0오류8기존경고. Git/push/운영READY는 아직 미실행, 별도 기록.
+
+- 왼쪽5 옷장 직접만들기 진입 수정완료: DownloadedCatalog wardrobe promo만 /configurator→/furniture-design/wardrobe-edge. desktop/390px 목록 실제클릭→Edge 옷장118×198×60·3D/외형/내부구성 확인, overflow0/console0. 변경lint0·안정본격리 production build/TypeScript PASS·전체lint0오류8기존경고·diff check PASS. 소파리더 WIP 조건/상세링크 공유본보존·게시사본제외. 이번 좁은 href 잠금해제, docs/handoffs/assets/codex-assembly/wardrobe-create-entry/ 제출.
+
+- 왼쪽5 옷장·책상 뷰어 크기 통일완료: furniture.module.css 공통 크기블록만. 책장상품 기준764px/420px사이드바/왼쪽0/오른쪽74px, 1200이하388·1023이하540·700이하430. 8화면×book/wardrobe/desk DOM viewer 사각형 및 옵션위치/폭일치·overflow0. 최종격리build/TypeScript PASS·lint0오류8기존경고·diffcheck/소유CSS블록SHA일치. 공유녹색/카메라/Space/초기정면/모델/저장/소파WIP미혼입. 반복dev fullscreen스트레스중context loss관찰·기존복구사용, native 안정성미인증/renderer미수정. 이번크기잠금해제, viewer-size-parity/ 인계. Git/운영검증별도.
+
+- 왼쪽5 운영 기준 마감: initial2fe18fa는READY지만 운영책장 구CSS(716/상단100px공백) 때문에3뷰어동일성이FAIL임을 실제측정·기록. 공유R13 완료값 productConfigurator top0/productScene inset0/productViewer764 세규칙만 독립사본에 추가. 원격완료7b44a59 번역/인물경계보정보존. 최신통합 production build/TypeScript PASS·전체lint0오류8기존경고·diffcheck PASS. 최종운영비교는후속READY에서별도확인, 공유책장소스는이미정상이므로재수정안함/타WIP제외.
+
+### 컨피규레이터 조립·분해 및 판재 스티커 완료 — 왼쪽5 / 2026-10-15
+- 사용자 직접 지시 수신·등록 범위 완료. 매트/격자 제거→투명 그림자만, 양방향 부품별 추적/마무리 구도·다음재생 시네마틱perspective·reduced-motion·수동시점 보존, 실제 넓은 면 P번호/종류 스티커 및 이동/회전/복원/AR 제외. Scene은 완료 hero의 인물 재등장 보류2줄만.
+- 27/27검사·scopedlint0·source전체lint0오류8기존경고·격리webpack/TypeScript23페이지PASS. 3003/독립3028 desktop/390px 분해/조립100%, 일시정지캡처동일, 평행투영→시네마틱투시도, 연속replay/닫기/크기복원/Space·overflow0·최종3028 console0. 인계 docs/handoffs/assets/codex-assembly/configurator-film/. 제조 해제 동작/가공 승인으로 보고하지 않음.
+- 본인13소스 및 신규검사/캡처 잠금해제. 원격 완료93b7095 보존·본인12 display파일/Scene2줄만 게시사본에 적용. 공통 모델/저장/CNC/공용재질·미완료소파/가격/소품·공유.git/.next/3003/기존실행 보존. Git/운영배포는 아래 별도기록.

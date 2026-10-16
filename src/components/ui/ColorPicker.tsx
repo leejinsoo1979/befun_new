@@ -5,16 +5,19 @@ import { useLocale } from '@/lib/commerce/useLocale';
 import Image from 'next/image';
 import { REFERENCE_COLORS, REFERENCE_CLASSIC_COLORS } from '@/lib/three/reference-colors';
 import { useMaterialStore } from '@/stores/useMaterialStore';
+import { IMPORTED_NATURAL_TEXTURES } from '@/lib/three/natural-textures';
 import type { ColorCategory } from '@/types/shelf';
 
 interface ColorOption {
   name: string;
   image: string;
   category: ColorCategory;
+  label?: string;
 }
 
 const CLASSIC_COLORS: ColorOption[] = [
   { name: 'C_White', image: '/imgs/classic_color/classic-white.svg', category: 'classic' },
+  { name: 'C_Green', image: '/imgs/classic_color/classic-white.svg', category: 'classic' },
   { name: 'C_Moss Green', image: '/imgs/classic_color/classic-white.svg', category: 'classic' },
   { name: 'C_Gray', image: '/imgs/classic_color/classic-gray.svg', category: 'classic' },
   { name: 'C_Black', image: '/imgs/classic_color/classic-black.svg', category: 'classic' },
@@ -29,10 +32,11 @@ const NATURAL_COLORS: ColorOption[] = [
   { name: 'N_Beech', image: '/imgs/natural_color/natural-bright.png', category: 'natural' },
   { name: 'N_Oak', image: '/imgs/natural_color/natural-normal.png', category: 'natural' },
   { name: 'N_Walnut', image: '/imgs/natural_color/natural-dark.png', category: 'natural' },
+  ...Object.entries(IMPORTED_NATURAL_TEXTURES).map(([name, texture]) => ({ name, image: texture.thumbnail, label: texture.label, category: 'natural' as const })),
 ];
 
 // Live Type02 swatches verified in material-source-001; legacy saved keys still render.
-const SOLID_COLORS: ColorOption[] = ["S_White", "S_Midnight Blue", "S_Matte Black", "S_Black", "S_Teracotta", "S_Sky Blue", "S_Stone Gray", "S_Gray", "S_Butter Yellow", "S_Cotton", "S_Olive Green", "S_Sage Green", "S_Burgundy", "S_Reisinger Pink", "S_Lilac", "S_Dark Brown"].map(name => ({ name, image: '', category: 'solid' }));
+const SOLID_COLORS: ColorOption[] = ["S_White", "S_Green", "S_Midnight Blue", "S_Matte Black", "S_Black", "S_Teracotta", "S_Sky Blue", "S_Stone Gray", "S_Gray", "S_Butter Yellow", "S_Cotton", "S_Olive Green", "S_Sage Green", "S_Burgundy", "S_Reisinger Pink", "S_Lilac", "S_Dark Brown"].map(name => ({ name, image: name === 'S_Green' ? '/imgs/solid_color/solid-green.svg' : '', category: 'solid' }));
 
 const MIX_COLORS: ColorOption[] = [
   { name: 'Sand+Midnight Blue', image: '/imgs/edgemix_color/edgemix-blue.svg', category: 'edgeMix' },
@@ -69,7 +73,8 @@ export function ColorPicker() {
   const colorCategory = useMaterialStore((s) => s.colorCategory);
   const setColor = useMaterialStore((s) => s.setColor);
 
-  const colors = COLORS_BY_CATEGORY[colorCategory];
+  const palette = COLORS_BY_CATEGORY[colorCategory];
+  const colors = palette.some(c=>c.name===currentColor || (c.name==='S_Teracotta' && currentColor==='S_Teracotta Orange')) ? palette : [{name:currentColor,image:'',category:colorCategory},...palette];
 
   const handleTabChange = (category: ColorCategory) => {
     // Switch tab and auto-select default color for that category
@@ -105,13 +110,14 @@ export function ColorPicker() {
         <div className="flex flex-1 flex-wrap gap-[5px]">
           {colors.map((c) => {
             const isActive = currentColor === c.name || (c.name === 'S_Teracotta' && currentColor === 'S_Teracotta Orange');
+            const label = tr(c.label ?? c.name);
             return (
               <button
                 key={c.name}
                 onClick={() => setColor(c.name, c.category)}
                 className={`tylko-color-swatch ${isActive ? 'active' : ''}`}
-                title={tr(c.name)}
-                aria-label={tr(c.name)}
+                title={label}
+                aria-label={label}
               >
                 {REFERENCE_COLORS[c.name] ? (
                   <span aria-hidden="true" className="block h-6 w-6 rounded-full" style={{
@@ -125,7 +131,7 @@ export function ColorPicker() {
                   }} />
                 ) : <Image
                   src={c.image}
-                  alt={tr(c.name)}
+                  alt={label}
                   width={24}
                   height={24}
                   className="rounded-full"

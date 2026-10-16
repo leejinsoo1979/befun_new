@@ -1,5 +1,22 @@
 import type { PanelData } from '@/types/shelf';
 
+/** Captured cabinet layouts have one bottom board per cabinet bay.
+ * Four feet belong to that board; shelf span infill must not add centre feet.
+ * The 25 mm setback retains Befun's existing visual offset, not a CNC dimension.
+ */
+export function calculateCabinetFeet(panels: PanelData[]): [number, number, number][] {
+  const horizontals = panels.filter(p => p.matType === 'horizontalBase');
+  if (!horizontals.length) return [];
+  const bottomY = Math.min(...horizontals.map(p => p.y - p.h / 2));
+  return horizontals.filter(p => Math.abs(p.y - p.h / 2 - bottomY) < 1e-7).flatMap(p => {
+    const xInset = Math.min(2.5, p.w / 4);
+    const zInset = Math.min(2.5, p.d / 4);
+    const xs = [p.x - p.w / 2 + xInset, p.x + p.w / 2 - xInset];
+    const zs = [p.z - p.d / 2 + zInset, p.z + p.d / 2 - zInset];
+    return xs.flatMap(x => zs.map(z => [x, -1, z] as [number, number, number]));
+  });
+}
+
 /** Type02 Mosaic short feet, measured in cm at the public API boundary.
  * Candidate supports follow bottom-row vertical centres. The 599 mm span
  * threshold and edge offsets come from mosaic-source-001, not a uniform grid.

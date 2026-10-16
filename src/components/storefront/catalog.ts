@@ -1,5 +1,5 @@
-import { calculateGridPanels } from '@/lib/three/styles/grid';
-import { calculatePrice } from '@/lib/pricing';
+import { catalogPreset, type CatalogPresetId } from '@/lib/three/catalog-presets';
+import { shelfQuote } from '@/lib/commerce/shelf-quote';
 import type { ColorCategory } from '@/types/shelf';
 
 export const asset = (file: string) => `/imgs/storefront/${file}`;
@@ -19,12 +19,13 @@ export const palette = [
 ];
 
 export interface CatalogProduct {
+  catalogPreset?: CatalogPresetId;
   id: string; name: string; collection: string; category: string;
   image: string; alternate: string; width: number; rows: number[];
   depth: number; color: string; colorCategory: ColorCategory; doors: number[];
 }
 
-export const products: CatalogProduct[] = [
+const productCards: CatalogProduct[] = [
   { id: 'wall-green', name: '그린 월 수납장', collection: 'Befun Solid', category: '월 수납장', image: 'unreal_10772325_Joddr1h.webp', alternate: 'unreal_10773359_jV1o7ei.webp', width: 206, rows: [28, 28, 28, 28, 28, 28], depth: 32, color: 'S_Green', colorCategory: 'solid', doors: [0, 1] },
   { id: 'bookcase-brown', name: '월넛 도어 책장', collection: 'Befun Natural', category: '책장', image: 'unreal_10075703.webp', alternate: 'unreal_10088234.webp', width: 120, rows: [28, 28, 28, 28, 28, 28], depth: 32, color: 'N_Walnut', colorCategory: 'natural', doors: [0, 1] },
   { id: 'sideboard-brown', name: '다크 브라운 수납장', collection: 'Befun Natural', category: '수납장', image: 'unreal_10102873.webp', alternate: 'unreal_10106378.webp', width: 190, rows: [28, 38], depth: 40, color: 'N_Walnut', colorCategory: 'natural', doors: [0, 1] },
@@ -33,26 +34,33 @@ export const products: CatalogProduct[] = [
   { id: 'tv-brown', name: '월넛 TV 스탠드', collection: 'Befun Natural', category: 'TV 스탠드', image: 'unreal_10104713.webp', alternate: 'unreal_10108207.webp', width: 300, rows: [18, 28], depth: 40, color: 'N_Walnut', colorCategory: 'natural', doors: [1] },
 ];
 
+export const products: CatalogProduct[] = productCards.map(product => {
+  const preset = catalogPreset(product.id)!;
+  return { ...product, catalogPreset: product.id as CatalogPresetId, width:preset.width, rows:[...preset.rows],
+    depth:preset.depth,color:preset.color,colorCategory:preset.colorCategory,
+    ...(product.id==='bookcase-brown'?{name:'클레이 브라운 도어 책장',collection:'Befun Classic'}:{}),
+    ...(product.id==='sideboard-brown'||product.id==='tv-brown'?{collection:'Befun Solid'}:{}),
+    ...(product.id==='tv-brown'?{name:'다크 브라운 TV 스탠드'}:{}),
+    ...(product.id==='wall-green'?{collection:'Befun Tone'}:{}),
+    ...(product.id==='bookcase-plum'?{name:'딥 플럼 수납 책장',collection:'Befun Edge'}:{}),
+  };
+});
 export function productHeight(product: CatalogProduct) {
-  return 2 + product.rows.reduce((total, row) => total + row + 2, 0);
+  const preset=product.catalogPreset?catalogPreset(product.catalogPreset):null;
+  return preset ? preset.height-(preset.baseType==='legs'?11:1) : 2+product.rows.reduce((total,row)=>total+row+2,0);
 }
-// DimensionPanel과 동일하게 조절발 1cm를 포함한 외형 높이를 표시한다.
 export function productDisplayHeight(product: CatalogProduct) {
-  return productHeight(product) + 1;
+  return (product.catalogPreset?catalogPreset(product.catalogPreset)?.height:null) ?? productHeight(product)+1;
 }
 export function productPrice(product: CatalogProduct) {
-  const { panels } = calculateGridPanels({
-    width: product.width, height: productHeight(product), depth: product.depth,
-    thickness: 2, density: 50, rowHeights: product.rows,
-    numRows: product.rows.length, hasBackPanel: false, hardwareLayers: product.doors,
-    hardwareRowStyles: Object.fromEntries(product.doors.map(row => [row, 12])),
-    family: product.colorCategory === 'classic' || product.colorCategory === 'natural' ? 'type01' : 'type02',
-  });
-  return calculatePrice({
-    totalPanelVolume: panels.reduce((total, panel) => total + panel.w * panel.h * panel.d, 0),
-    colorCategory: product.colorCategory,
-  });
+  const preset=product.catalogPreset?catalogPreset(product.catalogPreset):null;
+  return shelfQuote(preset?.style??'grid', {
+    catalogPreset:product.catalogPreset,width:product.width,height:productHeight(product),depth:product.depth,
+    thickness:2,density:preset?.density??50,rowHeights:product.rows,numRows:product.rows.length,
+    hasBackPanel:preset?.hasBackPanel??false,color:product.color,baseType:preset?.baseType??'standard',
+  },product.colorCategory);
 }
+
 export const stories = [
   { name: '김도윤', image: 'befun/story-1.avif', title: '컬러로 완성하는 나만의 공간', text: '핑크 선반과 조형적인 오브제가 만드는 자유로운 공간. 좋아하는 것들로 채운 집을 만나보세요.' },
   { name: '이태오', image: 'befun/story-2.avif', title: '편안한 색, 균형 잡힌 일상', text: '차분한 컬러와 세심하게 고른 디테일. 일상의 물건들이 자연스럽게 어우러지는 공간입니다.' },

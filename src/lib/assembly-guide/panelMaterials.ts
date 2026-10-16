@@ -1,4 +1,4 @@
-import { DataTexture, DoubleSide, MeshStandardMaterial, RepeatWrapping, SRGBColorSpace, type BufferGeometry, type Texture } from 'three';
+import { DataTexture, DoubleSide, MeshPhysicalMaterial, MeshStandardMaterial, RepeatWrapping, SRGBColorSpace, type BufferGeometry, type Texture } from 'three';
 
 export type PanelAxis = 0 | 1 | 2;
 export const birchEdgeTexture = '/imgs/textures/wood002/verticalEdge_diff.jpg';
@@ -32,7 +32,7 @@ export function createGuidePanelMaterials(source: Texture, axis: PanelAxis, insi
   texture.anisotropy = 8;
   texture.needsUpdate = true;
   const common = { side: DoubleSide, transparent: inside, opacity: inside ? opacity : 1, depthWrite: !inside };
-  const laminate = new MeshStandardMaterial({ ...common, color: finish, roughness: .38, metalness: 0 });
+  const laminate = new MeshPhysicalMaterial({ ...common, color: finish, roughness: .86, metalness: 0, clearcoat: 0, specularIntensity: .18, envMapIntensity: .28 });
   const birch = new MeshStandardMaterial({ ...common, map: texture, roughness: .72, metalness: 0 });
   return { laminate, birch, faces: panelFaceMaterials(laminate, birch, axis), texture };
 }

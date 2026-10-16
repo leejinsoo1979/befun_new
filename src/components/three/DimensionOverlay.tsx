@@ -1,5 +1,9 @@
 'use client';
 
+import type { MosaicResult } from '@/lib/three/styles/mosaic';
+import type { ReferenceOpening } from '@/lib/three/styles/grid';
+import { calculateShelfGeometry } from '@/lib/three/shelf-geometry';
+
 import { useMemo, useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { useThree, useFrame } from '@react-three/fiber';
@@ -7,12 +11,6 @@ import { useHardwareStore } from '@/stores/useHardwareStore';
 import { useMaterialStore } from '@/stores/useMaterialStore';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { baseHeight } from '@/lib/three/furniture-base';
-import { calculateGridPanels, type ReferenceOpening } from '@/lib/three/styles/grid';
-import { calculateSlantPanels } from '@/lib/three/styles/slant';
-import { calculatePixelPanels } from '@/lib/three/styles/pixel';
-import { calculateGradientPanels } from '@/lib/three/styles/gradient';
-import { calculatePatternPanels } from '@/lib/three/styles/pattern';
-import { calculateMosaicPanels, type MosaicResult } from '@/lib/three/styles/mosaic';
 
 // Billboard meshes stay out of the AO depth pass. A screen-sized translucent
 // capsule matches the reference without producing opaque sprite rectangles.
@@ -135,6 +133,7 @@ export function DimensionOverlay() {
   const baseType = useShelfStore(s=>s.baseType);
   const category = useMaterialStore(s => s.colorCategory);
   const family = category === 'classic' || category === 'natural' ? 'type01' as const : 'type02' as const;
+  const catalogPreset = useShelfStore(s=>s.catalogPreset);
   const width = useShelfStore((s) => s.width);
   const height = useShelfStore((s) => s.height);
   const depth = useShelfStore((s) => s.depth);
@@ -151,17 +150,9 @@ export function DimensionOverlay() {
 
   // 스타일별 패널 계산 결과
   const styleResult = useMemo(() => {
-    const input = { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers, hardwareRowStyles, family };
-    switch (style) {
-      case 'grid': return calculateGridPanels(input);
-      case 'slant': return calculateSlantPanels(input);
-      case 'pixel': return calculatePixelPanels(input);
-      case 'gradient': return calculateGradientPanels(input);
-      case 'pattern': return calculatePatternPanels(input);
-      case 'mosaic': return calculateMosaicPanels(input);
-      default: return calculateGridPanels(input);
-    }
-  }, [width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel, hardwareLayers, hardwareRowStyles, family]);
+    const input = { catalogPreset, width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers, hardwareRowStyles, family };
+    return calculateShelfGeometry(style,input);
+  }, [catalogPreset, width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel, hardwareLayers, hardwareRowStyles, family]);
 
   // 모든 라벨/가이드라인 생성
   useEffect(() => {

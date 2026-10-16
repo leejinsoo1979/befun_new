@@ -35,14 +35,15 @@ export function useProductReady(productId?: string) {
 }
 
 export function useConfigurationPrice() {
-  const { style, width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel } = useShelfStore();
+  const { catalogPreset, style, width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, baseType } = useShelfStore();
   const { doorsCreatedLayers, drawersCreatedLayers, rowStyles } = useHardwareStore();
   const colorCategory = useMaterialStore(state => state.colorCategory);
+  const color = useMaterialStore(state => state.currentColor);
   return useMemo(() => configurationPrice(style, {
-    width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel,
+    catalogPreset, width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, color, baseType,
     hardwareLayers: [...new Set([...doorsCreatedLayers, ...drawersCreatedLayers])],
     hardwareRowStyles: rowStyles,
-  }, colorCategory), [style, width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, doorsCreatedLayers, drawersCreatedLayers, rowStyles, colorCategory]);
+  }, colorCategory), [catalogPreset, style, width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, doorsCreatedLayers, drawersCreatedLayers, rowStyles, colorCategory, color, baseType]);
 }
 
 export function ProductConfigurator({ product, configuration }: { product: CatalogProduct; configuration?: SavedDesign['config'] }) {
@@ -60,17 +61,17 @@ export function ProductConfigurator({ product, configuration }: { product: Catal
   useEffect(() => {
     // Locale router.refresh returns new prop objects; it must not reload the preset.
     const key = JSON.stringify({ product, configuration });
-    if (initialized.current === key) { usePreparedProduct.setState({ id: product.id }); return; }
-    initialized.current = key;
-    if (configuration) restoreSavedConfiguration(configuration);
-    else loadProductConfiguration(product);
-    const display = useDisplayStore.getState();
-    display.resetAssembly();
-    display.setAppearance('realistic');
-    display.selectView('front');
+    if (initialized.current !== key) {
+      initialized.current = key;
+      if (configuration) restoreSavedConfiguration(configuration);
+      else loadProductConfiguration(product);
+      const display = useDisplayStore.getState();
+      display.resetAssembly();
+      display.setAppearance('realistic');
+      display.selectView('front');
+    }
     usePreparedProduct.setState({ id: product.id });
-  }, [product, configuration]);
-  useEffect(() => () => { usePreparedProduct.setState({ id: null }); }, []);
+  }, [product, configuration, prepared]);
   if (!prepared) return <section className={styles.productConfigurator} aria-label={`${product.name} 3D 커스터마이저`}><div className={styles.productViewer}><h1 className={styles.srOnly}>{product.name}</h1><ConfiguratorLoading /></div></section>;
   const addToCart = () => {
     useCartStore.getState().addItem({ designId: '', designConfig: currentConfiguration(), quantity: 1, price: price.finalPrice });
@@ -140,7 +141,7 @@ export function ProductConfigurator({ product, configuration }: { product: Catal
       <button className={styles.fullscreenButton} onClick={() => router.push('/configurator')}><FiMaximize /> {t('전체 화면')}</button>
     </div>
     <div className={styles.productOptions} onDragStartCapture={(event) => event.preventDefault()}>
-      <div className={styles.configPrice} aria-live="polite"><div><del>{formatPrice(price.originalPrice)}</del><span>−{price.discountRate}%</span></div><strong>{formatPrice(price.finalPrice)}</strong><PriceNotice /></div>
+      <div className={styles.configPrice} aria-live="polite">{price.discountRate > 0 && <div><del>{formatPrice(price.originalPrice)}</del><span>−{price.discountRate}%</span></div>}<strong>{formatPrice(price.finalPrice)}</strong><PriceNotice estimated={price.isEstimate} /></div>
       <LegacyShelfPanel controls={LEGACY_BEFORE_FEET} /><FeetSelector /><LegacyShelfPanel controls={LEGACY_AFTER_FEET} /><ColorPicker />
       <div className={styles.configActions}><button className={styles.darkButton} onClick={addToCart}>{t('장바구니에 담기')} <FiArrowRight /></button><button className={styles.outlineButton} disabled={saving} onClick={saveDesign}><FiShare2 /> {t(saving ? '디자인 저장 중…' : '디자인 저장·공유')}</button></div>
       {error ? <p className={styles.configError} role="alert">{error}</p> : null}

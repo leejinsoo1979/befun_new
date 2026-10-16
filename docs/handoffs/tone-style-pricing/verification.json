@@ -1,0 +1,66 @@
+{
+  "verifiedAt": "2026-10-15",
+  "bundle": "C-45Czmk2.js",
+  "bundleSha256": "eab80650525f457e94e3cbef51a38f39a6d10daf62ed4dcbfd9f95507b0dc9fd",
+  "sourceCalculators": {
+    "6": "aTe (TYPE23)",
+    "7": "oTe (TYPE24)",
+    "8": "sTe (TYPE25)"
+  },
+  "coefficients": "src/lib/commerce/data/tylko-coefficients-20261014.json (81 t23/t24/t25 keys)",
+  "conversion": "Math.trunc(getPrice() * 1.23 / 4.3); regular EUR, Club promotion separate",
+  "catalogueParity": {
+    "type6": 19,
+    "type7": 64,
+    "type8": 8,
+    "mismatches": 0
+  },
+  "liveUI": [
+    {
+      "url": "https://tylko.com/de-de/configure/657092,w",
+      "width": 165,
+      "height": 65,
+      "depth": 36,
+      "style": "minimal",
+      "eur": 3618,
+      "localKrw": 5429931
+    },
+    {
+      "url": "https://tylko.com/de-de/configure/657092,w",
+      "width": 165,
+      "height": 62,
+      "depth": 36,
+      "style": "hanging",
+      "eur": 3800,
+      "localKrw": 5703078
+    },
+    {
+      "url": "https://tylko.com/de-de/configure/657092,w",
+      "width": 165,
+      "height": 72,
+      "depth": 36,
+      "style": "legs",
+      "eur": 4008,
+      "localKrw": 6015246
+    },
+    {
+      "url": "https://tylko.com/de-de/configure/656504,w",
+      "width": 68,
+      "height": 52,
+      "depth": 36,
+      "style": "hanging",
+      "eur": 678,
+      "localKrw": 1017549
+    }
+  ],
+  "checks": [
+    "91 captured initial quotes match",
+    "21 pricing/engine regression tests pass",
+    "local styles and size edit match live original",
+    "legs shared link restores 4008 EUR and 165x72x36cm",
+    "full ESLint: 0 errors, 13 pre-existing warnings",
+    "scoped ESLint pass",
+    "isolated webpack production build pass (network allowed for Google Fonts)",
+    "git diff --check pass"
+  ]
+}

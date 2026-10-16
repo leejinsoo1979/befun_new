@@ -1,0 +1,140 @@
+{
+  "S02_LEG": {
+    "id": "S02_LEG",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_LEG.glb",
+    "url": "https://media.tylko.com/cloudinary/image/upload/v1/renderer/geometry/uff/S02_LEG.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_LEG.glb"
+  },
+  "S02_AR_D095_W03_L": {
+    "id": "S02_AR_D095_W03_L",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_AR_D095_W03_L_v3.glb",
+    "url": "https://media.tylko.com/cloudinary/image/upload/v1/renderer/geometry/uff/S02_AR_D095_W03_L_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_AR_D095_W03_L_v3.glb"
+  },
+  "S02_ST_D10_W09": {
+    "id": "S02_ST_D10_W09",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_ST_D10_W09_v2.glb",
+    "url": "https://media.tylko.com/cloudinary/image/upload/v1/renderer/geometry/uff/S02_ST_D10_W09_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_ST_D10_W09_v2.glb"
+  },
+  "S02_CA_D15_W115_R": {
+    "id": "S02_CA_D15_W115_R",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CA_D15_W115_R_v3.glb",
+    "url": "https://media.tylko.com/cloudinary/image/upload/v1/renderer/geometry/uff/S02_CA_D15_W115_R_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CA_D15_W115_R_v3.glb"
+  },
+  "glory_normal": {
+    "id": "glory_normal",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/uff/glory_normal_1K.ktx2",
+    "url": "https://media.tylko.com/cloudinary/raw/upload/v1/renderer/texture/uff/glory_normal_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/glory_normal_1K.ktx2"
+  },
+  "glory_roughness": {
+    "id": "glory_roughness",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/uff/glory_roughness_1K.ktx2",
+    "url": "https://media.tylko.com/cloudinary/raw/upload/v1/renderer/texture/uff/glory_roughness_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/glory_roughness_1K.ktx2"
+  },
+  "aydin_normal": {
+    "id": "aydin_normal",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/uff/aydin_normal_1K.ktx2",
+    "url": "https://media.tylko.com/cloudinary/raw/upload/v1/renderer/texture/uff/aydin_normal_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/aydin_normal_1K.ktx2"
+  },
+  "S02_CA_D15_W115_R_512": {
+    "id": "S02_CA_D15_W115_R_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CA_D15_W115_R_v3.ktx2",
+    "url": "https://media.tylko.com/cloudinary/raw/upload/v1/renderer/texture/uff/GI/512/S02_CA_D15_W115_R_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CA_D15_W115_R_v3.ktx2"
+  },
+  "glory_natural": {
+    "id": "glory_natural",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/glory_natural_diffuse_1K_v2.ktx2",
+    "url": "https://media.tylko.com/cloudinary/raw/upload/v1/renderer/texture/uff/glory_natural_diffuse_1K_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/glory_natural_diffuse_1K_v2.ktx2"
+  },
+  "S02_AR_D095_W03_L_512": {
+    "id": "S02_AR_D095_W03_L_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_AR_D095_W03_L_v3.ktx2",
+    "url": "https://media.tylko.com/cloudinary/raw/upload/v1/renderer/texture/uff/GI/512/S02_AR_D095_W03_L_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_AR_D095_W03_L_v3.ktx2"
+  },
+  "aydin_roughness": {
+    "id": "aydin_roughness",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/uff/aydin_roughness_1K.ktx2",
+    "url": "https://media.tylko.com/cloudinary/raw/upload/v1/renderer/texture/uff/aydin_roughness_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/aydin_roughness_1K.ktx2"
+  },
+  "S02_ST_D10_W09_512": {
+    "id": "S02_ST_D10_W09_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_ST_D10_W09_v2.ktx2",
+    "url": "https://media.tylko.com/cloudinary/raw/upload/v1/renderer/texture/uff/GI/512/S02_ST_D10_W09_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_ST_D10_W09_v2.ktx2"
+  },
+  "S02_CL_D15_W08": {
+    "id": "S02_CL_D15_W08",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CL_D15_W08_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CL_D15_W08_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CL_D15_W08_v2.glb",
+    "bytes": 250116,
+    "sha256": "702f0cef80a9d90e55f89190e55f39b928e8d87c90a322f80627b2df68c5a687"
+  },
+  "S02_CL_D15_W09": {
+    "id": "S02_CL_D15_W09",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CL_D15_W09_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CL_D15_W09_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CL_D15_W09_v2.glb",
+    "bytes": 255104,
+    "sha256": "9daf20bc2e1766d24afdefd42fb7c8308e2ceaf13caaa0b853daa9f3473d23a6"
+  },
+  "S02_CL_D15_W10": {
+    "id": "S02_CL_D15_W10",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CL_D15_W10_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CL_D15_W10_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CL_D15_W10_v2.glb",
+    "bytes": 255100,
+    "sha256": "e00d77acc67a619f62688b8a0acffa8b540aebbd0913d4f2c808e09096b3689e"
+  },
+  "S02_CL_D15_W08_512": {
+    "id": "S02_CL_D15_W08_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CL_D15_W08_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CL_D15_W08_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CL_D15_W08_v2.ktx2",
+    "bytes": 86976,
+    "sha256": "1e22f03e593f8b0aa8d23fb0ebbf44cf7c33e4f4a1a8549c2274c7a5d3bb3d8f"
+  },
+  "S02_CL_D15_W09_512": {
+    "id": "S02_CL_D15_W09_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CL_D15_W09_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CL_D15_W09_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CL_D15_W09_v2.ktx2",
+    "bytes": 84417,
+    "sha256": "d0aee2ea668a70972fe7c254c339a2b97bf4f8f46d473dfb49eef119f453d4a5"
+  },
+  "S02_CL_D15_W10_512": {
+    "id": "S02_CL_D15_W10_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CL_D15_W10_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CL_D15_W10_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CL_D15_W10_v2.ktx2",
+    "bytes": 85178,
+    "sha256": "6e38df860486bbaa8923cae082109fe9e925919df15df26041e4182704189625"
+  }
+}

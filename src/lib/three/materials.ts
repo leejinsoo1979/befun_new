@@ -284,7 +284,7 @@ export function createFaceMaterials(
     const rotated = baseMat.clone();
     if (rotated.map) {
       rotated.map = rotated.map.clone();
-      rotated.map.rotation = THREE.MathUtils.degToRad(textureRotation.verticalBase);
+      rotated.map.rotation += THREE.MathUtils.degToRad(textureRotation.verticalBase);
       rotated.map.center.set(0.5, 0.5);
     }
     return [
@@ -300,7 +300,7 @@ export function createFaceMaterials(
     const rotated = baseMat.clone();
     if (rotated.map) {
       rotated.map = rotated.map.clone();
-      rotated.map.rotation = THREE.MathUtils.degToRad(textureRotation.horizontalBase);
+      rotated.map.rotation += THREE.MathUtils.degToRad(textureRotation.horizontalBase);
       rotated.map.center.set(0.5, 0.5);
     }
     return [

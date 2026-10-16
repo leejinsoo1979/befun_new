@@ -3,7 +3,6 @@
 import { useLocale } from '@/lib/commerce/useLocale';
 
 import { useEffect, useRef } from 'react';
-import { FiX } from 'react-icons/fi';
 import { FurniturePanel } from '@/components/ui/furniture-panels/FurniturePanel';
 import { DESK_CHANNEL_OPTIONS } from '@/lib/furniture/desk';
 import type { FurnitureEditIntent, FurniturePanelView } from '@/types/furniture';
@@ -19,7 +18,6 @@ export function DeskSectionEditor({ view, region, onIntent, onClose }: {
   const { t: tr } = useLocale();
   const returnLabel = region === 'legroom' ? '다리 공간 편집' : `${view.sections.find(s => s.id === view.selectedSectionId)?.label ?? '수납'} 편집`;
   const popover = useRef<HTMLDivElement>(null);
-  const close = useRef<HTMLButtonElement>(null);
   const callback = useRef(onClose);
   useEffect(() => { callback.current = onClose; }, [onClose]);
   useEffect(() => {
@@ -30,7 +28,7 @@ export function DeskSectionEditor({ view, region, onIntent, onClose }: {
     };
     element.addEventListener('toggle', handleToggle);
     element.showPopover();
-    close.current?.focus();
+    element.querySelector<HTMLButtonElement>('button[aria-pressed="true"], button[role="radio"][aria-checked="true"]')?.focus({ preventScroll: true });
     return () => {
       element.removeEventListener('toggle', handleToggle);
       element.hidePopover();
@@ -42,8 +40,15 @@ export function DeskSectionEditor({ view, region, onIntent, onClose }: {
   if (!tab) return null;
   const storage = tab.controls.find(c => c.id === 'storageKind');
   const title = region === 'legroom' ? '다리 공간 케이블' : `${view.sections.find(s => s.id === view.selectedSectionId)?.label ?? '수납'} 편집`;
-  return <div ref={popover} popover="auto" role="dialog" aria-label={tr(title)} className={styles.deskEditor}>
-    <header><h2>{tr(title)}</h2><button ref={close} type="button" onClick={onClose} aria-label={tr("편집 닫기")}><FiX /></button></header>
+  const controls = tab.controls.filter(c => c.id !== 'storageKind').map(c => {
+    if (c.id !== 'doorDirection' || c.kind !== 'choice') return c;
+    return {
+      ...c,
+      variant: 'pill' as const,
+      options: c.options.map(option => ({ ...option, label: option.id === 'left' ? '왼쪽' : '오른쪽' })),
+    };
+  });
+  return <div ref={popover} popover="auto" role="dialog" aria-label={tr(title)} data-region={region} className={styles.deskEditor}>
     {storage?.kind === 'choice' && <div className={styles.storageChoices} role="group" aria-label={tr("수납 구성")}>
       {DESK_CHANNEL_OPTIONS.map(option => {
         let bottom = 0;
@@ -64,6 +69,6 @@ export function DeskSectionEditor({ view, region, onIntent, onClose }: {
         </button>;
       })}
     </div>}
-    <FurniturePanel view={{ ...view, layout: 'single', tabs: [{ ...tab, usesSections: false, controls: tab.controls.filter(c => c.id !== 'storageKind') }] }} onIntent={onIntent} />
+    <FurniturePanel view={{ ...view, layout: 'single', tabs: [{ ...tab, usesSections: false, controls }] }} onIntent={onIntent} />
   </div>;
 }

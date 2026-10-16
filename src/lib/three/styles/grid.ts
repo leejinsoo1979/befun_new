@@ -4,6 +4,7 @@ import type { ReferenceFront } from '../reference-hardware';
 import type { PanelData } from '@/types/shelf';
 
 export interface GridInput {
+  catalogPreset?: string;
   width: number;
   height: number;
   depth: number;

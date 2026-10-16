@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, OrthographicCamera, PerspectiveCamera } from '@react-three/drei';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
@@ -38,7 +38,10 @@ function CameraControls() {
   const exploded = useDisplayStore(s=>s.exploded);
   const revision = useDisplayStore(s=>s.revision);
   const stageBounds = useDisplayStore(s=>s.stageBounds);
+  const appearance = useDisplayStore(s=>s.appearance);
   const wasCinematic=useRef(false);
+  const shotPosition = useMemo(() => new THREE.Vector3(), []);
+  const shotTarget = useMemo(() => new THREE.Vector3(), []);
   const goal = useRef({ position: new THREE.Vector3(), target: new THREE.Vector3(), halfHeight: 100, active: false, camera: null as THREE.Camera | null });
   // Some presets carry a nominal height differing from the sum of their rows.
   // The store retains up to 12 row heights, including inactive rows.
@@ -51,8 +54,12 @@ function CameraControls() {
   useLayoutEffect(() => {
     const bounds = exploded ? stageBounds : null;
     const aspect = size.width / Math.max(1, size.height);
-    const frame = fitView(bounds?.width ?? width, bounds?.height ?? bodyHeight + footHeight + 10, bounds?.depth ?? depth + 30, aspect, view);
-    const target = bounds ? new THREE.Vector3(...bounds.center) : new THREE.Vector3(0, (bodyHeight + footHeight) / 2, depth / 2);
+    // 스튜디오 배경(인물 포함)이 보이는 정면/기본 시점은 왼쪽 인물(가구 왼쪽 56cm, 키 약 175cm)까지 담는다.
+    // 가구는 화면 가운데에 두기 위해 좌우 대칭으로 폭을 넓힌다.
+    const withPerson = !bounds && appearance === 'realistic' && (view === 'front' || view === 'standard');
+    const frameHeight = withPerson ? Math.max(bodyHeight + footHeight + 10, 185) : bodyHeight + footHeight + 10;
+    const frame = fitView(bounds?.width ?? (withPerson ? width + 2 * (56 + 40) : width), bounds?.height ?? frameHeight, bounds?.depth ?? depth + 30, aspect, view);
+    const target = bounds ? new THREE.Vector3(...bounds.center) : new THREE.Vector3(0, withPerson ? (frameHeight - 10) / 2 : (bodyHeight + footHeight) / 2, depth / 2);
     const destination = goal.current;
     const presetKey = `${view}|${revision}|${exploded}`;
     const presetChanged = lastPreset.current !== presetKey;
@@ -74,27 +81,28 @@ function CameraControls() {
       destination.camera = camera;
     }
     destination.active = true;
-  }, [camera, width, bodyHeight, footHeight, depth, view, exploded, revision, stageBounds, size.width, size.height]);
+  }, [camera, width, bodyHeight, footHeight, depth, view, exploded, revision, stageBounds, appearance, size.width, size.height]);
 
   useFrame((_, delta) => {
     const state=useDisplayStore.getState();
-    const tracking=state.cinematic && assemblyPlayback.active && !!stageBounds && camera instanceof THREE.PerspectiveCamera;
+    const tracking=state.cinematic && !state.freeOrbit && assemblyPlayback.active && !!stageBounds && camera instanceof THREE.PerspectiveCamera;
     if(tracking && controls.current && stageBounds) {
       wasCinematic.current=true;
+      goal.current.active=false;
       if(state.paused) return;
-      const shot=cinematicShot({phase:state.phase,progress:assemblyPlayback.elapsed/assemblyPlayback.duration,outro:assemblyPlayback.outro,
-        width,height:bodyHeight,depth,aspect:size.width/Math.max(1,size.height),focus:assemblyPlayback.focus,kind:assemblyPlayback.kind,beat:assemblyPlayback.beat,stage:stageBounds});
-      const blend=1-Math.exp(-Math.min(delta,.05)*1.7);
+      const shot=cinematicShot({phase:assemblyPlayback.phase,progress:assemblyPlayback.elapsed/assemblyPlayback.duration,outro:assemblyPlayback.outro,
+        width,height:bodyHeight+footHeight,depth,aspect:size.width/Math.max(1,size.height),focus:assemblyPlayback.focus,kind:assemblyPlayback.kind,beat:assemblyPlayback.beat,extent:assemblyPlayback.extent,elapsed:assemblyPlayback.elapsed,layout:assemblyPlayback.layout ?? undefined,stage:stageBounds});
+      const blend=1-Math.exp(-Math.min(delta,.05)*4.8);
       camera.up.set(0,1,0);
-      camera.position.lerp(new THREE.Vector3(...shot.position),blend);
-      controls.current.target.lerp(new THREE.Vector3(...shot.target),blend);
+      camera.position.lerp(shotPosition.set(...shot.position),blend);
+      controls.current.target.lerp(shotTarget.set(...shot.target),blend);
       controls.current.update();
       return;
     }
     if(wasCinematic.current) {
       wasCinematic.current=false;
       // Hold the closing shot instead of snapping back to the generic preset.
-      if(state.phase==='assembled' && state.progress===1) goal.current.active=false;
+      if(state.progress===1 || state.freeOrbit) goal.current.active=false;
     }
     const destination = goal.current;
     if (!destination.active || !controls.current) return;

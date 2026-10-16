@@ -1,5 +1,8 @@
 'use client';
 
+import { applyReferenceAlbedo } from '@/lib/three/reference-materials';
+import { calculateShelfGeometry } from '@/lib/three/shelf-geometry';
+
 import { useMemo, useState, useEffect } from 'react';
 import { useShelfStore } from '@/stores/useShelfStore';
 import { useMaterialStore } from '@/stores/useMaterialStore';
@@ -24,17 +27,12 @@ import { baseHeight } from '@/lib/three/furniture-base';
 import { Suspense } from 'react';
 import { DimensionOverlay } from './DimensionOverlay';
 import {
-  createMaterialsForColor,
   createColorMaterials,
+  solidDisplayColor,
   disposeMaterialSet,
   type MaterialSet,
 } from '@/lib/three/materials';
-import { calculateGridPanels } from '@/lib/three/styles/grid';
-import { calculateSlantPanels } from '@/lib/three/styles/slant';
-import { calculatePixelPanels } from '@/lib/three/styles/pixel';
-import { calculateGradientPanels } from '@/lib/three/styles/gradient';
-import { calculatePatternPanels } from '@/lib/three/styles/pattern';
-import { calculateMosaicPanels } from '@/lib/three/styles/mosaic';
+import { createNaturalMaterialsForColor } from '@/lib/three/natural-materials';
 import type { ReferenceFront } from '@/lib/three/reference-hardware';
 import { calculateDoorPlacements, calculateDrawerPlacements } from '@/lib/three/hardware';
 import type { PanelData } from '@/types/shelf';
@@ -52,6 +50,7 @@ export function Shelf({ showDimensions = false, exploded = false, presentation =
   const boreView = useDisplayStore(s => s.showBores);
   const revealBores = presentation && boreView;
   const assembledRealistic = useDisplayStore(s => s.phase === 'assembled' && s.appearance === 'realistic');
+  const catalogPreset = useShelfStore(s=>s.catalogPreset);
   const width = useShelfStore((s) => s.width);
   const height = useShelfStore((s) => s.height);
   const depth = useShelfStore((s) => s.depth);
@@ -80,17 +79,19 @@ export function Shelf({ showDimensions = false, exploded = false, presentation =
     const referenceColor = REFERENCE_COLORS[currentColor];
     const materialRequest = referenceColor
       ? Promise.resolve(createColorMaterials(referenceColor.base, referenceColor.edge))
-      : createMaterialsForColor(REFERENCE_CLASSIC_COLORS[currentColor] ? 'C_White' : currentColor);
+      : createNaturalMaterialsForColor(REFERENCE_CLASSIC_COLORS[currentColor] ? 'C_White' : currentColor);
     materialRequest
       .then((mats) => {
+        if (referenceColor) applyReferenceAlbedo(mats, referenceColor);
         const classicColor = REFERENCE_CLASSIC_COLORS[currentColor];
         if (classicColor) {
           for (const material of [mats.verticalBase, mats.horizontalBase, mats.backPanel]) {
             material.map?.dispose();
             material.map = null;
-            material.color.set(classicColor);
-            material.roughness = 0.7;
-            material.envMapIntensity = 0.78;
+            // Match the existing Sand+Green edge, including its display correction.
+            material.color.set(currentColor === 'C_Green' ? solidDisplayColor(classicColor) : classicColor);
+            material.roughness = currentColor === 'C_Green' ? 0.5 : 0.7;
+            material.envMapIntensity = currentColor === 'C_Green' ? 1 : 0.78;
             material.needsUpdate = true;
           }
           mats.verticalEdge.roughness = 0.5;
@@ -122,25 +123,10 @@ export function Shelf({ showDimensions = false, exploded = false, presentation =
   }, [doorsCreatedLayers, drawersCreatedLayers]);
 
   const styleResult = useMemo(() => {
-    const input = { width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers, hardwareRowStyles, family };
+    const input = { catalogPreset, width, height, depth, thickness, density, rowHeights, numRows, hasBackPanel, hardwareLayers, hardwareRowStyles, family };
 
-    switch (style) {
-      case 'grid':
-        return calculateGridPanels(input);
-      case 'slant':
-        return calculateSlantPanels(input);
-      case 'pixel':
-        return calculatePixelPanels(input);
-      case 'gradient':
-        return calculateGradientPanels(input);
-      case 'pattern':
-        return calculatePatternPanels(input);
-      case 'mosaic':
-        return calculateMosaicPanels(input);
-      default:
-        return calculateGridPanels(input);
-    }
-  }, [width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel, hardwareLayers, hardwareRowStyles, family]);
+    return calculateShelfGeometry(style,input);
+  }, [catalogPreset, width, height, depth, thickness, style, density, rowHeights, numRows, hasBackPanel, hardwareLayers, hardwareRowStyles, family]);
 
   const panels: PanelData[] = styleResult.panels;
   const { panelCount, panelSpacing } = styleResult;

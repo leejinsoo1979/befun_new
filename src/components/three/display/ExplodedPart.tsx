@@ -4,6 +4,7 @@ import { useCallback, useContext, type ReactNode } from 'react';
 import type { Group } from 'three';
 import { AssemblyContext } from './AssemblySequence';
 import type { AssemblyPartPlan } from './assemblyPlan';
+import { PartLabel } from './PartLabel';
 
 export function ExplodedPart({ part, children }: { part: AssemblyPartPlan; children: ReactNode }) {
   const groups = useContext(AssemblyContext);
@@ -13,5 +14,6 @@ export function ExplodedPart({ part, children }: { part: AssemblyPartPlan; child
   }, [groups, part.id]);
   return <group ref={register} position={part.anchor} userData={{ displayExplodedPart: true, assembledPosition: part.anchor }}>
     <group position={[-part.anchor[0], -part.anchor[1], -part.anchor[2]]}>{children}</group>
+    {groups && <PartLabel part={part} />}
   </group>;
 }

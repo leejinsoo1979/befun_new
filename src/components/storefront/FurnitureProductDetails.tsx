@@ -45,10 +45,6 @@ export function FurnitureProductDetails({ design, title, catalogId }: {
   ];
 
   return <div className={details.details} data-furniture-details={design.family}>
-    <nav className={details.detailNavigation} aria-label={t('제품 상세 메뉴')}>
-      <a href="#configuration">{t('3D 디자인')}</a><a href="#design-gallery">{t('상세 이미지')}</a>
-      <a href="#design-specifications">{t('제품 사양')}</a><a href="#related-designs">{t('함께 둘러보기')}</a>
-    </nav>
     <section className={`${details.section} ${details.introduction}`}>
       <h2>{t(name)}</h2><p>{t('너비')} {design.config.widthMm / 10}cm · {t('높이')} {height / 10}cm · {t('깊이')} {depth / 10}cm</p>
       <div className={details.benefits}>{benefits.map(({ title: label, text, icon: Icon, href }) => <Link key={label} href={href}><Icon /><div><h3>{t(label)}</h3><p>{t(text)}</p><span>{t('더 알아보기')}</span></div></Link>)}</div>

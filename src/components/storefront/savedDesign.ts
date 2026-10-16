@@ -1,3 +1,4 @@
+import { isCatalogPreset, catalogPreset } from '../../lib/three/catalog-presets.ts';
 import type { FurnitureBaseType, FurnitureLegFinish } from '@/lib/three/furniture-base';
 import type { currentConfiguration } from './configuration';
 import { supportsLongLegs } from '../../lib/three/furniture-base.ts';
@@ -15,14 +16,16 @@ export function parseSavedDesign(serialized: string): SavedDesign | null {
     const data = JSON.parse(serialized);
     if (!data || data.version !== 1 || typeof data.name !== 'string' || data.name.length > 120) return null;
     const config = data.config;
+    if(config?.catalogPreset!==undefined&&!isCatalogPreset(config.catalogPreset))return null;
+    const preset=config?.catalogPreset?catalogPreset(config.catalogPreset):null;
     if (!config || !['grid', 'slant', 'pixel', 'gradient', 'pattern', 'mosaic'].includes(config.style)) return null;
     if (!Number.isFinite(config.width) || config.width < 30 || config.width > 450) return null;
-    if (![24, 32, 40].includes(config.depth) || !Number.isFinite(config.density) || config.density < 0 || config.density > 100) return null;
+    if (![24,32,40,...(preset?[preset.depth]:[])].includes(config.depth) || !Number.isFinite(config.density) || config.density < 0 || config.density > 100) return null;
     if (!['classic', 'natural', 'solid', 'edgeMix'].includes(config.colorCategory) || typeof config.color !== 'string' || !/^[A-Za-z0-9 _+.-]{1,80}$/.test(config.color)) return null;
     if (config.baseType !== undefined && !['standard','legs'].includes(config.baseType)) return null;
     if (config.legFinish !== undefined && !['silver', 'black', 'panel'].includes(config.legFinish)) return null;
     if (typeof config.hasBackPanel !== 'boolean') return null;
-    if (!Array.isArray(config.rowHeights) || config.rowHeights.length < 1 || config.rowHeights.length > 10 || !config.rowHeights.every((height: unknown) => typeof height === 'number' && [18, 28, 32, 38].includes(height))) return null;
+    if (!Array.isArray(config.rowHeights) || config.rowHeights.length < 1 || config.rowHeights.length > 10 || !config.rowHeights.every((height: unknown) => typeof height === 'number' && (preset ? Number.isFinite(height)&&height>=18&&height<=38 : [18,28,32,38].includes(height)))) return null;
     if (config.numRows !== config.rowHeights.length) return null;
     const validLayers = (layers: unknown): layers is number[] => Array.isArray(layers) && layers.length <= config.numRows && layers.every(row => Number.isInteger(row) && row >= 0 && row < config.numRows) && new Set(layers).size === layers.length;
     if (!validLayers(config.doorsCreatedLayers) || !validLayers(config.drawersCreatedLayers)) return null;
@@ -39,6 +42,7 @@ export function parseSavedDesign(serialized: string): SavedDesign | null {
     return {
       version: 1, name: data.name,
       config: {
+        catalogPreset: config.catalogPreset,
         baseType: config.baseType === 'legs' && supportsLongLegs(config.depth, config.style) ? 'legs' : 'standard',
         legFinish: config.legFinish ?? 'silver',
         style: config.style, width: config.width, depth: config.depth, density: config.density,

@@ -1,0 +1,17 @@
+{
+  "src/components/assembly-guide/CabinetScene.tsx": "fb1a7e5422252463b5152148ff41fa775e304b5ec3b24c9876b517f4dbc8862e",
+  "src/components/assembly-guide/CabinetPanel.tsx": "60e0844f23f61c295bcae0f83d8760d580b93be8880fa65b08b908aa2ad053d3",
+  "src/components/assembly-guide/CabinetSimulator.tsx": "f2734a759eb13221d975899ad94dfbb0cbe05c9113d21500633cf80b302550aa",
+  "src/components/assembly-guide/CabinetHinge.tsx": "03dfd18efa21292d7eda2debd6c5b19577e8bf43398df9319c5bff0ae817cfba",
+  "src/components/assembly-guide/cabinet.module.css": "8ce6d7bb57b110882658085409a834f40e492ebe46c734ffbf6eac01e5906314",
+  "src/lib/assembly-guide/cabinet.ts": "6b153b16b40d249845d5142c83bde6fe46488fea9d11e18dba75e2cf0534b6d7",
+  "src/lib/assembly-guide/cabinet.test.mjs": "2f085c83cdf6f1f306a2f928e52d08b0177428435b8924a3077a0a33731bdd44",
+  "src/lib/assembly-guide/cabinetFilm.ts": "7d707f45fa95054cc98947a28024a14d9b2e4dcddf6688a428edac2afba5f9e9",
+  "src/lib/assembly-guide/cabinetFilm.test.mjs": "ff38d5ab35ff1b984c0502d40fdde63e0750def9932bf563834f5cfaf692095a",
+  "src/lib/assembly-guide/cabinetDoor.ts": "b51784dacb46aa704d3b28b600abb3499ed2ecd5a26ed2fed57d61a049e7e208",
+  "src/lib/assembly-guide/cabinetDoor.test.mjs": "541bb949c726dbf3de3eada1bed5967017a4746bf85b159d1092502527e87f4d",
+  "src/lib/assembly-guide/cabinetSound.ts": "3d58bdce14d7ccdf83a7bf9473d9a923ef0dfac1f9c590db1c2f4da02a82cc05",
+  "src/lib/assembly-guide/cabinetSound.test.mjs": "3a4bc0fb06536553d9a1d6c6ff86484975b6c41012305c0f56cb671f301a50ad",
+  "src/lib/assembly-guide/cabinetRender.ts": "baebf1da737bd51bade4549fc158e86cae34c47463f48570e4e68918e8221166",
+  "src/lib/assembly-guide/cabinetRender.test.mjs": "137eea6dc36e2744b26ea7fb0c5343dc54910d3617a252ddbe35751ae4291029"
+}

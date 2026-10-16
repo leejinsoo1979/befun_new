@@ -1,0 +1,410 @@
+[
+  {
+    "key": "AR_D850_W300",
+    "id": "S02_AR_D085_W03",
+    "type": [
+      "armrest"
+    ],
+    "width": 300,
+    "height": 630,
+    "depth": 850
+  },
+  {
+    "key": "AR_D950_W300",
+    "id": "S02_AR_D095_W03",
+    "type": [
+      "armrest"
+    ],
+    "width": 300,
+    "height": 630,
+    "depth": 950
+  },
+  {
+    "key": "CL_D1500_W800",
+    "id": "S02_CL_D15_W08",
+    "type": [
+      "chaise_longue"
+    ],
+    "width": 800,
+    "height": 730,
+    "depth": 1500
+  },
+  {
+    "key": "CL_D1500_W900",
+    "id": "S02_CL_D15_W09",
+    "type": [
+      "chaise_longue"
+    ],
+    "width": 900,
+    "height": 730,
+    "depth": 1500
+  },
+  {
+    "key": "CL_D1500_W1000",
+    "id": "S02_CL_D15_W10",
+    "type": [
+      "chaise_longue"
+    ],
+    "width": 1000,
+    "height": 730,
+    "depth": 1500
+  },
+  {
+    "key": "CA_D1500_W1050",
+    "id": "S02_CA_D15_W105",
+    "type": [
+      "chaise_longue_armrest"
+    ],
+    "width": 1050,
+    "height": 730,
+    "depth": 1500
+  },
+  {
+    "key": "CA_D1500_W1150",
+    "id": "S02_CA_D15_W115",
+    "type": [
+      "chaise_longue_armrest"
+    ],
+    "width": 1150,
+    "height": 730,
+    "depth": 1500
+  },
+  {
+    "key": "FR_D600_W700",
+    "id": "S02_FR_D07_W06",
+    "type": [
+      "footrest"
+    ],
+    "width": 700,
+    "height": 410,
+    "depth": 600
+  },
+  {
+    "key": "FR_D700_W600",
+    "id": "S02_FR_D07_W06",
+    "type": [
+      "footrest"
+    ],
+    "width": 600,
+    "height": 410,
+    "depth": 700
+  },
+  {
+    "key": "FR_D600_W800",
+    "id": "S02_FR_D08_W06",
+    "type": [
+      "footrest"
+    ],
+    "width": 800,
+    "height": 410,
+    "depth": 600
+  },
+  {
+    "key": "FR_D800_W600",
+    "id": "S02_FR_D08_W06",
+    "type": [
+      "footrest"
+    ],
+    "width": 600,
+    "height": 410,
+    "depth": 800
+  },
+  {
+    "key": "FR_D600_W900",
+    "id": "S02_FR_D09_W06",
+    "type": [
+      "footrest"
+    ],
+    "width": 900,
+    "height": 410,
+    "depth": 600
+  },
+  {
+    "key": "FR_D900_W600",
+    "id": "S02_FR_D09_W06",
+    "type": [
+      "footrest"
+    ],
+    "width": 600,
+    "height": 410,
+    "depth": 900
+  },
+  {
+    "key": "FR_D600_W1000",
+    "id": "S02_FR_D10_W06",
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 1000,
+    "height": 410,
+    "depth": 600
+  },
+  {
+    "key": "FR_D1000_W600",
+    "id": "S02_FR_D10_W06",
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 600,
+    "height": 410,
+    "depth": 1000
+  },
+  {
+    "key": "FR_D700_W700",
+    "id": "S02_FR_D07_W07",
+    "type": [
+      "footrest"
+    ],
+    "width": 700,
+    "height": 410,
+    "depth": 700
+  },
+  {
+    "key": "FR_D700_W800",
+    "id": "S02_FR_D08_W07",
+    "type": [
+      "footrest"
+    ],
+    "width": 800,
+    "height": 410,
+    "depth": 700
+  },
+  {
+    "key": "FR_D800_W700",
+    "id": "S02_FR_D08_W07",
+    "type": [
+      "footrest"
+    ],
+    "width": 700,
+    "height": 410,
+    "depth": 800
+  },
+  {
+    "key": "FR_D700_W900",
+    "id": "S02_FR_D09_W07",
+    "type": [
+      "footrest"
+    ],
+    "width": 900,
+    "height": 410,
+    "depth": 700
+  },
+  {
+    "key": "FR_D900_W700",
+    "id": "S02_FR_D09_W07",
+    "type": [
+      "footrest"
+    ],
+    "width": 700,
+    "height": 410,
+    "depth": 900
+  },
+  {
+    "key": "FR_D700_W1000",
+    "id": "S02_FR_D10_W07",
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 1000,
+    "height": 410,
+    "depth": 700
+  },
+  {
+    "key": "FR_D1000_W700",
+    "id": "S02_FR_D10_W07",
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 700,
+    "height": 410,
+    "depth": 1000
+  },
+  {
+    "key": "FR_D800_W800",
+    "id": "S02_FR_D08_W08",
+    "type": [
+      "footrest"
+    ],
+    "width": 800,
+    "height": 410,
+    "depth": 800
+  },
+  {
+    "key": "FR_D800_W900",
+    "id": "S02_FR_D09_W08",
+    "type": [
+      "footrest"
+    ],
+    "width": 900,
+    "height": 410,
+    "depth": 800
+  },
+  {
+    "key": "FR_D900_W800",
+    "id": "S02_FR_D09_W08",
+    "type": [
+      "footrest"
+    ],
+    "width": 800,
+    "height": 410,
+    "depth": 900
+  },
+  {
+    "key": "FR_D800_W1000",
+    "id": "S02_FR_D10_W08",
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 1000,
+    "height": 410,
+    "depth": 800
+  },
+  {
+    "key": "FR_D1000_W800",
+    "id": "S02_FR_D10_W08",
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 800,
+    "height": 410,
+    "depth": 1000
+  },
+  {
+    "key": "FR_D900_W900",
+    "id": "S02_FR_D09_W09",
+    "type": [
+      "footrest"
+    ],
+    "width": 900,
+    "height": 410,
+    "depth": 900
+  },
+  {
+    "key": "FR_D900_W1000",
+    "id": "S02_FR_D10_W09",
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 1000,
+    "height": 410,
+    "depth": 900
+  },
+  {
+    "key": "FR_D1000_W900",
+    "id": "S02_FR_D10_W09",
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 900,
+    "height": 410,
+    "depth": 1000
+  },
+  {
+    "key": "FR_D1000_W1000",
+    "id": "S02_FR_D10_W10",
+    "type": [
+      "footrest",
+      "open_end",
+      "open_middle"
+    ],
+    "width": 1000,
+    "height": 410,
+    "depth": 1000
+  },
+  {
+    "key": "ST_D900_W700",
+    "id": "S02_ST_D09_W07",
+    "type": [
+      "seater"
+    ],
+    "width": 700,
+    "height": 730,
+    "depth": 900
+  },
+  {
+    "key": "ST_D900_W800",
+    "id": "S02_ST_D09_W08",
+    "type": [
+      "seater"
+    ],
+    "width": 800,
+    "height": 730,
+    "depth": 900
+  },
+  {
+    "key": "ST_D900_W900",
+    "id": "S02_ST_D09_W09",
+    "type": [
+      "seater"
+    ],
+    "width": 900,
+    "height": 730,
+    "depth": 900
+  },
+  {
+    "key": "ST_D900_W1000",
+    "id": "S02_ST_D09_W10",
+    "type": [
+      "seater"
+    ],
+    "width": 1000,
+    "height": 730,
+    "depth": 900
+  },
+  {
+    "key": "ST_D1000_W700",
+    "id": "S02_ST_D10_W07",
+    "type": [
+      "seater"
+    ],
+    "width": 700,
+    "height": 730,
+    "depth": 1000
+  },
+  {
+    "key": "ST_D1000_W800",
+    "id": "S02_ST_D10_W08",
+    "type": [
+      "seater"
+    ],
+    "width": 800,
+    "height": 730,
+    "depth": 1000
+  },
+  {
+    "key": "ST_D1000_W900",
+    "id": "S02_ST_D10_W09",
+    "type": [
+      "seater"
+    ],
+    "width": 900,
+    "height": 730,
+    "depth": 1000
+  },
+  {
+    "key": "ST_D1000_W1000",
+    "id": "S02_ST_D10_W10",
+    "type": [
+      "seater"
+    ],
+    "width": 1000,
+    "height": 730,
+    "depth": 1000
+  }
+]

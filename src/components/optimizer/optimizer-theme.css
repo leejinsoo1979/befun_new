@@ -2,20 +2,21 @@
    upstream showToast 등은 팝업을 body에 직접 붙이므로 body에도 변수를 둔다. */
 body:has(.befun-optimizer),
 .befun-optimizer {
-  --theme: 254 92% 65%;
-  --theme-50: 254 92% 98%;
-  --theme-100: 254 92% 95%;
-  --theme-200: 254 92% 90%;
-  --theme-300: 254 92% 80%;
-  --theme-400: 254 92% 70%;
-  --theme-500: 254 92% 65%;
-  --theme-600: 254 87% 55%;
-  --theme-700: 254 82% 45%;
-  --theme-800: 254 77% 35%;
-  --theme-900: 254 72% 25%;
+  /* HSL channels for the existing Befun #339922 button colour. */
+  --theme: 111.428571 63.636364% 36.666667%;
+  --theme-50: 111.428571 64% 98%;
+  --theme-100: 111.428571 64% 95%;
+  --theme-200: 111.428571 64% 90%;
+  --theme-300: 111.428571 64% 80%;
+  --theme-400: 111.428571 64% 50%;
+  --theme-500: var(--theme);
+  --theme-600: 110 65% 29%;
+  --theme-700: 111.428571 64% 24%;
+  --theme-800: 111.428571 64% 18%;
+  --theme-900: 111.428571 64% 12%;
 
-  --theme-primary: hsl(var(--theme-500));
-  --theme-primary-hover: hsl(var(--theme-600));
+  --theme-primary: var(--green, #339922);
+  --theme-primary-hover: #2a7a1a;
   --theme-primary-light: hsl(var(--theme) / 0.2);
   --theme-primary-dark: hsl(var(--theme-700));
   --theme-primary-gradient: linear-gradient(135deg, hsl(var(--theme-500)) 0%, hsl(var(--theme-700)) 100%);

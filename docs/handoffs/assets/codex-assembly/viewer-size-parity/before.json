@@ -1,0 +1,454 @@
+{
+  "book": {
+    "ancestors": [
+      {
+        "class": "",
+        "grid": "none",
+        "height": 764,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "static",
+        "tag": "CANVAS",
+        "width": 1234,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "",
+        "grid": "none",
+        "height": 764,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "static",
+        "tag": "DIV",
+        "width": 1234,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "",
+        "grid": "none",
+        "height": 764,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "tag": "DIV",
+        "width": 1234,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "storefront-module__TyP14W__productScene",
+        "grid": "none",
+        "height": 764,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "absolute",
+        "tag": "DIV",
+        "width": 1234,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "storefront-module__TyP14W__productViewer",
+        "grid": "none",
+        "height": 764,
+        "id": "",
+        "minHeight": "auto",
+        "padding": "0px",
+        "position": "relative",
+        "tag": "DIV",
+        "width": 1234,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "storefront-module__TyP14W__productConfigurator",
+        "grid": "1234px 420px",
+        "height": 802.1953125,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px 74px 0px 0px",
+        "position": "static",
+        "tag": "SECTION",
+        "width": 1728,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "",
+        "grid": "none",
+        "height": 802.1953125,
+        "id": "configuration",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "static",
+        "tag": "DIV",
+        "width": 1728,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "",
+        "grid": "none",
+        "height": 9365.265625,
+        "id": "main",
+        "minHeight": "572.65px",
+        "padding": "68px 0px 0px",
+        "position": "static",
+        "tag": "MAIN",
+        "width": 1728,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "url": "/furniture/bookcase-brown",
+    "viewport": [
+      1728,
+      881
+    ]
+  },
+  "main": {
+    "ancestors": [
+      {
+        "class": "",
+        "grid": "none",
+        "height": 732,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "static",
+        "tag": "CANVAS",
+        "width": 1234,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "",
+        "grid": "none",
+        "height": 732,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "static",
+        "tag": "DIV",
+        "width": 1234,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "",
+        "grid": "none",
+        "height": 732,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "tag": "DIV",
+        "width": 1234,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "relative min-h-0 flex-1 overflow-hidden bg-white",
+        "grid": "none",
+        "height": 732,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "tag": "DIV",
+        "width": 1234,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "flex min-h-0 flex-1 flex-col overflow-hidden border-b border-[#eee] lg:h-[calc(100vh-80px)] lg:flex-none lg:flex-row",
+        "grid": "none",
+        "height": 733,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px 74px 0px 0px",
+        "position": "static",
+        "tag": "DIV",
+        "width": 1728,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "flex h-[100dvh] select-none flex-col overflow-hidden lg:h-auto lg:min-h-screen lg:overflow-visible [&_input]:select-text [&_textarea]:select-text",
+        "grid": "none",
+        "height": 733,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "static",
+        "tag": "DIV",
+        "width": 1728,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "product-details-module__Z7aXHG__workspace",
+        "grid": "none",
+        "height": 733,
+        "id": "configuration",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "tag": "DIV",
+        "width": 1728,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "",
+        "grid": "none",
+        "height": 10216.0625,
+        "id": "main",
+        "minHeight": "572.65px",
+        "padding": "68px 0px 0px",
+        "position": "static",
+        "tag": "MAIN",
+        "width": 1728,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "url": "/configurator",
+    "viewport": [
+      1728,
+      881
+    ]
+  },
+  "wardrobe": {
+    "ancestors": [
+      {
+        "class": "",
+        "grid": "none",
+        "height": 620,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "static",
+        "tag": "CANVAS",
+        "width": 1228,
+        "x": 32,
+        "y": 68
+      },
+      {
+        "class": "",
+        "grid": "none",
+        "height": 620,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "static",
+        "tag": "DIV",
+        "width": 1228,
+        "x": 32,
+        "y": 68
+      },
+      {
+        "class": "",
+        "grid": "none",
+        "height": 620,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "tag": "DIV",
+        "width": 1228,
+        "x": 32,
+        "y": 68
+      },
+      {
+        "class": "furniture-module__8W_02G__viewer",
+        "grid": "none",
+        "height": 620,
+        "id": "",
+        "minHeight": "520px",
+        "padding": "0px",
+        "position": "sticky",
+        "tag": "DIV",
+        "width": 1228,
+        "x": 32,
+        "y": 68
+      },
+      {
+        "class": "furniture-module__8W_02G__layout",
+        "grid": "1228px 420px",
+        "height": 644,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px 32px 24px",
+        "position": "static",
+        "tag": "DIV",
+        "width": 1728,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "furniture-module__8W_02G__page",
+        "grid": "none",
+        "height": 5599.3984375,
+        "id": "configuration",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "static",
+        "tag": "SECTION",
+        "width": 1728,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "",
+        "grid": "none",
+        "height": 5667.3984375,
+        "id": "main",
+        "minHeight": "572px",
+        "padding": "68px 0px 0px",
+        "position": "static",
+        "tag": "MAIN",
+        "width": 1728,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "class": "storefront-module__TyP14W__storefront storefront-module__TyP14W__innerStorefront storefront-module__TyP14W__noAnnouncement",
+        "grid": "none",
+        "height": 6474.1875,
+        "id": "",
+        "minHeight": "880px",
+        "padding": "0px",
+        "position": "static",
+        "tag": "DIV",
+        "width": 1728,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "url": "/reference-product/wardrobe-2",
+    "viewport": [
+      1728,
+      880
+    ]
+  },
+  "desk": {
+    "ancestors": [
+      {
+        "class": "",
+        "grid": "none",
+        "height": 621,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "static",
+        "tag": "CANVAS",
+        "width": 1228,
+        "x": 32,
+        "y": 68
+      },
+      {
+        "class": "",
+        "grid": "none",
+        "height": 621,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "static",
+        "tag": "DIV",
+        "width": 1228,
+        "x": 32,
+        "y": 68
+      },
+      {
+        "class": "",
+        "grid": "none",
+        "height": 621,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "tag": "DIV",
+        "width": 1228,
+        "x": 32,
+        "y": 68
+      },
+      {
+        "class": "furniture-module__8W_02G__viewer",
+        "grid": "none",
+        "height": 621,
+        "id": "",
+        "minHeight": "520px",
+        "padding": "0px",
+        "position": "sticky",
+        "tag": "DIV",
+        "width": 1228,
+        "x": 32,
+        "y": 68
+      },
+      {
+        "class": "furniture-module__8W_02G__layout",
+        "grid": "1228px 420px",
+        "height": 655.46875,
+        "id": "",
+        "minHeight": "0px",
+        "padding": "0px 32px 24px",
+        "position": "static",
+        "tag": "DIV",
+        "width": 1728,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "furniture-module__8W_02G__page",
+        "grid": "none",
+        "height": 5610.8671875,
+        "id": "configuration",
+        "minHeight": "0px",
+        "padding": "0px",
+        "position": "static",
+        "tag": "SECTION",
+        "width": 1728,
+        "x": 0,
+        "y": 68
+      },
+      {
+        "class": "",
+        "grid": "none",
+        "height": 5678.8671875,
+        "id": "main",
+        "minHeight": "572.65px",
+        "padding": "68px 0px 0px",
+        "position": "static",
+        "tag": "MAIN",
+        "width": 1728,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "class": "storefront-module__TyP14W__storefront storefront-module__TyP14W__innerStorefront storefront-module__TyP14W__noAnnouncement",
+        "grid": "none",
+        "height": 6485.65625,
+        "id": "",
+        "minHeight": "881px",
+        "padding": "0px",
+        "position": "static",
+        "tag": "DIV",
+        "width": 1728,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "url": "/reference-product/desk-1",
+    "viewport": [
+      1728,
+      881
+    ]
+  }
+}

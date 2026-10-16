@@ -1,16 +1,15 @@
 'use client';
 
 import { useMemo, useEffect, Suspense } from 'react';
-import { StudioPerson } from './StudioPerson';
+import { useLoader } from '@react-three/fiber';
+import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
-
-// 룸 색상 — 무채색 라이트그레이 벽 + 한 톤 낮은 바닥 (albedo 값, 노란 기 없이 중성 유지)
-const WALL_COLOR = '#d9d9d9';
-const FLOOR_COLOR = '#bababa';
+import { StudioPerson } from './StudioPerson';
 
 interface BackgroundProps {
   shelfWidth: number;
   shelfDepth: number;
+  shelfHeight?: number;
 }
 
 /**
@@ -52,31 +51,40 @@ export function ContactShadowDecal({ shelfWidth, shelfDepth }: BackgroundProps) 
   );
 }
 
-export function Background({ shelfWidth, shelfDepth }: BackgroundProps) {
-  const roomWidth = 4000;
-  const floorDepth = 2000;
-  const wallHeight = 800;
+const STUDIO = '/three/reference-studio';
 
-  return (
-    <group>
-      {/* 바닥: 선반은 z=0(벽)~depth에 놓인다 */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, floorDepth / 2]} receiveShadow userData={{ excludeFromAO: true }}>
-        <planeGeometry args={[roomWidth, floorDepth]} />
-        <meshStandardMaterial color={FLOOR_COLOR} roughness={0.95} metalness={0} />
-      </mesh>
+function OriginalStudio({ shelfWidth, shelfHeight = 180, shelfDepth }: BackgroundProps) {
+  const background = useGLTF(`${STUDIO}/geometry/bg.glb`);
+  const [map, aoMap, alphaMap] = useLoader(THREE.TextureLoader, [
+    `${STUDIO}/texture/bg_shadow.png`, `${STUDIO}/texture/bg_ao.png`, `${STUDIO}/texture/bg_alpha.png`,
+  ]);
+  // 바닥은 거의 수평으로 보이므로 이방성 필터로 그림자/AO 텍스처 번짐을 막는다
+  for (const texture of [map, aoMap, alphaMap]) texture.anisotropy = 16;
+  const backgroundMaterial = useMemo(() => new THREE.MeshStandardMaterial({
+    color: '#E4E6E6', map, aoMap, aoMapIntensity: 1, lightMap: aoMap,
+    lightMapIntensity: 0, alphaMap, roughness: .44, metalness: 0,
+    opacity: .66, transparent: true, envMapIntensity: .88, depthWrite: false,
+  }), [map, aoMap, alphaMap]);
+  const room = useMemo(() => {
+    const clone = background.scene.clone(true);
+    clone.traverse(object => {
+      if (object instanceof THREE.Mesh) {
+        object.material = backgroundMaterial;
+        object.castShadow = false; object.receiveShadow = true;
+        object.userData.excludeFromAO = true;
+      }
+    });
+    return clone;
+  }, [background.scene, backgroundMaterial]);
+  useEffect(() => () => backgroundMaterial.dispose(), [backgroundMaterial]);
+  // Source scene uses metres; Befun uses centimetres. Preserve GLB node rotations.
+  // bg scale = dimensions in cm.
+  return <group name="reference-studio-background">
+    <primitive object={room} scale={[shelfWidth, shelfHeight, shelfDepth]} dispose={null}/>
+    <Suspense fallback={null}><StudioPerson shelfWidth={shelfWidth}/></Suspense>
+  </group>;
+}
 
-      {/* 뒷벽: 선반 그림자가 벽에 떨어져 공간감을 만든다 */}
-      <mesh position={[0, wallHeight / 2, 0]} receiveShadow userData={{ excludeFromAO: true }}>
-        <planeGeometry args={[roomWidth, wallHeight]} />
-        <meshStandardMaterial color={WALL_COLOR} roughness={0.95} metalness={0} />
-      </mesh>
-
-      <ContactShadowDecal shelfWidth={shelfWidth} shelfDepth={shelfDepth} />
-
-      {/* 사람 실루엣 - 로딩 실패 시 생략 */}
-      <Suspense fallback={null}>
-        <StudioPerson shelfWidth={shelfWidth} />
-      </Suspense>
-    </group>
-  );
+export function Background(props: BackgroundProps) {
+  return <Suspense fallback={null}><OriginalStudio {...props}/></Suspense>;
 }

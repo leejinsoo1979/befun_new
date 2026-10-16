@@ -1,0 +1,1780 @@
+{
+  "source": "https://tylko.com/de-de/configure/1964243,w",
+  "capturedAt": "2026-10-15",
+  "regularEur": 4722,
+  "geometry": {
+    "backs": [
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "t",
+        "x1": -1552,
+        "x2": -789,
+        "y1": 1944,
+        "y2": 2215,
+        "z1": 6,
+        "z2": 18
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "t",
+        "x1": -771,
+        "x2": -8,
+        "y1": 1944,
+        "y2": 2215,
+        "z1": 6,
+        "z2": 18
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "t",
+        "x1": 10,
+        "x2": 772,
+        "y1": 1944,
+        "y2": 2215,
+        "z1": 6,
+        "z2": 18
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "t",
+        "x1": 790,
+        "x2": 1552,
+        "y1": 1944,
+        "y2": 2215,
+        "z1": 6,
+        "z2": 18
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "b",
+        "x1": -1552,
+        "x2": -789,
+        "y1": 20,
+        "y2": 1026,
+        "z1": 6,
+        "z2": 18
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "b",
+        "x1": -771,
+        "x2": -8,
+        "y1": 20,
+        "y2": 1026,
+        "z1": 6,
+        "z2": 18
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "b",
+        "x1": 10,
+        "x2": 772,
+        "y1": 20,
+        "y2": 1026,
+        "z1": 6,
+        "z2": 18
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "b",
+        "x1": 790,
+        "x2": 1552,
+        "y1": 20,
+        "y2": 1026,
+        "z1": 6,
+        "z2": 18
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "m",
+        "x1": -1552,
+        "x2": -789,
+        "y1": 1026,
+        "y2": 1944,
+        "z1": 6,
+        "z2": 18
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "m",
+        "x1": -771,
+        "x2": -8,
+        "y1": 1026,
+        "y2": 1944,
+        "z1": 6,
+        "z2": 18
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "m",
+        "x1": 10,
+        "x2": 772,
+        "y1": 1026,
+        "y2": 1944,
+        "z1": 6,
+        "z2": 18
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "m",
+        "x1": 790,
+        "x2": 1552,
+        "y1": 1026,
+        "y2": 1944,
+        "z1": 6,
+        "z2": 18
+      }
+    ],
+    "bars": [],
+    "cable_management": [],
+    "components": [
+      {
+        "bars_count": 0,
+        "cable_managment_count": 0,
+        "cables_system": null,
+        "channel_id": 1,
+        "compartments_count": 7,
+        "component_id": "1560:38969",
+        "door_flip": null,
+        "door_flippable": false,
+        "doors_coverage": "full",
+        "doors_left_count": 1,
+        "doors_pair_count": 1,
+        "doors_right_count": 1,
+        "drawers_ext_count": 0,
+        "drawers_int_count": 0,
+        "local_depth": 390,
+        "local_height": 2280,
+        "m_config_id": 93071,
+        "mesh_id": 2590,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "series_id": "Open_Standard_Slabs_lowest_doors",
+        "table_id": "Open",
+        "x1": -1561,
+        "x2": -780,
+        "y1": 0,
+        "y2": 2200,
+        "z1": 0,
+        "z2": 390
+      },
+      {
+        "bars_count": 0,
+        "cable_managment_count": 0,
+        "cables_system": null,
+        "channel_id": 2,
+        "compartments_count": 7,
+        "component_id": "1560:38969",
+        "door_flip": null,
+        "door_flippable": false,
+        "doors_coverage": "full",
+        "doors_left_count": 1,
+        "doors_pair_count": 1,
+        "doors_right_count": 1,
+        "drawers_ext_count": 0,
+        "drawers_int_count": 0,
+        "local_depth": 390,
+        "local_height": 2280,
+        "m_config_id": 93072,
+        "mesh_id": 2590,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "series_id": "Open_Standard_Slabs_lowest_doors",
+        "table_id": "Open",
+        "x1": -780,
+        "x2": 1,
+        "y1": 0,
+        "y2": 2200,
+        "z1": 0,
+        "z2": 390
+      },
+      {
+        "bars_count": 0,
+        "cable_managment_count": 0,
+        "cables_system": null,
+        "channel_id": 3,
+        "compartments_count": 7,
+        "component_id": "1560:38969",
+        "door_flip": null,
+        "door_flippable": false,
+        "doors_coverage": "full",
+        "doors_left_count": 1,
+        "doors_pair_count": 1,
+        "doors_right_count": 1,
+        "drawers_ext_count": 0,
+        "drawers_int_count": 0,
+        "local_depth": 390,
+        "local_height": 2280,
+        "m_config_id": 93073,
+        "mesh_id": 2590,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "series_id": "Open_Standard_Slabs_lowest_doors",
+        "table_id": "Open",
+        "x1": 1,
+        "x2": 781,
+        "y1": 0,
+        "y2": 2200,
+        "z1": 0,
+        "z2": 390
+      },
+      {
+        "bars_count": 0,
+        "cable_managment_count": 0,
+        "cables_system": null,
+        "channel_id": 4,
+        "compartments_count": 7,
+        "component_id": "1560:38969",
+        "door_flip": null,
+        "door_flippable": false,
+        "doors_coverage": "full",
+        "doors_left_count": 1,
+        "doors_pair_count": 1,
+        "doors_right_count": 1,
+        "drawers_ext_count": 0,
+        "drawers_int_count": 0,
+        "local_depth": 390,
+        "local_height": 2280,
+        "m_config_id": 93074,
+        "mesh_id": 2590,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "series_id": "Open_Standard_Slabs_lowest_doors",
+        "table_id": "Open",
+        "x1": 781,
+        "x2": 1561,
+        "y1": 0,
+        "y2": 2200,
+        "z1": 0,
+        "z2": 390
+      }
+    ],
+    "configurator_params": {
+      "additional_parameters": {
+        "collection_type": "Bookcase",
+        "doors_direction": 1
+      },
+      "configurator_custom_params": {
+        "channels": {
+          "1": {
+            "cables": [
+              80
+            ],
+            "cables_system": "off",
+            "distortion": null,
+            "door_flip": null,
+            "exposition": "open",
+            "local_depth": 390,
+            "local_height": 2280,
+            "local_x": null,
+            "order": 1,
+            "series_id": "Open_Standard_Slabs_lowest_doors",
+            "shelf_distribution": null
+          },
+          "2": {
+            "cables": [
+              80
+            ],
+            "cables_system": "off",
+            "distortion": null,
+            "door_flip": null,
+            "exposition": "open",
+            "local_depth": 390,
+            "local_height": 2280,
+            "local_x": null,
+            "order": 1,
+            "series_id": "Open_Standard_Slabs_lowest_doors",
+            "shelf_distribution": null
+          },
+          "3": {
+            "cables": [
+              80
+            ],
+            "cables_system": "off",
+            "distortion": null,
+            "door_flip": null,
+            "exposition": "open",
+            "local_depth": 390,
+            "local_height": 2280,
+            "local_x": null,
+            "order": 1,
+            "series_id": "Open_Standard_Slabs_lowest_doors",
+            "shelf_distribution": null
+          },
+          "4": {
+            "cables": [
+              80
+            ],
+            "cables_system": "off",
+            "distortion": null,
+            "door_flip": null,
+            "exposition": "open",
+            "local_depth": 390,
+            "local_height": 2280,
+            "local_x": null,
+            "order": 1,
+            "series_id": "Open_Standard_Slabs_lowest_doors",
+            "shelf_distribution": null
+          },
+          "5": {
+            "cables": [
+              80
+            ],
+            "cables_system": "off",
+            "distortion": null,
+            "door_flip": null,
+            "exposition": "open",
+            "local_depth": 390,
+            "local_height": 2280,
+            "local_x": null,
+            "order": 1,
+            "series_id": "Open_Standard_Slabs_lowest_doors",
+            "shelf_distribution": null
+          },
+          "6": {
+            "cables": [
+              80
+            ],
+            "cables_system": "off",
+            "distortion": null,
+            "door_flip": null,
+            "exposition": "open",
+            "local_depth": 390,
+            "local_height": 2280,
+            "local_x": null,
+            "order": 1,
+            "series_id": "Open_Standard_Slabs_lowest_doors",
+            "shelf_distribution": null
+          },
+          "7": {
+            "cables": [
+              80
+            ],
+            "cables_system": "off",
+            "distortion": null,
+            "door_flip": null,
+            "exposition": "open",
+            "local_depth": 390,
+            "local_height": 2280,
+            "local_x": null,
+            "order": 1,
+            "series_id": "Open_Standard_Slabs_lowest_doors",
+            "shelf_distribution": null
+          },
+          "8": {
+            "cables": [
+              80
+            ],
+            "cables_system": "off",
+            "distortion": null,
+            "door_flip": null,
+            "exposition": "open",
+            "local_depth": 390,
+            "local_height": 2280,
+            "local_x": null,
+            "order": 1,
+            "series_id": "Open_Standard_Slabs_lowest_doors",
+            "shelf_distribution": null
+          },
+          "9": {
+            "cables": [
+              80
+            ],
+            "cables_system": "off",
+            "distortion": null,
+            "door_flip": null,
+            "exposition": "open",
+            "local_depth": 390,
+            "local_height": 2280,
+            "local_x": null,
+            "order": 1,
+            "series_id": "Open_Standard_Slabs_lowest_doors",
+            "shelf_distribution": null
+          },
+          "10": {
+            "cables": [
+              80
+            ],
+            "cables_system": "off",
+            "distortion": null,
+            "door_flip": null,
+            "exposition": "open",
+            "local_depth": 390,
+            "local_height": 2280,
+            "local_x": null,
+            "order": 1,
+            "series_id": "Open_Standard_Slabs_lowest_doors",
+            "shelf_distribution": null
+          }
+        },
+        "lines": {}
+      },
+      "density": 0,
+      "depth": 390,
+      "distortion": 0,
+      "flatTop": false,
+      "geom_id": 2590,
+      "geom_type": "mesh",
+      "handles": false,
+      "height": 2280,
+      "material": 4,
+      "skin": "plane",
+      "width": 3140
+    },
+    "configurator_type": 3,
+    "depth": 390,
+    "doors": [
+      {
+        "direction": 1,
+        "handle": 1,
+        "handle_type": "push",
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "o",
+        "x1": -1570,
+        "x2": -1176,
+        "y1": 20,
+        "y2": 744,
+        "z1": 372,
+        "z2": 390
+      },
+      {
+        "direction": 2,
+        "handle": 0,
+        "handle_type": "push",
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "o",
+        "x1": -1176,
+        "x2": -782,
+        "y1": 20,
+        "y2": 744,
+        "z1": 372,
+        "z2": 390
+      },
+      {
+        "direction": 1,
+        "handle": 1,
+        "handle_type": "push",
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "o",
+        "x1": -778,
+        "x2": -389,
+        "y1": 20,
+        "y2": 744,
+        "z1": 372,
+        "z2": 390
+      },
+      {
+        "direction": 2,
+        "handle": 0,
+        "handle_type": "push",
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "o",
+        "x1": -389,
+        "x2": -1,
+        "y1": 20,
+        "y2": 744,
+        "z1": 372,
+        "z2": 390
+      },
+      {
+        "direction": 1,
+        "handle": 1,
+        "handle_type": "push",
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "o",
+        "x1": 3,
+        "x2": 391,
+        "y1": 20,
+        "y2": 744,
+        "z1": 372,
+        "z2": 390
+      },
+      {
+        "direction": 2,
+        "handle": 0,
+        "handle_type": "push",
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "o",
+        "x1": 391,
+        "x2": 779,
+        "y1": 20,
+        "y2": 744,
+        "z1": 372,
+        "z2": 390
+      },
+      {
+        "direction": 1,
+        "handle": 1,
+        "handle_type": "push",
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "o",
+        "x1": 783,
+        "x2": 1177,
+        "y1": 20,
+        "y2": 744,
+        "z1": 372,
+        "z2": 390
+      },
+      {
+        "direction": 2,
+        "handle": 0,
+        "handle_type": "push",
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "o",
+        "x1": 1177,
+        "x2": 1570,
+        "y1": 20,
+        "y2": 744,
+        "z1": 372,
+        "z2": 390
+      }
+    ],
+    "drawers": [],
+    "family": 3,
+    "frame": [],
+    "height": 2240,
+    "hinges": [
+      {
+        "direction": 1,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": -1552,
+        "x2": -1513,
+        "y1": 70,
+        "y2": 112,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 1,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": -1552,
+        "x2": -1513,
+        "y1": 356,
+        "y2": 398,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 1,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": -1552,
+        "x2": -1513,
+        "y1": 641,
+        "y2": 683,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 2,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": -828,
+        "x2": -789,
+        "y1": 70,
+        "y2": 112,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 2,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": -828,
+        "x2": -789,
+        "y1": 356,
+        "y2": 398,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 2,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": -828,
+        "x2": -789,
+        "y1": 641,
+        "y2": 683,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 1,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": -771,
+        "x2": -732,
+        "y1": 70,
+        "y2": 112,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 1,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": -771,
+        "x2": -732,
+        "y1": 356,
+        "y2": 398,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 1,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": -771,
+        "x2": -732,
+        "y1": 641,
+        "y2": 683,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 2,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": -47,
+        "x2": -8,
+        "y1": 70,
+        "y2": 112,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 2,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": -47,
+        "x2": -8,
+        "y1": 356,
+        "y2": 398,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 2,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": -47,
+        "x2": -8,
+        "y1": 641,
+        "y2": 683,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 1,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": 10,
+        "x2": 49,
+        "y1": 70,
+        "y2": 112,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 1,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": 10,
+        "x2": 49,
+        "y1": 356,
+        "y2": 398,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 1,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": 10,
+        "x2": 49,
+        "y1": 641,
+        "y2": 683,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 2,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": 733,
+        "x2": 772,
+        "y1": 70,
+        "y2": 112,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 2,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": 733,
+        "x2": 772,
+        "y1": 356,
+        "y2": 398,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 2,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": 733,
+        "x2": 772,
+        "y1": 641,
+        "y2": 683,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 1,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": 790,
+        "x2": 829,
+        "y1": 70,
+        "y2": 112,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 1,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": 790,
+        "x2": 829,
+        "y1": 356,
+        "y2": 398,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 1,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": 790,
+        "x2": 829,
+        "y1": 641,
+        "y2": 683,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 2,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": 1513,
+        "x2": 1552,
+        "y1": 70,
+        "y2": 112,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 2,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": 1513,
+        "x2": 1552,
+        "y1": 356,
+        "y2": 398,
+        "z1": 308,
+        "z2": 372
+      },
+      {
+        "direction": 2,
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "x1": 1513,
+        "x2": 1552,
+        "y1": 641,
+        "y2": 683,
+        "z1": 308,
+        "z2": 372
+      }
+    ],
+    "legs": [
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "o",
+        "x1": -1561,
+        "x2": -1561,
+        "y1": 0,
+        "y2": 20,
+        "z1": 52,
+        "z2": 52
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "o",
+        "x1": -1561,
+        "x2": -1561,
+        "y1": 0,
+        "y2": 20,
+        "z1": 334,
+        "z2": 334
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": -780,
+        "x2": -780,
+        "y1": 0,
+        "y2": 20,
+        "z1": 52,
+        "z2": 52
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": -780,
+        "x2": -780,
+        "y1": 0,
+        "y2": 20,
+        "z1": 316,
+        "z2": 316
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 1,
+        "x2": 1,
+        "y1": 0,
+        "y2": 20,
+        "z1": 52,
+        "z2": 52
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 1,
+        "x2": 1,
+        "y1": 0,
+        "y2": 20,
+        "z1": 316,
+        "z2": 316
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 781,
+        "x2": 781,
+        "y1": 0,
+        "y2": 20,
+        "z1": 52,
+        "z2": 52
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 781,
+        "x2": 781,
+        "y1": 0,
+        "y2": 20,
+        "z1": 316,
+        "z2": 316
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "o",
+        "x1": 1561,
+        "x2": 1561,
+        "y1": 0,
+        "y2": 20,
+        "z1": 52,
+        "z2": 52
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "o",
+        "x1": 1561,
+        "x2": 1561,
+        "y1": 0,
+        "y2": 20,
+        "z1": 334,
+        "z2": 334
+      }
+    ],
+    "masking_bars": [],
+    "material": 4,
+    "physical_product_version": 5,
+    "shelf_type": 14,
+    "slabs": [
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "b",
+        "x1": -1552,
+        "x2": -789,
+        "y1": 26,
+        "y2": 44,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "b",
+        "x1": -771,
+        "x2": -8,
+        "y1": 26,
+        "y2": 44,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "b",
+        "x1": 10,
+        "x2": 772,
+        "y1": 26,
+        "y2": 44,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "b",
+        "x1": 790,
+        "x2": 1552,
+        "y1": 26,
+        "y2": 44,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": -1552,
+        "x2": -789,
+        "y1": 426,
+        "y2": 444,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": -1552,
+        "x2": -789,
+        "y1": 726,
+        "y2": 744,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": -1552,
+        "x2": -789,
+        "y1": 1026,
+        "y2": 1044,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": -1552,
+        "x2": -789,
+        "y1": 1326,
+        "y2": 1344,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": -1552,
+        "x2": -789,
+        "y1": 1626,
+        "y2": 1644,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": -1552,
+        "x2": -789,
+        "y1": 1926,
+        "y2": 1944,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "o",
+        "x1": -1552,
+        "x2": 10,
+        "y1": 2215,
+        "y2": 2233,
+        "z1": 0,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": -771,
+        "x2": -8,
+        "y1": 426,
+        "y2": 444,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": -771,
+        "x2": -8,
+        "y1": 726,
+        "y2": 744,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": -771,
+        "x2": -8,
+        "y1": 1026,
+        "y2": 1044,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": -771,
+        "x2": -8,
+        "y1": 1326,
+        "y2": 1344,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": -771,
+        "x2": -8,
+        "y1": 1626,
+        "y2": 1644,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": -771,
+        "x2": -8,
+        "y1": 1926,
+        "y2": 1944,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "o",
+        "x1": 10,
+        "x2": 1552,
+        "y1": 2215,
+        "y2": 2233,
+        "z1": 0,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 10,
+        "x2": 772,
+        "y1": 426,
+        "y2": 444,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 10,
+        "x2": 772,
+        "y1": 726,
+        "y2": 744,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 10,
+        "x2": 772,
+        "y1": 1026,
+        "y2": 1044,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 10,
+        "x2": 772,
+        "y1": 1326,
+        "y2": 1344,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 10,
+        "x2": 772,
+        "y1": 1626,
+        "y2": 1644,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 10,
+        "x2": 772,
+        "y1": 1926,
+        "y2": 1944,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 790,
+        "x2": 1552,
+        "y1": 426,
+        "y2": 444,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 790,
+        "x2": 1552,
+        "y1": 726,
+        "y2": 744,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 790,
+        "x2": 1552,
+        "y1": 1026,
+        "y2": 1044,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 790,
+        "x2": 1552,
+        "y1": 1326,
+        "y2": 1344,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 790,
+        "x2": 1552,
+        "y1": 1626,
+        "y2": 1644,
+        "z1": 18,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "s",
+        "x1": 790,
+        "x2": 1552,
+        "y1": 1926,
+        "y2": 1944,
+        "z1": 18,
+        "z2": 368
+      }
+    ],
+    "walls": [
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "",
+        "x1": -1570,
+        "x2": -1552,
+        "y1": 20,
+        "y2": 2233,
+        "z1": 0,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "",
+        "x1": -789,
+        "x2": -771,
+        "y1": 20,
+        "y2": 2215,
+        "z1": 0,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "",
+        "x1": -8,
+        "x2": 10,
+        "y1": 20,
+        "y2": 2215,
+        "z1": 0,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "",
+        "x1": 772,
+        "x2": 790,
+        "y1": 20,
+        "y2": 2215,
+        "z1": 0,
+        "z2": 368
+      },
+      {
+        "origin": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "subtype": "",
+        "x1": 1552,
+        "x2": 1570,
+        "y1": 20,
+        "y2": 2233,
+        "z1": 0,
+        "z2": 368
+      }
+    ],
+    "width": 3140
+  },
+  "preset": {
+    "additional_parameters": {
+      "collection_type": "Bookcase",
+      "doors_direction": 1
+    },
+    "configurator_custom_params": {
+      "channels": {
+        "1": {
+          "cables": [
+            80
+          ],
+          "cables_system": "off",
+          "distortion": null,
+          "door_flip": null,
+          "exposition": "open",
+          "local_depth": 390,
+          "local_height": 2280,
+          "local_x": null,
+          "order": 1,
+          "series_id": "Open_Standard_Slabs_lowest_doors",
+          "shelf_distribution": null
+        },
+        "2": {
+          "cables": [
+            80
+          ],
+          "cables_system": "off",
+          "distortion": null,
+          "door_flip": null,
+          "exposition": "open",
+          "local_depth": 390,
+          "local_height": 2280,
+          "local_x": null,
+          "order": 1,
+          "series_id": "Open_Standard_Slabs_lowest_doors",
+          "shelf_distribution": null
+        },
+        "3": {
+          "cables": [
+            80
+          ],
+          "cables_system": "off",
+          "distortion": null,
+          "door_flip": null,
+          "exposition": "open",
+          "local_depth": 390,
+          "local_height": 2280,
+          "local_x": null,
+          "order": 1,
+          "series_id": "Open_Standard_Slabs_lowest_doors",
+          "shelf_distribution": null
+        },
+        "4": {
+          "cables": [
+            80
+          ],
+          "cables_system": "off",
+          "distortion": null,
+          "door_flip": null,
+          "exposition": "open",
+          "local_depth": 390,
+          "local_height": 2280,
+          "local_x": null,
+          "order": 1,
+          "series_id": "Open_Standard_Slabs_lowest_doors",
+          "shelf_distribution": null
+        },
+        "5": {
+          "cables": [
+            80
+          ],
+          "cables_system": "off",
+          "distortion": null,
+          "door_flip": null,
+          "exposition": "open",
+          "local_depth": 390,
+          "local_height": 2280,
+          "local_x": null,
+          "order": 1,
+          "series_id": "Open_Standard_Slabs_lowest_doors",
+          "shelf_distribution": null
+        },
+        "6": {
+          "cables": [
+            80
+          ],
+          "cables_system": "off",
+          "distortion": null,
+          "door_flip": null,
+          "exposition": "open",
+          "local_depth": 390,
+          "local_height": 2280,
+          "local_x": null,
+          "order": 1,
+          "series_id": "Open_Standard_Slabs_lowest_doors",
+          "shelf_distribution": null
+        },
+        "7": {
+          "cables": [
+            80
+          ],
+          "cables_system": "off",
+          "distortion": null,
+          "door_flip": null,
+          "exposition": "open",
+          "local_depth": 390,
+          "local_height": 2280,
+          "local_x": null,
+          "order": 1,
+          "series_id": "Open_Standard_Slabs_lowest_doors",
+          "shelf_distribution": null
+        },
+        "8": {
+          "cables": [
+            80
+          ],
+          "cables_system": "off",
+          "distortion": null,
+          "door_flip": null,
+          "exposition": "open",
+          "local_depth": 390,
+          "local_height": 2280,
+          "local_x": null,
+          "order": 1,
+          "series_id": "Open_Standard_Slabs_lowest_doors",
+          "shelf_distribution": null
+        },
+        "9": {
+          "cables": [
+            80
+          ],
+          "cables_system": "off",
+          "distortion": null,
+          "door_flip": null,
+          "exposition": "open",
+          "local_depth": 390,
+          "local_height": 2280,
+          "local_x": null,
+          "order": 1,
+          "series_id": "Open_Standard_Slabs_lowest_doors",
+          "shelf_distribution": null
+        },
+        "10": {
+          "cables": [
+            80
+          ],
+          "cables_system": "off",
+          "distortion": null,
+          "door_flip": null,
+          "exposition": "open",
+          "local_depth": 390,
+          "local_height": 2280,
+          "local_x": null,
+          "order": 1,
+          "series_id": "Open_Standard_Slabs_lowest_doors",
+          "shelf_distribution": null
+        }
+      },
+      "lines": {}
+    },
+    "density": 0,
+    "depth": 390,
+    "distortion": 0,
+    "flatTop": false,
+    "geom_id": 2590,
+    "geom_type": "mesh",
+    "handles": false,
+    "height": 2280,
+    "material": 4,
+    "skin": "plane",
+    "width": 3140
+  }
+}

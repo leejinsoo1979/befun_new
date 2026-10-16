@@ -5,6 +5,8 @@ import { effectiveHardwareStyle, resolveHardwareRows } from '@/lib/three/hardwar
 import { useHardwareStore } from './useHardwareStore';
 
 interface ShelfState {
+  /** Source product provenance; geometry uses it only while all layout inputs match. */
+  catalogPreset?: string;
   // 치수
   width: number;
   height: number;
@@ -88,10 +90,14 @@ export const useShelfStore = create<ShelfState>((set, get) => ({
   panelCount: 0,
   panelSpacing: 0,
 
-  setWidth: (w) => set({ width: Math.max(30, Math.min(450, w)) }),
+  setWidth: (w) => {
+    const width = Math.max(30, Math.min(450, w));
+    set({ width });
+  },
 
   setHeight: (h) => {
-    set({ height: Math.max(38, Math.min(228, h)) });
+    const height = Math.max(38, Math.min(228, h));
+    set({ height });
     get().recalculateRows();
   },
 

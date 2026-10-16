@@ -3,23 +3,32 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
+import { useAvatarStore, type AvatarVariant } from './display/avatarStore';
+import { MALE_CM_PER_PIXEL, MALE_DROP_CM } from './display/avatarScale';
+import maleFeet from './display/male-foot-anchors.json';
 import { StudioPersonMotion } from './StudioPersonMotion';
 
 const PHOTO = '/three/reference-studio/person/ivory-linen-woman.png';
 // Original 1024×1536 RGBA image. Visible alpha > 8: y=3..1525.
-// 175 cm is a display scale reference, not the photographed person's measured height.
-const CM_PER_PIXEL = 175 / (1525 - 3);
-// User-requested heel alignment: lower the photo, keeping contact decals on y=0.
-const HEEL_DROP_CM = 5;
+// 167 cm is a display scale reference, not the photographed person's measured height.
+const CM_PER_PIXEL = 167 / (1525 - 3);
+// Keep the lowest visible toes at floor level; lowering the billboard clips the feet.
+const HEEL_DROP_CM = 0;
 // Visible alpha spans x314..716. Keep even a yawed edge in front of z=0.
-const WALL_CLEARANCE = Math.max(515 - 314, 716 - 515) * CM_PER_PIXEL + 3;
+const WALL_CLEARANCE = Math.max(515 - 314, 716 - 515) * (175 / (1525 - 3)) + 3;
 
 /** Upright camera-facing photograph, anchored at its feet in the studio. */
 export function StudioPerson({ shelfWidth }: { shelfWidth: number }) {
+  const avatar = useAvatarStore(state => state.avatar);
+  return <Person key={avatar} shelfWidth={shelfWidth} variant={avatar}/>;
+}
+
+function Person({ shelfWidth, variant }: { shelfWidth: number; variant: AvatarVariant }) {
+  const male = variant === 'male';
   const root = useRef<THREE.Group>(null);
   const facing = useRef<THREE.Group>(null);
   const cameraPosition = useMemo(() => new THREE.Vector3(), []);
-  const loaded = useLoader(THREE.TextureLoader, PHOTO);
+  const loaded = useLoader(THREE.TextureLoader, male ? '/three/reference-studio/person/male-still.png' : PHOTO);
   const texture = useMemo(() => {
     const copy = loaded.clone();
     copy.colorSpace = THREE.SRGBColorSpace;
@@ -27,6 +36,7 @@ export function StudioPerson({ shelfWidth }: { shelfWidth: number }) {
     return copy;
   }, [loaded]);
   const geometry = useMemo(() => {
+    if (male) return new THREE.PlaneGeometry(496 * MALE_CM_PER_PIXEL, 608 * MALE_CM_PER_PIXEL);
     const plane = new THREE.PlaneGeometry(1024 * CM_PER_PIXEL, 1536 * CM_PER_PIXEL, 64, 128);
     const positions = plane.attributes.position;
     // The photograph's left toes end at y1507, right toes at y1525.
@@ -43,7 +53,7 @@ export function StudioPerson({ shelfWidth }: { shelfWidth: number }) {
     plane.computeBoundingBox();
     plane.computeBoundingSphere();
     return plane;
-  }, []);
+  }, [male]);
   const contact = useMemo(() => {
     const size = 64;
     const pixels = new Uint8Array(size * size * 4);
@@ -67,18 +77,18 @@ export function StudioPerson({ shelfWidth }: { shelfWidth: number }) {
     }
   });
 
-  return <group ref={root} name="studio-person" position={[-(shelfWidth / 2 + 56), 0, WALL_CLEARANCE]}>
+  return <group ref={root} name="studio-person" position={[-(shelfWidth / 2 + 56), 0, WALL_CLEARANCE + (male ? 0 : 10)]}>
     <group ref={facing}>
-      {[480, 675].map(footX => <mesh key={footX}
-        position={[(footX - 515) * CM_PER_PIXEL, .03, 0]}
+      {(male ? [220, 283] : [480, 675]).map(footX => <mesh key={footX}
+        position={[(footX - (male ? 248 : 515)) * (male ? MALE_CM_PER_PIXEL : CM_PER_PIXEL), .03, 0]}
         rotation={[-Math.PI / 2, 0, 0]} renderOrder={1} raycast={() => null}
         userData={{ excludeFromAO: true }}>
         <planeGeometry args={[15, 11]}/>
         <meshBasicMaterial map={contact} transparent depthWrite={false} toneMapped={false}/>
       </mesh>)}
-      <StudioPersonMotion heelDrop={HEEL_DROP_CM} fallback={<mesh
+      <StudioPersonMotion variant={variant} heelDrop={HEEL_DROP_CM} fallback={<mesh
         geometry={geometry}
-        position={[(512 - 515) * CM_PER_PIXEL, (1525 - 768) * CM_PER_PIXEL - HEEL_DROP_CM, 0]}
+        position={male ? [0, (maleFeet.feet[0] - 304) * MALE_CM_PER_PIXEL - MALE_DROP_CM, 0] : [(512 - 515) * CM_PER_PIXEL, (1525 - 768) * CM_PER_PIXEL - HEEL_DROP_CM, 0]}
         renderOrder={2}
         raycast={() => null}
         userData={{ excludeFromAO: true }}

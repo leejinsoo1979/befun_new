@@ -1,0 +1,2090 @@
+{
+  "S01_AR_D07_W02_SEAT": {
+    "id": "S01_AR_D07_W02_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_AR_D07_W02_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_AR_D07_W02_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_AR_D07_W02_SEAT_v3.glb",
+    "bytes": 11312,
+    "sha256": "1601143b91dfd4ce83ef345b227d0f2e1b64a5566903b92df329652fe2f60945"
+  },
+  "S01_CL_D13_W07_BACKREST": {
+    "id": "S01_CL_D13_W07_BACKREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CL_D13_W07_BACKREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CL_D13_W07_BACKREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CL_D13_W07_BACKREST_v2.glb",
+    "bytes": 9184,
+    "sha256": "dc3968ecea396ffa51045f127c64c0a66db3d717b5387d3e8ffb5b39b75251b3"
+  },
+  "S01_CL_D13_W07_HEADREST": {
+    "id": "S01_CL_D13_W07_HEADREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CL_D13_W07_HEADREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CL_D13_W07_HEADREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CL_D13_W07_HEADREST_v2.glb",
+    "bytes": 9948,
+    "sha256": "4c65d4ebbf914c36f825d8ed18f2d4f8d373b55aeced145f4389238e8b670fd8"
+  },
+  "S01_CL_D13_W07_SEAT": {
+    "id": "S01_CL_D13_W07_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CL_D13_W07_SEAT_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CL_D13_W07_SEAT_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CL_D13_W07_SEAT_v2.glb",
+    "bytes": 20652,
+    "sha256": "62bf0c6eaaab8b3a6311c03d47f84985597ff98ee17e9c7bafd7c5dfaba094ca"
+  },
+  "S01_CL_D13_W08_BACKREST": {
+    "id": "S01_CL_D13_W08_BACKREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CL_D13_W08_BACKREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CL_D13_W08_BACKREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CL_D13_W08_BACKREST_v2.glb",
+    "bytes": 8808,
+    "sha256": "8e0c283d4e74d2635eb9b467ba3f15b5e107a2c93abe35d07113bec9f669411e"
+  },
+  "S01_CL_D13_W08_HEADREST": {
+    "id": "S01_CL_D13_W08_HEADREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CL_D13_W08_HEADREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CL_D13_W08_HEADREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CL_D13_W08_HEADREST_v2.glb",
+    "bytes": 10008,
+    "sha256": "3ea3f4338a6370b4b2b5046e38d039f3db5d7d4287f6d2252f5f0deb979d5aeb"
+  },
+  "S01_CL_D13_W08_SEAT": {
+    "id": "S01_CL_D13_W08_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CL_D13_W08_SEAT_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CL_D13_W08_SEAT_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CL_D13_W08_SEAT_v2.glb",
+    "bytes": 20348,
+    "sha256": "68cd052fdba6dd0157be5931f16b915db4a4a7abb7af73e688c790e2f85aeef6"
+  },
+  "S01_CL_D13_W09_BACKREST": {
+    "id": "S01_CL_D13_W09_BACKREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CL_D13_W09_BACKREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CL_D13_W09_BACKREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CL_D13_W09_BACKREST_v2.glb",
+    "bytes": 8748,
+    "sha256": "bb270a49708eccafc85926f6eb086879751bbb044fa8ca8b96b3607674644c1f"
+  },
+  "S01_CL_D13_W09_HEADREST": {
+    "id": "S01_CL_D13_W09_HEADREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CL_D13_W09_HEADREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CL_D13_W09_HEADREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CL_D13_W09_HEADREST_v2.glb",
+    "bytes": 9884,
+    "sha256": "22e72d2aa0b53c436edfdfe3be3b03b73a0046bdc45fcd6ca99d7a79a47f0989"
+  },
+  "S01_CL_D13_W09_SEAT": {
+    "id": "S01_CL_D13_W09_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CL_D13_W09_SEAT_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CL_D13_W09_SEAT_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CL_D13_W09_SEAT_v2.glb",
+    "bytes": 20232,
+    "sha256": "edaa99b625c5a86b906b54dc2fbbbeb7c5c814b8e3468de67b272d99bc289586"
+  },
+  "S01_CN_D08_W08_BACKREST": {
+    "id": "S01_CN_D08_W08_BACKREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CN_D08_W08_BACKREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CN_D08_W08_BACKREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CN_D08_W08_BACKREST_v2.glb",
+    "bytes": 15652,
+    "sha256": "5f18fa3056c4781a9924a8c1e103766ccb69f79bbdcbabd6eec58410d39fc528"
+  },
+  "S01_CN_D08_W08_HEADREST": {
+    "id": "S01_CN_D08_W08_HEADREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CN_D08_W08_HEADREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CN_D08_W08_HEADREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CN_D08_W08_HEADREST_v2.glb",
+    "bytes": 18500,
+    "sha256": "1a223306f3c87c9422bc75b97eeba9681d3539a188de239c00230d8be694ae62"
+  },
+  "S01_CN_D08_W08_SEAT": {
+    "id": "S01_CN_D08_W08_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CN_D08_W08_SEAT_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CN_D08_W08_SEAT_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CN_D08_W08_SEAT_v2.glb",
+    "bytes": 24792,
+    "sha256": "a08223223a1757f8b90ed76962b3e84c6e61c15750598ec326bb4f34337d2a0d"
+  },
+  "S01_CN_D08_W08_N_BACKREST": {
+    "id": "S01_CN_D08_W08_N_BACKREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CN_D08_W08_N_BACKREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CN_D08_W08_N_BACKREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CN_D08_W08_N_BACKREST_v2.glb",
+    "bytes": 15712,
+    "sha256": "09347f04d3b5558ebb789840fa4a3030296513490fc151c1f34dc9468991e290"
+  },
+  "S01_CN_D08_W08_N_HEADREST": {
+    "id": "S01_CN_D08_W08_N_HEADREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CN_D08_W08_N_HEADREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CN_D08_W08_N_HEADREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CN_D08_W08_N_HEADREST_v2.glb",
+    "bytes": 18596,
+    "sha256": "3cd7d4f5c21091355502f35ee7464fdc6c5825141415ccf7051c8db3d65ea666"
+  },
+  "S01_CN_D08_W08_N_SEAT": {
+    "id": "S01_CN_D08_W08_N_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CN_D08_W08_N_SEAT_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CN_D08_W08_N_SEAT_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CN_D08_W08_N_SEAT_v2.glb",
+    "bytes": 24800,
+    "sha256": "fe2830b506483acfdaa659420426d3f4601fb8c1e4b6563b8989a220343421b9"
+  },
+  "S01_CN_D09_W09_BACKREST": {
+    "id": "S01_CN_D09_W09_BACKREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CN_D09_W09_BACKREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CN_D09_W09_BACKREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CN_D09_W09_BACKREST_v2.glb",
+    "bytes": 15284,
+    "sha256": "45a078bea590eafee18be2050500564db39103d6f32f868efb397c922f156c92"
+  },
+  "S01_CN_D09_W09_HEADREST": {
+    "id": "S01_CN_D09_W09_HEADREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CN_D09_W09_HEADREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CN_D09_W09_HEADREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CN_D09_W09_HEADREST_v2.glb",
+    "bytes": 18784,
+    "sha256": "f423ad5d5862731de652569ebe42b0447eb09d44de5c06f7ceb67f4e22504691"
+  },
+  "S01_CN_D09_W09_SEAT": {
+    "id": "S01_CN_D09_W09_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CN_D09_W09_SEAT_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CN_D09_W09_SEAT_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CN_D09_W09_SEAT_v2.glb",
+    "bytes": 23248,
+    "sha256": "69b8cf44c4a8374d012e57d3dd2ff203b4db0fd2a7eedcabe9a4293adfeac5f2"
+  },
+  "S01_CN_D09_W09_N_BACKREST": {
+    "id": "S01_CN_D09_W09_N_BACKREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CN_D09_W09_N_BACKREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CN_D09_W09_N_BACKREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CN_D09_W09_N_BACKREST_v2.glb",
+    "bytes": 15284,
+    "sha256": "e502beed1176aa1a075e409ca5eebb530e27eebf300b0f903df3deb3bb2088a3"
+  },
+  "S01_CN_D09_W09_N_HEADREST": {
+    "id": "S01_CN_D09_W09_N_HEADREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CN_D09_W09_N_HEADREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CN_D09_W09_N_HEADREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CN_D09_W09_N_HEADREST_v2.glb",
+    "bytes": 18836,
+    "sha256": "c24120c1bf4ceda1fd323397931da28a6b5dfced7b5826906bfff6112da74706"
+  },
+  "S01_CN_D09_W09_N_SEAT": {
+    "id": "S01_CN_D09_W09_N_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_CN_D09_W09_N_SEAT_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_CN_D09_W09_N_SEAT_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_CN_D09_W09_N_SEAT_v2.glb",
+    "bytes": 23176,
+    "sha256": "f83bdd3e3549a7885597f748349d18a29da35921770325edd4184b325d42a899"
+  },
+  "S01_FR_D05_W06_SEAT": {
+    "id": "S01_FR_D05_W06_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D05_W06_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D05_W06_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D05_W06_SEAT_v3.glb",
+    "bytes": 11692,
+    "sha256": "b2275bf9a5bfe079b0bdf96f09c2a4ce424f2a132d5f55b458d8de2287b78b79"
+  },
+  "S01_FR_D05_W06_N_SEAT": {
+    "id": "S01_FR_D05_W06_N_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D05_W06_N_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D05_W06_N_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D05_W06_N_SEAT_v3.glb",
+    "bytes": 11732,
+    "sha256": "36bffa27cf2cd2f9f9a8a64c72af2bd07bee628ac7d21adfb3f6036f63f97f83"
+  },
+  "S01_FR_D05_W07_SEAT": {
+    "id": "S01_FR_D05_W07_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D05_W07_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D05_W07_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D05_W07_SEAT_v3.glb",
+    "bytes": 11584,
+    "sha256": "340bd257c15c4ab2cc08c041fda6b116a67184f79dec188e19f85703f7139252"
+  },
+  "S01_FR_D05_W07_N_SEAT": {
+    "id": "S01_FR_D05_W07_N_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D05_W07_N_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D05_W07_N_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D05_W07_N_SEAT_v3.glb",
+    "bytes": 11628,
+    "sha256": "61252716a7002b2d26fec28e48388ac2f7e6cba2d33e8d0d9b9287bcc7ac1651"
+  },
+  "S01_FR_D05_W08_SEAT": {
+    "id": "S01_FR_D05_W08_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D05_W08_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D05_W08_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D05_W08_SEAT_v3.glb",
+    "bytes": 11648,
+    "sha256": "8e44bebcc21c5a329c1b38dfdf373551d7594bb3499cbdf8d444ef170b7b1b21"
+  },
+  "S01_FR_D05_W08_N_SEAT": {
+    "id": "S01_FR_D05_W08_N_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D05_W08_N_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D05_W08_N_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D05_W08_N_SEAT_v3.glb",
+    "bytes": 11636,
+    "sha256": "7ebb59137c0ecf01e409c68878551c2fc86a43da134e7944ce4f0a0c001cd77a"
+  },
+  "S01_FR_D05_W09_SEAT": {
+    "id": "S01_FR_D05_W09_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D05_W09_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D05_W09_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D05_W09_SEAT_v3.glb",
+    "bytes": 12232,
+    "sha256": "c0bda18415ff4a58b177a7c1bdb7cd3d021ed96948ecab4b08edaaf68e04d4e9"
+  },
+  "S01_FR_D05_W09_N_SEAT": {
+    "id": "S01_FR_D05_W09_N_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D05_W09_N_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D05_W09_N_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D05_W09_N_SEAT_v3.glb",
+    "bytes": 12256,
+    "sha256": "90faaafc4fd9205fdf57c9bbc1656e3c3b84ded3241fe6bd5aed8c9ac2204b5d"
+  },
+  "S01_FR_D06_W06_SEAT": {
+    "id": "S01_FR_D06_W06_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D06_W06_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D06_W06_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D06_W06_SEAT_v3.glb",
+    "bytes": 11880,
+    "sha256": "ffb2595b8282e624d63a87609756802696dde6f5c8018b0f58f5ce74f0011d4d"
+  },
+  "S01_FR_D06_W07_SEAT": {
+    "id": "S01_FR_D06_W07_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D06_W07_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D06_W07_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D06_W07_SEAT_v3.glb",
+    "bytes": 11924,
+    "sha256": "f7e40cc739b7b8e50d726854323bf8a3e50a071371cc55506f2e6b67a246549f"
+  },
+  "S01_FR_D06_W07_N_SEAT": {
+    "id": "S01_FR_D06_W07_N_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D06_W07_N_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D06_W07_N_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D06_W07_N_SEAT_v3.glb",
+    "bytes": 12028,
+    "sha256": "9ed23dd5c2819f81801c5c0eb2c34b81d100bc708b485ba6731264e63b95ae63"
+  },
+  "S01_FR_D06_W08_SEAT": {
+    "id": "S01_FR_D06_W08_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D06_W08_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D06_W08_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D06_W08_SEAT_v3.glb",
+    "bytes": 11932,
+    "sha256": "adc3fb219885fc519553a150d86c308a64335685f758bca5e0a05fc03d8e5c2f"
+  },
+  "S01_FR_D06_W08_N_SEAT": {
+    "id": "S01_FR_D06_W08_N_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D06_W08_N_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D06_W08_N_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D06_W08_N_SEAT_v3.glb",
+    "bytes": 11912,
+    "sha256": "9bec4f4395bde8e7cb3476800d09302faf12591cd2edb64bb439f7331f920092"
+  },
+  "S01_FR_D06_W09_SEAT": {
+    "id": "S01_FR_D06_W09_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D06_W09_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D06_W09_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D06_W09_SEAT_v3.glb",
+    "bytes": 11948,
+    "sha256": "c51fef1b0f0ca12d20f431369000e21693ab15571795926dc5267b382d41c686"
+  },
+  "S01_FR_D06_W09_N_SEAT": {
+    "id": "S01_FR_D06_W09_N_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D06_W09_N_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D06_W09_N_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D06_W09_N_SEAT_v3.glb",
+    "bytes": 11932,
+    "sha256": "8ec1bf38b544f65f2279cf95918fead358af43de8a32913cd7523a85f550a752"
+  },
+  "S01_FR_D07_W07_SEAT": {
+    "id": "S01_FR_D07_W07_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D07_W07_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D07_W07_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D07_W07_SEAT_v3.glb",
+    "bytes": 12576,
+    "sha256": "ef9e05d49445a3e9f4206428457d7b79f1a5ec77544a265f9f050bb68e8fad68"
+  },
+  "S01_FR_D07_W08_SEAT": {
+    "id": "S01_FR_D07_W08_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D07_W08_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D07_W08_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D07_W08_SEAT_v3.glb",
+    "bytes": 13044,
+    "sha256": "8efad21033f08e6c15cd22277d00c4021567bbc7983e264766e47a886cdc8dc8"
+  },
+  "S01_FR_D07_W08_N_SEAT": {
+    "id": "S01_FR_D07_W08_N_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D07_W08_N_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D07_W08_N_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D07_W08_N_SEAT_v3.glb",
+    "bytes": 13048,
+    "sha256": "f198f69dd77d256380b32b5efb30eae40f6c9f4fc576f5ca31bcfd33176e3868"
+  },
+  "S01_FR_D07_W09_SEAT": {
+    "id": "S01_FR_D07_W09_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D07_W09_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D07_W09_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D07_W09_SEAT_v3.glb",
+    "bytes": 12980,
+    "sha256": "7ace10c56f5485b0e997b40a3acffca9c29e24cba65ccf64cf091b5d1ded797f"
+  },
+  "S01_FR_D07_W09_N_SEAT": {
+    "id": "S01_FR_D07_W09_N_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D07_W09_N_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D07_W09_N_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D07_W09_N_SEAT_v3.glb",
+    "bytes": 13000,
+    "sha256": "ddaa9ca5fd03a73bc89e40d7403a2560304b15051966d6a0ed3e1b3d551becc2"
+  },
+  "S01_FR_D08_W08_SEAT": {
+    "id": "S01_FR_D08_W08_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D08_W08_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D08_W08_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D08_W08_SEAT_v3.glb",
+    "bytes": 13844,
+    "sha256": "be6191d74a9aace98305c6efd04d68329dff3e1ed813553e14dd970d891dfb43"
+  },
+  "S01_FR_D08_W09_SEAT": {
+    "id": "S01_FR_D08_W09_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D08_W09_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D08_W09_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D08_W09_SEAT_v3.glb",
+    "bytes": 14116,
+    "sha256": "9cf1ea2a34d0dd5aea9838285597ea72f5951e9b18df442e7a2db4530cb7bf33"
+  },
+  "S01_FR_D08_W09_N_SEAT": {
+    "id": "S01_FR_D08_W09_N_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D08_W09_N_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D08_W09_N_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D08_W09_N_SEAT_v3.glb",
+    "bytes": 14104,
+    "sha256": "608b3110bd761af7e64c7a48c0368cce53e308f6993a0eff9b6b259b466ed4ea"
+  },
+  "S01_FR_D09_W09_SEAT": {
+    "id": "S01_FR_D09_W09_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_FR_D09_W09_SEAT_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_FR_D09_W09_SEAT_v3.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_FR_D09_W09_SEAT_v3.glb",
+    "bytes": 14536,
+    "sha256": "34b7f013a04351108d0415b79a24b052c5df54fd48b7c59c34d71ad4c92dc36c"
+  },
+  "S01_ST_D08_W06_BACKREST": {
+    "id": "S01_ST_D08_W06_BACKREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D08_W06_BACKREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D08_W06_BACKREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D08_W06_BACKREST_v2.glb",
+    "bytes": 9224,
+    "sha256": "d8c27556fcfa0c9f185994b32d63424d54805ef9cc2f02e1a89d07cfab45f6ab"
+  },
+  "S01_ST_D08_W06_HEADREST": {
+    "id": "S01_ST_D08_W06_HEADREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D08_W06_HEADREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D08_W06_HEADREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D08_W06_HEADREST_v2.glb",
+    "bytes": 10396,
+    "sha256": "9cb4691ef0e55caf9b166c7d79e4f2d2158881e0935e7c92e5940f0abb761d30"
+  },
+  "S01_ST_D08_W06_SEAT": {
+    "id": "S01_ST_D08_W06_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D08_W06_SEAT_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D08_W06_SEAT_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D08_W06_SEAT_v2.glb",
+    "bytes": 19332,
+    "sha256": "b8068f85da49ce07b3f9ebde4a169601a40422dc8598d0a7f873c1cf435ce05b"
+  },
+  "S01_ST_D08_W07_BACKREST": {
+    "id": "S01_ST_D08_W07_BACKREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D08_W07_BACKREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D08_W07_BACKREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D08_W07_BACKREST_v2.glb",
+    "bytes": 9216,
+    "sha256": "cfb8265342c7d6738355edb7c438f7e69969f6ebe24d0e181536e59f1f04b200"
+  },
+  "S01_ST_D08_W07_HEADREST": {
+    "id": "S01_ST_D08_W07_HEADREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D08_W07_HEADREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D08_W07_HEADREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D08_W07_HEADREST_v2.glb",
+    "bytes": 10212,
+    "sha256": "933588a7d6eecdf0f77dd505007ec50e4d5e3c7dd0da1b81d196d365f824dc5d"
+  },
+  "S01_ST_D08_W07_SEAT": {
+    "id": "S01_ST_D08_W07_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D08_W07_SEAT_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D08_W07_SEAT_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D08_W07_SEAT_v2.glb",
+    "bytes": 19120,
+    "sha256": "2ec9ee782e2b94fe4bd47f36e77867959628e3251f5b5b0f95b82d9800a120b7"
+  },
+  "S01_ST_D08_W08_BACKREST": {
+    "id": "S01_ST_D08_W08_BACKREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D08_W08_BACKREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D08_W08_BACKREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D08_W08_BACKREST_v2.glb",
+    "bytes": 9232,
+    "sha256": "824ed152b1b7263b85f9eba9d850751e48544d52a7a36800095990ea79cf2e58"
+  },
+  "S01_ST_D08_W08_HEADREST": {
+    "id": "S01_ST_D08_W08_HEADREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D08_W08_HEADREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D08_W08_HEADREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D08_W08_HEADREST_v2.glb",
+    "bytes": 10192,
+    "sha256": "3b3aa15c9329f953d85af1da5ebf4a4a31e846a6aa956fb54811b27505c3282d"
+  },
+  "S01_ST_D08_W08_SEAT": {
+    "id": "S01_ST_D08_W08_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D08_W08_SEAT_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D08_W08_SEAT_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D08_W08_SEAT_v2.glb",
+    "bytes": 18612,
+    "sha256": "d34eed82f208773243f027a295e774bd8f4f093bc9da1174b291011415404199"
+  },
+  "S01_ST_D08_W09_BACKREST": {
+    "id": "S01_ST_D08_W09_BACKREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D08_W09_BACKREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D08_W09_BACKREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D08_W09_BACKREST_v2.glb",
+    "bytes": 9140,
+    "sha256": "6b1bcae18ce7abe5512ad5b0ada82ca0d0225e72b1ea252ecd882bf613d79f44"
+  },
+  "S01_ST_D08_W09_HEADREST": {
+    "id": "S01_ST_D08_W09_HEADREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D08_W09_HEADREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D08_W09_HEADREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D08_W09_HEADREST_v2.glb",
+    "bytes": 9848,
+    "sha256": "20222a37dd208bf357251de368d5f2e8729c717356595fdf63bc24ea41599a18"
+  },
+  "S01_ST_D08_W09_SEAT": {
+    "id": "S01_ST_D08_W09_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D08_W09_SEAT_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D08_W09_SEAT_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D08_W09_SEAT_v2.glb",
+    "bytes": 18628,
+    "sha256": "47ec32608801d5ddd6c4628cb9a899dac19fcb33602c5555906e769ffcd65845"
+  },
+  "S01_ST_D09_W06_BACKREST": {
+    "id": "S01_ST_D09_W06_BACKREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D09_W06_BACKREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D09_W06_BACKREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D09_W06_BACKREST_v2.glb",
+    "bytes": 9424,
+    "sha256": "49431d0f7e1aa3bb773295cddf797e3ebe63e133b0cdad23658e930f6e3bf8b1"
+  },
+  "S01_ST_D09_W06_HEADREST": {
+    "id": "S01_ST_D09_W06_HEADREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D09_W06_HEADREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D09_W06_HEADREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D09_W06_HEADREST_v2.glb",
+    "bytes": 10288,
+    "sha256": "53ba66c70ff2bf4ab1bc9073c4db3e7bf66ab25b4826d1041702a5a18a861568"
+  },
+  "S01_ST_D09_W06_SEAT": {
+    "id": "S01_ST_D09_W06_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D09_W06_SEAT_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D09_W06_SEAT_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D09_W06_SEAT_v2.glb",
+    "bytes": 18792,
+    "sha256": "d5df58cf12ac34c42bc40b4f616c179317105e770947c88b0bad7a03085881fb"
+  },
+  "S01_ST_D09_W07_BACKREST": {
+    "id": "S01_ST_D09_W07_BACKREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D09_W07_BACKREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D09_W07_BACKREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D09_W07_BACKREST_v2.glb",
+    "bytes": 9384,
+    "sha256": "ac34c2f65ca539999c18663609ec045868b4938b09dfa9a4550b0a65318da7b4"
+  },
+  "S01_ST_D09_W07_HEADREST": {
+    "id": "S01_ST_D09_W07_HEADREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D09_W07_HEADREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D09_W07_HEADREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D09_W07_HEADREST_v2.glb",
+    "bytes": 9996,
+    "sha256": "75c4a63824c9c8369c58086a97e1d7cf36fdfc1aeb4671625dbe4270441b8b24"
+  },
+  "S01_ST_D09_W07_SEAT": {
+    "id": "S01_ST_D09_W07_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D09_W07_SEAT_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D09_W07_SEAT_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D09_W07_SEAT_v2.glb",
+    "bytes": 18736,
+    "sha256": "349c1c4757f2ba479d01a1f414b2d7472f7793903e2d3f78458821e20624d467"
+  },
+  "S01_ST_D09_W08_BACKREST": {
+    "id": "S01_ST_D09_W08_BACKREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D09_W08_BACKREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D09_W08_BACKREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D09_W08_BACKREST_v2.glb",
+    "bytes": 9028,
+    "sha256": "5557fd91af423b92da0608ed3bfb803e9d07032ee79a8f262e7900d226d12e4f"
+  },
+  "S01_ST_D09_W08_HEADREST": {
+    "id": "S01_ST_D09_W08_HEADREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D09_W08_HEADREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D09_W08_HEADREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D09_W08_HEADREST_v2.glb",
+    "bytes": 10100,
+    "sha256": "7699d894af89c3dfafc426fe50c4b2aa5de3a1939cb7c7a13acf8977e5173b4e"
+  },
+  "S01_ST_D09_W08_SEAT": {
+    "id": "S01_ST_D09_W08_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D09_W08_SEAT_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D09_W08_SEAT_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D09_W08_SEAT_v2.glb",
+    "bytes": 18684,
+    "sha256": "e84a2b39a24945e5f2eb22d84dbfc1e5e4633e87ee8ed7eb5120d63195da0b4f"
+  },
+  "S01_ST_D09_W09_BACKREST": {
+    "id": "S01_ST_D09_W09_BACKREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D09_W09_BACKREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D09_W09_BACKREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D09_W09_BACKREST_v2.glb",
+    "bytes": 9152,
+    "sha256": "c5a71ad8d04fef80e868fa5bb9d6a082c08d89253df88e8fba283cdf19d8aa03"
+  },
+  "S01_ST_D09_W09_HEADREST": {
+    "id": "S01_ST_D09_W09_HEADREST",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D09_W09_HEADREST_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D09_W09_HEADREST_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D09_W09_HEADREST_v2.glb",
+    "bytes": 9864,
+    "sha256": "bba61a9758e02f4bee4abf464217d9268205c3e9c8a77b0111390da749dd6ed3"
+  },
+  "S01_ST_D09_W09_SEAT": {
+    "id": "S01_ST_D09_W09_SEAT",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_ST_D09_W09_SEAT_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_ST_D09_W09_SEAT_v2.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_ST_D09_W09_SEAT_v2.glb",
+    "bytes": 18780,
+    "sha256": "edc4d465efd8a6a18e4541ab16045e8c3bc860b7cdd0979322923cdd4509770c"
+  },
+  "S01_LEG": {
+    "id": "S01_LEG",
+    "master": "sofa_module",
+    "filePath": "geometry/sofa/S01_LEG.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/sofa/S01_LEG.glb",
+    "local": "/three/sofa/source/geometry/sofa/S01_LEG.glb",
+    "bytes": 5052,
+    "sha256": "995257ba7c443e366138f6a785c075f8106f84106ae8f7fd08789a2cf6b1931a"
+  },
+  "SEAT_AO_GI": {
+    "id": "SEAT_AO_GI",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/sofa/MODULE_AO_GI_2K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/MODULE_AO_GI_2K.ktx2",
+    "local": "/three/sofa/source/texture/sofa/MODULE_AO_GI_2K.ktx2",
+    "bytes": 1464917,
+    "sha256": "19b6dcde0d850543dc0148ec325b31047c6b7f3e4d9723cb5ecd6cc874af3856"
+  },
+  "FOOT_AO_GI": {
+    "id": "FOOT_AO_GI",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/sofa/FOOT_AO_GI_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/FOOT_AO_GI_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/FOOT_AO_GI_2K_v2.ktx2",
+    "bytes": 1574926,
+    "sha256": "2914a64dc0950cbcc16765cd4741cb168e052a77cbe998866d59dfc2ddb95cd5"
+  },
+  "darven_normal": {
+    "id": "darven_normal",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/sofa/darven_normal_1K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/darven_normal_1K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/darven_normal_1K_v2.ktx2",
+    "bytes": 1075236,
+    "sha256": "e0bd4c46d05fdbc167f7191b1d4f4816900a820c8aea05c9ac6165d2fbde6cdb"
+  },
+  "rewool_babyBlue": {
+    "id": "rewool_babyBlue",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/rewool_babyBlue_diffuse_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/rewool_babyBlue_diffuse_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/rewool_babyBlue_diffuse_2K_v2.ktx2",
+    "bytes": 706560,
+    "sha256": "8f0f7c0ec93a199ef623845472d0c4fad0bb451a0f9c4496bf46e2d30e5990d1"
+  },
+  "rewool_brown": {
+    "id": "rewool_brown",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/rewool_brown_diffuse_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/rewool_brown_diffuse_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/rewool_brown_diffuse_2K_v2.ktx2",
+    "bytes": 664677,
+    "sha256": "eb3d4015c9d0b7ffd833d88581917ba69b4d62940305c70ab28ac7aa41c96100"
+  },
+  "rewool_oliveGreen": {
+    "id": "rewool_oliveGreen",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/rewool_oliveGreen_diffuse_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/rewool_oliveGreen_diffuse_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/rewool_oliveGreen_diffuse_2K_v2.ktx2",
+    "bytes": 623097,
+    "sha256": "c4c31c969a230c51f572eea1d1c85157576220b1bf5e62cb2e1824de3a963bc5"
+  },
+  "rewool_lightGrey": {
+    "id": "rewool_lightGrey",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/rewool_lightGrey_diffuse_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/rewool_lightGrey_diffuse_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/rewool_lightGrey_diffuse_2K_v2.ktx2",
+    "bytes": 669677,
+    "sha256": "1d3e8a1f6a6a5a0945c1d651f1c38c5a72838e302dec81e252fecc9526663ce5"
+  },
+  "rewool_butterYellow": {
+    "id": "rewool_butterYellow",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/rewool_butterYellow_diffuse_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/rewool_butterYellow_diffuse_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/rewool_butterYellow_diffuse_2K_v2.ktx2",
+    "bytes": 671754,
+    "sha256": "c69e8a2285d32eaa415fa18a5830c4bdfc12f1b21ef8081c4e1ee4e712f86559"
+  },
+  "rewool_shadowPink": {
+    "id": "rewool_shadowPink",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/rewool_shadowPink_diffuse_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/rewool_shadowPink_diffuse_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/rewool_shadowPink_diffuse_2K_v2.ktx2",
+    "bytes": 693393,
+    "sha256": "1e6b646872c67c3d174d3657b552f39ef0aba4b2d70e93eec5fa880c8f2e58f3"
+  },
+  "rewool_green": {
+    "id": "rewool_green",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/rewool_green_diffuse_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/rewool_green_diffuse_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/rewool_green_diffuse_2K_v2.ktx2",
+    "bytes": 658947,
+    "sha256": "4f65b2dddcd14fc787e7d05f65f55aa5db71d347b2f1246028692561d1cf98ee"
+  },
+  "rewool_normal": {
+    "id": "rewool_normal",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/sofa/rewool_normal_1K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/rewool_normal_1K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/rewool_normal_1K_v2.ktx2",
+    "bytes": 1041066,
+    "sha256": "cbf5bdb14b365e18002507d8d066a53c3568bd6b4948e787e85b9f2e444f5508"
+  },
+  "darven_ecru": {
+    "id": "darven_ecru",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/darven_ecru_diffuse_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/darven_ecru_diffuse_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/darven_ecru_diffuse_2K_v2.ktx2",
+    "bytes": 564504,
+    "sha256": "cadf0d1847dc31fe4f0373108d173a8b6d81ad0af862cb039fa687b83fe3930a"
+  },
+  "darven_rock": {
+    "id": "darven_rock",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/darven_rock_diffuse_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/darven_rock_diffuse_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/darven_rock_diffuse_2K_v2.ktx2",
+    "bytes": 584031,
+    "sha256": "496b68e6ed50445491dac9567ef467f4719be9380a13db8c32e0b6891e824edb"
+  },
+  "darven_darkBrown": {
+    "id": "darven_darkBrown",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/darven_darkBrown_diffuse_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/darven_darkBrown_diffuse_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/darven_darkBrown_diffuse_2K_v2.ktx2",
+    "bytes": 595464,
+    "sha256": "4a3cc0d6eb1cc4982c52426713dd138ab1f0c7ea02813969c722fc8b9e1e9c52"
+  },
+  "darven_steel": {
+    "id": "darven_steel",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/darven_steel_diffuse_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/darven_steel_diffuse_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/darven_steel_diffuse_2K_v2.ktx2",
+    "bytes": 619389,
+    "sha256": "236e751df9feb28dbbc43e85333a693cc7f4dc69a93ac7b281c504f188a872ef"
+  },
+  "darven_tobacco": {
+    "id": "darven_tobacco",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/darven_tobacco_diffuse_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/darven_tobacco_diffuse_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/darven_tobacco_diffuse_2K_v2.ktx2",
+    "bytes": 624655,
+    "sha256": "0efb28cbe072aa5f20d0e7f1205ca8c6a919f862d127e30d0267aa221c5d2776"
+  },
+  "darven_pink": {
+    "id": "darven_pink",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/darven_pink_diffuse_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/darven_pink_diffuse_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/darven_pink_diffuse_2K_v2.ktx2",
+    "bytes": 620929,
+    "sha256": "31f1a0087848c1c3b3a09aa1141881378040354caf1c8d3d67ee31137f3003de"
+  },
+  "darven_camouflage": {
+    "id": "darven_camouflage",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/darven_camouflage_diffuse_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/darven_camouflage_diffuse_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/darven_camouflage_diffuse_2K_v2.ktx2",
+    "bytes": 557910,
+    "sha256": "dbb6d252be5e424e06caae6e895949572779d45c51dc973ba4e9fe1c80b3c741"
+  },
+  "darven_klein": {
+    "id": "darven_klein",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/darven_klein_diffuse_2K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/darven_klein_diffuse_2K_v2.ktx2",
+    "local": "/three/sofa/source/texture/sofa/darven_klein_diffuse_2K_v2.ktx2",
+    "bytes": 572667,
+    "sha256": "de4322eecd1ac2d4b680b388fc120bd150c7268474cda739656f245926721e1f"
+  },
+  "leather_normal": {
+    "id": "leather_normal",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/sofa/leather_normal_1k.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/leather_normal_1k.ktx2",
+    "local": "/three/sofa/source/texture/sofa/leather_normal_1k.ktx2",
+    "bytes": 127208,
+    "sha256": "e030ce4904d80d61870d01270d637d478e2297f2f86c05d73d36477f9ee2f459"
+  },
+  "leather_cognac": {
+    "id": "leather_cognac",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/leather_cognac_diffuse_1k.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/leather_cognac_diffuse_1k.ktx2",
+    "local": "/three/sofa/source/texture/sofa/leather_cognac_diffuse_1k.ktx2",
+    "bytes": 39217,
+    "sha256": "13ca0acfb0cda3357059ae22ce3c0b535a29b7c7fb03f861dd87aaf9cbbddc9d"
+  },
+  "leather_anthracite": {
+    "id": "leather_anthracite",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/leather_anthracite_diffuse_1k.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/leather_anthracite_diffuse_1k.ktx2",
+    "local": "/three/sofa/source/texture/sofa/leather_anthracite_diffuse_1k.ktx2",
+    "bytes": 1365,
+    "sha256": "8cd1ce05b56e2e44db5188a9be4dfa7144dccfa0f44a079f04dbfac974d2b607"
+  },
+  "leather_oatBeige": {
+    "id": "leather_oatBeige",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/leather_oatBeige_diffuse_1k.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/leather_oatBeige_diffuse_1k.ktx2",
+    "local": "/three/sofa/source/texture/sofa/leather_oatBeige_diffuse_1k.ktx2",
+    "bytes": 25180,
+    "sha256": "60e100d2b90a05de205f2426efe242091b0f6ded1bcd021a6e4dbb1964efb8a7"
+  },
+  "leather_willowGreen": {
+    "id": "leather_willowGreen",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/leather_willowGreen_diffuse_1k.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/leather_willowGreen_diffuse_1k.ktx2",
+    "local": "/three/sofa/source/texture/sofa/leather_willowGreen_diffuse_1k.ktx2",
+    "bytes": 18744,
+    "sha256": "f92034a1e2eb2366c76b9cd0b0a1720ff4b12c86500856b525b31499a163dd89"
+  },
+  "plain_normal": {
+    "id": "plain_normal",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/sofa/plain_normal_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/plain_normal_1K.ktx2",
+    "local": "/three/sofa/source/texture/sofa/plain_normal_1K.ktx2",
+    "bytes": 1083382,
+    "sha256": "5d87cc62f68ffcaa22213b2f581e44f0db41d895621456d01e2aaf24a096fb1a"
+  },
+  "boucle_ascot_normal": {
+    "id": "boucle_ascot_normal",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/sofa/ascot_normal_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/ascot_normal_1K.ktx2",
+    "local": "/three/sofa/source/texture/sofa/ascot_normal_1K.ktx2",
+    "bytes": 198586,
+    "sha256": "42ac6bf459f4f279a47e19f46808ff4399e74f14de788a9335180cd1cac14851"
+  },
+  "boucle_impressme_normal": {
+    "id": "boucle_impressme_normal",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/sofa/impressme_normal_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/impressme_normal_1K.ktx2",
+    "local": "/three/sofa/source/texture/sofa/impressme_normal_1K.ktx2",
+    "bytes": 75810,
+    "sha256": "917fa6cef5285b06343f9e8c88501e086d9e33624824b179e74fc3100dede6d5"
+  },
+  "plain_beige": {
+    "id": "plain_beige",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/plain_beige_diffuse_2K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/plain_beige_diffuse_2K.ktx2",
+    "local": "/three/sofa/source/texture/sofa/plain_beige_diffuse_2K.ktx2",
+    "bytes": 817167,
+    "sha256": "23a9e8db2e0c1d694cd28e361b1ab3d394d58d168b08011da1dba077c16031a8"
+  },
+  "plain_lightGray": {
+    "id": "plain_lightGray",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/plain_lightGray_diffuse_2K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/plain_lightGray_diffuse_2K.ktx2",
+    "local": "/three/sofa/source/texture/sofa/plain_lightGray_diffuse_2K.ktx2",
+    "bytes": 748082,
+    "sha256": "be6c6be46136eaebfd69be9f04c9ebe17e6ab389af0abbb63bf97d1df6378f37"
+  },
+  "plain_anthracite": {
+    "id": "plain_anthracite",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/plain_anthracite_diffuse_2K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/plain_anthracite_diffuse_2K.ktx2",
+    "local": "/three/sofa/source/texture/sofa/plain_anthracite_diffuse_2K.ktx2",
+    "bytes": 721318,
+    "sha256": "049eec1904181c098d4ee57f1f2447690fde1ed9e09230ba919babe2cd8ef98f"
+  },
+  "plain_terracota": {
+    "id": "plain_terracota",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/plain_terracota_diffuse_2K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/plain_terracota_diffuse_2K.ktx2",
+    "local": "/three/sofa/source/texture/sofa/plain_terracota_diffuse_2K.ktx2",
+    "bytes": 763967,
+    "sha256": "43839e1ad621999fd5f2cfc348275b0b71ec702b84743f1b92b242f312b652da"
+  },
+  "plain_greenSpruce": {
+    "id": "plain_greenSpruce",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/plain_greenSpruce_diffuse_2K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/plain_greenSpruce_diffuse_2K.ktx2",
+    "local": "/three/sofa/source/texture/sofa/plain_greenSpruce_diffuse_2K.ktx2",
+    "bytes": 709953,
+    "sha256": "2a82bf32c66ec74b36d22efde134c76534ee499b9a90295db1b656c53e3d3de2"
+  },
+  "boucle_pearl": {
+    "id": "boucle_pearl",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/ascot_pearl_diffuse_2K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/ascot_pearl_diffuse_2K.ktx2",
+    "local": "/three/sofa/source/texture/sofa/ascot_pearl_diffuse_2K.ktx2",
+    "bytes": 720172,
+    "sha256": "6ed24f4e29c8fb61f588284f47a64a67ea0b2fb2f9c19920305d42a09419d99a"
+  },
+  "boucle_mossGreen": {
+    "id": "boucle_mossGreen",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/impressme_mossGreen_diffuse_2K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/impressme_mossGreen_diffuse_2K.ktx2",
+    "local": "/three/sofa/source/texture/sofa/impressme_mossGreen_diffuse_2K.ktx2",
+    "bytes": 837533,
+    "sha256": "fa1fe428191dad28b99abe0a38694686a66c85100022dfdf1f4aac325abcb987"
+  },
+  "boucle_darkBrown": {
+    "id": "boucle_darkBrown",
+    "master": "compressed_ktx2",
+    "filePath": "texture/sofa/impressme_darkBrown_diffuse_2K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/sofa/impressme_darkBrown_diffuse_2K.ktx2",
+    "local": "/three/sofa/source/texture/sofa/impressme_darkBrown_diffuse_2K.ktx2",
+    "bytes": 751532,
+    "sha256": "569bf5a04fa6c29c72de833c91b61411fdb6d93e36aee890352689415c2b2cba"
+  },
+  "S02_LEG": {
+    "id": "S02_LEG",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_LEG.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_LEG.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_LEG.glb",
+    "bytes": 1808,
+    "sha256": "1ea9d366971557bb24a55db090c19224db2d34324242bb1682d11213fb587e9e"
+  },
+  "S02_AR_D085_W03": {
+    "id": "S02_AR_D085_W03",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_AR_D085_W03_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_AR_D085_W03_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_AR_D085_W03_v2.glb",
+    "bytes": 80712,
+    "sha256": "7562007b43c8803dcbf97df3ab66b6bdc8dc4b7fc88fd89408eeddec769ace75"
+  },
+  "S02_AR_D085_W03_L": {
+    "id": "S02_AR_D085_W03_L",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_AR_D085_W03_L_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_AR_D085_W03_L_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_AR_D085_W03_L_v3.glb",
+    "bytes": 85868,
+    "sha256": "bd26f6273a413353ba6a25ac925d1a172e05a40ca39593e2c334050b184b07c4"
+  },
+  "S02_AR_D085_W03_R": {
+    "id": "S02_AR_D085_W03_R",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_AR_D085_W03_R_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_AR_D085_W03_R_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_AR_D085_W03_R_v3.glb",
+    "bytes": 85868,
+    "sha256": "4acd8998d79be3ace123da204a9c5b9eadfe235c71dd31203435de01e1a575e4"
+  },
+  "S02_AR_D095_W03": {
+    "id": "S02_AR_D095_W03",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_AR_D095_W03_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_AR_D095_W03_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_AR_D095_W03_v2.glb",
+    "bytes": 83288,
+    "sha256": "9ad1251c1a710aecf81461da97755b4f70967813507217927a0a740aa0a55d2e"
+  },
+  "S02_AR_D095_W03_L": {
+    "id": "S02_AR_D095_W03_L",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_AR_D095_W03_L_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_AR_D095_W03_L_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_AR_D095_W03_L_v3.glb",
+    "bytes": 88444,
+    "sha256": "a880cd9cd5c9387dfa4c26e30e8d645ae7d502628f96fabfdbfd69593a8c9a87"
+  },
+  "S02_AR_D095_W03_R": {
+    "id": "S02_AR_D095_W03_R",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_AR_D095_W03_R_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_AR_D095_W03_R_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_AR_D095_W03_R_v3.glb",
+    "bytes": 88444,
+    "sha256": "eb4f2bc6affc1514423c083c63d1148320e9a912ef123b9f5e487cc8685bd8c5"
+  },
+  "S02_CA_D15_W105_L": {
+    "id": "S02_CA_D15_W105_L",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CA_D15_W105_L_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CA_D15_W105_L_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CA_D15_W105_L_v3.glb",
+    "bytes": 283884,
+    "sha256": "66a7e9af3260874dca517536ea32818c4d8606939e0d46ff1b565acc7cc0aa1a"
+  },
+  "S02_CA_D15_W105_R": {
+    "id": "S02_CA_D15_W105_R",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CA_D15_W105_R_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CA_D15_W105_R_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CA_D15_W105_R_v3.glb",
+    "bytes": 297284,
+    "sha256": "a7c9fc68803e141c1c9fb6c69145137d407ddf08a6ec55137169caa1c53c4d9e"
+  },
+  "S02_CA_D15_W115_L": {
+    "id": "S02_CA_D15_W115_L",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CA_D15_W115_L_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CA_D15_W115_L_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CA_D15_W115_L_v3.glb",
+    "bytes": 297404,
+    "sha256": "49bb62e5cef04ce4fb551809c746e22907035b1ec752e8a6ff74fb54ade1074d"
+  },
+  "S02_CA_D15_W115_R": {
+    "id": "S02_CA_D15_W115_R",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CA_D15_W115_R_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CA_D15_W115_R_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CA_D15_W115_R_v3.glb",
+    "bytes": 297324,
+    "sha256": "669bf44eb33e16be04f26e7a399f5245f76d1110422904baeee7e5ba324aad08"
+  },
+  "S02_CL_D15_W08": {
+    "id": "S02_CL_D15_W08",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CL_D15_W08_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CL_D15_W08_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CL_D15_W08_v2.glb",
+    "bytes": 250116,
+    "sha256": "702f0cef80a9d90e55f89190e55f39b928e8d87c90a322f80627b2df68c5a687"
+  },
+  "S02_CL_D15_W09": {
+    "id": "S02_CL_D15_W09",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CL_D15_W09_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CL_D15_W09_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CL_D15_W09_v2.glb",
+    "bytes": 255104,
+    "sha256": "9daf20bc2e1766d24afdefd42fb7c8308e2ceaf13caaa0b853daa9f3473d23a6"
+  },
+  "S02_CL_D15_W10": {
+    "id": "S02_CL_D15_W10",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CL_D15_W10_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CL_D15_W10_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CL_D15_W10_v2.glb",
+    "bytes": 255100,
+    "sha256": "e00d77acc67a619f62688b8a0acffa8b540aebbd0913d4f2c808e09096b3689e"
+  },
+  "S02_CN_D09_W09_L": {
+    "id": "S02_CN_D09_W09_L",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CN_D09_W09_L_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CN_D09_W09_L_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CN_D09_W09_L_v2.glb",
+    "bytes": 265296,
+    "sha256": "8d0da2a7547b1b40790bad66af32b32e05b146543004ff065a2502176401238e"
+  },
+  "S02_CN_D09_W09_R": {
+    "id": "S02_CN_D09_W09_R",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CN_D09_W09_R_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CN_D09_W09_R_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CN_D09_W09_R_v2.glb",
+    "bytes": 265296,
+    "sha256": "84e01e530306f5aa895f669238b4254b0d03123159669e7363f246e5c43efa94"
+  },
+  "S02_CN_D10_W10_L": {
+    "id": "S02_CN_D10_W10_L",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CN_D10_W10_L_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CN_D10_W10_L_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CN_D10_W10_L_v2.glb",
+    "bytes": 274612,
+    "sha256": "b8e77b817bdf81d6668d5aac41f78955d901af779baf474fdd95dee9a5974cbb"
+  },
+  "S02_CN_D10_W10_R": {
+    "id": "S02_CN_D10_W10_R",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CN_D10_W10_R_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CN_D10_W10_R_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CN_D10_W10_R_v2.glb",
+    "bytes": 274612,
+    "sha256": "af418f638809873bb567c487bafee0609ba902cb1276756db4dcbf04fa007f22"
+  },
+  "S02_CN_D09_W09": {
+    "id": "S02_CN_D09_W09",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CN_D09_W09_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CN_D09_W09_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CN_D09_W09_v2.glb",
+    "bytes": 265296,
+    "sha256": "8d0da2a7547b1b40790bad66af32b32e05b146543004ff065a2502176401238e"
+  },
+  "S02_CN_D10_W10": {
+    "id": "S02_CN_D10_W10",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CN_D10_W10_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CN_D10_W10_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CN_D10_W10_v2.glb",
+    "bytes": 274612,
+    "sha256": "b8e77b817bdf81d6668d5aac41f78955d901af779baf474fdd95dee9a5974cbb"
+  },
+  "S02_CU_D01_W05": {
+    "id": "S02_CU_D01_W05",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CU_D01_W05_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CU_D01_W05_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CU_D01_W05_v2.glb",
+    "bytes": 100464,
+    "sha256": "82106775733557fdff802e3c0b56f8b0346a877507426a4b4ca6dfb474150853"
+  },
+  "S02_CU_D01_W06": {
+    "id": "S02_CU_D01_W06",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CU_D01_W06_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CU_D01_W06_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CU_D01_W06_v2.glb",
+    "bytes": 105656,
+    "sha256": "cc135b7957a21827c6a5d38ce2e9329cd17c60e5724278b289f93969ea5c46ce"
+  },
+  "S02_CU_D01_W07": {
+    "id": "S02_CU_D01_W07",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CU_D01_W07_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CU_D01_W07_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CU_D01_W07_v2.glb",
+    "bytes": 115128,
+    "sha256": "b400cd6550f1c33dc4bf90e3a6958dc870810397744e1a324daac5dcbb1756bd"
+  },
+  "S02_CU_D01_W08": {
+    "id": "S02_CU_D01_W08",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_CU_D01_W08_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_CU_D01_W08_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_CU_D01_W08_v2.glb",
+    "bytes": 115132,
+    "sha256": "936b2e5ba4394a6207ea42aedfd2395494173b28716baabb875d3c407eecca34"
+  },
+  "S02_FR_D07_W06": {
+    "id": "S02_FR_D07_W06",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_FR_D07_W06_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_FR_D07_W06_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_FR_D07_W06_v3.glb",
+    "bytes": 93480,
+    "sha256": "23630ffb328c9b55fecc49eccd899ddab9dfc2371cf6285470044d0eab683fc1"
+  },
+  "S02_FR_D07_W07": {
+    "id": "S02_FR_D07_W07",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_FR_D07_W07_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_FR_D07_W07_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_FR_D07_W07_v2.glb",
+    "bytes": 100616,
+    "sha256": "3754fd5219a4fadf7f589040b5dae6ee9f00ee29fe4e02799752055e8b2289f8"
+  },
+  "S02_FR_D08_W06": {
+    "id": "S02_FR_D08_W06",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_FR_D08_W06_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_FR_D08_W06_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_FR_D08_W06_v3.glb",
+    "bytes": 93480,
+    "sha256": "e3c14c5e53d5ec27aace94502535963cd4ee2b94a6f8df5bf0f611ac42ba99e4"
+  },
+  "S02_FR_D08_W07": {
+    "id": "S02_FR_D08_W07",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_FR_D08_W07_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_FR_D08_W07_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_FR_D08_W07_v3.glb",
+    "bytes": 99096,
+    "sha256": "2ebaf9575a9f68580bc4686f9d0044d25cd0f2befee82f597334e136307f1594"
+  },
+  "S02_FR_D08_W08": {
+    "id": "S02_FR_D08_W08",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_FR_D08_W08_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_FR_D08_W08_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_FR_D08_W08_v2.glb",
+    "bytes": 107176,
+    "sha256": "d49ae69a408234039eb4552ec19621be4ab9c0f13bdcdeeacc0decda8eb34a50"
+  },
+  "S02_FR_D09_W06": {
+    "id": "S02_FR_D09_W06",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_FR_D09_W06_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_FR_D09_W06_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_FR_D09_W06_v3.glb",
+    "bytes": 96900,
+    "sha256": "9e10ae06fa0c7054f8a9abffd8b9ce3e9e4c294e81a6947555330fd2a12fb6dd"
+  },
+  "S02_FR_D09_W07": {
+    "id": "S02_FR_D09_W07",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_FR_D09_W07_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_FR_D09_W07_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_FR_D09_W07_v3.glb",
+    "bytes": 104300,
+    "sha256": "e02f925884226fd5874c70e857fff2261fdf21613b7ec266c7c74867cfb5be43"
+  },
+  "S02_FR_D09_W08": {
+    "id": "S02_FR_D09_W08",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_FR_D09_W08_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_FR_D09_W08_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_FR_D09_W08_v3.glb",
+    "bytes": 104300,
+    "sha256": "7b1c29143abab6cb2211e1063827e52ce8106e40a7c7e5c7eecdc8b4597021d4"
+  },
+  "S02_FR_D09_W09": {
+    "id": "S02_FR_D09_W09",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_FR_D09_W09_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_FR_D09_W09_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_FR_D09_W09_v2.glb",
+    "bytes": 107992,
+    "sha256": "ebbd1dcfbec78f814c2ae8fc0b9cfb76eaec6f9cf8eea9ad57df0593888dae67"
+  },
+  "S02_FR_D10_W06": {
+    "id": "S02_FR_D10_W06",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_FR_D10_W06_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_FR_D10_W06_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_FR_D10_W06_v3.glb",
+    "bytes": 98260,
+    "sha256": "3e2f0ead280ec5b3db5434847af4c3c0e5e4d36f1e195a7e14653f4c89bff3a9"
+  },
+  "S02_FR_D10_W07": {
+    "id": "S02_FR_D10_W07",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_FR_D10_W07_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_FR_D10_W07_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_FR_D10_W07_v3.glb",
+    "bytes": 99624,
+    "sha256": "bb43a69ef040a2c862b1c718e0d261e2d210353481eced89d89ebcd3b9c4ee63"
+  },
+  "S02_FR_D10_W08": {
+    "id": "S02_FR_D10_W08",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_FR_D10_W08_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_FR_D10_W08_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_FR_D10_W08_v3.glb",
+    "bytes": 107176,
+    "sha256": "486445f6d2e41cb2ea02090f9fd62a793d41a7b0f8d6903584963562aafc1988"
+  },
+  "S02_FR_D10_W09": {
+    "id": "S02_FR_D10_W09",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_FR_D10_W09_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_FR_D10_W09_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_FR_D10_W09_v3.glb",
+    "bytes": 114728,
+    "sha256": "c2b467ec847de6cf97b875c3625f73938474913219e5f155d6365891eff9e0e1"
+  },
+  "S02_FR_D10_W10": {
+    "id": "S02_FR_D10_W10",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_FR_D10_W10_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_FR_D10_W10_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_FR_D10_W10_v2.glb",
+    "bytes": 114724,
+    "sha256": "d8da0500dc235e76706a343ebdfa0199cf7866877ceb38cde6702addc286bf04"
+  },
+  "S02_OE_D09_W13_L": {
+    "id": "S02_OE_D09_W13_L",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_OE_D09_W13_L_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_OE_D09_W13_L_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_OE_D09_W13_L_v3.glb",
+    "bytes": 233444,
+    "sha256": "5715a693030f953ab5caf307e44672b4a6a2e6621bdab1485a1662de6f13dfe6"
+  },
+  "S02_OE_D09_W13_R": {
+    "id": "S02_OE_D09_W13_R",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_OE_D09_W13_R_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_OE_D09_W13_R_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_OE_D09_W13_R_v3.glb",
+    "bytes": 233604,
+    "sha256": "d620f603101372c8523cbdd6011345d83acb645ebb76933626e9753ec1aa7c85"
+  },
+  "S02_OE_D09_W14_L": {
+    "id": "S02_OE_D09_W14_L",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_OE_D09_W14_L_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_OE_D09_W14_L_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_OE_D09_W14_L_v3.glb",
+    "bytes": 237592,
+    "sha256": "9ef7d3eac105be268d9823c9e2a231c2b5a091a5ae7b8c0c06d328fdd9cbd775"
+  },
+  "S02_OE_D09_W14_R": {
+    "id": "S02_OE_D09_W14_R",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_OE_D09_W14_R_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_OE_D09_W14_R_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_OE_D09_W14_R_v3.glb",
+    "bytes": 237672,
+    "sha256": "247b96872397eb2302c2d47b33bb58137ada8bc7327dcf1003095d4ca75b13b6"
+  },
+  "S02_OE_D10_W13_L": {
+    "id": "S02_OE_D10_W13_L",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_OE_D10_W13_L_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_OE_D10_W13_L_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_OE_D10_W13_L_v3.glb",
+    "bytes": 233444,
+    "sha256": "8d282b66cf3524f75f3b13c1186e00baef28a22b63c0d37e28cf1e498142e278"
+  },
+  "S02_OE_D10_W13_R": {
+    "id": "S02_OE_D10_W13_R",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_OE_D10_W13_R_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_OE_D10_W13_R_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_OE_D10_W13_R_v3.glb",
+    "bytes": 233604,
+    "sha256": "82ea86be39f1529752eb96d196f3d0925559d894ee66bffacc7aae64eec1ded0"
+  },
+  "S02_OE_D10_W14_L": {
+    "id": "S02_OE_D10_W14_L",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_OE_D10_W14_L_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_OE_D10_W14_L_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_OE_D10_W14_L_v3.glb",
+    "bytes": 237752,
+    "sha256": "68d3fda8462dc1e2234421236e515b83e0570229ec3fd05680f596b2dba770b3"
+  },
+  "S02_OE_D10_W14_R": {
+    "id": "S02_OE_D10_W14_R",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_OE_D10_W14_R_v3.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_OE_D10_W14_R_v3.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_OE_D10_W14_R_v3.glb",
+    "bytes": 237832,
+    "sha256": "d37b405899bb9d79c17ef89c611c352859d37882b3cce50967915a38eb334e2e"
+  },
+  "S02_ST_D09_W07": {
+    "id": "S02_ST_D09_W07",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_ST_D09_W07_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_ST_D09_W07_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_ST_D09_W07_v2.glb",
+    "bytes": 220888,
+    "sha256": "b8477b2fdb432495954940133a1a45a0018bc025679aa81d1234bbc14b283d17"
+  },
+  "S02_ST_D09_W08": {
+    "id": "S02_ST_D09_W08",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_ST_D09_W08_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_ST_D09_W08_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_ST_D09_W08_v2.glb",
+    "bytes": 232972,
+    "sha256": "011766207124073161fee7e7c47ee98c54df96eee9711e18a3ac36ed0d15b2a9"
+  },
+  "S02_ST_D09_W09": {
+    "id": "S02_ST_D09_W09",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_ST_D09_W09_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_ST_D09_W09_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_ST_D09_W09_v2.glb",
+    "bytes": 232976,
+    "sha256": "589ccde497e292ed5f8fa2472d004dd56f1b49cb73a53d97e16d14c9b668b608"
+  },
+  "S02_ST_D09_W10": {
+    "id": "S02_ST_D09_W10",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_ST_D09_W10_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_ST_D09_W10_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_ST_D09_W10_v2.glb",
+    "bytes": 232968,
+    "sha256": "7cc945a4c99e185396d3270d328403d737e919222725070989f58d864b10a15d"
+  },
+  "S02_ST_D10_W07": {
+    "id": "S02_ST_D10_W07",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_ST_D10_W07_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_ST_D10_W07_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_ST_D10_W07_v2.glb",
+    "bytes": 224376,
+    "sha256": "9267a8a8f9311e34d13bf065d6254598716b484e383e4767608809de0926e89e"
+  },
+  "S02_ST_D10_W08": {
+    "id": "S02_ST_D10_W08",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_ST_D10_W08_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_ST_D10_W08_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_ST_D10_W08_v2.glb",
+    "bytes": 232968,
+    "sha256": "b89f5869e449c14b841a72afb96ec4f883e5184ba80025c9a17b00ae4ed16c04"
+  },
+  "S02_ST_D10_W09": {
+    "id": "S02_ST_D10_W09",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_ST_D10_W09_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_ST_D10_W09_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_ST_D10_W09_v2.glb",
+    "bytes": 233648,
+    "sha256": "58bd91c518e5c4ff325d7e0c9306183067e1ad5933d35a25d880be6d079d3b85"
+  },
+  "S02_ST_D10_W10": {
+    "id": "S02_ST_D10_W10",
+    "master": "sofa_module",
+    "filePath": "geometry/uff/S02_ST_D10_W10_v2.glb",
+    "url": "https://res.cloudinary.com/cstm/image/upload/v1/renderer/geometry/uff/S02_ST_D10_W10_v2.glb",
+    "local": "/three/sofa/source/geometry/uff/S02_ST_D10_W10_v2.glb",
+    "bytes": 232964,
+    "sha256": "4a68406230ec878823a6a6bd32596803bb0ac992d613c63a78ad90535a581b3a"
+  },
+  "glory_natural": {
+    "id": "glory_natural",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/glory_natural_diffuse_1K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/glory_natural_diffuse_1K_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/glory_natural_diffuse_1K_v2.ktx2",
+    "bytes": 1219116,
+    "sha256": "e0733fad4de662b214be51160960d4eb23e60300a95e52de6e354ad2579e8edd"
+  },
+  "glory_linen": {
+    "id": "glory_linen",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/glory_linen_diffuse_1K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/glory_linen_diffuse_1K_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/glory_linen_diffuse_1K_v2.ktx2",
+    "bytes": 5213456,
+    "sha256": "057b522422d065dc8442bff5e7b085d398ce6b7aaacbbad276e963f8923a59e7"
+  },
+  "glory_steel": {
+    "id": "glory_steel",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/glory_steel_diffuse_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/glory_steel_diffuse_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/glory_steel_diffuse_1K.ktx2",
+    "bytes": 264433,
+    "sha256": "5e95c75b129b8e486ce7aa8d2090d3162147e05da8de6312b4f24ff8a6f2c871"
+  },
+  "glory_liver": {
+    "id": "glory_liver",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/glory_liver_diffuse_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/glory_liver_diffuse_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/glory_liver_diffuse_1K.ktx2",
+    "bytes": 268347,
+    "sha256": "85d4ea55f826e926eaa7959d0b55cb3cd7fef45fbc7275f48892288dbc106e89"
+  },
+  "glory_graphite": {
+    "id": "glory_graphite",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/glory_graphite_diffuse_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/glory_graphite_diffuse_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/glory_graphite_diffuse_1K.ktx2",
+    "bytes": 261992,
+    "sha256": "3a3c598548e004f4afa51c6ad7ed9a539a33b6506a366f9461b0851808347b15"
+  },
+  "glory_pale": {
+    "id": "glory_pale",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/glory_pale_diffuse_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/glory_pale_diffuse_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/glory_pale_diffuse_1K.ktx2",
+    "bytes": 260511,
+    "sha256": "a396d50eec766556a356f176bf8036ce394dca823ca7cbb47e648da670500f40"
+  },
+  "glory_brass": {
+    "id": "glory_brass",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/glory_brass_diffuse_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/glory_brass_diffuse_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/glory_brass_diffuse_1K.ktx2",
+    "bytes": 278307,
+    "sha256": "7a009600d981319376f8b179c6116a8e2c5c0b2fcb320007bcf3686e3daeaf4b"
+  },
+  "glory_thyme": {
+    "id": "glory_thyme",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/glory_thyme_diffuse_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/glory_thyme_diffuse_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/glory_thyme_diffuse_1K.ktx2",
+    "bytes": 264943,
+    "sha256": "76e564f67336c6f7ce32ada33151d7d3575d13ce77ab19344610999534b587b3"
+  },
+  "glory_hazel": {
+    "id": "glory_hazel",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/glory_hazel_diffuse_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/glory_hazel_diffuse_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/glory_hazel_diffuse_1K.ktx2",
+    "bytes": 271679,
+    "sha256": "aab81a7aef38101698ae6dce4046423af08b76f8edbe0920f703007ef0d475af"
+  },
+  "colormax_butterYellow": {
+    "id": "colormax_butterYellow",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/aydin_yellow_diffuse_1K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/aydin_yellow_diffuse_1K_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/aydin_yellow_diffuse_1K_v2.ktx2",
+    "bytes": 827230,
+    "sha256": "1273bd7a16c11bb89f288b8611f72b4a38e83fb5b3c095981f30924c9ac4ce2c"
+  },
+  "colormax_beige": {
+    "id": "colormax_beige",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/aydin_beige_diffuse_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/aydin_beige_diffuse_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/aydin_beige_diffuse_1K.ktx2",
+    "bytes": 272715,
+    "sha256": "f303ba3d70e7e2c7b007cd6f0cce3e1d47bb5c272b0f035c17affb34f246f287"
+  },
+  "colormax_saltPepper": {
+    "id": "colormax_saltPepper",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/aydin_salt_n_pepper_diffuse_1K_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/aydin_salt_n_pepper_diffuse_1K_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/aydin_salt_n_pepper_diffuse_1K_v2.ktx2",
+    "bytes": 719475,
+    "sha256": "4931db43af3b7613531e4e204831437966cdb8b9a94b2fa5ed7e83433b8e0118"
+  },
+  "colormax_mint": {
+    "id": "colormax_mint",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/aydin_sage_diffuse_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/aydin_sage_diffuse_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/aydin_sage_diffuse_1K.ktx2",
+    "bytes": 284375,
+    "sha256": "940ade99dd7f0b9e3bd2af43856e985af3c9d2c458589b69c718dc8e8fc90a35"
+  },
+  "colormax_grey": {
+    "id": "colormax_grey",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/aydin_grey_diffuse_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/aydin_grey_diffuse_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/aydin_grey_diffuse_1K.ktx2",
+    "bytes": 261141,
+    "sha256": "ef545c764561877c790e56c563404c48b4672bae573caa303b83af4373ed33fd"
+  },
+  "colormax_blackPink": {
+    "id": "colormax_blackPink",
+    "master": "compressed_ktx2",
+    "filePath": "texture/uff/aydin_black_diffuse_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/aydin_black_diffuse_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/aydin_black_diffuse_1K.ktx2",
+    "bytes": 271824,
+    "sha256": "efd97681a7eeb1fdfe4dff978c56729f5b880330a6a3e78ba81b480a26b839bb"
+  },
+  "glory_normal": {
+    "id": "glory_normal",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/uff/glory_normal_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/glory_normal_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/glory_normal_1K.ktx2",
+    "bytes": 1343861,
+    "sha256": "8fbe2c3308d83a0c63485325828ccb6ef8dcd357aac5b69f1b4b33b1f2534a23"
+  },
+  "glory_roughness": {
+    "id": "glory_roughness",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/uff/glory_roughness_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/glory_roughness_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/glory_roughness_1K.ktx2",
+    "bytes": 969115,
+    "sha256": "618da3f180abf7cd2bbcba49ca3a1ab1ea5c8b8598deb2c06848f07c5455058e"
+  },
+  "aydin_normal": {
+    "id": "aydin_normal",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/uff/aydin_normal_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/aydin_normal_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/aydin_normal_1K.ktx2",
+    "bytes": 449330,
+    "sha256": "3737bc9db76f45c76809fc75af66809057b8ffa8800390170bdae50d2b78501f"
+  },
+  "aydin_roughness": {
+    "id": "aydin_roughness",
+    "master": "compressed_ktx2_linear",
+    "filePath": "texture/uff/aydin_roughness_1K.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/aydin_roughness_1K.ktx2",
+    "local": "/three/sofa/source/texture/uff/aydin_roughness_1K.ktx2",
+    "bytes": 474582,
+    "sha256": "d88085601df316cccec34c903baabf93f78a31b8e7f89ae65b8e5b6e5d599acb"
+  },
+  "S02_AR_D085_W03_512": {
+    "id": "S02_AR_D085_W03_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_AR_D085_W03_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_AR_D085_W03_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_AR_D085_W03_v2.ktx2",
+    "bytes": 56958,
+    "sha256": "1009f21c0f972b434bfc7f0744b9708006ad827b580e1d2289dea9022449ce4a"
+  },
+  "S02_AR_D085_W03_L_512": {
+    "id": "S02_AR_D085_W03_L_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_AR_D085_W03_L_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_AR_D085_W03_L_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_AR_D085_W03_L_v3.ktx2",
+    "bytes": 67269,
+    "sha256": "ea625f6169652220ff45b7aee6fe9a421edde7275a7b61a4b411e4992e013035"
+  },
+  "S02_AR_D085_W03_R_512": {
+    "id": "S02_AR_D085_W03_R_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_AR_D085_W03_R_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_AR_D085_W03_R_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_AR_D085_W03_R_v3.ktx2",
+    "bytes": 67434,
+    "sha256": "ace154933359383b2a61771e9a33d1586bc852785e029a9f3cc9db2f2a855169"
+  },
+  "S02_AR_D095_W03_512": {
+    "id": "S02_AR_D095_W03_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_AR_D095_W03_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_AR_D095_W03_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_AR_D095_W03_v2.ktx2",
+    "bytes": 59248,
+    "sha256": "8279601b2b4903a6488c233a945bc2a6765cd78b5265f0346e530ccaa8ef1755"
+  },
+  "S02_AR_D095_W03_L_512": {
+    "id": "S02_AR_D095_W03_L_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_AR_D095_W03_L_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_AR_D095_W03_L_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_AR_D095_W03_L_v3.ktx2",
+    "bytes": 71087,
+    "sha256": "55238652e829b282da1ed4935ddac3cd62cdfb3fe5594873daa29b7ee0d36966"
+  },
+  "S02_AR_D095_W03_R_512": {
+    "id": "S02_AR_D095_W03_R_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_AR_D095_W03_R_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_AR_D095_W03_R_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_AR_D095_W03_R_v3.ktx2",
+    "bytes": 72172,
+    "sha256": "c995f53969bf815856606ed5f640bc79a7956a13b51d37d365fd1ca6be558605"
+  },
+  "S02_CA_D15_W105_L_512": {
+    "id": "S02_CA_D15_W105_L_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CA_D15_W105_L_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CA_D15_W105_L_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CA_D15_W105_L_v3.ktx2",
+    "bytes": 79732,
+    "sha256": "fc8c8deee7ae9d3b1166b176ffa4ec06323fcb8de9b50c544ddfc22ad0d5a7fa"
+  },
+  "S02_CA_D15_W105_R_512": {
+    "id": "S02_CA_D15_W105_R_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CA_D15_W105_R_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CA_D15_W105_R_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CA_D15_W105_R_v3.ktx2",
+    "bytes": 80861,
+    "sha256": "a9f6c1a34602c61a44c086bb195e47333e56e5e866b99fd8c052e5f74edcb8d6"
+  },
+  "S02_CA_D15_W115_L_512": {
+    "id": "S02_CA_D15_W115_L_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CA_D15_W115_L_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CA_D15_W115_L_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CA_D15_W115_L_v3.ktx2",
+    "bytes": 77918,
+    "sha256": "3c7fb3fde2a5fa048b16071818a1f7b333150b695f16b42831e304fc26a6b183"
+  },
+  "S02_CA_D15_W115_R_512": {
+    "id": "S02_CA_D15_W115_R_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CA_D15_W115_R_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CA_D15_W115_R_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CA_D15_W115_R_v3.ktx2",
+    "bytes": 81328,
+    "sha256": "d3174ddfeba24d18acbd091209c5c7faa640ae659658518e971776c47c6223eb"
+  },
+  "S02_CL_D15_W08_512": {
+    "id": "S02_CL_D15_W08_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CL_D15_W08_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CL_D15_W08_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CL_D15_W08_v2.ktx2",
+    "bytes": 86976,
+    "sha256": "1e22f03e593f8b0aa8d23fb0ebbf44cf7c33e4f4a1a8549c2274c7a5d3bb3d8f"
+  },
+  "S02_CL_D15_W09_512": {
+    "id": "S02_CL_D15_W09_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CL_D15_W09_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CL_D15_W09_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CL_D15_W09_v2.ktx2",
+    "bytes": 84417,
+    "sha256": "d0aee2ea668a70972fe7c254c339a2b97bf4f8f46d473dfb49eef119f453d4a5"
+  },
+  "S02_CL_D15_W10_512": {
+    "id": "S02_CL_D15_W10_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CL_D15_W10_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CL_D15_W10_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CL_D15_W10_v2.ktx2",
+    "bytes": 85178,
+    "sha256": "6e38df860486bbaa8923cae082109fe9e925919df15df26041e4182704189625"
+  },
+  "S02_CN_D09_W09_512": {
+    "id": "S02_CN_D09_W09_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CN_D09_W09_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CN_D09_W09_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CN_D09_W09_v2.ktx2",
+    "bytes": 72307,
+    "sha256": "84fae7aee8dffd417082843c841e1006bfc2544853edc769ef7885af9c42023f"
+  },
+  "S02_CN_D09_W09_L_512": {
+    "id": "S02_CN_D09_W09_L_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CN_D09_W09_L_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CN_D09_W09_L_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CN_D09_W09_L_v2.ktx2",
+    "bytes": 72307,
+    "sha256": "84fae7aee8dffd417082843c841e1006bfc2544853edc769ef7885af9c42023f"
+  },
+  "S02_CN_D09_W09_R_512": {
+    "id": "S02_CN_D09_W09_R_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CN_D09_W09_R_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CN_D09_W09_R_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CN_D09_W09_R_v2.ktx2",
+    "bytes": 86428,
+    "sha256": "c9749062815a67439de3d95c46f71738d55fb3afd390d45c69103b2c34c547fa"
+  },
+  "S02_CN_D10_W10_512": {
+    "id": "S02_CN_D10_W10_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CN_D10_W10_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CN_D10_W10_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CN_D10_W10_v2.ktx2",
+    "bytes": 78800,
+    "sha256": "3401374d6bdd7d34cd56fc9869fa8f54ffe388cb9730d6bc99b342a286840f28"
+  },
+  "S02_CN_D10_W10_L_512": {
+    "id": "S02_CN_D10_W10_L_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CN_D10_W10_L_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CN_D10_W10_L_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CN_D10_W10_L_v2.ktx2",
+    "bytes": 78800,
+    "sha256": "3401374d6bdd7d34cd56fc9869fa8f54ffe388cb9730d6bc99b342a286840f28"
+  },
+  "S02_CN_D10_W10_R_512": {
+    "id": "S02_CN_D10_W10_R_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CN_D10_W10_R_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CN_D10_W10_R_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CN_D10_W10_R_v2.ktx2",
+    "bytes": 74309,
+    "sha256": "64679910b4885855610d88b1c7c10a8f6ead35722d4a0b9ef5dfc7bac6d67173"
+  },
+  "S02_CU_D01_W05_512": {
+    "id": "S02_CU_D01_W05_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CU_D01_W05_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CU_D01_W05_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CU_D01_W05_v2.ktx2",
+    "bytes": 60672,
+    "sha256": "ddd2c7f2cd1e33a78798a041064e0a2ec1f101004f9314fa29ce52fc1c3161aa"
+  },
+  "S02_CU_D01_W06_512": {
+    "id": "S02_CU_D01_W06_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CU_D01_W06_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CU_D01_W06_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CU_D01_W06_v2.ktx2",
+    "bytes": 53935,
+    "sha256": "5861979a3dc85c3ae8bc27170b01fa8697f5427280ad4bc02c9d129ff65e695c"
+  },
+  "S02_CU_D01_W07_512": {
+    "id": "S02_CU_D01_W07_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CU_D01_W07_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CU_D01_W07_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CU_D01_W07_v2.ktx2",
+    "bytes": 52467,
+    "sha256": "cac7a7d932f67d210bbbbdc928e319237b7b78cc2222ca25b6d2f18763dbea96"
+  },
+  "S02_CU_D01_W08_512": {
+    "id": "S02_CU_D01_W08_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_CU_D01_W08_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_CU_D01_W08_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_CU_D01_W08_v2.ktx2",
+    "bytes": 49992,
+    "sha256": "fa8f9c6e369f3f936432291d99053f62270c38e2680a5f15c1088d0d3494873b"
+  },
+  "S02_FR_D07_W06_512": {
+    "id": "S02_FR_D07_W06_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_FR_D07_W06_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_FR_D07_W06_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_FR_D07_W06_v3.ktx2",
+    "bytes": 67357,
+    "sha256": "cb841e355ff88194ed7de3d2167936ee77216cf5d10e2cbe352cfa3201934677"
+  },
+  "S02_FR_D07_W07_512": {
+    "id": "S02_FR_D07_W07_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_FR_D07_W07_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_FR_D07_W07_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_FR_D07_W07_v2.ktx2",
+    "bytes": 64172,
+    "sha256": "9d1db19b79215d347c83e57827b19818360fac95f071175a29661b82fffca947"
+  },
+  "S02_FR_D08_W06_512": {
+    "id": "S02_FR_D08_W06_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_FR_D08_W06_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_FR_D08_W06_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_FR_D08_W06_v3.ktx2",
+    "bytes": 61202,
+    "sha256": "ad3853b818a57dbdca0cb9c429863dfaa236f6b19a39c3e5fe349d8ccdbe98d3"
+  },
+  "S02_FR_D08_W07_512": {
+    "id": "S02_FR_D08_W07_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_FR_D08_W07_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_FR_D08_W07_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_FR_D08_W07_v3.ktx2",
+    "bytes": 64749,
+    "sha256": "84f46a4c62b72a6899cb55a868b8d99e14062c7428f583d43d5cbf45c97941e3"
+  },
+  "S02_FR_D08_W08_512": {
+    "id": "S02_FR_D08_W08_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_FR_D08_W08_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_FR_D08_W08_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_FR_D08_W08_v2.ktx2",
+    "bytes": 61310,
+    "sha256": "3906332e8fbed47b65c8a73e2da087b916dbe10d92a0fac64abf1d03b49fe631"
+  },
+  "S02_FR_D09_W06_512": {
+    "id": "S02_FR_D09_W06_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_FR_D09_W06_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_FR_D09_W06_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_FR_D09_W06_v3.ktx2",
+    "bytes": 62977,
+    "sha256": "23e06417dca3c3c50c3db2684e197af8d773adf253dd29e29231ec57c7b98543"
+  },
+  "S02_FR_D09_W07_512": {
+    "id": "S02_FR_D09_W07_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_FR_D09_W07_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_FR_D09_W07_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_FR_D09_W07_v3.ktx2",
+    "bytes": 62305,
+    "sha256": "bbf4f87d03844fe05f2da5daa171608d0d72964b503458bce59884d6b78f0a76"
+  },
+  "S02_FR_D09_W08_512": {
+    "id": "S02_FR_D09_W08_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_FR_D09_W08_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_FR_D09_W08_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_FR_D09_W08_v3.ktx2",
+    "bytes": 60687,
+    "sha256": "e11c0fd2a12b85de194fe8cb147a8a05fb4d764efd74f8609885d9d3345e0869"
+  },
+  "S02_FR_D09_W09_512": {
+    "id": "S02_FR_D09_W09_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_FR_D09_W09_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_FR_D09_W09_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_FR_D09_W09_v2.ktx2",
+    "bytes": 56373,
+    "sha256": "83e753ed8d3de862a6e3e5c834402b1c5c03fabd62055d437bd0ba7fb879dc47"
+  },
+  "S02_FR_D10_W06_512": {
+    "id": "S02_FR_D10_W06_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_FR_D10_W06_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_FR_D10_W06_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_FR_D10_W06_v3.ktx2",
+    "bytes": 60186,
+    "sha256": "558abad65b97feeb0cf1e271e3ca84e791d5c5da420eaf6ebd6095b8b7c28aea"
+  },
+  "S02_FR_D10_W07_512": {
+    "id": "S02_FR_D10_W07_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_FR_D10_W07_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_FR_D10_W07_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_FR_D10_W07_v3.ktx2",
+    "bytes": 57224,
+    "sha256": "4739ddf27e2d623614de2282df4aa59966082212e30909c5e790c0aeb7b79b31"
+  },
+  "S02_FR_D10_W08_512": {
+    "id": "S02_FR_D10_W08_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_FR_D10_W08_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_FR_D10_W08_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_FR_D10_W08_v3.ktx2",
+    "bytes": 58598,
+    "sha256": "e79100e217e62af4aa675f1b113e3dace02bd894129b70ebb124a37b1fe8b9cc"
+  },
+  "S02_FR_D10_W09_512": {
+    "id": "S02_FR_D10_W09_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_FR_D10_W09_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_FR_D10_W09_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_FR_D10_W09_v3.ktx2",
+    "bytes": 55341,
+    "sha256": "15aecd3705e0e3a4d39e1d6ff4aa8fe54da74c772e925904b37f3763f4ae9f2f"
+  },
+  "S02_FR_D10_W10_512": {
+    "id": "S02_FR_D10_W10_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_FR_D10_W10_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_FR_D10_W10_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_FR_D10_W10_v2.ktx2",
+    "bytes": 59935,
+    "sha256": "ff3a9a82894cdacec5d5ea33e0c9f5a19c6e9bbd0a8499b550e0099546b77529"
+  },
+  "S02_OE_D09_W13_L_512": {
+    "id": "S02_OE_D09_W13_L_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_OE_D09_W13_L_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_OE_D09_W13_L_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_OE_D09_W13_L_v3.ktx2",
+    "bytes": 85346,
+    "sha256": "90472843ea6662e6dba3497f6fc1fe2cb58e9d7ffdb09098490f0427d97b2251"
+  },
+  "S02_OE_D09_W13_R_512": {
+    "id": "S02_OE_D09_W13_R_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_OE_D09_W13_R_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_OE_D09_W13_R_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_OE_D09_W13_R_v3.ktx2",
+    "bytes": 84787,
+    "sha256": "c7c499d00a20f66c5eb02657b34c0ef81cdfc3eb0156cedc05b21e22b711bcb9"
+  },
+  "S02_OE_D09_W14_L_512": {
+    "id": "S02_OE_D09_W14_L_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_OE_D09_W14_L_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_OE_D09_W14_L_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_OE_D09_W14_L_v3.ktx2",
+    "bytes": 83061,
+    "sha256": "0d99c1a28590daac8c5ff9303456d691cc2a473a72abb821c091ba7721a2120a"
+  },
+  "S02_OE_D09_W14_R_512": {
+    "id": "S02_OE_D09_W14_R_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_OE_D09_W14_R_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_OE_D09_W14_R_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_OE_D09_W14_R_v3.ktx2",
+    "bytes": 83386,
+    "sha256": "2a19ec3fecd682d083ef7f4dedf61b10dff691641be99e6894487c74bd51b2b3"
+  },
+  "S02_OE_D10_W13_L_512": {
+    "id": "S02_OE_D10_W13_L_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_OE_D10_W13_L_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_OE_D10_W13_L_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_OE_D10_W13_L_v3.ktx2",
+    "bytes": 87787,
+    "sha256": "c33abd5e04674cd4ff92db7c4ab666827352ad1e10cd1b68b94ccd538cd9190b"
+  },
+  "S02_OE_D10_W13_R_512": {
+    "id": "S02_OE_D10_W13_R_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_OE_D10_W13_R_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_OE_D10_W13_R_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_OE_D10_W13_R_v3.ktx2",
+    "bytes": 87732,
+    "sha256": "4b9cba5a6c39d480a33515f5d39fbcc4862ee6d6834133e1339b50cda64d5da1"
+  },
+  "S02_OE_D10_W14_L_512": {
+    "id": "S02_OE_D10_W14_L_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_OE_D10_W14_L_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_OE_D10_W14_L_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_OE_D10_W14_L_v3.ktx2",
+    "bytes": 87303,
+    "sha256": "aa5872329e0abcf4ae6e376383e2f03591bfafc5cc0cc554408f33a0084474f0"
+  },
+  "S02_OE_D10_W14_R_512": {
+    "id": "S02_OE_D10_W14_R_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_OE_D10_W14_R_v3.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_OE_D10_W14_R_v3.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_OE_D10_W14_R_v3.ktx2",
+    "bytes": 85649,
+    "sha256": "239f158ee3218edf6020f5be3d3af6b20015a453dbf04a6260c5f62706320093"
+  },
+  "S02_ST_D09_W07_512": {
+    "id": "S02_ST_D09_W07_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_ST_D09_W07_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_ST_D09_W07_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_ST_D09_W07_v2.ktx2",
+    "bytes": 87278,
+    "sha256": "d85490f3242dd792e5d58211f3638cad6af35a7e1858a2864a60c77efdd252d5"
+  },
+  "S02_ST_D09_W08_512": {
+    "id": "S02_ST_D09_W08_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_ST_D09_W08_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_ST_D09_W08_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_ST_D09_W08_v2.ktx2",
+    "bytes": 66046,
+    "sha256": "4ee7b06ef4430378781a13cfb8371e4534c7a7ee4fcafabfed2321c3b99862b6"
+  },
+  "S02_ST_D09_W09_512": {
+    "id": "S02_ST_D09_W09_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_ST_D09_W09_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_ST_D09_W09_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_ST_D09_W09_v2.ktx2",
+    "bytes": 77657,
+    "sha256": "c23615837496b86debfe9acffa696a4fd52ddfe2a602ae5e8daa2c30e48cd911"
+  },
+  "S02_ST_D09_W10_512": {
+    "id": "S02_ST_D09_W10_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_ST_D09_W10_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_ST_D09_W10_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_ST_D09_W10_v2.ktx2",
+    "bytes": 75521,
+    "sha256": "6fdc460f8dde8a8bbe60a15a67c357e1181769f395bbcdd5ad15ea996b906447"
+  },
+  "S02_ST_D10_W07_512": {
+    "id": "S02_ST_D10_W07_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_ST_D10_W07_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_ST_D10_W07_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_ST_D10_W07_v2.ktx2",
+    "bytes": 93593,
+    "sha256": "8f02795ac1412f537e30774663f192210c41d4275fae663a7f2f2317164f2485"
+  },
+  "S02_ST_D10_W08_512": {
+    "id": "S02_ST_D10_W08_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_ST_D10_W08_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_ST_D10_W08_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_ST_D10_W08_v2.ktx2",
+    "bytes": 85337,
+    "sha256": "9f69519f40da5624f05a502faf48ac195bd92acca5c0caf7cc7217d49a9fefad"
+  },
+  "S02_ST_D10_W09_512": {
+    "id": "S02_ST_D10_W09_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_ST_D10_W09_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_ST_D10_W09_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_ST_D10_W09_v2.ktx2",
+    "bytes": 80710,
+    "sha256": "39a4df057613ed8fe89b807e7867792e69cf108220d25e3662ff6f9fa2a46b4a"
+  },
+  "S02_ST_D10_W10_512": {
+    "id": "S02_ST_D10_W10_512",
+    "master": "sofa_module_lightmap",
+    "filePath": "texture/uff/GI/512/S02_ST_D10_W10_v2.ktx2",
+    "url": "https://res.cloudinary.com/cstm/raw/upload/v1/renderer/texture/uff/GI/512/S02_ST_D10_W10_v2.ktx2",
+    "local": "/three/sofa/source/texture/uff/GI/512/S02_ST_D10_W10_v2.ktx2",
+    "bytes": 74449,
+    "sha256": "cb93aa3adc4be5154808b3693fe09d58a8cc9c9eb160b11c8108eec9b7f96343"
+  }
+}

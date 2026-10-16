@@ -1,0 +1,27 @@
+.card {
+  width: 264px;
+  max-width: calc(100vw - 32px);
+  padding: 18px;
+  border: 1px solid #e7e9e5;
+  border-radius: 18px;
+  background: #fff;
+  color: #252822;
+  box-shadow: 0 12px 36px #1c24181a, 0 2px 6px #1c241808;
+  user-select: none;
+}
+.header { display: flex; align-items: center; gap: 9px; padding-right: 24px; margin-bottom: 20px; }
+.header h3 { margin: 0; font-size: 14px; line-height: 22px; font-weight: 600; letter-spacing: -.2px; }
+.rowNumber { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; background: #f0f4ed; color: var(--green); font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.section + .section { margin-top: 16px; }
+.card .label { margin: 0 0 7px; font-size: 12px; line-height: 18px; font-weight: 500; color: #697064; letter-spacing: 0; }
+.segment { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; padding: 3px; border-radius: 11px; background: #f3f4f1; }
+.card .segment button { display: flex; align-items: baseline; justify-content: center; gap: 3px; min-width: 0; height: 34px; padding: 7px 4px; border: 1px solid transparent; border-radius: 8px; background: transparent; color: #53594e; font-family: inherit; font-size: 13px; line-height: 18px; font-weight: 500; cursor: pointer; transition: background-color .15s, color .15s, box-shadow .15s; }
+.card .segment button:hover:not(:disabled) { background: #e9ede5; }
+.card .segment button[aria-pressed='true'] { border-color: #d7e5cf; background: #fff; color: var(--green); box-shadow: 0 1px 3px #253b1510; font-weight: 600; }
+.card .segment button:disabled { color: #b3b8af; cursor: not-allowed; }
+.unit { font-size: 10px; font-weight: 400; }
+.card .hint { margin: 7px 0 0; font-size: 11px; line-height: 16px; color: #848b7e; }
+.close { position: absolute; top: 15px; right: 14px; z-index: 10; display: grid; place-items: center; width: 30px; height: 30px; border: 0; border-radius: 8px; background: transparent; color: #7c8277; cursor: pointer; }
+.close:hover { background: #f3f4f1; color: #252822; }
+.card button:focus-visible, .close:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+@media (max-width: 1023px) { .card { width: 280px; padding: 16px; } .card .segment button { height: 40px; padding-top: 10px; } .header { margin-bottom: 14px; } .section + .section { margin-top: 12px; } }

@@ -53,18 +53,16 @@ export function Door({ placement, materials, isOpen, thickness, blum, revealBore
       if ((child as THREE.Mesh).isMesh) (child as THREE.Mesh).material = materials.backPanel;
     });
     if (!isReference) return clone;
-    // This local profile's grip faces -Z, opposite the reference front direction.
-    // Keep its real size; centre X/Z on the source anchor and register its top
-    // to the 1mm handle strip. This does not establish reference mesh parity.
-    clone.rotation.y = Math.PI;
+    // Native profile: rear mounting wing at -Z, finger grip at +Z.
+    // The wing is 1.5 mm thick; its inner face rests on the panel back.
     clone.updateMatrixWorld(true);
     const bounds = new THREE.Box3().setFromObject(clone);
     const center = bounds.getCenter(new THREE.Vector3());
-    clone.position.sub(new THREE.Vector3(center.x, bounds.max.y - .05, center.z));
+    clone.position.sub(new THREE.Vector3(center.x, bounds.max.y - .05, bounds.min.z + .15 + panelThickness / 2));
     const group = new THREE.Group();
     group.add(clone);
     return group;
-  }, [handleGltf.scene, materials.backPanel, isReference]);
+  }, [handleGltf.scene, materials.backPanel, isReference, panelThickness]);
   const fullKind = reference?.handleKind;
   const fullHeight = reference?.handleSize?.h ?? 1;
   const fullHandleGeometry = useMemo(() =>

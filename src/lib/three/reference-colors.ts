@@ -3,6 +3,8 @@
  * to Befun's palette; names alone do not establish a reference correspondence.
  */
 export const REFERENCE_COLORS: Record<string, { referenceId: number; base: string; edge: string }> = {
+  'S_Pistachio Green': {referenceId:4,base:'#A2A596',edge:'#A2A596'},
+  'S_Deep Plum': {referenceId:16,base:'#67132C',edge:'#67132C'},
   S_White: { referenceId:0, base:'#F5F5F5', edge:'#F5F5F5' },
   'S_Matte Black': { referenceId:6, base:'#2A2A2C', edge:'#2A2A2C' },
   S_Cotton: { referenceId:9, base:'#D8D2C1', edge:'#D8D2C1' },
@@ -31,6 +33,8 @@ export const REFERENCE_COLORS: Record<string, { referenceId: number; base: strin
 export const REFERENCE_CLASSIC_COLORS: Record<string, string> = {
   C_White:'#F5F5F5', C_Black:'#1F1F1E', C_Gray:'#B2B2B2',
   C_Pink:'#BCA9A2', C_Yellow:'#CCA550',
+  // Befun addition requested by the user; no observed Tylko material ID.
+  C_Green:'#034A22',
   C_Blue:'#2271B2', 'C_Moss Green':'#6B6C56',
   C_Cashmere:'#B5ADA3', 'C_Clay Brown':'#B57E5B',
 };

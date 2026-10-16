@@ -1,4 +1,6 @@
 // @ts-nocheck — [Befun] 원본(250709in, Vite 빌드는 타입 검사 안 함)에 있던 strict 타입 오류. 로직 수정 없이 검사만 끔. upstream/README.md 참고
+import { useBefunCncStore } from '@/lib/optimizer/befun/store';
+import { befunColorLook } from '@/lib/optimizer/befun/colors';
 import { traceCuttingShape } from '../utils/cuttingBoardShape';
 import { cornerNotchPreview, resolvePanelPreviewShape } from '../utils/panelPreviewShape';
 import React, { useEffect, useRef, useState, useCallback } from 'react';
@@ -294,6 +296,7 @@ const CuttingLayoutPreview2: React.FC<CuttingLayoutPreview2Props> = ({
   onSimulationComplete,
   simulationAvailable = true
 }) => {
+  const finishPanels = useBefunCncStore(state => state.panels);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   
@@ -879,7 +882,15 @@ const CuttingLayoutPreview2: React.FC<CuttingLayoutPreview2Props> = ({
       const isHighlighted = highlightedPanelId && (panel.id === highlightedPanelId || basePanelId === highlightedPanelId);
       const shouldDimPanel = Boolean(highlightedPanelId && !isHighlighted);
       const isHovered = hoveredPanelId === panel.id || (hoveredPanelId && basePanelId === hoveredPanelId);
-      const colors = materialColors[panel.material] || { fill: '#f3f4f6', stroke: '#9ca3af' };
+      const sourceFinish = finishPanels.find(source => source.id === panel.id || source.id === basePanelId || source.meshName === panel.meshName || source.name === panel.name);
+      const befunFinish = sourceFinish ? befunColorLook(sourceFinish.color) : panel.furnitureId === 'befun' || panel.textureName?.startsWith('Befun ')
+        ? befunColorLook(panel.textureName?.startsWith('Befun ') ? panel.textureName.slice(6) : panel.color) : null;
+      const colors = befunFinish
+        ? { fill: befunFinish.surface, stroke: befunFinish.edgeBand ?? '#bfae99' }
+        : materialColors[panel.material] || { fill: '#f3f4f6', stroke: '#9ca3af' };
+      const rgb = colors.fill.replace('#', '');
+      const brightness = rgb.length === 6 ? 0.299 * parseInt(rgb.slice(0, 2), 16) + 0.587 * parseInt(rgb.slice(2, 4), 16) + 0.114 * parseInt(rgb.slice(4, 6), 16) : 255;
+      const finishText = brightness < 140 ? '#ffffff' : '#222222';
 
       const fillPanelShape = () => {
         if (previewShape) { traceCuttingShape(ctx, previewShape.shape, previewShape.rotated, x, y); ctx.fill('evenodd'); }
@@ -952,7 +963,7 @@ const CuttingLayoutPreview2: React.FC<CuttingLayoutPreview2Props> = ({
       // 결 방향에 따른 원본 좌우 축을 읽고 네스팅 회전은 한 번만 적용한다.
       if (panel.rebate && panel.rebate.position === 'bottom-both-sides') {
         ctx.save();
-        const rebateColor = materialColors[panel.material] || { fill: '#f3f4f6', stroke: '#9ca3af' };
+        const rebateColor = colors;
         ctx.strokeStyle = rebateColor.stroke;
         ctx.lineWidth = 1.5 / (baseScale * scale);
         ctx.setLineDash([4 / (baseScale * scale), 2 / (baseScale * scale)]);
@@ -1017,7 +1028,7 @@ const CuttingLayoutPreview2: React.FC<CuttingLayoutPreview2Props> = ({
         if (panel.name) {
           ctx.save();
           // MDF는 갈색 배경이므로 더 진한 색상 사용
-          ctx.fillStyle = panel.material === 'MDF' ? '#4a4a4a' : '#9ca3af';
+          ctx.fillStyle = befunFinish ? finishText : panel.material === 'MDF' ? '#4a4a4a' : '#9ca3af';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
           
@@ -1087,7 +1098,7 @@ const CuttingLayoutPreview2: React.FC<CuttingLayoutPreview2Props> = ({
         if (showDimensions) {
           ctx.save();
           // MDF는 갈색 배경이므로 치수도 더 진한 색상 사용
-          ctx.fillStyle = panel.material === 'MDF' ? '#2c2c2c' : '#111827';
+          ctx.fillStyle = befunFinish ? finishText : panel.material === 'MDF' ? '#2c2c2c' : '#111827';
           const baseDimFontSize = 32; // 기본 치수 폰트 크기를 32로 증가
           const dimFontSize = baseDimFontSize * fontScale; // fontScale 적용
           ctx.font = `bold ${dimFontSize}px 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
@@ -1725,7 +1736,7 @@ const CuttingLayoutPreview2: React.FC<CuttingLayoutPreview2Props> = ({
         }
 
         // 홈 스타일 설정 (반턱 가공이므로 패널과 같은 색상)
-        const groovePanelColor = materialColors[panel.material] || { fill: '#f3f4f6', stroke: '#9ca3af' };
+        const groovePanelColor = colors;
         ctx.strokeStyle = groovePanelColor.stroke; // 패널 색상과 동일
         ctx.fillStyle = groovePanelColor.fill; // 패널 색상과 동일
         ctx.lineWidth = 1.5 / (baseScale * scale);
@@ -1780,7 +1791,7 @@ const CuttingLayoutPreview2: React.FC<CuttingLayoutPreview2Props> = ({
       if (showGrooves && hasGroove && isDrawerSidePanelForGroove) {
         ctx.save();
 
-        const groovePanelColor = materialColors[panel.material] || { fill: '#f3f4f6', stroke: '#9ca3af' };
+        const groovePanelColor = colors;
         ctx.strokeStyle = groovePanelColor.stroke; // 패널 색상과 동일
         ctx.fillStyle = groovePanelColor.fill; // 패널 색상과 동일
         ctx.lineWidth = 1 / (baseScale * scale);
@@ -2129,7 +2140,7 @@ const CuttingLayoutPreview2: React.FC<CuttingLayoutPreview2Props> = ({
   // Call draw function when dependencies change
   useEffect(() => {
     draw();
-  }, [result, highlightedPanelId, hoveredPanelId, showLabels, scale, offset, rotation, fontScale, showDimensions, showBorings, boringData, simulating, currentCutIndex, hoveredBoring, selectedBoring]);
+  }, [result, finishPanels, highlightedPanelId, hoveredPanelId, showLabels, scale, offset, rotation, fontScale, showDimensions, showBorings, boringData, simulating, currentCutIndex, hoveredBoring, selectedBoring]);
 
   // Animation loop for simulation - uses drawRef to always call latest draw
   useEffect(() => {

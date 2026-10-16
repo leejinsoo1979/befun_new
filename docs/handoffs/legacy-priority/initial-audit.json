@@ -1,0 +1,1502 @@
+[
+  {
+    "key": "295502,j",
+    "expected": 2288,
+    "calculated": 2288,
+    "dimensions": [
+      2600,
+      730,
+      400
+    ],
+    "original": [
+      2600,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "329800,j",
+    "expected": 2803,
+    "calculated": 2803,
+    "dimensions": [
+      2000,
+      830,
+      400
+    ],
+    "original": [
+      2000,
+      830,
+      400
+    ]
+  },
+  {
+    "key": "333124,j",
+    "expected": 1144,
+    "calculated": 1144,
+    "dimensions": [
+      970,
+      1030,
+      400
+    ],
+    "original": [
+      970,
+      1030,
+      400
+    ]
+  },
+  {
+    "key": "339529,j",
+    "expected": 2377,
+    "calculated": 2377,
+    "dimensions": [
+      2090,
+      630,
+      400
+    ],
+    "original": [
+      2090,
+      630,
+      400
+    ]
+  },
+  {
+    "key": "343219,j",
+    "expected": 6520,
+    "calculated": 6520,
+    "dimensions": [
+      2400,
+      2530,
+      400
+    ],
+    "original": [
+      2400,
+      2530,
+      400
+    ]
+  },
+  {
+    "key": "343454,j",
+    "expected": 6744,
+    "calculated": 6744,
+    "dimensions": [
+      1800,
+      2630,
+      400
+    ],
+    "original": [
+      1800,
+      2630,
+      400
+    ]
+  },
+  {
+    "key": "343971,j",
+    "expected": 2524,
+    "calculated": 2524,
+    "dimensions": [
+      1000,
+      1130,
+      400
+    ],
+    "original": [
+      1000,
+      1130,
+      400
+    ]
+  },
+  {
+    "key": "3760595,j",
+    "expected": 1542,
+    "calculated": 1542,
+    "dimensions": [
+      820,
+      1630,
+      400
+    ],
+    "original": [
+      820,
+      1630,
+      400
+    ]
+  },
+  {
+    "key": "3763247,j",
+    "expected": 2803,
+    "calculated": 2803,
+    "dimensions": [
+      2000,
+      830,
+      400
+    ],
+    "original": [
+      2000,
+      830,
+      400
+    ]
+  },
+  {
+    "key": "3849492,j",
+    "expected": 1150,
+    "calculated": 1150,
+    "dimensions": [
+      2500,
+      430,
+      400
+    ],
+    "original": [
+      2500,
+      430,
+      400
+    ]
+  },
+  {
+    "key": "3849864,j",
+    "expected": 3705,
+    "calculated": 3705,
+    "dimensions": [
+      2220,
+      830,
+      400
+    ],
+    "original": [
+      2220,
+      830,
+      400
+    ]
+  },
+  {
+    "key": "3850199,j",
+    "expected": 3129,
+    "calculated": 3129,
+    "dimensions": [
+      2600,
+      730,
+      400
+    ],
+    "original": [
+      2600,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "3850557,j",
+    "expected": 3721,
+    "calculated": 3721,
+    "dimensions": [
+      3400,
+      830,
+      400
+    ],
+    "original": [
+      3400,
+      830,
+      400
+    ]
+  },
+  {
+    "key": "3850607,j",
+    "expected": 2517,
+    "calculated": 2517,
+    "dimensions": [
+      1870,
+      830,
+      400
+    ],
+    "original": [
+      1870,
+      830,
+      400
+    ]
+  },
+  {
+    "key": "3850663,j",
+    "expected": 2700,
+    "calculated": 2700,
+    "dimensions": [
+      1980,
+      830,
+      400
+    ],
+    "original": [
+      1980,
+      830,
+      400
+    ]
+  },
+  {
+    "key": "3850802,j",
+    "expected": 1767,
+    "calculated": 1767,
+    "dimensions": [
+      910,
+      1030,
+      400
+    ],
+    "original": [
+      910,
+      1030,
+      400
+    ]
+  },
+  {
+    "key": "3850806,j",
+    "expected": 1767,
+    "calculated": 1767,
+    "dimensions": [
+      910,
+      1030,
+      400
+    ],
+    "original": [
+      910,
+      1030,
+      400
+    ]
+  },
+  {
+    "key": "3850876,j",
+    "expected": 2194,
+    "calculated": 2194,
+    "dimensions": [
+      1800,
+      830,
+      400
+    ],
+    "original": [
+      1800,
+      830,
+      400
+    ]
+  },
+  {
+    "key": "3850965,j",
+    "expected": 6546,
+    "calculated": 6546,
+    "dimensions": [
+      2800,
+      2430,
+      400
+    ],
+    "original": [
+      2800,
+      2430,
+      400
+    ]
+  },
+  {
+    "key": "3851399,j",
+    "expected": 7305,
+    "calculated": 7305,
+    "dimensions": [
+      2400,
+      2730,
+      400
+    ],
+    "original": [
+      2400,
+      2730,
+      400
+    ]
+  },
+  {
+    "key": "3851639,j",
+    "expected": 12020,
+    "calculated": 12020,
+    "dimensions": [
+      3620,
+      2830,
+      400
+    ],
+    "original": [
+      3620,
+      2830,
+      400
+    ]
+  },
+  {
+    "key": "3851641,j",
+    "expected": 9903,
+    "calculated": 9903,
+    "dimensions": [
+      2100,
+      2730,
+      400
+    ],
+    "original": [
+      2100,
+      2730,
+      400
+    ]
+  },
+  {
+    "key": "3851655,j",
+    "expected": 13702,
+    "calculated": 13702,
+    "dimensions": [
+      3600,
+      2630,
+      400
+    ],
+    "original": [
+      3600,
+      2630,
+      400
+    ]
+  },
+  {
+    "key": "3851713,j",
+    "expected": 3048,
+    "calculated": 3048,
+    "dimensions": [
+      800,
+      2230,
+      400
+    ],
+    "original": [
+      800,
+      2230,
+      400
+    ]
+  },
+  {
+    "key": "3851774,j",
+    "expected": 2519,
+    "calculated": 2519,
+    "dimensions": [
+      850,
+      2130,
+      400
+    ],
+    "original": [
+      850,
+      2130,
+      400
+    ]
+  },
+  {
+    "key": "3851896,j",
+    "expected": 8615,
+    "calculated": 8615,
+    "dimensions": [
+      2700,
+      2830,
+      400
+    ],
+    "original": [
+      2700,
+      2830,
+      400
+    ]
+  },
+  {
+    "key": "3852171,j",
+    "expected": 3242,
+    "calculated": 3242,
+    "dimensions": [
+      700,
+      2430,
+      400
+    ],
+    "original": [
+      700,
+      2430,
+      400
+    ]
+  },
+  {
+    "key": "3852175,j",
+    "expected": 3373,
+    "calculated": 3373,
+    "dimensions": [
+      700,
+      2430,
+      400
+    ],
+    "original": [
+      700,
+      2430,
+      400
+    ]
+  },
+  {
+    "key": "3852418,j",
+    "expected": 2361,
+    "calculated": 2361,
+    "dimensions": [
+      800,
+      2130,
+      400
+    ],
+    "original": [
+      800,
+      2130,
+      400
+    ]
+  },
+  {
+    "key": "3852570,j",
+    "expected": 2583,
+    "calculated": 2583,
+    "dimensions": [
+      1750,
+      1230,
+      400
+    ],
+    "original": [
+      1750,
+      1230,
+      400
+    ]
+  },
+  {
+    "key": "3852659,j",
+    "expected": 5103,
+    "calculated": 5103,
+    "dimensions": [
+      4200,
+      730,
+      400
+    ],
+    "original": [
+      4200,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "3852730,j",
+    "expected": 566,
+    "calculated": 566,
+    "dimensions": [
+      850,
+      330,
+      400
+    ],
+    "original": [
+      850,
+      330,
+      400
+    ]
+  },
+  {
+    "key": "3852741,j",
+    "expected": 6139,
+    "calculated": 6139,
+    "dimensions": [
+      2800,
+      1230,
+      400
+    ],
+    "original": [
+      2800,
+      1230,
+      400
+    ]
+  },
+  {
+    "key": "3852782,j",
+    "expected": 3226,
+    "calculated": 3226,
+    "dimensions": [
+      900,
+      2530,
+      400
+    ],
+    "original": [
+      900,
+      2530,
+      400
+    ]
+  },
+  {
+    "key": "4956508,j",
+    "expected": 20337,
+    "calculated": 20337,
+    "dimensions": [
+      4250,
+      2530,
+      400
+    ],
+    "original": [
+      4250,
+      2530,
+      400
+    ]
+  },
+  {
+    "key": "4956836,j",
+    "expected": 3107,
+    "calculated": 3107,
+    "dimensions": [
+      870,
+      2330,
+      400
+    ],
+    "original": [
+      870,
+      2330,
+      400
+    ]
+  },
+  {
+    "key": "7386654,j",
+    "expected": 1462,
+    "calculated": 1462,
+    "dimensions": [
+      1270,
+      730,
+      400
+    ],
+    "original": [
+      1270,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7386672,j",
+    "expected": 1793,
+    "calculated": 1793,
+    "dimensions": [
+      900,
+      730,
+      500
+    ],
+    "original": [
+      900,
+      730,
+      500
+    ]
+  },
+  {
+    "key": "7386673,j",
+    "expected": 1982,
+    "calculated": 1982,
+    "dimensions": [
+      1240,
+      730,
+      500
+    ],
+    "original": [
+      1240,
+      730,
+      500
+    ]
+  },
+  {
+    "key": "7386675,j",
+    "expected": 1431,
+    "calculated": 1431,
+    "dimensions": [
+      900,
+      730,
+      500
+    ],
+    "original": [
+      900,
+      730,
+      500
+    ]
+  },
+  {
+    "key": "7386677,j",
+    "expected": 1555,
+    "calculated": 1555,
+    "dimensions": [
+      900,
+      730,
+      500
+    ],
+    "original": [
+      900,
+      730,
+      500
+    ]
+  },
+  {
+    "key": "7386680,j",
+    "expected": 1793,
+    "calculated": 1793,
+    "dimensions": [
+      900,
+      730,
+      500
+    ],
+    "original": [
+      900,
+      730,
+      500
+    ]
+  },
+  {
+    "key": "7386683,j",
+    "expected": 1999,
+    "calculated": 1999,
+    "dimensions": [
+      1260,
+      730,
+      400
+    ],
+    "original": [
+      1260,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7386688,j",
+    "expected": 1942,
+    "calculated": 1942,
+    "dimensions": [
+      900,
+      730,
+      600
+    ],
+    "original": [
+      900,
+      730,
+      600
+    ]
+  },
+  {
+    "key": "7386694,j",
+    "expected": 1836,
+    "calculated": 1836,
+    "dimensions": [
+      1490,
+      730,
+      400
+    ],
+    "original": [
+      1490,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7386696,j",
+    "expected": 2229,
+    "calculated": 2229,
+    "dimensions": [
+      1890,
+      730,
+      400
+    ],
+    "original": [
+      1890,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7388953,j",
+    "expected": 1492,
+    "calculated": 1492,
+    "dimensions": [
+      900,
+      730,
+      400
+    ],
+    "original": [
+      900,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7388962,j",
+    "expected": 2370,
+    "calculated": 2370,
+    "dimensions": [
+      1260,
+      730,
+      400
+    ],
+    "original": [
+      1260,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7388967,j",
+    "expected": 2570,
+    "calculated": 2570,
+    "dimensions": [
+      1260,
+      730,
+      400
+    ],
+    "original": [
+      1260,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7388971,j",
+    "expected": 2807,
+    "calculated": 2807,
+    "dimensions": [
+      1260,
+      730,
+      400
+    ],
+    "original": [
+      1260,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7388988,j",
+    "expected": 1162,
+    "calculated": 1162,
+    "dimensions": [
+      900,
+      730,
+      400
+    ],
+    "original": [
+      900,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389005,j",
+    "expected": 1136,
+    "calculated": 1136,
+    "dimensions": [
+      900,
+      730,
+      400
+    ],
+    "original": [
+      900,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389010,j",
+    "expected": 1294,
+    "calculated": 1294,
+    "dimensions": [
+      900,
+      730,
+      400
+    ],
+    "original": [
+      900,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389012,j",
+    "expected": 1294,
+    "calculated": 1294,
+    "dimensions": [
+      900,
+      730,
+      400
+    ],
+    "original": [
+      900,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389017,j",
+    "expected": 888,
+    "calculated": 888,
+    "dimensions": [
+      900,
+      730,
+      400
+    ],
+    "original": [
+      900,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389018,j",
+    "expected": 888,
+    "calculated": 888,
+    "dimensions": [
+      900,
+      730,
+      400
+    ],
+    "original": [
+      900,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389019,j",
+    "expected": 888,
+    "calculated": 888,
+    "dimensions": [
+      900,
+      730,
+      400
+    ],
+    "original": [
+      900,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389026,j",
+    "expected": 943,
+    "calculated": 943,
+    "dimensions": [
+      1050,
+      730,
+      400
+    ],
+    "original": [
+      1050,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389028,j",
+    "expected": 1030,
+    "calculated": 1030,
+    "dimensions": [
+      1050,
+      730,
+      400
+    ],
+    "original": [
+      1050,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389031,j",
+    "expected": 2143,
+    "calculated": 2143,
+    "dimensions": [
+      1890,
+      730,
+      400
+    ],
+    "original": [
+      1890,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389040,j",
+    "expected": 2573,
+    "calculated": 2573,
+    "dimensions": [
+      1890,
+      730,
+      400
+    ],
+    "original": [
+      1890,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389042,j",
+    "expected": 2810,
+    "calculated": 2810,
+    "dimensions": [
+      1890,
+      730,
+      400
+    ],
+    "original": [
+      1890,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389051,j",
+    "expected": 1928,
+    "calculated": 1928,
+    "dimensions": [
+      1490,
+      730,
+      400
+    ],
+    "original": [
+      1490,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389053,j",
+    "expected": 1075,
+    "calculated": 1075,
+    "dimensions": [
+      1120,
+      730,
+      400
+    ],
+    "original": [
+      1120,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389056,j",
+    "expected": 1174,
+    "calculated": 1174,
+    "dimensions": [
+      1120,
+      730,
+      400
+    ],
+    "original": [
+      1120,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389063,j",
+    "expected": 1507,
+    "calculated": 1507,
+    "dimensions": [
+      1100,
+      730,
+      400
+    ],
+    "original": [
+      1100,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389068,j",
+    "expected": 1277,
+    "calculated": 1277,
+    "dimensions": [
+      1380,
+      730,
+      400
+    ],
+    "original": [
+      1380,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389077,j",
+    "expected": 2230,
+    "calculated": 2230,
+    "dimensions": [
+      1350,
+      730,
+      400
+    ],
+    "original": [
+      1350,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389084,j",
+    "expected": 1484,
+    "calculated": 1484,
+    "dimensions": [
+      900,
+      730,
+      600
+    ],
+    "original": [
+      900,
+      730,
+      600
+    ]
+  },
+  {
+    "key": "7389119,j",
+    "expected": 2142,
+    "calculated": 2142,
+    "dimensions": [
+      1260,
+      730,
+      400
+    ],
+    "original": [
+      1260,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389126,j",
+    "expected": 2099,
+    "calculated": 2099,
+    "dimensions": [
+      1260,
+      730,
+      400
+    ],
+    "original": [
+      1260,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389130,j",
+    "expected": 1900,
+    "calculated": 1900,
+    "dimensions": [
+      1340,
+      730,
+      400
+    ],
+    "original": [
+      1340,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389161,j",
+    "expected": 1802,
+    "calculated": 1802,
+    "dimensions": [
+      1240,
+      730,
+      400
+    ],
+    "original": [
+      1240,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "7389168,j",
+    "expected": 1633,
+    "calculated": 1633,
+    "dimensions": [
+      900,
+      730,
+      500
+    ],
+    "original": [
+      900,
+      730,
+      500
+    ]
+  },
+  {
+    "key": "7389189,j",
+    "expected": 1370,
+    "calculated": 1370,
+    "dimensions": [
+      900,
+      730,
+      500
+    ],
+    "original": [
+      900,
+      730,
+      500
+    ]
+  },
+  {
+    "key": "7389200,j",
+    "expected": 1724,
+    "calculated": 1724,
+    "dimensions": [
+      900,
+      730,
+      500
+    ],
+    "original": [
+      900,
+      730,
+      500
+    ]
+  },
+  {
+    "key": "7389237,j",
+    "expected": 1736,
+    "calculated": 1736,
+    "dimensions": [
+      1270,
+      730,
+      500
+    ],
+    "original": [
+      1270,
+      730,
+      500
+    ]
+  },
+  {
+    "key": "7389261,j",
+    "expected": 1346,
+    "calculated": 1346,
+    "dimensions": [
+      900,
+      730,
+      500
+    ],
+    "original": [
+      900,
+      730,
+      500
+    ]
+  },
+  {
+    "key": "7389388,j",
+    "expected": 1847,
+    "calculated": 1847,
+    "dimensions": [
+      1270,
+      730,
+      400
+    ],
+    "original": [
+      1270,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "905398,j",
+    "expected": 1487,
+    "calculated": 1487,
+    "dimensions": [
+      1680,
+      830,
+      400
+    ],
+    "original": [
+      1680,
+      830,
+      400
+    ]
+  },
+  {
+    "key": "9271780,j",
+    "expected": 1573,
+    "calculated": 1573,
+    "dimensions": [
+      1240,
+      730,
+      400
+    ],
+    "original": [
+      1240,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "9272016,j",
+    "expected": 1359,
+    "calculated": 1359,
+    "dimensions": [
+      1080,
+      730,
+      400
+    ],
+    "original": [
+      1080,
+      730,
+      400
+    ]
+  },
+  {
+    "key": "9274023,j",
+    "expected": 5394,
+    "calculated": 5394,
+    "dimensions": [
+      1790,
+      2330,
+      400
+    ],
+    "original": [
+      1790,
+      2330,
+      400
+    ]
+  },
+  {
+    "key": "9275034,j",
+    "expected": 3090,
+    "calculated": 3090,
+    "dimensions": [
+      700,
+      2530,
+      400
+    ],
+    "original": [
+      700,
+      2530,
+      400
+    ]
+  },
+  {
+    "key": "9275107,j",
+    "expected": 2108,
+    "calculated": 2108,
+    "dimensions": [
+      1500,
+      1030,
+      400
+    ],
+    "original": [
+      1500,
+      1030,
+      400
+    ]
+  },
+  {
+    "key": "9275344,j",
+    "expected": 4754,
+    "calculated": 4754,
+    "dimensions": [
+      930,
+      2530,
+      400
+    ],
+    "original": [
+      930,
+      2530,
+      400
+    ]
+  },
+  {
+    "key": "9275349,j",
+    "expected": 7987,
+    "calculated": 7987,
+    "dimensions": [
+      2000,
+      2630,
+      400
+    ],
+    "original": [
+      2000,
+      2630,
+      400
+    ]
+  },
+  {
+    "key": "9275771,j",
+    "expected": 3090,
+    "calculated": 3090,
+    "dimensions": [
+      700,
+      2530,
+      400
+    ],
+    "original": [
+      700,
+      2530,
+      400
+    ]
+  },
+  {
+    "key": "9276090,j",
+    "expected": 3076,
+    "calculated": 3076,
+    "dimensions": [
+      1380,
+      1130,
+      400
+    ],
+    "original": [
+      1380,
+      1130,
+      400
+    ]
+  },
+  {
+    "key": "9276429,j",
+    "expected": 5099,
+    "calculated": 5099,
+    "dimensions": [
+      1410,
+      2730,
+      400
+    ],
+    "original": [
+      1410,
+      2730,
+      400
+    ]
+  },
+  {
+    "key": "9276602,j",
+    "expected": 2914,
+    "calculated": 2914,
+    "dimensions": [
+      1560,
+      1530,
+      400
+    ],
+    "original": [
+      1560,
+      1530,
+      400
+    ]
+  },
+  {
+    "key": "9276909,j",
+    "expected": 11172,
+    "calculated": 11172,
+    "dimensions": [
+      2980,
+      2130,
+      400
+    ],
+    "original": [
+      2980,
+      2130,
+      400
+    ]
+  },
+  {
+    "key": "9276937,j",
+    "expected": 2578,
+    "calculated": 2578,
+    "dimensions": [
+      700,
+      2530,
+      400
+    ],
+    "original": [
+      700,
+      2530,
+      400
+    ]
+  },
+  {
+    "key": "9277281,j",
+    "expected": 5974,
+    "calculated": 5974,
+    "dimensions": [
+      1530,
+      2030,
+      400
+    ],
+    "original": [
+      1530,
+      2030,
+      400
+    ]
+  },
+  {
+    "key": "9277328,j",
+    "expected": 1383,
+    "calculated": 1383,
+    "dimensions": [
+      1400,
+      530,
+      400
+    ],
+    "original": [
+      1400,
+      530,
+      400
+    ]
+  },
+  {
+    "key": "9285746,j",
+    "expected": 2282,
+    "calculated": 2282,
+    "dimensions": [
+      1270,
+      730,
+      500
+    ],
+    "original": [
+      1270,
+      730,
+      500
+    ]
+  },
+  {
+    "key": "9285747,j",
+    "expected": 1125,
+    "calculated": 1125,
+    "dimensions": [
+      900,
+      730,
+      500
+    ],
+    "original": [
+      900,
+      730,
+      500
+    ]
+  },
+  {
+    "key": "9285749,j",
+    "expected": 1244,
+    "calculated": 1244,
+    "dimensions": [
+      900,
+      730,
+      500
+    ],
+    "original": [
+      900,
+      730,
+      500
+    ]
+  },
+  {
+    "key": "9285753,j",
+    "expected": 1032,
+    "calculated": 1032,
+    "dimensions": [
+      900,
+      730,
+      600
+    ],
+    "original": [
+      900,
+      730,
+      600
+    ]
+  },
+  {
+    "key": "9285763,j",
+    "expected": 1558,
+    "calculated": 1558,
+    "dimensions": [
+      1270,
+      730,
+      400
+    ],
+    "original": [
+      1270,
+      730,
+      400
+    ]
+  }
+]

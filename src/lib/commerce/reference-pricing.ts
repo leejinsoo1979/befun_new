@@ -226,7 +226,7 @@ export function calculateReferenceShelfPrice(
   running += dimensionIncrease;
   const colorKey = materialKey(input.family, input.materialId);
   // Unknown material IDs are not priced using an assumed zero surcharge.
-  if (input.family !== 'veneer' && colorKey === null) {
+  if (input.family !== 'veneer' && colorKey === null && input.materialId > (input.family === 'classic' ? 13 : 22)) {
     return { status: 'unavailable', reason: 'unsupported-input' };
   }
   const materialIncrease = colorKey ? running * rate(colorKey) : 0;

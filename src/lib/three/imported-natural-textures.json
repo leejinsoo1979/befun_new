@@ -1,0 +1,18 @@
+{
+  "N_Wood_W4": {
+    "label": "우드 W4 (다크)",
+    "base": "/imgs/textures/imported-natural-w4/base.webp",
+    "normal": "/imgs/textures/imported-natural-w4/normal.webp",
+    "roughness": "/imgs/textures/imported-natural-w4/roughness.webp",
+    "thumbnail": "/imgs/natural_color/imported-wood-w4.webp",
+    "surface": "#1d1918"
+  },
+  "N_Wood_W2": {
+    "label": "우드 W2 (브라운)",
+    "base": "/imgs/textures/imported-natural-w2/base.webp",
+    "normal": "/imgs/textures/imported-natural-w2/normal.webp",
+    "roughness": "/imgs/textures/imported-natural-w2/roughness.webp",
+    "thumbnail": "/imgs/natural_color/imported-wood-w2.webp",
+    "surface": "#6d4f37"
+  }
+}

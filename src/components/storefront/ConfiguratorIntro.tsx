@@ -5,12 +5,12 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useLocale } from '@/lib/commerce/useLocale';
 import { useRouter } from 'next/navigation';
-import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
-import { products } from './catalog';
-import { ReferenceImage, useConfigureProduct } from './StorefrontUI';
+import { FiArrowLeft } from 'react-icons/fi';
 import { JoinSection } from './JoinSection';
 import { catalogCategories, catalogHref } from './navigation';
 import styles from './storefront.module.css';
+import { introVariants } from './introVariants';
+import { catalogThumbnailStart } from '@/lib/catalog-entry/starts';
 
 const categories = [
   ['sideboard', 'sideboard', 'sideboard-terra'], ['bookcase', 'bookcase', 'bookcase-brown'],
@@ -36,33 +36,51 @@ const categoryThumbnails: Record<string, string> = {
   vinyl_storage: '/imgs/product-cards/45c098df0e42a70a2fa96dace6f71f7389ea682ea1b523b12508a240aeedbdcc.webp',
   sofas: '/imgs/product-cards/f12ec0dc977e4624c938691273dcfe7afdbb85556c606203b71985599bfc5270.webp',
 };
-const models = [
-  { name: 'Original Classic', image: 'classic', color: 'C_Black', category: 'classic' as const, copy: '판재의 대비와 간결한 선으로 시작해 보세요.' },
-  { name: 'Original Modern', image: 'modern', color: 'S_Midnight Blue', category: 'solid' as const, copy: '선명한 단색과 원하는 수납 구성을 조합해 보세요.' },
-  { name: 'Edge', image: 'edge', color: 'Sand+Midnight Blue', category: 'edgeMix' as const, copy: '다른 색의 면과 모서리가 만드는 리듬을 살펴보세요.' },
-  { name: 'Tone', image: 'tone', color: 'S_Stone Gray', category: 'solid' as const, copy: '차분한 컬러로 공간과 자연스럽게 어우러지는 디자인을 만드세요.' },
-];
+// Stable pseudo-random choices keep SSR and hydration identical. Prefer unused
+// swatches so neighboring categories do not all start in clay brown.
+function initialVariants(options = introVariants): Record<string, number> {
+  const chosen: Record<string, number> = {};
+  const usage = new Map<string, number>();
+  for (const [slug] of categories) {
+    const variants = options[slug];
+    if (!variants?.length) continue;
+    const seed = Array.from(slug).reduce((hash, char) => (hash * 31 + char.charCodeAt(0)) >>> 0, 17);
+    const start = seed % variants.length;
+    let best = start;
+    for (let offset = 1; offset < variants.length; offset++) {
+      const candidate = (start + offset) % variants.length;
+      if ((usage.get(variants[candidate].swatch) ?? 0) < (usage.get(variants[best].swatch) ?? 0)) best = candidate;
+    }
+    // The requested source-backed bedside design is the category's initial card.
+    if (slug === 'bedside_table') best = variants.findIndex(v => v.sourceProductKey === '657092,w');
+    best = Math.max(0, best);
+    chosen[slug] = best;
+    const swatch = variants[best].swatch;
+    usage.set(swatch, (usage.get(swatch) ?? 0) + 1);
+  }
+  return chosen;
+}
 
-export function ConfiguratorIntro() {
-  const [selected, setSelected] = useState(0);
-  const [step, setStep] = useState(0);
-  const [model, setModel] = useState(0);
-  const configure = useConfigureProduct();
+export function ConfiguratorIntro({ productLine = '', category = '', allowedProductKeys }: { productLine?: string; category?: string; allowedProductKeys?: string[] }) {
+  const collectionNames: Record<string, string> = { classic: 'Original Classic', modern: 'Original Modern', edge: 'Edge', tone: 'Tone' };
+  const collectionName = collectionNames[productLine];
+  const allowed = allowedProductKeys ? new Set(allowedProductKeys) : null;
+  const variants = allowed ? Object.fromEntries(Object.entries(introVariants).map(([slug, entries]) => [slug, entries.filter(entry => allowed.has(entry.sourceProductKey))])) : introVariants;
+  const availableCategories = categories.filter(([slug]) => !allowed || variants[slug]?.length);
+  const orderedCategories = [...availableCategories].sort(([a], [b]) => Number(b === category) - Number(a === category));
+  const [variantBy, setVariantBy] = useState<Record<string, number>>(() => initialVariants(variants));
+  const variantOf = (slug: string) => variants[slug]?.[variantBy[slug] ?? 0];
   const router = useRouter();
   const { t } = useLocale();
-  const category = categories[selected];
-  const product = products.find(item => item.id === category[2]);
-  const isDesk = category[0] === 'desk';
-  const isWardrobe = category[0] === 'wardrobe';
-  const familyModels = isDesk ? models.slice(0, 2) : isWardrobe ? models.slice(2) : models;
-  const finish = familyModels[model] ?? familyModels[0];
-  const collectionCopy = isWardrobe ? (model === 0 ? '구획마다 높이와 깊이를 조절하고, 옷봉·선반·서랍을 조합하세요.' : '외부와 내부 컬러를 따로 고르고, 옷봉·선반·서랍과 조명을 구성하세요.') : isDesk ? '작업 공간의 위치와 너비를 정하고, 필요한 수납과 케이블 홀을 더하세요.' : finish.copy;
-  const optionCopy = isDesk || isWardrobe ? '3D 화면에서 크기와 컬러, 구획별 내부 구성과 문 방향을 변경할 수 있습니다.' : `Befun의 ${finish.category === 'edgeMix' ? 'Mix' : finish.category === 'solid' ? 'Solid' : 'Classic'} 마감으로 시작합니다. 3D 화면에서 크기와 컬러, 선반 스타일을 변경할 수 있습니다.`;
-  const familyRoute = isDesk ? (model === 0 ? 'desk-classic' : 'desk-modern') : (model === 0 ? 'wardrobe-edge' : 'wardrobe-tone');
+  const choose = (slug: string) => {
+    const variant = variantOf(slug);
+    const start = variant && catalogThumbnailStart(variant.sourceProductKey);
+    router.push(start?.href ?? variant?.referenceHref ?? catalogHref(slug));
+  };
   return <><section className={`${styles.pageSection} ${styles.configuratorIntro}`}>
-    <h1>{step === 0 ? '가구 종류를 선택하세요' : catalogCategories[category[0]]}</h1>
-    <p>{step === 0 ? '수납장부터 옷장까지, 공간에 필요한 가구를 선택하세요.' : '모델을 선택하고 컬러와 스타일을 살펴보세요.'}</p>
-    {step === 0 ? <div className={styles.introCategories}>{categories.map(([slug], index) => <button key={slug} aria-pressed={selected === index} onClick={() => { setSelected(index); setModel(0); }}><div><Image src={categoryThumbnails[slug]} alt={t(catalogCategories[slug])} fill sizes="(max-width:700px) 42vw, 20vw" /></div><span>{t(catalogCategories[slug])}</span></button>)}</div> : <div className={styles.introModelLayout}><div><div className={styles.introModels}>{familyModels.map((item, index) => <button key={item.name} aria-pressed={model === index} onClick={() => setModel(index)}><div><ReferenceImage source={category[0] === 'bookcase' ? `https://media.tylko.com/cloudinary/configurator-intro/grid/bookcase_${item.image}/A.avif` : `https://media.tylko.com/cloudinary/common/menu/categories/${category[1]}/A.avif`} fallback={product?.image ?? 'storage.avif'} alt={item.name} sizes="(max-width:700px) 42vw, 20vw" /></div><span>{item.name}</span></button>)}</div><div className={styles.introModelCopy}><h2>컬렉션 소개</h2><p>{collectionCopy}</p><h2>컬러와 스타일</h2><p>{optionCopy}</p></div></div><div className={styles.introModelImage}><ReferenceImage source={isDesk || isWardrobe ? `https://media.tylko.com/cloudinary/common/menu/categories/${category[1]}/A.avif` : "https://media.tylko.com/cloudinary/configurator-intro/models/Bookcases/original%20classic/A.avif"} fallback={product?.image ?? 'storage.avif'} alt="컬렉션 디자인 레퍼런스" sizes="400px" /></div></div>}
-    <div className={styles.introNavigation}>{step === 0 ? <Link href="/furniture-c" className={styles.outlineButton}><FiArrowLeft /> 돌아가기</Link> : <button className={styles.outlineButton} onClick={() => setStep(0)}><FiArrowLeft /> 이전</button>}{step === 0 ? <button className={styles.darkButton} onClick={() => { if (!product && !isDesk && !isWardrobe) { router.push(catalogHref(category[0])); return; } setStep(1); window.scrollTo({ top: 0, behavior: 'instant' }); }}>다음 <FiArrowRight /></button> : isDesk || isWardrobe ? <button className={styles.darkButton} onClick={() => router.push(`/furniture-design/${familyRoute}`)}>커스터마이즈 <FiArrowRight /></button> : product ? <button className={styles.darkButton} onClick={() => configure({ ...product, color: finish.color, colorCategory: finish.category })}>커스터마이즈 <FiArrowRight /></button> : <Link className={styles.darkButton} href={catalogHref(category[0])}>컬렉션 보기 <FiArrowRight /></Link>}</div>
+    <h1>{collectionName ? `${collectionName} · ${t('가구 종류를 선택하세요')}` : t('가구 종류를 선택하세요')}</h1>
+    <p>사진을 선택해 해당 디자인을 살펴보세요. 구성 정보가 준비된 디자인은 같은 설정의 3D 편집기로 열립니다.</p>
+    <div className={styles.introCategories}>{orderedCategories.map(([slug]) => <div key={slug} className={styles.introCard}><button onClick={() => choose(slug)}><div><Image src={variantOf(slug)?.thumbnail ?? categoryThumbnails[slug]} alt={t(catalogCategories[slug])} fill sizes="(max-width:700px) 42vw, 20vw" /></div><span>{t(catalogCategories[slug])}</span></button>{variants[slug]?.length > 1 && <div className={styles.introSwatches} role="group" aria-label={`${t(catalogCategories[slug])} 컬러`}>{variants[slug].map((variant, vi) => <button key={variant.thumbnail} aria-label={variant.name} title={variant.name} aria-pressed={(variantBy[slug] ?? 0) === vi} style={{ background: variant.swatch }} onClick={() => setVariantBy(current => ({ ...current, [slug]: vi }))} />)}</div>}</div>)}</div>
+    <div className={styles.introNavigation}><Link href="/furniture-c" className={styles.outlineButton}><FiArrowLeft /> 돌아가기</Link></div>
   </section><JoinSection /></>;
 }

@@ -1,0 +1,914 @@
+[
+  {
+    "size": [
+      1728,
+      900
+    ],
+    "book": {
+      "canvas": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 1234,
+        "x": 0,
+        "y": 68
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 770.1953125,
+        "margin": "16px 0px",
+        "padding": "16px",
+        "position": "static",
+        "width": 420,
+        "x": 1234,
+        "y": 84
+      },
+      "scrollWidth": 1728,
+      "url": "/furniture/bookcase-brown",
+      "viewer": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 1234,
+        "x": 0,
+        "y": 68
+      },
+      "viewport": [
+        1728,
+        900
+      ]
+    },
+    "wardrobe": {
+      "canvas": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 1234,
+        "x": 0,
+        "y": 68
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 578,
+        "margin": "16px 0px",
+        "padding": "16px",
+        "position": "static",
+        "width": 420,
+        "x": 1234,
+        "y": 84
+      },
+      "scrollWidth": 1728,
+      "url": "/reference-product/wardrobe-2",
+      "viewer": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 1234,
+        "x": 0,
+        "y": 68
+      },
+      "viewport": [
+        1728,
+        900
+      ]
+    },
+    "desk": {
+      "canvas": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 1234,
+        "x": 0,
+        "y": 68
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 633.46875,
+        "margin": "16px 0px",
+        "padding": "16px",
+        "position": "static",
+        "width": 420,
+        "x": 1234,
+        "y": 84
+      },
+      "scrollWidth": 1728,
+      "url": "/reference-product/desk-1",
+      "viewer": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 1234,
+        "x": 0,
+        "y": 68
+      },
+      "viewport": [
+        1728,
+        900
+      ]
+    }
+  },
+  {
+    "size": [
+      1200,
+      900
+    ],
+    "book": {
+      "canvas": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 764,
+        "x": 0,
+        "y": 68
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 803.1953125,
+        "margin": "16px 0px",
+        "padding": "16px",
+        "position": "static",
+        "width": 388,
+        "x": 764,
+        "y": 84
+      },
+      "scrollWidth": 1200,
+      "url": "/furniture/bookcase-brown",
+      "viewer": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 764,
+        "x": 0,
+        "y": 68
+      },
+      "viewport": [
+        1200,
+        900
+      ]
+    },
+    "wardrobe": {
+      "canvas": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 764,
+        "x": 0,
+        "y": 68
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 578,
+        "margin": "16px 0px",
+        "padding": "16px",
+        "position": "static",
+        "width": 388,
+        "x": 764,
+        "y": 84
+      },
+      "scrollWidth": 1200,
+      "url": "/reference-product/wardrobe-2",
+      "viewer": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 764,
+        "x": 0,
+        "y": 68
+      },
+      "viewport": [
+        1200,
+        900
+      ]
+    },
+    "desk": {
+      "canvas": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 764,
+        "x": 0,
+        "y": 68
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 665.46875,
+        "margin": "16px 0px",
+        "padding": "16px",
+        "position": "static",
+        "width": 388,
+        "x": 764,
+        "y": 84
+      },
+      "scrollWidth": 1200,
+      "url": "/reference-product/desk-1",
+      "viewer": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 764,
+        "x": 0,
+        "y": 68
+      },
+      "viewport": [
+        1200,
+        900
+      ]
+    }
+  },
+  {
+    "size": [
+      1024,
+      900
+    ],
+    "book": {
+      "canvas": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 604,
+        "x": 0,
+        "y": 68
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 803.1953125,
+        "margin": "16px 0px",
+        "padding": "16px",
+        "position": "static",
+        "width": 388,
+        "x": 604,
+        "y": 84
+      },
+      "scrollWidth": 1024,
+      "url": "/furniture/bookcase-brown",
+      "viewer": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 604,
+        "x": 0,
+        "y": 68
+      },
+      "viewport": [
+        1024,
+        900
+      ]
+    },
+    "wardrobe": {
+      "canvas": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 604,
+        "x": 0,
+        "y": 68
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 578,
+        "margin": "16px 0px",
+        "padding": "16px",
+        "position": "static",
+        "width": 388,
+        "x": 604,
+        "y": 84
+      },
+      "scrollWidth": 1024,
+      "url": "/reference-product/wardrobe-2",
+      "viewer": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 604,
+        "x": 0,
+        "y": 68
+      },
+      "viewport": [
+        1024,
+        900
+      ]
+    },
+    "desk": {
+      "canvas": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 604,
+        "x": 0,
+        "y": 68
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 665.46875,
+        "margin": "16px 0px",
+        "padding": "16px",
+        "position": "static",
+        "width": 388,
+        "x": 604,
+        "y": 84
+      },
+      "scrollWidth": 1024,
+      "url": "/reference-product/desk-1",
+      "viewer": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 604,
+        "x": 0,
+        "y": 68
+      },
+      "viewport": [
+        1024,
+        900
+      ]
+    }
+  },
+  {
+    "size": [
+      1023,
+      900
+    ],
+    "book": {
+      "canvas": {
+        "height": 540,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 1023,
+        "x": 0,
+        "y": 68
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 753.6953125,
+        "margin": "0px 32px 24px",
+        "padding": "16px",
+        "position": "static",
+        "width": 959,
+        "x": 32,
+        "y": 608
+      },
+      "scrollWidth": 1023,
+      "url": "/furniture/bookcase-brown",
+      "viewer": {
+        "height": 540,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 1023,
+        "x": 0,
+        "y": 68
+      },
+      "viewport": [
+        1023,
+        900
+      ]
+    },
+    "wardrobe": {
+      "canvas": {
+        "height": 540,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 1023,
+        "x": 0,
+        "y": 68
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 578,
+        "margin": "0px 32px 24px",
+        "padding": "16px",
+        "position": "static",
+        "width": 959,
+        "x": 32,
+        "y": 608
+      },
+      "scrollWidth": 1023,
+      "url": "/reference-product/wardrobe-2",
+      "viewer": {
+        "height": 540,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 1023,
+        "x": 0,
+        "y": 68
+      },
+      "viewport": [
+        1023,
+        900
+      ]
+    },
+    "desk": {
+      "canvas": {
+        "height": 540,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 1023,
+        "x": 0,
+        "y": 68
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 633.46875,
+        "margin": "0px 32px 24px",
+        "padding": "16px",
+        "position": "static",
+        "width": 959,
+        "x": 32,
+        "y": 608
+      },
+      "scrollWidth": 1023,
+      "url": "/reference-product/desk-1",
+      "viewer": {
+        "height": 540,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 1023,
+        "x": 0,
+        "y": 68
+      },
+      "viewport": [
+        1023,
+        900
+      ]
+    }
+  },
+  {
+    "size": [
+      768,
+      900
+    ],
+    "book": {
+      "canvas": {
+        "height": 540,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 768,
+        "x": 0,
+        "y": 96
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 753.6953125,
+        "margin": "0px 32px 24px",
+        "padding": "16px",
+        "position": "static",
+        "width": 704,
+        "x": 32,
+        "y": 636
+      },
+      "scrollWidth": 768,
+      "url": "/furniture/bookcase-brown",
+      "viewer": {
+        "height": 540,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 768,
+        "x": 0,
+        "y": 96
+      },
+      "viewport": [
+        768,
+        900
+      ]
+    },
+    "wardrobe": {
+      "canvas": {
+        "height": 540,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 768,
+        "x": 0,
+        "y": 96
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 578,
+        "margin": "0px 32px 24px",
+        "padding": "16px",
+        "position": "static",
+        "width": 704,
+        "x": 32,
+        "y": 636
+      },
+      "scrollWidth": 768,
+      "url": "/reference-product/wardrobe-2",
+      "viewer": {
+        "height": 540,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 768,
+        "x": 0,
+        "y": 96
+      },
+      "viewport": [
+        768,
+        900
+      ]
+    },
+    "desk": {
+      "canvas": {
+        "height": 540,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 768,
+        "x": 0,
+        "y": 96
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 633.46875,
+        "margin": "0px 32px 24px",
+        "padding": "16px",
+        "position": "static",
+        "width": 704,
+        "x": 32,
+        "y": 636
+      },
+      "scrollWidth": 768,
+      "url": "/reference-product/desk-1",
+      "viewer": {
+        "height": 540,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 768,
+        "x": 0,
+        "y": 96
+      },
+      "viewport": [
+        768,
+        900
+      ]
+    }
+  },
+  {
+    "size": [
+      700,
+      900
+    ],
+    "book": {
+      "canvas": {
+        "height": 430,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 700,
+        "x": 0,
+        "y": 80
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 753.6953125,
+        "margin": "0px 12px 24px",
+        "padding": "16px",
+        "position": "static",
+        "width": 676,
+        "x": 12,
+        "y": 510
+      },
+      "scrollWidth": 700,
+      "url": "/furniture/bookcase-brown",
+      "viewer": {
+        "height": 430,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 700,
+        "x": 0,
+        "y": 80
+      },
+      "viewport": [
+        700,
+        900
+      ]
+    },
+    "wardrobe": {
+      "canvas": {
+        "height": 430,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 700,
+        "x": 0,
+        "y": 80
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 578,
+        "margin": "0px 12px 24px",
+        "padding": "16px",
+        "position": "static",
+        "width": 676,
+        "x": 12,
+        "y": 510
+      },
+      "scrollWidth": 700,
+      "url": "/reference-product/wardrobe-2",
+      "viewer": {
+        "height": 430,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 700,
+        "x": 0,
+        "y": 80
+      },
+      "viewport": [
+        700,
+        900
+      ]
+    },
+    "desk": {
+      "canvas": {
+        "height": 430,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 700,
+        "x": 0,
+        "y": 80
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 605.46875,
+        "margin": "0px 12px 24px",
+        "padding": "16px",
+        "position": "static",
+        "width": 676,
+        "x": 12,
+        "y": 510
+      },
+      "scrollWidth": 700,
+      "url": "/reference-product/desk-1",
+      "viewer": {
+        "height": 430,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 700,
+        "x": 0,
+        "y": 80
+      },
+      "viewport": [
+        700,
+        900
+      ]
+    }
+  },
+  {
+    "size": [
+      390,
+      844
+    ],
+    "book": {
+      "canvas": {
+        "height": 430,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 390,
+        "x": 0,
+        "y": 80
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 821.1953125,
+        "margin": "0px 12px 24px",
+        "padding": "16px",
+        "position": "static",
+        "width": 366,
+        "x": 12,
+        "y": 510
+      },
+      "scrollWidth": 390,
+      "url": "/furniture/bookcase-brown",
+      "viewer": {
+        "height": 430,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 390,
+        "x": 0,
+        "y": 80
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    "wardrobe": {
+      "canvas": {
+        "height": 430,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 390,
+        "x": 0,
+        "y": 80
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 576.5,
+        "margin": "0px 12px 24px",
+        "padding": "16px",
+        "position": "static",
+        "width": 366,
+        "x": 12,
+        "y": 510
+      },
+      "scrollWidth": 390,
+      "url": "/reference-product/wardrobe-2",
+      "viewer": {
+        "height": 430,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 390,
+        "x": 0,
+        "y": 80
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    "desk": {
+      "canvas": {
+        "height": 430,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 390,
+        "x": 0,
+        "y": 80
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 641.90625,
+        "margin": "0px 12px 24px",
+        "padding": "16px",
+        "position": "static",
+        "width": 366,
+        "x": 12,
+        "y": 510
+      },
+      "scrollWidth": 390,
+      "url": "/reference-product/desk-1",
+      "viewer": {
+        "height": 430,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 390,
+        "x": 0,
+        "y": 80
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  },
+  {
+    "size": [
+      1920,
+      1080
+    ],
+    "book": {
+      "canvas": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 1426,
+        "x": 0,
+        "y": 68
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 770.1953125,
+        "margin": "16px 0px",
+        "padding": "16px",
+        "position": "static",
+        "width": 420,
+        "x": 1426,
+        "y": 84
+      },
+      "scrollWidth": 1920,
+      "url": "/furniture/bookcase-brown",
+      "viewer": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 1426,
+        "x": 0,
+        "y": 68
+      },
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    "wardrobe": {
+      "canvas": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 1426,
+        "x": 0,
+        "y": 68
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 578,
+        "margin": "16px 0px",
+        "padding": "16px",
+        "position": "static",
+        "width": 420,
+        "x": 1426,
+        "y": 84
+      },
+      "scrollWidth": 1920,
+      "url": "/reference-product/wardrobe-2",
+      "viewer": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 1426,
+        "x": 0,
+        "y": 68
+      },
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    "desk": {
+      "canvas": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "static",
+        "width": 1426,
+        "x": 0,
+        "y": 68
+      },
+      "fullscreen": false,
+      "panel": {
+        "height": 633.46875,
+        "margin": "16px 0px",
+        "padding": "16px",
+        "position": "static",
+        "width": 420,
+        "x": 1426,
+        "y": 84
+      },
+      "scrollWidth": 1920,
+      "url": "/reference-product/desk-1",
+      "viewer": {
+        "height": 764,
+        "margin": "0px",
+        "padding": "0px",
+        "position": "relative",
+        "width": 1426,
+        "x": 0,
+        "y": 68
+      },
+      "viewport": [
+        1920,
+        1080
+      ]
+    }
+  }
+]

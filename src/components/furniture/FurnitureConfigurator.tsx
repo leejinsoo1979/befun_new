@@ -4,16 +4,16 @@ import { useLocale } from '@/lib/commerce/useLocale';
 
 import dynamic from 'next/dynamic';
 import { ConfiguratorLoading } from '@/components/ui/ConfiguratorLoading';
-import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { FiMaximize, FiSave, FiShare2 } from 'react-icons/fi';
+import { DeskPrice } from './DeskPrice';
 import { FurnitureViewToolbar } from './FurnitureViewToolbar';
 import { DeskSectionEditor } from './DeskSectionEditor';
 import type { FurnitureEditIntent } from '@/types/furniture';
 import { FurniturePanel } from '@/components/ui/furniture-panels/FurniturePanel';
 import { applyWardrobeIntent, wardrobePanelView } from '@/lib/furniture/wardrobe-panel';
 import { applyDeskIntent, deskPanelView } from '@/lib/furniture/desk-panel';
-import { FAMILY_NAMES, furnitureDesignHref, parseFurnitureDesign, type FurnitureDesign } from '@/lib/furniture/design';
+import { furnitureDesignHref, parseFurnitureDesign, type FurnitureDesign } from '@/lib/furniture/design';
 import styles from './furniture.module.css';
 import { FurnitureProductDetails } from '@/components/storefront/FurnitureProductDetails';
 
@@ -25,11 +25,29 @@ export function FurnitureConfigurator({initial, title, catalogId}:{initial:Furni
   const [tab,setTab]=useState('appearance');
   const [open,setOpen]=useState(initial.kind==='wardrobe');
   const [dimensions,setDimensions]=useState(false);
-  const [front,setFront]=useState(false);
+  const [front,setFront]=useState(true);
   const [reset,setReset]=useState(0);
   const [zoom,setZoom]=useState({factor:1,revision:0});
   const [fullscreen,setFullscreen]=useState(false);
   const viewerRef=useRef<HTMLDivElement>(null);
+  useEffect(()=>{
+    const onKey=(event:KeyboardEvent)=>{
+      const target=event.target;
+      if(event.code!=='Space')return;
+      if(target instanceof HTMLElement&&target.closest('input[type="range"],[role="slider"]')){
+        event.preventDefault();
+        return;
+      }
+      if(target instanceof HTMLElement&&
+        (target.isContentEditable||target.closest('input,textarea,select,button,a,[role="button"],[role="dialog"]')))return;
+      event.preventDefault();
+      if(event.repeat)return;
+      setFront(true);
+      setReset(value=>value+1);
+    };
+    window.addEventListener('keydown',onKey);
+    return()=>window.removeEventListener('keydown',onKey);
+  },[]);
   useEffect(()=>{
     const sync=()=>setFullscreen(!!document.fullscreenElement);
     document.addEventListener('fullscreenchange',sync);
@@ -77,15 +95,16 @@ export function FurnitureConfigurator({initial, title, catalogId}:{initial:Furni
     }catch{setStatus('저장된 디자인을 불러올 수 없습니다.');}
   };
   return <section id="configuration" className={styles.page}>
-    <div className={styles.heading}><div><Link href="/configurator-intro">{tr("가구 선택")}</Link><h1>{tr(title ?? FAMILY_NAMES[design.family])}</h1></div><p>{design.config.widthMm/10} × {design.kind==='desk'?73:Math.max(design.config.heightMm,...design.config.sections.map(s=>s.localHeightMm??0))/10} × {(design.kind==='desk'?design.config.depthMm:Math.max(design.config.depthMm,...design.config.sections.map(s=>s.localDepthMm??0)))/10} cm</p></div>
+    {/* 뷰어 위 제목·치수 줄 없음(사용자 지시) — 치수는 뷰어 치수 표시로 확인 */}
     <div className={styles.layout}>
       <div ref={viewerRef} className={styles.viewer} data-fullscreen={fullscreen||undefined}>
         <Scene design={design} open={open} dimensions={dimensions} front={front} reset={reset} zoom={zoom} interior={tab==='interior'} selectedSectionId={design.kind==='wardrobe'&&tab!=='interior'?null:selected} onSelectSection={select} onEditDeskLegroom={()=>setDeskEditor('legroom')}/>
-        <FurnitureViewToolbar open={open} dimensions={dimensions} front={front} onOpen={()=>setOpen(!open)} onDimensions={()=>setDimensions(!dimensions)} onFront={value=>{setFront(value);setReset(count=>count+1);}} onReset={()=>setReset(count=>count+1)} onZoom={factor=>setZoom(value=>({factor,revision:value.revision+1}))}/>
+        <FurnitureViewToolbar open={open} dimensions={dimensions} front={front} onOpen={()=>setOpen(!open)} onDimensions={()=>setDimensions(!dimensions)} onFront={value=>{setFront(value);setReset(count=>count+1);}} onReset={()=>{setFront(true);setReset(count=>count+1);}} onZoom={factor=>setZoom(value=>({factor,revision:value.revision+1}))}/>
         <button className={styles.fullscreen} onClick={()=>void toggleFullscreen()} aria-pressed={fullscreen}><FiMaximize/>{tr(fullscreen?'전체 화면 종료':'전체 화면')}</button>
         <p className={styles.viewerHint}>{tr("드래그하여 회전 · 스크롤하여 확대 · 수납 구획을 눌러 편집")}</p>
       </div>
       <aside className={`${styles.options} ${design.kind==='desk'?styles.deskOptions:''}`} aria-label={tr("가구 옵션")}>
+        {design.kind==='desk'&&<DeskPrice config={design.config}/> }
         {view&&<FurniturePanel view={view} activeTabId={tab} onTabChange={changeTab} onSelectSection={setSelected} onIntent={apply}/>}
         <div className={styles.saveActions}><button onClick={()=>persist()}><FiSave/> {tr("디자인 저장")}</button><button onClick={()=>persist(true)}><FiShare2/> {tr("링크 공유")}</button><button onClick={restore}>{tr("저장한 디자인 불러오기")}</button></div>
         <p role="status" className={styles.status}>{tr(status)}</p>

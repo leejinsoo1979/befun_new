@@ -36,6 +36,11 @@ interface DisplayState {
   toggleExploded: () => void;
 }
 
+function playbackCamera() {
+  const cinematic = typeof window === 'undefined' || !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  return { cinematic, freeOrbit: false, ...(cinematic ? { projection: 'perspective' as const } : {}) };
+}
+
 // Presentation only: never serialize this into a saved design or order.
 export const useDisplayStore = create<DisplayState>((set) => ({
   showDecor: true, toggleDecor: () => set(s => ({showDecor: !s.showDecor})),
@@ -46,10 +51,10 @@ export const useDisplayStore = create<DisplayState>((set) => ({
   togglePause: () => set((s) => ({ paused: !s.paused })),
   setSpeed: (speed) => set({ speed }),
   resetAssembly: () => set((s) => ({ exploded: false, phase: 'assembled', paused: false, progress: 0, stageLabel: '', autoAssemble: false, playbackId: s.playbackId + 1 })),
-  replay: () => set((s) => ({ exploded: true, phase: 'disassembling', paused: false, progress: 0, autoAssemble: true, playbackId: s.playbackId + 1, view: 'standard', freeOrbit: false, ...(s.cinematic ? {projection:'perspective' as const} : {}) })),
+  replay: () => set((s) => ({ exploded: true, phase: 'disassembling', paused: false, progress: 0, autoAssemble: true, playbackId: s.playbackId + 1, view: 'standard', ...playbackCamera() })),
   appearance: 'realistic', setAppearance: (appearance) => set({ appearance }),
   view: 'front', projection: 'perspective', exploded: false, revision: 0, freeOrbit: false,
   selectView: (view) => set((s) => ({ view, revision: s.revision + 1, freeOrbit: false, ...(s.phase==='assembling'||s.phase==='disassembling'?{cinematic:false}:{}) })),
   setProjection: (projection) => set({ projection, cinematic: false }),
-  toggleExploded: () => set((s) => s.phase === 'assembling' || s.phase === 'disassembling' ? {} : ({ exploded: true, phase: s.phase === 'laidOut' ? 'assembling' : 'disassembling', paused: false, progress: 0, autoAssemble: false, playbackId: s.playbackId + 1, view: 'standard', freeOrbit: false, ...(s.cinematic ? {projection:'perspective' as const} : {}) })),
+  toggleExploded: () => set((s) => s.phase === 'assembling' || s.phase === 'disassembling' ? {} : ({ exploded: true, phase: s.phase === 'laidOut' ? 'assembling' : 'disassembling', paused: false, progress: 0, autoAssemble: false, playbackId: s.playbackId + 1, view: 'standard', ...playbackCamera() })),
 }));

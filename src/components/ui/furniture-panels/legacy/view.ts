@@ -46,8 +46,8 @@ export function buildLegacyShelfView(s: LegacyShelfViewInput): FurniturePanelVie
     },
     {
       kind: 'choice', variant: 'pill', id: 'legacy.depth', label: 'Depth', ...on,
-      value: LEGACY_DEPTHS.find((d) => Math.abs(s.depth - d) < 0.5)?.toString() ?? null,
-      options: LEGACY_DEPTHS.map((d) => ({ id: String(d), label: `${d}cm` })), help: '가구의 앞뒤 깊이',
+      value: String(s.depth),
+      options: [...new Set<number>([...LEGACY_DEPTHS,s.depth])].sort((a,b)=>a-b).map((d) => ({ id: String(d), label: `${d}cm` })), help: '가구의 앞뒤 깊이',
     },
     {
       kind: 'choice', variant: 'pill', id: 'legacy.backPanel', label: 'Back panels', ...on, value: s.hasBackPanel ? 'on' : 'off',
