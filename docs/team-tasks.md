@@ -2370,3 +2370,6 @@ R14 구현 조정: `shelf-geometry.ts` 공통 분기까지 리더 수정 범위�
 - Chrome3003 desktop1728/mobile390 EN/JA 주요경로 본문·aria/alt/title/placeholder 확인, 모바일넘침0, 옷장235218,w 언어전환 전후1180×1980×600mm/EUR1682 동일, KR/viewport원복. 결제·가입·문의 전송 안 함.
 - 독립 게시 사본 최신 origin/main(58acde1, Pro 선게시 번역 호출 보존) 기준 번역만 분리. 기존 원격 소재/기프트 화면도 해당 버전으로 번역. tests6 PASS, full lint0오류13기존경고, 최종 production webpack/TypeScript·정적생성 PASS, diff-check PASS. 인계 docs/handoffs/locale-20261016/README.md 및 로그3개.
 - 아직 미게시인 신규 MaterialsPage의 수량aria/OptimizerLaunchButton 번역 호출은 공유 소스에 보존. 별도 언어유지 담당의 currentRegion/I18nProvider/regions/preference 변경은 포함하지 않음. 공유 HEAD/index/.next/서버·타담당 작업 보존. 사용자 요청으로 이 분리 변경을 정상 커밋·푸시 진행.
+
+### Codex — 엣지밴딩·표면·조절발 게시 / 2026-10-17
+- 최신628ad46 격리사본에 담당수정만 분리. 엣지밴딩/마감분류/표면노이즈/Gradient도어/삽입판조절발 반영. 미게시카탈로그·native초기화와 타담당변경 제외. 39검사PASS, lint0오류12기존경고, production webpack/TypeScript/정적생성PASS. 인계 docs/handoffs/edge-finish-publication.md. 공유HEAD/index/.next/서버보존, 수정잠금해제. 사용자요청 커밋·정상푸시 진행.

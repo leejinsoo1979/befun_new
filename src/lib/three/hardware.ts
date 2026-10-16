@@ -262,10 +262,13 @@ function getGradientVerticalPanelXPositions(
   // gradient.ts: 좌측부터 x = -width/2 + thickness/2, 각 칸 폭만큼 누적
   let x = -width / 2 + thickness / 2;
   positions.push(x);
-  for (let i = 0; i < internalWidths.length; i++) {
+  for (let i = 0; i < internalWidths.length - 1; i++) {
     x += internalWidths[i] + thickness;
     positions.push(x);
   }
+  // Gradient anchors its final wall to the furniture's outer edge. The
+  // clamped/redistributed widths do not necessarily sum to that position.
+  positions.push(width / 2 - thickness / 2);
   return positions;
 }
 

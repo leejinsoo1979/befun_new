@@ -1,5 +1,8 @@
 'use client';
 
+import { setPanelEdgeFinish } from '@/lib/three/panel-edge';
+import { BIRCH_EDGE_MIX_COLOR } from '@/lib/three/finish';
+
 import { applyReferenceAlbedo } from '@/lib/three/reference-materials';
 import { calculateShelfGeometry } from '@/lib/three/shelf-geometry';
 
@@ -79,7 +82,7 @@ export function Shelf({ showDimensions = false, exploded = false, presentation =
     const referenceColor = REFERENCE_COLORS[currentColor];
     const materialRequest = referenceColor
       ? Promise.resolve(createColorMaterials(referenceColor.base, referenceColor.edge))
-      : createNaturalMaterialsForColor(REFERENCE_CLASSIC_COLORS[currentColor] ? 'C_White' : currentColor);
+      : createNaturalMaterialsForColor(REFERENCE_CLASSIC_COLORS[currentColor] && currentColor !== BIRCH_EDGE_MIX_COLOR ? 'C_White' : currentColor);
     materialRequest
       .then((mats) => {
         if (referenceColor) applyReferenceAlbedo(mats, referenceColor);
@@ -97,6 +100,7 @@ export function Shelf({ showDimensions = false, exploded = false, presentation =
           mats.verticalEdge.roughness = 0.5;
           mats.horizontalEdge.roughness = 0.5;
         }
+        setPanelEdgeFinish(mats, currentColor);
         if (disposed) { disposeMaterialSet(mats); return; }
         if (!disposed) {
           setMaterials((prev) => {

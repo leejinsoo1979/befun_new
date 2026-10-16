@@ -30,8 +30,8 @@ function restoreFaceGroups(geometry: BufferGeometry) {
 
 /** All panel and cable coordinates are cm. Bore values retain the existing
  * Blum mm contract. Caller owns and must dispose the returned geometry. */
-export function createDeskPanelGeometry(panel: PanelData, bores: readonly Bore[], openings: readonly DeskCableOpening[]): BufferGeometry {
-  const base = createBoredBox(panel.w, panel.h, panel.d, bores);
+export function createDeskPanelGeometry(panel: PanelData, bores: readonly Bore[], openings: readonly DeskCableOpening[], radius = 0): BufferGeometry {
+  const base = createBoredBox(panel.w, panel.h, panel.d, bores, radius);
   if (!openings.length) return base;
   const material = new MeshBasicMaterial();
   const evaluator = new Evaluator();

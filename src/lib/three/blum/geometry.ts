@@ -1,4 +1,5 @@
-import { BoxGeometry, CylinderGeometry, MeshBasicMaterial, Vector3, type BufferGeometry } from 'three';
+import { createPanelBox } from '../panel-edge';
+import { CylinderGeometry, MeshBasicMaterial, Vector3, type BufferGeometry } from 'three';
 import { Brush, Evaluator, SUBTRACTION } from 'three-bvh-csg';
 import type { Bore } from './boring';
 
@@ -6,20 +7,20 @@ const boredCache = new Map<string, BufferGeometry>();
 const BORED_CACHE_LIMIT = 64;
 
 /** 치수·구멍 캐시 키 (cm 치수 + 구멍 mm 값) */
-export function boredBoxKey(w: number, h: number, d: number, holes: readonly Bore[]) {
-  return `${w}|${h}|${d}|${holes.map(b => `${b.center}/${b.direction}/${b.diameter}/${b.depth}`).join(';')}`;
+export function boredBoxKey(w: number, h: number, d: number, holes: readonly Bore[], radius = 0) {
+  return `${w}|${h}|${d}|${radius}|${holes.map(b => `${b.center}/${b.direction}/${b.diameter}/${b.depth}`).join(';')}`;
 }
-export function hasCachedBoredBox(w: number, h: number, d: number, holes: readonly Bore[]) {
-  return !holes.length || boredCache.has(boredBoxKey(w,h,d,holes));
+export function hasCachedBoredBox(w: number, h: number, d: number, holes: readonly Bore[], radius = 0) {
+  return !holes.length || boredCache.has(boredBoxKey(w,h,d,holes,radius));
 }
 /** 같은 치수·구멍이면 CSG를 다시 하지 않는다(LRU 64). 캐시 원본은 내부 소유, 호출자는 항상 복제본을 받아 직접 dispose */
-export function createBoredBoxCached(w: number, h: number, d: number, holes: readonly Bore[]) {
-  if (!holes.length) return new BoxGeometry(w,h,d);
-  const key = boredBoxKey(w,h,d,holes);
+export function createBoredBoxCached(w: number, h: number, d: number, holes: readonly Bore[], radius = 0) {
+  if (!holes.length) return createPanelBox(w,h,d,radius);
+  const key = boredBoxKey(w,h,d,holes,radius);
   let hit = boredCache.get(key);
   if (hit) { boredCache.delete(key); boredCache.set(key, hit); }
   else {
-    hit = createBoredBox(w,h,d,holes);
+    hit = createBoredBox(w,h,d,holes,radius);
     boredCache.set(key, hit);
     if (boredCache.size > BORED_CACHE_LIMIT) { const oldest = boredCache.keys().next().value!; boredCache.get(oldest)?.dispose(); boredCache.delete(oldest); }
   }
@@ -53,12 +54,12 @@ export function regroupByFace(geometry: BufferGeometry) {
 }
 
 /** CSG만 수행(그룹 정리 전). 검사·비교용 */
-export function csgBoredBox(w: number, h: number, d: number, holes: readonly Bore[]): BufferGeometry {
-  if (!holes.length) return new BoxGeometry(w,h,d);
+export function csgBoredBox(w: number, h: number, d: number, holes: readonly Bore[], radius = 0): BufferGeometry {
+  if (!holes.length) return createPanelBox(w,h,d,radius);
   const evaluator = new Evaluator();
   evaluator.useGroups = false;
   const material = new MeshBasicMaterial();
-  let solid = new Brush(new BoxGeometry(w,h,d), material);
+  let solid = new Brush(createPanelBox(w,h,d,radius), material);
   solid.updateMatrixWorld();
   for (const hole of holes) {
     const axis = new Vector3(...hole.direction);
@@ -80,7 +81,7 @@ export function csgBoredBox(w: number, h: number, d: number, holes: readonly Bor
 }
 
 /** Real blind pockets, not decals. Input/output geometry dimensions are cm. Caller owns the result. */
-export function createBoredBox(w: number, h: number, d: number, holes: readonly Bore[]) {
-  if (!holes.length) return new BoxGeometry(w,h,d);
-  return regroupByFace(csgBoredBox(w,h,d,holes));
+export function createBoredBox(w: number, h: number, d: number, holes: readonly Bore[], radius = 0) {
+  if (!holes.length) return createPanelBox(w,h,d,radius);
+  return regroupByFace(csgBoredBox(w,h,d,holes,radius));
 }

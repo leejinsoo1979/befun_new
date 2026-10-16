@@ -7,6 +7,8 @@ import { useFrame } from '@react-three/fiber';
 import { useBoredBoxGeometry } from '@/lib/three/blum/useBoredBox';
 import type { Bore } from '@/lib/three/blum/boring';
 
+import { panelEdgeRadius } from '@/lib/three/panel-edge';
+
 const NO_HOLES: readonly Bore[] = [];
 import type { BlumDoorPlan } from '@/lib/three/blum/boring';
 import { BlumCup } from './blum/BlumHardware';
@@ -37,7 +39,10 @@ export function Door({ placement, materials, isOpen, thickness, blum, revealBore
 
   const panelThickness = reference?.thickness ?? thickness;
   const frontOffsetY = reference?.frontOffsetY ?? 0;
-  const geometry = useBoredBoxGeometry(placement.width, placement.height, panelThickness, blum?.holes ?? NO_HOLES, [placement.pivotOffsetX, frontOffsetY, 0]);
+  const geometry = useBoredBoxGeometry(placement.width, placement.height, panelThickness, blum?.holes ?? NO_HOLES, [placement.pivotOffsetX, frontOffsetY, 0], 220, panelEdgeRadius(materials));
+
+  const faceMaterials = useMemo(() => [materials.verticalEdge, materials.verticalEdge,
+    materials.horizontalEdge, materials.horizontalEdge, materials.backPanel, materials.backPanel], [materials]);
 
   useFrame((_, delta) => {
     if (!groupRef.current) return;
@@ -78,7 +83,7 @@ export function Door({ placement, materials, isOpen, thickness, blum, revealBore
     <group position={[placement.x, placement.y, placement.z]}>
     <group ref={groupRef} position={pivot} userData={{displayDoorPivot:true}}>
     <group position={[-pivot[0],0,-pivot[2]]}>
-      <mesh geometry={geometry} material={materials.backPanel} castShadow={false} receiveShadow />
+      <mesh geometry={geometry} material={faceMaterials} castShadow={false} receiveShadow />
       {handle && (fullHandleGeometry
         ? <mesh geometry={fullHandleGeometry} material={materials.backPanel} position={[handle.x, handle.y, handle.z]} castShadow receiveShadow />
         : <primitive object={handleScene} position={[handle.x, handle.y, handle.z]}

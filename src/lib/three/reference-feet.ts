@@ -28,7 +28,10 @@ export function calculateShortFeet(panels: PanelData[], depth: number, mosaic = 
   const bottomY = Math.min(...horizontals.map(p => p.y));
   const bases = horizontals.filter(p => Math.abs(p.y - bottomY) < 1e-7);
   const axes = panels.filter(p => p.matType === 'verticalBase' &&
-    bases.some(base => Math.abs(p.y - p.h / 2 - (base.y + base.h / 2)) < 1e-7))
+    bases.some(base => Math.abs(p.y - p.h / 2 - (base.y + base.h / 2)) < 1e-7 &&
+      // Recessed dividers sit inside a bay; they do not define an extra foot axis.
+      p.z - p.d / 2 <= base.z - base.d / 2 + 1e-7 &&
+      p.z + p.d / 2 >= base.z + base.d / 2 - 1e-7))
     .map(p => mm(p.x)).sort((a, b) => a - b);
   const inset = depth >= 32 ? 25 : 20;
   const edgeSpacing = 125 - inset + 9;

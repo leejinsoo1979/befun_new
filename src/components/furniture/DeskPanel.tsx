@@ -8,6 +8,8 @@ import type { DeskCableOpening } from '@/lib/furniture/desk';
 import type { PanelData } from '@/types/shelf';
 import {createWardrobePanelMaterials,disposeWardrobePanelMaterials} from '@/lib/furniture/wardrobe-panel-materials';
 
+import { panelEdgeRadius } from '@/lib/three/panel-edge';
+
 interface DeskPanelProps {
   panel: PanelData;
   bores: readonly Bore[];
@@ -40,7 +42,8 @@ export function DeskPanel({ panel, bores, openings, materials }: DeskPanelProps)
       material.dispose();
     }
   }, [faceMaterials, materials]);
-  const geometry = useMemo(() => createDeskPanelGeometry(panel, bores, openings), [panel, bores, openings]);
+  const radius = panelEdgeRadius(materials);
+  const geometry = useMemo(() => createDeskPanelGeometry(panel, bores, openings, radius), [panel, bores, openings, radius]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   return <mesh position={[panel.x, panel.y, panel.z]} geometry={geometry} material={cleafFaces??faceMaterials}
     castShadow={panel.castShadow ?? true} receiveShadow={panel.receiveShadow ?? true}

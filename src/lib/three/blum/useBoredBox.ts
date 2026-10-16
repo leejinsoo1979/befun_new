@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import { BoxGeometry, type BufferGeometry } from 'three';
+import type { BufferGeometry } from 'three';
+import { createPanelBox } from '../panel-edge';
 import type { Bore } from './boring';
 import { boredBoxKey, createBoredBoxCached, hasCachedBoredBox } from './geometry';
 
@@ -12,22 +13,22 @@ import { boredBoxKey, createBoredBoxCached, hasCachedBoredBox } from './geometry
  */
 export function useBoredBoxGeometry(
   w: number, h: number, d: number, holes: readonly Bore[],
-  offset: readonly [number, number, number] = [0, 0, 0], delayMs = 220,
+  offset: readonly [number, number, number] = [0, 0, 0], delayMs = 220, radius = 0,
 ): BufferGeometry {
-  const key = boredBoxKey(w, h, d, holes);
+  const key = boredBoxKey(w, h, d, holes, radius);
   const [ox, oy, oz] = offset;
   const build = (bored: boolean) => {
-    const geo = bored ? createBoredBoxCached(w, h, d, holes) : new BoxGeometry(w, h, d);
+    const geo = bored ? createBoredBoxCached(w, h, d, holes, radius) : createPanelBox(w, h, d, radius);
     if (ox || oy || oz) geo.translate(ox, oy, oz);
     return geo;
   };
   // 키가 바뀌면 즉시: 캐시가 있으면 구멍 버전, 없으면 구멍 없는 상자
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const immediate = useMemo(() => build(hasCachedBoredBox(w, h, d, holes)), [key, ox, oy, oz]);
+  const immediate = useMemo(() => build(hasCachedBoredBox(w, h, d, holes, radius)), [key, ox, oy, oz]);
   const [settled, setSettled] = useState<{ key: string; geo: BufferGeometry } | null>(null);
 
   useEffect(() => {
-    if (hasCachedBoredBox(w, h, d, holes)) return;
+    if (hasCachedBoredBox(w, h, d, holes, radius)) return;
     const timer = setTimeout(() => setSettled({ key: `${key}|${ox},${oy},${oz}`, geo: build(true) }), delayMs);
     return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps

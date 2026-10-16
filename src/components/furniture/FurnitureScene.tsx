@@ -1,5 +1,8 @@
 'use client';
 
+import { setPanelEdgeFinish } from '@/lib/three/panel-edge';
+import { BIRCH_EDGE_MIX_COLOR } from '@/lib/three/finish';
+
 import { useLocale } from '@/lib/commerce/useLocale';
 
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
@@ -46,7 +49,7 @@ function Materials({color,children}:{color:string;children:(materials:MaterialSe
     const ref=REFERENCE_COLORS[color]??WARDROBE_COLORS[color];
     const classic=REFERENCE_CLASSIC_COLORS[color];
     const wood=color==='E_LightCleaf'||color==='E_DarkCleaf';
-    const request=wood?createWardrobeWoodMaterials(color==='E_DarkCleaf'):ref?Promise.resolve(createColorMaterials(ref.base,ref.edge)):createMaterialsForColor(classic?'C_White':color);
+    const request=wood?createWardrobeWoodMaterials(color==='E_DarkCleaf'):ref?Promise.resolve(createColorMaterials(ref.base,ref.edge)):createMaterialsForColor(classic&&color!==BIRCH_EDGE_MIX_COLOR?'C_White':color);
     request.then(materials=>{
       if(ref) applyReferenceAlbedo(materials,ref);
       if(classic) for(const material of [materials.verticalBase,materials.horizontalBase,materials.backPanel]){
@@ -54,6 +57,7 @@ function Materials({color,children}:{color:string;children:(materials:MaterialSe
         if(color==='C_Green'){material.roughness=.5;material.envMapIntensity=1;}
         material.needsUpdate=true;
       }
+      setPanelEdgeFinish(materials, color);
       if(disposed){disposeFurnitureMaterials(materials);return;}
       owned=materials;setLoaded({color,materials});
     });

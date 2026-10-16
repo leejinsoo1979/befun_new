@@ -25,7 +25,6 @@ const CLASSIC_COLORS: ColorOption[] = [
   { name: 'C_Yellow', image: '/imgs/classic_color/classic-yellow.svg', category: 'classic' },
   { name: 'C_Blue', image: '/imgs/classic_color/classic-white.svg', category: 'classic' },
   { name: 'C_Cashmere', image: '/imgs/classic_color/classic-white.svg', category: 'classic' },
-  { name: 'C_Clay Brown', image: '/imgs/classic_color/classic-white.svg', category: 'classic' },
 ];
 
 const NATURAL_COLORS: ColorOption[] = [
@@ -39,6 +38,7 @@ const NATURAL_COLORS: ColorOption[] = [
 const SOLID_COLORS: ColorOption[] = ["S_White", "S_Green", "S_Midnight Blue", "S_Matte Black", "S_Black", "S_Teracotta", "S_Sky Blue", "S_Stone Gray", "S_Gray", "S_Butter Yellow", "S_Cotton", "S_Olive Green", "S_Sage Green", "S_Burgundy", "S_Reisinger Pink", "S_Lilac", "S_Dark Brown"].map(name => ({ name, image: name === 'S_Green' ? '/imgs/solid_color/solid-green.svg' : '', category: 'solid' }));
 
 const MIX_COLORS: ColorOption[] = [
+  { name: 'C_Clay Brown', image: '/imgs/classic_color/classic-white.svg', category: 'edgeMix' },
   { name: 'Sand+Midnight Blue', image: '/imgs/edgemix_color/edgemix-blue.svg', category: 'edgeMix' },
   { name: 'Gray+Darkgray', image: '/imgs/edgemix_color/edgemix-gray.svg', category: 'edgeMix' },
   { name: 'Sand+Green', image: '/imgs/edgemix_color/edgemix-green.svg', category: 'edgeMix' },
@@ -46,10 +46,10 @@ const MIX_COLORS: ColorOption[] = [
 ];
 
 const FINISH_TABS: { label: string; category: ColorCategory }[] = [
-  { label: 'Classic', category: 'classic' },
-  { label: 'Natural', category: 'natural' },
-  { label: 'Solid', category: 'solid' },
-  { label: 'Mix', category: 'edgeMix' },
+  { label: '자작합판', category: 'classic' },
+  { label: '우드', category: 'natural' },
+  { label: '솔리드', category: 'solid' },
+  { label: '믹스', category: 'edgeMix' },
 ];
 
 const COLORS_BY_CATEGORY: Record<ColorCategory, ColorOption[]> = {

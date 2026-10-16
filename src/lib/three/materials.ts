@@ -1,5 +1,6 @@
+import { setPanelEdgeFinish } from './panel-edge';
+import { BIRCH_EDGE_MIX_COLOR } from './finish';
 import * as THREE from 'three';
-import type { MaterialType } from '@/types/shelf';
 import type { ColorCategory } from '@/types/shelf';
 
 // ── 색상 딕셔너리 (v1 colorSelect.js 이식) ──
@@ -45,6 +46,7 @@ export const EDGE_MIX_COLORS: Record<string, { base: string; edge: string }> = {
 // ── 카테고리 판별 ──
 
 export function getColorCategory(colorName: string): ColorCategory {
+  if (colorName === BIRCH_EDGE_MIX_COLOR) return 'edgeMix';
   if (colorName.startsWith('C_')) return 'classic';
   if (colorName.startsWith('N_')) return 'natural';
   if (colorName.startsWith('S_')) return 'solid';
@@ -79,39 +81,7 @@ export interface MaterialSet {
   backPanel: THREE.MeshStandardMaterial;
 }
 
-// ── 단색 도장면 미세 질감 ──
-// 완전히 균일한 단색은 플라스틱/CG처럼 보여서, 아주 약한 노이즈로 색(±2%)과 거칠기에 변화를 준다.
-let paintNoiseCanvas: HTMLCanvasElement | null = null;
-
-function getPaintNoiseCanvas(): HTMLCanvasElement | null {
-  if (typeof document === 'undefined') return null;
-  if (paintNoiseCanvas) return paintNoiseCanvas;
-  const size = 256;
-  const canvas = document.createElement('canvas');
-  canvas.width = canvas.height = size;
-  const ctx = canvas.getContext('2d')!;
-  const img = ctx.createImageData(size, size);
-  for (let i = 0; i < size * size; i++) {
-    const v = 245 + Math.floor(Math.random() * 11); // 245~255: 곱해지는 값이라 아주 약한 변화
-    img.data[i * 4] = img.data[i * 4 + 1] = img.data[i * 4 + 2] = v;
-    img.data[i * 4 + 3] = 255;
-  }
-  ctx.putImageData(img, 0, 0);
-  paintNoiseCanvas = canvas;
-  return canvas;
-}
-
-/** 세트마다 새 텍스처를 만든다 (disposeMaterialSet이 map/roughnessMap을 해제하므로 공유하면 안 됨) */
-function createPaintTextures(): { map?: THREE.Texture; roughnessMap?: THREE.Texture } {
-  const canvas = getPaintNoiseCanvas();
-  if (!canvas) return {};
-  const map = new THREE.CanvasTexture(canvas);
-  map.colorSpace = THREE.SRGBColorSpace;
-  map.anisotropy = TEXTURE_ANISOTROPY;
-  const roughnessMap = new THREE.CanvasTexture(canvas);
-  roughnessMap.anisotropy = TEXTURE_ANISOTROPY;
-  return { map, roughnessMap };
-}
+// Solid and mix use uniform laminate faces. UV-stretched noise reads as wood grain.
 
 // ── 단색 화면 보정 ──
 // Tylko 재질값(예: Midnight Blue #101323)은 Tylko 렌더에서 밝은 환경 반사가 얹혀 훨씬 밝게 보인다
@@ -131,34 +101,31 @@ export function solidDisplayColor(hex: string): THREE.Color {
 /** Solid/EdgeMix 용 단색 머티리얼 세트 생성 */
 export function createColorMaterials(baseHex: string, edgeHex: string): MaterialSet {
   const base = new THREE.MeshStandardMaterial({
-    ...createPaintTextures(),
     color: solidDisplayColor(baseHex),
     roughness: SOLID_ROUGHNESS,
     metalness: 0.0,
     side: THREE.DoubleSide,
   });
   const edge = new THREE.MeshStandardMaterial({
-    ...createPaintTextures(),
     color: solidDisplayColor(edgeHex),
     roughness: SOLID_ROUGHNESS,
     metalness: 0.0,
     side: THREE.DoubleSide,
   });
   const back = new THREE.MeshStandardMaterial({
-    ...createPaintTextures(),
     color: solidDisplayColor(baseHex),
     roughness: SOLID_ROUGHNESS,
     metalness: 0.0,
     side: THREE.DoubleSide,
   });
 
-  return {
+  return setPanelEdgeFinish({
     verticalBase: base,
     verticalEdge: edge,
     horizontalBase: base.clone(),
     horizontalEdge: edge.clone(),
     backPanel: back,
-  };
+  }, 'S_');
 }
 
 /** Classic/Natural 용 텍스처 머티리얼 세트 생성 (비동기) */
@@ -208,11 +175,35 @@ export function createTextureMaterials(textureName: string): Promise<MaterialSet
 /** 색상명으로 머티리얼 세트 생성 */
 export async function createMaterialsForColor(colorName: string): Promise<MaterialSet> {
   const category = getColorCategory(colorName);
+  if (colorName === BIRCH_EDGE_MIX_COLOR) {
+    const edge = await textureLoader.loadAsync('/three/bookcase/plywood_edge_512_albedo.jpg');
+    edge.colorSpace = THREE.SRGBColorSpace;
+    edge.flipY = false;
+    edge.anisotropy = TEXTURE_ANISOTROPY;
+    const materials = createColorMaterials('#B57E5B', '#ffffff');
+    for (const material of [materials.verticalBase, materials.horizontalBase, materials.backPanel]) {
+      material.color.set('#B57E5B');
+      material.roughness = .7;
+    }
+    for (const material of [materials.verticalEdge, materials.horizontalEdge]) {
+      material.map?.dispose();
+      material.map = edge.clone();
+      if (material === materials.verticalEdge) {
+        material.map.center.set(.5, .5);
+        material.map.rotation = Math.PI / 2;
+      }
+      material.color.set('#ffffff');
+      material.roughness = .5;
+      material.envMapIntensity = .48;
+    }
+    edge.dispose();
+    return setPanelEdgeFinish(materials, colorName);
+  }
 
   if (category === 'classic' || category === 'natural') {
     const textureName = TEXTURE_MAP[colorName];
     if (textureName) {
-      return createTextureMaterials(textureName);
+      return setPanelEdgeFinish(await createTextureMaterials(textureName), colorName);
     }
   }
 

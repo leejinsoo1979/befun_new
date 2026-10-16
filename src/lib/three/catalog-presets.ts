@@ -1,3 +1,4 @@
+import { BIRCH_EDGE_MIX_COLOR } from './finish';
 import data from './catalog-presets.json' with { type: 'json' };
 import type { GridInput, GridResult, ReferenceOpening } from './styles/grid';
 import type { PanelData, StyleType, ColorCategory } from '@/types/shelf';
@@ -10,7 +11,7 @@ export function isCatalogPreset(value: unknown): value is CatalogPresetId {
 export function catalogPreset(id: string) {
   if (!isCatalogPreset(id)) return null;
   const p = data[id];
-  return { ...p, style: p.style as StyleType, colorCategory: p.colorCategory as ColorCategory,
+  return { ...p, style: p.style as StyleType, colorCategory: (p.color === BIRCH_EDGE_MIX_COLOR ? 'edgeMix' : p.colorCategory) as ColorCategory,
     baseType: p.baseType as 'standard' | 'legs' };
 }
 

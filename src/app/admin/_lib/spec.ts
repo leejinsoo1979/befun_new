@@ -1,7 +1,7 @@
 import { REFERENCE_COLORS, REFERENCE_CLASSIC_COLORS } from '@/lib/three/reference-colors';
 
 const STYLE: Record<string, string> = { grid: 'Grid', slant: 'Slant', pixel: 'Pixel', gradient: 'Gradient', pattern: 'Pattern', mosaic: 'Mosaic' };
-const CATEGORY: Record<string, string> = { classic: '클래식', natural: '내추럴', solid: '솔리드', edgeMix: '믹스' };
+const CATEGORY: Record<string, string> = { classic: '자작합판', natural: '우드', solid: '솔리드', edgeMix: '믹스' };
 
 export interface DesignSpec {
   style: string; width: number; height: number; depth: number; rows: number[];

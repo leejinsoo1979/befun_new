@@ -1,11 +1,13 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useBoredBoxGeometry } from '@/lib/three/blum/useBoredBox';
 import type { Bore } from '@/lib/three/blum/boring';
 import type { MaterialSet } from '@/lib/three/materials';
 import { createFaceMaterials, DEFAULT_TEXTURE_ROTATION } from '@/lib/three/materials';
 import type { MaterialType } from '@/types/shelf';
+
+import { panelEdgeRadius } from '@/lib/three/panel-edge';
 
 const NO_HOLES: readonly Bore[] = [];
 
@@ -51,7 +53,16 @@ export function Panel({
     return createFaceMaterials(baseMat, edgeMat, isVertical, DEFAULT_TEXTURE_ROTATION);
   }, [matType, materials, isVertical]);
 
-  const geometry = useBoredBoxGeometry(w,h,d,holes ?? NO_HOLES);
+  useEffect(() => () => {
+    if (!Array.isArray(faceMaterials)) return;
+    const shared = new Set(Object.values(materials));
+    for (const material of new Set(faceMaterials)) {
+      if (shared.has(material)) continue;
+      material.map?.dispose();
+      material.dispose();
+    }
+  }, [faceMaterials, materials]);
+  const geometry = useBoredBoxGeometry(w,h,d,holes ?? NO_HOLES, undefined, 220, panelEdgeRadius(materials));
 
   return (
     <mesh

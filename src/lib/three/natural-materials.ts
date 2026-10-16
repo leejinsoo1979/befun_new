@@ -1,3 +1,4 @@
+import { setPanelEdgeFinish } from './panel-edge';
 import * as THREE from 'three';
 import { createMaterialsForColor, type MaterialSet } from './materials';
 import { importedNaturalTexture } from './natural-textures';
@@ -40,5 +41,5 @@ export async function createNaturalMaterialsForColor(color: string): Promise<Mat
     });
   }
   for (const texture of [base, normal, roughness]) texture.dispose();
-  return materials;
+  return setPanelEdgeFinish(materials, color);
 }

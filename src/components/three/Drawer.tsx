@@ -7,6 +7,8 @@ import { useFrame } from '@react-three/fiber';
 import type { MaterialSet } from '@/lib/three/materials';
 import type { DrawerPlacement } from '@/lib/three/hardware';
 import { MoventoDrawerRails } from './blum/MoventoDrawerRails';
+import { createPanelBox, panelEdgeRadius } from '@/lib/three/panel-edge';
+import { Panel } from './Panel';
 import { selectBefunMovento } from '@/lib/three/blum/moventoPlacement';
 
 // GLTF 모델 프리로드
@@ -20,6 +22,17 @@ interface DrawerProps {
   materials: MaterialSet;
   isOpen: boolean;
   thickness: number;
+}
+
+function DrawerFront({ w, h, d, position, materials }: {
+  w: number; h: number; d: number; position: [number, number, number]; materials: MaterialSet;
+}) {
+  const radius = panelEdgeRadius(materials);
+  const geometry = useMemo(() => createPanelBox(w, h, d, radius), [w, h, d, radius]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  const faces = useMemo(() => [materials.verticalEdge, materials.verticalEdge,
+    materials.horizontalEdge, materials.horizontalEdge, materials.backPanel, materials.backPanel], [materials]);
+  return <mesh geometry={geometry} material={faces} position={position} castShadow={false} receiveShadow />;
 }
 
 export function Drawer(props: DrawerProps) {
@@ -76,11 +89,10 @@ function ReferenceDrawer({ placement, materials, isOpen, thickness }: DrawerProp
     origin={[placement.x, placement.y, placement.z]} width={placement.compartmentWidth}
     bottomUnder={bottom.y - bottom.h / 2} front={frontBack} />}
   <group ref={groupRef} position={[placement.x, placement.y, placement.z]}>
-    {reference.parts.map(part => <mesh key={part.name} position={[part.x, part.y, part.z]}
-      material={part.name === 'front' || part.name === 'back' ? materials.backPanel : part.name === 'bottom' ? materials.horizontalBase : materials.verticalBase}
-      castShadow={false} receiveShadow>
-      <boxGeometry args={[part.w, part.h, part.d]} />
-    </mesh>)}
+    {reference.parts.map(part => part.name === 'front' || part.name === 'back'
+      ? <DrawerFront key={part.name} w={part.w} h={part.h} d={part.d} position={[part.x, part.y, part.z]} materials={materials} />
+      : <Panel key={part.name} w={part.w} h={part.h} d={part.d} position={[part.x, part.y, part.z]}
+          matType={part.name === 'bottom' ? 'horizontalBase' : 'verticalBase'} materials={materials} castShadow={false} />)}
     <primitive object={handleScene} position={[reference.handle.x, reference.handle.y, reference.handle.z]} />
   </group></>;
 }
@@ -176,7 +188,6 @@ function LegacyDrawer({ placement, materials, isOpen, thickness }: DrawerProps) 
     };
   }, [compartmentWidth, rowHeight, drawerDepth, thickness]);
 
-  const mat = materials.verticalBase;
   const railFront = dims.front.z - dims.front.d / 2;
   const rail = selectBefunMovento(placement.z + railFront, thickness, dims.side.d);
 
@@ -186,30 +197,14 @@ function LegacyDrawer({ placement, materials, isOpen, thickness }: DrawerProps) 
       origin={[placement.x, placement.y, placement.z]} width={compartmentWidth}
       bottomUnder={dims.bottom.y - dims.bottom.h / 2} front={railFront} />}
     <group ref={groupRef} position={[placement.x, placement.y, placement.z]}>
-      {/* 바닥 */}
-      <mesh position={[0, dims.bottom.y, dims.bottom.z]} material={mat} castShadow={false} receiveShadow>
-        <boxGeometry args={[dims.bottom.w, dims.bottom.h, dims.bottom.d]} />
-      </mesh>
-
-      {/* 뒷면 */}
-      <mesh position={[0, dims.back.y, dims.back.z]} material={mat} castShadow={false} receiveShadow>
-        <boxGeometry args={[dims.back.w, dims.back.h, dims.back.d]} />
-      </mesh>
-
-      {/* 앞면 */}
-      <mesh position={[0, dims.front.y, dims.front.z]} material={mat} castShadow={false} receiveShadow>
-        <boxGeometry args={[dims.front.w, dims.front.h, dims.front.d]} />
-      </mesh>
-
-      {/* 왼쪽면 */}
-      <mesh position={[dims.leftX, dims.side.y, dims.side.z]} material={mat} castShadow={false} receiveShadow>
-        <boxGeometry args={[dims.side.w, dims.side.h, dims.side.d]} />
-      </mesh>
-
-      {/* 오른쪽면 */}
-      <mesh position={[dims.rightX, dims.side.y, dims.side.z]} material={mat} castShadow={false} receiveShadow>
-        <boxGeometry args={[dims.side.w, dims.side.h, dims.side.d]} />
-      </mesh>
+      <Panel w={dims.bottom.w} h={dims.bottom.h} d={dims.bottom.d} position={[0, dims.bottom.y, dims.bottom.z]}
+        matType="horizontalBase" materials={materials} castShadow={false} />
+      <DrawerFront w={dims.back.w} h={dims.back.h} d={dims.back.d} position={[0, dims.back.y, dims.back.z]} materials={materials} />
+      <DrawerFront w={dims.front.w} h={dims.front.h} d={dims.front.d} position={[0, dims.front.y, dims.front.z]} materials={materials} />
+      <Panel w={dims.side.w} h={dims.side.h} d={dims.side.d} position={[dims.leftX, dims.side.y, dims.side.z]}
+        matType="verticalBase" materials={materials} castShadow={false} />
+      <Panel w={dims.side.w} h={dims.side.h} d={dims.side.d} position={[dims.rightX, dims.side.y, dims.side.z]}
+        matType="verticalBase" materials={materials} castShadow={false} />
 
       {/* 서랍 손잡이 */}
       <primitive

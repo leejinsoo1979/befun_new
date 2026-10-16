@@ -1,3 +1,4 @@
+import { BIRCH_EDGE_MIX_COLOR } from '../three/finish';
 import { calculatePrice } from '../pricing';
 import coefficients from './data/tylko-coefficients-20261014.json';
 import sourceParts from './data/shelf-price-parts.json';
@@ -26,7 +27,8 @@ function economicHorizontals(panels: PanelData[]) {
 export function shelfQuote(style: StyleType, input: PriceInput, colorCategory: ColorCategory) {
   const preset = matchingCatalogPreset({...input,style});
   const color = input.color ?? preset?.color ?? (colorCategory==='classic'?'C_White':'S_White');
-  const family = colorCategory==='classic'?'classic':colorCategory==='natural'?'veneer':'modern';
+  // Displaying the legacy Clay Brown key under Mix must not change its source price table.
+  const family = color===BIRCH_EDGE_MIX_COLOR||colorCategory==='classic'?'classic':colorCategory==='natural'?'veneer':'modern';
   const materialId = family==='classic' ? classic[color] : family==='veneer' ? 0 : REFERENCE_COLORS[color]?.referenceId;
 
   const geometry=calculateShelfGeometry(style,{...input,family:family==='modern'?'type02':'type01'});
