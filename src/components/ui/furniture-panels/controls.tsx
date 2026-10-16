@@ -200,7 +200,6 @@ function Swatches({ control, emit }: { control: SwatchControl; emit: Emit }) {
     if (control.enabled && control.options[i].id !== control.value) emit({ type: 'set', controlId: control.id, target: control.target, value: control.options[i].id });
   };
   const keys = useRovingKeys(control.options.length, isEnabled, (i) => { select(i); focusItem(group.current, i); });
-  const current = control.options.find((o) => o.id === control.value);
   return (
     <Row control={control}>
       <div ref={group} role="radiogroup" aria-label={tr(control.label)} className={styles.swatches}>
@@ -211,7 +210,6 @@ function Swatches({ control, emit }: { control: SwatchControl; emit: Emit }) {
             onClick={() => select(i)} onKeyDown={(e) => keys(e, i)} />
         ))}
       </div>
-      {current && <p className={styles.swatchName} aria-live="polite">{tr(current.label)}</p>}
     </Row>
   );
 }
