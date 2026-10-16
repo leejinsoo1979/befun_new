@@ -261,7 +261,6 @@
   background-position: center;
 }
 .swatch[aria-checked='true'] { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--fp-accent); }
-.swatchName { margin-top: 6px; font-size: 11px; color: #666; }
 
 /* 구획 선택 */
 .sections { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; padding: 4px 0 10px; }
