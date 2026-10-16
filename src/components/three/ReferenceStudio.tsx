@@ -12,6 +12,7 @@ export function ReferenceStudio({ width, height, shadows = true, background = tr
   width: number; height: number; shadows?: boolean; background?: boolean;
 }) {
   const getSceneState = useThree(state => state.get);
+  const shadowMapSize = useThree(state => Math.min(state.size.width <= 650 ? 2048 : 4096, state.gl.capabilities.maxTextureSize));
   useLayoutEffect(() => {
     const scene = getSceneState().scene;
     const previous = scene.environmentIntensity;
@@ -35,15 +36,18 @@ export function ReferenceStudio({ width, height, shadows = true, background = tr
   }, [environment]);
   useEffect(() => () => environment.dispose(), [environment]);
   const halfWidth = 70 + (width - 40) / 2;
+  // The old -400 cm lower bound spent most shadow texels below the furniture.
+  // Keep the person/floor projection in view while resolving thin handle edges.
+  const shadowBottom = -Math.max(100, width * .3);
   return <>
     <primitive object={environment} attach="environment" dispose={null}/>
     {background && <color attach="background" args={['#E4E6E6']}/>}
     <primitive object={probe}/>
-    <directionalLight position={[-252, 352, 526]} intensity={3.3} castShadow={shadows}
-      shadow-intensity={.75} shadow-mapSize={[2048, 2048]} shadow-camera-near={100}
+    <directionalLight key={shadowMapSize} position={[-252, 352, 526]} intensity={3.3} castShadow={shadows}
+      shadow-intensity={.75} shadow-mapSize={[shadowMapSize, shadowMapSize]} shadow-camera-near={100}
       shadow-camera-far={870} shadow-camera-left={-halfWidth - 130} shadow-camera-right={halfWidth}
-      shadow-camera-top={Math.max(height + 60, 235)} shadow-camera-bottom={-400} shadow-bias={-.0005} shadow-normalBias={.12}
-      shadow-radius={4}/>
+      shadow-camera-top={Math.max(height + 60, 235)} shadow-camera-bottom={shadowBottom} shadow-bias={-.0005} shadow-normalBias={.12}
+      shadow-radius={1.5}/>
     <directionalLight position={[-300, 300, 300]} intensity={.55}/>
     <directionalLight position={[700, 700, 1000]} intensity={.25}/>
   </>;

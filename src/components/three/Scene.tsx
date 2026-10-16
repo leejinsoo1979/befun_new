@@ -39,7 +39,7 @@ export default function Scene(actions: ViewToolbarActions) {
     {!ar && <ConfiguratorLoading ready={ready} />}
     {!ar && <ViewToolbar {...actions} />}
     <Canvas
-      shadows // PCF shadows for the reference studio preset
+      shadows="percentage" // Explicit PCF: Three r182 no longer filters PCFSoftShadowMap.
       dpr={[1, 1.5]} // 2배는 GTAO 후처리까지 픽셀 수가 1.8배라 Retina 노트북에서 프레임 저하
       gl={{
         antialias: true,

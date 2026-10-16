@@ -84,7 +84,7 @@ export default function BookcaseScene({snapshot,selected,onSelect,open,editingCo
  // Original calculateShelfOrigin: TYPE_24 HANGING_AT.y = 250 mm.
  const elevation="shelf_type" in snapshot.geometry && snapshot.geometry.shelf_type===7?25:0;
 
- return <Canvas shadows dpr={[1,2]} camera={{fov:30,near:1,far:10000,position:[-200,200,700]}} gl={{antialias:true}} onCreated={({gl})=>{gl.toneMapping=THREE.NeutralToneMapping;gl.toneMappingExposure=1;}} onPointerMissed={()=>onSelect(null)}>
+ return <Canvas shadows="percentage" dpr={[1,2]} camera={{fov:30,near:1,far:10000,position:[-200,200,700]}} gl={{antialias:true}} onCreated={({gl})=>{gl.toneMapping=THREE.NeutralToneMapping;gl.toneMappingExposure=1;}} onPointerMissed={()=>onSelect(null)}>
  <Suspense fallback={<Html center><span>가구 불러오는 중…</span></Html>}>
  <ReferenceStudio width={w} height={h+elevation}/>
  <Background shelfWidth={w} shelfHeight={h} shelfDepth={d}/>

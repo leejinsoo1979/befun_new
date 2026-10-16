@@ -2355,3 +2355,7 @@ R14 구현 조정: `shelf-geometry.ts` 공통 분기까지 리더 수정 범위�
 
 
 - 게시 검증: 최신 origin/main cb78c79 기반 격리 사본에서 공통 의존성을 포함한 production webpack 빌드 통과. 원격 기존 커밋 및 별도 작업 내용을 보존하여 fast-forward push 준비.
+
+### Codex — 확대 화면 그림자 보정 / 2026-10-16
+- 사용자 캡처의 손잡이 그림자 계단 현상 보정. 좁은 소유: ReferenceStudio.tsx의 그림자 맵·카메라·반경, Scene.tsx/FurnitureScene.tsx/BookcaseScene.tsx의 Canvas PCF 설정 및 docs/handoffs/shadow-quality/README.md. 최신 원격 main 위의 독립 사본에서 검증·게시하며 공유 작업 폴더와 다른 담당 변경을 보존.
+- 완료/잠금 해제: 공통 Canvas3곳에 명시적 PCF, 데스크톱4096/좁은 뷰어2048(GPU 한도 제한), 그림자 카메라 하단·반경 조정. Chrome 확대/기본/모바일 및 공통3D 검증 완료. 게시 사본 full lint 오류0/기존13경고, webpack production build·TypeScript·정적26페이지 PASS. 미해결 질문 없음. 검증 기록: docs/handoffs/shadow-quality/README.md.
